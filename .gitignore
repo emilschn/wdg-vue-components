@@ -7,8 +7,16 @@
 *.njsproj
 *.sln
 
+# For spreadsheets app
 spreadsheets/node_modules/
 spreadsheets/npm-debug.log*
 spreadsheets/yarn-debug.log*
 spreadsheets/yarn-error.log*
 spreadsheets/test/unit/coverage/
+
+# For common app
+common/node_modules/
+common/npm-debug.log*
+common/yarn-debug.log*
+common/yarn-error.log*
+common/test/unit/coverage/

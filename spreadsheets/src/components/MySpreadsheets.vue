@@ -8,10 +8,10 @@
 
 	<h2>Mon prévisionnel</h2>
 
-	<MySelect labelSelect="Ce prévisionnel concerne" idSelect="blablaid" nameSelect="blablaname" :optionItems=selectPreviOptions :onSelectedEvent=selectPreviChangeEvent></MySelect>
+	<WDGSelect labelSelect="Ce prévisionnel concerne" idSelect="blablaid" nameSelect="blablaname" :optionItems=selectPreviOptions :onSelectedEvent=selectPreviChangeEvent></WDGSelect>
 	<br>
 
-	<MySelect labelSelect="Nombre d'années" idSelect="nbyear" nameSelect="nbyear" :optionItems=selectNbYearsOptions :onSelectedEvent=selectNbYearsChangeEvent></MySelect>
+	<WDGSelect labelSelect="Nombre d'années" idSelect="nbyear" nameSelect="nbyear" :optionItems=selectNbYearsOptions :onSelectedEvent=selectNbYearsChangeEvent></WDGSelect>
 	<br>
 	
 	<MyEstimatedYear v-for="yearItem in listYears" :item=yearItem :onInputEvent=estimatedYearInputEvent></MyEstimatedYear>
@@ -25,13 +25,13 @@
 </template>
 
 <script>
-import MySelect from '@/components/MySelect'
+import WDGSelect from '@/../../common/src/components/WDGSelect'
 import MyEstimatedYear from '@/components/MyEstimatedYear'
 
 export default {
 	name: 'MySpreadsheets',
 	components: {
-		MySelect,
+		WDGSelect,
 		MyEstimatedYear
 	},
 	data () {
