@@ -26,6 +26,7 @@ final class WDG_Vue_Components {
 	// Liste des composants
 	public static $component_common = 'common';
 	public static $component_spreadsheets = 'spreadsheets';
+	public static $component_launch_project = 'launch_project';
 
 	private static $instance;
 	public static function instance() {
