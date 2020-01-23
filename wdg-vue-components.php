@@ -22,9 +22,10 @@ if ( !defined( 'ABSPATH' ) ) exit;
 
 final class WDG_Vue_Components {
 	// Dossiers des fichiers compilés
-	private static $local_dist_folder = '/dist/static/';
+	private static $local_dist_folder = '/dist//';
 	// Liste des composants
 	public static $component_common = 'common';
+	public static $component_signin_signup = 'signin-signup';
 	public static $component_spreadsheets = 'spreadsheets';
 	public static $component_launch_project = 'launch_project';
 
@@ -62,6 +63,7 @@ final class WDG_Vue_Components {
 	private function enqueue_scripts( $component_name ) {
 		$this->enqueue_files( $component_name, 'js', 'manifest' );
 		$this->enqueue_files( $component_name, 'js', 'vendor' );
+		$this->enqueue_files( $component_name, 'js', 'chunk-vendors' );
 		$this->enqueue_files( $component_name, 'js', 'app' );
 	}
 
@@ -86,7 +88,7 @@ final class WDG_Vue_Components {
 			if ( $file_type == 'js' ) {
 				wp_enqueue_script( $filename_file, $fileurl, array(), FALSE, TRUE );
 			} elseif( $file_type == 'css' ) {
-				wp_enqueue_style( $filename_file, $fileurl, array(), FALSE, TRUE );
+				wp_enqueue_style( $filename_file, $fileurl, array(), FALSE, 'all' );
 			}
 		}
 	}

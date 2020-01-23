@@ -1,13 +1,13 @@
 <template>
     <div class="wdg-button">
-        <input
-        type="button"
+        <button
+        :type="typeButton"
         :id="idButton"
-        v-model="labelButton"
         v-bind="$attrs"
-        :placeholder="labelButton"
         :disabled="disabled"
         >
+		{{ labelButton }}
+        </button>
     </div>
 </template>
 
@@ -17,11 +17,13 @@ export default {
 	props: {
 		labelButton: { type: String, default: 'Enter text' },
 		idButton: { type: String, default: null },
+		typeButton: { type: String, default: 'submit' },
+		colorButton: { type: String, default: 'red' },
         nameButton: { type: String, default: null },
         disabled: { type: Boolean, default: false },
         action: Function
     },
-    computed: {  
+    computed: {
     }
 }
 </script>

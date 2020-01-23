@@ -25,11 +25,14 @@ export default {
         disabled: { type: Boolean, default: false },
         validation: Function
     },
-    computed: {        
+    computed: {
       labelValue () {
         let { labelCheckbox } = this
-        return !this.optional && labelCheckbox ? labelCheckbox += ` *` : labelCheckbox
-      },
+		if (!this.optional && labelCheckbox) {
+			labelCheckbox += ' *'
+		}
+		return labelCheckbox
+      }
     }
 }
 </script>
