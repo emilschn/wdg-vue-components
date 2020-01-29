@@ -24,6 +24,7 @@ module.exports = {
 	'no-mixed-spaces-and-tabs': 'off',
 	'no-tabs': 'off',
 	'indent': 'off',
+	'func-call-spacing': 'off',
     // allow async-await
     'generator-star-spacing': 'off',
     // allow debugger during development

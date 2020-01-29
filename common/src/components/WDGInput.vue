@@ -2,26 +2,28 @@
   <div
     v-show="!honeypot"
 	class="wdg-input">
-    <label>{{ labelValue }}</label><br>
+    <label :for="idInput">{{ labelValue }}</label><br>
     <span v-if="comment">{{comment}}</span><br v-if="comment">
     <input
     v-if="!multiline"
     :id="idInput"
-    v-model="valueInput"
+    v-model="valueReturn"
     v-bind="$attrs"
     :placeholder="labelValue"
     :disabled="disabled"
     :required="!optional"
     :type="typeInput"
+	@input="onInputLocalEvent"
     >
     <textarea
     v-else
     :id="idInput"
-    v-model="valueInput"
+    v-model="valueReturn"
     v-bind="$attrs"
     :placeholder="labelValue"
     :disabled="disabled"
     :required="!optional"
+	@input="onInputLocalEvent"
     />
   </div>
 </template>
@@ -40,7 +42,13 @@ export default {
     optional: { type: Boolean, default: true },
     disabled: { type: Boolean, default: false },
     honeypot: { type: Boolean, default: false },
-    validation: Function
+    validation: Function,
+    inputEvent: Function
+  },
+  data () {
+	  return {
+		  valueReturn: this.valueInput
+	  }
   },
   computed: {
     labelValue () {
@@ -49,6 +57,11 @@ export default {
     	labelInput += ' *'
       }
       return labelInput
+    }
+  },
+  methods: {
+    onInputLocalEvent () {
+		this.$emit('update:valueReturn', this.valueReturn)
     }
   }
 }

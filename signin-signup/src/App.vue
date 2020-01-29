@@ -1,6 +1,6 @@
 <template>
-  <div id="app">
-    <Signin />
+  <div id="app" :data-ajaxurl="ajaxUrl">
+    <Signin :ajaxUrl="ajaxUrl" />
   </div>
 </template>
 
@@ -12,15 +12,14 @@ export default {
   name: 'app',
 	data () {
 		return {
-			ajaxurl: ''
+			ajaxUrl: ''
 		}
 	},
 	components: {
 		Signin
 	},
-	mounted () {
-		this.ajaxurl = initElements.dataset.ajaxurl
-		console.log('test : ' + this.ajaxurl)
+	created () {
+		this.ajaxUrl = initElements.dataset.ajaxurl
 	}
 }
 </script>
