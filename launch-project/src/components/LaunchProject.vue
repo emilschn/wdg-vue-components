@@ -13,19 +13,19 @@
 
 	<WDGForm formName="form-launch-project" formAction="/launch-project/" v-bind:hasFiles="false">
 		<!-- Créer un composant WDGInput, avec label, obligatoire ou pas, foction de validation des données, champ multiligne ou pas, commentaire -->
-		<WDGInput labelInput="Mon prénom" idInput="firstname" nameInput="firstname" v-bind:multiline="false" v-bind:optional="false" validation="is_name" :valueInput=firstname></WDGInput>
+		<WDGInput labelInput="Mon prénom" idInput="firstname" nameInput="firstname" v-bind:multiline="false" v-bind:optional="false" validationRule="required|name" :valueInput=firstname></WDGInput>
 		<br>
-		<WDGInput labelInput="Mon nom" idInput="lastname" nameInput="lastname" v-bind:multiline="false" v-bind:optional="false" validation="is_name" :valueInput=lastname></WDGInput>
+		<WDGInput labelInput="Mon nom" idInput="lastname" nameInput="lastname" v-bind:multiline="false" v-bind:optional="false" validationRule="required|name" :valueInput=lastname></WDGInput>
 		<br>
-		<WDGInput labelInput="Mon téléphone mobile" idInput="phone_number" nameInput="phone_number" v-bind:multiline="false" v-bind:optional="false" validation="is_phone_number"  :valueInput=phonenumber></WDGInput>
+		<WDGInput labelInput="Mon téléphone mobile" idInput="phone_number" nameInput="phone_number" v-bind:multiline="false" v-bind:optional="false" validationRule="required|phone_number"  :valueInput=phonenumber></WDGInput>
 		<br>
-		<WDGInput labelInput="Nom de mon entreprise" idInput="company_name" nameInput="company_name" v-bind:multiline="false" v-bind:optional="false" validation="is_name" :valueInput=organame></WDGInput>
+		<WDGInput labelInput="Nom de mon entreprise" idInput="company_name" nameInput="company_name" v-bind:multiline="false" v-bind:optional="false" validationRule="required" :valueInput=organame></WDGInput>
 		<br>
-		<WDGInput labelInput="E-mail de contact" idInput="email" nameInput="email" v-bind:multiline="false" v-bind:optional="false" validation="is_email"  :valueInput=email comment="Cette adresse doit être différente de celle de votre compte personnel, utilisez une adresse telle que contact@votre-entreprise.fr"></WDGInput>
+		<WDGInput labelInput="E-mail de contact" idInput="email" nameInput="email" v-bind:multiline="false" v-bind:optional="false" validationRule="required|email"  :valueInput=email comment="Cette adresse doit être différente de celle de votre compte personnel, utilisez une adresse telle que contact@votre-entreprise.fr"></WDGInput>
 		<br>
-		<WDGInput labelInput="Nom du projet" idInput="project_name" nameInput="project_name" v-bind:multiline="false" v-bind:optional="false" validation="is_name"  :valueInput=projectname></WDGInput>
+		<WDGInput labelInput="Nom du projet" idInput="project_name" nameInput="project_name" v-bind:multiline="false" v-bind:optional="false" validationRule="required"  :valueInput=projectname></WDGInput>
 		<br>
-		<WDGInput labelInput="Description du projet" idInput="project_description" nameInput="project_description" v-bind:multiline="true" v-bind:optional="false"  :valueInput=projectdescription></WDGInput>
+		<WDGInput labelInput="Description du projet" idInput="project_description" nameInput="project_description" v-bind:multiline="true" v-bind:optional="false" validationRule="required" :valueInput=projectdescription></WDGInput>
 		<br>
 
 		<!-- Créer un composant WDGCheckbox -->
