@@ -1,15 +1,20 @@
 <template>
   <div class="launch-project">
 	<h1>Lancement de levée de fonds</h1>
-	<p>
-		Vous avez déjà créé un (ou des) projet(s) sur la plateforme précédemment :<br>
-		<!-- Utiliser un composant pour générer la liste ? -->
-        - Projet de création Hélène
-	</p>
+	<div v-if="existingprojects && existingprojects.projects.length>0" >
+		<p>
+			Vous avez déjà créé un (ou des) projet(s) sur la plateforme précédemment :<br>
+			<ul>
+				<li v-for="project in existingprojects.projects"  v-bind:key="project.id">
+					<a :href=project.url target="_blank">{{ project.name }}</a>
+				</li>
+			</ul>
+		</p>
 
-    <p>
-        Si vous souhaitez tout de même créer un nouveau projet, veuillez remplir le formulaire ci-dessous.
-    </p>
+		<p>
+			Si vous souhaitez tout de même créer un nouveau projet, veuillez remplir le formulaire ci-dessous.
+		</p>
+	</div>
 
 	<WDGForm formName="form-launch-project" formAction="/launch-project/" v-bind:hasFiles="false">
 		<!-- Créer un composant WDGInput, avec label, obligatoire ou pas, foction de validation des données, champ multiligne ou pas, commentaire -->
@@ -55,7 +60,7 @@ export default {
 		WDGCheckbox,
 		WDGButton
 	},
-	props: ['firstname', 'lastname', 'phonenumber', 'organame', 'email', 'projectname', 'projectdescription']
+	props: ['firstname', 'lastname', 'phonenumber', 'organame', 'email', 'projectname', 'projectdescription', 'existingprojects']
 }
 </script>
 

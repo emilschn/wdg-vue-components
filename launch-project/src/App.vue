@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!-- <router-view/> -->
-    <LaunchProject :firstname="firstname"  :lastname="lastname"  :email="email"  :phonenumber="phonenumber"  :organame="organame"  :projectname="projectname"  :projectdescription="projectdescription" />
+    <LaunchProject :firstname="firstname"  :lastname="lastname"  :email="email"  :phonenumber="phonenumber"  :organame="organame"  :projectname="projectname"  :projectdescription="projectdescription" :existingprojects="existingprojects" />
   </div>
 </template>
 
@@ -20,7 +20,8 @@ export default {
 			organame: '',
 			email: '',
 			projectname: '',
-			projectdescription: ''
+			projectdescription: '',
+			existingprojects: ''
 		}
 	},
 	components: {
@@ -34,6 +35,9 @@ export default {
 		this.organame = initElements.dataset.organame
 		this.projectname = initElements.dataset.projectname
 		this.projectdescription = initElements.dataset.projectdescription
+		if (initElements.dataset.existingprojects) {
+			this.existingprojects = JSON.parse(initElements.dataset.existingprojects)
+		}
 	}
 }
 </script>

@@ -69,7 +69,7 @@ export default {
   },
   methods: {
     onInputLocalEvent () {
-		this.$emit('update:valueReturn', this.valueReturn)
+		  this.$emit('update:valueReturn', this.valueReturn)
     }
   }
 }
