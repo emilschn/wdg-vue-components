@@ -4,6 +4,7 @@
 	:name="formName"
 	:action="formAction"
 	:enctype="hasFiles ? 'multipart/form-data' : undefined"
+	@submit.prevent="onSubmitEvent()"
 	method="POST"
 	class="wdg-form">
         <slot></slot>
@@ -16,6 +17,7 @@ export default {
 	props: {
 		formName: { type: String, default: '' },
 		formAction: { type: String, default: '' },
+		onSubmitEvent: { type: Function },
 		hasFiles: { type: Boolean, default: false }
     },
 	mounted () {
