@@ -23,7 +23,7 @@
 			</div>
 
 			<!-- Créer un composant bouton -->
-			<WDGButton labelButton="Connexion" colorButton="red"></WDGButton>
+			<WDGButton labelButton="Connexion" colorButton="red" v-bind:disabled=loading></WDGButton>
 		</WDGForm>
 
 		<WDGSeparator labelSeparator="ou"></WDGSeparator>
@@ -62,22 +62,38 @@ export default {
 		password: '',
 		honeypot1: '',
 		honeypot2: '',
-		rememberme: false
+		rememberme: false,
+		loading: false
 	  }
   },
   methods: {
 	formSubmit () {
-		console.log(this.email)
-		console.log(this.password)
-		console.log(this.honeypot1)
-		console.log(this.honeypot2)
-		console.log(this.rememberme)
-		console.log(this.ajaxUrl)
+		let data = new FormData()
+		data.append('action', 'try_user_login')
+		data.append('email', this.email)
+		data.append('password', this.password)
+		data.append('honeypot1', this.honeypot1)
+		data.append('honeypot2', this.honeypot2)
+		data.append('rememberme', this.rememberme)
+		this.loading = true
+
 		axios
-			.get (this.ajaxUrl)
-			.then (console.log('then'))
-			.catch (console.log('error'))
-			.finally (console.log('finally'))
+			.post (this.ajaxUrl, data)
+			.then (response => {
+				console.log(response)
+				let responseData = response.data
+				if (responseData.has_error === '1') {
+					console.log('error : ' + responseData.error_str)
+				} else {
+					console.log('user : ' + responseData.user_display_name)
+				}
+			})
+			.catch (error => {
+				console.log(error)
+			})
+			.finally (() => {
+				this.loading = false
+			})
 	}
   },
   mounted () {
