@@ -13,6 +13,7 @@
     :disabled="disabled"
     :required="!optional"
     :type="typeInput"
+    v-on:click="validation"
     >
     <textarea
     v-else
@@ -22,6 +23,7 @@
     :placeholder="labelValue"
     :disabled="disabled"
     :required="!optional"
+    v-on:click="validation"
     />
   </div>
 </template>
