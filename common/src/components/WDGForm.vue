@@ -12,6 +12,8 @@
 </template>
 
 <script>
+import '../../validationRules.js'
+
 export default {
 	name: 'WDGForm',
 	props: {
@@ -23,10 +25,11 @@ export default {
 	mounted () {
     }
 }
+
 </script>
 
 <style>
-.wdg-form label, .wdg-form input, .wdg-form button {
+.wdg-form label, .wdg-form input, .wdg-form button, .wdg-form textarea {
 	width: 100%;
 }
 .wdg-form input[type=checkbox], .wdg-form input[type=radio] {

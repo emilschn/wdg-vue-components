@@ -27,7 +27,7 @@ final class WDG_Vue_Components {
 	public static $component_common = 'common';
 	public static $component_signin_signup = 'signin-signup';
 	public static $component_spreadsheets = 'spreadsheets';
-	public static $component_launch_project = 'launch_project';
+	public static $component_launch_project = 'launch-project';
 
 	private static $instance;
 	public static function instance() {
