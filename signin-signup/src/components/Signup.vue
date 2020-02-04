@@ -1,27 +1,29 @@
 <template>
-	<div class="signin">
-		<h1>Connexion sur WE DO GOOD</h1>
+	<div class="signup">
+		<h1>Inscription sur WE DO GOOD</h1>
 
-		<WDGForm formName="form-signin" :formAction=ajaxUrl :onSubmitEvent=formSubmit v-bind:hasFiles="false" :errorFeedback=errorFeedback :successFeedback=successFeedback>
+		<WDGForm formName="form-signup" :formAction=ajaxUrl :onSubmitEvent=formSubmit v-bind:hasFiles="false" :errorFeedback=errorFeedback :successFeedback=successFeedback>
 			<WDGInput labelInput="Adresse e-mail" idInput="coucou" nameInput="coucou" typeInput="text" validationRule="required|email" v-bind:valueReturn.sync="email"></WDGInput>
 
+			<WDGInput labelInput="Prénom" idInput="firstname" nameInput="firstname" typeInput="text" validationRule="required" v-bind:valueReturn.sync="firstname"></WDGInput>
+
+			<WDGInput labelInput="Nom de famille" idInput="lastname" nameInput="lastname" typeInput="text" validationRule="required" v-bind:valueReturn.sync="lastname"></WDGInput>
+
 			<WDGInput labelInput="Mot de passe" idInput="pouicpouic" nameInput="pouicpouic" typeInput="password" validationRule="required" v-bind:valueReturn.sync="password"></WDGInput>
+
+			<WDGInput labelInput="Confirmation du mot de passe" idInput="glouglou" nameInput="glouglou" typeInput="password" validationRule="required" v-bind:valueReturn.sync="password2"></WDGInput>
 
 			<WDGInput labelInput="E-mail" idInput="email" nameInput="email" typeInput="text" validationRule="length:0" v-bind:honeypot="true" v-bind:valueReturn.sync="honeypot1"></WDGInput>
 
 			<WDGInput labelInput="Mot de passe" idInput="password" nameInput="password" typeInput="password" validationRule="length:0" v-bind:honeypot="true" v-bind:valueReturn.sync="honeypot2"></WDGInput>
 
-			<div class="forgotten-password">
-				<a href="/mot-de-passe-oublie/">(Mot de passe oublié)</a>
-			</div>
-
-			<WDGCheckbox labelCheckbox="Se souvenir de moi" idCheckbox="rememberme" nameCheckbox="rememberme" v-bind:valueReturn.sync="rememberme"></WDGCheckbox>
+			<WDGCheckbox labelCheckbox="J'accepte les" linkCheckbox="/cgu/" linkCheckboxLabel="conditions générales d'utilisation" idCheckbox="acceptterms" nameCheckbox="acceptterms" validationRule="required" v-bind:valueReturn.sync="acceptterms"></WDGCheckbox>
 
 			<div class="required-fields">
 				* Champs obligatoires
 			</div>
 
-			<WDGButton labelButton="Connexion" colorButton="red" v-bind:disabled=loading></WDGButton>
+			<WDGButton labelButton="Créer mon compte" colorButton="red" v-bind:disabled=loading></WDGButton>
 		</WDGForm>
 
 		<WDGSeparator labelSeparator="ou"></WDGSeparator>
@@ -30,7 +32,7 @@
 
 		<WDGSeparator labelSeparator="ou"></WDGSeparator>
 
-		<WDGButton labelButton="Créer mon compte" colorButton="transparent" typeButton="button" :clickEvent="switchView"></WDGButton>
+		<WDGButton labelButton="J'ai déjà un compte" colorButton="transparent" typeButton="button" :clickEvent="switchView"></WDGButton>
 	</div>
 </template>
 
@@ -43,7 +45,7 @@ import WDGButton from '@/../../common/src/components/WDGButton'
 import WDGSeparator from '@/../../common/src/components/WDGSeparator'
 
 export default {
-  name: 'Signin',
+  name: 'Signup',
   components: {
     WDGForm,
     WDGInput,
@@ -58,10 +60,13 @@ export default {
   data () {
 	  return {
 		email: '',
+		firstname: '',
+		lastname: '',
 		password: '',
+		password2: '',
 		honeypot1: '',
 		honeypot2: '',
-		rememberme: false,
+		acceptterms: false,
 		loading: false,
 		errorFeedback: '',
 		successFeedback: ''
@@ -74,10 +79,13 @@ export default {
 		let data = new FormData()
 		data.append('action', 'try_user_login')
 		data.append('email', this.email)
+		data.append('firstname', this.firstname)
+		data.append('lastname', this.lastname)
 		data.append('password', this.password)
+		data.append('password2', this.password2)
 		data.append('honeypot1', this.honeypot1)
 		data.append('honeypot2', this.honeypot2)
-		data.append('rememberme', this.rememberme)
+		data.append('acceptterms', this.acceptterms)
 
 		axios
 			.post (this.ajaxUrl, data)
@@ -105,28 +113,8 @@ export default {
 </script>
 
 <style>
-.signin {
+.signup {
 	width: 480px;
 	margin: auto;
-}
-.forgotten-password {
-	text-align: center;
-	margin-bottom: 8px;
-}
-.forgotten-password a {
-	font-size: 11px;
-	font-style: italic;
-	text-decoration: none;
-	color:#EA4F51;
-}
-.required-fields {
-	font-size: 12pt;
-	margin-bottom: 8px;
-}
-@media screen and (max-width:767px) {
-	.signin {
-		width: calc( 100% - 4px );
-		margin: 0px 2px;
-	}
 }
 </style>

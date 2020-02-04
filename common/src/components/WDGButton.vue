@@ -5,6 +5,8 @@
         :id="idButton"
         v-bind="$attrs"
         :disabled="disabled"
+		:class="colorButton"
+		@click="onClickLocalEvent"
         >
 		{{ labelButton }}
         </button>
@@ -21,12 +23,41 @@ export default {
 		colorButton: { type: String, default: 'red' },
         nameButton: { type: String, default: null },
         disabled: { type: Boolean, default: false },
-        action: Function
+        clickEvent: Function
     },
     computed: {
-    }
+	},
+	methods: {
+		onClickLocalEvent () {
+			if (this.clickEvent !== undefined) {
+				this.clickEvent()
+			}
+		}
+	}
 }
 </script>
 
 <style>
+button {
+	width: 100%;
+	height: 48px;
+	margin-bottom: 16px;
+	text-transform: uppercase;
+	cursor: pointer;
+}
+button.red {
+	border: 0 solid #ea4f51;
+	background: #ea4f51;
+	color: #FFF
+}
+button.blue {
+	border: 0 solid #00879B;
+	background: #00879B;
+	color: #FFF
+}
+button.transparent {
+	border: 2px solid #333;
+	background: #FFF;
+	color: #333
+}
 </style>

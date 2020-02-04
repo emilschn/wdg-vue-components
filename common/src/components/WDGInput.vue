@@ -2,18 +2,18 @@
   <div
     v-show="!honeypot"
 	class="wdg-input">
-    <label :for="idInput">{{ labelValue }}</label><br>
+    <label :for="idInput">{{ labelInput }}<span v-if="isRequired"> *</span></label>
     <span v-if="comment">{{comment}}</span><br v-if="comment">
     <ValidationProvider :rules="validationRule" v-slot="v">
-      <span v-if="validationRule">{{ v.errors[0] }}</span>
+      <span v-if="(validationRule && v.errors[0])" class="wdg-message error">{{ v.errors[0] }}</span>
       <input
       v-if="!multiline"
       :id="idInput"
       v-model="valueReturn"
       v-bind="$attrs"
-      :placeholder="labelValue"
+      :placeholder="labelInput"
       :disabled="disabled"
-      :required="!optional"
+      :required="isRequired"
       :type="typeInput"
       @input="onInputLocalEvent"
       >
@@ -22,9 +22,9 @@
       :id="idInput"
       v-model="valueReturn"
       v-bind="$attrs"
-      :placeholder="labelValue"
+      :placeholder="labelInput"
       :disabled="disabled"
-      :required="!optional"
+      :required="isRequired"
       @input="onInputLocalEvent"
       />
     </ValidationProvider>
@@ -47,7 +47,6 @@ export default {
     typeInput: { type: String, default: 'text' },
     comment: { type: String, default: null },
     multiline: { type: Boolean, default: false },
-    optional: { type: Boolean, default: true },
     disabled: { type: Boolean, default: false },
     honeypot: { type: Boolean, default: false },
     validationRule: { type: String, default: null },
@@ -55,21 +54,13 @@ export default {
   },
   data () {
 	  return {
-		  valueReturn: this.valueInput
+		  valueReturn: this.valueInput,
+		  isRequired: (this.validationRule.indexOf('required') > -1)
 	  }
-  },
-  computed: {
-    labelValue () {
-      let { labelInput } = this
-      if (!this.optional && labelInput) {
-    	labelInput += ' *'
-      }
-      return labelInput
-    }
   },
   methods: {
     onInputLocalEvent () {
-		  this.$emit('update:valueReturn', this.valueReturn)
+		this.$emit('update:valueReturn', this.valueReturn)
     }
   }
 }
