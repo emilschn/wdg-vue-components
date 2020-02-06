@@ -1,13 +1,24 @@
 <template>
-  <div id="app" :data-ajaxurl="ajaxUrl">
-	<transition name="fade">
-    	<Signin v-if="(currentView === 'Signin')" :ajaxUrl="ajaxUrl" :switchView="switchView" />
-	</transition>
+	<div
+      id="app"
+	  :data-ajaxurl="ajaxUrl"
+	  >
+		<transition name="fade">
+			<Signin
+			  v-if="(currentView === 'Signin')"
+			  :ajaxUrl="ajaxUrl"
+			  :switchView="switchView"
+			  />
+		</transition>
 
-	<transition name="fade">
-    	<Signup v-if="(currentView === 'Signup')" :ajaxUrl="ajaxUrl" :switchView="switchView" />
-	</transition>
-  </div>
+		<transition name="fade">
+			<Signup
+			  v-if="(currentView === 'Signup')"
+			  :ajaxUrl="ajaxUrl"
+			  :switchView="switchView"
+			  />
+		</transition>
+	</div>
 </template>
 
 <script>

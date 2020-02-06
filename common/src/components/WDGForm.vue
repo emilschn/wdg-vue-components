@@ -1,14 +1,21 @@
 <template>
     <form
-	:id="formName"
-	:name="formName"
-	:action="formAction"
-	:enctype="hasFiles ? 'multipart/form-data' : undefined"
-	@submit.prevent="onSubmitEvent"
-	method="POST"
-	class="wdg-form">
-		<span v-if="(errorFeedback !== '')"><span class="error-feedback">{{ errorFeedback }}</span><br></span>
-		<span v-if="(successFeedback !== '')"><span class="success-feedback">{{ successFeedback }}</span><br></span>
+	  :id="name"
+	  :name="name"
+	  :action="action"
+	  :enctype="hasFiles ? 'multipart/form-data' : undefined"
+	  @submit.prevent="onSubmitEvent"
+	  method="POST"
+	  class="wdg-form"
+	  >
+		<span v-if="(errorFeedback !== '')">
+			<span class="error-feedback">{{ errorFeedback }}</span>
+			<br>
+		</span>
+		<span v-if="(successFeedback !== '')">
+			<span class="success-feedback">{{ successFeedback }}</span>
+			<br>
+			</span>
         <slot></slot>
     </form>
 </template>
@@ -19,8 +26,8 @@ import '../../validationRules.js'
 export default {
 	name: 'WDGForm',
 	props: {
-		formName: { type: String, default: '' },
-		formAction: { type: String, default: '' },
+		name: { type: String, default: '' },
+		action: { type: String, default: '' },
 		onSubmitEvent: { type: Function },
 		hasFiles: { type: Boolean, default: false },
 		errorFeedback: { type: String, default: '' },

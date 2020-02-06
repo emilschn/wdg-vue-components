@@ -2,9 +2,9 @@
     <div class="wdg-separator">
         <hr>
 		<div
-		v-if="labelSeparator"
-		>
-		{{ labelSeparator }}
+		  v-if="label"
+		  >
+			{{ label }}
 		</div>
     </div>
 </template>
@@ -13,7 +13,7 @@
 export default {
 	name: 'WDGSeparator',
 	props: {
-		labelSeparator: { type: String, default: '' }
+		label: { type: String, default: '' }
     },
     computed: {
     }

@@ -2,35 +2,102 @@
 	<div class="signin">
 		<h1>Connexion sur WE DO GOOD</h1>
 
-		<WDGForm formName="form-signin" :formAction=ajaxUrl :onSubmitEvent=formSubmit v-bind:hasFiles="false" :errorFeedback=errorFeedback :successFeedback=successFeedback>
-			<WDGInput labelInput="Adresse e-mail" idInput="coucou" nameInput="coucou" typeInput="text" validationRule="required|email" v-bind:valueReturn.sync="email"></WDGInput>
+		<WDGForm
+		  name="form-signin"
+		  :action="ajaxUrl"
+		  :onSubmitEvent="formSubmit"
+		  v-bind:hasFiles="false"
+		  :errorFeedback="errorFeedback"
+		  :successFeedback="successFeedback"
+		  >
+			<WDGInput
+			  placeholder="exemple@monprojet.com"
+			  id="coucou"
+			  name="coucou"
+			  type="text"
+			  validationRule="required|email"
+			  v-bind:valueReturn.sync="email"
+			  >
+			  <WDGInputSlot slot="label">Adresse e-mail</WDGInputSlot>
+			</WDGInput>
 
-			<WDGInput labelInput="Mot de passe" idInput="pouicpouic" nameInput="pouicpouic" typeInput="password" validationRule="required" v-bind:valueReturn.sync="password"></WDGInput>
+			<WDGInput
+			  placeholder=""
+			  id="pouicpouic"
+			  name="pouicpouic"
+			  type="password"
+			  validationRule="required"
+			  v-bind:valueReturn.sync="password"
+			  >
+			  <WDGInputSlot slot="label">Mot de passe</WDGInputSlot>
+			</WDGInput>
 
-			<WDGInput labelInput="E-mail" idInput="email" nameInput="email" typeInput="text" validationRule="length:0" v-bind:honeypot="true" v-bind:valueReturn.sync="honeypot1"></WDGInput>
+			<WDGInput
+			  placeholder=""
+			  id="email"
+			  name="email"
+			  type="text"
+			  validationRule="length:0"
+			  v-bind:honeypot="true"
+			  v-bind:valueReturn.sync="honeypot1"
+			  >
+			  <WDGInputSlot slot="label">Adresse e-mail</WDGInputSlot>
+			</WDGInput>
 
-			<WDGInput labelInput="Mot de passe" idInput="password" nameInput="password" typeInput="password" validationRule="length:0" v-bind:honeypot="true" v-bind:valueReturn.sync="honeypot2"></WDGInput>
+			<WDGInput
+			  placeholder=""
+			  id="password"
+			  name="password"
+			  type="password"
+			  validationRule="length:0"
+			  v-bind:honeypot="true"
+			  v-bind:valueReturn.sync="honeypot2"
+			  >
+			  <WDGInputSlot slot="label">Mot de passe</WDGInputSlot>
+			</WDGInput>
 
 			<div class="forgotten-password">
 				<a href="/mot-de-passe-oublie/">(Mot de passe oublié)</a>
 			</div>
 
-			<WDGCheckbox labelCheckbox="Se souvenir de moi" idCheckbox="rememberme" nameCheckbox="rememberme" v-bind:valueReturn.sync="rememberme"></WDGCheckbox>
+			<WDGCheckbox
+			  id="rememberme"
+			  name="rememberme"
+			  v-bind:valueReturn.sync="rememberme"
+			  >
+			  <WDGCheckboxSlot slot="label">Se souvenir de moi</WDGCheckboxSlot>
+			</WDGCheckbox>
 
 			<div class="required-fields">
 				* Champs obligatoires
 			</div>
 
-			<WDGButton labelButton="Connexion" colorButton="red" v-bind:disabled=loading></WDGButton>
+			<WDGButton
+			  color="red"
+			  v-bind:disabled="loading"
+			  >
+			  <WDGButtonSlot slot="label">Connexion</WDGButtonSlot>
+			</WDGButton>
 		</WDGForm>
 
-		<WDGSeparator labelSeparator="ou"></WDGSeparator>
+		<WDGSeparator label="ou" />
 
-		<WDGButton labelButton="Se connecter avec Facebook" colorButton="blue" typeButton="button"></WDGButton>
+		<WDGButton
+		  color="blue"
+		  type="button"
+		  >
+			<WDGButtonSlot slot="label">Se connecter avec Facebook</WDGButtonSlot>
+		</WDGButton>
 
-		<WDGSeparator labelSeparator="ou"></WDGSeparator>
+		<WDGSeparator label="ou" />
 
-		<WDGButton labelButton="Créer mon compte" colorButton="transparent" typeButton="button" :clickEvent="switchView"></WDGButton>
+		<WDGButton
+		  color="transparent"
+		  type="button"
+		  :clickEvent="switchView"
+		  >
+			<WDGButtonSlot slot="label">Créer mon compte</WDGButtonSlot>
+		</WDGButton>
 	</div>
 </template>
 
@@ -120,7 +187,7 @@ export default {
 	color:#EA4F51;
 }
 .required-fields {
-	font-size: 12pt;
+	font-size: 16px;
 	margin-bottom: 8px;
 }
 @media screen and (max-width:767px) {

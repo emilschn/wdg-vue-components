@@ -2,37 +2,132 @@
 	<div class="signup">
 		<h1>Inscription sur WE DO GOOD</h1>
 
-		<WDGForm formName="form-signup" :formAction=ajaxUrl :onSubmitEvent=formSubmit v-bind:hasFiles="false" :errorFeedback=errorFeedback :successFeedback=successFeedback>
-			<WDGInput labelInput="Adresse e-mail" idInput="coucou" nameInput="coucou" typeInput="text" validationRule="required|email" v-bind:valueReturn.sync="email"></WDGInput>
+		<WDGForm
+		  name="form-signup"
+		  :action="ajaxUrl"
+		  :onSubmitEvent="formSubmit"
+		  v-bind:hasFiles="false"
+		  :errorFeedback="errorFeedback"
+		  :successFeedback="successFeedback"
+		  >
+			<WDGInput
+			  placeholder="exemple@monprojet.com"
+			  id="coucou"
+			  name="coucou"
+			  type="text"
+			  validationRule="required|email"
+			  v-bind:valueReturn.sync="email"
+			  >
+			  <WDGInputSlot slot="label">Adresse e-mail</WDGInputSlot>
+			</WDGInput>
 
-			<WDGInput labelInput="Prénom" idInput="firstname" nameInput="firstname" typeInput="text" validationRule="required" v-bind:valueReturn.sync="firstname"></WDGInput>
+			<WDGInput
+			  placeholder="Mon prénom"
+			  id="firstname"
+			  name="firstname"
+			  type="text"
+			  validationRule="required"
+			  v-bind:valueReturn.sync="firstname"
+			  >
+			  <WDGInputSlot slot="label">Prénom</WDGInputSlot>
+			</WDGInput>
 
-			<WDGInput labelInput="Nom de famille" idInput="lastname" nameInput="lastname" typeInput="text" validationRule="required" v-bind:valueReturn.sync="lastname"></WDGInput>
+			<WDGInput
+			  placeholder="Mon nom"
+			  id="lastname"
+			  name="lastname"
+			  type="text"
+			  validationRule="required"
+			  v-bind:valueReturn.sync="lastname"
+			  >
+			  <WDGInputSlot slot="label">Nom de famille</WDGInputSlot>
+			</WDGInput>
 
-			<WDGInput labelInput="Mot de passe" idInput="pouicpouic" nameInput="pouicpouic" typeInput="password" validationRule="required" v-bind:valueReturn.sync="password"></WDGInput>
+			<WDGInput
+			  placeholder=""
+			  id="pouicpouic"
+			  name="pouicpouic"
+			  type="password"
+			  validationRule="required"
+			  v-bind:valueReturn.sync="password"
+			  >
+			  <WDGInputSlot slot="label">Mot de passe</WDGInputSlot>
+			</WDGInput>
 
-			<WDGInput labelInput="Confirmation du mot de passe" idInput="glouglou" nameInput="glouglou" typeInput="password" validationRule="required" v-bind:valueReturn.sync="password2"></WDGInput>
+			<WDGInput
+			  placeholder=""
+			  id="glouglou"
+			  name="glouglou"
+			  type="password"
+			  validationRule="required"
+			  v-bind:valueReturn.sync="password2"
+			  >
+			  <WDGInputSlot slot="label">Confirmation du mot de passe</WDGInputSlot>
+			</WDGInput>
 
-			<WDGInput labelInput="E-mail" idInput="email" nameInput="email" typeInput="text" validationRule="length:0" v-bind:honeypot="true" v-bind:valueReturn.sync="honeypot1"></WDGInput>
+			<WDGInput
+			  placeholder=""
+			  id="email"
+			  name="email"
+			  type="text"
+			  validationRule="length:0"
+			  v-bind:honeypot="true"
+			  v-bind:valueReturn.sync="honeypot1"
+			  >
+			  <WDGInputSlot slot="label">Adresse e-mail</WDGInputSlot>
+			</WDGInput>
 
-			<WDGInput labelInput="Mot de passe" idInput="password" nameInput="password" typeInput="password" validationRule="length:0" v-bind:honeypot="true" v-bind:valueReturn.sync="honeypot2"></WDGInput>
+			<WDGInput
+			  placeholder=""
+			  id="password"
+			  name="password"
+			  type="password"
+			  validationRule="length:0"
+			  v-bind:honeypot="true"
+			  v-bind:valueReturn.sync="honeypot2"
+			  >
+			  <WDGInputSlot slot="label">Mot de passe</WDGInputSlot>
+			</WDGInput>
 
-			<WDGCheckbox labelCheckbox="J'accepte les" linkCheckbox="/cgu/" linkCheckboxLabel="conditions générales d'utilisation" idCheckbox="acceptterms" nameCheckbox="acceptterms" validationRule="required" v-bind:valueReturn.sync="acceptterms"></WDGCheckbox>
+			<WDGCheckbox
+			  id="acceptterms"
+			  name="acceptterms"
+			  validationRule="required"
+			  v-bind:valueReturn.sync="acceptterms"
+			  >
+			  <WDGCheckboxSlot slot="label">J'accepte les <a href="/cgu/" target="_blank">conditions générales d'utilisation</a></WDGCheckboxSlot>
+			</WDGCheckbox>
 
 			<div class="required-fields">
 				* Champs obligatoires
 			</div>
 
-			<WDGButton labelButton="Créer mon compte" colorButton="red" v-bind:disabled=loading></WDGButton>
+			<WDGButton
+			  color="red"
+			  v-bind:disabled="loading"
+			  >
+				<WDGButtonSlot slot="label">Créer mon compte</WDGButtonSlot>
+			</WDGButton>
 		</WDGForm>
 
-		<WDGSeparator labelSeparator="ou"></WDGSeparator>
+		<WDGSeparator label="ou" />
 
-		<WDGButton labelButton="Se connecter avec Facebook" colorButton="blue" typeButton="button"></WDGButton>
+		<WDGButton
+		  color="blue"
+		  type="button"
+		  >
+			<WDGButtonSlot slot="label">Se connecter avec Facebook</WDGButtonSlot>
+		</WDGButton>
 
-		<WDGSeparator labelSeparator="ou"></WDGSeparator>
+		<WDGSeparator label="ou" />
 
-		<WDGButton labelButton="J'ai déjà un compte" colorButton="transparent" typeButton="button" :clickEvent="switchView"></WDGButton>
+		<WDGButton
+		  color="transparent"
+		  type="button"
+		  :clickEvent="switchView"
+		  >
+			<WDGButtonSlot slot="label">J'ai déjà un compte</WDGButtonSlot>
+		</WDGButton>
 	</div>
 </template>
 
@@ -77,7 +172,7 @@ export default {
 		this.loading = true
 
 		let data = new FormData()
-		data.append('action', 'try_user_login')
+		data.append('action', 'try_user_register')
 		data.append('email', this.email)
 		data.append('firstname', this.firstname)
 		data.append('lastname', this.lastname)
@@ -116,5 +211,9 @@ export default {
 .signup {
 	width: 480px;
 	margin: auto;
+}
+.required-fields {
+	font-size: 16px;
+	margin-bottom: 8px;
 }
 </style>

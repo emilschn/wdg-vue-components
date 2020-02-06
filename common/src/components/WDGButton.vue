@@ -1,14 +1,13 @@
 <template>
     <div class="wdg-button">
         <button
-        :type="typeButton"
-        :id="idButton"
-        v-bind="$attrs"
-        :disabled="disabled"
-		:class="colorButton"
-		@click="onClickLocalEvent"
-        >
-		{{ labelButton }}
+          :type="type"
+          :id="id"
+          :disabled="disabled"
+		  :class="color"
+		  @click="onClickLocalEvent"
+          >
+			<slot name="label"></slot>
         </button>
     </div>
 </template>
@@ -17,11 +16,10 @@
 export default {
 	name: 'WDGButton',
 	props: {
-		labelButton: { type: String, default: 'Enter text' },
-		idButton: { type: String, default: null },
-		typeButton: { type: String, default: 'submit' },
-		colorButton: { type: String, default: 'red' },
-        nameButton: { type: String, default: null },
+		id: { type: String, default: null },
+		type: { type: String, default: 'submit' },
+		color: { type: String, default: 'red' },
+        name: { type: String, default: null },
         disabled: { type: Boolean, default: false },
         clickEvent: Function
     },
