@@ -112,12 +112,9 @@
 
 		<WDGSeparator label="ou" />
 
-		<WDGButton
-		  color="blue"
-		  type="button"
-		  >
-			<slot slot="label">{{ $t('signin-signup.__CONNECT_TO_FACEBOOK') }}</slot>
-		</WDGButton>
+		<ButtonFacebook
+		  :ajaxUrl="ajaxUrl"
+		  />
 
 		<WDGSeparator label="ou" />
 
@@ -134,6 +131,7 @@
 <script>
 import axios from 'axios'
 import i18n from '@/i18n'
+import ButtonFacebook from '@/components/ButtonFacebook'
 import WDGForm from '@/../../common/src/components/WDGForm'
 import WDGInput from '@/../../common/src/components/WDGInput'
 import WDGCheckbox from '@/../../common/src/components/WDGCheckbox'
@@ -143,6 +141,7 @@ import WDGSeparator from '@/../../common/src/components/WDGSeparator'
 export default {
   name: 'Signup',
   components: {
+    ButtonFacebook,
     WDGForm,
     WDGInput,
     WDGCheckbox,
