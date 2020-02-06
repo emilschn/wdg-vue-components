@@ -11,36 +11,36 @@
 		  :successFeedback="successFeedback"
 		  >
 			<WDGInput
-			  placeholder="exemple@monprojet.com"
+			  :placeholder="$t('__EMAIL_ADDRESS_PLACEHOLDER')"
 			  id="coucou"
 			  name="coucou"
 			  type="text"
 			  validationRule="required|email"
 			  v-bind:valueReturn.sync="email"
 			  >
-			  <WDGInputSlot slot="label">Adresse e-mail</WDGInputSlot>
+			  <WDGInputSlot slot="label">{{ $t('__EMAIL_ADDRESS') }}</WDGInputSlot>
 			</WDGInput>
 
 			<WDGInput
-			  placeholder="Mon prénom"
+			  :placeholder="$t('__FIRSTNAME_PLACEHOLDER')"
 			  id="firstname"
 			  name="firstname"
 			  type="text"
 			  validationRule="required"
 			  v-bind:valueReturn.sync="firstname"
 			  >
-			  <WDGInputSlot slot="label">Prénom</WDGInputSlot>
+			  <WDGInputSlot slot="label">{{ $t('__FIRSTNAME') }}</WDGInputSlot>
 			</WDGInput>
 
 			<WDGInput
-			  placeholder="Mon nom"
+			  :placeholder="$t('__LASTNAME_PLACEHOLDER')"
 			  id="lastname"
 			  name="lastname"
 			  type="text"
 			  validationRule="required"
 			  v-bind:valueReturn.sync="lastname"
 			  >
-			  <WDGInputSlot slot="label">Nom de famille</WDGInputSlot>
+			  <WDGInputSlot slot="label">{{ $t('__LASTNAME') }}</WDGInputSlot>
 			</WDGInput>
 
 			<WDGInput
@@ -51,7 +51,7 @@
 			  validationRule="required"
 			  v-bind:valueReturn.sync="password"
 			  >
-			  <WDGInputSlot slot="label">Mot de passe</WDGInputSlot>
+			  <WDGInputSlot slot="label">{{ $t('__PASSWORD') }}</WDGInputSlot>
 			</WDGInput>
 
 			<WDGInput
@@ -62,7 +62,7 @@
 			  validationRule="required"
 			  v-bind:valueReturn.sync="password2"
 			  >
-			  <WDGInputSlot slot="label">Confirmation du mot de passe</WDGInputSlot>
+			  <WDGInputSlot slot="label">{{ $t('__PASSWORD_CONFIRMATION') }}</WDGInputSlot>
 			</WDGInput>
 
 			<WDGInput
@@ -74,7 +74,7 @@
 			  v-bind:honeypot="true"
 			  v-bind:valueReturn.sync="honeypot1"
 			  >
-			  <WDGInputSlot slot="label">Adresse e-mail</WDGInputSlot>
+			  <WDGInputSlot slot="label">{{ $t('__EMAIL_ADDRESS') }}</WDGInputSlot>
 			</WDGInput>
 
 			<WDGInput
@@ -86,7 +86,7 @@
 			  v-bind:honeypot="true"
 			  v-bind:valueReturn.sync="honeypot2"
 			  >
-			  <WDGInputSlot slot="label">Mot de passe</WDGInputSlot>
+			  <WDGInputSlot slot="label">{{ $t('__PASSWORD') }}</WDGInputSlot>
 			</WDGInput>
 
 			<WDGCheckbox
@@ -95,18 +95,18 @@
 			  validationRule="required"
 			  v-bind:valueReturn.sync="acceptterms"
 			  >
-			  <WDGCheckboxSlot slot="label">J'accepte les <a href="/cgu/" target="_blank">conditions générales d'utilisation</a></WDGCheckboxSlot>
+			  <WDGCheckboxSlot slot="label">{{ $t('__I_ACCEPT_THE') }} <a href="/cgu/" target="_blank">{{ $t('__GENERAL_USE_TERMS') }}</a></WDGCheckboxSlot>
 			</WDGCheckbox>
 
 			<div class="required-fields">
-				* Champs obligatoires
+				* {{ $t('__REQUIRED_FIELDS') }}
 			</div>
 
 			<WDGButton
 			  color="red"
 			  v-bind:disabled="loading"
 			  >
-				<WDGButtonSlot slot="label">Créer mon compte</WDGButtonSlot>
+				<WDGButtonSlot slot="label">{{ $t('__CREATE_MY_ACCOUNT') }}</WDGButtonSlot>
 			</WDGButton>
 		</WDGForm>
 
@@ -116,7 +116,7 @@
 		  color="blue"
 		  type="button"
 		  >
-			<WDGButtonSlot slot="label">Se connecter avec Facebook</WDGButtonSlot>
+			<WDGButtonSlot slot="label">{{ $t('__CONNECT_TO_FACEBOOK') }}</WDGButtonSlot>
 		</WDGButton>
 
 		<WDGSeparator label="ou" />
@@ -126,7 +126,7 @@
 		  type="button"
 		  :clickEvent="switchView"
 		  >
-			<WDGButtonSlot slot="label">J'ai déjà un compte</WDGButtonSlot>
+			<WDGButtonSlot slot="label">{{ $t('__I_ALREADY_HAVE_AN_ACCOUNT') }}</WDGButtonSlot>
 		</WDGButton>
 	</div>
 </template>

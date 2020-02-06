@@ -11,14 +11,14 @@
 		  :successFeedback="successFeedback"
 		  >
 			<WDGInput
-			  placeholder="exemple@monprojet.com"
+			  :placeholder="$t('__EMAIL_ADDRESS_PLACEHOLDER')"
 			  id="coucou"
 			  name="coucou"
 			  type="text"
 			  validationRule="required|email"
 			  v-bind:valueReturn.sync="email"
 			  >
-			  <WDGInputSlot slot="label">Adresse e-mail</WDGInputSlot>
+			  <WDGInputSlot slot="label">{{ $t('__EMAIL_ADDRESS') }}</WDGInputSlot>
 			</WDGInput>
 
 			<WDGInput
@@ -29,7 +29,7 @@
 			  validationRule="required"
 			  v-bind:valueReturn.sync="password"
 			  >
-			  <WDGInputSlot slot="label">Mot de passe</WDGInputSlot>
+			  <WDGInputSlot slot="label">{{ $t('__PASSWORD') }}</WDGInputSlot>
 			</WDGInput>
 
 			<WDGInput
@@ -41,7 +41,7 @@
 			  v-bind:honeypot="true"
 			  v-bind:valueReturn.sync="honeypot1"
 			  >
-			  <WDGInputSlot slot="label">Adresse e-mail</WDGInputSlot>
+			  <WDGInputSlot slot="label">{{ $t('__EMAIL_ADDRESS') }}</WDGInputSlot>
 			</WDGInput>
 
 			<WDGInput
@@ -53,11 +53,11 @@
 			  v-bind:honeypot="true"
 			  v-bind:valueReturn.sync="honeypot2"
 			  >
-			  <WDGInputSlot slot="label">Mot de passe</WDGInputSlot>
+			  <WDGInputSlot slot="label">{{ $t('__PASSWORD') }}</WDGInputSlot>
 			</WDGInput>
 
 			<div class="forgotten-password">
-				<a href="/mot-de-passe-oublie/">(Mot de passe oublié)</a>
+				<a href="/mot-de-passe-oublie/">({{ $t('__FORGOTTEN_PASSWORD') }})</a>
 			</div>
 
 			<WDGCheckbox
@@ -65,18 +65,18 @@
 			  name="rememberme"
 			  v-bind:valueReturn.sync="rememberme"
 			  >
-			  <WDGCheckboxSlot slot="label">Se souvenir de moi</WDGCheckboxSlot>
+			  <WDGCheckboxSlot slot="label">{{ $t('__REMEMBER_ME') }}</WDGCheckboxSlot>
 			</WDGCheckbox>
 
 			<div class="required-fields">
-				* Champs obligatoires
+				* {{ $t('__REQUIRED_FIELDS') }}
 			</div>
 
 			<WDGButton
 			  color="red"
 			  v-bind:disabled="loading"
 			  >
-			  <WDGButtonSlot slot="label">Connexion</WDGButtonSlot>
+			  <WDGButtonSlot slot="label">{{ $t('__CONNECTION') }}</WDGButtonSlot>
 			</WDGButton>
 		</WDGForm>
 
@@ -86,7 +86,7 @@
 		  color="blue"
 		  type="button"
 		  >
-			<WDGButtonSlot slot="label">Se connecter avec Facebook</WDGButtonSlot>
+			<WDGButtonSlot slot="label">{{ $t('__CONNECT_TO_FACEBOOK') }}</WDGButtonSlot>
 		</WDGButton>
 
 		<WDGSeparator label="ou" />
@@ -96,7 +96,7 @@
 		  type="button"
 		  :clickEvent="switchView"
 		  >
-			<WDGButtonSlot slot="label">Créer mon compte</WDGButtonSlot>
+			<WDGButtonSlot slot="label">{{ $t('__CREATE_MY_ACCOUNT') }}</WDGButtonSlot>
 		</WDGButton>
 	</div>
 </template>
