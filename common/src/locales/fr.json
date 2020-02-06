@@ -1,0 +1,39 @@
+{
+	"common": {
+		"__EMAIL_ADDRESS": "Adresse e-mail",
+		"__EMAIL_ADDRESS_PLACEHOLDER": "exemple@monprojet.com",
+		"__PASSWORD": "Mot de passe",
+		"__FIRSTNAME": "Prénom",
+		"__FIRSTNAME_PLACEHOLDER": "Mon prénom",
+		"__LASTNAME": "Nom de famille",
+		"__LASTNAME_PLACEHOLDER": "Mon nom de famille",
+		"__REQUIRED_FIELDS": "Champs obligatoires"
+	},
+	"validations": {
+		"required": "Ce champ est obligatoire"
+	},
+	"signin-signup": {
+		"__FORGOTTEN_PASSWORD": "Mot de passe oublié",
+		"__PASSWORD_CONFIRMATION": "Confirmation du mot de passe",
+		"__REMEMBER_ME": "Se souvenir de moi",
+		"__I_ACCEPT_THE": "J'accepte",
+		"__GENERAL_USE_TERMS": "conditions générales d'utilisation",
+		"__CONNECTION": "Connexion",
+		"__CONNECT_TO_FACEBOOK": "Se connecter avec Facebook",
+		"__CREATE_MY_ACCOUNT": "Créer mon compte",
+		"__I_ALREADY_HAVE_AN_ACCOUNT": "J'ai déjà un compte",
+		"__SIGNIN_ERROR_EMPTY": "Merci de saisir votre identifiant et votre mot de passe.",
+		"__SIGNIN_ERROR_NOT_FOUND": "Cet utilisateur n'existe pas.",
+		"__SIGNIN_ERROR_INCORRECT_PASSWORD": "Le mot de passe saisi ne correspond pas.",
+		"__SIGNUP_ERROR_EMAIL_EMPTY": "L'adresse e-mail doit être définie.",
+		"__SIGNUP_ERROR_EMAIL_FOUND": "Cette adresse e-mail est déjà utilisée.",
+		"__SIGNUP_ERROR_EMAIL_INCORRECT": "Cette adresse e-mail n'est pas valide.",
+		"__SIGNUP_ERROR_FIRSTNAME_EMPTY": "Le prénom doit être défini.",
+		"__SIGNUP_ERROR_LASTNAME_EMPTY": "Le nom de famille doit être défini.",
+		"__SIGNUP_ERROR_PASSWORD_EMPTY": "Avez-vous saisi deux fois le mot de passe ?",
+		"__SIGNUP_ERROR_PASSWORD_NOT_MATCHING": "Les mots de passe saisis ne correspondent pas.",
+		"__SIGNUP_ERROR_TERMS": "Merci de cocher la case pour accepter les conditions générales d'utilisation.",
+		"__SIGNUP_ERROR_UNDEFINED": "Problème de création d'utilisateur.",
+		"__SIGNUP_ERROR_ROBOT": "Merci de cocher la case confirmant que vous n'êtes pas un robot."
+	}
+}

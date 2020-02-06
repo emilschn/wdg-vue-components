@@ -11,36 +11,36 @@
 		  :successFeedback="successFeedback"
 		  >
 			<WDGInput
-			  :placeholder="$t('__EMAIL_ADDRESS_PLACEHOLDER')"
+			  :placeholder="$t('common.__EMAIL_ADDRESS_PLACEHOLDER')"
 			  id="coucou"
 			  name="coucou"
 			  type="text"
-			  validationRule="required|email"
+			  validationRule="required"
 			  v-bind:valueReturn.sync="email"
 			  >
-			  <WDGInputSlot slot="label">{{ $t('__EMAIL_ADDRESS') }}</WDGInputSlot>
+			  <slot slot="label">{{ $t('common.__EMAIL_ADDRESS') }}</slot>
 			</WDGInput>
 
 			<WDGInput
-			  :placeholder="$t('__FIRSTNAME_PLACEHOLDER')"
+			  :placeholder="$t('common.__FIRSTNAME_PLACEHOLDER')"
 			  id="firstname"
 			  name="firstname"
 			  type="text"
 			  validationRule="required"
 			  v-bind:valueReturn.sync="firstname"
 			  >
-			  <WDGInputSlot slot="label">{{ $t('__FIRSTNAME') }}</WDGInputSlot>
+			  <slot slot="label">{{ $t('common.__FIRSTNAME') }}</slot>
 			</WDGInput>
 
 			<WDGInput
-			  :placeholder="$t('__LASTNAME_PLACEHOLDER')"
+			  :placeholder="$t('common.__LASTNAME_PLACEHOLDER')"
 			  id="lastname"
 			  name="lastname"
 			  type="text"
 			  validationRule="required"
 			  v-bind:valueReturn.sync="lastname"
 			  >
-			  <WDGInputSlot slot="label">{{ $t('__LASTNAME') }}</WDGInputSlot>
+			  <slot slot="label">{{ $t('common.__LASTNAME') }}</slot>
 			</WDGInput>
 
 			<WDGInput
@@ -51,7 +51,7 @@
 			  validationRule="required"
 			  v-bind:valueReturn.sync="password"
 			  >
-			  <WDGInputSlot slot="label">{{ $t('__PASSWORD') }}</WDGInputSlot>
+			  <slot slot="label">{{ $t('common.__PASSWORD') }}</slot>
 			</WDGInput>
 
 			<WDGInput
@@ -62,7 +62,7 @@
 			  validationRule="required"
 			  v-bind:valueReturn.sync="password2"
 			  >
-			  <WDGInputSlot slot="label">{{ $t('__PASSWORD_CONFIRMATION') }}</WDGInputSlot>
+			  <slot slot="label">{{ $t('signin-signup.__PASSWORD_CONFIRMATION') }}</slot>
 			</WDGInput>
 
 			<WDGInput
@@ -74,7 +74,7 @@
 			  v-bind:honeypot="true"
 			  v-bind:valueReturn.sync="honeypot1"
 			  >
-			  <WDGInputSlot slot="label">{{ $t('__EMAIL_ADDRESS') }}</WDGInputSlot>
+			  <slot slot="label">{{ $t('common.__EMAIL_ADDRESS') }}</slot>
 			</WDGInput>
 
 			<WDGInput
@@ -86,7 +86,7 @@
 			  v-bind:honeypot="true"
 			  v-bind:valueReturn.sync="honeypot2"
 			  >
-			  <WDGInputSlot slot="label">{{ $t('__PASSWORD') }}</WDGInputSlot>
+			  <slot slot="label">{{ $t('common.__PASSWORD') }}</slot>
 			</WDGInput>
 
 			<WDGCheckbox
@@ -95,18 +95,18 @@
 			  validationRule="required"
 			  v-bind:valueReturn.sync="acceptterms"
 			  >
-			  <WDGCheckboxSlot slot="label">{{ $t('__I_ACCEPT_THE') }} <a href="/cgu/" target="_blank">{{ $t('__GENERAL_USE_TERMS') }}</a></WDGCheckboxSlot>
+			  <slot slot="label">{{ $t('signin-signup.__I_ACCEPT_THE') }} <a href="/cgu/" target="_blank">{{ $t('signin-signup.__GENERAL_USE_TERMS') }}</a></slot>
 			</WDGCheckbox>
 
 			<div class="required-fields">
-				* {{ $t('__REQUIRED_FIELDS') }}
+				* {{ $t('common.__REQUIRED_FIELDS') }}
 			</div>
 
 			<WDGButton
 			  color="red"
 			  v-bind:disabled="loading"
 			  >
-				<WDGButtonSlot slot="label">{{ $t('__CREATE_MY_ACCOUNT') }}</WDGButtonSlot>
+				<slot slot="label">{{ $t('signin-signup.__CREATE_MY_ACCOUNT') }}</slot>
 			</WDGButton>
 		</WDGForm>
 
@@ -116,7 +116,7 @@
 		  color="blue"
 		  type="button"
 		  >
-			<WDGButtonSlot slot="label">{{ $t('__CONNECT_TO_FACEBOOK') }}</WDGButtonSlot>
+			<slot slot="label">{{ $t('signin-signup.__CONNECT_TO_FACEBOOK') }}</slot>
 		</WDGButton>
 
 		<WDGSeparator label="ou" />
@@ -126,13 +126,14 @@
 		  type="button"
 		  :clickEvent="switchView"
 		  >
-			<WDGButtonSlot slot="label">{{ $t('__I_ALREADY_HAVE_AN_ACCOUNT') }}</WDGButtonSlot>
+			<slot slot="label">{{ $t('signin-signup.__I_ALREADY_HAVE_AN_ACCOUNT') }}</slot>
 		</WDGButton>
 	</div>
 </template>
 
 <script>
 import axios from 'axios'
+import i18n from '@/i18n'
 import WDGForm from '@/../../common/src/components/WDGForm'
 import WDGInput from '@/../../common/src/components/WDGInput'
 import WDGCheckbox from '@/../../common/src/components/WDGCheckbox'
@@ -187,8 +188,9 @@ export default {
 			.then (response => {
 				let responseData = response.data
 				if (responseData.has_error === '1') {
-					this.errorFeedback = responseData.error_str
+					this.errorFeedback = i18n.t(getErrorMessage(responseData.error_str))
 					this.successFeedback = ''
+					window.scrollTo(0, 0)
 				} else {
 					this.errorFeedback = ''
 					this.successFeedback = 'Connexion ok pour ' + responseData.user_display_name
@@ -201,9 +203,34 @@ export default {
 				this.loading = false
 			})
 	}
-  },
-  mounted () {
   }
+}
+
+function getErrorMessage (errorCode) {
+	switch (errorCode) {
+		case 'user_email':
+			return 'signin-signup.__SIGNUP_ERROR_EMAIL_EMPTY'
+		case 'user_name':
+			return 'signin-signup.__SIGNUP_ERROR_EMAIL_FOUND'
+		case 'user_email_incorrect':
+			return 'signin-signup.__SIGNUP_ERROR_EMAIL_INCORRECT'
+		case 'user_firstname':
+			return 'signin-signup.__SIGNUP_ERROR_FIRSTNAME_EMPTY'
+		case 'user_lastname':
+			return 'signin-signup.__SIGNUP_ERROR_LASTNAME_EMPTY'
+		case 'user_password':
+			return 'signin-signup.__SIGNUP_ERROR_PASSWORD_EMPTY'
+		case 'user_password_match':
+			return 'signin-signup.__SIGNUP_ERROR_PASSWORD_NOT_MATCHING'
+		case 'validate_terms_check':
+			return 'signin-signup.__SIGNUP_ERROR_TERMS'
+		case 'user_insert':
+			return 'signin-signup.__SIGNUP_ERROR_UNDEFINED'
+		case 'user_robot':
+			return 'signin-signup.__SIGNUP_ERROR_ROBOT'
+		default:
+			return ''
+	}
 }
 </script>
 

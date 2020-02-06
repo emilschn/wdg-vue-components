@@ -40,8 +40,12 @@ button {
 	width: 100%;
 	height: 48px;
 	margin-bottom: 16px;
+	padding: 0px;
 	text-transform: uppercase;
 	cursor: pointer;
+}
+button:disabled {
+	opacity: 0.8;
 }
 button.red {
 	border: 0 solid #ea4f51;

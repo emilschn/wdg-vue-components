@@ -22,8 +22,19 @@
 </template>
 
 <script>
+import i18n from '@/i18n'
 import Signin from './components/Signin.vue'
 import Signup from './components/Signup.vue'
+
+import { localize } from 'vee-validate'
+localize({
+	fr: {
+		messages: {
+			required: i18n.t('validations.required')
+		}
+	}
+})
+
 const initElements = document.querySelector('#app')
 
 export default {
@@ -40,6 +51,7 @@ export default {
 	},
 	created () {
 		this.ajaxUrl = initElements.dataset.ajaxurl
+		this.currentView = initElements.dataset.currentview
 	},
 	methods: {
 		switchView () {

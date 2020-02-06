@@ -9,11 +9,11 @@
 	  class="wdg-form"
 	  >
 		<span v-if="(errorFeedback !== '')">
-			<span class="error-feedback">{{ errorFeedback }}</span>
+			<span class="wdg-message error">{{ errorFeedback }}</span>
 			<br>
 		</span>
 		<span v-if="(successFeedback !== '')">
-			<span class="success-feedback">{{ successFeedback }}</span>
+			<span class="wdg-message success">{{ successFeedback }}</span>
 			<br>
 			</span>
         <slot></slot>
@@ -67,15 +67,21 @@ export default {
 	width: auto;
 }
 
-.wdg-form span.wdg-message.error {
+.wdg-form span.wdg-message {
 	display: block;
 	width: 100%;
 	margin-bottom: 8px;
 	padding: 8px 0px;
 	text-transform: uppercase;
 	text-align: center;
+}
+.wdg-form span.wdg-message.error {
 	background: #EACDCB;
 	color: #333333;
+}
+.wdg-form span.wdg-message.success {
+	background: #8BC79C;
+	color: #FFFFFF;
 }
 
 .wdg-form .wdg-checkbox label {

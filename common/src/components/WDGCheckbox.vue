@@ -7,7 +7,6 @@
 			  type="checkbox"
 			  :id="id"
 			  v-model="valueReturn"
-			  :placeholder="labelValue"
 			  :disabled="disabled"
 			  :required="!optional"
 			  @change="onChangeLocalEvent"
@@ -26,7 +25,7 @@ export default {
         value: { type: [Boolean], default: false },
         optional: { type: Boolean, default: true },
         disabled: { type: Boolean, default: false },
-    	validationRule: { type: String, default: null },
+    	validationRule: { type: String, default: '' },
         validation: Function
     },
 	data () {

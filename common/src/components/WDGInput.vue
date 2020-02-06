@@ -13,7 +13,13 @@
 		  :rules="validationRule"
 		  v-slot="v"
 		  >
-      		<span v-if="(validationRule && v.errors[0])" class="wdg-message error">{{ v.errors[0] }}</span>
+      		<span
+			  v-if="(validationRule && v.errors[0])"
+			  class="wdg-message error"
+			  >
+				{{ v.errors[0] }}
+			</span>
+
 			<input
 			  v-if="!multiline"
 			  :id="id"
@@ -54,7 +60,7 @@ export default {
     multiline: { type: Boolean, default: false },
     disabled: { type: Boolean, default: false },
     honeypot: { type: Boolean, default: false },
-    validationRule: { type: String, default: null },
+    validationRule: { type: String, default: '' },
     inputEvent: Function
   },
   data () {
