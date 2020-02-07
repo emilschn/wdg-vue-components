@@ -1,13 +1,31 @@
 <template>
   <div id="app">
     <!-- <router-view/> -->
-    <LaunchProject :firstname="firstname"  :lastname="lastname"  :email="email"  :phonenumber="phonenumber"  :organame="organame"  :projectname="projectname"  :projectdescription="projectdescription" :existingprojects="existingprojects" />
+    <LaunchProject
+		:firstname="firstname"
+		:lastname="lastname"
+		:email="email"
+		:phonenumber="phonenumber"
+		:organame="organame"
+		:projectname="projectname"
+		:projectdescription="projectdescription"
+		:existingprojects="existingprojects"
+	/>
   </div>
 </template>
 
 <script>
-
+import i18n from '@/i18n'
 import LaunchProject from './components/LaunchProject.vue'
+import { localize } from 'vee-validate'
+localize({
+	fr: {
+		messages: {
+			required: i18n.t('validations.REQUIRED')
+		}
+	}
+})
+
 const initElements = document.querySelector('#app')
 
 export default {

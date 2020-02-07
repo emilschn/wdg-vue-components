@@ -11,14 +11,14 @@
 		  :successFeedback="successFeedback"
 		  >
 			<WDGInput
-			  :placeholder="$t('common.__EMAIL_ADDRESS_PLACEHOLDER')"
+			  :placeholder="$t('common.EMAIL_ADDRESS_PLACEHOLDER')"
 			  id="coucou"
 			  name="coucou"
 			  type="text"
 			  validationRule="required"
 			  v-bind:valueReturn.sync="email"
 			  >
-			  <slot slot="label">{{ $t('common.__EMAIL_ADDRESS') }}</slot>
+			  <slot slot="label">{{ $t('common.EMAIL_ADDRESS') }}</slot>
 			</WDGInput>
 
 			<WDGInput
@@ -29,7 +29,7 @@
 			  validationRule="required"
 			  v-bind:valueReturn.sync="password"
 			  >
-			  <slot slot="label">{{ $t('common.__PASSWORD') }}</slot>
+			  <slot slot="label">{{ $t('common.PASSWORD') }}</slot>
 			</WDGInput>
 
 			<WDGInput
@@ -41,7 +41,7 @@
 			  v-bind:honeypot="true"
 			  v-bind:valueReturn.sync="honeypot1"
 			  >
-			  <slot slot="label">{{ $t('common.__EMAIL_ADDRESS') }}</slot>
+			  <slot slot="label">{{ $t('common.EMAIL_ADDRESS') }}</slot>
 			</WDGInput>
 
 			<WDGInput
@@ -53,11 +53,11 @@
 			  v-bind:honeypot="true"
 			  v-bind:valueReturn.sync="honeypot2"
 			  >
-			  <slot slot="label">{{ $t('common.__PASSWORD') }}</slot>
+			  <slot slot="label">{{ $t('common.PASSWORD') }}</slot>
 			</WDGInput>
 
 			<div class="forgotten-password">
-				<a href="/mot-de-passe-oublie/">({{ $t('signin-signup.__FORGOTTEN_PASSWORD') }})</a>
+				<a href="/mot-de-passe-oublie/">({{ $t('signin-signup.FORGOTTEN_PASSWORD') }})</a>
 			</div>
 
 			<WDGCheckbox
@@ -65,18 +65,18 @@
 			  name="rememberme"
 			  v-bind:valueReturn.sync="rememberme"
 			  >
-			  <slot slot="label">{{ $t('signin-signup.__REMEMBER_ME') }}</slot>
+			  <slot slot="label">{{ $t('signin-signup.REMEMBER_ME') }}</slot>
 			</WDGCheckbox>
 
 			<div class="required-fields">
-				* {{ $t('common.__REQUIRED_FIELDS') }}
+				* {{ $t('common.REQUIRED_FIELDS') }}
 			</div>
 
 			<WDGButton
 			  color="red"
 			  v-bind:disabled="loading"
 			  >
-			  <slot slot="label">{{ $t('signin-signup.__CONNECTION') }}</slot>
+			  <slot slot="label">{{ $t('signin-signup.CONNECTION') }}</slot>
 			</WDGButton>
 		</WDGForm>
 
@@ -93,7 +93,7 @@
 		  type="button"
 		  :clickEvent="switchView"
 		  >
-			<slot slot="label">{{ $t('signin-signup.__CREATE_MY_ACCOUNT') }}</slot>
+			<slot slot="label">{{ $t('signin-signup.CREATE_MY_ACCOUNT') }}</slot>
 		</WDGButton>
 	</div>
 </template>
@@ -175,11 +175,11 @@ function getErrorMessage (errorCode) {
 		case 'empty_authentication':
 		case 'empty_username':
 		case 'empty_password':
-			return 'signin-signup.__SIGNIN_ERROR_EMPTY'
+			return 'signin-signup.SIGNIN_ERROR_EMPTY'
 		case 'invalid_username':
-			return 'signin-signup.__SIGNIN_ERROR_NOT_FOUND'
+			return 'signin-signup.SIGNIN_ERROR_NOT_FOUND'
 		case 'incorrect_password':
-			return 'signin-signup.__SIGNIN_ERROR_INCORRECT_PASSWORD'
+			return 'signin-signup.SIGNIN_ERROR_INCORRECT_PASSWORD'
 		default:
 			return ''
 	}
