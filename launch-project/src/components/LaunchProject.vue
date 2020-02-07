@@ -23,7 +23,7 @@
 	>
 		<!-- Créer un composant WDGInput, avec label, obligatoire ou pas, foction de validation des données, champ multiligne ou pas, commentaire -->
 		<WDGInput
-			placeholder="Ringo"
+			placeholder="$t('__FIRSTNAME_PLACEHOLDER')"
 			id="firstname"
 			name="firstname"
 			v-bind:multiline="false"
@@ -31,11 +31,11 @@
 			validationRule="required|name"
 			:value="firstname"
 		>
-			<slot slot="label">Mon prénom</slot>
+			<slot slot="label">{{ $t('__FIRSTNAME') }}</slot>
 		</WDGInput>
 		<br>
 		<WDGInput
-			placeholder="Starr"
+			placeholder="$t('__LASTNAME_PLACEHOLDER')"
 			id="lastname"
 			name="lastname"
 			v-bind:multiline="false"
@@ -43,7 +43,7 @@
 			validationRule="required|name"
 			:value="lastname"
 		>
-			<slot slot="label">Mon nom</slot>
+			<slot slot="label">{{ $t('__LASTNAME') }}</slot>
 		</WDGInput>
 		<br>
 		<WDGInput
@@ -71,7 +71,7 @@
 		</WDGInput>
 		<br>
 		<WDGInput
-			placeholder="E-mail de contact"
+			placeholder="$t('__EMAIL_ADDRESS_PLACEHOLDER')"
 			id="email"
 			name="email"
 			v-bind:multiline="false"
@@ -80,7 +80,7 @@
 			:value="email"
 			comment="Cette adresse doit être différente de celle de votre compte personnel, utilisez une adresse telle que contact@votre-entreprise.fr"
 		>
-			<slot slot="label">E-mail de contact</slot>
+			<slot slot="label">{{ $t('__EMAIL_ADDRESS') }}</slot>
 		</WDGInput>
 		<br>
 		<WDGInput
@@ -116,8 +116,8 @@
 			<slot slot="label">Je valide les conditions particulières</slot>
 		</WDGCheckbox>
 
-		<div>
-			* Champs obligatoires
+		<div class="required-fields">
+			* {{ $t('__REQUIRED_FIELDS') }}
 		</div>
 		<!-- Créer un composant bouton -->
 		<WDGButton color="red">
@@ -153,6 +153,10 @@ export default {
 	.launch-project {
 		width: 480px;
 		margin: auto;
+	}
+	.required-fields {
+		font-size: 16px;
+		margin-bottom: 8px;
 	}
 	@media screen and (max-width:767px) {
 		.launch-project {
