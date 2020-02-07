@@ -19,9 +19,11 @@
 	<WDGForm
 		name="form-launch-project"
 		action="/launch-project/"
+		:onSubmitEvent="formSubmit"
 		v-bind:hasFiles="false"
+		:errorFeedback="errorFeedback"
+		:successFeedback="successFeedback"
 	>
-		<!-- Créer un composant WDGInput, avec label, obligatoire ou pas, foction de validation des données, champ multiligne ou pas, commentaire -->
 		<WDGInput
 			placeholder="$t('common.FIRSTNAME_PLACEHOLDER')"
 			id="firstname"
@@ -58,6 +60,7 @@
 			<slot slot="label">{{ $t('common.PHONE_NUMBER') }}</slot>
 		</WDGInput>
 		<br>
+		<!-- Attention, il peut y avoir plusieurs orga existantes pour un meme utilisateur, prévoir le cas avec un select  -->
 		<WDGInput
 			placeholder="$t('common.ORGA_NAME_PLACEHOLDER')"
 			id="company_name"
@@ -108,18 +111,17 @@
 		</WDGInput>
 		<br>
 
-		<!-- Créer un composant WDGCheckbox -->
 		<WDGCheckbox
 			id="validate"
 			v-bind:optional="false"
 		>
-			<slot slot="label">{{ $t('launch-project.VALIDATE_CONDITIONS') }}</slot>
+			<!-- envoyer home_url -->
+			<slot slot="label"><a href="<?php echo home_url('/a-propos/cgu/conditions-particulieres/'); ?>" target="_blank">{{ $t('launch-project.VALIDATE_CONDITIONS') }}</a></slot>
 		</WDGCheckbox>
 
 		<div class="required-fields">
 			* {{ $t('common.REQUIRED_FIELDS') }}
 		</div>
-		<!-- Créer un composant bouton -->
 		<WDGButton color="red">
 			<slot slot="label">{{ $t('common.VALIDATE') }}</slot>
 		</WDGButton>
@@ -129,7 +131,8 @@
 </template>
 
 <script>
-// import i18n from '@/i18n'
+import i18n from '@/i18n'
+import axios from 'axios'
 import WDGForm from '@/../../common/src/components/WDGForm'
 import WDGInput from '@/../../common/src/components/WDGInput'
 import WDGCheckbox from '@/../../common/src/components/WDGCheckbox'
@@ -152,6 +155,50 @@ export default {
 		projectname: { type: String, default: '' },
 		projectdescription: { type: String, default: '' },
 		existingprojects: { type: Object, default: null }
+	},
+	data () {
+		return {
+			errorFeedback: '',
+			successFeedback: ''
+		}
+	},
+  	methods: {
+		formSubmit () {
+			let data = new FormData()
+			data.append('action', 'create_project_form')
+			data.append('email', this.email)
+			data.append('firstname', this.firstname)
+			data.append('lastname', this.lastname)
+			data.append('phone', this.phonenumber)
+			data.append('organame', this.organame)
+			data.append('projectname', this.projectname)
+			data.append('projectdescription', this.projectdescription)
+			axios
+				.post (this.ajaxUrl, data)
+				.then (response => {
+					let responseData = response.data
+					if (responseData.has_error === '1') {
+						this.errorFeedback = i18n.t(getErrorMessage(responseData.error_str))
+						this.successFeedback = ''
+						window.scrollTo(0, 0)
+					} else {
+						this.errorFeedback = ''
+						this.successFeedback = 'Connexion ok pour ' + responseData.user_display_name
+					}
+				})
+				.catch (error => {
+					console.log(error)
+				})
+				.finally (() => {
+					this.loading = false
+				})
+		}
+  	}
+}
+function getErrorMessage (errorCode) {
+	switch (errorCode) {
+		default:
+			return 'test'
 	}
 }
 </script>
