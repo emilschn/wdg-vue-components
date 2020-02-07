@@ -208,26 +208,28 @@ export default {
 
 function getErrorMessage (errorCode) {
 	switch (errorCode) {
+		case 'type_error':
+			return 'signin-signup.SIGNIN_SIGNUP_ERROR_TYPE_ERROR'
 		case 'user_email':
-			return 'signin-signup.__SIGNUP_ERROR_EMAIL_EMPTY'
+			return 'signin-signup.SIGNUP_ERROR_EMAIL_EMPTY'
 		case 'user_name':
-			return 'signin-signup.__SIGNUP_ERROR_EMAIL_FOUND'
+			return 'signin-signup.SIGNUP_ERROR_EMAIL_FOUND'
 		case 'user_email_incorrect':
-			return 'signin-signup.__SIGNUP_ERROR_EMAIL_INCORRECT'
+			return 'signin-signup.SIGNUP_ERROR_EMAIL_INCORRECT'
 		case 'user_firstname':
-			return 'signin-signup.__SIGNUP_ERROR_FIRSTNAME_EMPTY'
+			return 'signin-signup.SIGNUP_ERROR_FIRSTNAME_EMPTY'
 		case 'user_lastname':
-			return 'signin-signup.__SIGNUP_ERROR_LASTNAME_EMPTY'
+			return 'signin-signup.SIGNUP_ERROR_LASTNAME_EMPTY'
 		case 'user_password':
-			return 'signin-signup.__SIGNUP_ERROR_PASSWORD_EMPTY'
+			return 'signin-signup.SIGNUP_ERROR_PASSWORD_EMPTY'
 		case 'user_password_match':
-			return 'signin-signup.__SIGNUP_ERROR_PASSWORD_NOT_MATCHING'
+			return 'signin-signup.SIGNUP_ERROR_PASSWORD_NOT_MATCHING'
 		case 'validate_terms_check':
-			return 'signin-signup.__SIGNUP_ERROR_TERMS'
+			return 'signin-signup.SIGNUP_ERROR_TERMS'
 		case 'user_insert':
-			return 'signin-signup.__SIGNUP_ERROR_UNDEFINED'
+			return 'signin-signup.SIGNUP_ERROR_UNDEFINED'
 		case 'user_robot':
-			return 'signin-signup.__SIGNUP_ERROR_ROBOT'
+			return 'signin-signup.SIGNUP_ERROR_ROBOT'
 		default:
 			return ''
 	}

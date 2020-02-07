@@ -172,6 +172,8 @@ export default {
 
 function getErrorMessage (errorCode) {
 	switch (errorCode) {
+		case 'type_error':
+			return 'signin-signup.SIGNIN_SIGNUP_ERROR_TYPE_ERROR'
 		case 'empty_authentication':
 		case 'empty_username':
 		case 'empty_password':
