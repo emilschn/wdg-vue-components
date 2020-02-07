@@ -20,13 +20,13 @@ export default {
 
 	data () {
 		return {
-			currentOption: ""
+			currentOption: ''
 		}
 	},
 
 	watch: {
-		value: function(newValue){
-			this.currentOption = newValue;
+		value: function (newValue) {
+			this.currentOption = newValue
 		}
 	}
 }

@@ -1,7 +1,16 @@
 <template>
   <div id="app">
     <!-- <router-view/> -->
-    <LaunchProject :firstname="firstname"  :lastname="lastname"  :email="email"  :phonenumber="phonenumber"  :organame="organame"  :projectname="projectname"  :projectdescription="projectdescription" :existingprojects="existingprojects" />
+    <LaunchProject
+		:firstname="firstname"
+		:lastname="lastname"
+		:email="email"
+		:phonenumber="phonenumber"
+		:organame="organame"
+		:projectname="projectname"
+		:projectdescription="projectdescription"
+		:existingprojects="existingprojects"
+	/>
   </div>
 </template>
 
