@@ -15,8 +15,17 @@
 </template>
 
 <script>
-
+import i18n from '@/i18n'
 import LaunchProject from './components/LaunchProject.vue'
+import { localize } from 'vee-validate'
+localize({
+	fr: {
+		messages: {
+			required: i18n.t('validations.REQUIRED')
+		}
+	}
+})
+
 const initElements = document.querySelector('#app')
 
 export default {

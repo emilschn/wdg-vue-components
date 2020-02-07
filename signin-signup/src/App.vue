@@ -30,7 +30,7 @@ import { localize } from 'vee-validate'
 localize({
 	fr: {
 		messages: {
-			required: i18n.t('validations.required')
+			required: i18n.t('validations.REQUIRED')
 		}
 	}
 })

@@ -11,36 +11,36 @@
 		  :successFeedback="successFeedback"
 		  >
 			<WDGInput
-			  :placeholder="$t('common.__EMAIL_ADDRESS_PLACEHOLDER')"
+			  :placeholder="$t('common.EMAIL_ADDRESS_PLACEHOLDER')"
 			  id="coucou"
 			  name="coucou"
 			  type="text"
 			  validationRule="required"
 			  v-bind:valueReturn.sync="email"
 			  >
-			  <slot slot="label">{{ $t('common.__EMAIL_ADDRESS') }}</slot>
+			  <slot slot="label">{{ $t('common.EMAIL_ADDRESS') }}</slot>
 			</WDGInput>
 
 			<WDGInput
-			  :placeholder="$t('common.__FIRSTNAME_PLACEHOLDER')"
+			  :placeholder="$t('common.FIRSTNAME_PLACEHOLDER')"
 			  id="firstname"
 			  name="firstname"
 			  type="text"
 			  validationRule="required"
 			  v-bind:valueReturn.sync="firstname"
 			  >
-			  <slot slot="label">{{ $t('common.__FIRSTNAME') }}</slot>
+			  <slot slot="label">{{ $t('common.FIRSTNAME') }}</slot>
 			</WDGInput>
 
 			<WDGInput
-			  :placeholder="$t('common.__LASTNAME_PLACEHOLDER')"
+			  :placeholder="$t('common.LASTNAME_PLACEHOLDER')"
 			  id="lastname"
 			  name="lastname"
 			  type="text"
 			  validationRule="required"
 			  v-bind:valueReturn.sync="lastname"
 			  >
-			  <slot slot="label">{{ $t('common.__LASTNAME') }}</slot>
+			  <slot slot="label">{{ $t('common.LASTNAME') }}</slot>
 			</WDGInput>
 
 			<WDGInput
@@ -51,7 +51,7 @@
 			  validationRule="required"
 			  v-bind:valueReturn.sync="password"
 			  >
-			  <slot slot="label">{{ $t('common.__PASSWORD') }}</slot>
+			  <slot slot="label">{{ $t('common.PASSWORD') }}</slot>
 			</WDGInput>
 
 			<WDGInput
@@ -62,7 +62,7 @@
 			  validationRule="required"
 			  v-bind:valueReturn.sync="password2"
 			  >
-			  <slot slot="label">{{ $t('signin-signup.__PASSWORD_CONFIRMATION') }}</slot>
+			  <slot slot="label">{{ $t('signin-signup.PASSWORD_CONFIRMATION') }}</slot>
 			</WDGInput>
 
 			<WDGInput
@@ -74,7 +74,7 @@
 			  v-bind:honeypot="true"
 			  v-bind:valueReturn.sync="honeypot1"
 			  >
-			  <slot slot="label">{{ $t('common.__EMAIL_ADDRESS') }}</slot>
+			  <slot slot="label">{{ $t('common.EMAIL_ADDRESS') }}</slot>
 			</WDGInput>
 
 			<WDGInput
@@ -86,7 +86,7 @@
 			  v-bind:honeypot="true"
 			  v-bind:valueReturn.sync="honeypot2"
 			  >
-			  <slot slot="label">{{ $t('common.__PASSWORD') }}</slot>
+			  <slot slot="label">{{ $t('common.PASSWORD') }}</slot>
 			</WDGInput>
 
 			<WDGCheckbox
@@ -95,18 +95,18 @@
 			  validationRule="required"
 			  v-bind:valueReturn.sync="acceptterms"
 			  >
-			  <slot slot="label">{{ $t('signin-signup.__I_ACCEPT_THE') }} <a href="/cgu/" target="_blank">{{ $t('signin-signup.__GENERAL_USE_TERMS') }}</a></slot>
+			  <slot slot="label">{{ $t('signin-signup.I_ACCEPT_THE') }} <a href="/cgu/" target="_blank">{{ $t('signin-signup.GENERAL_USE_TERMS') }}</a></slot>
 			</WDGCheckbox>
 
 			<div class="required-fields">
-				* {{ $t('common.__REQUIRED_FIELDS') }}
+				* {{ $t('common.REQUIRED_FIELDS') }}
 			</div>
 
 			<WDGButton
 			  color="red"
 			  v-bind:disabled="loading"
 			  >
-				<slot slot="label">{{ $t('signin-signup.__CREATE_MY_ACCOUNT') }}</slot>
+				<slot slot="label">{{ $t('signin-signup.CREATE_MY_ACCOUNT') }}</slot>
 			</WDGButton>
 		</WDGForm>
 
@@ -123,7 +123,7 @@
 		  type="button"
 		  :clickEvent="switchView"
 		  >
-			<slot slot="label">{{ $t('signin-signup.__I_ALREADY_HAVE_AN_ACCOUNT') }}</slot>
+			<slot slot="label">{{ $t('signin-signup.I_ALREADY_HAVE_AN_ACCOUNT') }}</slot>
 		</WDGButton>
 	</div>
 </template>

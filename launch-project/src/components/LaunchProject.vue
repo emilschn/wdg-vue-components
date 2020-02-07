@@ -23,7 +23,7 @@
 	>
 		<!-- Créer un composant WDGInput, avec label, obligatoire ou pas, foction de validation des données, champ multiligne ou pas, commentaire -->
 		<WDGInput
-			placeholder="$t('__FIRSTNAME_PLACEHOLDER')"
+			placeholder="$t('common.FIRSTNAME_PLACEHOLDER')"
 			id="firstname"
 			name="firstname"
 			v-bind:multiline="false"
@@ -31,11 +31,11 @@
 			validationRule="required|name"
 			:value="firstname"
 		>
-			<slot slot="label">{{ $t('__FIRSTNAME') }}</slot>
+			<slot slot="label">{{ $t('common.FIRSTNAME') }}</slot>
 		</WDGInput>
 		<br>
 		<WDGInput
-			placeholder="$t('__LASTNAME_PLACEHOLDER')"
+			placeholder="$t('common.LASTNAME_PLACEHOLDER')"
 			id="lastname"
 			name="lastname"
 			v-bind:multiline="false"
@@ -43,7 +43,7 @@
 			validationRule="required|name"
 			:value="lastname"
 		>
-			<slot slot="label">{{ $t('__LASTNAME') }}</slot>
+			<slot slot="label">{{ $t('common.LASTNAME') }}</slot>
 		</WDGInput>
 		<br>
 		<WDGInput
@@ -71,7 +71,7 @@
 		</WDGInput>
 		<br>
 		<WDGInput
-			placeholder="$t('__EMAIL_ADDRESS_PLACEHOLDER')"
+			placeholder="$t('common.EMAIL_ADDRESS_PLACEHOLDER')"
 			id="email"
 			name="email"
 			v-bind:multiline="false"
@@ -80,7 +80,7 @@
 			:value="email"
 			comment="Cette adresse doit être différente de celle de votre compte personnel, utilisez une adresse telle que contact@votre-entreprise.fr"
 		>
-			<slot slot="label">{{ $t('__EMAIL_ADDRESS') }}</slot>
+			<slot slot="label">{{ $t('common.EMAIL_ADDRESS') }}</slot>
 		</WDGInput>
 		<br>
 		<WDGInput
@@ -117,7 +117,7 @@
 		</WDGCheckbox>
 
 		<div class="required-fields">
-			* {{ $t('__REQUIRED_FIELDS') }}
+			* {{ $t('common.REQUIRED_FIELDS') }}
 		</div>
 		<!-- Créer un composant bouton -->
 		<WDGButton color="red">
@@ -129,6 +129,7 @@
 </template>
 
 <script>
+// import i18n from '@/i18n'
 import WDGForm from '@/../../common/src/components/WDGForm'
 import WDGInput from '@/../../common/src/components/WDGInput'
 import WDGCheckbox from '@/../../common/src/components/WDGCheckbox'
@@ -142,7 +143,16 @@ export default {
 		WDGCheckbox,
 		WDGButton
 	},
-	props: ['firstname', 'lastname', 'phonenumber', 'organame', 'email', 'projectname', 'projectdescription', 'existingprojects']
+	props: {
+		firstname: { type: String, default: '' },
+		lastname: { type: String, default: '' },
+		phonenumber: { type: String, default: '' },
+		organame: { type: String, default: '' },
+		email: { type: String, default: '' },
+		projectname: { type: String, default: '' },
+		projectdescription: { type: String, default: '' },
+		existingprojects: { type: Object, default: null }
+	}
 }
 </script>
 
