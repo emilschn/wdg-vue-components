@@ -1,9 +1,9 @@
 <template>
   <div class="launch-project">
-	<h1>Lancement de levée de fonds</h1>
+	<h1>{{ $t('launch-project.TITLE') }}</h1>
 	<div v-if="existingprojects && existingprojects.projects.length>0" >
 		<p>
-			Vous avez déjà créé un (ou des) projet(s) sur la plateforme précédemment :<br>
+			{{ $t('launch-project.ALREADY_EXISTING_PROJECTS') }}<br>
 			<ul>
 				<li v-for="project in existingprojects.projects"  v-bind:key="project.id">
 					<a :href=project.url target="_blank">{{ project.name }}</a>
@@ -12,7 +12,7 @@
 		</p>
 
 		<p>
-			Si vous souhaitez tout de même créer un nouveau projet, veuillez remplir le formulaire ci-dessous.
+			{{ $t('launch-project.CREATE_NEW_PROJECT_INDEED') }}
 		</p>
 	</div>
 
@@ -47,7 +47,7 @@
 		</WDGInput>
 		<br>
 		<WDGInput
-			placeholder="Mon téléphone mobile"
+			placeholder="$t('common.PHONE_NUMBER_PLACEHOLDER')"
 			id="phone_number"
 			name="phone_number"
 			v-bind:multiline="false"
@@ -55,11 +55,11 @@
 			validationRule="required|phone_number"
 			:value="phonenumber"
 		>
-			<slot slot="label">Mon téléphone mobile</slot>
+			<slot slot="label">{{ $t('common.PHONE_NUMBER') }}</slot>
 		</WDGInput>
 		<br>
 		<WDGInput
-			placeholder="Nom de mon entreprise"
+			placeholder="$t('common.ORGA_NAME_PLACEHOLDER')"
 			id="company_name"
 			name="company_name"
 			v-bind:multiline="false"
@@ -67,7 +67,7 @@
 			validationRule="required"
 			:value="organame"
 		>
-			<slot slot="label">Nom de mon entreprise</slot>
+			<slot slot="label">{{ $t('common.ORGA_NAME') }}</slot>
 		</WDGInput>
 		<br>
 		<WDGInput
@@ -78,13 +78,13 @@
 			v-bind:optional="false"
 			validationRule="required|email"
 			:value="email"
-			comment="Cette adresse doit être différente de celle de votre compte personnel, utilisez une adresse telle que contact@votre-entreprise.fr"
+			comment="$t('launch-project.ORGA_MAIL_DIFFERENT')"
 		>
 			<slot slot="label">{{ $t('common.EMAIL_ADDRESS') }}</slot>
 		</WDGInput>
 		<br>
 		<WDGInput
-			placeholder="Nom du projet"
+			placeholder="$t('launch-project.PROJECT_NAME_PLACEHOLDER')"
 			id="project_name"
 			name="project_name"
 			v-bind:multiline="false"
@@ -92,11 +92,11 @@
 			validationRule="required"
 			:value="projectname"
 		>
-			<slot slot="label">Nom du projet</slot>
+			<slot slot="label">{{ $t('launch-project.PROJECT_NAME') }}</slot>
 		</WDGInput>
 		<br>
 		<WDGInput
-			placeholder="Description du projet"
+			placeholder="$t('launch-project.PROJECT_DESCRIPTION_PLACEHOLDER')"
 			id="project_description"
 			name="project_description"
 			v-bind:multiline="true"
@@ -104,7 +104,7 @@
 			validationRule="required"
 			:value="projectdescription"
 		>
-			<slot slot="label">Description du projet</slot>
+			<slot slot="label">{{ $t('launch-project.PROJECT_DESCRIPTION') }}</slot>
 		</WDGInput>
 		<br>
 
@@ -113,7 +113,7 @@
 			id="validate"
 			v-bind:optional="false"
 		>
-			<slot slot="label">Je valide les conditions particulières</slot>
+			<slot slot="label">{{ $t('launch-project.VALIDATE_CONDITIONS') }}</slot>
 		</WDGCheckbox>
 
 		<div class="required-fields">
@@ -121,7 +121,7 @@
 		</div>
 		<!-- Créer un composant bouton -->
 		<WDGButton color="red">
-			<slot slot="label">Valider</slot>
+			<slot slot="label">{{ $t('common.VALIDATE') }}</slot>
 		</WDGButton>
 	</WDGForm>
 
