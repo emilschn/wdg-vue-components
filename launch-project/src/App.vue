@@ -1,7 +1,11 @@
 <template>
-  <div id="app">
+  <div
+  	id="app"
+	:data-ajaxurl="ajaxUrl"
+	>
     <!-- <router-view/> -->
     <LaunchProject
+	  	:ajaxUrl="ajaxUrl"
 		:firstname="firstname"
 		:lastname="lastname"
 		:email="email"
@@ -32,6 +36,7 @@ export default {
   name: 'app',
 	data () {
 		return {
+			ajaxUrl: '',
 			firstname: '',
 			lastname: '',
 			phonenumber: '',
@@ -46,6 +51,7 @@ export default {
 		LaunchProject
 	},
 	created () {
+		this.ajaxUrl = initElements.dataset.ajaxurl
 		this.firstname = initElements.dataset.firstname
 		this.lastname = initElements.dataset.lastname
 		this.phonenumber = initElements.dataset.phonenumber

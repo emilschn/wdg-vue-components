@@ -18,7 +18,7 @@
 
 	<WDGForm
 		name="form-launch-project"
-		action="/launch-project/"
+		:action="ajaxUrl"
 		:onSubmitEvent="formSubmit"
 		v-bind:hasFiles="false"
 		:errorFeedback="errorFeedback"
@@ -122,7 +122,10 @@
 		<div class="required-fields">
 			* {{ $t('common.REQUIRED_FIELDS') }}
 		</div>
-		<WDGButton color="red">
+		<WDGButton
+			color="red"
+			v-bind:disabled="loading"
+		>
 			<slot slot="label">{{ $t('common.VALIDATE') }}</slot>
 		</WDGButton>
 	</WDGForm>
@@ -147,6 +150,7 @@ export default {
 		WDGButton
 	},
 	props: {
+		ajaxUrl: { type: String, default: '' },
 		firstname: { type: String, default: '' },
 		lastname: { type: String, default: '' },
 		phonenumber: { type: String, default: '' },
@@ -158,36 +162,57 @@ export default {
 	},
 	data () {
 		return {
+			loading: false,
 			errorFeedback: '',
 			successFeedback: ''
 		}
 	},
   	methods: {
 		formSubmit () {
+			this.loading = true
 			let data = new FormData()
 			data.append('action', 'create_project_form')
-			data.append('email', this.email)
+			data.append('email-organization', this.email)
 			data.append('firstname', this.firstname)
 			data.append('lastname', this.lastname)
 			data.append('phone', this.phonenumber)
-			data.append('organame', this.organame)
-			data.append('projectname', this.projectname)
-			data.append('projectdescription', this.projectdescription)
+			data.append('company-name', this.organame)
+			data.append('project-name', this.projectname)
+			data.append('project-description', this.projectdescription)
+			data.append('project-terms', 'true')
+			console.log('this.ajaxUrl ' + this.ajaxUrl)
 			axios
 				.post (this.ajaxUrl, data)
 				.then (response => {
 					let responseData = response.data
 					if (responseData.has_error === '1') {
-						this.errorFeedback = i18n.t(getErrorMessage(responseData.error_str))
+						this.errorFeedback = i18n.t(getErrorMessage(responseData.error_str, responseData.errors_create_orga))
 						this.successFeedback = ''
 						window.scrollTo(0, 0)
 					} else {
 						this.errorFeedback = ''
 						this.successFeedback = 'Connexion ok pour ' + responseData.user_display_name
 					}
+					console.log('test  ' + this.successFeedback)
 				})
 				.catch (error => {
-					console.log(error)
+					if (error.response) {
+						// The request was made and the server responded with a status code
+						// that falls out of the range of 2xx
+						console.log(error.response.data)
+						console.log(error.response.status)
+						console.log(error.response.headers)
+					} else if (error.request) {
+						// The request was made but no response was received
+						// `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+						// http.ClientRequest in node.js
+						console.log(error.request)
+					} else {
+						// Something happened in setting up the request that triggered an Error
+						console.log('Error', error.message)
+					}
+    				console.log(error.toJSON())
+					console.log(error.config)
 				})
 				.finally (() => {
 					this.loading = false
@@ -195,10 +220,12 @@ export default {
 		}
   	}
 }
-function getErrorMessage (errorCode) {
+function getErrorMessage (errorCode, errorsCreateOrga) {
 	switch (errorCode) {
+		case 'errors_create_orga':
+			return errorsCreateOrga
 		default:
-			return 'test'
+			return errorCode
 	}
 }
 </script>
