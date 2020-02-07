@@ -190,16 +190,17 @@ export default {
 					this.errorFeedback = i18n.t(getErrorMessage(responseData.error_str))
 					this.successFeedback = ''
 					window.scrollTo(0, 0)
+					this.loading = false
 				} else {
 					this.errorFeedback = ''
-					this.successFeedback = 'Connexion ok pour ' + responseData.user_display_name
+					window.location.reload(true)
 				}
 			})
 			.catch (error => {
 				console.log(error)
+				this.loading = false
 			})
 			.finally (() => {
-				this.loading = false
 			})
 	}
   }
