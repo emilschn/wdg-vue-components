@@ -6,7 +6,7 @@
 		  v-bind:disabled="loading"
 		  :clickEvent="getFacebookURL"
 		  >
-			<slot slot="label">{{ $t('signin-signup.__CONNECT_TO_FACEBOOK') }}</slot>
+			<slot slot="label">{{ $t('signin-signup.CONNECT_TO_FACEBOOK') }}</slot>
 		</WDGButton>
 	</div>
 </template>
