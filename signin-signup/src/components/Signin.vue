@@ -157,7 +157,7 @@ export default {
 					this.loading = false
 				} else {
 					this.errorFeedback = ''
-					window.location.reload(true)
+					window.location.href = responseData.url_redirect
 				}
 			})
 			.catch (error => {
