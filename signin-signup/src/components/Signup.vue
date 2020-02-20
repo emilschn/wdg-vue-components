@@ -193,7 +193,7 @@ export default {
 					this.loading = false
 				} else {
 					this.errorFeedback = ''
-					window.location.href = responseData.url_redirect
+					window.location = responseData.url_redirect
 				}
 			})
 			.catch (error => {
