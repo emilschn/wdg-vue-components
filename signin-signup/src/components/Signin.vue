@@ -150,7 +150,6 @@ export default {
 			.post (this.ajaxUrl, data)
 			.then (response => {
 				let responseData = response.data
-				console.log (responseData)
 				if (responseData.has_error === '1') {
 					this.errorFeedback = i18n.t(getErrorMessage(responseData.error_str))
 					this.successFeedback = ''
@@ -158,7 +157,7 @@ export default {
 					this.loading = false
 				} else {
 					this.errorFeedback = ''
-					// window.location.href = responseData.url_redirect
+					window.location.reload(true)
 				}
 			})
 			.catch (error => {
