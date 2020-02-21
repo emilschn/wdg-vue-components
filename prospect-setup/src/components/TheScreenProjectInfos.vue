@@ -4,8 +4,8 @@
 		  v-bind:hasPictoBalloon="false"
 		  :nMinutes="1"
 		  >
-			<slot slot="title">Mon projet</slot>
-			<slot slot="subtitle">Tous les champs sont obligatoires</slot>
+			<slot slot="title">{{ $t('project-setup.MY_PROJECT') }}</slot>
+			<slot slot="subtitle">{{ $t('project-setup.ALL_FIELDS_ARE_REQUIRED') }}</slot>
 		</TheTabTitle>
 
 		<div>

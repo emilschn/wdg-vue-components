@@ -36,5 +36,12 @@
 		"SIGNUP_ERROR_TERMS": "Merci de cocher la case pour accepter les conditions générales d'utilisation.",
 		"SIGNUP_ERROR_UNDEFINED": "Problème de création d'utilisateur.",
 		"SIGNUP_ERROR_ROBOT": "Merci de cocher la case confirmant que vous n'êtes pas un robot."
+	},
+	"project-setup": {
+		"PICTO_TITLE_BALLOON": "Mongolfière",
+		"PICTO_TITLE_TIMER": "Chronomètre",
+		"MY_PROJECT": "Mon projet",
+		"MINUTE": "minute | minutes",
+		"ALL_FIELDS_ARE_REQUIRED": "Tous les champs sont obligatoires"
 	}
 }

@@ -1,7 +1,7 @@
 <template>
 	<div class="the-tab-title">
 		<div class="the-tab-title-picto" v-if="hasPictoBalloon">
-			<img src="@/assets/picto-balloon.png" title="Mongolfière" />
+			<img src="@/assets/picto-balloon.png" :title="$t('project-setup.PICTO_TITLE_BALLOON')" />
 		</div>
 
 		<h2>
@@ -9,7 +9,8 @@
 		</h2>
 
 		<div class="the-tab-title-timer" v-if="nMinutes > 0">
-			{{ nMinutes }} minute
+			<img src="@/assets/picto-timer.png" :title="$t('project-setup.PICTO_TITLE_TIMER')" />
+			{{ nMinutes }} {{ $tc('project-setup.MINUTE', nMinutes ) }}
 		</div>
 
 		<div class="the-tab-title-subtitle">
