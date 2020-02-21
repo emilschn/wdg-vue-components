@@ -1,0 +1,59 @@
+<template>
+	<div class="the-tab-title">
+		<div class="the-tab-title-picto" v-if="hasPictoBalloon">
+			<img src="@/assets/picto-balloon.png" :title="$t('project-setup.PICTO_TITLE_BALLOON')" />
+		</div>
+
+		<h2>
+			<slot name="title"></slot>
+		</h2>
+
+		<div class="the-tab-title-timer" v-if="nMinutes > 0">
+			<img src="@/assets/picto-timer.png" :title="$t('project-setup.PICTO_TITLE_TIMER')" />
+			{{ nMinutes }} {{ $tc('project-setup.MINUTE', nMinutes ) }}
+		</div>
+
+		<div class="the-tab-title-subtitle">
+			<slot name="subtitle"></slot>
+		</div>
+	</div>
+</template>
+
+<script>
+
+export default {
+	name: 'TheTabTitle',
+	components: {
+	},
+	props: {
+		hasPictoBalloon: Boolean,
+		nMinutes: String
+	}
+}
+</script>
+
+<style>
+.the-tab-title {
+	text-align: center;
+}
+
+.the-tab-title h2 {
+	margin: 16px auto;
+	font-size: 35px;
+	font-weight: bold;
+}
+
+.the-tab-title .the-tab-title-timer {
+	margin: 8px auto;
+	font-size: 16px;
+	font-style: italic;
+	color: #ea4f51;
+}
+
+.the-tab-title .the-tab-title-subtitle {
+	margin: 8px auto;
+	font-size: 16px;
+	font-weight: bold;
+	color: #B4B4B4;
+}
+</style>

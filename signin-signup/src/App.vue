@@ -56,6 +56,7 @@ export default {
 	methods: {
 		switchView () {
 			this.currentView = (this.currentView === 'Signin') ? 'Signup' : 'Signin'
+			window.scrollTo(0, 0)
 		}
 	}
 }

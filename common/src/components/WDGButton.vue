@@ -45,7 +45,7 @@ button {
 	cursor: pointer;
 }
 button:disabled {
-	opacity: 0.8;
+	opacity: 0.7;
 }
 button.red {
 	border: 0 solid #ea4f51;
@@ -55,6 +55,11 @@ button.red {
 button.blue {
 	border: 0 solid #00879B;
 	background: #00879B;
+	color: #FFF
+}
+button.facebook {
+	border: 0 solid #3b5998;
+	background: #3b5998;
 	color: #FFF
 }
 button.transparent {

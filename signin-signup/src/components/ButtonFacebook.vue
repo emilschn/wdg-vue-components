@@ -1,7 +1,7 @@
 <template>
 	<div class="button-facebook">
 		<WDGButton
-		  color="blue"
+		  color="facebook"
 		  type="button"
 		  v-bind:disabled="loading"
 		  :clickEvent="getFacebookURL"

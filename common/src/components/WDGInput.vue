@@ -2,6 +2,7 @@
   	<div
       v-show="!honeypot"
 	  class="wdg-input"
+	  v-bind:class="{inline: isInline}"
 	  >
 		<label :for="id">
 			<slot name="label"></slot>
@@ -59,6 +60,7 @@ export default {
     placeholder: { type: String, default: 'Default placeholder' },
     multiline: { type: Boolean, default: false },
     disabled: { type: Boolean, default: false },
+	isInline: { type: Boolean, default: false },
     honeypot: { type: Boolean, default: false },
     validationRule: { type: String, default: '' },
     inputEvent: Function
@@ -78,4 +80,7 @@ export default {
 </script>
 
 <style>
+	div.inline {
+		display: inline-block;
+	}
 </style>

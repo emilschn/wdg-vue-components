@@ -27,6 +27,7 @@
 		"CONNECT_TO_FACEBOOK": "Se connecter avec Facebook",
 		"CREATE_MY_ACCOUNT": "Créer mon compte",
 		"I_ALREADY_HAVE_AN_ACCOUNT": "J'ai déjà un compte",
+		"SIGNIN_SIGNUP_ERROR_TYPE_ERROR": "Erreur de saisie.",
 		"SIGNIN_ERROR_EMPTY": "Merci de saisir votre identifiant et votre mot de passe.",
 		"SIGNIN_ERROR_NOT_FOUND": "Cet utilisateur n'existe pas.",
 		"SIGNIN_ERROR_INCORRECT_PASSWORD": "Le mot de passe saisi ne correspond pas.",
@@ -51,6 +52,13 @@
 		"PROJECT_DESCRIPTION": "Description du projet",
 		"PROJECT_DESCRIPTION_PLACEHOLDER": "Description du projet",
 		"VALIDATE_CONDITIONS": "Je valide les conditions particulières"
-
+	},
+	"project-setup": {
+		"PICTO_TITLE_BALLOON": "Mongolfière",
+		"PICTO_TITLE_TIMER": "Chronomètre",
+		"MASCOT_TEXT_INTRO": "Vos informations ne sont pas transmises à des tiers et restent confidentielles.",
+		"MY_PROJECT": "Mon projet",
+		"MINUTE": "minute | minutes",
+		"ALL_FIELDS_ARE_REQUIRED": "Tous les champs sont obligatoires"
 	}
 }

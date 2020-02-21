@@ -1,7 +1,10 @@
 <template>
-  <div class="my-select">
-	  <label :for="idSelect">{{ labelSelect }}</label>
-	  <select v-model="currentOption" :id="idSelect" :name="nameSelect" @change="onSelectedEvent(currentOption)">
+  <div
+    class="my-select"
+	v-bind:class="{inline: isInline}"
+	>
+	  <label :for="id" v-if="label != ''">{{ label }}</label>
+	  <select v-model="valueReturn" :id="id" :name="name" @change="onSelectedEvent">
 		  <option v-for="item in optionItems" :value="item.Id" :key="item.Id">{{ item.Text }}</option>
 	  </select>
   </div>
@@ -11,26 +14,30 @@
 export default {
 	name: 'WDGSelect',
 	props: {
-		idSelect: String,
-		labelSelect: String,
-		nameSelect: String,
-		optionItems: Array,
-		onSelectedEvent: Function
+		id: String,
+		label: String,
+		name: String,
+		value: String,
+		isInline: { type: Boolean, default: false },
+		hasFilter: { type: Boolean, default: false },
+		optionItems: Array
 	},
 
 	data () {
 		return {
-			currentOption: ''
+			valueReturn: this.value
 		}
 	},
-
-	watch: {
-		value: function (newValue) {
-			this.currentOption = newValue
+	methods: {
+		onSelectedEvent () {
+			this.$emit('update:valueReturn', this.valueReturn)
 		}
 	}
 }
 </script>
 
 <style>
+	div.inline {
+		display: inline-block;
+	}
 </style>

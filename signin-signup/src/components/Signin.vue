@@ -154,16 +154,17 @@ export default {
 					this.errorFeedback = i18n.t(getErrorMessage(responseData.error_str))
 					this.successFeedback = ''
 					window.scrollTo(0, 0)
+					this.loading = false
 				} else {
 					this.errorFeedback = ''
-					this.successFeedback = 'Connexion ok pour ' + responseData.user_display_name
+					window.location = responseData.url_redirect
 				}
 			})
 			.catch (error => {
 				console.log(error)
+				this.loading = false
 			})
 			.finally (() => {
-				this.loading = false
 			})
 	}
   }
@@ -171,6 +172,8 @@ export default {
 
 function getErrorMessage (errorCode) {
 	switch (errorCode) {
+		case 'type_error':
+			return 'signin-signup.SIGNIN_SIGNUP_ERROR_TYPE_ERROR'
 		case 'empty_authentication':
 		case 'empty_username':
 		case 'empty_password':
