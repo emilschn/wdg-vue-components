@@ -8,6 +8,10 @@
 			<slot slot="subtitle">{{ $t('project-setup.ALL_FIELDS_ARE_REQUIRED') }}</slot>
 		</TheTabTitle>
 
+		<WDGMascot type="face-2">
+			<slot slot="text">{{ $t('project-setup.MASCOT_TEXT_INTRO') }}</slot>
+		</WDGMascot>
+
 		<div>
 			Ma structure est
 			<WDGSelect
@@ -45,13 +49,15 @@
 
 <script>
 import TheTabTitle from '@/components/TheTabTitle'
-import WDGSelect from '@/../../common/src/components/WDGSelect'
+import WDGMascot from '@/../../common/src/components/WDGMascot'
 import WDGInput from '@/../../common/src/components/WDGInput'
+import WDGSelect from '@/../../common/src/components/WDGSelect'
 
 export default {
 	name: 'TheScreenProjectInfos',
 	components: {
 		TheTabTitle,
+		WDGMascot,
 		WDGInput,
 		WDGSelect
 	},

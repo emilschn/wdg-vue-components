@@ -46,6 +46,7 @@ export default {
 .the-tab-title .the-tab-title-timer {
 	margin: 8px auto;
 	font-size: 16px;
+	font-style: italic;
 	color: #ea4f51;
 }
 

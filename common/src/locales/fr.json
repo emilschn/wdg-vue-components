@@ -40,6 +40,7 @@
 	"project-setup": {
 		"PICTO_TITLE_BALLOON": "Mongolfière",
 		"PICTO_TITLE_TIMER": "Chronomètre",
+		"MASCOT_TEXT_INTRO": "Vos informations ne sont pas transmises à des tiers et restent confidentielles.",
 		"MY_PROJECT": "Mon projet",
 		"MINUTE": "minute | minutes",
 		"ALL_FIELDS_ARE_REQUIRED": "Tous les champs sont obligatoires"
