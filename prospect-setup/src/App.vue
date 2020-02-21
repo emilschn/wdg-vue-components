@@ -14,4 +14,8 @@ export default {
 </script>
 
 <style>
+body {
+	font-family: Trebuchet MS,sans-serif;
+	color: #333;
+}
 </style>

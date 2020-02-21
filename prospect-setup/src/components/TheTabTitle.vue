@@ -1,0 +1,57 @@
+<template>
+	<div class="the-tab-title">
+		<div class="the-tab-title-picto" v-if="hasPictoBalloon">
+			<img src="@/assets/picto-balloon.png" title="Mongolfière" />
+		</div>
+
+		<h2>
+			<slot name="title"></slot>
+		</h2>
+
+		<div class="the-tab-title-timer" v-if="nMinutes > 0">
+			{{ nMinutes }} minute
+		</div>
+
+		<div class="the-tab-title-subtitle">
+			<slot name="subtitle"></slot>
+		</div>
+	</div>
+</template>
+
+<script>
+
+export default {
+	name: 'TheTabTitle',
+	components: {
+	},
+	props: {
+		hasPictoBalloon: Boolean,
+		nMinutes: String
+	}
+}
+</script>
+
+<style>
+.the-tab-title {
+	text-align: center;
+}
+
+.the-tab-title h2 {
+	margin: 16px auto;
+	font-size: 35px;
+	font-weight: bold;
+}
+
+.the-tab-title .the-tab-title-timer {
+	margin: 8px auto;
+	font-size: 16px;
+	color: #ea4f51;
+}
+
+.the-tab-title .the-tab-title-subtitle {
+	margin: 8px auto;
+	font-size: 16px;
+	font-weight: bold;
+	color: #B4B4B4;
+}
+</style>

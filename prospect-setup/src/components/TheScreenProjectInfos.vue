@@ -1,41 +1,57 @@
 <template>
-  <div class="the-screen-project-infos">
-    Coucou !<br><br>
+	<div class="the-screen-project-infos">
+		<TheTabTitle
+		  v-bind:hasPictoBalloon="false"
+		  :nMinutes="1"
+		  >
+			<slot slot="title">Mon projet</slot>
+			<slot slot="subtitle">Tous les champs sont obligatoires</slot>
+		</TheTabTitle>
 
-  	<div>
-		Ma structure est
-		<WDGSelect id="organizationType" name="organizationType" :value="organizationType" v-bind:isInline="true" v-bind:hasFilter="true" :optionItems="organizationTypeList" v-bind:valueReturn.sync="organizationType" />
-	</div>
+		<div>
+			Ma structure est
+			<WDGSelect
+			  id="organizationType"
+			  name="organizationType"
+			  :value="organizationType"
+			  v-bind:isInline="true"
+			  v-bind:hasFilter="true"
+			  :optionItems="organizationTypeList"
+			  v-bind:valueReturn.sync="organizationType"
+			  />
+		</div>
 
-	<div v-if="organizationType === 'not-created'">
-		sous le nom de <WDGInput v-bind:isInline="true" />.
-	</div>
+		<div v-if="organizationType === 'not-created'">
+			sous le nom de <WDGInput v-bind:isInline="true" />.
+		</div>
 
-	<div v-else>
-		du nom de <WDGInput v-bind:isInline="true" />, immatriculée <WDGInput v-bind:isInline="true" />.
-	</div>
+		<div v-else>
+			du nom de <WDGInput v-bind:isInline="true" />, immatriculée <WDGInput v-bind:isInline="true" />.
+		</div>
 
-	<div>
-		J'ai besoin de <WDGInput v-bind:isInline="true" /> €,<br>
-		pour mon actitivté de <WDGInput v-bind:isInline="true" /><br>
-		J'ai connu WE DO GOOD via <WDGSelect v-bind:isInline="true" />
-	</div>
+		<div>
+			J'ai besoin de <WDGInput v-bind:isInline="true" /> €,<br>
+			pour mon actitivté de <WDGInput v-bind:isInline="true" /><br>
+			J'ai connu WE DO GOOD via <WDGSelect v-bind:isInline="true" />
+		</div>
 
-	<div v-if="canShowUserInfos">
-		Je m'appelle <WDGInput v-bind:isInline="true" />, vous pouvez me joindre<br>
-		à l'adresse mail <WDGInput v-bind:isInline="true" /><br>
-		et au numéro de téléphone <WDGInput v-bind:isInline="true" />.
+		<div v-if="canShowUserInfos">
+			Je m'appelle <WDGInput v-bind:isInline="true" />, vous pouvez me joindre<br>
+			à l'adresse mail <WDGInput v-bind:isInline="true" /><br>
+			et au numéro de téléphone <WDGInput v-bind:isInline="true" />.
+		</div>
 	</div>
-  </div>
 </template>
 
 <script>
+import TheTabTitle from '@/components/TheTabTitle'
 import WDGSelect from '@/../../common/src/components/WDGSelect'
 import WDGInput from '@/../../common/src/components/WDGInput'
 
 export default {
 	name: 'TheScreenProjectInfos',
 	components: {
+		TheTabTitle,
 		WDGInput,
 		WDGSelect
 	},
