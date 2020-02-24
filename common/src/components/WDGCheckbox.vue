@@ -43,4 +43,42 @@ export default {
 </script>
 
 <style>
+	.wdg-form .wdg-checkbox {
+		margin-bottom: 16px;
+	}
+	.wdg-form .wdg-checkbox label {
+		position: relative;
+		padding-left: 32px;
+		line-height: 20px;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+	.wdg-form .wdg-checkbox label input {
+		position: absolute;
+		opacity: 0;
+		height: 0;
+		width: 0;
+	}
+	.wdg-form .wdg-checkbox label .checkmark {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 20px;
+		width: 20px;
+		background-color: #ffffff;
+		border: 1px solid #333;
+	}
+	.wdg-form .wdg-checkbox label input:checked ~ .checkmark {
+		background-color: #333;
+	}
+	.wdg-form .wdg-checkbox label.checkmark:after {
+		content: "";
+		position: absolute;
+		display: none;
+	}
+	.wdg-form .wdg-checkbox label input:checked ~ .checkmark:after {
+		display: block;
+	}
 </style>
