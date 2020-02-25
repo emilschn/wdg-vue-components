@@ -14,6 +14,8 @@
 		:projectname="projectname"
 		:projectdescription="projectdescription"
 		:existingprojects="existingprojects"
+		:existingorganisations="existingorganisations"
+		:urlcgu="urlcgu"
 	/>
   </div>
 </template>
@@ -44,6 +46,8 @@ export default {
 			email: '',
 			projectname: '',
 			projectdescription: '',
+			existingorganisations: '',
+			urlcgu: '',
 			existingprojects: ''
 		}
 	},
@@ -62,6 +66,11 @@ export default {
 		if (initElements.dataset.existingprojects) {
 			this.existingprojects = JSON.parse(initElements.dataset.existingprojects)
 		}
+		if (initElements.dataset.existingorganisations) {
+			this.existingorganisations = JSON.parse(initElements.dataset.existingorganisations)
+		}
+		console.log(initElements.dataset.existingorganisations)
+		this.urlcgu = initElements.dataset.urlcgu
 	}
 }
 </script>

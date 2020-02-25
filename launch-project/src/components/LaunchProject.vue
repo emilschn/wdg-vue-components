@@ -25,98 +25,108 @@
 		:successFeedback="successFeedback"
 	>
 		<WDGInput
-			placeholder="$t('common.FIRSTNAME_PLACEHOLDER')"
+			:placeholder="$t('common.FIRSTNAME_PLACEHOLDER')"
 			id="firstname"
 			name="firstname"
 			v-bind:multiline="false"
-			v-bind:optional="false"
 			validationRule="required|name"
 			:value="firstname"
 		>
 			<slot slot="label">{{ $t('common.FIRSTNAME') }}</slot>
 		</WDGInput>
-		<br>
 		<WDGInput
-			placeholder="$t('common.LASTNAME_PLACEHOLDER')"
+			:placeholder="$t('common.LASTNAME_PLACEHOLDER')"
 			id="lastname"
 			name="lastname"
 			v-bind:multiline="false"
-			v-bind:optional="false"
 			validationRule="required|name"
 			:value="lastname"
 		>
 			<slot slot="label">{{ $t('common.LASTNAME') }}</slot>
 		</WDGInput>
-		<br>
 		<WDGInput
-			placeholder="$t('common.PHONE_NUMBER_PLACEHOLDER')"
+			:placeholder="$t('common.PHONE_NUMBER_PLACEHOLDER')"
 			id="phone_number"
 			name="phone_number"
 			v-bind:multiline="false"
-			v-bind:optional="false"
 			validationRule="required|phone_number"
 			:value="phonenumber"
 		>
 			<slot slot="label">{{ $t('common.PHONE_NUMBER') }}</slot>
 		</WDGInput>
-		<br>
-		<!-- Attention, il peut y avoir plusieurs orga existantes pour un meme utilisateur, prévoir le cas avec un select  -->
+		<div v-if="existingorganisations && existingorganisations.organisations.length>0" >
+			<WDGSelect
+			  id="company_name"
+			  name="company_name"
+			  :label="$t('common.ORGA_NAME')"
+			  :value="firstorga_id"
+			  v-bind:isInline="false"
+			  v-bind:hasFilter="true"
+			  validationRule="required"
+			  :optionItems="existingorganisations.organisations"
+			  v-bind:valueReturn.sync="organame"
+			  />
+			<div v-if="organame === 'new_orga'">
+				<WDGInput
+					:placeholder="$t('common.ORGA_NAME_PLACEHOLDER')"
+					id="company_name"
+					name="company_name"
+					v-bind:multiline="false"
+				>
+				</WDGInput>
+			</div>
+			<div v-else>
+				<br>
+			</div>
+		</div>
+		<div v-else>
+			<WDGInput
+				:placeholder="$t('common.ORGA_NAME_PLACEHOLDER')"
+				id="company_name"
+				name="company_name"
+				v-bind:multiline="false"
+				validationRule="required"
+				:value="organame"
+			>
+				<slot slot="label">{{ $t('common.ORGA_NAME') }}</slot>
+			</WDGInput>
+		</div>
 		<WDGInput
-			placeholder="$t('common.ORGA_NAME_PLACEHOLDER')"
-			id="company_name"
-			name="company_name"
-			v-bind:multiline="false"
-			v-bind:optional="false"
-			validationRule="required"
-			:value="organame"
-		>
-			<slot slot="label">{{ $t('common.ORGA_NAME') }}</slot>
-		</WDGInput>
-		<br>
-		<WDGInput
-			placeholder="$t('common.EMAIL_ADDRESS_PLACEHOLDER')"
+			:placeholder="$t('common.EMAIL_ADDRESS_PLACEHOLDER')"
 			id="email"
 			name="email"
 			v-bind:multiline="false"
-			v-bind:optional="false"
 			validationRule="required|email"
 			:value="email"
-			comment="$t('launch-project.ORGA_MAIL_DIFFERENT')"
+			:comment="$t('launch-project.ORGA_MAIL_DIFFERENT')"
 		>
 			<slot slot="label">{{ $t('common.EMAIL_ADDRESS') }}</slot>
 		</WDGInput>
-		<br>
 		<WDGInput
-			placeholder="$t('launch-project.PROJECT_NAME_PLACEHOLDER')"
+			:placeholder="$t('launch-project.PROJECT_NAME_PLACEHOLDER')"
 			id="project_name"
 			name="project_name"
 			v-bind:multiline="false"
-			v-bind:optional="false"
 			validationRule="required"
 			:value="projectname"
 		>
 			<slot slot="label">{{ $t('launch-project.PROJECT_NAME') }}</slot>
 		</WDGInput>
-		<br>
 		<WDGInput
-			placeholder="$t('launch-project.PROJECT_DESCRIPTION_PLACEHOLDER')"
+			:placeholder="$t('launch-project.PROJECT_DESCRIPTION_PLACEHOLDER')"
 			id="project_description"
 			name="project_description"
 			v-bind:multiline="true"
-			v-bind:optional="false"
 			validationRule="required"
 			:value="projectdescription"
 		>
 			<slot slot="label">{{ $t('launch-project.PROJECT_DESCRIPTION') }}</slot>
 		</WDGInput>
-		<br>
-
 		<WDGCheckbox
 			id="validate"
 			v-bind:optional="false"
 		>
-			<!-- envoyer home_url -->
-			<slot slot="label"><a href="<?php echo home_url('/a-propos/cgu/conditions-particulieres/'); ?>" target="_blank">{{ $t('launch-project.VALIDATE_CONDITIONS') }}</a></slot>
+			<slot slot="label"><a :href="urlcgu" target="_blank">{{ $t('launch-project.VALIDATE_CONDITIONS') }}</a></slot>
 		</WDGCheckbox>
 
 		<div class="required-fields">
@@ -140,6 +150,7 @@ import WDGForm from '@/../../common/src/components/WDGForm'
 import WDGInput from '@/../../common/src/components/WDGInput'
 import WDGCheckbox from '@/../../common/src/components/WDGCheckbox'
 import WDGButton from '@/../../common/src/components/WDGButton'
+import WDGSelect from '@/../../common/src/components/WDGSelect'
 
 export default {
 	name: 'LaunchProject',
@@ -147,7 +158,8 @@ export default {
 		WDGForm,
 		WDGInput,
 		WDGCheckbox,
-		WDGButton
+		WDGButton,
+		WDGSelect
 	},
 	props: {
 		ajaxUrl: { type: String, default: '' },
@@ -158,14 +170,20 @@ export default {
 		email: { type: String, default: '' },
 		projectname: { type: String, default: '' },
 		projectdescription: { type: String, default: '' },
-		existingprojects: { type: Object, default: null }
+		urlcgu: { type: String, default: '' },
+		existingprojects: { type: Object, default: null },
+		existingorganisations: { type: Object, default: null }
 	},
 	data () {
 		return {
 			loading: false,
 			errorFeedback: '',
-			successFeedback: ''
+			successFeedback: '',
+			firstorga_id: this.existingorganisations.organisations[0].Id
 		}
+	},
+	created () {
+		console.log(this.existingorganisations.organisations.length)
 	},
   	methods: {
 		formSubmit () {
