@@ -12,7 +12,8 @@
 		"ORGA_NAME": "Nom de l'entreprise",
 		"ORGA_NAME_PLACEHOLDER": "Nom de mon entreprise",
 		"REQUIRED_FIELDS": "Champs obligatoires",
-		"VALIDATE": "Valider"
+		"VALIDATE": "Valider",
+		"REQUEST_ERROR": "Problème d'envoi de requête"
 	},
 	"validations": {
 		"REQUIRED": "Ce champ est obligatoire"
@@ -51,7 +52,8 @@
 		"PROJECT_NAME_PLACEHOLDER": "Nom du projet",
 		"PROJECT_DESCRIPTION": "Description du projet",
 		"PROJECT_DESCRIPTION_PLACEHOLDER": "Description du projet",
-		"VALIDATE_CONDITIONS": "Je valide les conditions particulières"
+		"VALIDATE_CONDITIONS": "Je valide les conditions particulières",
+		"EMPTY_OR_WRONG_FORMAT_FIELD": "Un des champs est vide ou n'est pas au bon format"
 	},
 	"project-setup": {
 		"PICTO_TITLE_BALLOON": "Mongolfière",

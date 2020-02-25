@@ -6,7 +6,7 @@
 	  >
 		<label :for="id">
 			<slot name="label"></slot>
-			<span v-if="isRequired"> *</span>
+			<span v-if="showRequiredStar"> *</span>
 		</label>
 		<slot name="comment"></slot>
 
@@ -74,6 +74,11 @@ export default {
 	methods: {
 		onInputLocalEvent () {
 			this.$emit('update:valueReturn', this.valueReturn)
+		}
+	},
+	computed: {
+		showRequiredStar () {
+			return this.isRequired && !!this.$slots.label
 		}
 	}
 }

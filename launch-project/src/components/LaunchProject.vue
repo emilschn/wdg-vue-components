@@ -18,7 +18,7 @@
 
 	<WDGForm
 		name="form-launch-project"
-		:action="ajaxUrl"
+		:action="ajaxurl"
 		:onSubmitEvent="formSubmit"
 		v-bind:hasFiles="false"
 		:errorFeedback="errorFeedback"
@@ -31,6 +31,7 @@
 			v-bind:multiline="false"
 			validationRule="required|name"
 			:value="firstname"
+			v-bind:valueReturn.sync="firstname"
 		>
 			<slot slot="label">{{ $t('common.FIRSTNAME') }}</slot>
 		</WDGInput>
@@ -41,6 +42,7 @@
 			v-bind:multiline="false"
 			validationRule="required|name"
 			:value="lastname"
+			v-bind:valueReturn.sync="lastname"
 		>
 			<slot slot="label">{{ $t('common.LASTNAME') }}</slot>
 		</WDGInput>
@@ -51,6 +53,7 @@
 			v-bind:multiline="false"
 			validationRule="required|phone_number"
 			:value="phonenumber"
+			v-bind:valueReturn.sync="phonenumber"
 		>
 			<slot slot="label">{{ $t('common.PHONE_NUMBER') }}</slot>
 		</WDGInput>
@@ -72,6 +75,8 @@
 					id="company_name"
 					name="company_name"
 					v-bind:multiline="false"
+					validationRule="required"
+					v-bind:valueReturn.sync="new_organame"
 				>
 				</WDGInput>
 			</div>
@@ -87,6 +92,7 @@
 				v-bind:multiline="false"
 				validationRule="required"
 				:value="organame"
+				v-bind:valueReturn.sync="organame"
 			>
 				<slot slot="label">{{ $t('common.ORGA_NAME') }}</slot>
 			</WDGInput>
@@ -98,9 +104,10 @@
 			v-bind:multiline="false"
 			validationRule="required|email"
 			:value="email"
-			:comment="$t('launch-project.ORGA_MAIL_DIFFERENT')"
+			v-bind:valueReturn.sync="email"
 		>
 			<slot slot="label">{{ $t('common.EMAIL_ADDRESS') }}</slot>
+			<slot slot="comment">{{ $t('launch-project.ORGA_MAIL_DIFFERENT') }}</slot>
 		</WDGInput>
 		<WDGInput
 			:placeholder="$t('launch-project.PROJECT_NAME_PLACEHOLDER')"
@@ -109,6 +116,7 @@
 			v-bind:multiline="false"
 			validationRule="required"
 			:value="projectname"
+			v-bind:valueReturn.sync="projectname"
 		>
 			<slot slot="label">{{ $t('launch-project.PROJECT_NAME') }}</slot>
 		</WDGInput>
@@ -119,6 +127,7 @@
 			v-bind:multiline="true"
 			validationRule="required"
 			:value="projectdescription"
+			v-bind:valueReturn.sync="projectdescription"
 		>
 			<slot slot="label">{{ $t('launch-project.PROJECT_DESCRIPTION') }}</slot>
 		</WDGInput>
@@ -162,11 +171,10 @@ export default {
 		WDGSelect
 	},
 	props: {
-		ajaxUrl: { type: String, default: '' },
+		ajaxurl: { type: String, default: '' },
 		firstname: { type: String, default: '' },
 		lastname: { type: String, default: '' },
 		phonenumber: { type: String, default: '' },
-		organame: { type: String, default: '' },
 		email: { type: String, default: '' },
 		projectname: { type: String, default: '' },
 		projectdescription: { type: String, default: '' },
@@ -179,7 +187,8 @@ export default {
 			loading: false,
 			errorFeedback: '',
 			successFeedback: '',
-			firstorga_id: this.existingorganisations.organisations[0].Id
+			firstorga_id: this.existingorganisations.organisations[0].Id,
+			organame: this.existingorganisations.organisations[0].Id
 		}
 	},
 	created () {
@@ -195,23 +204,27 @@ export default {
 			data.append('lastname', this.lastname)
 			data.append('phone', this.phonenumber)
 			data.append('company-name', this.organame)
+			data.append('new-company-name', this.new_organame)
 			data.append('project-name', this.projectname)
 			data.append('project-description', this.projectdescription)
 			data.append('project-terms', 'true')
-			console.log('this.ajaxUrl ' + this.ajaxUrl)
+			console.log('this.organame ' + this.organame)
+			console.log('this.new_organame ' + this.new_organame)
 			axios
-				.post (this.ajaxUrl, data)
+				.post (this.ajaxurl, data)
 				.then (response => {
 					let responseData = response.data
 					if (responseData.has_error === '1') {
-						this.errorFeedback = i18n.t(getErrorMessage(responseData.error_str, responseData.errors_create_orga))
+						this.errorFeedback = getErrorMessage(responseData.error_str, responseData.errors_create_orga)
 						this.successFeedback = ''
+						console.log('ERROR  ' + responseData.error_str + '--' + responseData.errors_create_orga)
 						window.scrollTo(0, 0)
 					} else {
 						this.errorFeedback = ''
-						this.successFeedback = 'Connexion ok pour ' + responseData.user_display_name
+						this.successFeedback = 'Redirection vers ' + responseData.url_redirect
+						console.log('SUCCESS  ' + this.successFeedback)
+						window.location = responseData.url_redirect
 					}
-					console.log('test  ' + this.successFeedback)
 				})
 				.catch (error => {
 					if (error.response) {
@@ -231,8 +244,12 @@ export default {
 					}
     				console.log(error.toJSON())
 					console.log(error.config)
+					this.errorFeedback = getErrorMessage('request_error')
+					this.successFeedback = ''
+					window.scrollTo(0, 0)
 				})
 				.finally (() => {
+					console.log('finally')
 					this.loading = false
 				})
 		}
@@ -242,6 +259,10 @@ function getErrorMessage (errorCode, errorsCreateOrga) {
 	switch (errorCode) {
 		case 'errors_create_orga':
 			return errorsCreateOrga
+		case 'empty_or_wrong_format_field': // ne devrait pas arriver
+			return i18n.t('launch-project.EMPTY_OR_WRONG_FORMAT_FIELD')
+		case 'request_error':
+			return i18n.t('common.REQUEST_ERROR')
 		default:
 			return errorCode
 	}
