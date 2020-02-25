@@ -1,6 +1,6 @@
 <template>
-	<div class="wdg-mascot">
-		<div :class="type">
+	<div class="wdg-mascot" :class="type">
+		<div>
 			<slot name="text"></slot>
 		</div>
 		<img src="@/../../common/src/assets/mascotte-1.png" v-if="type == 'face-1'" />
@@ -33,9 +33,9 @@ export default {
 	color: #555555;
 	background: #f4f2f2;
 }
-/* .wdg-mascot div.face-1 {
+/* .wdg-mascot.face-1 div {
 }
-.wdg-mascot div.face-2 {
+.wdg-mascot.face-2 div {
 } */
 .wdg-mascot img {
 	margin-top: -16px;

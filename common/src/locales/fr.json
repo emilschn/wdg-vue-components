@@ -56,9 +56,31 @@
 	"project-setup": {
 		"PICTO_TITLE_BALLOON": "Mongolfière",
 		"PICTO_TITLE_TIMER": "Chronomètre",
-		"MASCOT_TEXT_INTRO": "Vos informations ne sont pas transmises à des tiers et restent confidentielles.",
-		"MY_PROJECT": "Mon projet",
 		"MINUTE": "minute | minutes",
-		"ALL_FIELDS_ARE_REQUIRED": "Tous les champs sont obligatoires"
+		"CONTINUE": "Continuer",
+		"project-infos": {
+			"TITLE": "Mon projet",
+			"SUBTITLE": "Tous les champs sont obligatoires",
+			"MASCOT_TEXT_1": "Vos informations ne sont pas transmises à des tiers et restent confidentielles.",
+			"MASCOT_TEXT_2": "Une fois que votre e-mail est renseigné, vous pouvez reprendre votre test à tout moment.",
+			"FORM_TEXT_ORGANIZATION_TYPE": "Ma structure est",
+			"FORM_TEXT_ORGANIZATION_NOT_CREATED_NAME": "sous le nom de",
+			"FORM_TEXT_ORGANIZATION_CREATED_NAME": "du nom de",
+			"FORM_TEXT_ORGANIZATION_ID": "immatriculée",
+			"FORM_TEXT_AMOUNT_NEEDED": "J'ai besoin de",
+			"FORM_TEXT_ORGANIZATION_DESCRIPTION": "pour mon activité de",
+			"FORM_TEXT_SOURCE_PROSPECT": "J'ai connu WE DO GOOD via",
+			"FORM_TEXT_USER_NAME": "Je m'appelle",
+			"FORM_TEXT_USER_EMAIL": "vous pouvez me joindre à l'adresse mail",
+			"FORM_TEXT_USER_PHONE": "et au numéro de téléphone",
+			"PLACEHOLDER_PROJECT_NAME": "Mon projet",
+			"PLACEHOLDER_PROJECT_ID": "Numéro SIREN",
+			"PLACEHOLDER_PROJECT_DESCRIPTION": "Mon activité...",
+			"PLACEHOLDER_USER_NAME": "Prénom Nom",
+			"PLACEHOLDER_USER_EMAIL": "contact@mon-projet.fr",
+			"PLACEHOLDER_USER_PHONE": "06 06 06 06 06",
+			"ORGANIZATION_TYPE_LIST_NOT_CREATED": "En cours de création",
+			"ORGANIZATION_TYPE_LIST_SAS": "Une SAS"
+		}
 	}
 }
