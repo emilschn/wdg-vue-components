@@ -38,10 +38,29 @@
 		"SIGNUP_ERROR_ROBOT": "Merci de cocher la case confirmant que vous n'êtes pas un robot."
 	},
 	"project-setup": {
+		"TITLE": "Mon éligibilité aux royalties",
 		"PICTO_TITLE_BALLOON": "Mongolfière",
 		"PICTO_TITLE_TIMER": "Chronomètre",
 		"MINUTE": "minute | minutes",
 		"CONTINUE": "Continuer",
+		"START": "Commencer",
+		"footer": {
+			"SUCCESS_TEXT_1": "82%",
+			"SUCCESS_TEXT_2": "de levées de fonds réussies",
+			"TIME_TEXT_1": "1 à 4 mois",
+			"TIME_TEXT_2": "pour débloquer les fonds"
+		},
+		"intro": {
+			"TITLE": "Mon projet est-il éligible ?",
+			"MASCOT_TEXT_1": "Vous aurez besoin:",
+			"MASCOT_TEXT_2": "De votre chiffre d'affaires prévisionnel",
+			"MASCOT_TEXT_3": "De votre niveau de marge",
+			"MASCOT_TEXT_4": "De connaître votre besoin de financement",
+			"TEXT_1": "Résultat immédiat envoyé par mail.",
+			"TEXT_2": "Possibilité de prise de rendez-vous pour démarrer la levée de fonds au plus vite !",
+			"TEXT_3": "Réponse en env. 5 min.",
+			"TEXT_4": "Vous pouvez enregistrer, quitter, et revenir à tout moment !"
+		},
 		"project-infos": {
 			"TITLE": "Mon projet",
 			"SUBTITLE": "Tous les champs sont obligatoires",
