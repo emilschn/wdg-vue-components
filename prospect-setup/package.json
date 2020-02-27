@@ -12,7 +12,8 @@
     "axios": "^0.19.2",
     "core-js": "^3.6.4",
     "vue": "^2.6.11",
-    "vue-i18n": "^8.0.0"
+    "vue-i18n": "^8.0.0",
+    "vue-router": "^3.1.6"
   },
   "devDependencies": {
     "@kazupon/vue-i18n-loader": "^0.3.0",

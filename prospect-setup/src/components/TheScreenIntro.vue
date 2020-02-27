@@ -33,12 +33,14 @@
             </WDGMascot>
         </div>
 		<WDGForm>
-            <WDGButton
-                color="red"
-                type="button"
-                >
-                <slot slot="label">{{ $t('project-setup.START') }}</slot>
-            </WDGButton>
+            <router-link to="project-infos">
+                <WDGButton
+                    color="red"
+                    type="button"
+                    >
+                    <slot slot="label">{{ $t('project-setup.START') }}</slot>
+                </WDGButton>
+            </router-link>
 		</WDGForm>
 	</div>
 </template>
