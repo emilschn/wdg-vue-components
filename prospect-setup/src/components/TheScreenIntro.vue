@@ -32,16 +32,16 @@
                 </slot>
             </WDGMascot>
         </div>
-		<WDGForm>
-            <router-link to="project-infos">
-                <WDGButton
-                    color="red"
-                    type="button"
-                    >
-                    <slot slot="label">{{ $t('project-setup.START') }}</slot>
-                </WDGButton>
-            </router-link>
-		</WDGForm>
+        <router-link to="project-infos">
+            <WDGButton
+                color="red"
+                type="button"
+                >
+                <slot slot="label">{{ $t('project-setup.START') }}</slot>
+            </WDGButton>
+        </router-link>
+        <TheProjectLinkSend></TheProjectLinkSend>
+        <br>
 	</div>
 </template>
 
@@ -49,16 +49,16 @@
 // import i18n from '@/i18n'
 import TheTabTitle from '@/components/TheTabTitle'
 import WDGMascot from '@/../../common/src/components/WDGMascot'
-import WDGForm from '@/../../common/src/components/WDGForm'
 import WDGButton from '@/../../common/src/components/WDGButton'
+import TheProjectLinkSend from '@/components/TheProjectLinkSend'
 
 export default {
 	name: 'TheScreenIntro',
 	components: {
 		TheTabTitle,
 		WDGMascot,
-		WDGForm,
-		WDGButton
+		WDGButton,
+        TheProjectLinkSend
 	},
 	props: {
 	},
@@ -72,19 +72,6 @@ export default {
 </script>
 
 <style>
-	.the-screen-intro .wdg-form {
-		margin: 40px;
-		font-size: 20px;
-		line-height: 40px;
-	}
-	.the-screen-intro .wdg-form .wdg-button {
-		text-align: center;
-	}
-	.the-screen-intro .wdg-form button {
-		margin-top: 40px;
-		max-width: 320px;
-        font-weight: bold;
-	}
 	.the-screen-intro .the-tab-title {
 		text-align: left;
 	}
@@ -150,5 +137,17 @@ export default {
         content: "✔";
         color: #00879b;
         padding-right: 18px;
+    }
+	.the-screen-intro .wdg-button {
+		text-align: center;
+	}
+	.the-screen-intro button {
+		margin-top: 0px;
+		margin-bottom: 0px;
+		max-width: 176px;
+        font-weight: bold;
+	}
+    .the-screen-intro .the-project-link-send{
+		margin-top: 10px;
     }
 </style>

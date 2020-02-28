@@ -7,7 +7,8 @@
 		"FIRSTNAME_PLACEHOLDER": "Mon prénom",
 		"LASTNAME": "Nom de famille",
 		"LASTNAME_PLACEHOLDER": "Mon nom de famille",
-		"REQUIRED_FIELDS": "Champs obligatoires"
+		"REQUIRED_FIELDS": "Champs obligatoires",
+		"SEND": "Envoyer"
 	},
 	"validations": {
 		"REQUIRED": "Ce champ est obligatoire"
@@ -59,7 +60,15 @@
 			"TEXT_1": "Résultat immédiat envoyé par mail.",
 			"TEXT_2": "Possibilité de prise de rendez-vous pour démarrer la levée de fonds au plus vite !",
 			"TEXT_3": "Réponse en env. 5 min.",
-			"TEXT_4": "Vous pouvez enregistrer, quitter, et revenir à tout moment !"
+			"TEXT_4": "Vous pouvez enregistrer, quitter, et revenir à tout moment !",
+			"the-project-link-send": {
+				"TITLE": "Reprendre un test précédent",
+				"TEXT": "Veuillez renseigner l'email précédemment utilisé pour commencer votre test. Si un ou plusieurs tests sont en cours, vous recevrez les liens d'accès par mail.",
+				"EMAIL_SENT": "L'email a bien été envoyé.",
+				"ERROR_EMAIL_NO_PROJECT": "Aucun test n'a été effectué avec cette adresse.",
+				"ERROR_EMAIL_INCORRECT": "Cette adresse e-mail n'est pas valide.",
+				"ERROR_EMAIL_EMPTY": "L'adresse e-mail doit être définie."
+			}
 		},
 		"project-infos": {
 			"TITLE": "Mon projet",
