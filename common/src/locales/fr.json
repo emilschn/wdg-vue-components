@@ -7,7 +7,8 @@
 		"FIRSTNAME_PLACEHOLDER": "Mon prénom",
 		"LASTNAME": "Nom de famille",
 		"LASTNAME_PLACEHOLDER": "Mon nom de famille",
-		"REQUIRED_FIELDS": "Champs obligatoires"
+		"REQUIRED_FIELDS": "Champs obligatoires",
+		"SEND": "Envoyer"
 	},
 	"validations": {
 		"REQUIRED": "Ce champ est obligatoire"
@@ -36,5 +37,65 @@
 		"SIGNUP_ERROR_TERMS": "Merci de cocher la case pour accepter les conditions générales d'utilisation.",
 		"SIGNUP_ERROR_UNDEFINED": "Problème de création d'utilisateur.",
 		"SIGNUP_ERROR_ROBOT": "Merci de cocher la case confirmant que vous n'êtes pas un robot."
+	},
+	"project-setup": {
+		"TITLE": "Mon éligibilité aux royalties",
+		"PICTO_TITLE_BALLOON": "Mongolfière",
+		"PICTO_TITLE_TIMER": "Chronomètre",
+		"MINUTE": "minute | minutes",
+		"CONTINUE": "Continuer",
+		"START": "Commencer",
+		"SAVE_PROJECT": "Enregistrer mon projet pour plus tard",
+		"SAVING_PROJECT": "Enregistrement du projet en cours",
+		"SAVED_PROJECT": "Projet enregistré",
+		"footer": {
+			"SUCCESS_TEXT_1": "82%",
+			"SUCCESS_TEXT_2": "de levées de fonds réussies",
+			"TIME_TEXT_1": "1 à 4 mois",
+			"TIME_TEXT_2": "pour débloquer les fonds"
+		},
+		"intro": {
+			"TITLE": "Mon projet est-il éligible ?",
+			"MASCOT_TEXT_1": "Vous aurez besoin:",
+			"MASCOT_TEXT_2": "De votre chiffre d'affaires prévisionnel",
+			"MASCOT_TEXT_3": "De votre niveau de marge",
+			"MASCOT_TEXT_4": "De connaître votre besoin de financement",
+			"TEXT_1": "Résultat immédiat envoyé par mail.",
+			"TEXT_2": "Possibilité de prise de rendez-vous pour démarrer la levée de fonds au plus vite !",
+			"TEXT_3": "Réponse en env. 5 min.",
+			"TEXT_4": "Vous pouvez enregistrer, quitter, et revenir à tout moment !",
+			"the-project-link-send": {
+				"TITLE": "Reprendre un test précédent",
+				"TEXT": "Veuillez renseigner l'email précédemment utilisé pour commencer votre test. Si un ou plusieurs tests sont en cours, vous recevrez les liens d'accès par mail.",
+				"EMAIL_SENT": "L'email a bien été envoyé.",
+				"ERROR_EMAIL_NO_PROJECT": "Aucun test n'a été effectué avec cette adresse.",
+				"ERROR_EMAIL_INCORRECT": "Cette adresse e-mail n'est pas valide.",
+				"ERROR_EMAIL_EMPTY": "L'adresse e-mail doit être définie."
+			}
+		},
+		"project-infos": {
+			"TITLE": "Mon projet",
+			"SUBTITLE": "Tous les champs sont obligatoires",
+			"MASCOT_TEXT_1": "Vos informations ne sont pas transmises à des tiers et restent confidentielles.",
+			"MASCOT_TEXT_2": "Une fois que votre e-mail est renseigné, vous pouvez reprendre votre test à tout moment.",
+			"FORM_TEXT_ORGANIZATION_TYPE": "Ma structure est",
+			"FORM_TEXT_ORGANIZATION_NOT_CREATED_NAME": "sous le nom de",
+			"FORM_TEXT_ORGANIZATION_CREATED_NAME": "du nom de",
+			"FORM_TEXT_ORGANIZATION_ID": "immatriculée",
+			"FORM_TEXT_AMOUNT_NEEDED": "J'ai besoin de",
+			"FORM_TEXT_ORGANIZATION_DESCRIPTION": "pour mon activité de",
+			"FORM_TEXT_SOURCE_PROSPECT": "J'ai connu WE DO GOOD via",
+			"FORM_TEXT_USER_NAME": "Je m'appelle",
+			"FORM_TEXT_USER_EMAIL": "vous pouvez me joindre à l'adresse mail",
+			"FORM_TEXT_USER_PHONE": "et au numéro de téléphone",
+			"PLACEHOLDER_PROJECT_NAME": "Mon projet",
+			"PLACEHOLDER_PROJECT_ID": "Numéro SIREN",
+			"PLACEHOLDER_PROJECT_DESCRIPTION": "Mon activité...",
+			"PLACEHOLDER_USER_NAME": "Prénom Nom",
+			"PLACEHOLDER_USER_EMAIL": "contact@mon-projet.fr",
+			"PLACEHOLDER_USER_PHONE": "06 06 06 06 06",
+			"ORGANIZATION_TYPE_LIST_NOT_CREATED": "En cours de création",
+			"ORGANIZATION_TYPE_LIST_SAS": "Une SAS"
+		}
 	}
 }
