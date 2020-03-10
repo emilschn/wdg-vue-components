@@ -79,6 +79,17 @@
 					v-bind:valueReturn.sync="new_organame"
 				>
 				</WDGInput>
+				<WDGInput
+					:placeholder="$t('common.EMAIL_ADDRESS_PLACEHOLDER')"
+					id="email"
+					name="email"
+					v-bind:multiline="false"
+					validationRule="required|email"
+					v-bind:valueReturn.sync="new_orgaemail"
+				>
+					<slot slot="label">{{ $t('common.EMAIL_ADDRESS') }}</slot>
+					<slot slot="comment">{{ $t('launch-project.ORGA_MAIL_DIFFERENT') }}</slot>
+				</WDGInput>
 			</div>
 			<div v-else>
 				<br>
@@ -96,19 +107,19 @@
 			>
 				<slot slot="label">{{ $t('common.ORGA_NAME') }}</slot>
 			</WDGInput>
+			<WDGInput
+				:placeholder="$t('common.EMAIL_ADDRESS_PLACEHOLDER')"
+				id="email"
+				name="email"
+				v-bind:multiline="false"
+				validationRule="required|email"
+				:value="orgaemail"
+				v-bind:valueReturn.sync="orgaemail"
+			>
+				<slot slot="label">{{ $t('common.EMAIL_ADDRESS') }}</slot>
+				<slot slot="comment">{{ $t('launch-project.ORGA_MAIL_DIFFERENT') }}</slot>
+			</WDGInput>
 		</div>
-		<WDGInput
-			:placeholder="$t('common.EMAIL_ADDRESS_PLACEHOLDER')"
-			id="email"
-			name="email"
-			v-bind:multiline="false"
-			validationRule="required|email"
-			:value="email"
-			v-bind:valueReturn.sync="email"
-		>
-			<slot slot="label">{{ $t('common.EMAIL_ADDRESS') }}</slot>
-			<slot slot="comment">{{ $t('launch-project.ORGA_MAIL_DIFFERENT') }}</slot>
-		</WDGInput>
 		<WDGInput
 			:placeholder="$t('launch-project.PROJECT_NAME_PLACEHOLDER')"
 			id="project_name"
@@ -153,8 +164,8 @@
 </template>
 
 <script>
-import i18n from '@/i18n'
-import axios from 'axios'
+// import i18n from '@/i18n'
+// import axios from 'axios'
 import WDGForm from '@/../../common/src/components/WDGForm'
 import WDGInput from '@/../../common/src/components/WDGInput'
 import WDGCheckbox from '@/../../common/src/components/WDGCheckbox'
@@ -175,7 +186,7 @@ export default {
 		firstname: { type: String, default: '' },
 		lastname: { type: String, default: '' },
 		phonenumber: { type: String, default: '' },
-		email: { type: String, default: '' },
+		orgaemail: { type: String, default: '' },
 		projectname: { type: String, default: '' },
 		projectdescription: { type: String, default: '' },
 		urlcgu: { type: String, default: '' },
@@ -199,74 +210,83 @@ export default {
 			this.loading = true
 			let data = new FormData()
 			data.append('action', 'create_project_form')
-			data.append('email-organization', this.email)
 			data.append('firstname', this.firstname)
 			data.append('lastname', this.lastname)
 			data.append('phone', this.phonenumber)
 			data.append('company-name', this.organame)
 			data.append('new-company-name', this.new_organame)
+			if (this.organame === 'new_orga') {
+				data.append('email-organization', this.new_orgaemail)
+			} else {
+				data.append('email-organization', this.orgaemail)
+			}
 			data.append('project-name', this.projectname)
 			data.append('project-description', this.projectdescription)
 			data.append('project-terms', 'true')
 			console.log('this.organame ' + this.organame)
 			console.log('this.new_organame ' + this.new_organame)
-			axios
-				.post (this.ajaxurl, data)
-				.then (response => {
-					let responseData = response.data
-					if (responseData.has_error === '1') {
-						this.errorFeedback = getErrorMessage(responseData.error_str, responseData.errors_create_orga)
-						this.successFeedback = ''
-						console.log('ERROR  ' + responseData.error_str + '--' + responseData.errors_create_orga)
-						window.scrollTo(0, 0)
-					} else {
-						this.errorFeedback = ''
-						this.successFeedback = 'Redirection vers ' + responseData.url_redirect
-						console.log('SUCCESS  ' + this.successFeedback)
-						window.location = responseData.url_redirect
-					}
-				})
-				.catch (error => {
-					if (error.response) {
-						// The request was made and the server responded with a status code
-						// that falls out of the range of 2xx
-						console.log(error.response.data)
-						console.log(error.response.status)
-						console.log(error.response.headers)
-					} else if (error.request) {
-						// The request was made but no response was received
-						// `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-						// http.ClientRequest in node.js
-						console.log(error.request)
-					} else {
-						// Something happened in setting up the request that triggered an Error
-						console.log('Error', error.message)
-					}
-    				console.log(error.toJSON())
-					console.log(error.config)
-					this.errorFeedback = getErrorMessage('request_error')
-					this.successFeedback = ''
-					window.scrollTo(0, 0)
-				})
-				.finally (() => {
-					console.log('finally')
-					this.loading = false
-				})
+			console.log('this.orgaemail ' + this.orgaemail)
+			console.log('this.new_orgaemail ' + this.new_orgaemail)
+			let index = this.existingorganisations.organisations.findIndex(function (object) { return object.Text === this.organame })
+			console.log('index == ' + index)
+			console.log('du coup le mail  == ' + this.existingorganisations.organisations[index].Mail)
+			// axios
+			// 	.post (this.ajaxurl, data)
+			// 	.then (response => {
+			// 		let responseData = response.data
+			// 		if (responseData.has_error === '1') {
+			// 			this.errorFeedback = getErrorMessage(responseData.error_str, responseData.errors_create_orga)
+			// 			this.successFeedback = ''
+			// 			console.log('ERROR  ' + responseData.error_str + '--' + responseData.errors_create_orga)
+			// 			window.scrollTo(0, 0)
+			// 		} else {
+			// 			this.errorFeedback = ''
+			// 			this.successFeedback = 'Redirection vers ' + responseData.url_redirect
+			// 			console.log('SUCCESS  ' + this.successFeedback)
+			// 			window.location = responseData.url_redirect
+			// 		}
+			// 	})
+			// 	.catch (error => {
+			// 		if (error.response) {
+			// 			// The request was made and the server responded with a status code
+			// 			// that falls out of the range of 2xx
+			// 			console.log(error.response.data)
+			// 			console.log(error.response.status)
+			// 			console.log(error.response.headers)
+			// 		} else if (error.request) {
+			// 			// The request was made but no response was received
+			// 			// `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+			// 			// http.ClientRequest in node.js
+			// 			console.log(error.request)
+			// 		} else {
+			// 			// Something happened in setting up the request that triggered an Error
+			// 			console.log('Error', error.message)
+			// 		}
+    		// 		console.log(error.toJSON())
+			// 		console.log(error.config)
+			// 		this.errorFeedback = getErrorMessage('request_error')
+			// 		this.successFeedback = ''
+			// 		window.scrollTo(0, 0)
+			// 	})
+			// 	.finally (() => {
+			// 		console.log('finally')
+			// 		this.loading = false
+			// 	})
 		}
   	}
 }
-function getErrorMessage (errorCode, errorsCreateOrga) {
-	switch (errorCode) {
-		case 'errors_create_orga':
-			return errorsCreateOrga
-		case 'empty_or_wrong_format_field': // ne devrait pas arriver
-			return i18n.t('launch-project.EMPTY_OR_WRONG_FORMAT_FIELD')
-		case 'request_error':
-			return i18n.t('common.REQUEST_ERROR')
-		default:
-			return errorCode
-	}
-}
+// function getErrorMessage (errorCode, errorsCreateOrga) {
+// 	switch (errorCode) {
+// 		case 'errors_create_orga':
+// 			return errorsCreateOrga
+// 		case 'empty_or_wrong_format_field': // ne devrait pas arriver
+// 			return i18n.t('launch-project.EMPTY_OR_WRONG_FORMAT_FIELD')
+// 		case 'request_error':
+// 			return i18n.t('common.REQUEST_ERROR')
+// 		default:
+// 			return errorCode
+// 	}
+// }
 </script>
 
 <style>
