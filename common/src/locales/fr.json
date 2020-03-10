@@ -73,6 +73,12 @@
 				"ERROR_EMAIL_EMPTY": "L'adresse e-mail doit être définie."
 			}
 		},
+		"tabs": {
+			"MY_PROJECT": "Mon projet",
+			"MY_FUNDING": "Mon financement",
+			"MY_INVESTORS": "Mes investisseurs",
+			"MY_RESULT": "Mon résultat"
+		},
 		"project-infos": {
 			"TITLE": "Mon projet",
 			"SUBTITLE": "Tous les champs sont obligatoires",
