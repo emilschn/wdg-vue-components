@@ -122,12 +122,15 @@
 				</WDGButton>
 			</div>
 		</WDGForm>
+
+		<TheProjectSave />
 	</div>
 </template>
 
 <script>
 import i18n from '@/i18n'
 import TheTabTitle from '@/components/TheTabTitle'
+import TheProjectSave from '@/components/TheProjectSave'
 import WDGMascot from '@/../../common/src/components/WDGMascot'
 import WDGForm from '@/../../common/src/components/WDGForm'
 import WDGInput from '@/../../common/src/components/WDGInput'
@@ -138,6 +141,7 @@ export default {
 	name: 'TheScreenProjectInfos',
 	components: {
 		TheTabTitle,
+		TheProjectSave,
 		WDGMascot,
 		WDGForm,
 		WDGInput,

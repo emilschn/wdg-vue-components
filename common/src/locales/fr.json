@@ -11,9 +11,10 @@
 		"PHONE_NUMBER_PLACEHOLDER": "Mon téléphone mobile",
 		"ORGA_NAME": "Nom de l'entreprise",
 		"ORGA_NAME_PLACEHOLDER": "Nom de mon entreprise",
-		"REQUIRED_FIELDS": "Champs obligatoires",
 		"VALIDATE": "Valider",
-		"REQUEST_ERROR": "Problème d'envoi de requête"
+		"REQUEST_ERROR": "Problème d'envoi de requête",
+		"REQUIRED_FIELDS": "Champs obligatoires",
+		"SEND": "Envoyer"
 	},
 	"validations": {
 		"REQUIRED": "Ce champ est obligatoire"
@@ -56,10 +57,40 @@
 		"EMPTY_OR_WRONG_FORMAT_FIELD": "Un des champs est vide ou n'est pas au bon format"
 	},
 	"project-setup": {
+		"TITLE": "Mon éligibilité aux royalties",
 		"PICTO_TITLE_BALLOON": "Mongolfière",
 		"PICTO_TITLE_TIMER": "Chronomètre",
 		"MINUTE": "minute | minutes",
 		"CONTINUE": "Continuer",
+		"START": "Commencer",
+		"SAVE_PROJECT": "Enregistrer mon projet pour plus tard",
+		"SAVING_PROJECT": "Enregistrement du projet en cours",
+		"SAVED_PROJECT": "Projet enregistré",
+		"footer": {
+			"SUCCESS_TEXT_1": "82%",
+			"SUCCESS_TEXT_2": "de levées de fonds réussies",
+			"TIME_TEXT_1": "1 à 4 mois",
+			"TIME_TEXT_2": "pour débloquer les fonds"
+		},
+		"intro": {
+			"TITLE": "Mon projet est-il éligible ?",
+			"MASCOT_TEXT_1": "Vous aurez besoin:",
+			"MASCOT_TEXT_2": "De votre chiffre d'affaires prévisionnel",
+			"MASCOT_TEXT_3": "De votre niveau de marge",
+			"MASCOT_TEXT_4": "De connaître votre besoin de financement",
+			"TEXT_1": "Résultat immédiat envoyé par mail.",
+			"TEXT_2": "Possibilité de prise de rendez-vous pour démarrer la levée de fonds au plus vite !",
+			"TEXT_3": "Réponse en env. 5 min.",
+			"TEXT_4": "Vous pouvez enregistrer, quitter, et revenir à tout moment !",
+			"the-project-link-send": {
+				"TITLE": "Reprendre un test précédent",
+				"TEXT": "Veuillez renseigner l'email précédemment utilisé pour commencer votre test. Si un ou plusieurs tests sont en cours, vous recevrez les liens d'accès par mail.",
+				"EMAIL_SENT": "L'email a bien été envoyé.",
+				"ERROR_EMAIL_NO_PROJECT": "Aucun test n'a été effectué avec cette adresse.",
+				"ERROR_EMAIL_INCORRECT": "Cette adresse e-mail n'est pas valide.",
+				"ERROR_EMAIL_EMPTY": "L'adresse e-mail doit être définie."
+			}
+		},
 		"project-infos": {
 			"TITLE": "Mon projet",
 			"SUBTITLE": "Tous les champs sont obligatoires",

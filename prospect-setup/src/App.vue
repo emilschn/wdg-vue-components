@@ -1,16 +1,26 @@
 <template>
-	<div class="prospect-setup">
-		<TheScreenProjectInfos />
+	<div id="app" class="prospect-setup">
+		<WDGHeader>
+			<slot slot="title">{{ $t('project-setup.TITLE') }}</slot>
+		</WDGHeader>
+			<router-view></router-view>
+		<WDGFooter />
 	</div>
 </template>
 
 <script>
-import TheScreenProjectInfos from './components/TheScreenProjectInfos.vue'
+import WDGHeader from '@/../../common/src/components/WDGHeader'
+// import TheScreenIntro from './components/TheScreenIntro.vue'
+// import TheScreenProjectInfos from './components/TheScreenProjectInfos.vue'
+import WDGFooter from '@/../../common/src/components/WDGFooter'
 
 export default {
   name: 'App',
   components: {
-    TheScreenProjectInfos
+	WDGHeader,
+    // TheScreenIntro,
+	// TheScreenProjectInfos,
+	WDGFooter
   }
 }
 </script>

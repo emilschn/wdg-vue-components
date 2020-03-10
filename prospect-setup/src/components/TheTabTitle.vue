@@ -1,7 +1,9 @@
 <template>
 	<div class="the-tab-title">
 		<div class="the-tab-title-picto" v-if="hasPictoBalloon">
-			<img src="@/assets/picto-balloon.png" :title="$t('project-setup.PICTO_TITLE_BALLOON')" />
+			<svg width="96" height="96">
+				<image xlink:href="@/../../common/src/assets/icons/balloon.svg" src="@/../../common/src/assets/icons/balloon.png" width="96" height="96" />
+			</svg>
 		</div>
 
 		<h2>
@@ -9,7 +11,9 @@
 		</h2>
 
 		<div class="the-tab-title-timer" v-if="nMinutes > 0">
-			<img src="@/assets/picto-timer.png" :title="$t('project-setup.PICTO_TITLE_TIMER')" />
+			<svg width="20" height="20">
+				<image xlink:href="@/../../common/src/assets/icons/timer.svg" src="@/../../common/src/assets/icons/timer.png" width="20" height="20" />
+			</svg>
 			{{ nMinutes }} {{ $tc('project-setup.MINUTE', nMinutes ) }}
 		</div>
 
@@ -23,11 +27,9 @@
 
 export default {
 	name: 'TheTabTitle',
-	components: {
-	},
 	props: {
 		hasPictoBalloon: Boolean,
-		nMinutes: String
+		nMinutes: Number
 	}
 }
 </script>

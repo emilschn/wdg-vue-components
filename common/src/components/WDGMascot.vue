@@ -3,8 +3,12 @@
 		<div>
 			<slot name="text"></slot>
 		</div>
-		<img src="@/../../common/src/assets/mascotte-1.png" v-if="type == 'face-1'" />
-		<img src="@/../../common/src/assets/mascotte-2.png" v-if="type == 'face-2'" />
+		<svg width="281" height="256" v-if="type == 'face-1'">
+			<image xlink:href="@/../../common/src/assets/mascot/front/1.svg" src="@/../../common/src/assets/mascot/front/1.png" width="281" height="256" />
+		</svg>
+		<svg width="281" height="256" v-if="type == 'face-2'">
+			<image xlink:href="@/../../common/src/assets/mascot/front/2.svg" src="@/../../common/src/assets/mascot/front/2.png" width="281" height="256" />
+		</svg>
 	</div>
 </template>
 
@@ -37,7 +41,7 @@ export default {
 }
 .wdg-mascot.face-2 div {
 } */
-.wdg-mascot img {
+.wdg-mascot svg {
 	margin-top: -16px;
 	max-width: 100%;
 }
