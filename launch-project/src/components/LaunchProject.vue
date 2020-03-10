@@ -57,7 +57,7 @@
 		>
 			<slot slot="label">{{ $t('common.PHONE_NUMBER') }}</slot>
 		</WDGInput>
-		<div v-if="existingorganisations && existingorganisations.organisations.length>0" >
+		<div v-if="isExistingOrga" >
 			<WDGSelect
 			  id="company_name"
 			  name="company_name"
@@ -67,35 +67,10 @@
 			  v-bind:hasFilter="true"
 			  validationRule="required"
 			  :optionItems="existingorganisations.organisations"
-			  v-bind:valueReturn.sync="organame"
+			  v-bind:valueReturn.sync="select_organame"
 			  />
-			<div v-if="organame === 'new_orga'">
-				<WDGInput
-					:placeholder="$t('common.ORGA_NAME_PLACEHOLDER')"
-					id="company_name"
-					name="company_name"
-					v-bind:multiline="false"
-					validationRule="required"
-					v-bind:valueReturn.sync="new_organame"
-				>
-				</WDGInput>
-				<WDGInput
-					:placeholder="$t('common.EMAIL_ADDRESS_PLACEHOLDER')"
-					id="email"
-					name="email"
-					v-bind:multiline="false"
-					validationRule="required|email"
-					v-bind:valueReturn.sync="new_orgaemail"
-				>
-					<slot slot="label">{{ $t('common.EMAIL_ADDRESS') }}</slot>
-					<slot slot="comment">{{ $t('launch-project.ORGA_MAIL_DIFFERENT') }}</slot>
-				</WDGInput>
-			</div>
-			<div v-else>
-				<br>
-			</div>
 		</div>
-		<div v-else>
+		<div v-if="!isExistingOrga || select_organame === 'new_orga'">
 			<WDGInput
 				:placeholder="$t('common.ORGA_NAME_PLACEHOLDER')"
 				id="company_name"
@@ -103,9 +78,9 @@
 				v-bind:multiline="false"
 				validationRule="required"
 				:value="organame"
-				v-bind:valueReturn.sync="organame"
+				v-bind:valueReturn.sync="new_organame"
 			>
-				<slot slot="label">{{ $t('common.ORGA_NAME') }}</slot>
+				<slot slot="label" v-if="!isExistingOrga">{{ $t('common.ORGA_NAME') }}</slot>
 			</WDGInput>
 			<WDGInput
 				:placeholder="$t('common.EMAIL_ADDRESS_PLACEHOLDER')"
@@ -114,11 +89,14 @@
 				v-bind:multiline="false"
 				validationRule="required|email"
 				:value="orgaemail"
-				v-bind:valueReturn.sync="orgaemail"
+				v-bind:valueReturn.sync="new_orgaemail"
 			>
 				<slot slot="label">{{ $t('common.EMAIL_ADDRESS') }}</slot>
 				<slot slot="comment">{{ $t('launch-project.ORGA_MAIL_DIFFERENT') }}</slot>
 			</WDGInput>
+		</div>
+		<div v-else>
+			<br>
 		</div>
 		<WDGInput
 			:placeholder="$t('launch-project.PROJECT_NAME_PLACEHOLDER')"
@@ -164,8 +142,8 @@
 </template>
 
 <script>
-// import i18n from '@/i18n'
-// import axios from 'axios'
+import i18n from '@/i18n'
+import axios from 'axios'
 import WDGForm from '@/../../common/src/components/WDGForm'
 import WDGInput from '@/../../common/src/components/WDGInput'
 import WDGCheckbox from '@/../../common/src/components/WDGCheckbox'
@@ -186,7 +164,6 @@ export default {
 		firstname: { type: String, default: '' },
 		lastname: { type: String, default: '' },
 		phonenumber: { type: String, default: '' },
-		orgaemail: { type: String, default: '' },
 		projectname: { type: String, default: '' },
 		projectdescription: { type: String, default: '' },
 		urlcgu: { type: String, default: '' },
@@ -198,12 +175,21 @@ export default {
 			loading: false,
 			errorFeedback: '',
 			successFeedback: '',
-			firstorga_id: this.existingorganisations.organisations[0].Id,
-			organame: this.existingorganisations.organisations[0].Id
+			new_organame: '',
+			new_orgaemail: '',
+			isExistingOrga: false,
+			firstorga_id: null,
+			organame: '',
+			orgaemail: '',
+			select_organame: ''
 		}
 	},
 	created () {
-		console.log(this.existingorganisations.organisations.length)
+		if (this.existingorganisations && this.existingorganisations.organisations.length > 0) {
+			this.isExistingOrga = true
+			this.firstorga_id = this.existingorganisations.organisations[0].Id
+			this.select_organame = this.existingorganisations.organisations[0].Text
+		}
 	},
   	methods: {
 		formSubmit () {
@@ -213,80 +199,78 @@ export default {
 			data.append('firstname', this.firstname)
 			data.append('lastname', this.lastname)
 			data.append('phone', this.phonenumber)
-			data.append('company-name', this.organame)
-			data.append('new-company-name', this.new_organame)
-			if (this.organame === 'new_orga') {
-				data.append('email-organization', this.new_orgaemail)
+			if (this.isExistingOrga) {
+				if (this.select_organame === 'new_orga') {
+					data.append('company-name', this.select_organame)
+					data.append('new-company-name', this.new_organame)
+					data.append('email-organization', this.new_orgaemail)
+				} else {
+					let index = this.existingorganisations.organisations.findIndex(object => object.Text === this.select_organame)
+					data.append('company-name', this.existingorganisations.organisations[index].Id)
+					data.append('email-organization', this.existingorganisations.organisations[index].Mail)
+				}
 			} else {
-				data.append('email-organization', this.orgaemail)
+				data.append('company-name', this.new_organame)
+				data.append('email-organization', this.new_orgaemail)
 			}
 			data.append('project-name', this.projectname)
 			data.append('project-description', this.projectdescription)
 			data.append('project-terms', 'true')
-			console.log('this.organame ' + this.organame)
-			console.log('this.new_organame ' + this.new_organame)
-			console.log('this.orgaemail ' + this.orgaemail)
-			console.log('this.new_orgaemail ' + this.new_orgaemail)
-			let index = this.existingorganisations.organisations.findIndex(function (object) { return object.Text === this.organame })
-			console.log('index == ' + index)
-			console.log('du coup le mail  == ' + this.existingorganisations.organisations[index].Mail)
-			// axios
-			// 	.post (this.ajaxurl, data)
-			// 	.then (response => {
-			// 		let responseData = response.data
-			// 		if (responseData.has_error === '1') {
-			// 			this.errorFeedback = getErrorMessage(responseData.error_str, responseData.errors_create_orga)
-			// 			this.successFeedback = ''
-			// 			console.log('ERROR  ' + responseData.error_str + '--' + responseData.errors_create_orga)
-			// 			window.scrollTo(0, 0)
-			// 		} else {
-			// 			this.errorFeedback = ''
-			// 			this.successFeedback = 'Redirection vers ' + responseData.url_redirect
-			// 			console.log('SUCCESS  ' + this.successFeedback)
-			// 			window.location = responseData.url_redirect
-			// 		}
-			// 	})
-			// 	.catch (error => {
-			// 		if (error.response) {
-			// 			// The request was made and the server responded with a status code
-			// 			// that falls out of the range of 2xx
-			// 			console.log(error.response.data)
-			// 			console.log(error.response.status)
-			// 			console.log(error.response.headers)
-			// 		} else if (error.request) {
-			// 			// The request was made but no response was received
-			// 			// `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-			// 			// http.ClientRequest in node.js
-			// 			console.log(error.request)
-			// 		} else {
-			// 			// Something happened in setting up the request that triggered an Error
-			// 			console.log('Error', error.message)
-			// 		}
-    		// 		console.log(error.toJSON())
-			// 		console.log(error.config)
-			// 		this.errorFeedback = getErrorMessage('request_error')
-			// 		this.successFeedback = ''
-			// 		window.scrollTo(0, 0)
-			// 	})
-			// 	.finally (() => {
-			// 		console.log('finally')
-			// 		this.loading = false
-			// 	})
+			axios
+				.post (this.ajaxurl, data)
+				.then (response => {
+					let responseData = response.data
+					if (responseData.has_error === '1') {
+						this.errorFeedback = getErrorMessage(responseData.error_str, responseData.errors_create_orga)
+						this.successFeedback = ''
+						console.log('ERROR  ' + responseData.error_str + '--' + responseData.errors_create_orga)
+						window.scrollTo(0, 0)
+					} else {
+						this.errorFeedback = ''
+						this.successFeedback = 'Redirection vers ' + responseData.url_redirect
+						window.location = responseData.url_redirect
+					}
+				})
+				.catch (error => {
+					if (error.response) {
+						// The request was made and the server responded with a status code
+						// that falls out of the range of 2xx
+						console.log(error.response.data)
+						console.log(error.response.status)
+						console.log(error.response.headers)
+					} else if (error.request) {
+						// The request was made but no response was received
+						// `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+						// http.ClientRequest in node.js
+						console.log(error.request)
+					} else {
+						// Something happened in setting up the request that triggered an Error
+						console.log('Error', error.message)
+					}
+    				console.log(error.toJSON())
+					console.log(error.config)
+					this.errorFeedback = getErrorMessage('request_error')
+					this.successFeedback = ''
+					window.scrollTo(0, 0)
+				})
+				.finally (() => {
+					this.loading = false
+				})
 		}
   	}
 }
-// function getErrorMessage (errorCode, errorsCreateOrga) {
-// 	switch (errorCode) {
-// 		case 'errors_create_orga':
-// 			return errorsCreateOrga
-// 		case 'empty_or_wrong_format_field': // ne devrait pas arriver
-// 			return i18n.t('launch-project.EMPTY_OR_WRONG_FORMAT_FIELD')
-// 		case 'request_error':
-// 			return i18n.t('common.REQUEST_ERROR')
-// 		default:
-// 			return errorCode
-// 	}
-// }
+function getErrorMessage (errorCode, errorsCreateOrga) {
+	switch (errorCode) {
+		case 'errors_create_orga':
+			return errorsCreateOrga
+		case 'empty_or_wrong_format_field': // ne devrait pas arriver
+			return i18n.t('launch-project.EMPTY_OR_WRONG_FORMAT_FIELD')
+		case 'request_error':
+			return i18n.t('common.REQUEST_ERROR')
+		default:
+			return errorCode
+	}
+}
 </script>
 
 <style>

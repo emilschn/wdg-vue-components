@@ -56,7 +56,6 @@ export default {
 	},
 	created () {
 		this.ajaxurl = initElements.dataset.ajaxurl
-		console.log('initElements.dataset.ajaxurl = ' + initElements.dataset.ajaxurl)
 		this.firstname = initElements.dataset.firstname
 		this.lastname = initElements.dataset.lastname
 		this.phonenumber = initElements.dataset.phonenumber
@@ -70,7 +69,6 @@ export default {
 		if (initElements.dataset.existingorganisations) {
 			this.existingorganisations = JSON.parse(initElements.dataset.existingorganisations)
 		}
-		console.log('initElements.dataset.existingorganisations = ' + initElements.dataset.existingorganisations)
 		this.urlcgu = initElements.dataset.urlcgu
 	}
 }
