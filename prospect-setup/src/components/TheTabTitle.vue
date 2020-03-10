@@ -27,11 +27,9 @@
 
 export default {
 	name: 'TheTabTitle',
-	components: {
-	},
 	props: {
 		hasPictoBalloon: Boolean,
-		nMinutes: String
+		nMinutes: Number
 	}
 }
 </script>

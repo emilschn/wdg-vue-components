@@ -45,6 +45,9 @@
 		"MINUTE": "minute | minutes",
 		"CONTINUE": "Continuer",
 		"START": "Commencer",
+		"SAVE_PROJECT": "Enregistrer mon projet pour plus tard",
+		"SAVING_PROJECT": "Enregistrement du projet en cours",
+		"SAVED_PROJECT": "Projet enregistré",
 		"footer": {
 			"SUCCESS_TEXT_1": "82%",
 			"SUCCESS_TEXT_2": "de levées de fonds réussies",
