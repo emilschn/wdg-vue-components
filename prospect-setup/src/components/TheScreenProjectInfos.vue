@@ -117,6 +117,7 @@
 				<WDGButton
 				  color="red"
 				  type="button"
+            	  :clickEvent="changeStep"
 				  >
 					<slot slot="label">{{ $t('project-setup.CONTINUE') }}</slot>
 				</WDGButton>
@@ -129,6 +130,7 @@
 
 <script>
 import i18n from '@/i18n'
+import { store } from '../store.js'
 import TheTabTitle from '@/components/TheTabTitle'
 import TheProjectSave from '@/components/TheProjectSave'
 import WDGMascot from '@/../../common/src/components/WDGMascot'
@@ -172,6 +174,11 @@ export default {
 			userPhone: ''
 		}
 	},
+    methods: {
+        changeStep: function (event) {
+            store.changeStep('project-funding')
+        }
+    },
 	computed: {
 		canShowUserInfos () {
 			let buffer = false

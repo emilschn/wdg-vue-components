@@ -102,6 +102,9 @@
 			"PLACEHOLDER_USER_PHONE": "06 06 06 06 06",
 			"ORGANIZATION_TYPE_LIST_NOT_CREATED": "En cours de création",
 			"ORGANIZATION_TYPE_LIST_SAS": "Une SAS"
+		},
+		"project-funding": {
+			"TITLE": "Mon financement"
 		}
 	}
 }

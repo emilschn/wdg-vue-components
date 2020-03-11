@@ -49,7 +49,7 @@ export default {
 	margin: 8px auto;
 	font-size: 16px;
 	font-style: italic;
-	color: #ea4f51;
+	color: #00879B;
 }
 
 .the-tab-title .the-tab-title-subtitle {

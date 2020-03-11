@@ -12,7 +12,7 @@
 					</svg>
 
 					<svg width="48" height="48" v-if="tabItem.Status == 'complete'">
-						<image xlink:href="@/../../common/src/assets/icons/incomplete.svg" src="@/../../common/src/assets/icons/incomplete.png" width="48" height="48" />
+						<image xlink:href="@/../../common/src/assets/icons/complete.svg" src="@/../../common/src/assets/icons/complete.png" width="48" height="48" />
 					</svg>
 
 					<span class="tab-label">
