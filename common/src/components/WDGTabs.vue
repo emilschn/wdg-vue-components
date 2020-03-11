@@ -19,6 +19,7 @@
 						<span v-if="tabItem.Index">{{ tabItem.Index }}.</span>
 						{{ tabItem.Label }}<br>
 						<span class="subtitle" v-if="tabItem.Subtitle">{{ tabItem.Subtitle }}</span>
+						<a :href="tabItem.Link" v-if="tabItem.Link">{{ tabItem.LinkLabel }}</a>
 					</span>
 				</div>
 			</li>
@@ -78,6 +79,7 @@ export default {
 	border-right: 0px;
 }
 .wdg-tabs ul li div svg {
+	float: left;
 	margin-left: 8px;
 }
 .wdg-tabs ul li div span.tab-label {
@@ -85,12 +87,14 @@ export default {
 	font-weight: bold;
 	font-size: 17px;
 }
-.wdg-tabs ul li div span.tab-label span.subtitle {
+.wdg-tabs ul li div span.tab-label span.subtitle, .wdg-tabs ul li div span.tab-label a {
 	display: inline-block;
 	margin-top: 8px;
 	margin-left: 36px;
 	font-size: 13px;
-	text-decoration: underline;
 	color: #B4B4B4;
+}
+.wdg-tabs ul li div span.tab-label span.subtitle {
+	text-decoration: none;
 }
 </style>
