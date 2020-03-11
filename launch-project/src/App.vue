@@ -1,7 +1,11 @@
 <template>
-  <div id="app">
+  <div
+  	id="app"
+	:data-ajaxurl="ajaxurl"
+	>
     <!-- <router-view/> -->
     <LaunchProject
+	  	:ajaxurl="ajaxurl"
 		:firstname="firstname"
 		:lastname="lastname"
 		:email="email"
@@ -10,6 +14,8 @@
 		:projectname="projectname"
 		:projectdescription="projectdescription"
 		:existingprojects="existingprojects"
+		:existingorganisations="existingorganisations"
+		:urlcgu="urlcgu"
 	/>
   </div>
 </template>
@@ -32,6 +38,7 @@ export default {
   name: 'app',
 	data () {
 		return {
+			ajaxurl: '',
 			firstname: '',
 			lastname: '',
 			phonenumber: '',
@@ -39,6 +46,8 @@ export default {
 			email: '',
 			projectname: '',
 			projectdescription: '',
+			existingorganisations: '',
+			urlcgu: '',
 			existingprojects: ''
 		}
 	},
@@ -46,6 +55,7 @@ export default {
 		LaunchProject
 	},
 	created () {
+		this.ajaxurl = initElements.dataset.ajaxurl
 		this.firstname = initElements.dataset.firstname
 		this.lastname = initElements.dataset.lastname
 		this.phonenumber = initElements.dataset.phonenumber
@@ -56,6 +66,10 @@ export default {
 		if (initElements.dataset.existingprojects) {
 			this.existingprojects = JSON.parse(initElements.dataset.existingprojects)
 		}
+		if (initElements.dataset.existingorganisations) {
+			this.existingorganisations = JSON.parse(initElements.dataset.existingorganisations)
+		}
+		this.urlcgu = initElements.dataset.urlcgu
 	}
 }
 </script>
