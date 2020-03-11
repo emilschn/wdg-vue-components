@@ -32,14 +32,13 @@
                 </slot>
             </WDGMascot>
         </div>
-        <router-link to="project-infos">
-            <WDGButton
-                color="red"
-                type="button"
-                >
-                <slot slot="label">{{ $t('project-setup.START') }}</slot>
-            </WDGButton>
-        </router-link>
+        <WDGButton
+            color="red"
+            type="button"
+            :clickEvent="changeStep"
+            >
+            <slot slot="label">{{ $t('project-setup.START') }}</slot>
+        </WDGButton>
         <TheProjectLinkSend></TheProjectLinkSend>
         <br>
 	</div>
@@ -47,6 +46,7 @@
 
 <script>
 // import i18n from '@/i18n'
+import { store } from '../store.js'
 import TheTabTitle from '@/components/TheTabTitle'
 import WDGMascot from '@/../../common/src/components/WDGMascot'
 import WDGButton from '@/../../common/src/components/WDGButton'
@@ -66,6 +66,11 @@ export default {
 		return {
 		}
 	},
+    methods: {
+        changeStep: function (event) {
+            store.changeStep('project-infos')
+        }
+    },
 	computed: {
 	}
 }

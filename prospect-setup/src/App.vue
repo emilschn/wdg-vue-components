@@ -4,9 +4,10 @@
 			<slot slot="title">{{ $t('project-setup.TITLE') }}</slot>
 		</WDGHeader>
 
-		<WDGTabs :tabItems="tabItems" :currentTab="currentRoute" v-if="canShowTabs" />
+		<WDGTabs :tabItems="tabItems" :currentTab="currentStep" v-if="canShowTabs" />
 
-		<router-view></router-view>
+		<TheScreenIntro v-if="sharedState.step === 'intro'" />
+		<TheScreenProjectInfos v-if="sharedState.step === 'project-infos'" />
 
 		<WDGFooter />
 	</div>
@@ -14,10 +15,11 @@
 
 <script>
 import i18n from '@/i18n'
-import WDGTabs from '@/../../common/src/components/WDGTabs'
+import { store } from './store.js'
 import WDGHeader from '@/../../common/src/components/WDGHeader'
-// import TheScreenIntro from './components/TheScreenIntro.vue'
-// import TheScreenProjectInfos from './components/TheScreenProjectInfos.vue'
+import WDGTabs from '@/../../common/src/components/WDGTabs'
+import TheScreenIntro from './components/TheScreenIntro.vue'
+import TheScreenProjectInfos from './components/TheScreenProjectInfos.vue'
 import WDGFooter from '@/../../common/src/components/WDGFooter'
 
 export default {
@@ -25,7 +27,9 @@ export default {
 	components: {
 		WDGTabs,
 		WDGHeader,
-		WDGFooter
+		WDGFooter,
+		TheScreenIntro,
+		TheScreenProjectInfos
 	},
 	data () {
 		return {
@@ -34,15 +38,16 @@ export default {
 				{ Id: 'my-funding', Label: i18n.t('project-setup.tabs.MY_FUNDING'), Index: '2', Subtitle: 'Compléter' },
 				{ Id: 'my-investors', Label: i18n.t('project-setup.tabs.MY_INVESTORS'), Index: '3', Subtitle: 'Compléter' },
 				{ Id: 'my-result', Label: i18n.t('project-setup.tabs.MY_RESULT'), Subtitle: 'En cours...' }
-			]
+			],
+			sharedState: store.state
 		}
 	},
 	computed: {
 		canShowTabs () {
-			return (this.$route.name !== 'intro')
+			return (this.sharedState.step !== 'intro')
 		},
-		currentRoute () {
-			return this.$route.name
+		currentStep () {
+			return this.sharedState.step
 		}
 	}
 }
