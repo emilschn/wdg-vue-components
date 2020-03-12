@@ -104,7 +104,13 @@
 			"ORGANIZATION_TYPE_LIST_SAS": "Une SAS"
 		},
 		"project-funding": {
-			"TITLE": "Mon financement"
+			"TITLE": "Mon financement",
+			"the-project-goal-amount": {
+				"TITLE": "Je souhaite lever en €",
+				"TOOLTIP": "Ce montant est le maximum que vous souhaitez lever en échange de royalties.",
+				"MIN": "min. 10 K",
+				"MAX": "max. 500 K"
+			}
 		}
 	}
 }
