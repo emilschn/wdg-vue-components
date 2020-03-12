@@ -1,6 +1,10 @@
 <template>
   <div class="launch-project">
 	<h1>{{ $t('launch-project.TITLE') }}</h1>
+	<p class="text-intro">{{ $t('launch-project.TEXT_1') }}</p>
+	<p class="text-intro">{{ $t('launch-project.TEXT_2') }}</p>
+	<p class="text-intro bold">{{ $t('launch-project.TEXT_3') }}</p>
+	<p class="text-intro">{{ $t('launch-project.TEXT_4') }}</p>
 	<div v-if="existingprojects && existingprojects.projects.length>0" >
 		<p>
 			{{ $t('launch-project.ALREADY_EXISTING_PROJECTS') }}<br>
@@ -266,7 +270,7 @@ function getErrorMessage (errorCode, errorsCreateOrga) {
 		case 'empty_or_wrong_format_field': // ne devrait pas arriver
 			return i18n.t('launch-project.EMPTY_OR_WRONG_FORMAT_FIELD')
 		case 'request_error':
-			return i18n.t('common.REQUEST_ERROR')
+			return i18n.t('launch-project.REQUEST_ERROR')
 		default:
 			return errorCode
 	}
@@ -280,6 +284,12 @@ function getErrorMessage (errorCode, errorsCreateOrga) {
 	.launch-project {
 		width: 480px;
 		margin: auto;
+	}
+ 	.text-intro{
+		text-align: center;
+	}
+	.bold{
+	font-weight: bold;
 	}
 	.required-fields {
 		font-size: 16px;

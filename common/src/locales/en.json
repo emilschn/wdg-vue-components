@@ -1,3 +1,9 @@
 {
-  "message": "hello i18n !!"
+  "message": "hello i18n !!",
+	"validations": {
+		"REQUIRED": "This field is required",
+		"NAME": "This field is not valid",
+		"EMAIL": "This email is not valid",
+		"PHONE_NUMBER": "This phone number is not valid"
+	}
 }
