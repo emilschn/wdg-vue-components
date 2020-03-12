@@ -119,6 +119,17 @@
 				"TITLE": "Ma marge commerciale",
 				"INPUT_LABEL": "Taux",
 				"TOOLTIP": "Texte complet à propos de la marge commerciale"
+			},
+			"royalties-amount": {
+				"TITLE": "Royalties que je cèderais",
+				"OF_MY_QUARTERLY_TURNOVER": "de mon CA trimestriel pendant 5 ans *",
+				"ROYALTIES_PERCENT_DEFAULT": "Vous pouvez personnaliser ce taux. WE DO GOOD vous conseille un taux entre x% et y%.",
+				"ROYALTIES_PERCENT_WARNING_OVER": "Le pourcentage est trop élevé par rapport à votre niveau de marge, les royalties risqueraient de fragiliser votre modèle économique. WE DO GOOD vous conseille un taux entre x% et y%.",
+				"ROYALTIES_PERCENT_WARNING_UNDER": "Le pourcentage est trop faible, vous devez avoir déjà validé votre modèle économique (plus de 100 000 € de chiffre d'affaires) pour valider ce pourcentage.  WE DO GOOD vous conseille un taux entre x% et y%.",
+				"ROYALTIES_PERCENT_CUSTOM": "Le pourcentage saisi est correct. WE DO GOOD vous conseille un taux entre x% et y%.",
+				"VIEW_ADVICE": "Voir nos conseils",
+				"VIEW_DETAILS": "Voir le détail",
+				"REINIT_PARAMETERS": "Réinitialiser les paramètres"
 			}
 		}
 	}
