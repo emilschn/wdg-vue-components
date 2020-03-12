@@ -110,6 +110,15 @@
 				"TOOLTIP": "Ce montant est le maximum que vous souhaitez lever en échange de royalties.",
 				"MIN": "min. 10 K",
 				"MAX": "max. 500 K"
+			},
+			"estimated-turnover-by-year": {
+				"TITLE": "Mon chiffre d'affaires prévisionnel en €",
+				"INPUT_LABEL": "Année"
+			},
+			"commercial-margin": {
+				"TITLE": "Ma marge commerciale",
+				"INPUT_LABEL": "Taux",
+				"TOOLTIP": "Texte complet à propos de la marge commerciale"
 			}
 		}
 	}

@@ -50,6 +50,7 @@ export default {
 
 <style>
 .the-project-save {
+	margin: 16px 0px;
 	text-align: center;
 }
 .the-project-save a, .the-project-save span {

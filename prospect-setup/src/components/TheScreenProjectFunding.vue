@@ -7,13 +7,20 @@
 			<slot slot="title">{{ $t('project-setup.project-funding.TITLE') }}</slot>
 		</TheTabTitle>
 
+		<TheProjectEstimatedTurnoverByYear />
+
+		<TheProjectCommercialMargin />
+
 		<TheProjectGoalAmount />
+
 		<TheProjectSave />
 	</div>
 </template>
 
 <script>
 import TheTabTitle from '@/components/TheTabTitle'
+import TheProjectEstimatedTurnoverByYear from '@/components/TheProjectEstimatedTurnoverByYear'
+import TheProjectCommercialMargin from '@/components/TheProjectCommercialMargin'
 import TheProjectSave from '@/components/TheProjectSave'
 import TheProjectGoalAmount from '@/components/TheProjectGoalAmount'
 
@@ -22,7 +29,9 @@ export default {
 	components: {
 		TheTabTitle,
 		TheProjectSave,
-		TheProjectGoalAmount
+		TheProjectGoalAmount,
+		TheProjectEstimatedTurnoverByYear,
+		TheProjectCommercialMargin
 	},
 	props: {
 	},
@@ -36,4 +45,19 @@ export default {
 </script>
 
 <style>
+div.the-screen-project-funding {
+	width: 96%;
+	margin: auto;
+}
+div.the-screen-project-funding div.project-funding-subpart {
+	padding: 24px;
+	background: #f4f2f2;
+}
+div.the-screen-project-funding div.project-funding-subpart h3 {
+	margin: 0px;
+}
+
+div.the-project-estimated-turnover-by-year {
+	margin-bottom: 32px;
+}
 </style>
