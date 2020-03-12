@@ -50,10 +50,10 @@ export default {
     },
 	data () {
 		return {
-		    email: '',
-		    canShowSendMail: { type: Boolean, default: false },
-            loading: false,
-            sendText: { type: String, default: i18n.t('project-setup.intro.the-project-link-send.TEXT') }
+			email: '',
+			canShowSendMail: false,
+			loading: false,
+			sendText: i18n.t('project-setup.intro.the-project-link-send.TEXT')
         }
     },
     methods: {

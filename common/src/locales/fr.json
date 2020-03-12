@@ -104,7 +104,16 @@
 			"ORGANIZATION_TYPE_LIST_SAS": "Une SAS"
 		},
 		"project-funding": {
-			"TITLE": "Mon financement"
+			"TITLE": "Mon financement",
+			"estimated-turnover-by-year": {
+				"TITLE": "Mon chiffre d'affaires prévisionnel en €",
+				"INPUT_LABEL": "Année"
+			},
+			"commercial-margin": {
+				"TITLE": "Ma marge commerciale",
+				"INPUT_LABEL": "Taux",
+				"TOOLTIP": "Texte complet à propos de la marge commerciale"
+			}
 		}
 	}
 }
