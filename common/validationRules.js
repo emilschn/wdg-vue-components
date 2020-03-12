@@ -1,27 +1,30 @@
-import { extend, localize } from 'vee-validate'
+import { extend, localize, setInteractionMode } from 'vee-validate'
 import { required, email, alpha, numeric } from 'vee-validate/dist/rules'
 // régles existantes : https://logaretm.github.io/vee-validate/guide/rules.html#rules
+import i18n from '@/i18n'
 
 // No message specified.
 extend('alpha', alpha)
-extend('email', email)
 extend('numeric', numeric)
-extend('required', required)
+
+// Override the default message.
+extend('required', {
+  ...required,
+  message: i18n.t('validations.REQUIRED')
+})
+extend('email', {
+  ...email,
+  message: i18n.t('validations.EMAIL')
+})
 
 // Créer des règles personnalisées
-extend('test', value => {
-    if (value === 'test') {
-      return true
-    }
-    return 'Ce champ doit contenir test'
-})
 // règle pour les noms et prénoms, alpha, espace, tiret, apostrophe
 extend('name', value => {
     const regex = /^([a-zA-Z\u00C0-\u00FF]+['-]?[a-zA-Z\u00C0-\u00FF]+){1,30}$/
     if (value.match(regex)) {
       return true
     }
-    return 'Ce champ n\'est pas valide'
+    return i18n.t('validations.NAME')
 })
 // règle pour les numéros de téléphone
 extend('phone_number', value => {
@@ -29,7 +32,9 @@ extend('phone_number', value => {
     if (value.match(regex)) {
       return true
     }
-    return 'Ce champ n\'est pas valide'
+    return i18n.t('validations.PHONE_NUMBER')
 })
+
+setInteractionMode('lazy')
 
 localize('fr')

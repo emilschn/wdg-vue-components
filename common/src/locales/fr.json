@@ -17,7 +17,10 @@
 		"SEND": "Envoyer"
 	},
 	"validations": {
-		"REQUIRED": "Ce champ est obligatoire"
+		"REQUIRED": "Ce champ est obligatoire",
+		"NAME": "Ce champ n'est pas valide",
+		"EMAIL": "Cet email n'est pas valide",
+		"PHONE_NUMBER": "Ce numéro de téléphone n'est pas valide"
 	},
 	"signin-signup": {
 		"FORGOTTEN_PASSWORD": "Mot de passe oublié",
@@ -46,6 +49,10 @@
 	},
 	"launch-project": {
 		"TITLE": "Lancement de levée de fonds",
+		"TEXT_1": "Félicitations, votre dossier a été validé par WE DO GOOD !",
+		"TEXT_2": "Prêt pour la suite ?",
+		"TEXT_3": "Attention, la levée de fonds doit être configurée par le représentant légal de l’entreprise avec son compte personnel, qui pourra ensuite inviter le reste de l’équipe.",
+		"TEXT_4": "Vous devez disposez d’une adresse mail personnelle pour votre compte et d’une seconde adresse mail pour l’entreprise (adresse générique ou d’entreprise).",
 		"ALREADY_EXISTING_PROJECTS": "Vous avez déjà créé un (ou des) projet(s) sur la plateforme précédemment :",
 		"CREATE_NEW_PROJECT_INDEED": "Si vous souhaitez tout de même créer un nouveau projet, veuillez remplir le formulaire ci-dessous.",
 		"ORGA_MAIL_DIFFERENT": "Cette adresse doit être différente de celle de votre compte personnel, utilisez une adresse telle que contact@votre-entreprise.fr",
@@ -54,7 +61,8 @@
 		"PROJECT_DESCRIPTION": "Description du projet",
 		"PROJECT_DESCRIPTION_PLACEHOLDER": "Description du projet",
 		"VALIDATE_CONDITIONS": "Je valide les conditions particulières",
-		"EMPTY_OR_WRONG_FORMAT_FIELD": "Un des champs est vide ou n'est pas au bon format"
+		"EMPTY_OR_WRONG_FORMAT_FIELD": "Un des champs est vide ou n'est pas au bon format",
+		"REQUEST_ERROR": "Problème de connexion (FX84R83)"
 	},
 	"project-setup": {
 		"TITLE": "Mon éligibilité aux royalties",
