@@ -6,9 +6,13 @@
 				<slot slot="text">{{ $t('project-setup.project-funding.the-project-goal-amount.TOOLTIP') }}</slot>
 			</WDGToolTip>
 		</h3>
-		<WDGSlider />
-        {{ $t('project-setup.project-funding.the-project-goal-amount.MIN') }}
-        {{ $t('project-setup.project-funding.the-project-goal-amount.MAX') }}
+		<WDGSlider
+            defaultValue="250"
+            :min="10"
+            :max="500"
+        />
+        <span class="min">{{ $t('project-setup.project-funding.the-project-goal-amount.MIN') }}</span>
+        <span class="max">{{ $t('project-setup.project-funding.the-project-goal-amount.MAX') }}</span>
 	</div>
 </template>
 
@@ -28,5 +32,10 @@ export default {
 </script>
 
 <style>
-
+    .min{
+        text-align: left;
+    }
+    .max{
+        text-align: right;
+    }
 </style>
