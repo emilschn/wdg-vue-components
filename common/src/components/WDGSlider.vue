@@ -39,7 +39,8 @@ export default {
                 speed: 0.5,
                 processStyle: {
                     backgroundColor: '#424242'
-                },
+                }
+                /*,
                 tooltipStyles: {
                     backgroundColor: '#A3A3A3',
                     fontWeight: 'bold',
@@ -47,7 +48,7 @@ export default {
                     fontSize: '24px',
                     top: '-10px',
                     borderRadius: '8px'
-                }
+                } */
             }
 		}
 	},
