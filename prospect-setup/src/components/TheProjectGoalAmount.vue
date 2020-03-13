@@ -7,12 +7,14 @@
 			</WDGToolTip>
 		</h3>
 		<WDGSlider
-            defaultValue="250"
+            defaultValue="150"
             :min="10"
             :max="500"
         />
-        <span class="min">{{ $t('project-setup.project-funding.the-project-goal-amount.MIN') }}</span>
-        <span class="max">{{ $t('project-setup.project-funding.the-project-goal-amount.MAX') }}</span>
+        <div class="legend">
+            <span class="min">{{ $t('project-setup.project-funding.the-project-goal-amount.MIN') }}</span>
+            <span class="max">{{ $t('project-setup.project-funding.the-project-goal-amount.MAX') }}</span>
+        </div>
 	</div>
 </template>
 
@@ -32,10 +34,8 @@ export default {
 </script>
 
 <style>
-    .min{
-        text-align: left;
-    }
-    .max{
-        text-align: right;
+    .legend{
+        display: flex;
+        justify-content: space-between;
     }
 </style>
