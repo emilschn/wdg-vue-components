@@ -19,6 +19,8 @@
 
 		<TheProjectRoyaltiesWarning />
 
+		<TheProjectRoyaltiesChart />
+
 		<TheProjectSave />
 	</div>
 </template>
@@ -30,6 +32,7 @@ import TheProjectCommercialMargin from '@/components/TheProjectCommercialMargin'
 import TheProjectGoalAmount from '@/components/TheProjectGoalAmount'
 import TheProjectRoyaltiesAmount from '@/components/TheProjectRoyaltiesAmount'
 import TheProjectRoyaltiesWarning from '@/components/TheProjectRoyaltiesWarning'
+import TheProjectRoyaltiesChart from '@/components/TheProjectRoyaltiesChart'
 import TheProjectSave from '@/components/TheProjectSave'
 
 export default {
@@ -39,8 +42,9 @@ export default {
 		TheProjectEstimatedTurnoverByYear,
 		TheProjectCommercialMargin,
 		TheProjectGoalAmount,
-		TheProjectRoyaltiesWarning,
 		TheProjectRoyaltiesAmount,
+		TheProjectRoyaltiesWarning,
+		TheProjectRoyaltiesChart,
 		TheProjectSave
 	},
 	props: {

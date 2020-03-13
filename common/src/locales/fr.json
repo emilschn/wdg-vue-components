@@ -135,6 +135,11 @@
 				"WARNING_1": "Les calculs de WE DO GOOD s'entendent sous réserve de la réalisation de votre chiffre d'affaires prévisionnel.",
 				"WARNING_2": "Le pourcentage conseillé est calculé pour que vos investisseurs doublent leur investissement en 5 ans.",
 				"WARNING_3": "Le minimum que vous puissiez définir pour que vos investisseurs récupèrent leur investissement en 5 ans est {warningMinPercent} %."
+			},
+			"royalties-chart": {
+				"TITLE": "Détails des royalties prévisionnelles",
+				"LABEL_TURNOVER": "CA prévisionnel",
+				"LABEL_ROYALTIES": "Royalties à verser"
 			}
 		}
 	}
