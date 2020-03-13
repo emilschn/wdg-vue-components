@@ -17,6 +17,8 @@
 			<TheProjectGoalAmount />
 		</div>
 
+		<TheProjectRoyaltiesWarning />
+
 		<TheProjectSave />
 	</div>
 </template>
@@ -25,19 +27,21 @@
 import TheTabTitle from '@/components/TheTabTitle'
 import TheProjectEstimatedTurnoverByYear from '@/components/TheProjectEstimatedTurnoverByYear'
 import TheProjectCommercialMargin from '@/components/TheProjectCommercialMargin'
-import TheProjectRoyaltiesAmount from '@/components/TheProjectRoyaltiesAmount'
-import TheProjectSave from '@/components/TheProjectSave'
 import TheProjectGoalAmount from '@/components/TheProjectGoalAmount'
+import TheProjectRoyaltiesAmount from '@/components/TheProjectRoyaltiesAmount'
+import TheProjectRoyaltiesWarning from '@/components/TheProjectRoyaltiesWarning'
+import TheProjectSave from '@/components/TheProjectSave'
 
 export default {
 	name: 'TheScreenProjectFunding',
 	components: {
 		TheTabTitle,
-		TheProjectSave,
-		TheProjectGoalAmount,
 		TheProjectEstimatedTurnoverByYear,
 		TheProjectCommercialMargin,
-		TheProjectRoyaltiesAmount
+		TheProjectGoalAmount,
+		TheProjectRoyaltiesWarning,
+		TheProjectRoyaltiesAmount,
+		TheProjectSave
 	},
 	props: {
 	},
@@ -88,7 +92,7 @@ div.the-screen-project-funding div.the-project-goal-amount {
 	width: calc(100% - 312px); /* 100% - ( padding 2 * 24px - marge * 16px - commercial margin 200px ) */
 }
 
-div.the-screen-project-funding div.the-project-save {
+div.the-screen-project-funding div.the-project-royalties-warning {
 	clear: both;
 }
 </style>

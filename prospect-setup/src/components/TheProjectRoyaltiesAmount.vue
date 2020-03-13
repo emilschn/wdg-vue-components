@@ -19,18 +19,18 @@
 		</div>
 
 		<div class="advice default" v-if="royaltiesPercentType == 'default'">
-			{{ $t('project-setup.project-funding.royalties-amount.ROYALTIES_PERCENT_DEFAULT') }}
+			{{ $t('project-setup.project-funding.royalties-amount.ROYALTIES_PERCENT_DEFAULT', { adviceMinPercent: minPercent, adviceMaxPercent: maxPercent }) }}
 		</div>
 		<div class="advice warning-over" v-if="royaltiesPercentType == 'warning-over'">
-			{{ $t('project-setup.project-funding.royalties-amount.ROYALTIES_PERCENT_WARNING_OVER') }}
+			{{ $t('project-setup.project-funding.royalties-amount.ROYALTIES_PERCENT_WARNING_OVER', { adviceMinPercent: minPercent, adviceMaxPercent: maxPercent }) }}
 			<a href="#">{{ $t('project-setup.project-funding.royalties-amount.VIEW_ADVICE') }}</a>
 		</div>
 		<div class="advice warning-under" v-if="royaltiesPercentType == 'warning-under'">
-			{{ $t('project-setup.project-funding.royalties-amount.ROYALTIES_PERCENT_WARNING_UNDER') }}
+			{{ $t('project-setup.project-funding.royalties-amount.ROYALTIES_PERCENT_WARNING_UNDER', { adviceMinPercent: minPercent, adviceMaxPercent: maxPercent }) }}
 			<a href="#">{{ $t('project-setup.project-funding.royalties-amount.VIEW_ADVICE') }}</a>
 		</div>
 		<div class="advice custom" v-if="royaltiesPercentType == 'custom'">
-			{{ $t('project-setup.project-funding.royalties-amount.ROYALTIES_PERCENT_CUSTOM') }}
+			{{ $t('project-setup.project-funding.royalties-amount.ROYALTIES_PERCENT_CUSTOM', { adviceMinPercent: minPercent, adviceMaxPercent: maxPercent }) }}
 			<a href="#">{{ $t('project-setup.project-funding.royalties-amount.VIEW_ADVICE') }}</a>
 		</div>
 
@@ -54,6 +54,10 @@ export default {
 	components: {
 		WDGInput,
 		WDGButton
+	},
+	props: {
+		minPercent: { type: String, default: '1' },
+		maxPercent: { type: String, default: '2' }
 	},
 	data () {
 		return {
