@@ -88,6 +88,9 @@ div.the-project-royalties-chart {
 	text-align: center;
 	margin: 16px 0px;
 }
+div.the-project-royalties-chart h3 {
+	font-size: 22px;
+}
 div.chart-container canvas {
 	display: block;
 	margin: auto;

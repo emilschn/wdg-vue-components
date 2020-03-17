@@ -142,6 +142,18 @@
 				"TITLE": "Détails des royalties prévisionnelles",
 				"LABEL_TURNOVER": "CA prévisionnel",
 				"LABEL_ROYALTIES": "Royalties à verser"
+			},
+			"advice": {
+				"TITLE": "Les conseils WE DO GOOD",
+				"SUBTITLE": "Pour rendre votre projet éligible, vous pouvez :",
+				"ADVICE1_TITLE": "Diminuer le montant à lever en royalties.",
+				"ADVICE1_TEXT": "Gardez en tête que les royalties peuvent intervenir sur une partie d'une levée de fonds pour débloquer un prêt bancaire ou des subventions.",
+				"ADVICE2_TITLE": "Utiliser un prévisionnel plus optimiste.",
+				"ADVICE3_TITLE": "Utiliser le pourcentage conseillé par WE DO GOOD ci-dessous.",
+				"NO_SOLUTION1": "Si aucune de ces solutions n'est possible, votre modèle économique n'est peut-être pas adapté aux royalties.",
+				"NO_SOLUTION2": "Vous pouvez visiter www.trouverlebonfinancement.fr pour identifier d'autres types de financements participatifs.",
+				"ADVICE_PERCENT": "Pourcentage conseillé :",
+				"TEST_PERCENT": "Tester ce pourcentage"
 			}
 		}
 	}

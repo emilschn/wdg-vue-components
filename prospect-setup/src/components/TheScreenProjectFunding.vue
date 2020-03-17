@@ -28,6 +28,10 @@
 			<slot slot="label-before">{{ $t('project-setup.project-funding.TOGGLE_LABEL') }}</slot>
 		</WDGToggle>
 
+		<TheProjectAdvice
+		  adviceAmount="3,4"
+		  />
+
 		<div class="project-funding-navigation">
 			<a @click="changeStepBackward">
 			{{ $t('project-setup.PREVIOUS_STEP') }}
@@ -48,6 +52,8 @@
 
 <script>
 import { store } from '../store.js'
+import WDGToggle from '@/../../common/src/components/WDGToggle'
+import WDGButton from '@/../../common/src/components/WDGButton'
 import TheTabTitle from '@/components/TheTabTitle'
 import TheProjectEstimatedTurnoverByYear from '@/components/TheProjectEstimatedTurnoverByYear'
 import TheProjectCommercialMargin from '@/components/TheProjectCommercialMargin'
@@ -55,13 +61,14 @@ import TheProjectGoalAmount from '@/components/TheProjectGoalAmount'
 import TheProjectRoyaltiesAmount from '@/components/TheProjectRoyaltiesAmount'
 import TheProjectRoyaltiesWarning from '@/components/TheProjectRoyaltiesWarning'
 import TheProjectRoyaltiesChart from '@/components/TheProjectRoyaltiesChart'
-import WDGToggle from '@/../../common/src/components/WDGToggle'
-import WDGButton from '@/../../common/src/components/WDGButton'
 import TheProjectSave from '@/components/TheProjectSave'
+import TheProjectAdvice from '@/components/TheProjectAdvice'
 
 export default {
 	name: 'TheScreenProjectFunding',
 	components: {
+		WDGToggle,
+		WDGButton,
 		TheTabTitle,
 		TheProjectEstimatedTurnoverByYear,
 		TheProjectCommercialMargin,
@@ -69,8 +76,7 @@ export default {
 		TheProjectRoyaltiesAmount,
 		TheProjectRoyaltiesWarning,
 		TheProjectRoyaltiesChart,
-		WDGToggle,
-		WDGButton,
+		TheProjectAdvice,
 		TheProjectSave
 	},
 	props: {
