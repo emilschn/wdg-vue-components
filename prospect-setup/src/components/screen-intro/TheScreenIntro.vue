@@ -46,11 +46,11 @@
 
 <script>
 // import i18n from '@/i18n'
-import { store } from '../store.js'
-import TheTabTitle from '@/components/TheTabTitle'
+import { store } from '../../store.js'
+import TheTabTitle from '@/components/common/TheTabTitle'
 import WDGMascot from '@/../../common/src/components/WDGMascot'
 import WDGButton from '@/../../common/src/components/WDGButton'
-import TheProjectLinkSend from '@/components/TheProjectLinkSend'
+import TheProjectLinkSend from '@/components/screen-intro/TheProjectLinkSend'
 
 export default {
 	name: 'TheScreenIntro',
@@ -89,7 +89,7 @@ export default {
 	.the-screen-intro .result {
         width:322px;
         height:200px;
-		background-image: url("../assets/intro_bulle.png");
+		background-image: url("../../assets/intro_bulle.png");
 	}
 	.the-screen-intro .result .title {
 		font-size: 24px;

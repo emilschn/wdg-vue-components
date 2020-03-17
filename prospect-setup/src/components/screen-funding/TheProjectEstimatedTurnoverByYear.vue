@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import TheProjectEstimatedTurnoverByYearItem from '@/components/TheProjectEstimatedTurnoverByYearItem'
+import TheProjectEstimatedTurnoverByYearItem from '@/components/screen-funding/TheProjectEstimatedTurnoverByYearItem'
 
 export default {
 	name: 'TheProjectEstimatedTurnoverByYear',

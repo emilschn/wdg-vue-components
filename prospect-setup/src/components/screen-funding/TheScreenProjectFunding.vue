@@ -51,18 +51,18 @@
 </template>
 
 <script>
-import { store } from '../store.js'
+import { store } from '../../store.js'
 import WDGToggle from '@/../../common/src/components/WDGToggle'
 import WDGButton from '@/../../common/src/components/WDGButton'
-import TheTabTitle from '@/components/TheTabTitle'
-import TheProjectEstimatedTurnoverByYear from '@/components/TheProjectEstimatedTurnoverByYear'
-import TheProjectCommercialMargin from '@/components/TheProjectCommercialMargin'
-import TheProjectGoalAmount from '@/components/TheProjectGoalAmount'
-import TheProjectRoyaltiesAmount from '@/components/TheProjectRoyaltiesAmount'
-import TheProjectRoyaltiesWarning from '@/components/TheProjectRoyaltiesWarning'
-import TheProjectRoyaltiesChart from '@/components/TheProjectRoyaltiesChart'
-import TheProjectSave from '@/components/TheProjectSave'
-import TheProjectAdvice from '@/components/TheProjectAdvice'
+import TheTabTitle from '@/components/common/TheTabTitle'
+import TheProjectSave from '@/components/common/TheProjectSave'
+import TheProjectEstimatedTurnoverByYear from '@/components/screen-funding/TheProjectEstimatedTurnoverByYear'
+import TheProjectCommercialMargin from '@/components/screen-funding/TheProjectCommercialMargin'
+import TheProjectGoalAmount from '@/components/screen-funding/TheProjectGoalAmount'
+import TheProjectRoyaltiesAmount from '@/components/screen-funding/TheProjectRoyaltiesAmount'
+import TheProjectRoyaltiesWarning from '@/components/screen-funding/TheProjectRoyaltiesWarning'
+import TheProjectRoyaltiesChart from '@/components/screen-funding/TheProjectRoyaltiesChart'
+import TheProjectAdvice from '@/components/screen-funding/TheProjectAdvice'
 
 export default {
 	name: 'TheScreenProjectFunding',

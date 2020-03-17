@@ -18,9 +18,9 @@
 import { store } from './store.js'
 import WDGHeader from '@/../../common/src/components/WDGHeader'
 import WDGTabs from '@/../../common/src/components/WDGTabs'
-import TheScreenIntro from './components/TheScreenIntro.vue'
-import TheScreenProjectInfos from './components/TheScreenProjectInfos.vue'
-import TheScreenProjectFunding from './components/TheScreenProjectFunding.vue'
+import TheScreenIntro from './components/screen-intro/TheScreenIntro.vue'
+import TheScreenProjectInfos from './components/screen-infos/TheScreenProjectInfos.vue'
+import TheScreenProjectFunding from './components/screen-funding/TheScreenProjectFunding.vue'
 import WDGFooter from '@/../../common/src/components/WDGFooter'
 
 export default {

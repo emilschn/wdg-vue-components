@@ -16,6 +16,7 @@ export const store = {
 			let initItem = this.state.tabItems[ 0 ]
 			initItem.Status = 'complete'
 			Vue.set(this.state.tabItems, 0, initItem)
+			window.scrollTo(0, 0)
 		}
     }
 }
