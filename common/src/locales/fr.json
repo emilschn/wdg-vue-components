@@ -44,6 +44,7 @@
 		"PICTO_TITLE_TIMER": "Chronomètre",
 		"MINUTE": "minute | minutes",
 		"CONTINUE": "Continuer",
+		"PREVIOUS_STEP": "Etape précédente",
 		"START": "Commencer",
 		"SAVE_PROJECT": "Enregistrer mon projet pour plus tard",
 		"SAVING_PROJECT": "Enregistrement du projet en cours",
@@ -105,6 +106,7 @@
 		},
 		"project-funding": {
 			"TITLE": "Mon financement",
+			"TOGGLE_LABEL": "J'ai bien lu le prévisionnel des versements",
 			"the-project-goal-amount": {
 				"TITLE": "Je souhaite lever en €",
 				"TOOLTIP": "Ce montant est le maximum que vous souhaitez lever en échange de royalties.",

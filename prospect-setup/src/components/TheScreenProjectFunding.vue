@@ -21,11 +21,33 @@
 
 		<TheProjectRoyaltiesChart />
 
+		<WDGToggle
+		  colorChecked="#8BC79C"
+		  colorUnchecked="#333"
+		  >
+			<slot slot="label-before">{{ $t('project-setup.project-funding.TOGGLE_LABEL') }}</slot>
+		</WDGToggle>
+
+		<div class="project-funding-navigation">
+			<a @click="changeStepBackward">
+			{{ $t('project-setup.PREVIOUS_STEP') }}
+			</a>
+
+			<WDGButton
+				color="red"
+				type="button"
+				:clickEvent="changeStepForward"
+				>
+				<slot slot="label">{{ $t('project-setup.CONTINUE') }}</slot>
+			</WDGButton>
+		</div>
+
 		<TheProjectSave />
 	</div>
 </template>
 
 <script>
+import { store } from '../store.js'
 import TheTabTitle from '@/components/TheTabTitle'
 import TheProjectEstimatedTurnoverByYear from '@/components/TheProjectEstimatedTurnoverByYear'
 import TheProjectCommercialMargin from '@/components/TheProjectCommercialMargin'
@@ -33,6 +55,8 @@ import TheProjectGoalAmount from '@/components/TheProjectGoalAmount'
 import TheProjectRoyaltiesAmount from '@/components/TheProjectRoyaltiesAmount'
 import TheProjectRoyaltiesWarning from '@/components/TheProjectRoyaltiesWarning'
 import TheProjectRoyaltiesChart from '@/components/TheProjectRoyaltiesChart'
+import WDGToggle from '@/../../common/src/components/WDGToggle'
+import WDGButton from '@/../../common/src/components/WDGButton'
 import TheProjectSave from '@/components/TheProjectSave'
 
 export default {
@@ -45,6 +69,8 @@ export default {
 		TheProjectRoyaltiesAmount,
 		TheProjectRoyaltiesWarning,
 		TheProjectRoyaltiesChart,
+		WDGToggle,
+		WDGButton,
 		TheProjectSave
 	},
 	props: {
@@ -53,8 +79,14 @@ export default {
 		return {
 		}
 	},
-	computed: {
-	}
+    methods: {
+        changeStepBackward: function (event) {
+            store.changeStep('project-infos')
+        },
+        changeStepForward: function (event) {
+            store.changeStep('project-investors')
+        }
+    }
 }
 </script>
 
@@ -98,5 +130,26 @@ div.the-screen-project-funding div.the-project-goal-amount {
 
 div.the-screen-project-funding div.the-project-royalties-warning {
 	clear: both;
+}
+
+div.project-funding-navigation {
+	margin-top: 24px;
+	text-align: center;
+}
+div.project-funding-navigation a {
+	font-size: 13px;
+	font-weight: bold;
+	text-decoration: underline;
+	cursor: pointer;
+	color: #B4B4B4;
+}
+div.project-funding-navigation a:before {
+	display: inline-block;
+	content: "\2190";
+}
+div.project-funding-navigation div.wdg-button {
+	display: inline-block;
+	width: 176px;
+	margin-left: 16px;
 }
 </style>

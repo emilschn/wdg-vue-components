@@ -16,6 +16,7 @@
 
 <script>
 import i18n from '@/i18n'
+import patterns from 'patternomaly'
 import WDGChart from '@/../../common/src/components/WDGChart'
 
 export default {
@@ -48,7 +49,7 @@ export default {
 			},
 			{
 			'label': i18n.t('project-setup.project-funding.royalties-chart.LABEL_ROYALTIES'),
-			'backgroundColor': '#8BC79C',
+			'backgroundColor': patterns.draw('diagonal-right-left', '#8BC79C', '#333'),
 			'data': tempValues2
 			}
 		]
