@@ -9,6 +9,15 @@
 		<svg width="281" height="256" v-if="type == 'face-2'">
 			<image xlink:href="@/../../common/src/assets/mascot/front/2.svg" src="@/../../common/src/assets/mascot/front/2.png" width="281" height="256" />
 		</svg>
+		<svg width="281" height="256" v-if="type == 'face-3'">
+			<image xlink:href="@/../../common/src/assets/mascot/front/3.svg" src="@/../../common/src/assets/mascot/front/3.png" width="281" height="256" />
+		</svg>
+		<svg width="281" height="256" v-if="type == 'side-1'">
+			<image xlink:href="@/../../common/src/assets/mascot/side/1.svg" src="@/../../common/src/assets/mascot/side/1.png" width="281" height="256" />
+		</svg>
+		<svg width="281" height="256" v-if="type == 'side-2'">
+			<image xlink:href="@/../../common/src/assets/mascot/side/2.svg" src="@/../../common/src/assets/mascot/side/2.png" width="281" height="256" />
+		</svg>
 	</div>
 </template>
 

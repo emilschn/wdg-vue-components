@@ -155,6 +155,18 @@
 				"ADVICE_PERCENT": "Pourcentage conseillé :",
 				"TEST_PERCENT": "Tester ce pourcentage"
 			}
+		},
+		"project-investors": {
+			"TITLE": "Mes investisseurs",
+			"READY_TO_COMMUNICATE": "Je suis prêt-e à communiquer auprès de mon entourage",
+			"WHICH_CIRCLES_TO_COMMUNICATE": "Auprès de quels cercles êtes-vous prêt-e à communiquer ?",
+			"MASCOT_TEXT_1A": "Lancer et réussir une levée de fonds demande du temps et un engagement personnel pour vous et votre équipe.",
+			"MASCOT_TEXT_1B": "Vous devez être prêt-e à communiquer auprès de votre entourage pour mettre toutes les chances de votre côté.",
+			"investors-circles": {
+				"CIRCLE_LOVEMONEY": "Proches",
+				"CIRCLE_PRIVATE": "Relations",
+				"CIRCLE_PUBLIC": "Public"
+			}
 		}
 	}
 }
