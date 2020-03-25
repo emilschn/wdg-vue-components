@@ -12,7 +12,6 @@
 		:phonenumber="phonenumber"
 		:organame="organame"
 		:projectname="projectname"
-		:projectdescription="projectdescription"
 		:existingprojects="existingprojects"
 		:existingorganisations="existingorganisations"
 		:urlcgu="urlcgu"
@@ -36,7 +35,6 @@ export default {
 			organame: '',
 			email: '',
 			projectname: '',
-			projectdescription: '',
 			existingorganisations: '',
 			urlcgu: '',
 			existingprojects: ''
@@ -53,7 +51,6 @@ export default {
 		this.email = initElements.dataset.email
 		this.organame = initElements.dataset.organame
 		this.projectname = initElements.dataset.projectname
-		this.projectdescription = initElements.dataset.projectdescription
 		if (initElements.dataset.existingprojects) {
 			this.existingprojects = JSON.parse(initElements.dataset.existingprojects)
 		}

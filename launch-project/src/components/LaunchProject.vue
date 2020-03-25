@@ -4,9 +4,8 @@
 	<p class="text-intro">{{ $t('launch-project.TEXT_1') }}</p>
 	<p class="text-intro">{{ $t('launch-project.TEXT_2') }}</p>
 	<p class="text-intro bold">{{ $t('launch-project.TEXT_3') }}</p>
-	<p class="text-intro">{{ $t('launch-project.TEXT_4') }}</p>
 	<div v-if="existingprojects && existingprojects.projects.length>0" >
-		<p>
+		<p class="alert-existing-projects">
 			{{ $t('launch-project.ALREADY_EXISTING_PROJECTS') }}<br>
 			<ul>
 				<li v-for="project in existingprojects.projects"  v-bind:key="project.id">
@@ -95,7 +94,7 @@
 				:value="orgaemail"
 				v-bind:valueReturn.sync="new_orgaemail"
 			>
-				<slot slot="label">{{ $t('common.EMAIL_ADDRESS') }}</slot>
+				<slot slot="label">{{ $t('common.ORGA_EMAIL_ADDRESS') }}</slot>
 				<slot slot="comment">{{ $t('launch-project.ORGA_MAIL_DIFFERENT') }}</slot>
 			</WDGInput>
 		</div>
@@ -112,17 +111,6 @@
 			v-bind:valueReturn.sync="projectname"
 		>
 			<slot slot="label">{{ $t('launch-project.PROJECT_NAME') }}</slot>
-		</WDGInput>
-		<WDGInput
-			:placeholder="$t('launch-project.PROJECT_DESCRIPTION_PLACEHOLDER')"
-			id="project_description"
-			name="project_description"
-			v-bind:multiline="true"
-			validationRule="required"
-			:value="projectdescription"
-			v-bind:valueReturn.sync="projectdescription"
-		>
-			<slot slot="label">{{ $t('launch-project.PROJECT_DESCRIPTION') }}</slot>
 		</WDGInput>
 		<WDGCheckbox
 			id="validate"
@@ -169,7 +157,6 @@ export default {
 		lastname: { type: String, default: '' },
 		phonenumber: { type: String, default: '' },
 		projectname: { type: String, default: '' },
-		projectdescription: { type: String, default: '' },
 		urlcgu: { type: String, default: '' },
 		existingprojects: { type: Object, default: null },
 		existingorganisations: { type: Object, default: null }
@@ -218,7 +205,6 @@ export default {
 				data.append('email-organization', this.new_orgaemail)
 			}
 			data.append('project-name', this.projectname)
-			data.append('project-description', this.projectdescription)
 			data.append('project-terms', 'true')
 			axios
 				.post (this.ajaxurl, data)
@@ -289,7 +275,11 @@ function getErrorMessage (errorCode, errorsCreateOrga) {
 		text-align: center;
 	}
 	.bold{
-	font-weight: bold;
+		font-weight: bold;
+	}
+	.alert-existing-projects{
+		background-color: #EACDCB;
+		padding: 8px;
 	}
 	.required-fields {
 		font-size: 16px;

@@ -8,7 +8,9 @@
 			<slot name="label"></slot>
 			<span v-if="showRequiredStar"> *</span>
 		</label>
-		<slot name="comment"></slot>
+		<div v-if="showComment" class="wdg-input-comment">
+			<slot name="comment"></slot>
+		</div>
 
     	<ValidationProvider
 		  :rules="validationRule"
@@ -79,6 +81,9 @@ export default {
 	computed: {
 		showRequiredStar () {
 			return this.isRequired && !!this.$slots.label
+		},
+		showComment () {
+			return !!this.$slots.comment
 		}
 	}
 }
@@ -86,6 +91,10 @@ export default {
 
 <style>
 	.wdg-input {
+		margin-bottom: 16px;
+	}
+
+	.wdg-input-comment {
 		margin-bottom: 16px;
 	}
 
