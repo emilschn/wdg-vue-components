@@ -10,6 +10,7 @@
 		<TheScreenProjectInfos v-if="sharedState.step === 'project-infos'" />
 		<TheScreenProjectFunding v-if="sharedState.step === 'project-funding'" />
 		<TheScreenProjectInvestors v-if="sharedState.step === 'project-investors'" />
+		<TheScreenProjectResult v-if="sharedState.step === 'project-result'" />
 
 		<WDGFooter />
 	</div>
@@ -23,6 +24,7 @@ import TheScreenIntro from './components/screen-intro/TheScreenIntro.vue'
 import TheScreenProjectInfos from './components/screen-infos/TheScreenProjectInfos.vue'
 import TheScreenProjectFunding from './components/screen-funding/TheScreenProjectFunding.vue'
 import TheScreenProjectInvestors from './components/screen-investors/TheScreenProjectInvestors.vue'
+import TheScreenProjectResult from './components/screen-result/TheScreenProjectResult.vue'
 import WDGFooter from '@/../../common/src/components/WDGFooter'
 
 export default {
@@ -34,7 +36,8 @@ export default {
 		TheScreenIntro,
 		TheScreenProjectInfos,
 		TheScreenProjectFunding,
-		TheScreenProjectInvestors
+		TheScreenProjectInvestors,
+		TheScreenProjectResult
 	},
 	data () {
 		return {

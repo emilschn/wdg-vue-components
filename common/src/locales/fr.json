@@ -8,7 +8,10 @@
 		"LASTNAME": "Nom de famille",
 		"LASTNAME_PLACEHOLDER": "Mon nom de famille",
 		"REQUIRED_FIELDS": "Champs obligatoires",
-		"SEND": "Envoyer"
+		"SEND": "Envoyer",
+		"VIEW_MORE": "Voir plus",
+		"VIEW_LESS": "Voir moins",
+		"WITHOUT_TAXES_LETTERS": "H.T."
 	},
 	"validations": {
 		"REQUIRED": "Ce champ est obligatoire"
@@ -168,6 +171,40 @@
 				"CIRCLE_LOVEMONEY": "Proches",
 				"CIRCLE_PRIVATE": "Relations",
 				"CIRCLE_PUBLIC": "Public"
+			}
+		},
+		"project-result": {
+			"TITLE": "Votre projet est éligible !",
+			"TITLE_FAILED": "Votre projet n'est pas éligible...",
+			"YOU_CAN_RAISE": "Vous pouvez lever",
+			"TARGET_LOVEMONEY": "auprès de vos proches",
+			"TARGET_PRIVATE": "auprès de vos proches et relations",
+			"TARGET_PUBLIC": "auprès de vos proches, de vos relations et du grand public",
+			"YOU_WILL_PAY": "et vous leur verserez tous les trimestres",
+			"OF_YOUR_TURNOVER": "de votre chiffre d'affaires pendant 5 ans.",
+			"formulas": {
+				"crowdfunding": {
+					"TITLE": "Formule Crowdfunding",
+					"TEXT": "Mobilisez vos réseaux et faites connaître votre projet auprès de nouveaux investisseurs",
+					"AMOUNT_1": "8 % Commission au succès sur le montant levé (6 % avec l’accompagnement INTÉGRAL, 4 % sur le montant levé au-delà de 100 000 €.)",
+					"AMOUNT_2": "3 % Sur les royalties versées (min. 60 € par déclaration)"
+				},
+				"options": {
+					"PAGE_VISIBLE_ON_WDG": "Page visible publiquement sur WE DO GOOD",
+					"COMMUNICATION_ON_NETWORKS": "Diffusion de votre levée de fonds sur nos réseaux sociaux et dans notre newsletter",
+					"REFERENCED_TO_PARTNERS": "Référencement de votre levée de fonds sur les sites de nos partenaires (BPI Tous Nos Projets, Novafi, Info Durable)",
+					"MANAGED_THROUGH_PLATFORM": "Gestion centralisée des investisseurs et des versements de royalties",
+					"SUPPORT": "Support technique, juridique et fiscal pour vous et vos investisseurs",
+					"PAYMENTS": "Collecte des investissements en ligne et par chèque",
+					"EVALUATION": "Période d’évaluation pour valider l’intérêt des investisseurs potentiels et réunir des pré-investissements",
+					"GREEN_LABEL": "Label Financement Participatif pour la Croissance Verte (sur demande et évaluation du projet)"
+				}
+			},
+			"options": {
+				"complete": {
+					"TITLE": "Intégral",
+					"TEXT": "Pour les entrepreneurs qui souhaitent avoir des réponses, des avis et des conseils pour avancer plus vite et plus efficacement"
+				}
 			}
 		}
 	}

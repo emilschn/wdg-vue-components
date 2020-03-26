@@ -1,8 +1,8 @@
 <template>
 	<div class="the-tab-title">
 		<div class="the-tab-title-picto" v-if="hasPictoBalloon">
-			<svg width="96" height="96">
-				<image xlink:href="@/../../common/src/assets/icons/balloon.svg" src="@/../../common/src/assets/icons/balloon.png" width="96" height="96" />
+			<svg width="60" height="60">
+				<image xlink:href="@/../../common/src/assets/icons/balloon.svg" src="@/../../common/src/assets/icons/balloon.png" width="60" height="60" />
 			</svg>
 		</div>
 
@@ -43,6 +43,10 @@ export default {
 	margin: 16px auto;
 	font-size: 35px;
 	font-weight: bold;
+}
+
+.the-tab-title .the-tab-title-picto {
+	margin-top: 32px;
 }
 
 .the-tab-title .the-tab-title-timer {
