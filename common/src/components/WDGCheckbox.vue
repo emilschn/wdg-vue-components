@@ -12,6 +12,7 @@
 			  @change="onChangeLocalEvent"
 			  />
 			<span class="checkmark"></span>
+			<slot name="label-after"></slot>
 		</label>
     </div>
 </template>
@@ -54,6 +55,7 @@ export default {
 		-moz-user-select: none;
 		-ms-user-select: none;
 		user-select: none;
+		cursor: pointer;
 	}
 	.wdg-form .wdg-checkbox label input {
 		position: absolute;

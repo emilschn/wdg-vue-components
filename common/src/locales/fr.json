@@ -160,6 +160,8 @@
 			"TITLE": "Mes investisseurs",
 			"READY_TO_COMMUNICATE": "Je suis prêt-e à communiquer auprès de mon entourage",
 			"WHICH_CIRCLES_TO_COMMUNICATE": "Auprès de quels cercles êtes-vous prêt-e à communiquer ?",
+			"ALREADY_DONE_CROWDFUNDING": "J'ai déjà mené une campagne de financement participatif",
+			"NEED_COMMUNICATION_ADVICE": "J'ai besoin de conseils pour la communication",
 			"MASCOT_TEXT_1A": "Lancer et réussir une levée de fonds demande du temps et un engagement personnel pour vous et votre équipe.",
 			"MASCOT_TEXT_1B": "Vous devez être prêt-e à communiquer auprès de votre entourage pour mettre toutes les chances de votre côté.",
 			"investors-circles": {
