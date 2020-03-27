@@ -9,7 +9,7 @@
 
 		<div class="result-container">
 			<TheResultCampaignAdvice />
-			<TheResultCampaignAdvice />
+			<TheResultProspectMeetup />
 		</div>
 		<div class="clear"></div>
 	</div>
@@ -18,12 +18,14 @@
 <script>
 import TheTabTitle from '@/components/common/TheTabTitle'
 import TheResultCampaignAdvice from '@/components/screen-result/TheResultCampaignAdvice'
+import TheResultProspectMeetup from '@/components/screen-result/TheResultProspectMeetup'
 
 export default {
 	name: 'TheScreenProjectResult',
 	components: {
 		TheTabTitle,
-		TheResultCampaignAdvice
+		TheResultCampaignAdvice,
+		TheResultProspectMeetup
 	},
 	data () {
 		return {
@@ -49,7 +51,8 @@ export default {
 	float: left;
 	width: calc(48% - 64px); /* taille moins padding */
 }
-.the-screen-project-result div.result-container div.the-result-campaign-advice:last-child {
+.the-screen-project-result div.result-container div.the-result-prospect-meetup {
 	float: right;
+	width: calc(48% - 64px); /* taille moins padding */
 }
 </style>

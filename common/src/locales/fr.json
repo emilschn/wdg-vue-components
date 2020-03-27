@@ -11,7 +11,8 @@
 		"SEND": "Envoyer",
 		"VIEW_MORE": "Voir plus",
 		"VIEW_LESS": "Voir moins",
-		"WITHOUT_TAXES_LETTERS": "H.T."
+		"WITHOUT_TAXES_LETTERS": "H.T.",
+		"ADD_DOCUMENT": "Ajouter un document"
 	},
 	"validations": {
 		"REQUIRED": "Ce champ est obligatoire"
@@ -205,6 +206,12 @@
 					"TITLE": "Intégral",
 					"TEXT": "Pour les entrepreneurs qui souhaitent avoir des réponses, des avis et des conseils pour avancer plus vite et plus efficacement"
 				}
+			},
+			"prospect-meetup": {
+				"ADD_FILES_TEXT": "Pour préparer notre rencontre, votre business plan et un prévisionnel financier comportant un plan de financement et un compte de résultat prévisionnel sont nécessaires",
+				"SEND_FILES_INPUT_LABEL": "Pouvez-vous nous en dire un peu plus sur votre projet et vos éventuelles questions ?",
+				"PLAN_RENDEZVOUS": "Prendre rendez-vous",
+				"PLAN_RENDEZVOUS_TEXT": "Parlons-en ! Pour démarrer votre projet et vous conseiller au mieux, prenez rendez-vous !"
 			}
 		}
 	}
