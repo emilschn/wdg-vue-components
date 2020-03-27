@@ -32,14 +32,13 @@
                 </slot>
             </WDGMascot>
         </div>
-        <router-link to="project-infos">
-            <WDGButton
-                color="red"
-                type="button"
-                >
-                <slot slot="label">{{ $t('project-setup.START') }}</slot>
-            </WDGButton>
-        </router-link>
+        <WDGButton
+            color="red"
+            type="button"
+            :clickEvent="changeStep"
+            >
+            <slot slot="label">{{ $t('project-setup.START') }}</slot>
+        </WDGButton>
         <TheProjectLinkSend></TheProjectLinkSend>
         <br>
 	</div>
@@ -47,10 +46,11 @@
 
 <script>
 // import i18n from '@/i18n'
-import TheTabTitle from '@/components/TheTabTitle'
+import { store } from '../../store.js'
+import TheTabTitle from '@/components/common/TheTabTitle'
 import WDGMascot from '@/../../common/src/components/WDGMascot'
 import WDGButton from '@/../../common/src/components/WDGButton'
-import TheProjectLinkSend from '@/components/TheProjectLinkSend'
+import TheProjectLinkSend from '@/components/screen-intro/TheProjectLinkSend'
 
 export default {
 	name: 'TheScreenIntro',
@@ -66,6 +66,11 @@ export default {
 		return {
 		}
 	},
+    methods: {
+        changeStep: function (event) {
+            store.changeStep('project-infos')
+        }
+    },
 	computed: {
 	}
 }
@@ -84,7 +89,7 @@ export default {
 	.the-screen-intro .result {
         width:322px;
         height:200px;
-		background-image: url("../assets/intro_bulle.png");
+		background-image: url("../../assets/intro_bulle.png");
 	}
 	.the-screen-intro .result .title {
 		font-size: 24px;

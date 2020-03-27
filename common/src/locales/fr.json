@@ -15,7 +15,10 @@
 		"VALIDATE": "Valider",
 		"REQUEST_ERROR": "Problème d'envoi de requête",
 		"REQUIRED_FIELDS": "Champs obligatoires",
-		"SEND": "Envoyer"
+		"SEND": "Envoyer",
+		"VIEW_MORE": "Voir plus",
+		"VIEW_LESS": "Voir moins",
+		"WITHOUT_TAXES_LETTERS": "H.T."
 	},
 	"validations": {
 		"REQUIRED": "Ce champ est obligatoire",
@@ -70,6 +73,7 @@
 		"PICTO_TITLE_TIMER": "Chronomètre",
 		"MINUTE": "minute | minutes",
 		"CONTINUE": "Continuer",
+		"PREVIOUS_STEP": "Etape précédente",
 		"START": "Commencer",
 		"SAVE_PROJECT": "Enregistrer mon projet pour plus tard",
 		"SAVING_PROJECT": "Enregistrement du projet en cours",
@@ -99,6 +103,12 @@
 				"ERROR_EMAIL_EMPTY": "L'adresse e-mail doit être définie."
 			}
 		},
+		"tabs": {
+			"MY_PROJECT": "Mon projet",
+			"MY_FUNDING": "Mon financement",
+			"MY_INVESTORS": "Mes investisseurs",
+			"MY_RESULT": "Mon résultat"
+		},
 		"project-infos": {
 			"TITLE": "Mon projet",
 			"SUBTITLE": "Tous les champs sont obligatoires",
@@ -122,6 +132,106 @@
 			"PLACEHOLDER_USER_PHONE": "06 06 06 06 06",
 			"ORGANIZATION_TYPE_LIST_NOT_CREATED": "En cours de création",
 			"ORGANIZATION_TYPE_LIST_SAS": "Une SAS"
+		},
+		"project-funding": {
+			"TITLE": "Mon financement",
+			"TOGGLE_LABEL": "J'ai bien lu le prévisionnel des versements",
+			"the-project-goal-amount": {
+				"TITLE": "Je souhaite lever en €",
+				"TOOLTIP": "Ce montant est le maximum que vous souhaitez lever en échange de royalties.",
+				"MIN": "min. 10 K",
+				"MAX": "max. 500 K"
+			},
+			"estimated-turnover-by-year": {
+				"TITLE": "Mon chiffre d'affaires prévisionnel en €",
+				"INPUT_LABEL": "Année"
+			},
+			"commercial-margin": {
+				"TITLE": "Ma marge commerciale",
+				"INPUT_LABEL": "Taux",
+				"TOOLTIP": "Texte complet à propos de la marge commerciale"
+			},
+			"royalties-amount": {
+				"TITLE": "Royalties que je cèderais",
+				"OF_MY_QUARTERLY_TURNOVER": "de mon CA trimestriel pendant 5 ans *",
+				"ROYALTIES_PERCENT_DEFAULT": "Vous pouvez personnaliser ce taux. WE DO GOOD vous conseille un taux entre {adviceMinPercent} % et {adviceMaxPercent} %.",
+				"ROYALTIES_PERCENT_WARNING_OVER": "Le pourcentage est trop élevé par rapport à votre niveau de marge, les royalties risqueraient de fragiliser votre modèle économique. WE DO GOOD vous conseille un taux entre {adviceMinPercent} % et {adviceMaxPercent} %.",
+				"ROYALTIES_PERCENT_WARNING_UNDER": "Le pourcentage est trop faible, vous devez avoir déjà validé votre modèle économique (plus de 100 000 € de chiffre d'affaires) pour valider ce pourcentage.  WE DO GOOD vous conseille un taux entre {adviceMinPercent} % et {adviceMaxPercent} %.",
+				"ROYALTIES_PERCENT_CUSTOM": "Le pourcentage saisi est correct. WE DO GOOD vous conseille un taux entre {adviceMinPercent} % et {adviceMaxPercent} %.",
+				"VIEW_ADVICE": "Voir nos conseils",
+				"VIEW_DETAILS": "Voir le détail",
+				"REINIT_PARAMETERS": "Réinitialiser les paramètres"
+			},
+			"royalties-warning": {
+				"WARNING_1": "Les calculs de WE DO GOOD s'entendent sous réserve de la réalisation de votre chiffre d'affaires prévisionnel.",
+				"WARNING_2": "Le pourcentage conseillé est calculé pour que vos investisseurs doublent leur investissement en 5 ans.",
+				"WARNING_3": "Le minimum que vous puissiez définir pour que vos investisseurs récupèrent leur investissement en 5 ans est {warningMinPercent} %."
+			},
+			"royalties-chart": {
+				"TITLE": "Détails des royalties prévisionnelles",
+				"LABEL_TURNOVER": "CA prévisionnel",
+				"LABEL_ROYALTIES": "Royalties à verser"
+			},
+			"advice": {
+				"TITLE": "Les conseils WE DO GOOD",
+				"SUBTITLE": "Pour rendre votre projet éligible, vous pouvez :",
+				"ADVICE1_TITLE": "Diminuer le montant à lever en royalties.",
+				"ADVICE1_TEXT": "Gardez en tête que les royalties peuvent intervenir sur une partie d'une levée de fonds pour débloquer un prêt bancaire ou des subventions.",
+				"ADVICE2_TITLE": "Utiliser un prévisionnel plus optimiste.",
+				"ADVICE3_TITLE": "Utiliser le pourcentage conseillé par WE DO GOOD ci-dessous.",
+				"NO_SOLUTION1": "Si aucune de ces solutions n'est possible, votre modèle économique n'est peut-être pas adapté aux royalties.",
+				"NO_SOLUTION2": "Vous pouvez visiter www.trouverlebonfinancement.fr pour identifier d'autres types de financements participatifs.",
+				"ADVICE_PERCENT": "Pourcentage conseillé :",
+				"TEST_PERCENT": "Tester ce pourcentage"
+			}
+		},
+		"project-investors": {
+			"TITLE": "Mes investisseurs",
+			"READY_TO_COMMUNICATE": "Je suis prêt-e à communiquer auprès de mon entourage",
+			"WHICH_CIRCLES_TO_COMMUNICATE": "Auprès de quels cercles êtes-vous prêt-e à communiquer ?",
+			"ALREADY_DONE_CROWDFUNDING": "J'ai déjà mené une campagne de financement participatif",
+			"NEED_COMMUNICATION_ADVICE": "J'ai besoin de conseils pour la communication",
+			"MASCOT_TEXT_1A": "Lancer et réussir une levée de fonds demande du temps et un engagement personnel pour vous et votre équipe.",
+			"MASCOT_TEXT_1B": "Vous devez être prêt-e à communiquer auprès de votre entourage pour mettre toutes les chances de votre côté.",
+			"investors-circles": {
+				"CIRCLE_LOVEMONEY": "Proches",
+				"CIRCLE_PRIVATE": "Relations",
+				"CIRCLE_PUBLIC": "Public"
+			}
+		},
+		"project-result": {
+			"TITLE": "Votre projet est éligible !",
+			"TITLE_FAILED": "Votre projet n'est pas éligible...",
+			"YOU_CAN_RAISE": "Vous pouvez lever",
+			"TARGET_LOVEMONEY": "auprès de vos proches",
+			"TARGET_PRIVATE": "auprès de vos proches et relations",
+			"TARGET_PUBLIC": "auprès de vos proches, de vos relations et du grand public",
+			"YOU_WILL_PAY": "et vous leur verserez tous les trimestres",
+			"OF_YOUR_TURNOVER": "de votre chiffre d'affaires pendant 5 ans.",
+			"formulas": {
+				"crowdfunding": {
+					"TITLE": "Formule Crowdfunding",
+					"TEXT": "Mobilisez vos réseaux et faites connaître votre projet auprès de nouveaux investisseurs",
+					"AMOUNT_1": "8 % Commission au succès sur le montant levé (6 % avec l’accompagnement INTÉGRAL, 4 % sur le montant levé au-delà de 100 000 €.)",
+					"AMOUNT_2": "3 % Sur les royalties versées (min. 60 € par déclaration)"
+				},
+				"options": {
+					"PAGE_VISIBLE_ON_WDG": "Page visible publiquement sur WE DO GOOD",
+					"COMMUNICATION_ON_NETWORKS": "Diffusion de votre levée de fonds sur nos réseaux sociaux et dans notre newsletter",
+					"REFERENCED_TO_PARTNERS": "Référencement de votre levée de fonds sur les sites de nos partenaires (BPI Tous Nos Projets, Novafi, Info Durable)",
+					"MANAGED_THROUGH_PLATFORM": "Gestion centralisée des investisseurs et des versements de royalties",
+					"SUPPORT": "Support technique, juridique et fiscal pour vous et vos investisseurs",
+					"PAYMENTS": "Collecte des investissements en ligne et par chèque",
+					"EVALUATION": "Période d’évaluation pour valider l’intérêt des investisseurs potentiels et réunir des pré-investissements",
+					"GREEN_LABEL": "Label Financement Participatif pour la Croissance Verte (sur demande et évaluation du projet)"
+				}
+			},
+			"options": {
+				"complete": {
+					"TITLE": "Intégral",
+					"TEXT": "Pour les entrepreneurs qui souhaitent avoir des réponses, des avis et des conseils pour avancer plus vite et plus efficacement"
+				}
+			}
 		}
 	}
 }
