@@ -6,9 +6,11 @@
 	  >
 		<label :for="id">
 			<slot name="label"></slot>
-			<span v-if="isRequired"> *</span>
+			<span v-if="showRequiredStar"> *</span>
 		</label>
-		<slot name="comment"></slot>
+		<div v-if="showComment" class="wdg-input-comment">
+			<slot name="comment"></slot>
+		</div>
 
     	<ValidationProvider
 		  :rules="validationRule"
@@ -75,12 +77,24 @@ export default {
 		onInputLocalEvent () {
 			this.$emit('update:valueReturn', this.valueReturn)
 		}
+	},
+	computed: {
+		showRequiredStar () {
+			return this.isRequired && !!this.$slots.label
+		},
+		showComment () {
+			return !!this.$slots.comment
+		}
 	}
 }
 </script>
 
 <style>
 	.wdg-input {
+		margin-bottom: 16px;
+	}
+
+	.wdg-input-comment {
 		margin-bottom: 16px;
 	}
 

@@ -27,3 +27,4 @@ signin-signup/npm-debug.log*
 signin-signup/yarn-debug.log*
 signin-signup/yarn-error.log*
 signin-signup/test/unit/coverage/
+node_modules
