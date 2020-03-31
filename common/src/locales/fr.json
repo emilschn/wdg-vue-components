@@ -113,15 +113,16 @@
 		"project-infos": {
 			"TITLE": "Mon projet",
 			"SUBTITLE": "Tous les champs sont obligatoires",
-			"MASCOT_TEXT_1": "Vos informations ne sont pas transmises à des tiers et restent confidentielles.",
-			"MASCOT_TEXT_2": "Une fois que votre e-mail est renseigné, vous pouvez reprendre votre test à tout moment.",
 			"FORM_TEXT_ORGANIZATION_TYPE": "Ma structure est",
+			"FORM_TEXT_ORGANIZATION_LOCATED": "située",
 			"FORM_TEXT_ORGANIZATION_NOT_CREATED_NAME": "sous le nom de",
 			"FORM_TEXT_ORGANIZATION_CREATED_NAME": "du nom de",
 			"FORM_TEXT_ORGANIZATION_ID": "immatriculée",
 			"FORM_TEXT_AMOUNT_NEEDED": "J'ai besoin de",
 			"FORM_TEXT_ORGANIZATION_DESCRIPTION": "pour mon activité de",
 			"FORM_TEXT_SOURCE_PROSPECT": "J'ai connu WE DO GOOD via",
+			"FORM_TEXT_SOURCE_PROSPECT_DETAILS": "Pouvez-vous préciser ?",
+			"FORM_TEXT_SOURCE_PROSPECT_DETAILS_PLACEHOLDER": "Date, personne, ...",
 			"FORM_TEXT_USER_NAME": "Je m'appelle",
 			"FORM_TEXT_USER_EMAIL": "vous pouvez me joindre à l'adresse mail",
 			"FORM_TEXT_USER_PHONE": "et au numéro de téléphone",
@@ -131,8 +132,32 @@
 			"PLACEHOLDER_USER_NAME": "Prénom Nom",
 			"PLACEHOLDER_USER_EMAIL": "contact@mon-projet.fr",
 			"PLACEHOLDER_USER_PHONE": "06 06 06 06 06",
-			"ORGANIZATION_TYPE_LIST_NOT_CREATED": "En cours de création",
-			"ORGANIZATION_TYPE_LIST_SAS": "Une SAS"
+			"organization-types": {
+				"NOT_CREATED": "en cours de création",
+				"COMPANY": "une entreprise",
+				"MICROBUSINESS": "une entreprise individuelle / micro-entreprise",
+				"ASSOCIATION": "une association"
+			},
+			"location-types": {
+				"FRANCE": "en France",
+				"EURO": "en Zone Euro",
+				"OUT_EURO": "hors Zone Euro"
+			},
+			"source-types": {
+				"EVENT": "un événement",
+				"SOCIAL_NETWORKS": "les réseaux sociaux",
+				"WEBSITE": "un site internet",
+				"SOMEONE": "quelqu'un qui m'en a parlé",
+				"POST": "un article de presse / blog / émission",
+				"OTHER": "un autre moyen"
+			},
+			"mascot-text": {
+				"INIT": "Vos informations ne sont pas transmises à des tiers et restent confidentielles.",
+				"NEED_EMAIL": "Une fois que votre e-mail est renseigné, vous pouvez reprendre votre test à tout moment.",
+				"NOT_CREATED": "WE DO GOOD pourra vous accompagner une fois la société immatriculée.",
+				"MICROBUSINESS": "WE DO GOOD ne peut accompagner que des activités portées par des personnes morales.",
+				"OUT_EURO": "WE DO GOOD ne peut accompagner que des organisations immatriculées dans la zone Euro."
+			}
 		},
 		"project-funding": {
 			"TITLE": "Mon financement",

@@ -8,12 +8,24 @@
 			<slot slot="subtitle">{{ $t('project-setup.project-infos.SUBTITLE') }}</slot>
 		</TheTabTitle>
 
-		<WDGMascot type="face-1" v-if="!canShowUserInfos">
-			<slot slot="text">{{ $t('project-setup.project-infos.MASCOT_TEXT_1') }}</slot>
+		<WDGMascot type="face-1" v-if="getMascotType == '1'">
+			<slot slot="text">{{ $t('project-setup.project-infos.mascot-text.INIT') }}</slot>
 		</WDGMascot>
 
-		<WDGMascot type="face-2" v-if="canShowUserInfos">
-			<slot slot="text">{{ $t('project-setup.project-infos.MASCOT_TEXT_2') }}</slot>
+		<WDGMascot type="face-2" v-if="getMascotType == '2'">
+			<slot slot="text">{{ $t('project-setup.project-infos.mascot-text.NEED_EMAIL') }}</slot>
+		</WDGMascot>
+
+		<WDGMascot type="side-1" v-if="getMascotType == 'not-created'">
+			<slot slot="text">{{ $t('project-setup.project-infos.mascot-text.NOT_CREATED') }}</slot>
+		</WDGMascot>
+
+		<WDGMascot type="side-2" v-if="getMascotType == 'microbusiness'">
+			<slot slot="text">{{ $t('project-setup.project-infos.mascot-text.MICROBUSINESS') }}</slot>
+		</WDGMascot>
+
+		<WDGMascot type="side-1" v-if="getMascotType == 'out-euro'">
+			<slot slot="text">{{ $t('project-setup.project-infos.mascot-text.OUT_EURO') }}</slot>
 		</WDGMascot>
 
 		<WDGForm>
@@ -28,6 +40,22 @@
 				  v-bind:hasFilter="true"
 				  :optionItems="organizationTypeList"
 				  v-bind:valueReturn.sync="organizationType"
+				  />
+			</div>
+
+			<div>
+				<span v-if="organizationType !== 'not-created'">
+					{{ $t('project-setup.project-infos.FORM_TEXT_ORGANIZATION_LOCATED') }}
+				</span>
+
+				<WDGSelect
+				  id="organizationLocation"
+				  name="organizationLocation"
+				  :value="organizationLocation"
+				  customStyle="natural-language"
+				  v-bind:hasFilter="true"
+				  :optionItems="organizationLocationList"
+				  v-bind:valueReturn.sync="organizationLocation"
 				  />
 			</div>
 
@@ -78,7 +106,7 @@
 				<WDGInput
 				  customStyle="natural-language"
 			  	  :placeholder="$t('project-setup.project-infos.PLACEHOLDER_PROJECT_DESCRIPTION')"
-				  /><br>
+				  />.<br>
 
 				{{ $t('project-setup.project-infos.FORM_TEXT_SOURCE_PROSPECT') }}
 
@@ -93,6 +121,13 @@
 			</div>
 
 			<div v-if="canShowUserInfos">
+				{{ $t('project-setup.project-infos.FORM_TEXT_SOURCE_PROSPECT_DETAILS') }}<br>
+
+				<WDGInput
+				  customStyle="natural-language"
+			  	  :placeholder="$t('project-setup.project-infos.FORM_TEXT_SOURCE_PROSPECT_DETAILS_PLACEHOLDER')"
+				  /><br><br>
+
 				{{ $t('project-setup.project-infos.FORM_TEXT_USER_NAME') }}
 
 				<WDGInput
@@ -156,17 +191,29 @@ export default {
 	data () {
 		return {
 			organizationTypeList: [
-				{ Id: 'not-created', Text: i18n.t('project-setup.project-infos.ORGANIZATION_TYPE_LIST_NOT_CREATED') },
-				{ Id: 'sas', Text: i18n.t('project-setup.project-infos.ORGANIZATION_TYPE_LIST_SAS') }
+				{ Id: 'company', Text: i18n.t('project-setup.project-infos.organization-types.COMPANY') },
+				{ Id: 'association', Text: i18n.t('project-setup.project-infos.organization-types.ASSOCIATION') },
+				{ Id: 'not-created', Text: i18n.t('project-setup.project-infos.organization-types.NOT_CREATED') },
+				{ Id: 'microbusiness', Text: i18n.t('project-setup.project-infos.organization-types.MICROBUSINESS') }
 			],
-			organizationType: 'not-created',
+			organizationType: '',
 			organizationName: '',
 			organizationID: '',
 			organizationDescription: '',
+			organizationLocationList: [
+				{ Id: 'france', Text: i18n.t('project-setup.project-infos.location-types.FRANCE') },
+				{ Id: 'euro', Text: i18n.t('project-setup.project-infos.location-types.EURO') },
+				{ Id: 'out-euro', Text: i18n.t('project-setup.project-infos.location-types.OUT_EURO') }
+			],
+			organizationLocation: '',
 			amountNeeded: 0,
 			sourceProspectList: [
-				{ Id: 'close-people', Text: 'Le bouche à oreille' },
-				{ Id: 'other', Text: 'Autre' }
+				{ Id: 'event', Text: i18n.t('project-setup.project-infos.source-types.EVENT') },
+				{ Id: 'social-networks', Text: i18n.t('project-setup.project-infos.source-types.SOCIAL_NETWORKS') },
+				{ Id: 'website', Text: i18n.t('project-setup.project-infos.source-types.WEBSITE') },
+				{ Id: 'someone', Text: i18n.t('project-setup.project-infos.source-types.SOMEONE') },
+				{ Id: 'post', Text: i18n.t('project-setup.project-infos.source-types.POST') },
+				{ Id: 'other', Text: i18n.t('project-setup.project-infos.source-types.OTHER') }
 			],
 			sourceProspect: '',
 			userName: '',
@@ -184,6 +231,21 @@ export default {
 			let buffer = false
 			buffer = (this.sourceProspect !== '')
 			return buffer
+		},
+		getMascotType () {
+			if (this.sourceProspect !== '') {
+				return '2'
+			} else {
+				if (this.organizationType === 'not-created') {
+					return 'not-created'
+				} else if (this.organizationType === 'microbusiness') {
+					return 'microbusiness'
+				} else if (this.organizationLocation === 'out-euro') {
+					return 'out-euro'
+				}
+
+				return '1'
+			}
 		}
 	}
 }

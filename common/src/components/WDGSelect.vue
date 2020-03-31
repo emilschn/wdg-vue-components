@@ -38,36 +38,36 @@ export default {
 </script>
 
 <style>
-	.wdg-select.natural-language {
-		display: inline;
-	}
+.wdg-select.natural-language {
+	display: inline;
+}
 
-	.wdg-select.natural-language label {
-		display: none;
-	}
+.wdg-select.natural-language label {
+	display: none;
+}
 
-	.wdg-select.natural-language select {
-		display: inline-block;
-		width: 250px;
-		padding: 0px;
-		padding-bottom: 8px;
-		-webkit-appearance: none;
-		-moz-appearance: none;
-		background-image:
-			linear-gradient(45deg, transparent 50%, #00879B 50%),
-			linear-gradient(135deg, #00879B 50%, transparent 50%);
-		background-position:
-			calc(100% - 20px) calc(1em + 2px),
-			calc(100% - 15px) calc(1em + 2px),
-			calc(100% - 2.5em) 0.5em;
-		background-size:
-			5px 5px,
-			5px 5px,
-			1px 1.5em;
-		background-repeat: no-repeat;
-		font-size: 16px;
-		color: #00879B;
-		border: 0px;
-		border-bottom: 2px solid #00879B;
-	}
+.wdg-select.natural-language select {
+	display: inline-block;
+	width: 250px;
+	padding: 0px 30px 8px 0px;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	background-image:
+		linear-gradient(45deg, transparent 50%, #00879B 50%),
+		linear-gradient(135deg, #00879B 50%, transparent 50%);
+	background-position:
+		calc(100% - 20px) calc(1em + 2px),
+		calc(100% - 15px) calc(1em + 2px),
+		calc(100% - 2.5em) 0.5em;
+	background-size:
+		5px 5px,
+		5px 5px,
+		1px 1.5em;
+	background-repeat: no-repeat;
+	font-size: 16px;
+	color: #00879B;
+	border: 0px;
+	border-bottom: 2px solid #00879B;
+	cursor: pointer;
+}
 </style>
