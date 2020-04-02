@@ -83,6 +83,7 @@ export default {
 	},
 	data () {
 		return {
+			sharedState: store.state
 		}
 	},
     methods: {

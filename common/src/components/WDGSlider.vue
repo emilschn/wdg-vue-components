@@ -11,7 +11,7 @@
         >
         <template slot="tooltip">
             <div class="tooltipPerso">
-            {{this.valueSlider}} 000 €
+            {{slider.val}} 000 €
             </div>
         </template>
         </VueSlideBar>
@@ -34,7 +34,7 @@ export default {
 	data () {
 		return {
             slider: {
-                val: this.defaultValue,
+                val: 0,
                 lineHeight: 10,
                 speed: 0.5,
                 processStyle: {
@@ -54,10 +54,12 @@ export default {
 	},
     methods: {
         changeValue (val) {
-            console.log(val)
-            this.valueSlider = val
+            this.slider.val = val
         }
-    }
+    },
+	mounted () {
+		this.slider.val = this.defaultValue
+	}
 }
 </script>
 

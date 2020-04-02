@@ -1,5 +1,9 @@
 <template>
-	<div id="app" class="prospect-setup">
+	<div
+	  id="app"
+	  class="prospect-setup"
+	  :data-ajaxurl="sharedProps.ajaxurl"
+	  >
 		<WDGHeader>
 			<slot slot="title">{{ $t('project-setup.TITLE') }}</slot>
 		</WDGHeader>
@@ -26,6 +30,7 @@ import TheScreenProjectFunding from './components/screen-funding/TheScreenProjec
 import TheScreenProjectInvestors from './components/screen-investors/TheScreenProjectInvestors.vue'
 import TheScreenProjectResult from './components/screen-result/TheScreenProjectResult.vue'
 import WDGFooter from '@/../../common/src/components/WDGFooter'
+const initElements = document.querySelector('#app')
 
 export default {
 	name: 'App',
@@ -41,15 +46,20 @@ export default {
 	},
 	data () {
 		return {
-			sharedState: store.state
+			sharedState: store.state,
+			sharedProps: store.props,
+			sharedTabItems: store.tabItems
 		}
+	},
+	created () {
+		this.sharedProps.ajaxurl = initElements.dataset.ajaxurl
 	},
 	computed: {
 		canShowTabs () {
 			return (this.sharedState.step !== 'intro')
 		},
 		currentTabItems () {
-			return this.sharedState.tabItems
+			return this.sharedTabItems
 		},
 		currentStep () {
 			return this.sharedState.step

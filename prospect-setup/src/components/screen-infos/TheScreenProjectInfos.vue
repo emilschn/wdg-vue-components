@@ -35,37 +35,38 @@
 				<WDGSelect
 				  id="organizationType"
 				  name="organizationType"
-				  :value="organizationType"
+				  :optionItems="organizationTypeList"
+				  :value="sharedState.organization.type"
+				  v-bind:valueReturn.sync="sharedState.organization.type"
 				  customStyle="natural-language"
 				  v-bind:hasFilter="true"
-				  :optionItems="organizationTypeList"
-				  v-bind:valueReturn.sync="organizationType"
 				  />
 			</div>
 
 			<div>
-				<span v-if="organizationType !== 'not-created'">
+				<span v-if="sharedState.organization.type !== 'not-created'">
 					{{ $t('project-setup.project-infos.FORM_TEXT_ORGANIZATION_LOCATED') }}
 				</span>
 
 				<WDGSelect
 				  id="organizationLocation"
 				  name="organizationLocation"
-				  :value="organizationLocation"
+				  :optionItems="organizationLocationList"
+				  :value="sharedState.organization.location"
+				  v-bind:valueReturn.sync="sharedState.organization.location"
 				  customStyle="natural-language"
 				  v-bind:hasFilter="true"
-				  :optionItems="organizationLocationList"
-				  v-bind:valueReturn.sync="organizationLocation"
 				  />
 			</div>
 
-			<div v-if="organizationType === 'not-created'">
+			<div v-if="sharedState.organization.type === 'not-created'">
 				{{ $t('project-setup.project-infos.FORM_TEXT_ORGANIZATION_NOT_CREATED_NAME') }}
 
 				<WDGInput
 				  id="organizationName"
 				  name="organizationName"
-				  :value="organizationName"
+				  :value="sharedState.organization.name"
+				  v-bind:valueReturn.sync="sharedState.organization.name"
 				  customStyle="natural-language"
 			  	  :placeholder="$t('project-setup.project-infos.PLACEHOLDER_PROJECT_NAME')"
 				  />.
@@ -77,7 +78,8 @@
 				<WDGInput
 				  id="organizationName"
 				  name="organizationName"
-				  :value="organizationName"
+				  :value="sharedState.organization.name"
+				  v-bind:valueReturn.sync="sharedState.organization.name"
 				  customStyle="natural-language"
 			  	  :placeholder="$t('project-setup.project-infos.PLACEHOLDER_PROJECT_NAME')"
 				  />,
@@ -87,7 +89,8 @@
 				<WDGInput
 				  id="organizationID"
 				  name="organizationID"
-				  :value="organizationID"
+				  :value="sharedState.organization.id"
+				  v-bind:valueReturn.sync="sharedState.organization.id"
 				  customStyle="natural-language"
 			  	  :placeholder="$t('project-setup.project-infos.PLACEHOLDER_PROJECT_ID')"
 				  />.
@@ -97,6 +100,10 @@
 				{{ $t('project-setup.project-infos.FORM_TEXT_AMOUNT_NEEDED') }}
 
 				<WDGInput
+				  id="organizationAmountNeeded"
+				  name="organizationAmountNeeded"
+				  :value="sharedState.organization.amountNeeded"
+				  v-bind:valueReturn.sync="sharedState.organization.amountNeeded"
 				  customStyle="natural-language"
 			  	  placeholder="50 000"
 				  /> €,<br>
@@ -104,6 +111,10 @@
 				{{ $t('project-setup.project-infos.FORM_TEXT_ORGANIZATION_DESCRIPTION') }}
 
 				<WDGInput
+				  id="organizationDescription"
+				  name="organizationDescription"
+				  :value="sharedState.organization.description"
+				  v-bind:valueReturn.sync="sharedState.organization.description"
 				  customStyle="natural-language"
 			  	  :placeholder="$t('project-setup.project-infos.PLACEHOLDER_PROJECT_DESCRIPTION')"
 				  />.<br>
@@ -111,12 +122,12 @@
 				{{ $t('project-setup.project-infos.FORM_TEXT_SOURCE_PROSPECT') }}
 
 				<WDGSelect
-				  id="sourceProspect"
-				  name="sourceProspect"
+				  id="organizationSourceProspect"
+				  name="organizationSourceProspect"
+				  :value="sharedState.organization.sourceProspect"
+				  v-bind:valueReturn.sync="sharedState.organization.sourceProspect"
 				  customStyle="natural-language"
-				  :value="sourceProspect"
 				  :optionItems="sourceProspectList"
-				  v-bind:valueReturn.sync="sourceProspect"
 				  />
 			</div>
 
@@ -124,6 +135,10 @@
 				{{ $t('project-setup.project-infos.FORM_TEXT_SOURCE_PROSPECT_DETAILS') }}<br>
 
 				<WDGInput
+				  id="organizationSourceProspectDetails"
+				  name="organizationSourceProspectDetails"
+				  :value="sharedState.organization.sourceProspectDetails"
+				  v-bind:valueReturn.sync="sharedState.organization.sourceProspectDetails"
 				  customStyle="natural-language"
 			  	  :placeholder="$t('project-setup.project-infos.FORM_TEXT_SOURCE_PROSPECT_DETAILS_PLACEHOLDER')"
 				  /><br><br>
@@ -131,6 +146,10 @@
 				{{ $t('project-setup.project-infos.FORM_TEXT_USER_NAME') }}
 
 				<WDGInput
+				  id="userName"
+				  name="userName"
+				  :value="sharedState.user.name"
+				  v-bind:valueReturn.sync="sharedState.user.name"
 				  customStyle="natural-language"
 			  	  :placeholder="$t('project-setup.project-infos.PLACEHOLDER_USER_NAME')"
 				  />,<br>
@@ -138,6 +157,11 @@
 				{{ $t('project-setup.project-infos.FORM_TEXT_USER_EMAIL') }}
 
 				<WDGInput
+				  id="email"
+				  name="email"
+				  type="email"
+				  :value="sharedState.user.email"
+				  v-bind:valueReturn.sync="sharedState.user.email"
 				  customStyle="natural-language"
 			  	  :placeholder="$t('project-setup.project-infos.PLACEHOLDER_USER_EMAIL')"
 				  /><br>
@@ -145,6 +169,10 @@
 				{{ $t('project-setup.project-infos.FORM_TEXT_USER_PHONE') }}
 
 				<WDGInput
+				  id="userPhone"
+				  name="userPhone"
+				  :value="sharedState.user.phone"
+				  v-bind:valueReturn.sync="sharedState.user.phone"
 				  customStyle="natural-language"
 			  	  :placeholder="$t('project-setup.project-infos.PLACEHOLDER_USER_PHONE')"
 				  />.
@@ -159,7 +187,7 @@
 			</div>
 		</WDGForm>
 
-		<TheProjectSave />
+		<TheProjectSave v-if="sharedState.user.email != ''" />
 	</div>
 </template>
 
@@ -190,23 +218,18 @@ export default {
 	},
 	data () {
 		return {
+			sharedState: store.state,
 			organizationTypeList: [
 				{ Id: 'company', Text: i18n.t('project-setup.project-infos.organization-types.COMPANY') },
 				{ Id: 'association', Text: i18n.t('project-setup.project-infos.organization-types.ASSOCIATION') },
 				{ Id: 'not-created', Text: i18n.t('project-setup.project-infos.organization-types.NOT_CREATED') },
 				{ Id: 'microbusiness', Text: i18n.t('project-setup.project-infos.organization-types.MICROBUSINESS') }
 			],
-			organizationType: '',
-			organizationName: '',
-			organizationID: '',
-			organizationDescription: '',
 			organizationLocationList: [
 				{ Id: 'france', Text: i18n.t('project-setup.project-infos.location-types.FRANCE') },
 				{ Id: 'euro', Text: i18n.t('project-setup.project-infos.location-types.EURO') },
 				{ Id: 'out-euro', Text: i18n.t('project-setup.project-infos.location-types.OUT_EURO') }
 			],
-			organizationLocation: '',
-			amountNeeded: 0,
 			sourceProspectList: [
 				{ Id: 'event', Text: i18n.t('project-setup.project-infos.source-types.EVENT') },
 				{ Id: 'social-networks', Text: i18n.t('project-setup.project-infos.source-types.SOCIAL_NETWORKS') },
@@ -215,7 +238,6 @@ export default {
 				{ Id: 'post', Text: i18n.t('project-setup.project-infos.source-types.POST') },
 				{ Id: 'other', Text: i18n.t('project-setup.project-infos.source-types.OTHER') }
 			],
-			sourceProspect: '',
 			userName: '',
 			userMail: '',
 			userPhone: ''
@@ -229,18 +251,18 @@ export default {
 	computed: {
 		canShowUserInfos () {
 			let buffer = false
-			buffer = (this.sourceProspect !== '')
+			buffer = (this.sharedState.organization.sourceProspect !== '')
 			return buffer
 		},
 		getMascotType () {
-			if (this.sourceProspect !== '') {
+			if (this.sharedState.organization.sourceProspect !== '') {
 				return '2'
 			} else {
-				if (this.organizationType === 'not-created') {
+				if (this.sharedState.organization.type === 'not-created') {
 					return 'not-created'
-				} else if (this.organizationType === 'microbusiness') {
+				} else if (this.sharedState.organization.type === 'microbusiness') {
 					return 'microbusiness'
-				} else if (this.organizationLocation === 'out-euro') {
+				} else if (this.sharedState.organization.type === 'out-euro') {
 					return 'out-euro'
 				}
 

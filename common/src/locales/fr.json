@@ -79,6 +79,7 @@
 		"SAVE_PROJECT": "Enregistrer mon projet pour plus tard",
 		"SAVING_PROJECT": "Enregistrement du projet en cours",
 		"SAVED_PROJECT": "Projet enregistré",
+		"SAVED_PROJECT_ERROR": "Erreur lors de la tentative d'enregistrement",
 		"footer": {
 			"SUCCESS_TEXT_1": "82%",
 			"SUCCESS_TEXT_2": "de levées de fonds réussies",
