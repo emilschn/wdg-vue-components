@@ -21,6 +21,7 @@ export default {
 		customStyle: { type: String, default: '' },
 		isInline: { type: Boolean, default: false },
 		hasFilter: { type: Boolean, default: false },
+		onSelect: { type: Function },
 		optionItems: Array
 	},
 
@@ -32,6 +33,9 @@ export default {
 	methods: {
 		onSelectedEvent () {
 			this.$emit('update:valueReturn', this.valueReturn)
+			if (this.onSelect !== undefined) {
+				this.onSelect(this.valueReturn)
+			}
 		}
 	}
 }

@@ -2,11 +2,45 @@
 	<div class="the-project-estimated-turnover-by-year project-funding-subpart">
 		<h3>{{ $t('project-setup.project-funding.estimated-turnover-by-year.TITLE') }}</h3>
 
-		<TheProjectEstimatedTurnoverByYearItem v-for="item in yearItems" :key="item.Id" :yearNb="item.Id" :value="item.Value" />
+		<TheProjectEstimatedTurnoverByYearItem
+		  yearNb="1"
+		  :value="sharedState.project.estimatedTurnover.year1"
+		  v-bind:valueReturn.sync="sharedState.project.estimatedTurnover.year1"
+		  :onChange="onChange"
+		  />
+
+		<TheProjectEstimatedTurnoverByYearItem
+		  yearNb="2"
+		  :value="sharedState.project.estimatedTurnover.year2"
+		  v-bind:valueReturn.sync="sharedState.project.estimatedTurnover.year2"
+		  :onChange="onChange"
+		  />
+
+		<TheProjectEstimatedTurnoverByYearItem
+		  yearNb="3"
+		  :value="sharedState.project.estimatedTurnover.year3"
+		  v-bind:valueReturn.sync="sharedState.project.estimatedTurnover.year3"
+		  :onChange="onChange"
+		  />
+
+		<TheProjectEstimatedTurnoverByYearItem
+		  yearNb="4"
+		  :value="sharedState.project.estimatedTurnover.year4"
+		  v-bind:valueReturn.sync="sharedState.project.estimatedTurnover.year4"
+		  :onChange="onChange"
+		  />
+
+		<TheProjectEstimatedTurnoverByYearItem
+		  yearNb="5"
+		  :value="sharedState.project.estimatedTurnover.year5"
+		  v-bind:valueReturn.sync="sharedState.project.estimatedTurnover.year5"
+		  :onChange="onChange"
+		  />
 	</div>
 </template>
 
 <script>
+import { store } from '../../store.js'
 import TheProjectEstimatedTurnoverByYearItem from '@/components/screen-funding/TheProjectEstimatedTurnoverByYearItem'
 
 export default {
@@ -14,15 +48,12 @@ export default {
 	components: {
 		TheProjectEstimatedTurnoverByYearItem
 	},
+	props: {
+		onChange: { type: Function }
+	},
 	data () {
 		return {
-			yearItems: [
-				{ Id: '1', Value: '' },
-				{ Id: '2', Value: '' },
-				{ Id: '3', Value: '' },
-				{ Id: '4', Value: '' },
-				{ Id: '5', Value: '' }
-			]
+			sharedState: store.state
 		}
 	},
 	methods: {

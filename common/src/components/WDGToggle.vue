@@ -29,9 +29,9 @@ export default {
         changeEvent: Function
     },
 	methods: {
-		onChangeLocalEvent () {
+		onChangeLocalEvent (newValue) {
 			if (this.changeEvent !== undefined) {
-				this.changeEvent()
+				this.changeEvent(newValue.value)
 			}
 		}
 	}

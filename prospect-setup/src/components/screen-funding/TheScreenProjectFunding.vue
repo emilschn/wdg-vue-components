@@ -7,32 +7,37 @@
 			<slot slot="title">{{ $t('project-setup.project-funding.TITLE') }}</slot>
 		</TheTabTitle>
 
-		<TheProjectRoyaltiesAmount />
+		<TheProjectRoyaltiesAmount :onChange="refreshChart" :minPercent="minPercentAdvice" :maxPercent="maxPercentAdvice" />
 
-		<TheProjectEstimatedTurnoverByYear />
+		<TheProjectEstimatedTurnoverByYear :onChange="refreshChart" />
 
 		<div class="margin-amount-container">
-			<TheProjectCommercialMargin />
+			<TheProjectCommercialMargin :onChange="refreshChart" />
 
-			<TheProjectGoalAmount />
+			<TheProjectGoalAmount :onChange="refreshChart" />
 		</div>
 
-		<TheProjectRoyaltiesWarning />
+		<TheProjectRoyaltiesWarning :minPercent="minPercentAdvice" />
 
-		<TheProjectRoyaltiesChart />
+		<TheProjectRoyaltiesChart ref="royaltiesChart" />
 
 		<WDGToggle
 		  colorChecked="#8BC79C"
 		  colorUnchecked="#333"
+		  :changeEvent="onChangeHasReadRoyalties"
 		  >
 			<slot slot="label-before">{{ $t('project-setup.project-funding.TOGGLE_LABEL') }}</slot>
 		</WDGToggle>
 
 		<TheProjectAdvice
-		  adviceAmount="3,4"
+		  :adviceAmount="advicePercent"
+		  v-if="canDisplayAdvice"
 		  />
 
-		<div class="project-funding-navigation">
+		<div
+		  class="project-funding-navigation"
+		  v-if="hasReadEstimatedRoyalties"
+		  >
 			<a @click="changeStepBackward">
 			{{ $t('project-setup.PREVIOUS_STEP') }}
 			</a>
@@ -79,21 +84,43 @@ export default {
 		TheProjectAdvice,
 		TheProjectSave
 	},
-	props: {
-	},
 	data () {
 		return {
-			sharedState: store.state
+			sharedState: store.state,
+			hasReadEstimatedRoyalties: false
 		}
 	},
-    methods: {
-        changeStepBackward: function (event) {
-            store.changeStep('project-infos')
-        },
-        changeStepForward: function (event) {
-            store.changeStep('project-investors')
-        }
-    }
+	methods: {
+		changeStepBackward: function (event) {
+			store.changeStep('project-infos')
+		},
+		changeStepForward: function (event) {
+			store.changeStep('project-investors')
+		},
+		refreshChart: function () {
+			this.$refs.royaltiesChart.refreshChart()
+		},
+		onChangeHasReadRoyalties: function (newValue) {
+			this.hasReadEstimatedRoyalties = newValue
+		}
+	},
+	computed: {
+		totalTurnover () {
+			return Number(this.sharedState.project.estimatedTurnover.year1) + Number(this.sharedState.project.estimatedTurnover.year2) + Number(this.sharedState.project.estimatedTurnover.year3) + Number(this.sharedState.project.estimatedTurnover.year4) + Number(this.sharedState.project.estimatedTurnover.year5)
+		},
+		minPercentAdvice () {
+			return Math.ceil(Math.max(0.01 * this.sharedState.project.amountNeeded / 10000, this.sharedState.project.amountNeeded / this.totalTurnover * 100) * 100000) / 100
+		},
+		maxPercentAdvice () {
+			return Math.ceil(this.sharedState.project.amountNeeded * 2 / this.totalTurnover * 10000000) / 100
+		},
+		advicePercent () {
+			return Math.ceil(this.sharedState.project.amountNeeded * 2 / this.totalTurnover * 10000000) / 100
+		},
+		canDisplayAdvice () {
+			return this.sharedState.project.royaltiesAmount < this.minPercentAdvice || this.sharedState.project.royaltiesAmount > this.maxPercentAdvice
+		}
+	}
 }
 </script>
 

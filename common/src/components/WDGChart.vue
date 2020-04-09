@@ -5,9 +5,14 @@ const { reactiveProp } = mixins
 export default {
 	extends: Bar,
 	mixins: [reactiveProp],
-	props: ['options'],
+	props: ['data', 'options'],
 	mounted () {
-		this.renderChart(this.chartData, this.options)
+		this.renderWDGChart()
+	},
+	methods: {
+		renderWDGChart: function () {
+			this.renderChart(this.chartData, this.options)
+		}
 	}
 }
 </script>

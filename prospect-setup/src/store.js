@@ -21,6 +21,18 @@ export const store = {
 			amountNeeded: '',
 			sourceProspect: '',
 			sourceProspectDetails: ''
+		},
+		project: {
+			estimatedTurnover: {
+				year1: '0',
+				year2: '0',
+				year3: '0',
+				year4: '0',
+				year5: '0'
+			},
+			commercialMargin: 0,
+			amountNeeded: 50,
+			royaltiesAmount: 0
 		}
 	},
 	props: {
@@ -35,9 +47,9 @@ export const store = {
 	changeStep (newStep) {
 		this.state.step = newStep
 		if (newStep === 'project-funding') {
-			let initItem = this.state.tabItems[ 0 ]
+			let initItem = this.tabItems[ 0 ]
 			initItem.Status = 'complete'
-			Vue.set(this.state.tabItems, 0, initItem)
+			Vue.set(this.tabItems, 0, initItem)
 		}
 		window.scrollTo(0, 0)
 	}

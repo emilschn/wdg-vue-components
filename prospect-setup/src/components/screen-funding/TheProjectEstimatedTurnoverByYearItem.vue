@@ -2,13 +2,14 @@
 	<div class="the-project-estimated-turnover-by-year-item">
 
 		<WDGInput
-			placeholder="50 000 €"
-			:id="'year-' + yearNb"
-			:name="'year-' + yearNb"
-			v-bind:multiline="false"
-			v-bind:optional="false"
-			validationRule=""
-			:value="value"
+		  :id="'year-' + yearNb"
+		  :name="'year-' + yearNb"
+		  v-bind:multiline="false"
+		  v-bind:optional="false"
+		  validationRule=""
+		  :value="valueReturn"
+		  v-bind:valueReturn.sync="valueReturn"
+		  :onChange="onLocalChange"
 		>
 			<slot slot="label">{{ $t('project-setup.project-funding.estimated-turnover-by-year.INPUT_LABEL') }} {{ yearNb }}</slot>
 		</WDGInput>
@@ -25,14 +26,20 @@ export default {
 		WDGInput
 	},
 	props: {
+		onChange: { type: Function },
 		yearNb: { type: String, default: '' },
 		value: { type: String, default: '0' }
 	},
 	data () {
 		return {
+			valueReturn: this.value
 		}
 	},
 	methods: {
+		onLocalChange () {
+			this.$emit('update:valueReturn', this.valueReturn)
+			this.onChange(this.valueReturn)
+		}
 	}
 }
 </script>

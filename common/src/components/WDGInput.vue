@@ -65,7 +65,7 @@ export default {
 		disabled: { type: Boolean, default: false },
 		honeypot: { type: Boolean, default: false },
 		validationRule: { type: String, default: '' },
-		inputEvent: Function
+		onChange: Function
 	},
 	data () {
 		return {
@@ -76,6 +76,7 @@ export default {
 	methods: {
 		onInputLocalEvent () {
 			this.$emit('update:valueReturn', this.valueReturn)
+			this.onChange(this.valueReturn)
 		}
 	},
 	computed: {

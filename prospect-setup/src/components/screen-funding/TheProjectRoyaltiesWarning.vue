@@ -13,7 +13,7 @@ export default {
 	components: {
 	},
 	props: {
-		minPercent: { type: String, default: '1' }
+		minPercent: { type: Number, default: 1 }
 	},
 	data () {
 		return {

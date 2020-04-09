@@ -7,7 +7,9 @@
 			</WDGToolTip>
 		</h3>
 		<WDGSlider
-		  :defaultValue="150"
+		  :defaultValue="sharedState.project.amountNeeded"
+		  v-bind:valueReturn.sync="sharedState.project.amountNeeded"
+		  :onChange="onChange"
 		  :min="10"
 		  :max="500"
 		  />
@@ -19,6 +21,7 @@
 </template>
 
 <script>
+import { store } from '../../store.js'
 import WDGSlider from '@/../../common/src/components/WDGSlider'
 import WDGToolTip from '@/../../common/src/components/WDGToolTip'
 
@@ -29,6 +32,12 @@ export default {
         WDGToolTip
 	},
 	props: {
+		onChange: { type: Function }
+	},
+	data () {
+		return {
+			sharedState: store.state
+		}
 	}
 }
 </script>

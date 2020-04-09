@@ -8,19 +8,21 @@
 		</h3>
 
 		<WDGInput
-			placeholder="1 %"
-			id="commercial-margin"
-			name="commercial-margin"
-			v-bind:multiline="false"
-			v-bind:optional="false"
-			validationRule=""
-		>
+		  id="commercial-margin"
+		  name="commercial-margin"
+		  :value="sharedState.project.commercialMargin"
+		  v-bind:valueReturn.sync="sharedState.project.commercialMargin"
+		  v-bind:multiline="false"
+		  v-bind:optional="false"
+		  :onChange="onChange"
+		  >
 			<slot slot="label">{{ $t('project-setup.project-funding.commercial-margin.INPUT_LABEL') }}</slot>
 		</WDGInput>
 	</div>
 </template>
 
 <script>
+import { store } from '../../store.js'
 import WDGInput from '@/../../common/src/components/WDGInput'
 import WDGToolTip from '@/../../common/src/components/WDGToolTip'
 
@@ -29,6 +31,14 @@ export default {
 	components: {
 		WDGInput,
 		WDGToolTip
+	},
+	props: {
+		onChange: { type: Function }
+	},
+	data () {
+		return {
+			sharedState: store.state
+		}
 	}
 }
 </script>

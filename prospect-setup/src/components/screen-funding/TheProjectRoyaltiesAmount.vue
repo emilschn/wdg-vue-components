@@ -5,14 +5,14 @@
 		</h3>
 
 		<WDGInput
-		  placeholder="1 %"
-		  id="commercial-margin"
-		  name="commercial-margin"
+		  id="royalties-amount"
+		  name="royalties-amount"
+		  :value="sharedState.project.royaltiesAmount"
+		  v-bind:valueReturn.sync="sharedState.project.royaltiesAmount"
 		  v-bind:multiline="false"
 		  v-bind:optional="false"
-		  validationRule=""
-		  >
-		</WDGInput>
+		  :onChange="onChange"
+		  />
 
 		<div class="royalties-for-5-years">
 			{{ $t('project-setup.project-funding.royalties-amount.OF_MY_QUARTERLY_TURNOVER') }}
@@ -46,6 +46,7 @@
 </template>
 
 <script>
+import { store } from '../../store.js'
 import WDGInput from '@/../../common/src/components/WDGInput'
 import WDGButton from '@/../../common/src/components/WDGButton'
 
@@ -56,12 +57,14 @@ export default {
 		WDGButton
 	},
 	props: {
-		minPercent: { type: String, default: '1' },
-		maxPercent: { type: String, default: '2' }
+		onChange: { type: Function },
+		minPercent: { type: Number, default: 1 },
+		maxPercent: { type: Number, default: 2 }
 	},
 	data () {
 		return {
-			'royaltiesPercentType': 'custom'
+			'royaltiesPercentType': 'custom',
+			sharedState: store.state
 		}
 	}
 }

@@ -197,8 +197,16 @@
 			},
 			"royalties-chart": {
 				"TITLE": "Détails des royalties prévisionnelles",
+				"IF_MY_ACTIVITY": "Si mon activité",
 				"LABEL_TURNOVER": "CA prévisionnel",
-				"LABEL_ROYALTIES": "Royalties à verser"
+				"LABEL_ROYALTIES": "Royalties à verser",
+				"turnover-scenario": {
+					"AS_PLANNED": "avance comme prévu",
+					"LESS_THAN_PLANNED": "se déroule moins bien que prévu",
+					"MORE_THAN_PLANNED": "se développe mieux que prévu",
+					"STOP_THE_ROYALTIES": "nécessite l'arrêt des royalties",
+					"ACTIVITY_STOP": "s'arrête en cours de route"
+				}
 			},
 			"advice": {
 				"TITLE": "Les conseils WE DO GOOD",
