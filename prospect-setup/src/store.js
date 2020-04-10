@@ -32,7 +32,9 @@ export const store = {
 			},
 			commercialMargin: 0,
 			amountNeeded: 50,
-			royaltiesAmount: 0
+			royaltiesAmount: 0,
+			readyToCommunicate: '',
+			circlesToCommunicate: ''
 		}
 	},
 	props: {

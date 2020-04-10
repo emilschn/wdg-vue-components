@@ -1,20 +1,20 @@
 <template>
 	<div class="the-project-investors-circles">
-		<div class="circle circle-public" @click.self="changeCircle('public')" :class="{ selected: currentCircle == 'public' }">
-			<div class="circle inner circle-private" @click.self="changeCircle('private')" :class="{ selected: currentCircle == 'public' || currentCircle == 'private' }">
-				<div class="circle inner circle-lovemoney" @click.self="changeCircle('lovemoney')" :class="{ selected: currentCircle != '' }">
+		<div class="circle circle-public" @click.self="changeCircle('public')" :class="{ selected: sharedState.project.circlesToCommunicate === 'public' }">
+			<div class="circle inner circle-private" @click.self="changeCircle('private')" :class="{ selected: sharedState.project.circlesToCommunicate === 'public' || sharedState.project.circlesToCommunicate === 'private' }">
+				<div class="circle inner circle-lovemoney" @click.self="changeCircle('lovemoney')" :class="{ selected: sharedState.project.circlesToCommunicate !== '' }">
 				</div>
 			</div>
 		</div>
 
 		<div class="button-list">
-			<button type="button" class="button-lovemoney" @click="changeCircle('lovemoney')" :class="{ selected: currentCircle != '' }">
+			<button type="button" class="button-lovemoney" @click="changeCircle('lovemoney')" :class="{ selected: sharedState.project.circlesToCommunicate !== '' }">
 				{{ $t('project-setup.project-investors.investors-circles.CIRCLE_LOVEMONEY') }}
 			</button>
-			<button type="button" class="button-private" @click="changeCircle('private')" :class="{ selected: currentCircle == 'public' || currentCircle == 'private' }">
+			<button type="button" class="button-private" @click="changeCircle('private')" :class="{ selected: sharedState.project.circlesToCommunicate === 'public' || sharedState.project.circlesToCommunicate === 'private' }">
 				{{ $t('project-setup.project-investors.investors-circles.CIRCLE_PRIVATE') }}
 			</button>
-			<button type="button" class="button-public" @click="changeCircle('public')" :class="{ selected: currentCircle == 'public' }">
+			<button type="button" class="button-public" @click="changeCircle('public')" :class="{ selected: sharedState.project.circlesToCommunicate === 'public' }">
 				{{ $t('project-setup.project-investors.investors-circles.CIRCLE_PUBLIC') }}
 			</button>
 		</div>
@@ -22,24 +22,18 @@
 </template>
 
 <script>
+import { store } from '../../store.js'
 
 export default {
 	name: 'TheProjectInvestorsCircles',
-	props: {
-		initCircle: { type: String, default: '' }
-	},
 	data () {
 		return {
-			currentCircle: ''
+			sharedState: store.state
 		}
-	},
-	created () {
-		this.currentCircle = this.initCircle
 	},
 	methods: {
 		changeCircle (circleSelected) {
-			console.log(circleSelected)
-			this.currentCircle = circleSelected
+			this.sharedState.project.circlesToCommunicate = circleSelected
 		}
 	}
 }

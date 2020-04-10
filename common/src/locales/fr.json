@@ -1,5 +1,7 @@
 {
 	"common": {
+		"YES": "Oui",
+		"NO": "Non",
 		"EMAIL_ADDRESS": "Adresse e-mail",
 		"EMAIL_ADDRESS_PLACEHOLDER": "exemple@monprojet.com",
 		"PASSWORD": "Mot de passe",
@@ -229,6 +231,7 @@
 			"NEED_COMMUNICATION_ADVICE": "J'ai besoin de conseils pour la communication",
 			"MASCOT_TEXT_1A": "Lancer et réussir une levée de fonds demande du temps et un engagement personnel pour vous et votre équipe.",
 			"MASCOT_TEXT_1B": "Vous devez être prêt-e à communiquer auprès de votre entourage pour mettre toutes les chances de votre côté.",
+			"MASCOT_TEXT_2": "Malheureusement, sans mobiliser votre entourage et votre réseau, il vous sera compliqué de convaincre et de gagner la confiance d’autres investisseurs.",
 			"investors-circles": {
 				"CIRCLE_LOVEMONEY": "Proches",
 				"CIRCLE_PRIVATE": "Relations",
