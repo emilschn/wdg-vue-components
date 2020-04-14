@@ -8,7 +8,12 @@
 			<slot slot="title">{{ $t('project-setup.TITLE') }}</slot>
 		</WDGHeader>
 
-		<WDGTabs :tabItems="currentTabItems" :currentTab="currentStep" v-if="canShowTabs" />
+		<WDGTabs
+		  v-if="canShowTabs"
+		  :tabItems="currentTabItems"
+		  :currentTab="currentStep"
+		  :clickEvent="changeTab"
+		  />
 
 		<TheScreenIntro v-if="sharedState.step === 'intro'" />
 		<TheScreenProjectInfos v-if="sharedState.step === 'project-infos'" />
@@ -63,6 +68,11 @@ export default {
 		},
 		currentStep () {
 			return this.sharedState.step
+		}
+	},
+	methods: {
+		changeTab (tabId) {
+			store.changeStep(tabId)
 		}
 	}
 }

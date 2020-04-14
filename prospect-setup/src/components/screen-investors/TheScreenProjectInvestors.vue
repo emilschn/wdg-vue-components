@@ -48,7 +48,7 @@
 				<WDGCheckbox
 				  id="alreadydonecrowdfunding"
 				  name="alreadydonecrowdfunding"
-				  v-bind:valueReturn.sync="alreadydonecrowdfunding"
+				  v-bind:valueReturn.sync="sharedState.project.alreadydonecrowdfunding"
 				  v-if="sharedState.project.circlesToCommunicate === 'public'"
 				  >
 					<slot slot="label-after">{{ $t('project-setup.project-investors.ALREADY_DONE_CROWDFUNDING') }}</slot>
@@ -57,7 +57,7 @@
 				<WDGCheckbox
 				  id="needcommunicationadvice"
 				  name="needcommunicationadvice"
-				  v-bind:valueReturn.sync="needcommunicationadvice"
+				  v-bind:valueReturn.sync="sharedState.project.needcommunicationadvice"
 				  v-if="sharedState.project.circlesToCommunicate === 'public' || sharedState.project.circlesToCommunicate === 'private'"
 				  >
 					<slot slot="label-after">{{ $t('project-setup.project-investors.NEED_COMMUNICATION_ADVICE') }}</slot>

@@ -19,7 +19,7 @@
 						<span v-if="tabItem.Index">{{ tabItem.Index }}.</span>
 						{{ tabItem.Label }}<br>
 						<span class="subtitle" v-if="tabItem.Subtitle">{{ tabItem.Subtitle }}</span>
-						<a :href="tabItem.Link" v-if="tabItem.Link">{{ tabItem.LinkLabel }}</a>
+						<a @click="onClickLocalEvent(tabItem.Id)" v-if="tabItem.LinkLabel">{{ tabItem.LinkLabel }}</a>
 					</span>
 				</div>
 			</li>
@@ -32,12 +32,13 @@ export default {
 	name: 'WDGTabs',
 	props: {
 		tabItems: Array,
-		currentTab: String
+		currentTab: String,
+		clickEvent: Function
     },
 	methods: {
-		onClickLocalEvent () {
+		onClickLocalEvent (tabId) {
 			if (this.clickEvent !== undefined) {
-				this.clickEvent()
+				this.clickEvent(tabId)
 			}
 		}
 	}
@@ -96,5 +97,9 @@ export default {
 }
 .wdg-tabs ul li div span.tab-label span.subtitle {
 	text-decoration: none;
+}
+.wdg-tabs ul li div span.tab-label a {
+	text-decoration: underline;
+	cursor: pointer;
 }
 </style>
