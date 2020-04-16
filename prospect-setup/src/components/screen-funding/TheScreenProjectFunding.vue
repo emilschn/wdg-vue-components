@@ -7,7 +7,16 @@
 			<slot slot="title">{{ $t('project-setup.project-funding.TITLE') }}</slot>
 		</TheTabTitle>
 
-		<TheProjectRoyaltiesAmount :onChange="refreshChart" :minPercent="minPercentAdvice" :maxPercent="maxPercentAdvice" />
+		<TheProjectRoyaltiesAmount
+		  ref="royaltiesAmount"
+		  :onChange="refreshChart"
+		  :onViewAdvice="onViewAdviceEvent"
+		  :onViewDetails="onViewDetailsEvent"
+		  :onReinitParameters="onReinitParametersEvent"
+		  :minPercent="minPercentAdvice"
+		  :maxPercent="maxPercentAdvice"
+		  :advicePercent="advicePercent"
+		  />
 
 		<TheProjectEstimatedTurnoverByYear :onChange="refreshChart" />
 
@@ -30,6 +39,8 @@
 		</WDGToggle>
 
 		<TheProjectAdvice
+		  ref="royaltiesAdvice"
+		  :onReinitParameters="onReinitParametersEvent"
 		  :adviceAmount="advicePercent"
 		  v-if="canDisplayAdvice"
 		  />
@@ -102,6 +113,18 @@ export default {
 		},
 		onChangeHasReadRoyalties: function (newValue) {
 			this.hasReadEstimatedRoyalties = newValue
+		},
+		onViewAdviceEvent: function () {
+			this.$refs.royaltiesAdvice.$el.scrollIntoView(true)
+		},
+		onViewDetailsEvent: function () {
+			this.$refs.royaltiesChart.$el.scrollIntoView(true)
+		},
+		onReinitParametersEvent: function () {
+			this.sharedState.project.royaltiesAmount = this.advicePercent
+			this.$root.$emit('updateRoyaltiesPercent', this.sharedState.project.royaltiesAmount)
+			this.$refs.royaltiesAmount.$el.scrollIntoView(true)
+			this.refreshChart()
 		}
 	},
 	computed: {
@@ -109,16 +132,29 @@ export default {
 			return Number(this.sharedState.project.estimatedTurnover.year1) + Number(this.sharedState.project.estimatedTurnover.year2) + Number(this.sharedState.project.estimatedTurnover.year3) + Number(this.sharedState.project.estimatedTurnover.year4) + Number(this.sharedState.project.estimatedTurnover.year5)
 		},
 		minPercentAdvice () {
-			return Math.ceil(Math.max(0.01 * this.sharedState.project.amountNeeded / 10000, this.sharedState.project.amountNeeded / this.totalTurnover * 100) * 100000) / 100
+			if (this.totalTurnover > 0) {
+				// ratio de 1 % pour 100 000 €
+				let percentForRatio1per100k = this.sharedState.project.amountNeeded * 1000 / 100000
+				// pourcent permettant le remboursement
+				let percentForReimbursement = this.sharedState.project.amountNeeded * 1000 / this.totalTurnover * 100
+				// le plus grand entre les deux
+				return Math.ceil(Math.max(percentForRatio1per100k, percentForReimbursement) * 100) / 100
+			}
+			return 0
 		},
 		maxPercentAdvice () {
-			return Math.ceil(this.sharedState.project.amountNeeded * 2 / this.totalTurnover * 10000000) / 100
+			// 10 % de la marge commercial
+			return Math.ceil(this.sharedState.project.commercialMargin / 10 * 100) / 100
 		},
 		advicePercent () {
-			return Math.ceil(this.sharedState.project.amountNeeded * 2 / this.totalTurnover * 10000000) / 100
+			if (this.totalTurnover > 0) {
+				let idealPercent = Math.ceil(this.sharedState.project.amountNeeded * 2 / this.totalTurnover * 10000000) / 100
+				return Math.max(Math.min(idealPercent, this.maxPercentAdvice), this.minPercentAdvice)
+			}
+			return 0
 		},
 		canDisplayAdvice () {
-			return this.sharedState.project.royaltiesAmount < this.minPercentAdvice || this.sharedState.project.royaltiesAmount > this.maxPercentAdvice
+			return this.sharedState.project.royaltiesAmount > 0
 		}
 	}
 }

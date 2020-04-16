@@ -60,10 +60,11 @@ export default {
 		value: { type: [String, Number], default: null },
 		type: { type: String, default: 'text' },
 		customStyle: { type: String, default: '' },
-		placeholder: { type: String, default: 'Default placeholder' },
+		placeholder: { type: String, default: '' },
 		multiline: { type: Boolean, default: false },
 		disabled: { type: Boolean, default: false },
 		honeypot: { type: Boolean, default: false },
+		eventNameToListen: { type: String, default: '' },
 		validationRule: { type: String, default: '' },
 		onChange: Function
 	},
@@ -73,10 +74,18 @@ export default {
 			isRequired: (this.validationRule.indexOf('required') > -1)
 		}
 	},
+	mounted () {
+		if (this.eventNameToListen !== '') {
+			this.$root.$on(this.eventNameToListen, this.updateValue)
+		}
+	},
 	methods: {
 		onInputLocalEvent () {
 			this.$emit('update:valueReturn', this.valueReturn)
 			this.onChange(this.valueReturn)
+		},
+		updateValue (newValue) {
+			this.valueReturn = newValue
 		}
 	},
 	computed: {

@@ -34,9 +34,10 @@
 		</div>
 
 		<WDGButton
-			color="transparent"
-			type="button"
-			>
+		  :clickEvent="onReinitParameters"
+		  color="transparent"
+		  type="button"
+		  >
 			<slot slot="label">{{ $t('project-setup.project-funding.advice.TEST_PERCENT') }}</slot>
 		</WDGButton>
 	</div>
@@ -50,7 +51,8 @@ export default {
 		WDGButton
 	},
 	props: {
-		adviceAmount: { type: String, default: '1' }
+		onReinitParameters: { type: Function },
+		adviceAmount: { type: Number, default: 1 }
 	}
 }
 </script>

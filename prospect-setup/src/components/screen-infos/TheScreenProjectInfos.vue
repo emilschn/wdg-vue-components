@@ -132,7 +132,7 @@
 			</div>
 
 			<div v-if="canShowUserInfos">
-				{{ $t('project-setup.project-infos.FORM_TEXT_SOURCE_PROSPECT_DETAILS') }}<br>
+				{{ $t('project-setup.project-infos.FORM_TEXT_SOURCE_PROSPECT_DETAILS') }}
 
 				<WDGInput
 				  id="organizationSourceProspectDetails"
@@ -262,7 +262,7 @@ export default {
 					return 'not-created'
 				} else if (this.sharedState.organization.type === 'microbusiness') {
 					return 'microbusiness'
-				} else if (this.sharedState.organization.type === 'out-euro') {
+				} else if (this.sharedState.organization.location === 'out-euro') {
 					return 'out-euro'
 				}
 

@@ -125,7 +125,7 @@
 			"FORM_TEXT_AMOUNT_NEEDED": "J'ai besoin de",
 			"FORM_TEXT_ORGANIZATION_DESCRIPTION": "pour mon activité de",
 			"FORM_TEXT_SOURCE_PROSPECT": "J'ai connu WE DO GOOD via",
-			"FORM_TEXT_SOURCE_PROSPECT_DETAILS": "Pouvez-vous préciser ?",
+			"FORM_TEXT_SOURCE_PROSPECT_DETAILS": "Plus précisément :",
 			"FORM_TEXT_SOURCE_PROSPECT_DETAILS_PLACEHOLDER": "Date, personne, ...",
 			"FORM_TEXT_USER_NAME": "Je m'appelle",
 			"FORM_TEXT_USER_EMAIL": "vous pouvez me joindre à l'adresse mail",
@@ -188,6 +188,7 @@
 				"ROYALTIES_PERCENT_WARNING_OVER": "Le pourcentage est trop élevé par rapport à votre niveau de marge, les royalties risqueraient de fragiliser votre modèle économique. WE DO GOOD vous conseille un taux entre {adviceMinPercent} % et {adviceMaxPercent} %.",
 				"ROYALTIES_PERCENT_WARNING_UNDER": "Le pourcentage est trop faible, vous devez avoir déjà validé votre modèle économique (plus de 100 000 € de chiffre d'affaires) pour valider ce pourcentage.  WE DO GOOD vous conseille un taux entre {adviceMinPercent} % et {adviceMaxPercent} %.",
 				"ROYALTIES_PERCENT_CUSTOM": "Le pourcentage saisi est correct. WE DO GOOD vous conseille un taux entre {adviceMinPercent} % et {adviceMaxPercent} %.",
+				"ROYALTIES_NOT_OK": "Les royalties ne sont pas adaptés à votre modèle économique.",
 				"VIEW_ADVICE": "Voir nos conseils",
 				"VIEW_DETAILS": "Voir le détail",
 				"REINIT_PARAMETERS": "Réinitialiser les paramètres"

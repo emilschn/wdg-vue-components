@@ -7,10 +7,11 @@
 		<WDGInput
 		  id="royalties-amount"
 		  name="royalties-amount"
-		  :value="sharedState.project.royaltiesAmount"
+		  :value="this.sharedState.project.royaltiesAmount"
 		  v-bind:valueReturn.sync="sharedState.project.royaltiesAmount"
 		  v-bind:multiline="false"
 		  v-bind:optional="false"
+		  eventNameToListen="updateRoyaltiesPercent"
 		  :onChange="onChange"
 		  />
 
@@ -23,25 +24,35 @@
 		</div>
 		<div class="advice warning-over" v-if="royaltiesPercentType == 'warning-over'">
 			{{ $t('project-setup.project-funding.royalties-amount.ROYALTIES_PERCENT_WARNING_OVER', { adviceMinPercent: minPercent, adviceMaxPercent: maxPercent }) }}
-			<a href="#">{{ $t('project-setup.project-funding.royalties-amount.VIEW_ADVICE') }}</a>
+			<a @click="onViewAdvice">{{ $t('project-setup.project-funding.royalties-amount.VIEW_ADVICE') }}</a>
 		</div>
 		<div class="advice warning-under" v-if="royaltiesPercentType == 'warning-under'">
 			{{ $t('project-setup.project-funding.royalties-amount.ROYALTIES_PERCENT_WARNING_UNDER', { adviceMinPercent: minPercent, adviceMaxPercent: maxPercent }) }}
-			<a href="#">{{ $t('project-setup.project-funding.royalties-amount.VIEW_ADVICE') }}</a>
+			<a @click="onViewAdvice">{{ $t('project-setup.project-funding.royalties-amount.VIEW_ADVICE') }}</a>
+		</div>
+		<div class="advice not-ok" v-if="royaltiesPercentType == 'not-ok'">
+			{{ $t('project-setup.project-funding.royalties-amount.ROYALTIES_NOT_OK', { adviceMinPercent: minPercent, adviceMaxPercent: maxPercent }) }}
+			<a @click="onViewAdvice">{{ $t('project-setup.project-funding.royalties-amount.VIEW_ADVICE') }}</a>
 		</div>
 		<div class="advice custom" v-if="royaltiesPercentType == 'custom'">
 			{{ $t('project-setup.project-funding.royalties-amount.ROYALTIES_PERCENT_CUSTOM', { adviceMinPercent: minPercent, adviceMaxPercent: maxPercent }) }}
-			<a href="#">{{ $t('project-setup.project-funding.royalties-amount.VIEW_ADVICE') }}</a>
+			<a @click="onViewAdvice">{{ $t('project-setup.project-funding.royalties-amount.VIEW_ADVICE') }}</a>
 		</div>
 
-		<WDGButton>
+		<WDGButton :clickEvent="onViewDetails">
 			<slot slot="label">{{ $t('project-setup.project-funding.royalties-amount.VIEW_DETAILS') }}</slot>
 		</WDGButton>
 
 		<svg width="20" height="20" v-if="royaltiesPercentType != 'default'">
 			<image xlink:href="@/../../common/src/assets/icons/refresh.svg" src="@/../../common/src/assets/icons/refresh.png" width="20" height="20" />
 		</svg>
-		<a href="#" class="reinit" v-if="royaltiesPercentType != 'default'">{{ $t('project-setup.project-funding.royalties-amount.REINIT_PARAMETERS') }}</a>
+		<a
+		  @click="onReinitParameters"
+		  class="reinit"
+		  v-if="royaltiesPercentType != 'default'"
+		  >
+			{{ $t('project-setup.project-funding.royalties-amount.REINIT_PARAMETERS') }}
+		</a>
 	</div>
 </template>
 
@@ -58,13 +69,30 @@ export default {
 	},
 	props: {
 		onChange: { type: Function },
+		onViewDetails: { type: Function },
+		onViewAdvice: { type: Function },
+		onReinitParameters: { type: Function },
+		advicePercent: { type: Number, default: 1 },
 		minPercent: { type: Number, default: 1 },
 		maxPercent: { type: Number, default: 2 }
 	},
 	data () {
 		return {
-			'royaltiesPercentType': 'custom',
 			sharedState: store.state
+		}
+	},
+	computed: {
+		royaltiesPercentType () {
+			if (this.sharedState.project.royaltiesAmount === '0' || this.sharedState.project.royaltiesAmount === 0) {
+				return 'default'
+			} else if (this.maxPercent < this.minPercent) {
+				return 'not-ok'
+			} else if (this.sharedState.project.royaltiesAmount > this.maxPercent) {
+				return 'warning-over'
+			} else if (this.sharedState.project.royaltiesAmount < this.minPercent) {
+				return 'warning-under'
+			}
+			return 'custom'
 		}
 	}
 }
@@ -93,14 +121,20 @@ div.the-project-royalties-amount .advice {
 div.the-project-royalties-amount .advice.default {
 	color: #8BC79C;
 }
-div.the-project-royalties-amount .advice.warning-over, div.the-project-royalties-amount .advice.warning-under, div.the-project-royalties-amount .advice.warning-over a, div.the-project-royalties-amount .advice.warning-under a {
+div.the-project-royalties-amount .advice.warning-over, div.the-project-royalties-amount .advice.warning-under, div.the-project-royalties-amount .advice.not-ok, div.the-project-royalties-amount .advice.warning-over a, div.the-project-royalties-amount .advice.warning-under a, div.the-project-royalties-amount .advice.not-ok a {
 	color: #EA4F51;
 }
 div.the-project-royalties-amount .advice.custom, div.the-project-royalties-amount .advice.custom a {
 	color: #B4B4B4;
 }
+div.the-project-royalties-amount .advice a {
+	text-decoration: underline;
+	cursor: pointer;
+}
 div.the-project-royalties-amount a.reinit {
 	font-size: 14px;
+	text-decoration: underline;
 	color: #B4B4B4;
+	cursor: pointer;
 }
 </style>
