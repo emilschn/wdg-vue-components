@@ -65,7 +65,7 @@
 			</div>
 		</div>
 
-		<div class="project-investors-navigation clear" v-if="sharedState.project.readyToCommunicate !== ''">
+		<div class="project-investors-navigation clear" v-if="sharedState.project.circlesToCommunicate !== '' || sharedState.project.readyToCommunicate === false">
 			<a @click="changeStepBackward">
 			{{ $t('project-setup.PREVIOUS_STEP') }}
 			</a>

@@ -249,8 +249,20 @@
 			"YOU_WILL_PAY": "et vous leur verserez tous les trimestres",
 			"OF_YOUR_TURNOVER": "de votre chiffre d'affaires pendant 5 ans.",
 			"formulas": {
+				"lovemoney": {
+					"TITLE": "Love Money",
+					"TEXT": "Faites investir vos proches de manière confidentielle et rapide",
+					"AMOUNT_1": "2 % Commission au succès sur le montant levé",
+					"AMOUNT_2": "5 % Sur les royalties versées (min. 60 € par déclaration)"
+				},
+				"private": {
+					"TITLE": "Réseau privé",
+					"TEXT": "Faites investir votre réseau en utilisant la plateforme de manière privée",
+					"AMOUNT_1": "4 % Commission au succès sur le montant levé",
+					"AMOUNT_2": "5 % Sur les royalties versées (min. 60 € par déclaration)"
+				},
 				"crowdfunding": {
-					"TITLE": "Formule Crowdfunding",
+					"TITLE": "Crowdfunding",
 					"TEXT": "Mobilisez vos réseaux et faites connaître votre projet auprès de nouveaux investisseurs",
 					"AMOUNT_1": "8 % Commission au succès sur le montant levé (6 % avec l’accompagnement INTÉGRAL, 4 % sur le montant levé au-delà de 100 000 €.)",
 					"AMOUNT_2": "3 % Sur les royalties versées (min. 60 € par déclaration)"
@@ -263,10 +275,20 @@
 					"SUPPORT": "Support technique, juridique et fiscal pour vous et vos investisseurs",
 					"PAYMENTS": "Collecte des investissements en ligne et par chèque",
 					"EVALUATION": "Période d’évaluation pour valider l’intérêt des investisseurs potentiels et réunir des pré-investissements",
-					"GREEN_LABEL": "Label Financement Participatif pour la Croissance Verte (sur demande et évaluation du projet)"
+					"GREEN_LABEL": "Label Financement Participatif pour la Croissance Verte (sur demande et évaluation du projet)",
+					"LIMITED_INVESTORS": "Nombre d’investisseurs illimité",
+					"UP_TO_5_INVESTORS": "Jusqu'à 5 investisseurs"
 				}
 			},
 			"options": {
+				"basic": {
+					"TITLE": "Basique",
+					"TEXT": "Pour les entrepreneurs ayant déjà identifié leurs investisseurs ou ayant déjà mené une campagne de financement"
+				},
+				"standard": {
+					"TITLE": "Essentiel",
+					"TEXT": "Pour les entrepreneurs souhaitant avoir le chemin bien éclairé pour mener leur levée de fonds en toute sérénité"
+				},
 				"complete": {
 					"TITLE": "Intégral",
 					"TEXT": "Pour les entrepreneurs qui souhaitent avoir des réponses, des avis et des conseils pour avancer plus vite et plus efficacement"

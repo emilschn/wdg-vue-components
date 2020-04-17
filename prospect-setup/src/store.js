@@ -1,5 +1,9 @@
 import Vue from 'vue'
 import i18n from '@/i18n'
+import axios from 'axios'
+
+export const bus = new Vue()
+
 export const store = {
     state: {
         guid: '',
@@ -101,6 +105,8 @@ export const store = {
 				break
 
 			case 'project-result':
+				this.saveProject()
+
 				// item en cours
 				itemResult.Subtitle = ''
 				itemResult.Status = 'complete'
@@ -114,5 +120,55 @@ export const store = {
 				break
 		}
 		window.scrollTo(0, 0)
+	},
+	saveProject () {
+		let data = new FormData()
+		data.append('action', 'prospect_setup_save')
+		data.append('guid', this.state.guid)
+		data.append('id_user', this.state.user.id)
+		data.append('email', this.state.user.email)
+		data.append('status', this.state.status)
+		data.append('step', this.state.step)
+		data.append('authorization', this.state.authorization)
+		data.append('metadata', JSON.stringify(this.state))
+
+		axios
+			.post (this.props.ajaxurl, data)
+			.then (response => {
+				let responseData = response.data
+				console.log('then')
+				console.log(responseData)
+				if (responseData.save_status === 'saved') {
+					bus.$root.$emit('updateSaveStatus', 'saved')
+					this.state.guid = responseData.guid
+					this.state.user.id = responseData.id_user
+				} else {
+					bus.$root.$emit('updateSaveStatus', 'error')
+				}
+			})
+			.catch (error => {
+				if (error.response) {
+					// The request was made and the server responded with a status code
+					// that falls out of the range of 2xx
+					console.log('error.response')
+					console.log(error.response.data)
+					console.log(error.response.status)
+					console.log(error.response.headers)
+				} else if (error.request) {
+					// The request was made but no response was received
+					// `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+					// http.ClientRequest in node.js
+					console.log('error.request')
+					console.log(error.request)
+				} else {
+					// Something happened in setting up the request that triggered an Error
+					console.log('error.message')
+					console.log('Error', error.message)
+				}
+				console.log('error.toJSON')
+				console.log(error.toJSON())
+				console.log(error.config)
+				bus.$root.$emit('updateSaveStatus', 'error')
+			})
 	}
 }

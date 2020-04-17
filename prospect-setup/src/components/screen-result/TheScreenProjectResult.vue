@@ -8,7 +8,10 @@
 		</TheTabTitle>
 
 		<div class="result-container">
-			<TheResultCampaignAdvice />
+			<TheResultCampaignAdvice
+			  :amountRaised="sharedState.project.amountNeeded * 1000"
+			  :percentRoyalties="getPercentRoyaltiesNumber"
+			  />
 			<TheResultProspectMeetup />
 		</div>
 		<div class="clear"></div>
@@ -16,6 +19,7 @@
 </template>
 
 <script>
+import { store } from '../../store.js'
 import TheTabTitle from '@/components/common/TheTabTitle'
 import TheResultCampaignAdvice from '@/components/screen-result/TheResultCampaignAdvice'
 import TheResultProspectMeetup from '@/components/screen-result/TheResultProspectMeetup'
@@ -29,9 +33,13 @@ export default {
 	},
 	data () {
 		return {
+			sharedState: store.state
 		}
 	},
-    methods: {
+    computed: {
+		getPercentRoyaltiesNumber () {
+			return Number(this.sharedState.project.royaltiesAmount)
+		}
     }
 }
 </script>

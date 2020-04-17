@@ -82,7 +82,9 @@ export default {
 	methods: {
 		onInputLocalEvent () {
 			this.$emit('update:valueReturn', this.valueReturn)
-			this.onChange(this.valueReturn)
+			if (this.onChange !== undefined) {
+				this.onChange(this.valueReturn)
+			}
 		},
 		updateValue (newValue) {
 			this.valueReturn = newValue

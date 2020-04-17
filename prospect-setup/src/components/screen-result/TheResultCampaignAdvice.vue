@@ -3,20 +3,34 @@
 		<div class="intro">
 			{{ $t('project-setup.project-result.YOU_CAN_RAISE') }}<br>
 			<span class="intro-amount">{{ amountRaised }} €</span><br>
-			<span v-if="true">{{ $t('project-setup.project-result.TARGET_LOVEMONEY') }}<br></span>
-			<span v-if="false">{{ $t('project-setup.project-result.TARGET_PRIVATE') }}<br></span>
-			<span v-if="false">{{ $t('project-setup.project-result.TARGET_PUBLIC') }}<br></span>
+			<span v-if="sharedState.project.circlesToCommunicate === 'lovemoney'">{{ $t('project-setup.project-result.TARGET_LOVEMONEY') }}<br></span>
+			<span v-if="sharedState.project.circlesToCommunicate === 'private'">{{ $t('project-setup.project-result.TARGET_PRIVATE') }}<br></span>
+			<span v-if="sharedState.project.circlesToCommunicate === 'public'">{{ $t('project-setup.project-result.TARGET_PUBLIC') }}<br></span>
 			{{ $t('project-setup.project-result.YOU_WILL_PAY') }}
 			{{ percentRoyalties }} %
 			{{ $t('project-setup.project-result.OF_YOUR_TURNOVER') }}<br>
 		</div>
 
-		<WDGSeeMore amount="500" :uncheckedItems="uncheckedItemsCrowdfunding"  :checkedItems="checkedItemsCrowdfunding">
-			<slot slot="title">{{ $t('project-setup.project-result.formulas.crowdfunding.TITLE') }}</slot>
-			<slot slot="text">{{ $t('project-setup.project-result.formulas.crowdfunding.TEXT') }}</slot>
+		<WDGSeeMore amount="500" :uncheckedItems="uncheckedItems" :checkedItems="checkedItems">
+			<slot slot="title" v-if="sharedState.project.circlesToCommunicate === 'lovemoney'">{{ $t('project-setup.project-result.formulas.lovemoney.TITLE') }}</slot>
+			<slot slot="text" v-if="sharedState.project.circlesToCommunicate === 'lovemoney'">{{ $t('project-setup.project-result.formulas.lovemoney.TEXT') }}</slot>
+			<slot slot="title" v-if="sharedState.project.circlesToCommunicate === 'private'">{{ $t('project-setup.project-result.formulas.private.TITLE') }}</slot>
+			<slot slot="text" v-if="sharedState.project.circlesToCommunicate === 'private'">{{ $t('project-setup.project-result.formulas.private.TEXT') }}</slot>
+			<slot slot="title" v-if="sharedState.project.circlesToCommunicate === 'public'">{{ $t('project-setup.project-result.formulas.crowdfunding.TITLE') }}</slot>
+			<slot slot="text" v-if="sharedState.project.circlesToCommunicate === 'public'">{{ $t('project-setup.project-result.formulas.crowdfunding.TEXT') }}</slot>
 		</WDGSeeMore>
 
-		<WDGSeeMore amount="1700">
+		<WDGSeeMore amount="0" v-if="sharedState.project.circlesToCommunicate === 'lovemoney' || sharedState.project.alreadydonecrowdfunding">
+			<slot slot="title">{{ $t('project-setup.project-result.options.basic.TITLE') }}</slot>
+			<slot slot="text">{{ $t('project-setup.project-result.options.basic.TEXT') }}</slot>
+		</WDGSeeMore>
+
+		<WDGSeeMore amount="500" v-if="!sharedState.project.alreadydonecrowdfunding && !sharedState.project.needcommunicationadvice">
+			<slot slot="title">{{ $t('project-setup.project-result.options.standard.TITLE') }}</slot>
+			<slot slot="text">{{ $t('project-setup.project-result.options.standard.TEXT') }}</slot>
+		</WDGSeeMore>
+
+		<WDGSeeMore amount="1700" v-if="sharedState.project.needcommunicationadvice">
 			<slot slot="title">{{ $t('project-setup.project-result.options.complete.TITLE') }}</slot>
 			<slot slot="text">{{ $t('project-setup.project-result.options.complete.TEXT') }}</slot>
 		</WDGSeeMore>
@@ -24,6 +38,7 @@
 </template>
 
 <script>
+import { store } from '../../store.js'
 import i18n from '@/i18n'
 import WDGSeeMore from '@/../../common/src/components/WDGSeeMore'
 
@@ -38,6 +53,27 @@ export default {
 	},
 	data () {
 		return {
+			sharedState: store.state,
+			uncheckedItemsLoveMoney: [
+				i18n.t('project-setup.project-result.formulas.lovemoney.AMOUNT_1'),
+				i18n.t('project-setup.project-result.formulas.lovemoney.AMOUNT_2')
+			],
+			checkedItemsLoveMoney: [
+				i18n.t('project-setup.project-result.formulas.options.MANAGED_THROUGH_PLATFORM'),
+				i18n.t('project-setup.project-result.formulas.options.SUPPORT'),
+				i18n.t('project-setup.project-result.formulas.options.UP_TO_5_INVESTORS'),
+				i18n.t('project-setup.project-result.formulas.options.PAYMENTS')
+			],
+			uncheckedItemsPrivate: [
+				i18n.t('project-setup.project-result.formulas.private.AMOUNT_1'),
+				i18n.t('project-setup.project-result.formulas.private.AMOUNT_2')
+			],
+			checkedItemsPrivate: [
+				i18n.t('project-setup.project-result.formulas.options.MANAGED_THROUGH_PLATFORM'),
+				i18n.t('project-setup.project-result.formulas.options.SUPPORT'),
+				i18n.t('project-setup.project-result.formulas.options.LIMITED_INVESTORS'),
+				i18n.t('project-setup.project-result.formulas.options.PAYMENTS')
+			],
 			uncheckedItemsCrowdfunding: [
 				i18n.t('project-setup.project-result.formulas.crowdfunding.AMOUNT_1'),
 				i18n.t('project-setup.project-result.formulas.crowdfunding.AMOUNT_2')
@@ -54,7 +90,23 @@ export default {
 			]
 		}
 	},
-    methods: {
+    computed: {
+		uncheckedItems () {
+			if (this.sharedState.project.circlesToCommunicate === 'lovemoney') {
+				return this.uncheckedItemsLoveMoney
+			} else if (this.sharedState.project.circlesToCommunicate === 'private') {
+				return this.uncheckedItemsPrivate
+			}
+			return this.uncheckedItemsCrowdfunding
+		},
+		checkedItems () {
+			if (this.sharedState.project.circlesToCommunicate === 'lovemoney') {
+				return this.checkedItemsLoveMoney
+			} else if (this.sharedState.project.circlesToCommunicate === 'private') {
+				return this.checkedItemsPrivate
+			}
+			return this.checkedItemsCrowdfunding
+		}
     }
 }
 </script>
