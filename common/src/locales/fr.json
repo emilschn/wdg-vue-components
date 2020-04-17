@@ -292,6 +292,16 @@
 				"complete": {
 					"TITLE": "Intégral",
 					"TEXT": "Pour les entrepreneurs qui souhaitent avoir des réponses, des avis et des conseils pour avancer plus vite et plus efficacement"
+				},
+				"list": {
+					"READ_PITCH": "Relecture de votre présentation",
+					"READ_PITCH_AND_COM": "Relecture de votre présentation, et de vos supports de communication",
+					"SUPPORT_TO_INVESTORS": "Support auprès de vos investisseurs",
+					"SUPPORT_CENTER": "Accès au centre de support",
+					"COMMISSION_REDUCTION": "Commission à 6 % au lieu de 8 % sur la formule CROWDFUNDING",
+					"CUSTOM_MONITORING": "Suivi personnalisé et support prioritaire",
+					"INVESTORS_MONITORING": "Suivi de conversion des investisseurs",
+					"WORKSHOP": "Atelier de préparation de 2h pour poser les bases avec votre équipe (Conseils en communication et méthodologie sur le financement participatif, définition du plan d’actions, prise en main de la plateforme)"
 				}
 			},
 			"prospect-meetup": {
