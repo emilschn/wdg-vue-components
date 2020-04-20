@@ -79,8 +79,9 @@ export default {
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css?family=Poppins');
 body {
-	font-family: Trebuchet MS,sans-serif;
+	font-family: Poppins,Trebuchet MS,sans-serif;
 	color: #333;
 }
 div.prospect-setup {
