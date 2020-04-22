@@ -10,7 +10,7 @@
             <span class="text">{{ $t('project-setup.footer.TIME_TEXT_2') }}</span>
         </div>
         <div class="logo_ifp">
-            <a href="https://acpr.banque-france.fr/agrements-et-autorisations/le-financement-participatif-crowdfunding.html"><img src="@/../../common/src/assets/ifp.png"  alt="WE DO GOOD" /></a>
+            <a href="https://acpr.banque-france.fr/agrements-et-autorisations/le-financement-participatif-crowdfunding.html"><img src="@/../../common/src/assets/logos/ifp.png"  alt="WE DO GOOD" /></a>
         </div>
         <div class="logo_bcorp">
             <a href="https://bcorporation.net/directory/we-do-good"><img src="@/../../common/src/assets/bcorp.png"  alt="CERTIFIE B CORPS" /></a>
@@ -48,14 +48,14 @@ export default {
 .footer .title {
 	color: #FFFFFF;
 	font-size: 24px;
-	font-weight: lighter;
+	font-weight: 100;
     text-align: center;
     display: inline-block;
     width:160px;
 }
 .footer .text {
 	color: #FFFFFF;
-    font-weight: bold;
+    font-weight: 500;
     text-align: center;
     display: inline-block;
     width:160px;
