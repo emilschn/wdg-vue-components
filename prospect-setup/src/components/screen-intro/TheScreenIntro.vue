@@ -166,6 +166,8 @@ export default {
     .the-screen-intro .the-project-link-send{
 		margin-top: 10px;
         font-weight: 400;
-
+    }
+    .wdg-mascot{
+        max-width: 300px;
     }
 </style>
