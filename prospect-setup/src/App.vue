@@ -58,6 +58,10 @@ export default {
 	},
 	created () {
 		this.sharedProps.ajaxurl = initElements.dataset.ajaxurl
+
+		let hubspotScript = document.createElement('script')
+		hubspotScript.setAttribute('src', '//js.hs-scripts.com/1860698.js')
+		document.head.appendChild(hubspotScript)
 	},
 	computed: {
 		canShowTabs () {

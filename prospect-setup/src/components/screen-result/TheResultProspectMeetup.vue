@@ -30,7 +30,7 @@
 			{{ $t('project-setup.project-result.prospect-meetup.PLAN_RENDEZVOUS_TEXT') }}
 		</div>
 
-		<div v-if="hasSentFiles" class="meetings-iframe-container" data-src="https://app.hubspot.com/meetings/jean-david/rendez-vous-avec-we-do-good?embed=true"></div>
+		<div v-if="hasSentFiles" class="meetings-iframe-container" data-src="https://app.hubspot.com/meetings/emilien11?embed=true"></div>
 	</div>
 </template>
 
@@ -55,9 +55,9 @@ export default {
 	methods: {
 		sendFiles: function () {
 			this.hasSentFiles = true
-			let recaptchaScript = document.createElement('script')
-			recaptchaScript.setAttribute('src', 'https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js')
-			document.head.appendChild(recaptchaScript)
+			let hubspotMeetingScript = document.createElement('script')
+			hubspotMeetingScript.setAttribute('src', 'https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js')
+			document.head.appendChild(hubspotMeetingScript)
 		}
 	}
 }
