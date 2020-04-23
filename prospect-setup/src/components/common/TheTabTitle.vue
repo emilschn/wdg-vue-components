@@ -40,8 +40,8 @@ export default {
 }
 
 .the-tab-title h2 {
-	margin: 16px auto;
-	font-size: 35px;
+	margin: 16px 15px;
+	font-size: 30px;
 	font-weight: bold;
 }
 

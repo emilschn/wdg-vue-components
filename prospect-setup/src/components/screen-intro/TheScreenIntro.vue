@@ -13,8 +13,8 @@
                 </div>
                 <div class="time">
                     <div><img src="@/assets/picto_clock.png"  alt="WE DO GOOD" /></div>
-                    <div class="content">
-                        <span class="title">{{ $t('project-setup.intro.TEXT_3') }}</span><br>
+                    <div class="clock-text">
+                        <span class="title">{{ $t('project-setup.intro.TEXT_3') }}</span>
                         <span class="text">{{ $t('project-setup.intro.TEXT_4') }}</span>
                     </div>
                 </div>
@@ -77,10 +77,7 @@ export default {
 </script>
 
 <style>
-    @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500;700&display=swap");
-
     .the-screen-intro .the-tab-title {
-        font-family: 'Poppins', sans-serif;
         font-weight: 700;
 		text-align: left;
 	}
@@ -89,7 +86,6 @@ export default {
         display: flex;
         justify-content: space-around;
         align-items: center;
-        font-family: 'Poppins', sans-serif;
     }
 	.the-screen-intro .result {
         width:322px;
@@ -119,7 +115,7 @@ export default {
         display: flex;
         margin-top: 50px;
 	}
-    .the-screen-intro .time .content {
+    .the-screen-intro .time .clock-text {
         margin-left: 15px;
         display: flex;
         flex-direction: column;
@@ -130,6 +126,7 @@ export default {
 		font-size: 16px;
         color:#00879b;
         font-weight: 700;
+        margin-bottom: 10px;
 	}
 	.the-screen-intro .time .text {
         color:#a8a8a8;
@@ -164,13 +161,13 @@ export default {
 		margin-top: 0px;
 		margin-bottom: 0px;
 		max-width: 176px;
-        font-family: 'Poppins', sans-serif;
         font-weight: 700;
 	}
     .the-screen-intro .the-project-link-send{
 		margin-top: 10px;
-        font-family: 'Poppins', sans-serif;
         font-weight: 400;
-
+    }
+    .wdg-mascot{
+        max-width: 300px;
     }
 </style>
