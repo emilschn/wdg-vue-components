@@ -9,7 +9,9 @@ export const store = {
         guid: '',
         step: 'intro',
         status: '',
-        authorization: '',
+		authorization: '',
+		hasSaved: '0',
+		hasSentResult: '0',
 		user: {
 			id: '',
 			name: '',
@@ -48,8 +50,8 @@ export const store = {
 	},
 	tabItems: [
 		{ Id: 'project-infos', Label: i18n.t('project-setup.tabs.MY_PROJECT'), Index: '1', Subtitle: '', Status: 'incomplete', LinkLabel: '' },
-		{ Id: 'project-funding', Label: i18n.t('project-setup.tabs.MY_FUNDING'), Index: '2', Subtitle: '', Status: '', LinkLabel: '' },
-		{ Id: 'project-investors', Label: i18n.t('project-setup.tabs.MY_INVESTORS'), Index: '3', Subtitle: '', Status: '', LinkLabel: '' },
+		{ Id: 'project-funding', Label: i18n.t('project-setup.tabs.MY_FUNDING'), Index: '2', Subtitle: '', Status: 'incomplete', LinkLabel: '' },
+		{ Id: 'project-investors', Label: i18n.t('project-setup.tabs.MY_INVESTORS'), Index: '3', Subtitle: '', Status: 'incomplete', LinkLabel: '' },
 		{ Id: 'project-result', Label: i18n.t('project-setup.tabs.MY_RESULT'), Subtitle: 'En cours...', Status: '', LinkLabel: '' }
 	],
 	changeStep (newStep) {
@@ -77,6 +79,9 @@ export const store = {
 				itemFunding.LinkLabel = ''
 
 				// item passé
+				if (itemInfos.Status === 'incomplete') {
+					this.saveProject()
+				}
 				itemInfos.Status = 'complete'
 				itemInfos.LinkLabel = 'Compléter'
 				Vue.set(this.tabItems, 0, itemInfos)
@@ -122,6 +127,18 @@ export const store = {
 		window.scrollTo(0, 0)
 	},
 	saveProject () {
+		let shouldSendLink = false
+		if (this.state.hasSaved !== '1') {
+			shouldSendLink = true
+			this.state.hasSaved = '1'
+		}
+
+		let shouldSendResult = false
+		if (this.state.step === 'project-result' && this.state.hasSentResult !== '1') {
+			shouldSendResult = true
+			this.state.hasSentResult = '1'
+		}
+
 		let data = new FormData()
 		data.append('action', 'prospect_setup_save')
 		data.append('guid', this.state.guid)
@@ -142,6 +159,14 @@ export const store = {
 					bus.$root.$emit('updateSaveStatus', 'saved')
 					this.state.guid = responseData.guid
 					this.state.user.id = responseData.id_user
+
+					if (shouldSendLink) {
+						this.sendDraftStarted()
+					}
+
+					if (shouldSendResult) {
+						this.sendDraftFinished()
+					}
 				} else {
 					bus.$root.$emit('updateSaveStatus', 'error')
 				}
@@ -170,5 +195,21 @@ export const store = {
 				console.log(error.config)
 				bus.$root.$emit('updateSaveStatus', 'error')
 			})
+	},
+	sendDraftStarted () {
+		let data = new FormData()
+		data.append('action', 'prospect_setup_send_mail_user_draft_started')
+		data.append('guid', this.state.guid)
+
+		axios
+			.post (this.props.ajaxurl, data)
+	},
+	sendDraftFinished () {
+		let data = new FormData()
+		data.append('action', 'prospect_setup_send_mail_user_draft_finished')
+		data.append('guid', this.state.guid)
+
+		axios
+			.post (this.props.ajaxurl, data)
 	}
 }
