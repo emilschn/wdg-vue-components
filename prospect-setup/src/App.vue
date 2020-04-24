@@ -2,6 +2,7 @@
 	<div
 	  id="app"
 	  class="prospect-setup"
+	  :data-guid="sharedState.guid"
 	  :data-ajaxurl="sharedProps.ajaxurl"
 	  >
 		<WDGHeader>
@@ -15,17 +16,22 @@
 		  :clickEvent="changeTab"
 		  />
 
-		<TheScreenIntro v-if="sharedState.step === 'intro'" />
-		<TheScreenProjectInfos v-if="sharedState.step === 'project-infos'" />
-		<TheScreenProjectFunding v-if="sharedState.step === 'project-funding'" />
-		<TheScreenProjectInvestors v-if="sharedState.step === 'project-investors'" />
-		<TheScreenProjectResult v-if="sharedState.step === 'project-result'" />
+		<TheScreenIntro v-if="!loading && sharedState.step === 'intro'" />
+		<TheScreenProjectInfos v-if="!loading && sharedState.step === 'project-infos'" />
+		<TheScreenProjectFunding v-if="!loading && sharedState.step === 'project-funding'" />
+		<TheScreenProjectInvestors v-if="!loading && sharedState.step === 'project-investors'" />
+		<TheScreenProjectResult v-if="!loading && sharedState.step === 'project-result'" />
+
+		<div class="loading-guid" v-if="loading">
+			...
+		</div>
 
 		<WDGFooter />
 	</div>
 </template>
 
 <script>
+import axios from 'axios'
 import { store } from './store.js'
 import WDGHeader from '@/../../common/src/components/WDGHeader'
 import WDGTabs from '@/../../common/src/components/WDGTabs'
@@ -53,19 +59,43 @@ export default {
 		return {
 			sharedState: store.state,
 			sharedProps: store.props,
-			sharedTabItems: store.tabItems
+			sharedTabItems: store.tabItems,
+			loading: false
 		}
 	},
 	created () {
+		this.sharedState.guid = initElements.dataset.guid
 		this.sharedProps.ajaxurl = initElements.dataset.ajaxurl
 
-		let hubspotScript = document.createElement('script')
+		/* let hubspotScript = document.createElement('script')
 		hubspotScript.setAttribute('src', '//js.hs-scripts.com/1860698.js')
-		document.head.appendChild(hubspotScript)
+		document.head.appendChild(hubspotScript) */
+
+		if (this.sharedState.guid !== undefined) {
+			this.loading = true
+			let data = new FormData()
+			data.append('action', 'prospect_setup_get_by_guid')
+			data.append('guid', this.sharedState.guid)
+
+			axios
+				.post (this.sharedProps.ajaxurl, data)
+				.then (response => {
+					this.loading = false
+					let responseData = response.data
+					this.initWithGuid(responseData.data.metadata)
+					store.changeStep(this.sharedState.step)
+				})
+				.catch (error => {
+					console.log(error)
+				})
+				.finally (() => {
+					this.loading = false
+				})
+		}
 	},
 	computed: {
 		canShowTabs () {
-			return (this.sharedState.step !== 'intro')
+			return (!this.loading && this.sharedState.step !== 'intro')
 		},
 		currentTabItems () {
 			return this.sharedTabItems
@@ -77,6 +107,42 @@ export default {
 	methods: {
 		changeTab (tabId) {
 			store.changeStep(tabId)
+		},
+		initWithGuid (metadataStr) {
+			let metadata = JSON.parse(metadataStr)
+
+			this.sharedState.step = metadata.step
+			this.sharedState.status = metadata.status
+			this.sharedState.authorization = metadata.authorization
+			this.sharedState.hasSaved = metadata.hasSaved
+			this.sharedState.hasSentResult = metadata.hasSentResult
+
+			this.sharedState.user.id = metadata.user.id
+			this.sharedState.user.name = metadata.user.name
+			this.sharedState.user.email = metadata.user.email
+			this.sharedState.user.phone = metadata.user.phone
+
+			this.sharedState.organization.type = metadata.organization.type
+			this.sharedState.organization.name = metadata.organization.name
+			this.sharedState.organization.id = metadata.organization.id
+			this.sharedState.organization.description = metadata.organization.description
+			this.sharedState.organization.location = metadata.organization.location
+			this.sharedState.organization.amountNeeded = metadata.organization.amountNeeded
+			this.sharedState.organization.sourceProspect = metadata.organization.sourceProspect
+			this.sharedState.organization.sourceProspectDetails = metadata.organization.sourceProspectDetails
+
+			this.sharedState.project.estimatedTurnover.year1 = metadata.project.estimatedTurnover.year1
+			this.sharedState.project.estimatedTurnover.year2 = metadata.project.estimatedTurnover.year2
+			this.sharedState.project.estimatedTurnover.year3 = metadata.project.estimatedTurnover.year3
+			this.sharedState.project.estimatedTurnover.year4 = metadata.project.estimatedTurnover.year4
+			this.sharedState.project.estimatedTurnover.year5 = metadata.project.estimatedTurnover.year5
+			this.sharedState.project.commercialMargin = metadata.project.commercialMargin
+			this.sharedState.project.amountNeeded = metadata.project.amountNeeded
+			this.sharedState.project.royaltiesAmount = metadata.project.royaltiesAmount
+			this.sharedState.project.readyToCommunicate = metadata.project.readyToCommunicate
+			this.sharedState.project.circlesToCommunicate = metadata.project.circlesToCommunicate
+			this.sharedState.project.alreadydonecrowdfunding = metadata.project.alreadydonecrowdfunding
+			this.sharedState.project.needcommunicationadvice = metadata.project.needcommunicationadvice
 		}
 	}
 }
@@ -91,5 +157,9 @@ body, input, select, button {
 div.prospect-setup {
 	max-width: 1024px;
 	margin: 0px auto;
+}
+div.loading-guid {
+	margin: 80px 0px;
+	text-align: center;
 }
 </style>
