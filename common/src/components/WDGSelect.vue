@@ -53,7 +53,10 @@ export default {
 .wdg-select.natural-language select {
 	display: inline-block;
 	width: 250px;
-	padding: 0px 30px 8px 0px;
+	padding: 5px 30px 5px 0px;
+	padding-left: 10px;
+	font-weight: 500;
+	font-size: 16px;
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	background-image:
@@ -68,7 +71,6 @@ export default {
 		5px 5px,
 		1px 1.5em;
 	background-repeat: no-repeat;
-	font-size: 16px;
 	color: #00879B;
 	border: 0px;
 	border-bottom: 2px solid #00879B;

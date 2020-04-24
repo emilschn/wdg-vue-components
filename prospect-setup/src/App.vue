@@ -83,8 +83,8 @@ export default {
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500;700&display=swap');
-body {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,500;0,700;1,500&display=swap');
+body, input, select, button {
 	font-family: Poppins,Trebuchet MS,sans-serif;
 	color: #333;
 }

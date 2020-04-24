@@ -40,7 +40,7 @@ export default {
 	max-width: 100%;
 	border-radius: 32px;
 	font-size: 15px;
-	font-weight: bold;
+	font-weight: 500;
 	font-style: italic;
 	text-align: justify;
 	color: #555555;

@@ -153,7 +153,6 @@ function getErrorMessage (errorCode) {
 .the-project-link-send .wdg-form .wdg-input input {
 	border: 1.5px solid #E1E3E2;
 	border-radius: 5px;
-	font-family: 'Poppins', sans-serif;
 	padding-left: 10px;
 }
 .the-project-link-send-mail .wdg-button {

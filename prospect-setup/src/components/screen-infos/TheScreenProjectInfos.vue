@@ -277,14 +277,15 @@ export default {
 	.the-screen-project-infos .wdg-form {
 		margin: 40px;
 		font-size: 20px;
-		line-height: 40px;
+		line-height: 55px;
+		font-weight: 500;
 	}
 	.the-screen-project-infos .wdg-form .wdg-button {
 		text-align: center;
 	}
 	.the-screen-project-infos .wdg-form button {
 		margin-top: 40px;
-		max-width: 320px;
+		max-width: 176px;
 	}
 	.the-screen-project-infos .wdg-mascot.face-2 {
 		margin-top: 100px;

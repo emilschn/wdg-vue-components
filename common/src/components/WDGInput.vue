@@ -136,8 +136,11 @@ export default {
 	.wdg-input.natural-language input {
 		display: inline-block;
 		width: 250px;
+		height: 40px;
 		padding: 0px;
 		color: #00879B;
 		border-bottom: 2px solid #00879B;
+		padding-left: 10px;
+		font-weight: 500;
 	}
 </style>

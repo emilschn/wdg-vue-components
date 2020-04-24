@@ -54,12 +54,15 @@ export default {
 	font-size: 16px;
 	font-style: italic;
 	color: #00879B;
+	display: flex;
+	justify-content: space-between;
+	width: 100px;
 }
 
 .the-tab-title .the-tab-title-subtitle {
 	margin: 8px auto;
 	font-size: 16px;
-	font-weight: bold;
+	font-weight: 500;
 	color: #B4B4B4;
 }
 </style>
