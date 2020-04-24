@@ -277,7 +277,7 @@ export default {
 	.the-screen-project-infos .wdg-form {
 		margin: 40px;
 		font-size: 20px;
-		line-height: 55px;
+		line-height: 60px;
 		font-weight: 500;
 	}
 	.the-screen-project-infos .wdg-form .wdg-button {
