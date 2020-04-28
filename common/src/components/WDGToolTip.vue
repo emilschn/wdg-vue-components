@@ -3,7 +3,9 @@
 		<button
 		  type="button"
 		  :class="color"
-		  @click="onClickLocalEvent"
+		  @focus="onClickLocalEvent"
+		  @focusout="onClickOutLocalEvent"
+		  tabindex="0"
 		  >
 			i
 		</button>
@@ -28,7 +30,10 @@ export default {
 	},
 	methods: {
 		onClickLocalEvent () {
-			this.isTextVisible = !this.isTextVisible
+			this.isTextVisible = true
+		},
+		onClickOutLocalEvent () {
+			this.isTextVisible = false
 		}
 	}
 }

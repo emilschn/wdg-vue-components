@@ -112,7 +112,10 @@
 			"MY_PROJECT": "Mon projet",
 			"MY_FUNDING": "Mon financement",
 			"MY_INVESTORS": "Mes investisseurs",
-			"MY_RESULT": "Mon résultat"
+			"MY_RESULT": "Mon résultat",
+			"MODIFY": "Modifier",
+			"IN_PROGRESS": "En cours...",
+			"SEE_RESULTS": "Voir le résultat"
 		},
 		"project-infos": {
 			"TITLE": "Mon projet",
@@ -179,7 +182,7 @@
 			"commercial-margin": {
 				"TITLE": "Ma marge commerciale",
 				"INPUT_LABEL": "Taux",
-				"TOOLTIP": "Texte complet à propos de la marge commerciale"
+				"TOOLTIP": "Votre marge brute ou marge sur coûts variables. Le taux de royalties ne devra pas dépasser 10 % de votre marge."
 			},
 			"royalties-amount": {
 				"TITLE": "Royalties que je cèderais",
