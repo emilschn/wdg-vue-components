@@ -81,8 +81,15 @@ export default {
 			sharedState: store.state
 		}
 	},
+	methods: {
+		setRoyaltiesOK (isOK) {
+			console.log('setRoyaltiesOK > ' + isOK)
+			this.sharedState.project.royaltiesOK = isOK
+		}
+	},
 	computed: {
 		royaltiesPercentType () {
+			this.setRoyaltiesOK(false)
 			if (this.sharedState.project.royaltiesAmount === '0' || this.sharedState.project.royaltiesAmount === 0) {
 				return 'default'
 			} else if (this.maxPercent < this.minPercent) {
@@ -92,6 +99,7 @@ export default {
 			} else if (this.sharedState.project.royaltiesAmount < this.minPercent) {
 				return 'warning-under'
 			}
+			this.setRoyaltiesOK(true)
 			return 'custom'
 		}
 	}

@@ -233,6 +233,10 @@
 			"MASCOT_TEXT_1A": "Lancer et réussir une levée de fonds demande du temps et un engagement personnel pour vous et votre équipe.",
 			"MASCOT_TEXT_1B": "Vous devez être prêt-e à communiquer auprès de votre entourage pour mettre toutes les chances de votre côté.",
 			"MASCOT_TEXT_2": "Malheureusement, sans mobiliser votre entourage et votre réseau, il vous sera compliqué de convaincre et de gagner la confiance d’autres investisseurs.",
+			"MASCOT_TEXT_LOVEMONEY": "Les royalties sont une bonne option pour faire investir un petit nombre de personnes de votre réseau personnel (love money) ou professionnel. Simple, rapide, confidentiel.",
+			"MASCOT_TEXT_PRIVATE": "Vous pouvez faire investir autant de personnes que vous le souhaitez en réservant cette possibilité à celles que vous avez identifiées. Rapide et confidentiel.",
+			"MASCOT_TEXT_PUBLIC": "Vous pouvez bénéficier d'une belle visibilité en faisant du Crowdfunding mais pour toucher le grand public, il faut commencer par votre entourage !",
+			"MASCOT_TEXT_ALREADY_DONE": "Super, je vois que nous avons à faire à une personne expérimentée !",
 			"investors-circles": {
 				"CIRCLE_LOVEMONEY": "Proches",
 				"CIRCLE_PRIVATE": "Relations",
@@ -303,6 +307,16 @@
 					"INVESTORS_MONITORING": "Suivi de conversion des investisseurs",
 					"WORKSHOP": "Atelier de préparation de 2h pour poser les bases avec votre équipe (Conseils en communication et méthodologie sur le financement participatif, définition du plan d’actions, prise en main de la plateforme)"
 				}
+			},
+			"not-eligible": {
+				"PROJECT_DOESNT_SEEM_ELIGIBLE": "Votre projet ne semble pas éligible...",
+				"POSSIBLE_REASONS": "Voici les raisons possibles :",
+				"MICROBUSINESS": "vous travaillez en tant qu’entreprise individuelle ou micro-entreprise",
+				"OUT_EURO": "votre entreprise n'est ou ne sera pas immatriculée en zone Euro",
+				"NOT_ADAPTED": "le modèle des royalties n'est peut-être pas adapté à votre modèle économique",
+				"NEED_LOVEMONEY": "un financement participatif requiert une mobilisation de votre entourage pour bien démarrer",
+				"SPECIFIC_PROJECT": "Votre projet est particulier et pourrait tout de même bénéficier des royalties (durée plus longue, financement de matériel avec marge...) ?",
+				"SEND_EMAIL": "Envoyez-nous un mail à projets@wedogood.co"
 			},
 			"prospect-meetup": {
 				"ADD_FILES_TEXT": "Pour préparer notre rencontre, votre business plan et un prévisionnel financier comportant un plan de financement et un compte de résultat prévisionnel sont nécessaires",

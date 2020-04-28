@@ -15,6 +15,22 @@
 			<slot slot="text">{{ $t('project-setup.project-investors.MASCOT_TEXT_2') }}</slot>
 		</WDGMascot>
 
+		<WDGMascot type="side-1" v-if="getMascotType == 'lovemoney'">
+			<slot slot="text">{{ $t('project-setup.project-investors.MASCOT_TEXT_LOVEMONEY') }}</slot>
+		</WDGMascot>
+
+		<WDGMascot type="face-1" v-if="getMascotType == 'private'">
+			<slot slot="text">{{ $t('project-setup.project-investors.MASCOT_TEXT_PRIVATE') }}</slot>
+		</WDGMascot>
+
+		<WDGMascot type="face-3" v-if="getMascotType == 'public'">
+			<slot slot="text">{{ $t('project-setup.project-investors.MASCOT_TEXT_PUBLIC') }}</slot>
+		</WDGMascot>
+
+		<WDGMascot type="face-2" v-if="getMascotType == 'already-done'">
+			<slot slot="text">{{ $t('project-setup.project-investors.MASCOT_TEXT_ALREADY_DONE') }}</slot>
+		</WDGMascot>
+
 		<div class="ready-to-communicate">
 			<div class="ready-to-communicate-question">
 				{{ $t('project-setup.project-investors.READY_TO_COMMUNICATE') }}
@@ -48,6 +64,7 @@
 				<WDGCheckbox
 				  id="alreadydonecrowdfunding"
 				  name="alreadydonecrowdfunding"
+				  :value="sharedState.project.alreadydonecrowdfunding"
 				  v-bind:valueReturn.sync="sharedState.project.alreadydonecrowdfunding"
 				  v-if="sharedState.project.circlesToCommunicate === 'public'"
 				  >
@@ -57,6 +74,7 @@
 				<WDGCheckbox
 				  id="needcommunicationadvice"
 				  name="needcommunicationadvice"
+				  :value="sharedState.project.needcommunicationadvice"
 				  v-bind:valueReturn.sync="sharedState.project.needcommunicationadvice"
 				  v-if="sharedState.project.circlesToCommunicate === 'public' || sharedState.project.circlesToCommunicate === 'private'"
 				  >
@@ -133,6 +151,18 @@ export default {
 		getMascotType () {
 			if (this.sharedState.project.readyToCommunicate === false) {
 				return 'not-ready-communicate'
+			}
+			if (this.sharedState.project.alreadydonecrowdfunding) {
+				return 'already-done'
+			}
+			if (this.sharedState.project.circlesToCommunicate === 'public') {
+				return 'public'
+			}
+			if (this.sharedState.project.circlesToCommunicate === 'private') {
+				return 'private'
+			}
+			if (this.sharedState.project.circlesToCommunicate === 'lovemoney') {
+				return 'lovemoney'
 			}
 			return '1'
 		}

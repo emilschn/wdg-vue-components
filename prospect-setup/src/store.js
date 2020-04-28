@@ -39,6 +39,7 @@ export const store = {
 			commercialMargin: 0,
 			amountNeeded: 50,
 			royaltiesAmount: 0,
+			royaltiesOK: false,
 			readyToCommunicate: '',
 			circlesToCommunicate: '',
 			alreadydonecrowdfunding: false,
