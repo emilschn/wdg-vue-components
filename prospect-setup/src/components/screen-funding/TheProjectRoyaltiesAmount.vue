@@ -83,7 +83,6 @@ export default {
 	},
 	methods: {
 		setRoyaltiesOK (isOK) {
-			console.log('setRoyaltiesOK > ' + isOK)
 			this.sharedState.project.royaltiesOK = isOK
 		}
 	},

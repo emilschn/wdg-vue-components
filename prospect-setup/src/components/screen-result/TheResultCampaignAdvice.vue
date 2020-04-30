@@ -27,7 +27,7 @@
 		<WDGSeeMore
 		  amount="0"
 		  :checkedItems="checkedItemsOptionBasic"
-		  v-if="!sharedState.project.needcommunicationadvice && (sharedState.project.circlesToCommunicate === 'lovemoney' || sharedState.project.alreadydonecrowdfunding)"
+		  v-if="!sharedState.project.needCommunicationAdvice && (sharedState.project.circlesToCommunicate === 'lovemoney' || sharedState.project.alreadyDoneCrowdfunding)"
 		  >
 			<slot slot="title">{{ $t('project-setup.project-result.options.basic.TITLE') }}</slot>
 			<slot slot="text">{{ $t('project-setup.project-result.options.basic.TEXT') }}</slot>
@@ -36,7 +36,7 @@
 		<WDGSeeMore
 		  amount="500"
 		  :checkedItems="checkedItemsOptionStandard"
-		  v-if="!sharedState.project.alreadydonecrowdfunding && !sharedState.project.needcommunicationadvice"
+		  v-if="!sharedState.project.alreadyDoneCrowdfunding && !sharedState.project.needCommunicationAdvice"
 		  >
 			<slot slot="title">{{ $t('project-setup.project-result.options.standard.TITLE') }}</slot>
 			<slot slot="text">{{ $t('project-setup.project-result.options.standard.TEXT') }}</slot>
@@ -45,7 +45,7 @@
 		<WDGSeeMore
 		  amount="1700"
 		  :checkedItems="checkedItemsOptionComplete"
-		  v-if="sharedState.project.needcommunicationadvice"
+		  v-if="sharedState.project.needCommunicationAdvice"
 		  >
 			<slot slot="title">{{ $t('project-setup.project-result.options.complete.TITLE') }}</slot>
 			<slot slot="text">{{ $t('project-setup.project-result.options.complete.TEXT') }}</slot>

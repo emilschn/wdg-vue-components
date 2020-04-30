@@ -4,14 +4,30 @@
 			<slot name="label"></slot>
 		</label>
 
+		<div class="init-file-list" v-if="initFileList.length > 0">
+			Fichiers envoyés précédemment :<br>
+			<ul>
+				<li
+				  v-for="(item, index) in initFileList"
+				  :item="item"
+				  :index="index"
+				  :key="item.id"
+				  >
+					<a :href="item.url" target="_blank">Fichier {{index+1}}</a>
+				</li>
+			</ul>
+		</div>
+
 		<input
-			v-for="i in getNbFiles"
-			:key="i"
-			:id="id + '-' + i"
-			:name="id + '-' + i"
-			:disabled="disabled"
-			type="file"
-			/>
+		  v-for="i in getNbFiles"
+		  :key="i"
+		  :id="id + '-' + i"
+		  :name="id + '-' + i"
+		  :ref="id+i"
+		  :disabled="disabled"
+		  type="file"
+		  @change="setFile"
+		  />
 
 		<div class="link-container">
 			<a @click="addFile">
@@ -30,7 +46,9 @@ export default {
 		id: { type: String, default: null },
 		name: { type: String, default: null },
 		disabled: { type: Boolean, default: false },
-		initNbFiles: { type: Number, default: 1 }
+		initFileList: { type: Array },
+		initNbFiles: { type: Number, default: 1 },
+		onFileListChange: Function
 	},
 	data () {
 		return {
@@ -52,6 +70,13 @@ export default {
 	methods: {
 		addFile () {
 			this.nbFiles++
+		},
+		setFile () {
+			let filelist = []
+			for (let i = 1; i <= this.nbFiles; i++) {
+				filelist.push(this.$refs[this.id + i][0].files[0])
+			}
+			this.onFileListChange(filelist)
 		}
 	}
 }
@@ -61,7 +86,14 @@ export default {
 .wdg-file-list {
 	margin-bottom: 16px;
 }
+.wdg-file-list .init-file-list {
+	margin: 24px 0px;
+}
+.wdg-file-list .init-file-list, .wdg-file-list .init-file-list a {
+	color: #ffffff;
+}
 .wdg-file-list input {
+	max-width: 100%;
 	margin-bottom: 16px;
 }
 .wdg-file-list .link-container {

@@ -42,12 +42,14 @@ export const store = {
 			royaltiesOK: false,
 			readyToCommunicate: '',
 			circlesToCommunicate: '',
-			alreadydonecrowdfunding: false,
-			needcommunicationadvice: false
+			alreadyDoneCrowdfunding: false,
+			needCommunicationAdvice: false,
+			fileComments: ''
 		}
 	},
 	props: {
-		ajaxURL: ''
+		ajaxURL: '',
+		initFileList: []
 	},
 	tabItems: [
 		{ Id: 'project-infos', Label: i18n.t('project-setup.tabs.MY_PROJECT'), Index: '1', Subtitle: '', Status: 'incomplete', LinkLabel: '' },
@@ -142,6 +144,9 @@ export const store = {
 
 		let data = new FormData()
 		data.append('action', 'prospect_setup_save')
+		if (this.state.guid === undefined) {
+			this.state.guid = ''
+		}
 		data.append('guid', this.state.guid)
 		data.append('id_user', this.state.user.id)
 		data.append('email', this.state.user.email)
@@ -198,6 +203,9 @@ export const store = {
 			})
 	},
 	sendDraftStarted () {
+		if (process.env.NODE_ENV === 'development') {
+			return
+		}
 		let data = new FormData()
 		data.append('action', 'prospect_setup_send_mail_user_draft_started')
 		data.append('guid', this.state.guid)
@@ -206,6 +214,9 @@ export const store = {
 			.post (this.props.ajaxurl, data)
 	},
 	sendDraftFinished () {
+		if (process.env.NODE_ENV === 'development') {
+			return
+		}
 		let data = new FormData()
 		data.append('action', 'prospect_setup_send_mail_user_draft_finished')
 		data.append('guid', this.state.guid)

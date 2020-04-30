@@ -64,8 +64,8 @@
 				<WDGCheckbox
 				  id="alreadydonecrowdfunding"
 				  name="alreadydonecrowdfunding"
-				  :value="sharedState.project.alreadydonecrowdfunding"
-				  v-bind:valueReturn.sync="sharedState.project.alreadydonecrowdfunding"
+				  :value="sharedState.project.alreadyDoneCrowdfunding"
+				  v-bind:valueReturn.sync="sharedState.project.alreadyDoneCrowdfunding"
 				  v-if="sharedState.project.circlesToCommunicate === 'public'"
 				  >
 					<slot slot="label-after">{{ $t('project-setup.project-investors.ALREADY_DONE_CROWDFUNDING') }}</slot>
@@ -74,8 +74,8 @@
 				<WDGCheckbox
 				  id="needcommunicationadvice"
 				  name="needcommunicationadvice"
-				  :value="sharedState.project.needcommunicationadvice"
-				  v-bind:valueReturn.sync="sharedState.project.needcommunicationadvice"
+				  :value="sharedState.project.needCommunicationAdvice"
+				  v-bind:valueReturn.sync="sharedState.project.needCommunicationAdvice"
 				  v-if="sharedState.project.circlesToCommunicate === 'public' || sharedState.project.circlesToCommunicate === 'private'"
 				  >
 					<slot slot="label-after">{{ $t('project-setup.project-investors.NEED_COMMUNICATION_ADVICE') }}</slot>
@@ -122,9 +122,7 @@ export default {
 	},
 	data () {
 		return {
-			sharedState: store.state,
-			alreadydonecrowdfunding: false,
-			needcommunicationadvice: false
+			sharedState: store.state
 		}
 	},
 	methods: {
@@ -152,7 +150,7 @@ export default {
 			if (this.sharedState.project.readyToCommunicate === false) {
 				return 'not-ready-communicate'
 			}
-			if (this.sharedState.project.alreadydonecrowdfunding) {
+			if (this.sharedState.project.alreadyDoneCrowdfunding) {
 				return 'already-done'
 			}
 			if (this.sharedState.project.circlesToCommunicate === 'public') {

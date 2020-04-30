@@ -82,7 +82,7 @@ export default {
 				.then (response => {
 					this.loading = false
 					let responseData = response.data
-					this.initWithGuid(responseData.data.metadata)
+					this.initWithGuid(responseData.data.metadata, responseData.data.file_list)
 					store.changeStep(this.sharedState.step)
 				})
 				.catch (error => {
@@ -108,7 +108,7 @@ export default {
 		changeTab (tabId) {
 			store.changeStep(tabId)
 		},
-		initWithGuid (metadataStr) {
+		initWithGuid (metadataStr, fileList) {
 			let metadata = JSON.parse(metadataStr)
 
 			this.sharedState.step = metadata.step
@@ -141,8 +141,11 @@ export default {
 			this.sharedState.project.royaltiesAmount = metadata.project.royaltiesAmount
 			this.sharedState.project.readyToCommunicate = metadata.project.readyToCommunicate
 			this.sharedState.project.circlesToCommunicate = metadata.project.circlesToCommunicate
-			this.sharedState.project.alreadydonecrowdfunding = metadata.project.alreadydonecrowdfunding
-			this.sharedState.project.needcommunicationadvice = metadata.project.needcommunicationadvice
+			this.sharedState.project.alreadyDoneCrowdfunding = metadata.project.alreadyDoneCrowdfunding
+			this.sharedState.project.needCommunicationAdvice = metadata.project.needCommunicationAdvice
+			this.sharedState.project.fileComments = metadata.project.fileComments
+
+			this.sharedProps.initFileList = fileList
 		}
 	}
 }
