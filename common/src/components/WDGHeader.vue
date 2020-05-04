@@ -29,7 +29,7 @@ export default {
 	justify-content: space-between;
 	flex-wrap: wrap;
 	width: 100%;
-	padding: 15px;
+	padding-top: 15px;
 }
 .header .logo {
 	width: 45%;

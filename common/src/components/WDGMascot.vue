@@ -42,7 +42,6 @@ export default {
 	font-size: 15px;
 	font-weight: 500;
 	font-style: italic;
-	text-align: justify;
 	color: #555555;
 	background: #f4f2f2;
 }

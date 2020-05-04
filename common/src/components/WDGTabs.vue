@@ -84,15 +84,16 @@ export default {
 	margin-left: 8px;
 }
 .wdg-tabs ul li div span.tab-label {
-	padding-left: 16px;
-	font-weight: bold;
+	margin-left: 10px;
+	font-weight: 600;
 	font-size: 17px;
 }
 .wdg-tabs ul li div span.tab-label span.subtitle, .wdg-tabs ul li div span.tab-label a {
 	display: inline-block;
 	margin-top: 8px;
-	margin-left: 36px;
+	margin-left: 10px;
 	font-size: 13px;
+	font-weight: 400;
 	color: #B4B4B4;
 }
 .wdg-tabs ul li div span.tab-label span.subtitle {

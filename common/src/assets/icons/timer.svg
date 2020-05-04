@@ -1,13 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
-    <title>Fill 1@1x</title>
-    <desc>Created with Sketch.</desc>
-    <g id="Maquette" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Accueil-reprendre-test-précédent" transform="translate(-160.000000, -431.000000)" fill="#000000">
-            <g id="timing" transform="translate(142.844500, 415.000000)">
-                <path d="M29.062,37.3811057 C24.0612764,37.3811057 19.9928943,33.3127236 19.9928943,28.312 C19.9928943,23.3112764 24.0612764,19.2428943 29.062,19.2428943 L29.062,28.312 L38.1311057,28.312 C38.1311057,33.3127236 34.0627236,37.3811057 29.062,37.3811057 M29.062,16.812 C22.7209187,16.812 17.562,21.9709187 17.562,28.312 C17.562,34.6530813 22.7209187,39.812 29.062,39.812 C35.4030813,39.812 40.562,34.6530813 40.562,28.312 C40.562,21.9709187 35.4030813,16.812 29.062,16.812" id="Fill-1"></path>
-            </g>
-        </g>
-    </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill-rule:evenodd;clip-rule:evenodd;fill:#00879B;}
+</style>
+<title>Fill 1@1x</title>
+<desc>Created with Sketch.</desc>
+<g id="Maquette">
+	<g id="Accueil-reprendre-test-précédent" transform="translate(-160.000000, -431.000000)">
+		<g id="timing" transform="translate(142.844500, 415.000000)">
+			<path id="Fill-1" class="st0" d="M29.1,37.4c-5,0-9.1-4.1-9.1-9.1s4.1-9.1,9.1-9.1v9.1h9.1C38.1,33.3,34.1,37.4,29.1,37.4
+				 M29.1,16.8c-6.3,0-11.5,5.2-11.5,11.5s5.2,11.5,11.5,11.5s11.5-5.2,11.5-11.5S35.4,16.8,29.1,16.8"/>
+		</g>
+	</g>
+</g>
 </svg>
