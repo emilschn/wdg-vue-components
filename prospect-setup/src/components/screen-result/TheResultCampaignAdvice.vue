@@ -40,6 +40,7 @@
 
 		<WDGSeeMore
 		  amount="500"
+		  :amountReduction="$t('project-setup.project-result.options.REDUCTION')"
 		  :checkedItems="checkedItemsOptionStandard"
 		  v-if="!sharedState.project.alreadyDoneCrowdfunding && !sharedState.project.needCommunicationAdvice"
 		  >
@@ -49,6 +50,7 @@
 
 		<WDGSeeMore
 		  amount="1700"
+		  :amountReduction="$t('project-setup.project-result.options.REDUCTION')"
 		  :checkedItems="checkedItemsOptionComplete"
 		  v-if="sharedState.project.needCommunicationAdvice"
 		  >
