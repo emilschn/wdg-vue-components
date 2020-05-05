@@ -105,6 +105,7 @@
 				  :value="sharedState.organization.amountNeeded"
 				  v-bind:valueReturn.sync="sharedState.organization.amountNeeded"
 				  customStyle="natural-language"
+				  autoFormat="wdg-number"
 			  	  placeholder="50 000"
 				  /> €,<br>
 
@@ -178,6 +179,7 @@
 				  />.
 
 				<WDGButton
+				  v-if="canShowContinue"
 				  color="red"
 				  type="button"
             	  :clickEvent="changeStep"
@@ -250,9 +252,27 @@ export default {
     },
 	computed: {
 		canShowUserInfos () {
-			let buffer = false
-			buffer = (this.sharedState.organization.sourceProspect !== '')
-			return buffer
+			if (process.env.NODE_ENV === 'development') {
+				return true
+			}
+			return (this.sharedState.organization.sourceProspect !== '')
+		},
+		canShowContinue () {
+			if (process.env.NODE_ENV === 'development') {
+				return true
+			}
+			return (
+				this.sharedState.organization.type !== '' &&
+				this.sharedState.organization.location !== '' &&
+				this.sharedState.organization.name !== '' &&
+				this.sharedState.organization.amountNeeded !== '' &&
+				this.sharedState.organization.description !== '' &&
+				this.sharedState.organization.sourceProspect !== '' &&
+				this.sharedState.organization.sourceProspectDetails !== '' &&
+				this.sharedState.user.name !== '' &&
+				this.sharedState.user.email !== '' &&
+				this.sharedState.user.phone !== ''
+			)
 		},
 		getMascotType () {
 			if (this.sharedState.organization.sourceProspect !== '') {
