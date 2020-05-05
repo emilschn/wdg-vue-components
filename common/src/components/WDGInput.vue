@@ -32,6 +32,7 @@
 			  :required="isRequired"
 			  :type="type"
 			  @input="onInputLocalEvent"
+			  @change="onChangeLocalEvent"
 			  />
 
 			<textarea
@@ -60,6 +61,7 @@ export default {
 		value: { type: [String, Number], default: null },
 		type: { type: String, default: 'text' },
 		customStyle: { type: String, default: '' },
+		autoFormat: { type: String },
 		placeholder: { type: String, default: '' },
 		multiline: { type: Boolean, default: false },
 		disabled: { type: Boolean, default: false },
@@ -86,8 +88,33 @@ export default {
 				this.onChange(this.valueReturn)
 			}
 		},
+		onChangeLocalEvent () {
+			if (this.autoFormat === 'wdg-number') {
+				this.valueReturn = this.getAutoFormatWDGNumber(this.valueReturn)
+			}
+		},
 		updateValue (newValue) {
 			this.valueReturn = newValue
+		},
+		getAutoFormatWDGNumber (nInput) {
+			// On passe les entiers en float avec .00 pour qu'ils soient reconnus par le pattern en dessous
+			if (nInput === parseInt(nInput, 10)) {
+				nInput = parseFloat(nInput).toFixed(2)
+			}
+			let sInput = nInput.toString()
+			// Remplacement . par , pour les décimales
+			sInput = sInput.split('.').join(',')
+			// Suppression des caractères non-numériques
+			sInput = sInput.replace(/[^\d,-]/g, '')
+			// Ecarts pour les milliers
+			sInput = sInput.replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
+
+			// Si c'est en fait un entier, on enlève les chiffres après la virgule
+			let aCutDecimals = sInput.split(',')
+			if (aCutDecimals[ 1 ] === '00') {
+				sInput = aCutDecimals[ 0 ]
+			}
+			return sInput
 		}
 	},
 	computed: {

@@ -105,6 +105,7 @@
 				  :value="sharedState.organization.amountNeeded"
 				  v-bind:valueReturn.sync="sharedState.organization.amountNeeded"
 				  customStyle="natural-language"
+				  autoFormat="wdg-number"
 			  	  placeholder="50 000"
 				  /> €,<br>
 
