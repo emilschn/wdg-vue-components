@@ -11,8 +11,11 @@
 			{{ $t('project-setup.project-result.OF_YOUR_TURNOVER') }}<br>
 		</div>
 
+		<div class="recommended-title">{{ $t('project-setup.project-result.formulas.RECOMMENDED') }}</div>
+
 		<WDGSeeMore
 		  amount="500"
+		  :amountReduction="$t('project-setup.project-result.formulas.REDUCTION')"
 		  :uncheckedItems="uncheckedItems"
 		  :checkedItems="checkedItems"
 		  >
@@ -23,6 +26,8 @@
 			<slot slot="title" v-if="sharedState.project.circlesToCommunicate === 'public'">{{ $t('project-setup.project-result.formulas.crowdfunding.TITLE') }}</slot>
 			<slot slot="text" v-if="sharedState.project.circlesToCommunicate === 'public'">{{ $t('project-setup.project-result.formulas.crowdfunding.TEXT') }}</slot>
 		</WDGSeeMore>
+
+		<div class="recommended-title">{{ $t('project-setup.project-result.options.RECOMMENDED') }}</div>
 
 		<WDGSeeMore
 		  amount="0"

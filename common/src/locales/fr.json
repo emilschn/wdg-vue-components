@@ -256,6 +256,8 @@
 			"YOU_WILL_PAY": "et vous leur verserez tous les trimestres",
 			"OF_YOUR_TURNOVER": "de votre chiffre d'affaires pendant 5 ans.",
 			"formulas": {
+				"RECOMMENDED": "Formule recommandée",
+				"REDUCTION": "(-50 % jeunes entreprises)",
 				"lovemoney": {
 					"TITLE": "Love Money",
 					"TEXT": "Faites investir vos proches de manière confidentielle et rapide",
@@ -288,16 +290,17 @@
 				}
 			},
 			"options": {
+				"RECOMMENDED": "Option recommandée",
 				"basic": {
-					"TITLE": "Basique",
+					"TITLE": "Accompagnement Basique",
 					"TEXT": "Pour les entrepreneurs ayant déjà identifié leurs investisseurs ou ayant déjà mené une campagne de financement"
 				},
 				"standard": {
-					"TITLE": "Essentiel",
+					"TITLE": "Accompagnement Essentiel",
 					"TEXT": "Pour les entrepreneurs souhaitant avoir le chemin bien éclairé pour mener leur levée de fonds en toute sérénité"
 				},
 				"complete": {
-					"TITLE": "Intégral",
+					"TITLE": "Accompagnement Intégral",
 					"TEXT": "Pour les entrepreneurs qui souhaitent avoir des réponses, des avis et des conseils pour avancer plus vite et plus efficacement"
 				},
 				"list": {

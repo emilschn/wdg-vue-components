@@ -13,6 +13,9 @@
 		  class="see-more-amount"
 		  >
 			{{ amount }} € <span class="without-tax">{{ $t('common.WITHOUT_TAXES_LETTERS') }}</span>
+			<div v-if="amountReduction !== ''">
+				{{ amountReduction }}
+			</div>
 		</div>
 
 		<WDGButton
@@ -54,6 +57,7 @@ export default {
 	},
 	props: {
 		amount: { type: String, default: -1 },
+		amountReduction: { type: String, default: '' },
 		uncheckedItems: { type: Array, default: () => [] },
 		checkedItems: { type: Array, default: () => [] }
 	},
