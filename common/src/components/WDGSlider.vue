@@ -73,11 +73,11 @@ export default {
     color: #FFFFFF;
     border-radius: 8px;
     font-size: 24px;
-    font-weight: bold;
-    width:120px;
+    font-weight: 700;
+    width:130px;
     padding: 8px;
     position: absolute;
-    top: -20px;
+    top: -30px;
     cursor: pointer;
 	text-align: center;
 }
@@ -90,6 +90,9 @@ export default {
     height: 0;
     border: 5px solid transparent;
     border-top-color: inherit;
-    transform: translate(-50%, 0);
+	transform: translate(-50%, 0);
+}
+.vue-slide-bar-component {
+	padding-top: 60px !important; /* réécriture sur le CSS de l'élément externe pour l'adapter à la page */
 }
 </style>

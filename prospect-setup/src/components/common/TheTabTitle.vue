@@ -56,7 +56,7 @@ export default {
 	color: #00879B;
 	display: flex;
 	justify-content: space-between;
-	width: 100px;
+	width: 110px;
 }
 
 .the-tab-title .the-tab-title-subtitle {
@@ -64,5 +64,8 @@ export default {
 	font-size: 16px;
 	font-weight: 500;
 	color: #B4B4B4;
+}
+.the-tab-title-timer svg {
+	margin-right: 3px;
 }
 </style>

@@ -7,6 +7,7 @@
 			<slot slot="title">{{ $t('project-setup.project-funding.TITLE') }}</slot>
 		</TheTabTitle>
 
+	<div class="total-funding-container">
 		<TheProjectRoyaltiesAmount
 		  ref="royaltiesAmount"
 		  :onChange="refreshChart"
@@ -17,14 +18,16 @@
 		  :maxPercent="maxPercentAdvice"
 		  :advicePercent="advicePercent"
 		  />
+		<div class="estimation-margin-goal-container">
+			<TheProjectEstimatedTurnoverByYear :onChange="refreshChart" />
 
-		<TheProjectEstimatedTurnoverByYear :onChange="refreshChart" />
+				<div class="margin-amount-container">
+					<TheProjectCommercialMargin :onChange="refreshChart" />
 
-		<div class="margin-amount-container">
-			<TheProjectCommercialMargin :onChange="refreshChart" />
-
-			<TheProjectGoalAmount :onChange="refreshChart" />
+					<TheProjectGoalAmount :onChange="refreshChart" />
+				</div>
 		</div>
+	</div>
 
 		<TheProjectRoyaltiesWarning :minPercent="minPercentAdvice" />
 
@@ -172,32 +175,26 @@ div.the-screen-project-funding div.project-funding-subpart {
 div.the-screen-project-funding div.project-funding-subpart h3 {
 	margin: 0px;
 }
-
 div.the-screen-project-funding div.the-project-royalties-amount {
-	float: right;
-	width: 280px;
-	height: 350px;
+	order: 2;
+	margin-left: 16px;
+	width: 29%;
 }
 div.the-screen-project-funding div.the-project-estimated-turnover-by-year {
-	float: left;
-	width: calc(100% - 392px); /* 100% - ( padding 4 * 24px - marge 16px - royalties amount 280px ) */
 	margin-bottom: 16px;
 }
 div.the-screen-project-funding div.margin-amount-container {
-	float: left;
-	width: calc(100% - 344px); /* 100% - ( padding 2 * 24px - marge 16px - royalties amount 280px ) */
-	margin-bottom: 16px;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
 }
 div.the-screen-project-funding div.the-project-commercial-margin {
-	float: left;
-	width: 200px;
 	margin-right: 16px;
+	width: 39%;
 }
 div.the-screen-project-funding div.the-project-goal-amount {
-	float: left;
-	width: calc(100% - 312px); /* 100% - ( padding 2 * 24px - marge * 16px - commercial margin 200px ) */
+	width: 59%;
 }
-
 div.the-screen-project-funding div.the-project-royalties-warning {
 	clear: both;
 }
@@ -221,5 +218,14 @@ div.project-funding-navigation div.wdg-button {
 	display: inline-block;
 	width: 176px;
 	margin-left: 16px;
+}
+div.estimation-margin-goal-container {
+	display: flex;
+	flex-flow: row wrap;
+	width: 69%;
+}
+div.total-funding-container {
+	display: flex;
+	margin-top: 20px;
 }
 </style>

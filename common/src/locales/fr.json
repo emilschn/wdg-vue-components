@@ -191,7 +191,7 @@
 				"ROYALTIES_PERCENT_WARNING_OVER": "Le pourcentage est trop élevé par rapport à votre niveau de marge, les royalties risqueraient de fragiliser votre modèle économique. WE DO GOOD vous conseille un taux entre {adviceMinPercent} % et {adviceMaxPercent} %.",
 				"ROYALTIES_PERCENT_WARNING_UNDER": "Le pourcentage est trop faible, vous devez avoir déjà validé votre modèle économique (plus de 100 000 € de chiffre d'affaires) pour valider ce pourcentage.  WE DO GOOD vous conseille un taux entre {adviceMinPercent} % et {adviceMaxPercent} %.",
 				"ROYALTIES_PERCENT_CUSTOM": "Le pourcentage saisi est correct. WE DO GOOD vous conseille un taux entre {adviceMinPercent} % et {adviceMaxPercent} %.",
-				"ROYALTIES_NOT_OK": "Les royalties ne sont pas adaptés à votre modèle économique.",
+				"ROYALTIES_NOT_OK": "Les royalties ne semblent pas adaptés à votre modèle économique.",
 				"VIEW_ADVICE": "Voir nos conseils",
 				"VIEW_DETAILS": "Voir le détail",
 				"REINIT_PARAMETERS": "Réinitialiser les paramètres"
@@ -218,7 +218,7 @@
 				"TITLE": "Les conseils WE DO GOOD",
 				"SUBTITLE": "Pour rendre votre projet éligible, vous pouvez :",
 				"ADVICE1_TITLE": "Diminuer le montant à lever en royalties.",
-				"ADVICE1_TEXT": "Gardez en tête que les royalties peuvent intervenir sur une partie d'une levée de fonds pour débloquer un prêt bancaire ou des subventions.",
+				"ADVICE1_TEXT": "Gardez en tête que les royalties peuvent intervenir sur une partie du besoin de financement pour débloquer un prêt bancaire ou des subventions.",
 				"ADVICE2_TITLE": "Utiliser un prévisionnel plus optimiste.",
 				"ADVICE3_TITLE": "Utiliser le pourcentage conseillé par WE DO GOOD ci-dessous.",
 				"NO_SOLUTION1": "Si aucune de ces solutions n'est possible, votre modèle économique n'est peut-être pas adapté aux royalties.",

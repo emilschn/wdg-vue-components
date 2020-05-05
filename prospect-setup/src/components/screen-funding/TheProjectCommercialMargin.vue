@@ -50,5 +50,6 @@ div.the-project-commercial-margin .wdg-input {
 div.the-project-commercial-margin .wdg-input input {
 	height: 32px;
 	margin-top: 8px;
+	border: 1.5px solid #EBEBEB;
 }
 </style>

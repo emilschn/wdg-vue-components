@@ -54,5 +54,6 @@ div.the-project-estimated-turnover-by-year-item {
 div.the-project-estimated-turnover-by-year-item .wdg-input input {
 	height: 32px;
 	margin-top: 8px;
+	border: 1.5px solid #EBEBEB;
 }
 </style>

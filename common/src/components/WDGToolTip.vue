@@ -58,18 +58,18 @@ div.wdg-tooltip button.grey {
 	border: 0 solid #B4B4B4;
 	background: #B4B4B4;
 	color: #FFF;
+	margin-left: 10px;
 }
 div.wdg-tooltip div.tooltip-text {
 	position: absolute;
 	z-index: 1;
-	width: 200px;
+	width: 180px;
 	bottom: calc(100% + 16px);
 	left: -16px;
-	padding: 8px;
+	padding: 10px;
 	border-radius: 8px;
 	font-size: 16px;
 	font-weight: normal;
-	text-align: justify;
 	background: #333;
 	color: #FFF;
 }

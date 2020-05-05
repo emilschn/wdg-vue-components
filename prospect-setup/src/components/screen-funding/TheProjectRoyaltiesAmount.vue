@@ -116,6 +116,7 @@ div.the-project-royalties-amount .wdg-input input {
 	width: 160px;
 	font-size: 32px;
 	text-align: center;
+	border: 1.5px solid #EBEBEB;
 }
 div.the-project-royalties-amount .royalties-for-5-years {
 	margin-bottom: 16px;
@@ -124,6 +125,7 @@ div.the-project-royalties-amount .royalties-for-5-years {
 }
 div.the-project-royalties-amount .advice {
 	margin: 16px 0px;
+	font-size: 13px;
 }
 div.the-project-royalties-amount .advice.default {
 	color: #8BC79C;
@@ -143,5 +145,6 @@ div.the-project-royalties-amount a.reinit {
 	text-decoration: underline;
 	color: #B4B4B4;
 	cursor: pointer;
+	vertical-align: top;
 }
 </style>

@@ -52,6 +52,7 @@ button.red {
 	background: #ea4f51;
 	color: #FFF;
 	font-weight: 700;
+	max-width: 176px;
 }
 button.blue {
 	border: 0 solid #00879B;
