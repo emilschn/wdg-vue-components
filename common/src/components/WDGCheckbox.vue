@@ -50,7 +50,7 @@ export default {
 	.wdg-form .wdg-checkbox label {
 		position: relative;
 		padding-left: 32px;
-		line-height: 20px;
+		line-height: 25px;
 		-webkit-user-select: none;
 		-moz-user-select: none;
 		-ms-user-select: none;

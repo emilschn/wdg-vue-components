@@ -55,7 +55,7 @@ export default {
 	font-style: italic;
 	color: #00879B;
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-around;
 	width: 110px;
 }
 
@@ -65,7 +65,7 @@ export default {
 	font-weight: 500;
 	color: #B4B4B4;
 }
-.the-tab-title-timer svg {
+.the-tab-title-timer svg, .the-tab-title-timer image {
 	margin-right: 3px;
 }
 </style>

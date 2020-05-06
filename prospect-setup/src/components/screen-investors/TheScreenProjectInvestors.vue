@@ -31,6 +31,7 @@
 			<slot slot="text">{{ $t('project-setup.project-investors.MASCOT_TEXT_ALREADY_DONE') }}</slot>
 		</WDGMascot>
 
+		<div class="communicate-form-container">
 		<div class="ready-to-communicate">
 			<div class="ready-to-communicate-question">
 				{{ $t('project-setup.project-investors.READY_TO_COMMUNICATE') }}
@@ -81,6 +82,7 @@
 					<slot slot="label-after">{{ $t('project-setup.project-investors.NEED_COMMUNICATION_ADVICE') }}</slot>
 				</WDGCheckbox>
 			</div>
+		</div>
 		</div>
 
 		<div class="project-investors-navigation clear" v-if="sharedState.project.circlesToCommunicate !== '' || sharedState.project.readyToCommunicate === false">
@@ -173,29 +175,45 @@ div.clear {
 	clear: both;
 }
 .the-screen-project-investors {
-	width: 780px;
+	width: 96%;
 	margin: auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+.the-screen-project-investors .the-tab-title {
+	width: 100%;
+	margin-bottom: 20px;
+}
+.the-screen-project-investors .wdg-mascot {
+	order: 2;
+	width: 49%;
+}
+.the-screen-project-investors .communicate-form-container {
+	display: flex;
+	flex-direction: column;
+	width: 49%;
 }
 .the-screen-project-investors .ready-to-communicate {
-	float: left;
-	width: calc(100% - 280px);
 	text-align: center;
+	margin: 20px 0px;
 }
 .the-screen-project-investors .ready-to-communicate .ready-to-communicate-question {
-	text-align: left;
+	text-align: center;
 	margin-bottom: 16px;
 }
 .the-screen-project-investors .ready-to-communicate .wdg-button {
 	display: inline-block;
-	width: 40%;
+	width: 176px;
 	margin-right: 16px;
+}
+.the-screen-project-investors .form-content {
+	display: flex;
+	flex-wrap: wrap;
 }
 .the-screen-project-investors h3 {
 	font-size: 22px;
-}
-.the-screen-project-investors .form-content {
-	width: calc(100% - 280px); /* taille de la mascotte */
-	float: left;
+	width: 100%;
 }
 .the-screen-project-investors .checkboxes-container {
 	margin-top: 32px;
@@ -223,5 +241,13 @@ div.project-investors-navigation div.wdg-button {
 	display: inline-block;
 	width: 176px;
 	margin-left: 16px;
+}
+.the-screen-project-investors div.project-investors-navigation {
+	width: 100%;
+	order: 3;
+}
+.the-screen-project-investors .the-project-save {
+	width: 100%;
+	order: 4;
 }
 </style>

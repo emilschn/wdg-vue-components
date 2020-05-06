@@ -40,18 +40,23 @@ export default {
 </script>
 
 <style>
+div.the-project-investors-circles {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
 div.the-project-investors-circles div.circle {
 	border-radius: 50%;
 	cursor: pointer;
+	width: 49%;
 }
 div.the-project-investors-circles div.circle-public {
-	float: left;
 	width: 250px;
 	height: 250px;
-	border: 1px solid #B4B4B4;
+	border: 1px solid #DBD8D8;
 }
 div.the-project-investors-circles div.circle-public.selected {
-	background: #B4B4B4;
+	background: #DBD8D8;
 }
 
 div.the-project-investors-circles div.circle.inner {
@@ -77,27 +82,28 @@ div.the-project-investors-circles div.circle-lovemoney.selected {
 }
 
 div.the-project-investors-circles div.button-list {
-	float: right;
 	margin-top: 30px;
 	margin-right: 16px;
-	width: calc(100% - 255px); /* largeur cercle + les bordures */
+	/* width: calc(100% - 255px); largeur cercle + les bordures */
 	max-width: 160px;
+	width: 49%;
 }
 div.the-project-investors-circles button {
 	font-weight: bold;
 	text-transform: capitalize;
 }
 div.the-project-investors-circles button.button-public {
-	border: 2px solid #B4B4B4;
+	border: 2px solid #DBD8D8;
 	background: #FFF;
 	color: #333;
 }
 div.the-project-investors-circles button.button-public.selected {
-	background: #B4B4B4;
+	background: #DBD8D8;
 	color: #FFF;
 }
 div.the-project-investors-circles button.button-public.selected::before {
 	content: "\002713";
+	margin-right: 5px;
 }
 div.the-project-investors-circles button.button-private {
 	border: 2px solid #999;
@@ -110,6 +116,7 @@ div.the-project-investors-circles button.button-private.selected {
 }
 div.the-project-investors-circles button.button-private.selected::before {
 	content: "\002713";
+	margin-right: 5px;
 }
 div.the-project-investors-circles button.button-lovemoney {
 	border: 2px solid #333;
@@ -122,5 +129,6 @@ div.the-project-investors-circles button.button-lovemoney.selected {
 }
 div.the-project-investors-circles button.button-lovemoney.selected::before {
 	content: "\002713";
+	margin-right: 5px;
 }
 </style>

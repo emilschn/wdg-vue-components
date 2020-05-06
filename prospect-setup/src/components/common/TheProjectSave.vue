@@ -84,5 +84,6 @@ export default {
 .the-project-save a {
 	text-decoration: underline;
 	cursor: pointer;
+	margin-left: 10px;
 }
 </style>

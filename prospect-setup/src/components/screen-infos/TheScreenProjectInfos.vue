@@ -68,8 +68,7 @@
 				  :value="sharedState.organization.name"
 				  v-bind:valueReturn.sync="sharedState.organization.name"
 				  customStyle="natural-language"
-			  	  :placeholder="$t('project-setup.project-infos.PLACEHOLDER_PROJECT_NAME')"
-				  />.
+			  	  />.
 			</div>
 
 			<div v-else>
@@ -81,8 +80,7 @@
 				  :value="sharedState.organization.name"
 				  v-bind:valueReturn.sync="sharedState.organization.name"
 				  customStyle="natural-language"
-			  	  :placeholder="$t('project-setup.project-infos.PLACEHOLDER_PROJECT_NAME')"
-				  />,
+			  	  />,
 
 				{{ $t('project-setup.project-infos.FORM_TEXT_ORGANIZATION_ID') }}
 
@@ -92,8 +90,7 @@
 				  :value="sharedState.organization.id"
 				  v-bind:valueReturn.sync="sharedState.organization.id"
 				  customStyle="natural-language"
-			  	  :placeholder="$t('project-setup.project-infos.PLACEHOLDER_PROJECT_ID')"
-				  />.
+			  	  />.
 			</div>
 
 			<div>
@@ -106,8 +103,7 @@
 				  v-bind:valueReturn.sync="sharedState.organization.amountNeeded"
 				  customStyle="natural-language"
 				  autoFormat="wdg-number"
-			  	  placeholder="50 000"
-				  /> €,<br>
+			  	  /> €,<br>
 
 				{{ $t('project-setup.project-infos.FORM_TEXT_ORGANIZATION_DESCRIPTION') }}
 
@@ -117,8 +113,7 @@
 				  :value="sharedState.organization.description"
 				  v-bind:valueReturn.sync="sharedState.organization.description"
 				  customStyle="natural-language"
-			  	  :placeholder="$t('project-setup.project-infos.PLACEHOLDER_PROJECT_DESCRIPTION')"
-				  />.<br>
+			  	  />.<br>
 
 				{{ $t('project-setup.project-infos.FORM_TEXT_SOURCE_PROSPECT') }}
 
@@ -141,8 +136,7 @@
 				  :value="sharedState.organization.sourceProspectDetails"
 				  v-bind:valueReturn.sync="sharedState.organization.sourceProspectDetails"
 				  customStyle="natural-language"
-			  	  :placeholder="$t('project-setup.project-infos.FORM_TEXT_SOURCE_PROSPECT_DETAILS_PLACEHOLDER')"
-				  /><br><br>
+			  	  /><br><br>
 
 				{{ $t('project-setup.project-infos.FORM_TEXT_USER_NAME') }}
 
@@ -152,8 +146,7 @@
 				  :value="sharedState.user.name"
 				  v-bind:valueReturn.sync="sharedState.user.name"
 				  customStyle="natural-language"
-			  	  :placeholder="$t('project-setup.project-infos.PLACEHOLDER_USER_NAME')"
-				  />,<br>
+			  	  />,<br>
 
 				{{ $t('project-setup.project-infos.FORM_TEXT_USER_EMAIL') }}
 
@@ -164,8 +157,7 @@
 				  :value="sharedState.user.email"
 				  v-bind:valueReturn.sync="sharedState.user.email"
 				  customStyle="natural-language"
-			  	  :placeholder="$t('project-setup.project-infos.PLACEHOLDER_USER_EMAIL')"
-				  /><br>
+			  	  /><br>
 
 				{{ $t('project-setup.project-infos.FORM_TEXT_USER_PHONE') }}
 
@@ -175,8 +167,7 @@
 				  :value="sharedState.user.phone"
 				  v-bind:valueReturn.sync="sharedState.user.phone"
 				  customStyle="natural-language"
-			  	  :placeholder="$t('project-setup.project-infos.PLACEHOLDER_USER_PHONE')"
-				  />.
+			  	  />.
 
 				<WDGButton
 				  v-if="canShowContinue"
