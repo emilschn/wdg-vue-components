@@ -171,4 +171,7 @@ div.the-result-campaign-advice div.intro span.intro-amount {
 	font-size: 30px;
 	font-weight: bold;
 }
+div.the-result-campaign-advice div.recommended-title {
+	margin-bottom: 10px;
+}
 </style>

@@ -94,15 +94,19 @@ export default {
 }
 .wdg-file-list input {
 	max-width: 100%;
-	margin-bottom: 16px;
+	margin-bottom: 10px;
+	padding: 10px;
+	background-color: #fff;
 }
 .wdg-file-list .link-container {
 	text-align: center;
+	margin-bottom: 25px;
 }
 .wdg-file-list .link-container a {
 	color: #ffffff;
 	text-decoration: underline;
 	cursor: pointer;
+	font-size: 14px;
 }
 .wdg-file-list .link-container a::before {
 	display: inline-block;

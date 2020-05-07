@@ -149,11 +149,7 @@ div.the-result-prospect-meetup div.title-text {
 div.the-result-prospect-meetup .wdg-form div.wdg-file-list label {
 	margin-bottom: 8px;
 	font-size: 16px;
-	font-weight: bold;
-	text-align: justify;
-}
-div.the-result-prospect-meetup .wdg-form .wdg-input label {
-	text-align: justify;
+	font-weight: 500;
 }
 div.the-result-prospect-meetup .wdg-form textarea {
 	height: 100px;

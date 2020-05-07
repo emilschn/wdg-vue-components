@@ -27,11 +27,13 @@ export default {
 <style>
 div.the-result-not-eligible {
 	margin: 32px 0px;
-	text-align: justify;
+	background-color: #F6F6F6;
+	padding: 30px;
 }
 div.the-result-not-eligible .intro {
 	margin-bottom: 16px;
 	font-size: 24px;
 	text-align: center;
+	font-weight: 700;
 }
 </style>

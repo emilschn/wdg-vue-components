@@ -62,16 +62,14 @@ export default {
 }
 .the-screen-project-result div.result-container {
 	margin-top: 32px;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
 }
 .the-screen-project-result div.clear {
 	margin-bottom: 32px;
 }
-.the-screen-project-result div.result-container div.the-result-campaign-advice {
-	float: left;
-	width: calc(48% - 64px); /* taille moins padding */
-}
-.the-screen-project-result div.result-container div.the-result-prospect-meetup {
-	float: right;
-	width: calc(48% - 64px); /* taille moins padding */
+.the-screen-project-result div.result-container div.the-result-campaign-advice, .the-screen-project-result div.result-container div.the-result-prospect-meetup {
+	width: 40%;
 }
 </style>

@@ -150,6 +150,8 @@ export default {
 
 	.wdg-input textarea {
 		width: 100%;
+		border: none;
+		resize: none;
 	}
 
 	.wdg-input.natural-language {
