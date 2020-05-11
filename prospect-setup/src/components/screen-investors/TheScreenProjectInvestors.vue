@@ -189,6 +189,12 @@ div.clear {
 	order: 2;
 	width: 49%;
 }
+.the-screen-project-investors .wdg-mascot .face-2 {
+	margin-top: 300px;
+}
+.the-screen-project-investors .wdg-mascot .face-3 {
+	margin-top: 100px;
+}
 .the-screen-project-investors .communicate-form-container {
 	display: flex;
 	flex-direction: column;
