@@ -27,9 +27,10 @@
 			<slot slot="text">{{ $t('project-setup.project-investors.MASCOT_TEXT_PUBLIC') }}</slot>
 		</WDGMascot>
 
-		<WDGMascot type="face-2" v-if="getMascotType == 'already-done'">
+		<WDGMascot type="face-2" v-if="getMascotType == 'already-done'" additionnalClass="mascot-align-bottom">
 			<slot slot="text">{{ $t('project-setup.project-investors.MASCOT_TEXT_ALREADY_DONE') }}</slot>
 		</WDGMascot>
+		</div>
 
 		<div class="communicate-form-container">
 		<div class="ready-to-communicate">
