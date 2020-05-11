@@ -51,16 +51,6 @@ export default {
 	color: #555555;
 	background: #f4f2f2;
 }
-.the-screen-project-investors .already-done-bottom {
-	order: 2;
-}
-.the-screen-project-investors .already-done-bottom .wdg-mascot.face-2 {
-	width: 100%;
-	margin-top: 320px;
-}
-.the-screen-project-investors .wdg-mascot.side-1, .wdg-mascot.face-1, .wdg-mascot.face-3 {
-	margin-top: 100px;
-}
 /* .wdg-mascot.face-1 div {
 }
 .wdg-mascot.face-2 div {

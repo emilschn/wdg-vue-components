@@ -30,7 +30,6 @@
 		<WDGMascot type="face-2" v-if="getMascotType == 'already-done'" additionnalClass="mascot-align-bottom">
 			<slot slot="text">{{ $t('project-setup.project-investors.MASCOT_TEXT_ALREADY_DONE') }}</slot>
 		</WDGMascot>
-		</div>
 
 		<div class="communicate-form-container">
 		<div class="ready-to-communicate">
@@ -101,7 +100,7 @@
 		</div>
 
 		<TheProjectSave v-if="sharedState.project.readyToCommunicate !== ''" />
-	</div>
+		</div>
 </template>
 
 <script>
@@ -189,6 +188,12 @@ div.clear {
 .the-screen-project-investors .wdg-mascot {
 	order: 2;
 	width: 49%;
+}
+.the-screen-project-investors .wdg-mascot.side-1, .wdg-mascot.face-1, .wdg-mascot.face-3 {
+	margin-top: 100px;
+}
+.the-screen-project-investors .wdg-mascot.mascot-align-bottom {
+	margin-top: 320px;
 }
 .the-screen-project-investors .communicate-form-container {
 	display: flex;
