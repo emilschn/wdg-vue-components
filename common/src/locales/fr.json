@@ -197,9 +197,8 @@
 				"REINIT_PARAMETERS": "Réinitialiser les paramètres"
 			},
 			"royalties-warning": {
-				"WARNING_1": "Les calculs de WE DO GOOD s'entendent sous réserve de la réalisation de votre chiffre d'affaires prévisionnel.",
-				"WARNING_2": "Le pourcentage conseillé est calculé pour que vos investisseurs doublent leur investissement en 5 ans.",
-				"WARNING_3": "Le minimum que vous puissiez définir pour que vos investisseurs récupèrent leur investissement en 5 ans est {warningMinPercent} %."
+				"WARNING_1": "Le pourcentage conseillé est calculé pour que vos investisseurs doublent leur investissement en 5 ans, selon votre prévisionnel.",
+				"WARNING_2": "Le minimum que vous puissiez définir pour que vos investisseurs récupèrent leur investissement en 5 ans est {warningMinPercent} %."
 			},
 			"royalties-chart": {
 				"TITLE": "Détails des royalties prévisionnelles",
@@ -212,6 +211,13 @@
 					"MORE_THAN_PLANNED": "se développe mieux que prévu",
 					"STOP_THE_ROYALTIES": "nécessite l'arrêt des royalties",
 					"ACTIVITY_STOP": "s'arrête en cours de route"
+				},
+				"scenario-description": {
+					"AS_PLANNED": "Les royalties suivent la progression de votre chiffre d’affaires.",
+					"LESS_THAN_PLANNED": "Si vous faites moins de chiffre d'affaires que prévu, vous reverserez moins de royalties (ou zéro s'il n'y a pas de chiffres d'affaires du tout).",
+					"MORE_THAN_PLANNED": "Si vous faites plus de chiffre d'affaires que prévu, vous reversez plus de royalties, sachant que le gain maximum pour vos investisseurs est plafonné au triple et que les contrats de versement de royalties ont une durée déterminée (5 ans).",
+					"STOP_THE_ROYALTIES": "Vous avez la possibilité de résilier votre contrat de manière anticipée en cas de besoin.",
+					"ACTIVITY_STOP": "Si malheureusement votre entreprise dépose le bilan, vos investisseurs perdront leur investissement, mais ils auront récupéré des royalties jusqu'à ce moment-là. Vous n'avez pas de garantie à fournir."
 				}
 			},
 			"advice": {

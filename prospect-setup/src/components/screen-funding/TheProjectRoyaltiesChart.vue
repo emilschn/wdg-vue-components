@@ -7,13 +7,21 @@
 		{{ $t('project-setup.project-funding.royalties-chart.IF_MY_ACTIVITY') }}
 
 		<WDGSelect
-			id="turnoverScenario"
-			name="turnoverScenario"
-			value="as_planned"
-			:optionItems="turnoverScenarioList"
-			:onSelect="onTurnoverScenarioSelect"
-			customStyle="natural-language"
-			/>
+		  id="turnoverScenario"
+		  name="turnoverScenario"
+		  value="as_planned"
+		  :optionItems="turnoverScenarioList"
+		  :onSelect="onTurnoverScenarioSelect"
+		  customStyle="natural-language"
+		  />
+
+		<div class="scenario-description">
+			<span v-if="this.selectedScenario == 'as_planned'">{{ $t('project-setup.project-funding.royalties-chart.scenario-description.AS_PLANNED') }}</span>
+			<span v-if="this.selectedScenario == 'less_than_planned'">{{ $t('project-setup.project-funding.royalties-chart.scenario-description.LESS_THAN_PLANNED') }}</span>
+			<span v-if="this.selectedScenario == 'more_than_planned'">{{ $t('project-setup.project-funding.royalties-chart.scenario-description.MORE_THAN_PLANNED') }}</span>
+			<span v-if="this.selectedScenario == 'stop_the_royalties'">{{ $t('project-setup.project-funding.royalties-chart.scenario-description.STOP_THE_ROYALTIES') }}</span>
+			<span v-if="this.selectedScenario == 'activity_stop'">{{ $t('project-setup.project-funding.royalties-chart.scenario-description.ACTIVITY_STOP') }}</span>
+		</div>
 
 		<div class="chart-container">
 			<WDGChart
@@ -69,7 +77,7 @@ export default {
 
 		return {
 			sharedState: store.state,
-			selectedScenario: '',
+			selectedScenario: 'as_planned',
 			turnoverScenarioList: [
 				{ 'Id': 'as_planned', 'Text': i18n.t('project-setup.project-funding.royalties-chart.turnover-scenario.AS_PLANNED') },
 				{ 'Id': 'less_than_planned', 'Text': i18n.t('project-setup.project-funding.royalties-chart.turnover-scenario.LESS_THAN_PLANNED') },

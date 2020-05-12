@@ -1,8 +1,7 @@
 <template>
 	<div class="the-project-royalties-warning">
 		* {{ $t('project-setup.project-funding.royalties-warning.WARNING_1') }}<br>
-		{{ $t('project-setup.project-funding.royalties-warning.WARNING_2') }}<br>
-		<strong>{{ $t('project-setup.project-funding.royalties-warning.WARNING_3', { warningMinPercent: minPercent }) }}</strong>
+		{{ $t('project-setup.project-funding.royalties-warning.WARNING_2', { warningMinPercent: minPercent }) }}
 	</div>
 </template>
 

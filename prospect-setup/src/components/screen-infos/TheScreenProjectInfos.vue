@@ -103,6 +103,7 @@
 				  v-bind:valueReturn.sync="sharedState.organization.amountNeeded"
 				  customStyle="natural-language"
 				  autoFormat="wdg-number"
+				  :onChange="onOrganizationAmountNeededChange"
 			  	  /> €,<br>
 
 				{{ $t('project-setup.project-infos.FORM_TEXT_ORGANIZATION_DESCRIPTION') }}
@@ -236,11 +237,20 @@ export default {
 			userPhone: ''
 		}
 	},
-    methods: {
-        changeStep: function (event) {
-            store.changeStep('project-funding')
-        }
-    },
+	methods: {
+		changeStep: function (event) {
+			store.changeStep('project-funding')
+		},
+		onOrganizationAmountNeededChange: function () {
+			if (store.tabItems[ 1 ].Status !== 'complete') {
+				let tempAmountNeededStr = this.sharedState.organization.amountNeeded
+				tempAmountNeededStr = tempAmountNeededStr.split(',').join('.').split(' ').join('')
+				let tempAmountNeededNum = Number(tempAmountNeededStr)
+				tempAmountNeededNum = Math.min(500000, Math.max(10000, tempAmountNeededNum))
+				this.sharedState.project.amountNeeded = tempAmountNeededNum / 1000
+			}
+		}
+	},
 	computed: {
 		canShowUserInfos () {
 			if (process.env.NODE_ENV === 'development') {

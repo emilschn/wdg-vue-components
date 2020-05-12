@@ -139,6 +139,8 @@ export default {
 			this.sharedState.project.commercialMargin = metadata.project.commercialMargin
 			this.sharedState.project.amountNeeded = metadata.project.amountNeeded
 			this.sharedState.project.royaltiesAmount = metadata.project.royaltiesAmount
+			this.sharedState.project.isAutoFilledRoyalties = metadata.project.isAutoFilledRoyalties
+			this.sharedState.project.royaltiesOK = metadata.project.royaltiesOK
 			this.sharedState.project.readyToCommunicate = metadata.project.readyToCommunicate
 			this.sharedState.project.circlesToCommunicate = metadata.project.circlesToCommunicate
 			this.sharedState.project.alreadyDoneCrowdfunding = metadata.project.alreadyDoneCrowdfunding

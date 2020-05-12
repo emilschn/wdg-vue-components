@@ -7,39 +7,32 @@
 			<slot slot="title">{{ $t('project-setup.project-funding.TITLE') }}</slot>
 		</TheTabTitle>
 
-	<div class="total-funding-container">
-		<TheProjectRoyaltiesAmount
-		  ref="royaltiesAmount"
-		  :onChange="refreshChart"
-		  :onViewAdvice="onViewAdviceEvent"
-		  :onViewDetails="onViewDetailsEvent"
-		  :onReinitParameters="onReinitParametersEvent"
-		  :minPercent="minPercentAdvice"
-		  :maxPercent="maxPercentAdvice"
-		  :advicePercent="advicePercent"
-		  />
-		<div class="estimation-margin-goal-container">
-			<TheProjectEstimatedTurnoverByYear :onChange="refreshChart" />
+		<div class="total-funding-container">
+			<TheProjectRoyaltiesAmount
+			  ref="royaltiesAmount"
+			  :onChange="onChangeRoyaltiesAmountEvent"
+			  :onViewAdvice="onViewAdviceEvent"
+			  :onViewDetails="onViewDetailsEvent"
+			  :onReinitParameters="onReinitParametersEvent"
+			  :minPercent="minPercentAdvice"
+			  :maxPercent="maxPercentAdvice"
+			  :advicePercent="advicePercent"
+			  />
+
+			<div class="estimation-margin-goal-container">
+				<TheProjectEstimatedTurnoverByYear :onChange="onChangeAutoAdviceEvent" />
 
 				<div class="margin-amount-container">
-					<TheProjectCommercialMargin :onChange="refreshChart" />
+					<TheProjectCommercialMargin :onChange="onChangeAutoAdviceEvent" />
 
-					<TheProjectGoalAmount :onChange="refreshChart" />
+					<TheProjectGoalAmount :onChange="onChangeAutoAdviceEvent" />
 				</div>
+			</div>
 		</div>
-	</div>
 
 		<TheProjectRoyaltiesWarning :minPercent="minPercentAdvice" />
 
 		<TheProjectRoyaltiesChart ref="royaltiesChart" />
-
-		<WDGToggle
-		  colorChecked="#8BC79C"
-		  colorUnchecked="#333"
-		  :changeEvent="onChangeHasReadRoyalties"
-		  >
-			<slot slot="label-before">{{ $t('project-setup.project-funding.TOGGLE_LABEL') }}</slot>
-		</WDGToggle>
 
 		<TheProjectAdvice
 		  ref="royaltiesAdvice"
@@ -47,6 +40,14 @@
 		  :adviceAmount="advicePercent"
 		  v-if="canDisplayAdvice"
 		  />
+
+		<WDGToggle
+		  colorChecked="#8BC79C"
+		  colorUnchecked="#333"
+		  :changeEvent="onChangeHasReadRoyaltiesEvent"
+		  >
+			<slot slot="label-before">{{ $t('project-setup.project-funding.TOGGLE_LABEL') }}</slot>
+		</WDGToggle>
 
 		<div
 		  class="project-funding-navigation"
@@ -57,10 +58,10 @@
 			</a>
 
 			<WDGButton
-				color="red"
-				type="button"
-				:clickEvent="changeStepForward"
-				>
+			  color="red"
+			  type="button"
+			  :clickEvent="changeStepForward"
+			  >
 				<slot slot="label">{{ $t('project-setup.CONTINUE') }}</slot>
 			</WDGButton>
 		</div>
@@ -114,7 +115,21 @@ export default {
 		refreshChart: function () {
 			this.$refs.royaltiesChart.refreshChart()
 		},
-		onChangeHasReadRoyalties: function (newValue) {
+		setRoyaltiesAmountAsAdvice: function () {
+			this.sharedState.project.royaltiesAmount = this.advicePercent
+			this.$root.$emit('updateRoyaltiesPercent', this.sharedState.project.royaltiesAmount)
+		},
+		onChangeRoyaltiesAmountEvent: function () {
+			this.sharedState.project.isAutoFilledRoyalties = false
+			this.refreshChart()
+		},
+		onChangeAutoAdviceEvent: function () {
+			if (this.sharedState.project.isAutoFilledRoyalties) {
+				this.setRoyaltiesAmountAsAdvice()
+			}
+			this.refreshChart()
+		},
+		onChangeHasReadRoyaltiesEvent: function (newValue) {
 			this.hasReadEstimatedRoyalties = newValue
 		},
 		onViewAdviceEvent: function () {
@@ -124,8 +139,7 @@ export default {
 			this.$refs.royaltiesChart.$el.scrollIntoView(true)
 		},
 		onReinitParametersEvent: function () {
-			this.sharedState.project.royaltiesAmount = this.advicePercent
-			this.$root.$emit('updateRoyaltiesPercent', this.sharedState.project.royaltiesAmount)
+			this.setRoyaltiesAmountAsAdvice()
 			this.$refs.royaltiesAmount.$el.scrollIntoView(true)
 			this.refreshChart()
 		}
@@ -152,7 +166,7 @@ export default {
 		advicePercent () {
 			if (this.totalTurnover > 0) {
 				let idealPercent = Math.ceil(this.sharedState.project.amountNeeded * 2 / this.totalTurnover * 10000000) / 100
-				return Math.max(Math.min(idealPercent, this.maxPercentAdvice), this.minPercentAdvice)
+				return Math.min(100, Math.max(Math.min(idealPercent, this.maxPercentAdvice), this.minPercentAdvice))
 			}
 			return 0
 		},
