@@ -37,7 +37,7 @@
 		<TheProjectAdvice
 		  ref="royaltiesAdvice"
 		  :onReinitParameters="onReinitParametersEvent"
-		  :adviceAmount="advicePercent"
+		  :adviceAmount="advicePercentFormatted"
 		  v-if="canDisplayAdvice"
 		  />
 
@@ -170,8 +170,12 @@ export default {
 			}
 			return 0
 		},
+		advicePercentFormatted () {
+			let advicePercentNum = this.advicePercent
+			return advicePercentNum.toString().split('.').join(',')
+		},
 		canDisplayAdvice () {
-			return this.sharedState.project.royaltiesAmount > 0
+			return this.sharedState.project.royaltiesAmount < this.minPercentAdvice || this.sharedState.project.royaltiesAmount > this.maxPercentAdvice
 		}
 	}
 }

@@ -20,22 +20,22 @@
 		</div>
 
 		<div class="advice default" v-if="royaltiesPercentType == 'default'">
-			{{ $t('project-setup.project-funding.royalties-amount.ROYALTIES_PERCENT_DEFAULT', { adviceMinPercent: minPercent, adviceMaxPercent: maxPercent }) }}
+			{{ $t('project-setup.project-funding.royalties-amount.ROYALTIES_PERCENT_DEFAULT', { adviceMinPercent: minPercentFormatted, adviceMaxPercent: maxPercentFormatted }) }}
 		</div>
 		<div class="advice warning-over" v-if="royaltiesPercentType == 'warning-over'">
-			{{ $t('project-setup.project-funding.royalties-amount.ROYALTIES_PERCENT_WARNING_OVER', { adviceMinPercent: minPercent, adviceMaxPercent: maxPercent }) }}
+			{{ $t('project-setup.project-funding.royalties-amount.ROYALTIES_PERCENT_WARNING_OVER', { adviceMinPercent: minPercentFormatted, adviceMaxPercent: maxPercentFormatted }) }}
 			<a @click="onViewAdvice">{{ $t('project-setup.project-funding.royalties-amount.VIEW_ADVICE') }}</a>
 		</div>
 		<div class="advice warning-under" v-if="royaltiesPercentType == 'warning-under'">
-			{{ $t('project-setup.project-funding.royalties-amount.ROYALTIES_PERCENT_WARNING_UNDER', { adviceMinPercent: minPercent, adviceMaxPercent: maxPercent }) }}
+			{{ $t('project-setup.project-funding.royalties-amount.ROYALTIES_PERCENT_WARNING_UNDER', { adviceMinPercent: minPercentFormatted, adviceMaxPercent: maxPercentFormatted }) }}
 			<a @click="onViewAdvice">{{ $t('project-setup.project-funding.royalties-amount.VIEW_ADVICE') }}</a>
 		</div>
 		<div class="advice not-ok" v-if="royaltiesPercentType == 'not-ok'">
-			{{ $t('project-setup.project-funding.royalties-amount.ROYALTIES_NOT_OK', { adviceMinPercent: minPercent, adviceMaxPercent: maxPercent }) }}
+			{{ $t('project-setup.project-funding.royalties-amount.ROYALTIES_NOT_OK', { adviceMinPercent: minPercentFormatted, adviceMaxPercent: maxPercentFormatted }) }}
 			<a @click="onViewAdvice">{{ $t('project-setup.project-funding.royalties-amount.VIEW_ADVICE') }}</a>
 		</div>
 		<div class="advice custom" v-if="royaltiesPercentType == 'custom'">
-			{{ $t('project-setup.project-funding.royalties-amount.ROYALTIES_PERCENT_CUSTOM', { adviceMinPercent: minPercent, adviceMaxPercent: maxPercent }) }}
+			{{ $t('project-setup.project-funding.royalties-amount.ROYALTIES_PERCENT_CUSTOM', { adviceMinPercent: minPercentFormatted, adviceMaxPercent: maxPercentFormatted }) }}
 			<a @click="onViewAdvice">{{ $t('project-setup.project-funding.royalties-amount.VIEW_ADVICE') }}</a>
 		</div>
 
@@ -100,6 +100,12 @@ export default {
 			}
 			this.setRoyaltiesOK(true)
 			return 'custom'
+		},
+		minPercentFormatted () {
+			return this.minPercent.toString().split('.').join(',')
+		},
+		maxPercentFormatted () {
+			return this.maxPercent.toString().split('.').join(',')
 		}
 	}
 }

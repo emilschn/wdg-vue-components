@@ -31,6 +31,10 @@
 			<slot slot="text">{{ $t('project-setup.project-investors.MASCOT_TEXT_ALREADY_DONE') }}</slot>
 		</WDGMascot>
 
+		<WDGMascot type="side-2" v-if="getMascotType == 'need-advice'" additionnalClass="mascot-align-bottom">
+			<slot slot="text">{{ $t('project-setup.project-investors.MASCOT_TEXT_NEED_ADVICE') }}</slot>
+		</WDGMascot>
+
 		<div class="communicate-form-container">
 		<div class="ready-to-communicate">
 			<div class="ready-to-communicate-question">
@@ -152,8 +156,14 @@ export default {
 			if (this.sharedState.project.readyToCommunicate === false) {
 				return 'not-ready-communicate'
 			}
+			if (this.sharedState.project.needCommunicationAdvice) {
+				return 'need-advice'
+			}
 			if (this.sharedState.project.alreadyDoneCrowdfunding) {
 				return 'already-done'
+			}
+			if (this.sharedState.project.needCommunicationAdvice) {
+				return 'need-advice'
 			}
 			if (this.sharedState.project.circlesToCommunicate === 'public') {
 				return 'public'

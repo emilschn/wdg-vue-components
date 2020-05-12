@@ -53,7 +53,7 @@ export default {
 	},
 	props: {
 		onReinitParameters: { type: Function },
-		adviceAmount: { type: Number, default: 1 }
+		adviceAmount: { type: String, default: '' }
 	}
 }
 </script>
