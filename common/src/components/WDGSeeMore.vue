@@ -13,6 +13,9 @@
 		  class="see-more-amount"
 		  >
 			{{ amount }} € <span class="without-tax">{{ $t('common.WITHOUT_TAXES_LETTERS') }}</span>
+			<div class="discount-young-business" v-if="amountReduction !== ''">
+				{{ amountReduction }}
+			</div>
 		</div>
 
 		<WDGButton
@@ -54,6 +57,7 @@ export default {
 	},
 	props: {
 		amount: { type: String, default: -1 },
+		amountReduction: { type: String, default: '' },
 		uncheckedItems: { type: Array, default: () => [] },
 		checkedItems: { type: Array, default: () => [] }
 	},
@@ -95,11 +99,15 @@ export default {
 	margin-bottom: 16px;
 	font-size: 22px;
 	text-align: right;
+	font-weight: 700;
 }
 .wdg-see-more .see-more-amount span.without-tax {
 	font-size: 12px;
 }
-
+.wdg-see-more .see-more-amount .discount-young-business {
+	font-size: 16px;
+	font-weight: 500;
+}
 .wdg-see-more .wdg-button {
 	height: 24px;
 }
@@ -112,8 +120,11 @@ export default {
 	font-size: 15px;
 	line-height: 20px;
 	margin-bottom: 16px;
+	color: #827F7F;
 }
 .wdg-see-more .collapsable-content .collapse-item.checked::before {
 	content: "\002713";
+	color: #00879b;
+	font-weight: 700;
 }
 </style>

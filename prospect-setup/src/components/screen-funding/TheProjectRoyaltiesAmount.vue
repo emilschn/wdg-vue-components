@@ -7,12 +7,14 @@
 		<WDGInput
 		  id="royalties-amount"
 		  name="royalties-amount"
-		  :value="this.sharedState.project.royaltiesAmount"
-		  v-bind:valueReturn.sync="sharedState.project.royaltiesAmount"
+		  :value="valueReturn"
+		  v-bind:valueReturn.sync="valueReturn"
 		  v-bind:multiline="false"
 		  v-bind:optional="false"
+		  suffix="%"
+		  autoFormat="wdg-percent"
 		  eventNameToListen="updateRoyaltiesPercent"
-		  :onChange="onChange"
+		  :onChange="onChangeEvent"
 		  />
 
 		<div class="royalties-for-5-years">
@@ -20,22 +22,22 @@
 		</div>
 
 		<div class="advice default" v-if="royaltiesPercentType == 'default'">
-			{{ $t('project-setup.project-funding.royalties-amount.ROYALTIES_PERCENT_DEFAULT', { adviceMinPercent: minPercent, adviceMaxPercent: maxPercent }) }}
+			{{ $t('project-setup.project-funding.royalties-amount.ROYALTIES_PERCENT_DEFAULT', { adviceMinPercent: minPercentFormatted, adviceMaxPercent: maxPercentFormatted }) }}
 		</div>
 		<div class="advice warning-over" v-if="royaltiesPercentType == 'warning-over'">
-			{{ $t('project-setup.project-funding.royalties-amount.ROYALTIES_PERCENT_WARNING_OVER', { adviceMinPercent: minPercent, adviceMaxPercent: maxPercent }) }}
+			{{ $t('project-setup.project-funding.royalties-amount.ROYALTIES_PERCENT_WARNING_OVER', { adviceMinPercent: minPercentFormatted, adviceMaxPercent: maxPercentFormatted }) }}
 			<a @click="onViewAdvice">{{ $t('project-setup.project-funding.royalties-amount.VIEW_ADVICE') }}</a>
 		</div>
 		<div class="advice warning-under" v-if="royaltiesPercentType == 'warning-under'">
-			{{ $t('project-setup.project-funding.royalties-amount.ROYALTIES_PERCENT_WARNING_UNDER', { adviceMinPercent: minPercent, adviceMaxPercent: maxPercent }) }}
+			{{ $t('project-setup.project-funding.royalties-amount.ROYALTIES_PERCENT_WARNING_UNDER', { adviceMinPercent: minPercentFormatted, adviceMaxPercent: maxPercentFormatted }) }}
 			<a @click="onViewAdvice">{{ $t('project-setup.project-funding.royalties-amount.VIEW_ADVICE') }}</a>
 		</div>
 		<div class="advice not-ok" v-if="royaltiesPercentType == 'not-ok'">
-			{{ $t('project-setup.project-funding.royalties-amount.ROYALTIES_NOT_OK', { adviceMinPercent: minPercent, adviceMaxPercent: maxPercent }) }}
+			{{ $t('project-setup.project-funding.royalties-amount.ROYALTIES_NOT_OK', { adviceMinPercent: minPercentFormatted, adviceMaxPercent: maxPercentFormatted }) }}
 			<a @click="onViewAdvice">{{ $t('project-setup.project-funding.royalties-amount.VIEW_ADVICE') }}</a>
 		</div>
 		<div class="advice custom" v-if="royaltiesPercentType == 'custom'">
-			{{ $t('project-setup.project-funding.royalties-amount.ROYALTIES_PERCENT_CUSTOM', { adviceMinPercent: minPercent, adviceMaxPercent: maxPercent }) }}
+			{{ $t('project-setup.project-funding.royalties-amount.ROYALTIES_PERCENT_CUSTOM', { adviceMinPercent: minPercentFormatted, adviceMaxPercent: maxPercentFormatted }) }}
 			<a @click="onViewAdvice">{{ $t('project-setup.project-funding.royalties-amount.VIEW_ADVICE') }}</a>
 		</div>
 
@@ -78,21 +80,48 @@ export default {
 	},
 	data () {
 		return {
-			sharedState: store.state
+			sharedState: store.state,
+			valueReturn: store.state.project.royaltiesAmount.toString().split('.').join(',')
+		}
+	},
+	methods: {
+		setRoyaltiesOK (isOK) {
+			this.sharedState.project.royaltiesOK = isOK
+		},
+		onChangeEvent () {
+			let tempRoyaltiesAmountStr = this.valueReturn
+			tempRoyaltiesAmountStr = tempRoyaltiesAmountStr.split(',').join('.').split(' ').join('')
+			let tempRoyaltiesAmountNum = Number(tempRoyaltiesAmountStr)
+			tempRoyaltiesAmountNum = Math.min(100, Math.max(0, tempRoyaltiesAmountNum))
+			this.sharedState.project.royaltiesAmount = tempRoyaltiesAmountNum
+			this.onChange()
 		}
 	},
 	computed: {
 		royaltiesPercentType () {
-			if (this.sharedState.project.royaltiesAmount === '0' || this.sharedState.project.royaltiesAmount === 0) {
-				return 'default'
+			this.setRoyaltiesOK(false)
+			if (isNaN(this.minPercent) || this.minPercent === 0 || isNaN(this.maxPercent) || this.maxPercent === 0) {
+				return ''
 			} else if (this.maxPercent < this.minPercent) {
 				return 'not-ok'
 			} else if (this.sharedState.project.royaltiesAmount > this.maxPercent) {
 				return 'warning-over'
 			} else if (this.sharedState.project.royaltiesAmount < this.minPercent) {
 				return 'warning-under'
+			} else if (this.sharedState.project.royaltiesAmount === '0' || this.sharedState.project.royaltiesAmount === 0 || this.sharedState.project.isAutoFilledRoyalties) {
+				if (this.sharedState.project.isAutoFilledRoyalties && this.sharedState.project.royaltiesAmount !== 0) {
+					this.setRoyaltiesOK(true)
+				}
+				return 'default'
 			}
+			this.setRoyaltiesOK(true)
 			return 'custom'
+		},
+		minPercentFormatted () {
+			return this.minPercent.toString().split('.').join(',')
+		},
+		maxPercentFormatted () {
+			return this.maxPercent.toString().split('.').join(',')
 		}
 	}
 }
@@ -109,6 +138,13 @@ div.the-project-royalties-amount .wdg-input input {
 	width: 160px;
 	font-size: 32px;
 	text-align: center;
+	border: 1.5px solid #EBEBEB;
+	padding-right: 32px;
+}
+div.the-project-royalties-amount .wdg-input span.input-suffix {
+	left: -40px;
+	top: 8px;
+	font-size: 32px;
 }
 div.the-project-royalties-amount .royalties-for-5-years {
 	margin-bottom: 16px;
@@ -117,6 +153,7 @@ div.the-project-royalties-amount .royalties-for-5-years {
 }
 div.the-project-royalties-amount .advice {
 	margin: 16px 0px;
+	font-size: 13px;
 }
 div.the-project-royalties-amount .advice.default {
 	color: #8BC79C;
@@ -136,5 +173,6 @@ div.the-project-royalties-amount a.reinit {
 	text-decoration: underline;
 	color: #B4B4B4;
 	cursor: pointer;
+	vertical-align: top;
 }
 </style>

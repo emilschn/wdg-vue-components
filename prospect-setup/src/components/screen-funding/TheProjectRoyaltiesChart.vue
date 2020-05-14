@@ -7,13 +7,21 @@
 		{{ $t('project-setup.project-funding.royalties-chart.IF_MY_ACTIVITY') }}
 
 		<WDGSelect
-			id="turnoverScenario"
-			name="turnoverScenario"
-			value="as_planned"
-			:optionItems="turnoverScenarioList"
-			:onSelect="onTurnoverScenarioSelect"
-			customStyle="natural-language"
-			/>
+		  id="turnoverScenario"
+		  name="turnoverScenario"
+		  value="as_planned"
+		  :optionItems="turnoverScenarioList"
+		  :onSelect="onTurnoverScenarioSelect"
+		  customStyle="natural-language"
+		  />
+
+		<div class="scenario-description">
+			<span v-if="this.selectedScenario == 'as_planned'">{{ $t('project-setup.project-funding.royalties-chart.scenario-description.AS_PLANNED') }}</span>
+			<span v-if="this.selectedScenario == 'less_than_planned'">{{ $t('project-setup.project-funding.royalties-chart.scenario-description.LESS_THAN_PLANNED') }}</span>
+			<span v-if="this.selectedScenario == 'more_than_planned'">{{ $t('project-setup.project-funding.royalties-chart.scenario-description.MORE_THAN_PLANNED') }}</span>
+			<span v-if="this.selectedScenario == 'stop_the_royalties'">{{ $t('project-setup.project-funding.royalties-chart.scenario-description.STOP_THE_ROYALTIES') }}</span>
+			<span v-if="this.selectedScenario == 'activity_stop'">{{ $t('project-setup.project-funding.royalties-chart.scenario-description.ACTIVITY_STOP') }}</span>
+		</div>
 
 		<div class="chart-container">
 			<WDGChart
@@ -69,7 +77,7 @@ export default {
 
 		return {
 			sharedState: store.state,
-			selectedScenario: '',
+			selectedScenario: 'as_planned',
 			turnoverScenarioList: [
 				{ 'Id': 'as_planned', 'Text': i18n.t('project-setup.project-funding.royalties-chart.turnover-scenario.AS_PLANNED') },
 				{ 'Id': 'less_than_planned', 'Text': i18n.t('project-setup.project-funding.royalties-chart.turnover-scenario.LESS_THAN_PLANNED') },
@@ -98,6 +106,32 @@ export default {
 					labels: {
 						usePointStyle: true
 					}
+				},
+				// Personnalisation des légendes du tooltip pour avoir les valeurs réelles
+				tooltips: {
+					callbacks: {
+						label: function (tooltipItem, data) {
+							let label = data.datasets[tooltipItem.datasetIndex].label
+							if (label) {
+								label += ' : '
+							}
+
+							// Si c'est le CA prévisionnel, il faut mettre la valeur totale du CA
+							let value = 0
+							if (tooltipItem.datasetIndex === 0) {
+								value = data.datasets[1].data[tooltipItem.index]
+							}
+							// Si c'est les royalties
+							if (tooltipItem.datasetIndex === 1) {
+								value = data.datasets[1].data[tooltipItem.index] - data.datasets[0].data[tooltipItem.index]
+							}
+
+							let valueFormatted = value.toString()
+							valueFormatted = valueFormatted.replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
+							label += valueFormatted + ' €'
+							return label
+						}
+					}
 				}
 			}
 		}
@@ -109,50 +143,57 @@ export default {
 		},
 
 		refreshChart () {
-			this.chartDatasets.datasets[0].data = []
-			this.chartDatasets.datasets[0].data.push(Number(this.sharedState.project.estimatedTurnover.year1))
-			this.chartDatasets.datasets[0].data.push(Number(this.sharedState.project.estimatedTurnover.year2))
-			this.chartDatasets.datasets[0].data.push(Number(this.sharedState.project.estimatedTurnover.year3))
-			this.chartDatasets.datasets[0].data.push(Number(this.sharedState.project.estimatedTurnover.year4))
-			this.chartDatasets.datasets[0].data.push(Number(this.sharedState.project.estimatedTurnover.year5))
+			let year1 = Number(this.sharedState.project.estimatedTurnover.year1)
+			let year2 = Number(this.sharedState.project.estimatedTurnover.year2)
+			let year3 = Number(this.sharedState.project.estimatedTurnover.year3)
+			let year4 = Number(this.sharedState.project.estimatedTurnover.year4)
+			let year5 = Number(this.sharedState.project.estimatedTurnover.year5)
 
-			let nbYears = 5
 			switch (this.selectedScenario) {
 				case 'less_than_planned':
-					for (let i = 0; i < nbYears; i++) {
-						this.chartDatasets.datasets[0].data[i] = this.chartDatasets.datasets[0].data[i] / 2
-					}
+					year1 = year1 / 2
+					year2 = year2 / 2
+					year3 = year3 / 2
+					year4 = year4 / 2
+					year5 = year5 / 2
 					break
 
 				case 'more_than_planned':
-					for (let i = 0; i < nbYears; i++) {
-						this.chartDatasets.datasets[0].data[i] = this.chartDatasets.datasets[0].data[i] * 2
-					}
+					year1 = year1 * 2
+					year2 = year2 * 2
+					year3 = year3 * 2
+					year4 = year4 * 2
+					year5 = year5 * 2
 					break
 
 				case 'stop_the_royalties':
-					this.chartDatasets.datasets[0].data[2] = Number(this.sharedState.project.amountNeeded * 1000)
-					this.chartDatasets.datasets[0].data[3] = 0
-					this.chartDatasets.datasets[0].data[4] = 0
+					// Calcul fait plus bas pour les royalties de l'année 3
+					year4 = 0
+					year5 = 0
 					break
 
 				case 'activity_stop':
-					this.chartDatasets.datasets[0].data[3] = 0
-					this.chartDatasets.datasets[0].data[4] = 0
+					year4 = 0
+					year5 = 0
 					break
 			}
 
+			this.chartDatasets.datasets[0].data = []
+			this.chartDatasets.datasets[0].data.push(year1 - year1 * this.sharedState.project.royaltiesAmount / 100)
+			this.chartDatasets.datasets[0].data.push(year2 - year2 * this.sharedState.project.royaltiesAmount / 100)
+			this.chartDatasets.datasets[0].data.push(year3 - year3 * this.sharedState.project.royaltiesAmount / 100)
+			this.chartDatasets.datasets[0].data.push(year4 - year4 * this.sharedState.project.royaltiesAmount / 100)
+			this.chartDatasets.datasets[0].data.push(year5 - year5 * this.sharedState.project.royaltiesAmount / 100)
+
 			this.chartDatasets.datasets[1].data = []
-			let royaltiesYear1 = this.chartDatasets.datasets[0].data[0] + Math.round(this.chartDatasets.datasets[0].data[0] * this.sharedState.project.royaltiesAmount / 100)
-			this.chartDatasets.datasets[1].data.push(royaltiesYear1)
-			let royaltiesYear2 = this.chartDatasets.datasets[0].data[1] + Math.round(this.chartDatasets.datasets[0].data[1] * this.sharedState.project.royaltiesAmount / 100)
-			this.chartDatasets.datasets[1].data.push(royaltiesYear2)
-			let royaltiesYear3 = this.chartDatasets.datasets[0].data[2] + Math.round(this.chartDatasets.datasets[0].data[2] * this.sharedState.project.royaltiesAmount / 100)
-			this.chartDatasets.datasets[1].data.push(royaltiesYear3)
-			let royaltiesYear4 = this.chartDatasets.datasets[0].data[3] + Math.round(this.chartDatasets.datasets[0].data[3] * this.sharedState.project.royaltiesAmount / 100)
-			this.chartDatasets.datasets[1].data.push(royaltiesYear4)
-			let royaltiesYear5 = this.chartDatasets.datasets[0].data[4] + Math.round(this.chartDatasets.datasets[0].data[4] * this.sharedState.project.royaltiesAmount / 100)
-			this.chartDatasets.datasets[1].data.push(royaltiesYear5)
+			this.chartDatasets.datasets[1].data.push(year1)
+			this.chartDatasets.datasets[1].data.push(year2)
+			if (this.selectedScenario === 'stop_the_royalties') {
+				year3 += Number(this.sharedState.project.amountNeeded * 1000)
+			}
+			this.chartDatasets.datasets[1].data.push(year3)
+			this.chartDatasets.datasets[1].data.push(year4)
+			this.chartDatasets.datasets[1].data.push(year5)
 
 			this.$refs.chartRoyalties.renderWDGChart()
 		}
@@ -170,6 +211,11 @@ div.the-project-royalties-chart {
 }
 div.the-project-royalties-chart h3 {
 	font-size: 22px;
+}
+div.the-project-royalties-chart div.scenario-description {
+	max-width: 500px;
+	margin: 8px auto;
+	font-size: 14px;
 }
 div.the-project-royalties-chart div.chart-container {
 	margin-top: 32px;

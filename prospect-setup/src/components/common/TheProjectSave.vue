@@ -57,14 +57,13 @@ export default {
 
 <style>
 .the-project-save {
-	margin: 16px 0px;
+	margin: 25px 0px;
 	text-align: center;
 }
 .the-project-save a, .the-project-save span {
 	position: relative;
 	top: -5px;
 	display: inline-block;
-	margin-left: 16px;
 	font-size: 13px;
 	color: #B4B4B4;
 }
@@ -85,5 +84,6 @@ export default {
 .the-project-save a {
 	text-decoration: underline;
 	cursor: pointer;
+	margin-left: 10px;
 }
 </style>

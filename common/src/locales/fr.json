@@ -90,7 +90,7 @@
 		},
 		"intro": {
 			"TITLE": "Mon projet est-il éligible ?",
-			"MASCOT_TEXT_1": "Vous aurez besoin:",
+			"MASCOT_TEXT_1": "Vous aurez besoin :",
 			"MASCOT_TEXT_2": "De votre chiffre d'affaires prévisionnel",
 			"MASCOT_TEXT_3": "De votre niveau de marge",
 			"MASCOT_TEXT_4": "De connaître votre besoin de financement",
@@ -112,7 +112,10 @@
 			"MY_PROJECT": "Mon projet",
 			"MY_FUNDING": "Mon financement",
 			"MY_INVESTORS": "Mes investisseurs",
-			"MY_RESULT": "Mon résultat"
+			"MY_RESULT": "Mon résultat",
+			"MODIFY": "Modifier",
+			"IN_PROGRESS": "En cours...",
+			"SEE_RESULTS": "Voir le résultat"
 		},
 		"project-infos": {
 			"TITLE": "Mon projet",
@@ -121,7 +124,7 @@
 			"FORM_TEXT_ORGANIZATION_LOCATED": "située",
 			"FORM_TEXT_ORGANIZATION_NOT_CREATED_NAME": "sous le nom de",
 			"FORM_TEXT_ORGANIZATION_CREATED_NAME": "du nom de",
-			"FORM_TEXT_ORGANIZATION_ID": "immatriculée",
+			"FORM_TEXT_ORGANIZATION_ID": "dont le numéro SIREN est",
 			"FORM_TEXT_AMOUNT_NEEDED": "J'ai besoin de",
 			"FORM_TEXT_ORGANIZATION_DESCRIPTION": "pour mon activité de",
 			"FORM_TEXT_SOURCE_PROSPECT": "J'ai connu WE DO GOOD via",
@@ -179,7 +182,7 @@
 			"commercial-margin": {
 				"TITLE": "Ma marge commerciale",
 				"INPUT_LABEL": "Taux",
-				"TOOLTIP": "Texte complet à propos de la marge commerciale"
+				"TOOLTIP": "Votre marge brute ou marge sur coûts variables. Le taux de royalties ne devra pas dépasser 10 % de votre marge."
 			},
 			"royalties-amount": {
 				"TITLE": "Royalties que je cèderais",
@@ -188,15 +191,14 @@
 				"ROYALTIES_PERCENT_WARNING_OVER": "Le pourcentage est trop élevé par rapport à votre niveau de marge, les royalties risqueraient de fragiliser votre modèle économique. WE DO GOOD vous conseille un taux entre {adviceMinPercent} % et {adviceMaxPercent} %.",
 				"ROYALTIES_PERCENT_WARNING_UNDER": "Le pourcentage est trop faible, vous devez avoir déjà validé votre modèle économique (plus de 100 000 € de chiffre d'affaires) pour valider ce pourcentage.  WE DO GOOD vous conseille un taux entre {adviceMinPercent} % et {adviceMaxPercent} %.",
 				"ROYALTIES_PERCENT_CUSTOM": "Le pourcentage saisi est correct. WE DO GOOD vous conseille un taux entre {adviceMinPercent} % et {adviceMaxPercent} %.",
-				"ROYALTIES_NOT_OK": "Les royalties ne sont pas adaptés à votre modèle économique.",
+				"ROYALTIES_NOT_OK": "Les royalties ne semblent pas adaptés à votre modèle économique.",
 				"VIEW_ADVICE": "Voir nos conseils",
 				"VIEW_DETAILS": "Voir le détail",
 				"REINIT_PARAMETERS": "Réinitialiser les paramètres"
 			},
 			"royalties-warning": {
-				"WARNING_1": "Les calculs de WE DO GOOD s'entendent sous réserve de la réalisation de votre chiffre d'affaires prévisionnel.",
-				"WARNING_2": "Le pourcentage conseillé est calculé pour que vos investisseurs doublent leur investissement en 5 ans.",
-				"WARNING_3": "Le minimum que vous puissiez définir pour que vos investisseurs récupèrent leur investissement en 5 ans est {warningMinPercent} %."
+				"WARNING_1": "Le pourcentage conseillé est calculé pour que vos investisseurs doublent leur investissement en 5 ans, selon votre prévisionnel.",
+				"WARNING_2": "Le minimum que vous puissiez définir pour que vos investisseurs récupèrent leur investissement en 5 ans est {warningMinPercent} %."
 			},
 			"royalties-chart": {
 				"TITLE": "Détails des royalties prévisionnelles",
@@ -209,13 +211,20 @@
 					"MORE_THAN_PLANNED": "se développe mieux que prévu",
 					"STOP_THE_ROYALTIES": "nécessite l'arrêt des royalties",
 					"ACTIVITY_STOP": "s'arrête en cours de route"
+				},
+				"scenario-description": {
+					"AS_PLANNED": "Les royalties suivent la progression de votre chiffre d’affaires.",
+					"LESS_THAN_PLANNED": "Si vous faites moins de chiffre d'affaires que prévu, vous reverserez moins de royalties (ou zéro s'il n'y a pas de chiffres d'affaires du tout).",
+					"MORE_THAN_PLANNED": "Si vous faites plus de chiffre d'affaires que prévu, vous reversez plus de royalties, sachant que le gain maximum pour vos investisseurs est plafonné au triple et que les contrats de versement de royalties ont une durée déterminée (5 ans).",
+					"STOP_THE_ROYALTIES": "Vous avez la possibilité de résilier votre contrat de manière anticipée en cas de besoin.",
+					"ACTIVITY_STOP": "Si malheureusement votre entreprise dépose le bilan, vos investisseurs perdront leur investissement, mais ils auront récupéré des royalties jusqu'à ce moment-là. Vous n'avez pas de garantie à fournir."
 				}
 			},
 			"advice": {
 				"TITLE": "Les conseils WE DO GOOD",
 				"SUBTITLE": "Pour rendre votre projet éligible, vous pouvez :",
 				"ADVICE1_TITLE": "Diminuer le montant à lever en royalties.",
-				"ADVICE1_TEXT": "Gardez en tête que les royalties peuvent intervenir sur une partie d'une levée de fonds pour débloquer un prêt bancaire ou des subventions.",
+				"ADVICE1_TEXT": "Gardez en tête que les royalties peuvent intervenir sur une partie du besoin de financement pour débloquer un prêt bancaire ou des subventions.",
 				"ADVICE2_TITLE": "Utiliser un prévisionnel plus optimiste.",
 				"ADVICE3_TITLE": "Utiliser le pourcentage conseillé par WE DO GOOD ci-dessous.",
 				"NO_SOLUTION1": "Si aucune de ces solutions n'est possible, votre modèle économique n'est peut-être pas adapté aux royalties.",
@@ -233,6 +242,11 @@
 			"MASCOT_TEXT_1A": "Lancer et réussir une levée de fonds demande du temps et un engagement personnel pour vous et votre équipe.",
 			"MASCOT_TEXT_1B": "Vous devez être prêt-e à communiquer auprès de votre entourage pour mettre toutes les chances de votre côté.",
 			"MASCOT_TEXT_2": "Malheureusement, sans mobiliser votre entourage et votre réseau, il vous sera compliqué de convaincre et de gagner la confiance d’autres investisseurs.",
+			"MASCOT_TEXT_LOVEMONEY": "Les royalties sont une bonne option pour faire investir un petit nombre de personnes de votre réseau personnel (love money) ou professionnel. Simple, rapide, confidentiel.",
+			"MASCOT_TEXT_PRIVATE": "Vous pouvez faire investir autant de personnes que vous le souhaitez en réservant cette possibilité à celles que vous avez identifiées. Rapide et confidentiel.",
+			"MASCOT_TEXT_PUBLIC": "Vous pouvez bénéficier d'une belle visibilité en faisant du Crowdfunding mais pour toucher le grand public, il faut commencer par votre entourage !",
+			"MASCOT_TEXT_ALREADY_DONE": "Super, je vois que nous avons à faire à une personne expérimentée !",
+			"MASCOT_TEXT_NEED_ADVICE": "WE DO GOOD peut vous accompagner pour votre communication",
 			"investors-circles": {
 				"CIRCLE_LOVEMONEY": "Proches",
 				"CIRCLE_PRIVATE": "Relations",
@@ -249,6 +263,8 @@
 			"YOU_WILL_PAY": "et vous leur verserez tous les trimestres",
 			"OF_YOUR_TURNOVER": "de votre chiffre d'affaires pendant 5 ans.",
 			"formulas": {
+				"RECOMMENDED": "Formule recommandée",
+				"REDUCTION": "(-50 % jeunes entreprises)",
 				"lovemoney": {
 					"TITLE": "Love Money",
 					"TEXT": "Faites investir vos proches de manière confidentielle et rapide",
@@ -281,16 +297,18 @@
 				}
 			},
 			"options": {
+				"RECOMMENDED": "Option recommandée",
+				"REDUCTION": "(-25 % jeunes entreprises)",
 				"basic": {
-					"TITLE": "Basique",
+					"TITLE": "Accompagnement Basique",
 					"TEXT": "Pour les entrepreneurs ayant déjà identifié leurs investisseurs ou ayant déjà mené une campagne de financement"
 				},
 				"standard": {
-					"TITLE": "Essentiel",
+					"TITLE": "Accompagnement Essentiel",
 					"TEXT": "Pour les entrepreneurs souhaitant avoir le chemin bien éclairé pour mener leur levée de fonds en toute sérénité"
 				},
 				"complete": {
-					"TITLE": "Intégral",
+					"TITLE": "Accompagnement Intégral",
 					"TEXT": "Pour les entrepreneurs qui souhaitent avoir des réponses, des avis et des conseils pour avancer plus vite et plus efficacement"
 				},
 				"list": {
@@ -303,6 +321,16 @@
 					"INVESTORS_MONITORING": "Suivi de conversion des investisseurs",
 					"WORKSHOP": "Atelier de préparation de 2h pour poser les bases avec votre équipe (Conseils en communication et méthodologie sur le financement participatif, définition du plan d’actions, prise en main de la plateforme)"
 				}
+			},
+			"not-eligible": {
+				"PROJECT_DOESNT_SEEM_ELIGIBLE": "Votre projet ne semble pas éligible...",
+				"POSSIBLE_REASONS": "Voici les raisons possibles :",
+				"MICROBUSINESS": "vous travaillez en tant qu’entreprise individuelle ou micro-entreprise",
+				"OUT_EURO": "votre entreprise n'est ou ne sera pas immatriculée en zone Euro",
+				"NOT_ADAPTED": "le modèle des royalties n'est peut-être pas adapté à votre modèle économique",
+				"NEED_LOVEMONEY": "un financement participatif requiert une mobilisation de votre entourage pour bien démarrer",
+				"SPECIFIC_PROJECT": "Votre projet est particulier et pourrait tout de même bénéficier des royalties (durée plus longue, financement de matériel avec marge...) ?",
+				"SEND_EMAIL": "Envoyez-nous un mail à projets@wedogood.co"
 			},
 			"prospect-meetup": {
 				"ADD_FILES_TEXT": "Pour préparer notre rencontre, votre business plan et un prévisionnel financier comportant un plan de financement et un compte de résultat prévisionnel sont nécessaires",

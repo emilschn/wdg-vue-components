@@ -24,14 +24,22 @@ export default {
 </script>
 
 <style>
+.header{
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	width: 100%;
+	padding-top: 15px;
+}
 .header .logo {
-	text-align: left;
+	width: 45%;
 }
 .header .title {
-	font-size: 30px;
+	font-size: 23px;
     font-weight: bold;
-	float: right;
     color: #00879b;
+	width: 45%;
+	text-align: right;
 }
 hr {
     border: 1;
@@ -40,5 +48,6 @@ hr {
 	margin-bottom: 0px;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
     border-bottom: 1px solid #f4f2f2;
+	width: 100%;
 }
 </style>

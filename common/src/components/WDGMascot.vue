@@ -1,5 +1,5 @@
 <template>
-	<div class="wdg-mascot" :class="type">
+	<div class="wdg-mascot" :class="divClass">
 		<div>
 			<slot name="text"></slot>
 		</div>
@@ -25,7 +25,13 @@
 export default {
 	name: 'WDGMascot',
 	props: {
-		type: { type: String, default: null }
+		type: { type: String, default: null },
+		additionnalClass: { type: String, default: '' }
+	},
+	computed: {
+		divClass () {
+			return this.type + ' ' + this.additionnalClass
+		}
 	}
 }
 </script>
@@ -40,9 +46,8 @@ export default {
 	max-width: 100%;
 	border-radius: 32px;
 	font-size: 15px;
-	font-weight: bold;
+	font-weight: 500;
 	font-style: italic;
-	text-align: justify;
 	color: #555555;
 	background: #f4f2f2;
 }

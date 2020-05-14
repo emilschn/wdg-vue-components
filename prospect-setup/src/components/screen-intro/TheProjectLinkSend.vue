@@ -125,11 +125,14 @@ function getErrorMessage (errorCode) {
 .the-project-link-send-mail {
 	background: #f6f6f6;
 	width: 715px;
-	margin: 0px auto;
+	margin: 30px auto;
 	padding: 16px;
 }
 .the-project-link-send-mail .text {
 	text-align: center;
+	font-weight: 500;
+	font-size: 14px;
+	margin: 10px;
 }
 .the-project-link-send-mail .wdg-form {
 	margin: 16px 0px;
@@ -147,9 +150,17 @@ function getErrorMessage (errorCode) {
 	margin-top: 0px;
 	margin-bottom: 0px;
 }
+.the-project-link-send .wdg-form .wdg-input input {
+	border: 1.5px solid #E1E3E2;
+	border-radius: 5px;
+	padding-left: 10px;
+}
 .the-project-link-send-mail .wdg-button {
 	width: 140px;
 	margin-top: 0px;
 	margin-bottom: 0px;
+}
+.the-project-link-send .wdg-form {
+	margin: 15px 100px;
 }
 </style>

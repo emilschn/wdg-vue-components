@@ -40,8 +40,8 @@ export default {
 }
 
 .the-tab-title h2 {
-	margin: 16px auto;
-	font-size: 35px;
+	margin: 16px 15px;
+	font-size: 30px;
 	font-weight: bold;
 }
 
@@ -54,12 +54,18 @@ export default {
 	font-size: 16px;
 	font-style: italic;
 	color: #00879B;
+	display: flex;
+	justify-content: space-around;
+	width: 110px;
 }
 
 .the-tab-title .the-tab-title-subtitle {
 	margin: 8px auto;
 	font-size: 16px;
-	font-weight: bold;
+	font-weight: 500;
 	color: #B4B4B4;
+}
+.the-tab-title-timer svg, .the-tab-title-timer image {
+	margin-right: 3px;
 }
 </style>

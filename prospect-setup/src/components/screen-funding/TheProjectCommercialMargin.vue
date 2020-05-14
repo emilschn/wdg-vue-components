@@ -10,11 +10,13 @@
 		<WDGInput
 		  id="commercial-margin"
 		  name="commercial-margin"
-		  :value="sharedState.project.commercialMargin"
-		  v-bind:valueReturn.sync="sharedState.project.commercialMargin"
+		  :value="valueReturn"
+		  v-bind:valueReturn.sync="valueReturn"
 		  v-bind:multiline="false"
 		  v-bind:optional="false"
-		  :onChange="onChange"
+		  suffix="%"
+		  autoFormat="wdg-percent"
+		  :onChange="onChangeEvent"
 		  >
 			<slot slot="label">{{ $t('project-setup.project-funding.commercial-margin.INPUT_LABEL') }}</slot>
 		</WDGInput>
@@ -37,7 +39,18 @@ export default {
 	},
 	data () {
 		return {
-			sharedState: store.state
+			sharedState: store.state,
+			valueReturn: store.state.project.commercialMargin
+		}
+	},
+	methods: {
+		onChangeEvent () {
+			let tempCommercialMarginStr = this.valueReturn
+			tempCommercialMarginStr = tempCommercialMarginStr.split(',').join('.').split(' ').join('')
+			let tempCommercialMarginNum = Number(tempCommercialMarginStr)
+			tempCommercialMarginNum = Math.min(100, Math.max(0, tempCommercialMarginNum))
+			this.sharedState.project.commercialMargin = tempCommercialMarginNum
+			this.onChange()
 		}
 	}
 }
@@ -50,5 +63,6 @@ div.the-project-commercial-margin .wdg-input {
 div.the-project-commercial-margin .wdg-input input {
 	height: 32px;
 	margin-top: 8px;
+	border: 1.5px solid #EBEBEB;
 }
 </style>

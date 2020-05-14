@@ -6,6 +6,8 @@
 			<WDGFileList
 			  id="business"
 			  name="business"
+			  :initFileList="sharedProps.initFileList"
+			  :onFileListChange="onFileListChangeEvent"
 			  >
 				<slot slot="label">{{ $t('project-setup.project-result.prospect-meetup.ADD_FILES_TEXT') }}</slot>
 			</WDGFileList>
@@ -13,6 +15,8 @@
 			<WDGInput
 			  id="comments"
 			  :multiline="true"
+			  :value="sharedState.project.fileComments"
+			  v-bind:valueReturn.sync="sharedState.project.fileComments"
 			  >
 				<slot slot="label">{{ $t('project-setup.project-result.prospect-meetup.SEND_FILES_INPUT_LABEL') }}</slot>
 			</WDGInput>
@@ -20,6 +24,7 @@
 			<WDGButton
 			  color="red"
 			  type="button"
+			  v-bind:disabled="loading"
 			  :clickEvent="sendFiles"
 			  >
 				<slot slot="label">{{ $t('common.SEND') }}</slot>
@@ -35,6 +40,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+import { store } from '../../store.js'
 import WDGForm from '@/../../common/src/components/WDGForm'
 import WDGFileList from '@/../../common/src/components/WDGFileList'
 import WDGInput from '@/../../common/src/components/WDGInput'
@@ -49,15 +56,77 @@ export default {
 	},
 	data () {
 		return {
-			hasSentFiles: false
+			sharedState: store.state,
+			sharedProps: store.props,
+			hasSentFiles: false,
+			loading: false,
+			fileList: [],
+			fileComments: ''
 		}
 	},
 	methods: {
+		onFileListChangeEvent: function (filelistData) {
+			this.fileList = filelistData
+		},
 		sendFiles: function () {
-			this.hasSentFiles = true
-			let recaptchaScript = document.createElement('script')
-			recaptchaScript.setAttribute('src', 'https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js')
-			document.head.appendChild(recaptchaScript)
+			this.loading = true
+			let data = new FormData()
+			data.append('action', 'prospect_setup_save_files')
+			data.append('guid', this.sharedState.guid)
+			this.fileList.forEach((fileElement, index) => {
+				data.append('file' + index, fileElement)
+			})
+
+			axios
+				.post (
+					this.sharedProps.ajaxurl,
+					data,
+					{
+						headers: {
+							'Content-Type': 'multipart/form-data'
+						}
+					}
+				)
+				.then (response => {
+					let responseData = response.data
+					console.log('then')
+					console.log(responseData)
+
+					if (responseData.has_error !== '1') {
+						this.hasSentFiles = true
+						let hubspotMeetingScript = document.createElement('script')
+						hubspotMeetingScript.setAttribute('src', 'https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js')
+						document.head.appendChild(hubspotMeetingScript)
+
+						store.saveProject()
+					}
+				})
+				.catch (error => {
+					if (error.response) {
+						// The request was made and the server responded with a status code
+						// that falls out of the range of 2xx
+						console.log('error.response')
+						console.log(error.response.data)
+						console.log(error.response.status)
+						console.log(error.response.headers)
+					} else if (error.request) {
+						// The request was made but no response was received
+						// `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+						// http.ClientRequest in node.js
+						console.log('error.request')
+						console.log(error.request)
+					} else {
+						// Something happened in setting up the request that triggered an Error
+						console.log('error.message')
+						console.log('Error', error.message)
+					}
+					console.log('error.toJSON')
+					console.log(error.toJSON())
+					console.log(error.config)
+				})
+				.finally (() => {
+					this.loading = true
+				})
 		}
 	}
 }
@@ -80,11 +149,7 @@ div.the-result-prospect-meetup div.title-text {
 div.the-result-prospect-meetup .wdg-form div.wdg-file-list label {
 	margin-bottom: 8px;
 	font-size: 16px;
-	font-weight: bold;
-	text-align: justify;
-}
-div.the-result-prospect-meetup .wdg-form .wdg-input label {
-	text-align: justify;
+	font-weight: 500;
 }
 div.the-result-prospect-meetup .wdg-form textarea {
 	height: 100px;

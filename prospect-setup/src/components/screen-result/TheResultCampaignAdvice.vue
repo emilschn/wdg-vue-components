@@ -2,7 +2,7 @@
 	<div class="the-result-campaign-advice">
 		<div class="intro">
 			{{ $t('project-setup.project-result.YOU_CAN_RAISE') }}<br>
-			<span class="intro-amount">{{ amountRaised }} €</span><br>
+			<span class="intro-amount">{{ amountRaisedFormatted }} €</span><br>
 			<span v-if="sharedState.project.circlesToCommunicate === 'lovemoney'">{{ $t('project-setup.project-result.TARGET_LOVEMONEY') }}<br></span>
 			<span v-if="sharedState.project.circlesToCommunicate === 'private'">{{ $t('project-setup.project-result.TARGET_PRIVATE') }}<br></span>
 			<span v-if="sharedState.project.circlesToCommunicate === 'public'">{{ $t('project-setup.project-result.TARGET_PUBLIC') }}<br></span>
@@ -11,8 +11,11 @@
 			{{ $t('project-setup.project-result.OF_YOUR_TURNOVER') }}<br>
 		</div>
 
+		<div class="recommended-title">{{ $t('project-setup.project-result.formulas.RECOMMENDED') }}</div>
+
 		<WDGSeeMore
 		  amount="500"
+		  :amountReduction="$t('project-setup.project-result.formulas.REDUCTION')"
 		  :uncheckedItems="uncheckedItems"
 		  :checkedItems="checkedItems"
 		  >
@@ -24,10 +27,12 @@
 			<slot slot="text" v-if="sharedState.project.circlesToCommunicate === 'public'">{{ $t('project-setup.project-result.formulas.crowdfunding.TEXT') }}</slot>
 		</WDGSeeMore>
 
+		<div class="recommended-title">{{ $t('project-setup.project-result.options.RECOMMENDED') }}</div>
+
 		<WDGSeeMore
 		  amount="0"
 		  :checkedItems="checkedItemsOptionBasic"
-		  v-if="!sharedState.project.needcommunicationadvice && (sharedState.project.circlesToCommunicate === 'lovemoney' || sharedState.project.alreadydonecrowdfunding)"
+		  v-if="!sharedState.project.needCommunicationAdvice && (sharedState.project.circlesToCommunicate === 'lovemoney' || sharedState.project.alreadyDoneCrowdfunding)"
 		  >
 			<slot slot="title">{{ $t('project-setup.project-result.options.basic.TITLE') }}</slot>
 			<slot slot="text">{{ $t('project-setup.project-result.options.basic.TEXT') }}</slot>
@@ -35,8 +40,9 @@
 
 		<WDGSeeMore
 		  amount="500"
+		  :amountReduction="$t('project-setup.project-result.options.REDUCTION')"
 		  :checkedItems="checkedItemsOptionStandard"
-		  v-if="!sharedState.project.alreadydonecrowdfunding && !sharedState.project.needcommunicationadvice"
+		  v-if="!sharedState.project.alreadyDoneCrowdfunding && !sharedState.project.needCommunicationAdvice"
 		  >
 			<slot slot="title">{{ $t('project-setup.project-result.options.standard.TITLE') }}</slot>
 			<slot slot="text">{{ $t('project-setup.project-result.options.standard.TEXT') }}</slot>
@@ -44,8 +50,9 @@
 
 		<WDGSeeMore
 		  amount="1700"
+		  :amountReduction="$t('project-setup.project-result.options.REDUCTION')"
 		  :checkedItems="checkedItemsOptionComplete"
-		  v-if="sharedState.project.needcommunicationadvice"
+		  v-if="sharedState.project.needCommunicationAdvice"
 		  >
 			<slot slot="title">{{ $t('project-setup.project-result.options.complete.TITLE') }}</slot>
 			<slot slot="text">{{ $t('project-setup.project-result.options.complete.TEXT') }}</slot>
@@ -131,6 +138,9 @@ export default {
 		}
 	},
     computed: {
+		amountRaisedFormatted () {
+			return this.amountRaised.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
+		},
 		uncheckedItems () {
 			if (this.sharedState.project.circlesToCommunicate === 'lovemoney') {
 				return this.uncheckedItemsLoveMoney
@@ -163,5 +173,8 @@ div.the-result-campaign-advice div.intro {
 div.the-result-campaign-advice div.intro span.intro-amount {
 	font-size: 30px;
 	font-weight: bold;
+}
+div.the-result-campaign-advice div.recommended-title {
+	margin-bottom: 10px;
 }
 </style>

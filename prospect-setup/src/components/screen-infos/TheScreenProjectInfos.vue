@@ -68,8 +68,7 @@
 				  :value="sharedState.organization.name"
 				  v-bind:valueReturn.sync="sharedState.organization.name"
 				  customStyle="natural-language"
-			  	  :placeholder="$t('project-setup.project-infos.PLACEHOLDER_PROJECT_NAME')"
-				  />.
+			  	  />.
 			</div>
 
 			<div v-else>
@@ -81,8 +80,7 @@
 				  :value="sharedState.organization.name"
 				  v-bind:valueReturn.sync="sharedState.organization.name"
 				  customStyle="natural-language"
-			  	  :placeholder="$t('project-setup.project-infos.PLACEHOLDER_PROJECT_NAME')"
-				  />,
+			  	  />,
 
 				{{ $t('project-setup.project-infos.FORM_TEXT_ORGANIZATION_ID') }}
 
@@ -92,8 +90,7 @@
 				  :value="sharedState.organization.id"
 				  v-bind:valueReturn.sync="sharedState.organization.id"
 				  customStyle="natural-language"
-			  	  :placeholder="$t('project-setup.project-infos.PLACEHOLDER_PROJECT_ID')"
-				  />.
+			  	  />.
 			</div>
 
 			<div>
@@ -105,8 +102,9 @@
 				  :value="sharedState.organization.amountNeeded"
 				  v-bind:valueReturn.sync="sharedState.organization.amountNeeded"
 				  customStyle="natural-language"
-			  	  placeholder="50 000"
-				  /> €,<br>
+				  autoFormat="wdg-number"
+				  :onChange="onOrganizationAmountNeededChange"
+			  	  /> €,<br>
 
 				{{ $t('project-setup.project-infos.FORM_TEXT_ORGANIZATION_DESCRIPTION') }}
 
@@ -116,8 +114,7 @@
 				  :value="sharedState.organization.description"
 				  v-bind:valueReturn.sync="sharedState.organization.description"
 				  customStyle="natural-language"
-			  	  :placeholder="$t('project-setup.project-infos.PLACEHOLDER_PROJECT_DESCRIPTION')"
-				  />.<br>
+			  	  />.<br>
 
 				{{ $t('project-setup.project-infos.FORM_TEXT_SOURCE_PROSPECT') }}
 
@@ -140,8 +137,7 @@
 				  :value="sharedState.organization.sourceProspectDetails"
 				  v-bind:valueReturn.sync="sharedState.organization.sourceProspectDetails"
 				  customStyle="natural-language"
-			  	  :placeholder="$t('project-setup.project-infos.FORM_TEXT_SOURCE_PROSPECT_DETAILS_PLACEHOLDER')"
-				  /><br><br>
+			  	  /><br><br>
 
 				{{ $t('project-setup.project-infos.FORM_TEXT_USER_NAME') }}
 
@@ -151,8 +147,7 @@
 				  :value="sharedState.user.name"
 				  v-bind:valueReturn.sync="sharedState.user.name"
 				  customStyle="natural-language"
-			  	  :placeholder="$t('project-setup.project-infos.PLACEHOLDER_USER_NAME')"
-				  />,<br>
+			  	  />,<br>
 
 				{{ $t('project-setup.project-infos.FORM_TEXT_USER_EMAIL') }}
 
@@ -163,8 +158,7 @@
 				  :value="sharedState.user.email"
 				  v-bind:valueReturn.sync="sharedState.user.email"
 				  customStyle="natural-language"
-			  	  :placeholder="$t('project-setup.project-infos.PLACEHOLDER_USER_EMAIL')"
-				  /><br>
+			  	  /><br>
 
 				{{ $t('project-setup.project-infos.FORM_TEXT_USER_PHONE') }}
 
@@ -174,10 +168,10 @@
 				  :value="sharedState.user.phone"
 				  v-bind:valueReturn.sync="sharedState.user.phone"
 				  customStyle="natural-language"
-			  	  :placeholder="$t('project-setup.project-infos.PLACEHOLDER_USER_PHONE')"
-				  />.
+			  	  />.
 
 				<WDGButton
+				  v-if="canShowContinue"
 				  color="red"
 				  type="button"
             	  :clickEvent="changeStep"
@@ -243,16 +237,43 @@ export default {
 			userPhone: ''
 		}
 	},
-    methods: {
-        changeStep: function (event) {
-            store.changeStep('project-funding')
-        }
-    },
+	methods: {
+		changeStep: function (event) {
+			store.changeStep('project-funding')
+		},
+		onOrganizationAmountNeededChange: function () {
+			if (store.tabItems[ 1 ].Status !== 'complete') {
+				let tempAmountNeededStr = this.sharedState.organization.amountNeeded
+				tempAmountNeededStr = tempAmountNeededStr.split(',').join('.').split(' ').join('')
+				let tempAmountNeededNum = Number(tempAmountNeededStr)
+				tempAmountNeededNum = Math.min(500000, Math.max(10000, tempAmountNeededNum))
+				this.sharedState.project.amountNeeded = Math.ceil(tempAmountNeededNum / 1000)
+			}
+		}
+	},
 	computed: {
 		canShowUserInfos () {
-			let buffer = false
-			buffer = (this.sharedState.organization.sourceProspect !== '')
-			return buffer
+			if (process.env.NODE_ENV === 'development') {
+				return true
+			}
+			return (this.sharedState.organization.sourceProspect !== '')
+		},
+		canShowContinue () {
+			if (process.env.NODE_ENV === 'development') {
+				return true
+			}
+			return (
+				this.sharedState.organization.type !== '' &&
+				this.sharedState.organization.location !== '' &&
+				this.sharedState.organization.name !== '' &&
+				this.sharedState.organization.amountNeeded !== '' &&
+				this.sharedState.organization.description !== '' &&
+				this.sharedState.organization.sourceProspect !== '' &&
+				this.sharedState.organization.sourceProspectDetails !== '' &&
+				this.sharedState.user.name !== '' &&
+				this.sharedState.user.email !== '' &&
+				this.sharedState.user.phone !== ''
+			)
 		},
 		getMascotType () {
 			if (this.sharedState.organization.sourceProspect !== '') {
@@ -277,14 +298,15 @@ export default {
 	.the-screen-project-infos .wdg-form {
 		margin: 40px;
 		font-size: 20px;
-		line-height: 40px;
+		line-height: 60px;
+		font-weight: 500;
 	}
 	.the-screen-project-infos .wdg-form .wdg-button {
 		text-align: center;
 	}
 	.the-screen-project-infos .wdg-form button {
 		margin-top: 40px;
-		max-width: 320px;
+		max-width: 176px;
 	}
 	.the-screen-project-infos .wdg-mascot.face-2 {
 		margin-top: 100px;

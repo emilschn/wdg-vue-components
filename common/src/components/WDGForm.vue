@@ -46,7 +46,7 @@ export default {
 		display: block;
 		width: 100%;
 		margin-bottom: 8px;
-		font-weight: bold;
+		font-weight: 500;
 	}
 
 	.wdg-form input[type=radio] {

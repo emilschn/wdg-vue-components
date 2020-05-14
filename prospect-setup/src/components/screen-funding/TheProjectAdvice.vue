@@ -7,18 +7,19 @@
 		<div class="advice-subtitle">
 			{{ $t('project-setup.project-funding.advice.SUBTITLE') }}
 		</div>
+		<div class="advice-item-container">
+			<div class="advice-item">
+				<div class="advice-item-title">{{ $t('project-setup.project-funding.advice.ADVICE1_TITLE') }}</div>
+				<div class="advice-item-text">{{ $t('project-setup.project-funding.advice.ADVICE1_TEXT') }}</div>
+			</div>
 
-		<div class="advice-item">
-			<div class="advice-item-title">{{ $t('project-setup.project-funding.advice.ADVICE1_TITLE') }}</div>
-			<div class="advice-item-text">{{ $t('project-setup.project-funding.advice.ADVICE1_TEXT') }}</div>
-		</div>
+			<div class="advice-item">
+				<div class="advice-item-title">{{ $t('project-setup.project-funding.advice.ADVICE2_TITLE') }}</div>
+			</div>
 
-		<div class="advice-item">
-			<div class="advice-item-title">{{ $t('project-setup.project-funding.advice.ADVICE2_TITLE') }}</div>
-		</div>
-
-		<div class="advice-item">
-			<div class="advice-item-title">{{ $t('project-setup.project-funding.advice.ADVICE3_TITLE') }}</div>
+			<div class="advice-item">
+				<div class="advice-item-title">{{ $t('project-setup.project-funding.advice.ADVICE3_TITLE') }}</div>
+			</div>
 		</div>
 
 		<div class="clear"></div>
@@ -52,7 +53,7 @@ export default {
 	},
 	props: {
 		onReinitParameters: { type: Function },
-		adviceAmount: { type: Number, default: 1 }
+		adviceAmount: { type: String, default: '' }
 	}
 }
 </script>
@@ -69,27 +70,29 @@ div.the-project-advice div.advice-subtitle {
 	font-size: 17px;
 	margin-bottom: 16px;
 }
+div.the-project-advice div.advice-item-container {
+	display: flex;
+	justify-content: space-between;
+}
 div.the-project-advice div.advice-item {
-	width: 33%;
-	float: left;
+	width: 35%;
 }
 div.the-project-advice div.advice-item div.advice-item-title {
-	margin-left: 48px;
-	margin-right: 40px;
+	margin: 20px;
 	font-size: 19px;
 	line-height: 28px;
-	text-align: justify;
+	text-align: left;
 }
 div.the-project-advice div.advice-item div.advice-item-title::before {
 	content: "\002713";
 	width: 40px;
-	margin-left: -40px;
 	margin-right: 18px;
 	font-size: 32px;
 	color: #00879B;
+	font-weight: 700;
 }
 div.the-project-advice div.advice-item div.advice-item-text {
-	margin: 16px 40px 0px 48px;
+	margin: 16px 20px;
 	font-size: 15px;
 	line-height: 20px;
 	text-align: left;
@@ -122,5 +125,6 @@ div.the-project-advice div.wdg-button {
 div.the-project-advice div.wdg-button button {
 	border-color: #00879B;
 	color: #00879B;
+	font-weight: 500;
 }
 </style>

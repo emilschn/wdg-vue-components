@@ -13,8 +13,8 @@
                 </div>
                 <div class="time">
                     <div><img src="@/assets/picto_clock.png"  alt="WE DO GOOD" /></div>
-                    <div>
-                        <span class="title">{{ $t('project-setup.intro.TEXT_3') }}</span><br>
+                    <div class="clock-text">
+                        <span class="title">{{ $t('project-setup.intro.TEXT_3') }}</span>
                         <span class="text">{{ $t('project-setup.intro.TEXT_4') }}</span>
                     </div>
                 </div>
@@ -77,7 +77,8 @@ export default {
 </script>
 
 <style>
-	.the-screen-intro .the-tab-title {
+    .the-screen-intro .the-tab-title {
+        font-weight: 700;
 		text-align: left;
 	}
     .the-screen-intro .content {
@@ -93,12 +94,13 @@ export default {
 	}
 	.the-screen-intro .result .title {
 		font-size: 24px;
-        font-weight: bold;
+        font-weight: 700;
         position: relative;
         display: inline-block;
         width:250px;
         left: 55px;
         top:30px;
+        line-height: 30px;
 	}
 	.the-screen-intro .result .text {
         position: relative;
@@ -106,22 +108,29 @@ export default {
         width:250px;
         left: 55px;
         top:50px;
+        font-weight: 500;
 	}
 	.the-screen-intro .time {
         width:322px;
-        height:200px;
         display: flex;
-        padding-top: 50px;
+        margin-top: 50px;
 	}
+    .the-screen-intro .time .clock-text {
+        margin-left: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 18px;
+    }
 	.the-screen-intro .time .title {
 		font-size: 16px;
         color:#00879b;
-        display: inline-block;
-        padding-bottom: 5px;
-        font-weight: bold;
+        font-weight: 700;
+        margin-bottom: 10px;
 	}
 	.the-screen-intro .time .text {
         color:#a8a8a8;
+        font-weight: 400;
 	}
     .the-screen-intro .wdg-mascot.face-2 .title {
 		font-size: 24px;
@@ -137,6 +146,8 @@ export default {
 		margin: 10px;
 		font-size: 16px;
 		font-style: normal;
+        font-weight: 500;
+        text-align: left;
     }
     .the-screen-intro .wdg-mascot.face-2 li:before {
         content: "✔";
@@ -150,9 +161,13 @@ export default {
 		margin-top: 0px;
 		margin-bottom: 0px;
 		max-width: 176px;
-        font-weight: bold;
+        font-weight: 700;
 	}
     .the-screen-intro .the-project-link-send{
 		margin-top: 10px;
+        font-weight: 400;
+    }
+    .wdg-mascot{
+        max-width: 300px;
     }
 </style>

@@ -9,7 +9,9 @@ export const store = {
         guid: '',
         step: 'intro',
         status: '',
-        authorization: '',
+		authorization: '',
+		hasSaved: '0',
+		hasSentResult: '0',
 		user: {
 			id: '',
 			name: '',
@@ -28,29 +30,33 @@ export const store = {
 		},
 		project: {
 			estimatedTurnover: {
-				year1: '0',
-				year2: '0',
-				year3: '0',
-				year4: '0',
-				year5: '0'
+				year1: 0,
+				year2: 0,
+				year3: 0,
+				year4: 0,
+				year5: 0
 			},
 			commercialMargin: 0,
 			amountNeeded: 50,
 			royaltiesAmount: 0,
+			isAutoFilledRoyalties: true,
+			royaltiesOK: false,
 			readyToCommunicate: '',
 			circlesToCommunicate: '',
-			alreadydonecrowdfunding: false,
-			needcommunicationadvice: false
+			alreadyDoneCrowdfunding: false,
+			needCommunicationAdvice: false,
+			fileComments: ''
 		}
 	},
 	props: {
-		ajaxURL: ''
+		ajaxURL: '',
+		initFileList: []
 	},
 	tabItems: [
 		{ Id: 'project-infos', Label: i18n.t('project-setup.tabs.MY_PROJECT'), Index: '1', Subtitle: '', Status: 'incomplete', LinkLabel: '' },
-		{ Id: 'project-funding', Label: i18n.t('project-setup.tabs.MY_FUNDING'), Index: '2', Subtitle: '', Status: '', LinkLabel: '' },
-		{ Id: 'project-investors', Label: i18n.t('project-setup.tabs.MY_INVESTORS'), Index: '3', Subtitle: '', Status: '', LinkLabel: '' },
-		{ Id: 'project-result', Label: i18n.t('project-setup.tabs.MY_RESULT'), Subtitle: 'En cours...', Status: '', LinkLabel: '' }
+		{ Id: 'project-funding', Label: i18n.t('project-setup.tabs.MY_FUNDING'), Index: '2', Subtitle: '', Status: 'incomplete', LinkLabel: '' },
+		{ Id: 'project-investors', Label: i18n.t('project-setup.tabs.MY_INVESTORS'), Index: '3', Subtitle: '', Status: 'incomplete', LinkLabel: '' },
+		{ Id: 'project-result', Label: i18n.t('project-setup.tabs.MY_RESULT'), Subtitle: i18n.t('project-setup.tabs.IN_PROGRESS'), Status: '', LinkLabel: '' }
 	],
 	changeStep (newStep) {
 		this.state.step = newStep
@@ -60,70 +66,68 @@ export const store = {
 		let itemInvestors = this.tabItems[ 2 ]
 		let itemResult = this.tabItems[ 3 ]
 
+		// item de fin si déjà passé
+		if (itemResult.Status === 'complete') {
+			itemResult.LinkLabel = i18n.t('project-setup.tabs.SEE_RESULTS')
+			Vue.set(this.tabItems, 3, itemResult)
+		}
+
 		switch (newStep) {
 			case 'project-infos':
-				// item en cours
-				itemInfos.LinkLabel = ''
-
-				// item de fin si déjà passé
-				if (itemResult.Status === 'complete') {
-					itemResult.LinkLabel = 'Voir le résultat'
-					Vue.set(this.tabItems, 3, itemResult)
-				}
 				break
 
 			case 'project-funding':
-				// item en cours
-				itemFunding.LinkLabel = ''
-
 				// item passé
-				itemInfos.Status = 'complete'
-				itemInfos.LinkLabel = 'Compléter'
-				Vue.set(this.tabItems, 0, itemInfos)
-
-				// item de fin si déjà passé
-				if (itemResult.Status === 'complete') {
-					itemResult.LinkLabel = 'Voir le résultat'
-					Vue.set(this.tabItems, 3, itemResult)
+				if (itemInfos.Status === 'incomplete') {
+					this.saveProject()
 				}
+				itemInfos.Status = 'complete'
+				itemInfos.LinkLabel = i18n.t('project-setup.tabs.MODIFY')
+				Vue.set(this.tabItems, 0, itemInfos)
 				break
 
 			case 'project-investors':
-				// item en cours
-				itemInvestors.LinkLabel = ''
-
 				// item passé
 				itemFunding.Status = 'complete'
-				itemFunding.LinkLabel = 'Compléter'
+				itemFunding.LinkLabel = i18n.t('project-setup.tabs.MODIFY')
 				Vue.set(this.tabItems, 1, itemFunding)
-
-				// item de fin si déjà passé
-				if (itemResult.Status === 'complete') {
-					itemResult.LinkLabel = 'Voir le résultat'
-					Vue.set(this.tabItems, 3, itemResult)
-				}
 				break
 
 			case 'project-result':
 				this.saveProject()
+
+				// item passé
+				itemInvestors.Status = 'complete'
+				itemInvestors.LinkLabel = i18n.t('project-setup.tabs.MODIFY')
+				Vue.set(this.tabItems, 2, itemInvestors)
 
 				// item en cours
 				itemResult.Subtitle = ''
 				itemResult.Status = 'complete'
 				itemResult.LinkLabel = ''
 				Vue.set(this.tabItems, 3, itemResult)
-
-				// item passé
-				itemInvestors.Status = 'complete'
-				itemInvestors.LinkLabel = 'Compléter'
-				Vue.set(this.tabItems, 2, itemInvestors)
 				break
 		}
 		window.scrollTo(0, 0)
 	},
 	saveProject () {
+		let shouldSendLink = false
+		if (this.state.hasSaved !== '1') {
+			shouldSendLink = true
+			this.state.hasSaved = '1'
+		}
+
+		let shouldSendResult = false
+		if (this.state.step === 'project-result' && this.state.hasSentResult !== '1') {
+			shouldSendResult = true
+			this.state.hasSentResult = '1'
+		}
+
 		let data = new FormData()
 		data.append('action', 'prospect_setup_save')
+		if (this.state.guid === undefined) {
+			this.state.guid = ''
+		}
 		data.append('guid', this.state.guid)
 		data.append('id_user', this.state.user.id)
 		data.append('email', this.state.user.email)
@@ -142,6 +146,14 @@ export const store = {
 					bus.$root.$emit('updateSaveStatus', 'saved')
 					this.state.guid = responseData.guid
 					this.state.user.id = responseData.id_user
+
+					if (shouldSendLink) {
+						this.sendDraftStarted()
+					}
+
+					if (shouldSendResult) {
+						this.sendDraftFinished()
+					}
 				} else {
 					bus.$root.$emit('updateSaveStatus', 'error')
 				}
@@ -170,5 +182,27 @@ export const store = {
 				console.log(error.config)
 				bus.$root.$emit('updateSaveStatus', 'error')
 			})
+	},
+	sendDraftStarted () {
+		if (process.env.NODE_ENV === 'development') {
+			return
+		}
+		let data = new FormData()
+		data.append('action', 'prospect_setup_send_mail_user_draft_started')
+		data.append('guid', this.state.guid)
+
+		axios
+			.post (this.props.ajaxurl, data)
+	},
+	sendDraftFinished () {
+		if (process.env.NODE_ENV === 'development') {
+			return
+		}
+		let data = new FormData()
+		data.append('action', 'prospect_setup_send_mail_user_draft_finished')
+		data.append('guid', this.state.guid)
+
+		axios
+			.post (this.props.ajaxurl, data)
 	}
 }

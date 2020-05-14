@@ -7,43 +7,47 @@
 			<slot slot="title">{{ $t('project-setup.project-funding.TITLE') }}</slot>
 		</TheTabTitle>
 
-		<TheProjectRoyaltiesAmount
-		  ref="royaltiesAmount"
-		  :onChange="refreshChart"
-		  :onViewAdvice="onViewAdviceEvent"
-		  :onViewDetails="onViewDetailsEvent"
-		  :onReinitParameters="onReinitParametersEvent"
-		  :minPercent="minPercentAdvice"
-		  :maxPercent="maxPercentAdvice"
-		  :advicePercent="advicePercent"
-		  />
+		<div class="total-funding-container">
+			<TheProjectRoyaltiesAmount
+			  ref="royaltiesAmount"
+			  :onChange="onChangeRoyaltiesAmountEvent"
+			  :onViewAdvice="onViewAdviceEvent"
+			  :onViewDetails="onViewDetailsEvent"
+			  :onReinitParameters="onReinitParametersEvent"
+			  :minPercent="minPercentAdvice"
+			  :maxPercent="maxPercentAdvice"
+			  :advicePercent="advicePercent"
+			  />
 
-		<TheProjectEstimatedTurnoverByYear :onChange="refreshChart" />
+			<div class="estimation-margin-goal-container">
+				<TheProjectEstimatedTurnoverByYear :onChange="onChangeAutoAdviceEvent" />
 
-		<div class="margin-amount-container">
-			<TheProjectCommercialMargin :onChange="refreshChart" />
+				<div class="margin-amount-container">
+					<TheProjectCommercialMargin :onChange="onChangeAutoAdviceEvent" />
 
-			<TheProjectGoalAmount :onChange="refreshChart" />
+					<TheProjectGoalAmount :onChange="onChangeAutoAdviceEvent" />
+				</div>
+			</div>
 		</div>
 
 		<TheProjectRoyaltiesWarning :minPercent="minPercentAdvice" />
 
 		<TheProjectRoyaltiesChart ref="royaltiesChart" />
 
-		<WDGToggle
-		  colorChecked="#8BC79C"
-		  colorUnchecked="#333"
-		  :changeEvent="onChangeHasReadRoyalties"
-		  >
-			<slot slot="label-before">{{ $t('project-setup.project-funding.TOGGLE_LABEL') }}</slot>
-		</WDGToggle>
-
 		<TheProjectAdvice
 		  ref="royaltiesAdvice"
 		  :onReinitParameters="onReinitParametersEvent"
-		  :adviceAmount="advicePercent"
+		  :adviceAmount="advicePercentFormatted"
 		  v-if="canDisplayAdvice"
 		  />
+
+		<WDGToggle
+		  colorChecked="#8BC79C"
+		  colorUnchecked="#333"
+		  :changeEvent="onChangeHasReadRoyaltiesEvent"
+		  >
+			<slot slot="label-before">{{ $t('project-setup.project-funding.TOGGLE_LABEL') }}</slot>
+		</WDGToggle>
 
 		<div
 		  class="project-funding-navigation"
@@ -54,10 +58,10 @@
 			</a>
 
 			<WDGButton
-				color="red"
-				type="button"
-				:clickEvent="changeStepForward"
-				>
+			  color="red"
+			  type="button"
+			  :clickEvent="changeStepForward"
+			  >
 				<slot slot="label">{{ $t('project-setup.CONTINUE') }}</slot>
 			</WDGButton>
 		</div>
@@ -111,7 +115,21 @@ export default {
 		refreshChart: function () {
 			this.$refs.royaltiesChart.refreshChart()
 		},
-		onChangeHasReadRoyalties: function (newValue) {
+		setRoyaltiesAmountAsAdvice: function () {
+			this.sharedState.project.royaltiesAmount = this.advicePercent
+			this.$root.$emit('updateRoyaltiesPercent', this.sharedState.project.royaltiesAmount.toString().split('.').join(','))
+		},
+		onChangeRoyaltiesAmountEvent: function () {
+			this.sharedState.project.isAutoFilledRoyalties = false
+			this.refreshChart()
+		},
+		onChangeAutoAdviceEvent: function () {
+			if (this.sharedState.project.isAutoFilledRoyalties) {
+				this.setRoyaltiesAmountAsAdvice()
+			}
+			this.refreshChart()
+		},
+		onChangeHasReadRoyaltiesEvent: function (newValue) {
 			this.hasReadEstimatedRoyalties = newValue
 		},
 		onViewAdviceEvent: function () {
@@ -121,8 +139,8 @@ export default {
 			this.$refs.royaltiesChart.$el.scrollIntoView(true)
 		},
 		onReinitParametersEvent: function () {
-			this.sharedState.project.royaltiesAmount = this.advicePercent
-			this.$root.$emit('updateRoyaltiesPercent', this.sharedState.project.royaltiesAmount)
+			this.sharedState.project.isAutoFilledRoyalties = true
+			this.setRoyaltiesAmountAsAdvice()
 			this.$refs.royaltiesAmount.$el.scrollIntoView(true)
 			this.refreshChart()
 		}
@@ -149,12 +167,16 @@ export default {
 		advicePercent () {
 			if (this.totalTurnover > 0) {
 				let idealPercent = Math.ceil(this.sharedState.project.amountNeeded * 2 / this.totalTurnover * 10000000) / 100
-				return Math.max(Math.min(idealPercent, this.maxPercentAdvice), this.minPercentAdvice)
+				return Math.min(100, Math.max(Math.min(idealPercent, this.maxPercentAdvice), this.minPercentAdvice))
 			}
 			return 0
 		},
+		advicePercentFormatted () {
+			let advicePercentNum = this.advicePercent
+			return advicePercentNum.toString().split('.').join(',')
+		},
 		canDisplayAdvice () {
-			return this.sharedState.project.royaltiesAmount > 0
+			return this.sharedState.project.royaltiesAmount < this.minPercentAdvice || this.sharedState.project.royaltiesAmount > this.maxPercentAdvice
 		}
 	}
 }
@@ -172,32 +194,26 @@ div.the-screen-project-funding div.project-funding-subpart {
 div.the-screen-project-funding div.project-funding-subpart h3 {
 	margin: 0px;
 }
-
 div.the-screen-project-funding div.the-project-royalties-amount {
-	float: right;
-	width: 280px;
-	height: 350px;
+	order: 2;
+	margin-left: 16px;
+	width: 29%;
 }
 div.the-screen-project-funding div.the-project-estimated-turnover-by-year {
-	float: left;
-	width: calc(100% - 392px); /* 100% - ( padding 4 * 24px - marge 16px - royalties amount 280px ) */
 	margin-bottom: 16px;
 }
 div.the-screen-project-funding div.margin-amount-container {
-	float: left;
-	width: calc(100% - 344px); /* 100% - ( padding 2 * 24px - marge 16px - royalties amount 280px ) */
-	margin-bottom: 16px;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
 }
 div.the-screen-project-funding div.the-project-commercial-margin {
-	float: left;
-	width: 200px;
 	margin-right: 16px;
+	width: 39%;
 }
 div.the-screen-project-funding div.the-project-goal-amount {
-	float: left;
-	width: calc(100% - 312px); /* 100% - ( padding 2 * 24px - marge * 16px - commercial margin 200px ) */
+	width: 59%;
 }
-
 div.the-screen-project-funding div.the-project-royalties-warning {
 	clear: both;
 }
@@ -221,5 +237,14 @@ div.project-funding-navigation div.wdg-button {
 	display: inline-block;
 	width: 176px;
 	margin-left: 16px;
+}
+div.estimation-margin-goal-container {
+	display: flex;
+	flex-flow: row wrap;
+	width: 69%;
+}
+div.total-funding-container {
+	display: flex;
+	margin-top: 20px;
 }
 </style>

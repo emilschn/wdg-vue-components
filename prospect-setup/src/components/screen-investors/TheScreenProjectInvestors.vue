@@ -15,6 +15,27 @@
 			<slot slot="text">{{ $t('project-setup.project-investors.MASCOT_TEXT_2') }}</slot>
 		</WDGMascot>
 
+		<WDGMascot type="side-1" v-if="getMascotType == 'lovemoney'">
+			<slot slot="text">{{ $t('project-setup.project-investors.MASCOT_TEXT_LOVEMONEY') }}</slot>
+		</WDGMascot>
+
+		<WDGMascot type="face-1" v-if="getMascotType == 'private'">
+			<slot slot="text">{{ $t('project-setup.project-investors.MASCOT_TEXT_PRIVATE') }}</slot>
+		</WDGMascot>
+
+		<WDGMascot type="face-3" v-if="getMascotType == 'public'">
+			<slot slot="text">{{ $t('project-setup.project-investors.MASCOT_TEXT_PUBLIC') }}</slot>
+		</WDGMascot>
+
+		<WDGMascot type="face-2" v-if="getMascotType == 'already-done'" additionnalClass="mascot-align-bottom">
+			<slot slot="text">{{ $t('project-setup.project-investors.MASCOT_TEXT_ALREADY_DONE') }}</slot>
+		</WDGMascot>
+
+		<WDGMascot type="side-2" v-if="getMascotType == 'need-advice'" additionnalClass="mascot-align-bottom">
+			<slot slot="text">{{ $t('project-setup.project-investors.MASCOT_TEXT_NEED_ADVICE') }}</slot>
+		</WDGMascot>
+
+		<div class="communicate-form-container">
 		<div class="ready-to-communicate">
 			<div class="ready-to-communicate-question">
 				{{ $t('project-setup.project-investors.READY_TO_COMMUNICATE') }}
@@ -48,7 +69,8 @@
 				<WDGCheckbox
 				  id="alreadydonecrowdfunding"
 				  name="alreadydonecrowdfunding"
-				  v-bind:valueReturn.sync="sharedState.project.alreadydonecrowdfunding"
+				  :value="sharedState.project.alreadyDoneCrowdfunding"
+				  v-bind:valueReturn.sync="sharedState.project.alreadyDoneCrowdfunding"
 				  v-if="sharedState.project.circlesToCommunicate === 'public'"
 				  >
 					<slot slot="label-after">{{ $t('project-setup.project-investors.ALREADY_DONE_CROWDFUNDING') }}</slot>
@@ -57,12 +79,14 @@
 				<WDGCheckbox
 				  id="needcommunicationadvice"
 				  name="needcommunicationadvice"
-				  v-bind:valueReturn.sync="sharedState.project.needcommunicationadvice"
+				  :value="sharedState.project.needCommunicationAdvice"
+				  v-bind:valueReturn.sync="sharedState.project.needCommunicationAdvice"
 				  v-if="sharedState.project.circlesToCommunicate === 'public' || sharedState.project.circlesToCommunicate === 'private'"
 				  >
 					<slot slot="label-after">{{ $t('project-setup.project-investors.NEED_COMMUNICATION_ADVICE') }}</slot>
 				</WDGCheckbox>
 			</div>
+		</div>
 		</div>
 
 		<div class="project-investors-navigation clear" v-if="sharedState.project.circlesToCommunicate !== '' || sharedState.project.readyToCommunicate === false">
@@ -80,7 +104,7 @@
 		</div>
 
 		<TheProjectSave v-if="sharedState.project.readyToCommunicate !== ''" />
-	</div>
+		</div>
 </template>
 
 <script>
@@ -104,9 +128,7 @@ export default {
 	},
 	data () {
 		return {
-			sharedState: store.state,
-			alreadydonecrowdfunding: false,
-			needcommunicationadvice: false
+			sharedState: store.state
 		}
 	},
 	methods: {
@@ -134,6 +156,24 @@ export default {
 			if (this.sharedState.project.readyToCommunicate === false) {
 				return 'not-ready-communicate'
 			}
+			if (this.sharedState.project.needCommunicationAdvice) {
+				return 'need-advice'
+			}
+			if (this.sharedState.project.alreadyDoneCrowdfunding) {
+				return 'already-done'
+			}
+			if (this.sharedState.project.needCommunicationAdvice) {
+				return 'need-advice'
+			}
+			if (this.sharedState.project.circlesToCommunicate === 'public') {
+				return 'public'
+			}
+			if (this.sharedState.project.circlesToCommunicate === 'private') {
+				return 'private'
+			}
+			if (this.sharedState.project.circlesToCommunicate === 'lovemoney') {
+				return 'lovemoney'
+			}
 			return '1'
 		}
 	}
@@ -145,29 +185,51 @@ div.clear {
 	clear: both;
 }
 .the-screen-project-investors {
-	width: 780px;
+	width: 96%;
 	margin: auto;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+.the-screen-project-investors .the-tab-title {
+	width: 100%;
+	margin-bottom: 20px;
+}
+.the-screen-project-investors .wdg-mascot {
+	order: 2;
+	width: 49%;
+}
+.the-screen-project-investors .wdg-mascot.side-1, .wdg-mascot.face-1, .wdg-mascot.face-3 {
+	margin-top: 100px;
+}
+.the-screen-project-investors .wdg-mascot.mascot-align-bottom {
+	margin-top: 320px;
+}
+.the-screen-project-investors .communicate-form-container {
+	display: flex;
+	flex-direction: column;
+	width: 49%;
 }
 .the-screen-project-investors .ready-to-communicate {
-	float: left;
-	width: calc(100% - 280px);
 	text-align: center;
+	margin: 20px 0px;
 }
 .the-screen-project-investors .ready-to-communicate .ready-to-communicate-question {
-	text-align: left;
+	text-align: center;
 	margin-bottom: 16px;
 }
 .the-screen-project-investors .ready-to-communicate .wdg-button {
 	display: inline-block;
-	width: 40%;
+	width: 176px;
 	margin-right: 16px;
+}
+.the-screen-project-investors .form-content {
+	display: flex;
+	flex-wrap: wrap;
 }
 .the-screen-project-investors h3 {
 	font-size: 22px;
-}
-.the-screen-project-investors .form-content {
-	width: calc(100% - 280px); /* taille de la mascotte */
-	float: left;
+	width: 100%;
 }
 .the-screen-project-investors .checkboxes-container {
 	margin-top: 32px;
@@ -195,5 +257,13 @@ div.project-investors-navigation div.wdg-button {
 	display: inline-block;
 	width: 176px;
 	margin-left: 16px;
+}
+.the-screen-project-investors div.project-investors-navigation {
+	width: 100%;
+	order: 3;
+}
+.the-screen-project-investors .the-project-save {
+	width: 100%;
+	order: 4;
 }
 </style>
