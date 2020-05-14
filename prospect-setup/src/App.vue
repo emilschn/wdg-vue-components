@@ -167,4 +167,7 @@ div.loading-guid {
 	margin: 80px 0px;
 	text-align: center;
 }
+div.wdg-tabs li.selected div span.tab-label a {
+	visibility: hidden;
+}
 </style>

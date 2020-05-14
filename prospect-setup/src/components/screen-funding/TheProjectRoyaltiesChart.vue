@@ -212,6 +212,11 @@ div.the-project-royalties-chart {
 div.the-project-royalties-chart h3 {
 	font-size: 22px;
 }
+div.the-project-royalties-chart div.scenario-description {
+	max-width: 500px;
+	margin: 8px auto;
+	font-size: 14px;
+}
 div.the-project-royalties-chart div.chart-container {
 	margin-top: 32px;
 }

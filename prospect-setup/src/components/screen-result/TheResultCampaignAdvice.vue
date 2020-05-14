@@ -2,7 +2,7 @@
 	<div class="the-result-campaign-advice">
 		<div class="intro">
 			{{ $t('project-setup.project-result.YOU_CAN_RAISE') }}<br>
-			<span class="intro-amount">{{ amountRaised }} €</span><br>
+			<span class="intro-amount">{{ amountRaisedFormatted }} €</span><br>
 			<span v-if="sharedState.project.circlesToCommunicate === 'lovemoney'">{{ $t('project-setup.project-result.TARGET_LOVEMONEY') }}<br></span>
 			<span v-if="sharedState.project.circlesToCommunicate === 'private'">{{ $t('project-setup.project-result.TARGET_PRIVATE') }}<br></span>
 			<span v-if="sharedState.project.circlesToCommunicate === 'public'">{{ $t('project-setup.project-result.TARGET_PUBLIC') }}<br></span>
@@ -138,6 +138,9 @@ export default {
 		}
 	},
     computed: {
+		amountRaisedFormatted () {
+			return this.amountRaised.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
+		},
 		uncheckedItems () {
 			if (this.sharedState.project.circlesToCommunicate === 'lovemoney') {
 				return this.uncheckedItemsLoveMoney

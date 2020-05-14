@@ -100,7 +100,7 @@ export default {
 	computed: {
 		royaltiesPercentType () {
 			this.setRoyaltiesOK(false)
-			if (this.minPercent === 0 || this.maxPercent === 0) {
+			if (isNaN(this.minPercent) || this.minPercent === 0 || isNaN(this.maxPercent) || this.maxPercent === 0) {
 				return ''
 			} else if (this.maxPercent < this.minPercent) {
 				return 'not-ok'
@@ -109,6 +109,9 @@ export default {
 			} else if (this.sharedState.project.royaltiesAmount < this.minPercent) {
 				return 'warning-under'
 			} else if (this.sharedState.project.royaltiesAmount === '0' || this.sharedState.project.royaltiesAmount === 0 || this.sharedState.project.isAutoFilledRoyalties) {
+				if (this.sharedState.project.isAutoFilledRoyalties && this.sharedState.project.royaltiesAmount !== 0) {
+					this.setRoyaltiesOK(true)
+				}
 				return 'default'
 			}
 			this.setRoyaltiesOK(true)

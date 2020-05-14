@@ -247,7 +247,7 @@ export default {
 				tempAmountNeededStr = tempAmountNeededStr.split(',').join('.').split(' ').join('')
 				let tempAmountNeededNum = Number(tempAmountNeededStr)
 				tempAmountNeededNum = Math.min(500000, Math.max(10000, tempAmountNeededNum))
-				this.sharedState.project.amountNeeded = tempAmountNeededNum / 1000
+				this.sharedState.project.amountNeeded = Math.ceil(tempAmountNeededNum / 1000)
 			}
 		}
 	},

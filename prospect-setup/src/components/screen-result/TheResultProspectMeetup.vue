@@ -35,7 +35,7 @@
 			{{ $t('project-setup.project-result.prospect-meetup.PLAN_RENDEZVOUS_TEXT') }}
 		</div>
 
-		<div v-if="hasSentFiles" class="meetings-iframe-container" data-src="https://app.hubspot.com/meetings/emilien11?embed=true"></div>
+		<div v-if="hasSentFiles" class="meetings-iframe-container" data-src="https://app.hubspot.com/meetings/jean-david/rendez-vous-avec-we-do-good?embed=true"></div>
 	</div>
 </template>
 

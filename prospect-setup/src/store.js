@@ -66,22 +66,17 @@ export const store = {
 		let itemInvestors = this.tabItems[ 2 ]
 		let itemResult = this.tabItems[ 3 ]
 
+		// item de fin si déjà passé
+		if (itemResult.Status === 'complete') {
+			itemResult.LinkLabel = i18n.t('project-setup.tabs.SEE_RESULTS')
+			Vue.set(this.tabItems, 3, itemResult)
+		}
+
 		switch (newStep) {
 			case 'project-infos':
-				// item en cours
-				itemInfos.LinkLabel = ''
-
-				// item de fin si déjà passé
-				if (itemResult.Status === 'complete') {
-					itemResult.LinkLabel = i18n.t('project-setup.tabs.SEE_RESULTS')
-					Vue.set(this.tabItems, 3, itemResult)
-				}
 				break
 
 			case 'project-funding':
-				// item en cours
-				itemFunding.LinkLabel = ''
-
 				// item passé
 				if (itemInfos.Status === 'incomplete') {
 					this.saveProject()
@@ -89,43 +84,28 @@ export const store = {
 				itemInfos.Status = 'complete'
 				itemInfos.LinkLabel = i18n.t('project-setup.tabs.MODIFY')
 				Vue.set(this.tabItems, 0, itemInfos)
-
-				// item de fin si déjà passé
-				if (itemResult.Status === 'complete') {
-					itemResult.LinkLabel = i18n.t('project-setup.tabs.SEE_RESULTS')
-					Vue.set(this.tabItems, 3, itemResult)
-				}
 				break
 
 			case 'project-investors':
-				// item en cours
-				itemInvestors.LinkLabel = ''
-
 				// item passé
 				itemFunding.Status = 'complete'
 				itemFunding.LinkLabel = i18n.t('project-setup.tabs.MODIFY')
 				Vue.set(this.tabItems, 1, itemFunding)
-
-				// item de fin si déjà passé
-				if (itemResult.Status === 'complete') {
-					itemResult.LinkLabel = i18n.t('project-setup.tabs.SEE_RESULTS')
-					Vue.set(this.tabItems, 3, itemResult)
-				}
 				break
 
 			case 'project-result':
 				this.saveProject()
+
+				// item passé
+				itemInvestors.Status = 'complete'
+				itemInvestors.LinkLabel = i18n.t('project-setup.tabs.MODIFY')
+				Vue.set(this.tabItems, 2, itemInvestors)
 
 				// item en cours
 				itemResult.Subtitle = ''
 				itemResult.Status = 'complete'
 				itemResult.LinkLabel = ''
 				Vue.set(this.tabItems, 3, itemResult)
-
-				// item passé
-				itemInvestors.Status = 'complete'
-				itemInvestors.LinkLabel = i18n.t('project-setup.tabs.MODIFY')
-				Vue.set(this.tabItems, 2, itemInvestors)
 				break
 		}
 		window.scrollTo(0, 0)
