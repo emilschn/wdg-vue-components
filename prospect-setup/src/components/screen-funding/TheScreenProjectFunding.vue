@@ -117,7 +117,7 @@ export default {
 		},
 		setRoyaltiesAmountAsAdvice: function () {
 			this.sharedState.project.royaltiesAmount = this.advicePercent
-			this.$root.$emit('updateRoyaltiesPercent', this.sharedState.project.royaltiesAmount)
+			this.$root.$emit('updateRoyaltiesPercent', this.sharedState.project.royaltiesAmount.toString().split('.').join(','))
 		},
 		onChangeRoyaltiesAmountEvent: function () {
 			this.sharedState.project.isAutoFilledRoyalties = false
@@ -139,6 +139,7 @@ export default {
 			this.$refs.royaltiesChart.$el.scrollIntoView(true)
 		},
 		onReinitParametersEvent: function () {
+			this.sharedState.project.isAutoFilledRoyalties = true
 			this.setRoyaltiesAmountAsAdvice()
 			this.$refs.royaltiesAmount.$el.scrollIntoView(true)
 			this.refreshChart()

@@ -31,6 +31,7 @@
 			  :disabled="disabled"
 			  :required="isRequired"
 			  :type="type"
+			  :class="suffixClass"
 			  @input="onInputLocalEvent"
 			  @change="onChangeLocalEvent"
 			  />
@@ -43,6 +44,13 @@
 			  :required="isRequired"
 			  @input="onInputLocalEvent"
 			  />
+
+			<span
+			  v-if="!multiline && suffix !== ''"
+			  class="input-suffix"
+			  >
+			  {{ suffix }}
+			</span>
 		</ValidationProvider>
   	</div>
 </template>
@@ -66,13 +74,14 @@ export default {
 		multiline: { type: Boolean, default: false },
 		disabled: { type: Boolean, default: false },
 		honeypot: { type: Boolean, default: false },
+		suffix: { type: String, default: '' },
 		eventNameToListen: { type: String, default: '' },
 		validationRule: { type: String, default: '' },
 		onChange: Function
 	},
 	data () {
 		return {
-			valueReturn: this.value,
+			valueReturn: this.getAutoFormat(this.value),
 			isRequired: (this.validationRule.indexOf('required') > -1)
 		}
 	},
@@ -89,12 +98,16 @@ export default {
 			}
 		},
 		onChangeLocalEvent () {
-			if (this.autoFormat === 'wdg-number') {
-				this.valueReturn = this.getAutoFormatWDGNumber(this.valueReturn)
-			}
+			this.valueReturn = this.getAutoFormat(this.valueReturn)
 		},
 		updateValue (newValue) {
 			this.valueReturn = newValue
+		},
+		getAutoFormat (nInput) {
+			if (this.autoFormat === 'wdg-number' || this.autoFormat === 'wdg-percent') {
+				return this.getAutoFormatWDGNumber(nInput)
+			}
+			return nInput
 		},
 		getAutoFormatWDGNumber (nInput) {
 			// On passe les entiers en float avec .00 pour qu'ils soient reconnus par le pattern en dessous
@@ -102,10 +115,19 @@ export default {
 				nInput = parseFloat(nInput).toFixed(2)
 			}
 			let sInput = nInput.toString()
+			// Suppression des caractères non-numériques
+			sInput = sInput.replace(/[^\d.-]/g, '')
+			// Si pourcent, on reste entre 0 et 100
+			if (this.autoFormat === 'wdg-percent') {
+				if (Number(sInput) < 0) {
+					sInput = '0'
+				}
+				if (Number(sInput) > 100) {
+					sInput = '100'
+				}
+			}
 			// Remplacement . par , pour les décimales
 			sInput = sInput.split('.').join(',')
-			// Suppression des caractères non-numériques
-			sInput = sInput.replace(/[^\d,-]/g, '')
 			// Ecarts pour les milliers
 			sInput = sInput.replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
 
@@ -123,6 +145,9 @@ export default {
 		},
 		showComment () {
 			return !!this.$slots.comment
+		},
+		suffixClass () {
+			return (this.suffix !== '' ? 'has-suffix' : '')
 		}
 	}
 }
@@ -171,5 +196,22 @@ export default {
 		border-bottom: 2px solid #00879B;
 		padding-left: 10px;
 		font-weight: 500;
+	}
+
+	.wdg-input input.has-suffix {
+		width: -webkit-calc(100% - 32px);
+		width: -moz-calc(100% - 32px);
+		width: calc(100% - 32px);
+		padding-right: 24px;
+	}
+
+	.wdg-input span.input-suffix {
+		float: right;
+		height: 0px;
+		line-height: 40px;
+		position: relative;
+		top: -40px;
+		left: -8px;
+		font-size: 16px;
 	}
 </style>

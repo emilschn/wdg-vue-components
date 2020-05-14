@@ -7,12 +7,14 @@
 		<WDGInput
 		  id="royalties-amount"
 		  name="royalties-amount"
-		  :value="this.sharedState.project.royaltiesAmount"
-		  v-bind:valueReturn.sync="sharedState.project.royaltiesAmount"
+		  :value="valueReturn"
+		  v-bind:valueReturn.sync="valueReturn"
 		  v-bind:multiline="false"
 		  v-bind:optional="false"
+		  suffix="%"
+		  autoFormat="wdg-percent"
 		  eventNameToListen="updateRoyaltiesPercent"
-		  :onChange="onChange"
+		  :onChange="onChangeEvent"
 		  />
 
 		<div class="royalties-for-5-years">
@@ -78,18 +80,29 @@ export default {
 	},
 	data () {
 		return {
-			sharedState: store.state
+			sharedState: store.state,
+			valueReturn: store.state.project.royaltiesAmount.toString().split('.').join(',')
 		}
 	},
 	methods: {
 		setRoyaltiesOK (isOK) {
 			this.sharedState.project.royaltiesOK = isOK
+		},
+		onChangeEvent () {
+			let tempRoyaltiesAmountStr = this.valueReturn
+			tempRoyaltiesAmountStr = tempRoyaltiesAmountStr.split(',').join('.').split(' ').join('')
+			let tempRoyaltiesAmountNum = Number(tempRoyaltiesAmountStr)
+			tempRoyaltiesAmountNum = Math.min(100, Math.max(0, tempRoyaltiesAmountNum))
+			this.sharedState.project.royaltiesAmount = tempRoyaltiesAmountNum
+			this.onChange()
 		}
 	},
 	computed: {
 		royaltiesPercentType () {
 			this.setRoyaltiesOK(false)
-			if (this.maxPercent < this.minPercent) {
+			if (this.minPercent === 0 || this.maxPercent === 0) {
+				return ''
+			} else if (this.maxPercent < this.minPercent) {
 				return 'not-ok'
 			} else if (this.sharedState.project.royaltiesAmount > this.maxPercent) {
 				return 'warning-over'
@@ -123,6 +136,12 @@ div.the-project-royalties-amount .wdg-input input {
 	font-size: 32px;
 	text-align: center;
 	border: 1.5px solid #EBEBEB;
+	padding-right: 32px;
+}
+div.the-project-royalties-amount .wdg-input span.input-suffix {
+	left: -40px;
+	top: 8px;
+	font-size: 32px;
 }
 div.the-project-royalties-amount .royalties-for-5-years {
 	margin-bottom: 16px;
