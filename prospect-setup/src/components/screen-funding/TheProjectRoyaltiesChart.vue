@@ -123,7 +123,7 @@ export default {
 							}
 							// Si c'est les royalties
 							if (tooltipItem.datasetIndex === 1) {
-								value = data.datasets[1].data[tooltipItem.index] - data.datasets[0].data[tooltipItem.index]
+								value = Math.round(data.datasets[1].data[tooltipItem.index] - data.datasets[0].data[tooltipItem.index])
 							}
 
 							let valueFormatted = value.toString()

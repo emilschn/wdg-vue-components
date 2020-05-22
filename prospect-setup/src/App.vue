@@ -124,7 +124,6 @@ export default {
 
 			this.sharedState.organization.type = metadata.organization.type
 			this.sharedState.organization.name = metadata.organization.name
-			this.sharedState.organization.id = metadata.organization.id
 			this.sharedState.organization.description = metadata.organization.description
 			this.sharedState.organization.location = metadata.organization.location
 			this.sharedState.organization.amountNeeded = metadata.organization.amountNeeded

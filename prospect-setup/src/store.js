@@ -21,7 +21,6 @@ export const store = {
 		organization: {
 			type: '',
 			name: '',
-			id: '',
 			description: '',
 			location: '',
 			amountNeeded: '',
@@ -77,16 +76,21 @@ export const store = {
 				break
 
 			case 'project-funding':
-				// item passé
 				if (itemInfos.Status === 'incomplete') {
 					this.saveProject()
 				}
+
+				// item passé
 				itemInfos.Status = 'complete'
 				itemInfos.LinkLabel = i18n.t('project-setup.tabs.MODIFY')
 				Vue.set(this.tabItems, 0, itemInfos)
 				break
 
 			case 'project-investors':
+				if (itemFunding.Status === 'incomplete') {
+					this.saveProject()
+				}
+
 				// item passé
 				itemFunding.Status = 'complete'
 				itemFunding.LinkLabel = i18n.t('project-setup.tabs.MODIFY')
@@ -94,7 +98,9 @@ export const store = {
 				break
 
 			case 'project-result':
-				this.saveProject()
+				if (itemInvestors.Status === 'incomplete') {
+					this.saveProject()
+				}
 
 				// item passé
 				itemInvestors.Status = 'complete'

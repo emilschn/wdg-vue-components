@@ -42,7 +42,7 @@
 		  amount="500"
 		  :amountReduction="$t('project-setup.project-result.options.REDUCTION')"
 		  :checkedItems="checkedItemsOptionStandard"
-		  v-if="!sharedState.project.alreadyDoneCrowdfunding && !sharedState.project.needCommunicationAdvice"
+		  v-if="!sharedState.project.alreadyDoneCrowdfunding && !sharedState.project.needCommunicationAdvice && sharedState.project.circlesToCommunicate !== 'lovemoney'"
 		  >
 			<slot slot="title">{{ $t('project-setup.project-result.options.standard.TITLE') }}</slot>
 			<slot slot="text">{{ $t('project-setup.project-result.options.standard.TEXT') }}</slot>

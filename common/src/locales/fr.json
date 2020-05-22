@@ -158,12 +158,13 @@
 				"NEED_EMAIL": "Une fois que votre e-mail est renseigné, vous pouvez reprendre votre test à tout moment.",
 				"NOT_CREATED": "WE DO GOOD pourra vous accompagner une fois la société immatriculée.",
 				"MICROBUSINESS": "WE DO GOOD ne peut accompagner que des activités portées par des personnes morales.",
-				"OUT_EURO": "WE DO GOOD ne peut accompagner que des organisations immatriculées dans la zone Euro."
+				"OUT_EURO": "WE DO GOOD ne peut accompagner que des organisations immatriculées dans la zone Euro.",
+				"LESS_10K": "WE DO GOOD ne peut accompagner que pour des montants supérieurs à 10 000 €."
 			}
 		},
 		"project-funding": {
 			"TITLE": "Mon financement",
-			"TOGGLE_LABEL": "J'ai bien lu le prévisionnel des versements",
+			"TOGGLE_LABEL": "J'ai bien compris le prévisionnel des versements de royalties",
 			"the-project-goal-amount": {
 				"TITLE": "Je souhaite lever en €",
 				"TOOLTIP": "Ce montant est le maximum que vous souhaitez lever en échange de royalties.",
@@ -209,7 +210,7 @@
 				},
 				"scenario-description": {
 					"AS_PLANNED": "Les royalties suivent la progression de votre chiffre d’affaires.",
-					"LESS_THAN_PLANNED": "Si vous faites moins de chiffre d'affaires que prévu, vous reverserez moins de royalties (ou zéro s'il n'y a pas de chiffres d'affaires du tout).",
+					"LESS_THAN_PLANNED": "Si vous faites moins de chiffre d'affaires que prévu, vous reverserez moins de royalties (ou zéro s'il n'y a pas de chiffres d'affaires du tout). Les versements continuent jusqu’au remboursement des investisseurs.",
 					"MORE_THAN_PLANNED": "Si vous faites plus de chiffre d'affaires que prévu, vous reversez plus de royalties, sachant que le gain maximum pour vos investisseurs est plafonné au triple et que les contrats de versement de royalties ont une durée déterminée (5 ans).",
 					"STOP_THE_ROYALTIES": "Vous avez la possibilité de résilier votre contrat de manière anticipée en cas de besoin.",
 					"ACTIVITY_STOP": "Si malheureusement votre entreprise dépose le bilan, vos investisseurs perdront leur investissement, mais ils auront récupéré des royalties jusqu'à ce moment-là. Vous n'avez pas de garantie à fournir."

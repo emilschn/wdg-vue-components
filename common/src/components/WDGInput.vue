@@ -116,6 +116,7 @@ export default {
 			}
 			let sInput = nInput.toString()
 			// Suppression des caractères non-numériques
+			sInput = sInput.split(',').join('.')
 			sInput = sInput.replace(/[^\d.-]/g, '')
 			// Si pourcent, on reste entre 0 et 100
 			if (this.autoFormat === 'wdg-percent') {

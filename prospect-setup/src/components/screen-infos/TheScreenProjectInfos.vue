@@ -28,6 +28,10 @@
 			<slot slot="text">{{ $t('project-setup.project-infos.mascot-text.OUT_EURO') }}</slot>
 		</WDGMascot>
 
+		<WDGMascot type="face-3" v-if="getMascotType == 'less-10k'">
+			<slot slot="text">{{ $t('project-setup.project-infos.mascot-text.LESS_10K') }}</slot>
+		</WDGMascot>
+
 		<WDGForm>
 			<div>
 				{{ $t('project-setup.project-infos.FORM_TEXT_ORGANIZATION_TYPE') }}
@@ -79,16 +83,6 @@
 				  name="organizationName"
 				  :value="sharedState.organization.name"
 				  v-bind:valueReturn.sync="sharedState.organization.name"
-				  customStyle="natural-language"
-			  	  />,
-
-				{{ $t('project-setup.project-infos.FORM_TEXT_ORGANIZATION_ID') }}
-
-				<WDGInput
-				  id="organizationID"
-				  name="organizationID"
-				  :value="sharedState.organization.id"
-				  v-bind:valueReturn.sync="sharedState.organization.id"
 				  customStyle="natural-language"
 			  	  />.
 			</div>
@@ -234,7 +228,8 @@ export default {
 			],
 			userName: '',
 			userMail: '',
-			userPhone: ''
+			userPhone: '',
+			currentTypedOrganizationAmountNeeded: 0
 		}
 	},
 	methods: {
@@ -246,8 +241,15 @@ export default {
 				let tempAmountNeededStr = this.sharedState.organization.amountNeeded
 				tempAmountNeededStr = tempAmountNeededStr.split(',').join('.').split(' ').join('')
 				let tempAmountNeededNum = Number(tempAmountNeededStr)
+				if (tempAmountNeededStr !== '') {
+					this.currentTypedOrganizationAmountNeeded = tempAmountNeededNum
+				}
 				tempAmountNeededNum = Math.min(500000, Math.max(10000, tempAmountNeededNum))
 				this.sharedState.project.amountNeeded = Math.ceil(tempAmountNeededNum / 1000)
+
+				tempAmountNeededStr = tempAmountNeededStr.replace(/[^\d.-]/g, '')
+				tempAmountNeededStr = tempAmountNeededStr.split('.').join(',')
+				this.sharedState.organization.amountNeeded = tempAmountNeededStr
 			}
 		}
 	},
@@ -285,6 +287,8 @@ export default {
 					return 'microbusiness'
 				} else if (this.sharedState.organization.location === 'out-euro') {
 					return 'out-euro'
+				} else if (this.currentTypedOrganizationAmountNeeded > 0 && this.currentTypedOrganizationAmountNeeded < 10000) {
+					return 'less-10k'
 				}
 
 				return '1'
