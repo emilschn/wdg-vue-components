@@ -305,6 +305,9 @@ export default {
 		line-height: 60px;
 		font-weight: 500;
 	}
+	.the-screen-project-infos input#organizationDescription {
+		width: 370px;
+	}
 	.the-screen-project-infos .wdg-form .wdg-button {
 		text-align: center;
 	}

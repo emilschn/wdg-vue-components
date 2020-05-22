@@ -93,8 +93,9 @@ export default {
 	color: #ffffff;
 }
 .wdg-file-list input {
-	max-width: 100%;
-	margin-bottom: 10px;
+	max-width: 95%;
+	font-size: 16px;
+	margin: 10px 0px;
 	padding: 10px;
 	background-color: #fff;
 }

@@ -329,7 +329,9 @@
 				"SEND_EMAIL": "Envoyez-nous un mail à projets@wedogood.co"
 			},
 			"prospect-meetup": {
-				"ADD_FILES_TEXT": "Pour préparer notre rencontre, votre business plan et un prévisionnel financier comportant un plan de financement et un compte de résultat prévisionnel sont nécessaires",
+				"ADD_FILES_TEXT": "Pour préparer notre rencontre, ces fichiers sont nécessaires :",
+				"FILE_BUSINESS_PLAN": "- Business plan",
+				"FILE_PREVISIONNEL": "- Un prévisionnel financier comportant un plan de financement et un compte de résultat prévisionnel",
 				"SEND_FILES_INPUT_LABEL": "Pouvez-vous nous en dire un peu plus sur votre projet et vos éventuelles questions ?",
 				"PLAN_RENDEZVOUS": "Prendre rendez-vous",
 				"PLAN_RENDEZVOUS_TEXT": "Parlons-en ! Pour démarrer votre projet et vous conseiller au mieux, prenez rendez-vous !"
