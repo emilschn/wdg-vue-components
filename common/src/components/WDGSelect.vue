@@ -52,7 +52,7 @@ export default {
 
 .wdg-select.natural-language select {
 	display: inline-block;
-	width: min-content;
+	width: 250px;
 	padding: 10px 30px 5px 0px;
 	padding-left: 10px;
 	font-weight: 500;

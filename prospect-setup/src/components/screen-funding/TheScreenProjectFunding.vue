@@ -247,4 +247,7 @@ div.total-funding-container {
 	display: flex;
 	margin-top: 20px;
 }
+.wdg-select.natural-language #turnoverScenario {
+	width: fit-content;
+}
 </style>
