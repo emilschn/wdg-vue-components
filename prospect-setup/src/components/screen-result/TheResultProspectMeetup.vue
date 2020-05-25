@@ -9,9 +9,11 @@
 			  :initFileList="sharedProps.initFileList"
 			  :onFileListChange="onFileListChangeEvent"
 			  >
-					<slot slot="label">{{ $t('project-setup.project-result.prospect-meetup.ADD_FILES_TEXT') }}</slot>
-					<slot slot="label">{{ $t('project-setup.project-result.prospect-meetup.FILE_BUSINESS_PLAN') }}</slot>
-					<slot slot="label">{{ $t('project-setup.project-result.prospect-meetup.FILE_PREVISIONNEL') }}</slot>
+					<slot slot="label">
+						{{ $t('project-setup.project-result.prospect-meetup.ADD_FILES_TEXT') }}<br>
+						{{ $t('project-setup.project-result.prospect-meetup.FILE_BUSINESS_PLAN') }}<br>
+						{{ $t('project-setup.project-result.prospect-meetup.FILE_PREVISIONNEL') }}
+					</slot>
 			</WDGFileList>
 
 			<WDGInput
