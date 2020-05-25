@@ -170,4 +170,15 @@ export default {
     .wdg-mascot{
         max-width: 300px;
     }
+@media only screen and (max-width: 767px) {
+    .the-screen-intro .content {
+        flex-direction: column;
+    }
+    .the-screen-intro .time {
+        margin-bottom: 50px;
+    }
+    .wdg-mascot {
+        display: none;
+    }
+}
 </style>

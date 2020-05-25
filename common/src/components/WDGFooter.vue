@@ -60,4 +60,27 @@ export default {
     display: inline-block;
     width:160px;
 }
+@media only screen and (max-width: 767px) {
+.footer {
+    flex-wrap: wrap;
+    height: 220px;
+    overflow: hidden;
+}
+.footer .title {
+    font-size: 18px;
+    width: 140px;
+    margin-top: 20px;
+}
+.footer .text {
+    font-size: 12px;
+    width: 140px;
+    margin-bottom: 20px;
+}
+.footer .logo_ifp img {
+    width: 75px;
+}
+.footer .logo_bcorp img {
+    width: 50px;
+}
+}
 </style>

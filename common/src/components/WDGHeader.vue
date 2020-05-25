@@ -50,4 +50,18 @@ hr {
     border-bottom: 1px solid #f4f2f2;
 	width: 100%;
 }
+@media screen and (max-width: 767px) {*
+.header {
+	align-items: center;
+}
+.header .logo img {
+	width: 70%;
+	margin-left: 20px;
+}
+.header .title{
+	font-size: 16px;
+	width: 120px;
+	margin-right: 20px;
+}
+}
 </style>
