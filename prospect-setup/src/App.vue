@@ -23,7 +23,12 @@
 		<TheScreenProjectResult v-if="!loading && sharedState.step === 'project-result'" />
 
 		<div class="loading-guid" v-if="loading">
-			...
+			<WDGLoader
+			  v-if="loading"
+			  type="ring"
+			  color="grey"
+			  >
+			</WDGLoader>
 		</div>
 
 		<WDGFooter />
@@ -35,6 +40,7 @@ import axios from 'axios'
 import { store } from './store.js'
 import WDGHeader from '@/../../common/src/components/WDGHeader'
 import WDGTabs from '@/../../common/src/components/WDGTabs'
+import WDGLoader from '@/../../common/src/components/WDGLoader'
 import TheScreenIntro from './components/screen-intro/TheScreenIntro.vue'
 import TheScreenProjectInfos from './components/screen-infos/TheScreenProjectInfos.vue'
 import TheScreenProjectFunding from './components/screen-funding/TheScreenProjectFunding.vue'
@@ -49,6 +55,7 @@ export default {
 		WDGTabs,
 		WDGHeader,
 		WDGFooter,
+		WDGLoader,
 		TheScreenIntro,
 		TheScreenProjectInfos,
 		TheScreenProjectFunding,
@@ -66,10 +73,6 @@ export default {
 	created () {
 		this.sharedState.guid = initElements.dataset.guid
 		this.sharedProps.ajaxurl = initElements.dataset.ajaxurl
-
-		/* let hubspotScript = document.createElement('script')
-		hubspotScript.setAttribute('src', '//js.hs-scripts.com/1860698.js')
-		document.head.appendChild(hubspotScript) */
 
 		if (this.sharedState.guid !== undefined) {
 			this.loading = true

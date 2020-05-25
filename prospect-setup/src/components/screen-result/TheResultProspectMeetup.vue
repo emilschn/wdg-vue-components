@@ -31,6 +31,12 @@
 			  >
 				<slot slot="label">{{ $t('common.SEND') }}</slot>
 			</WDGButton>
+
+			<WDGLoader
+			  v-if="loading"
+			  type="ring"
+			  >
+			</WDGLoader>
 		</WDGForm>
 
 		<div v-if="hasSentFiles" class="title-text">
@@ -47,6 +53,7 @@ import { store } from '../../store.js'
 import WDGForm from '@/../../common/src/components/WDGForm'
 import WDGFileList from '@/../../common/src/components/WDGFileList'
 import WDGInput from '@/../../common/src/components/WDGInput'
+import WDGLoader from '@/../../common/src/components/WDGLoader'
 import WDGButton from '@/../../common/src/components/WDGButton'
 export default {
 	name: 'TheResultProspectMeetup',
@@ -54,6 +61,7 @@ export default {
 		WDGForm,
 		WDGFileList,
 		WDGInput,
+		WDGLoader,
 		WDGButton
 	},
 	data () {
@@ -158,5 +166,8 @@ div.the-result-prospect-meetup .wdg-form textarea {
 }
 div.the-result-prospect-meetup .wdg-form, div.the-result-prospect-meetup .wdg-button button {
 	margin-bottom: 0px;
+}
+div.the-result-prospect-meetup .wdg-loader {
+	text-align: center;
 }
 </style>
