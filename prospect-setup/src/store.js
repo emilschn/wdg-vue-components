@@ -125,8 +125,10 @@ export const store = {
 
 		let shouldSendResult = false
 		if (this.state.step === 'project-result' && this.state.hasSentResult !== '1') {
-			shouldSendResult = true
-			this.state.hasSentResult = '1'
+			if (this.state.organization.type !== 'microbusiness' && this.state.organization.location !== 'out-euro' && this.state.project.readyToCommunicate && this.state.project.royaltiesOK) {
+				shouldSendResult = true
+				this.state.hasSentResult = '1'
+			}
 		}
 
 		let data = new FormData()
