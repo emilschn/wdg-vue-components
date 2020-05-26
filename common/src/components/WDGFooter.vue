@@ -64,7 +64,10 @@ export default {
 .footer {
     flex-wrap: wrap;
     height: 220px;
-    overflow: hidden;
+}
+.footer div {
+    width: 45%;
+    text-align: center;
 }
 .footer .title {
     font-size: 18px;

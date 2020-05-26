@@ -103,4 +103,43 @@ export default {
 	text-decoration: underline;
 	cursor: pointer;
 }
+@media screen and (max-width: 767px) {
+.wdg-tabs ul {
+	display: flex;
+	flex-direction: column;
+	height: auto;
+	width: 80%;
+	margin: auto;
+}
+.wdg-tabs ul li {
+	width: 100%;
+	border-bottom: 1px solid #B4B4B4;
+}
+.wdg-tabs ul li .selected {
+	border-bottom: 4px solid #00879B;
+}
+.wdg-tabs ul li div span.tab-label::after {
+	border-style: solid;
+	border-width: 0.25em 0.25em 0 0;
+	content: '';
+	display: inline-block;
+	height: 0.45em;
+	left: 0.15em;
+	position: relative;
+	vertical-align: top;
+	width: 0.45em;
+	top: 0;
+	transform: rotate(135deg);
+}
+.wdg-tabs ul li div {
+	border-right: none;
+}
+.wdg-tabs ul li div span.tab-label {
+	font-size: 18px;
+	margin: auto 20px;
+}
+.wdg-tabs ul li div span.tab-label span.subtitle {
+	margin-left: 20px;
+}
+}
 </style>

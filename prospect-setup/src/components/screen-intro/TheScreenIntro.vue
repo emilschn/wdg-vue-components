@@ -180,5 +180,8 @@ export default {
     .wdg-mascot {
         display: none;
     }
+    .the-screen-intro button {
+        max-width: 200px;
+    }
 }
 </style>

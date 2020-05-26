@@ -72,7 +72,7 @@ export default {
 .the-tab-title h2 {
 	font-size: 24px;
 	text-align: center;
-	margin: 40px 0px;
+	margin: 30px 0px 10px 0px;
 }
 }
 </style>

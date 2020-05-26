@@ -50,7 +50,7 @@ hr {
     border-bottom: 1px solid #f4f2f2;
 	width: 100%;
 }
-@media screen and (max-width: 767px) {*
+@media screen and (max-width: 767px) {
 .header {
 	align-items: center;
 }
