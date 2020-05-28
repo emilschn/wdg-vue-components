@@ -266,4 +266,53 @@ div.project-investors-navigation div.wdg-button {
 	width: 100%;
 	order: 4;
 }
+@media only screen and (max-width: 767px) {
+.the-screen-project-investors .communicate-form-container {
+	width: 100%;
+}
+.the-screen-project-investors .ready-to-communicate .wdg-button {
+	margin-right: 0;
+	margin: 5px;
+}
+button.transparent {
+	font-size: 16px;
+}
+.the-screen-project-investors h3 {
+	text-align: center;
+}
+div.the-project-investors-circles div.circle-public {
+	width: 200px;
+	height: 200px;
+}
+div.the-project-investors-circles div.circle-private {
+	width: 65%;
+	height: 65%;
+	margin: 35px auto;
+	top: 0;
+	left: 0;
+}
+div.the-project-investors-circles div.circle-lovemoney {
+	width: 40%;
+	height: 40%;
+	margin: 40px auto;
+	top: 0;
+	left: 0;
+}
+div.the-project-investors-circles {
+	flex-direction: column;
+	align-items: center;
+}
+div.the-project-investors-circles div.button-list {
+	margin-right: 0;
+	max-width: none;
+	width: 50%;
+}
+div.the-project-investors-circles div.button-list button {
+	font-size: 16px;
+	width: 200px;
+}
+div.project-investors-navigation a {
+	font-size: 16px;
+}
+}
 </style>

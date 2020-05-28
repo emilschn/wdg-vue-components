@@ -69,4 +69,9 @@ button.transparent {
 	background: #FFF;
 	color: #333
 }
+@media only screen and (max-width: 767px) {
+	button.red {
+		font-size: 16px;
+	}
+}
 </style>

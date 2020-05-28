@@ -318,4 +318,22 @@ export default {
 	.the-screen-project-infos .wdg-mascot.face-2 {
 		margin-top: 100px;
 	}
+	@media screen and (max-width: 767px) {
+	.the-screen-project-infos .wdg-form {
+		text-align: center;
+		line-height: 40px;
+	}
+	.the-screen-project-infos .wdg-select.natural-language select, .the-screen-project-infos .wdg-input.natural-language input {
+		width: 85%;
+		margin-bottom: 40px;
+		font-size: 18px;
+		text-align: center;
+	}
+	.the-screen-project-infos input#organizationDescription {
+		width: 250px;
+	}
+	.the-screen-project-infos .wdg-form button {
+		max-width: 200px;
+	}
+	}
 </style>

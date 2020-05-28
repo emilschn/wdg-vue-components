@@ -68,4 +68,11 @@ export default {
 .the-tab-title-timer svg, .the-tab-title-timer image {
 	margin-right: 3px;
 }
+@media only screen and (max-width: 767px) {
+.the-tab-title h2 {
+	font-size: 24px;
+	text-align: center;
+	margin: 30px 0px 10px 0px;
+}
+}
 </style>

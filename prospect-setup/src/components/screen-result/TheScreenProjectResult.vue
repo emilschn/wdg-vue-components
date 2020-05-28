@@ -72,4 +72,22 @@ export default {
 .the-screen-project-result div.result-container div.the-result-campaign-advice, .the-screen-project-result div.result-container div.the-result-prospect-meetup {
 	width: 40%;
 }
+@media only screen and (max-width: 767px) {
+.the-screen-project-result {
+	width: auto;
+}
+.the-screen-project-result div.result-container {
+	flex-direction: column;
+	align-items: center;
+}
+.the-screen-project-result div.result-container div.the-result-campaign-advice, .the-screen-project-result div.result-container div.the-result-prospect-meetup {
+	width: 80%;
+}
+.the-screen-project-result div.result-container div.the-result-prospect-meetup {
+	margin-top: 16px;
+}
+div.the-result-prospect-meetup .wdg-button button {
+	text-align: center;
+}
+}
 </style>

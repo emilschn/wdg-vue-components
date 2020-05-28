@@ -250,4 +250,77 @@ div.total-funding-container {
 .wdg-select.natural-language #turnoverScenario {
 	width: fit-content;
 }
+@media only screen and (max-width: 767px) {
+div.total-funding-container {
+	flex-direction: column;
+	justify-content: center;
+}
+div.estimation-margin-goal-container {
+	width: 100%;
+}
+div.the-screen-project-funding div.margin-amount-container {
+	flex-wrap: wrap;
+}
+div.the-screen-project-funding div.the-project-commercial-margin {
+	width: 100%;
+	margin-right: 0;
+}
+div.the-screen-project-funding div.the-project-goal-amount {
+	width: 100%;
+	margin: 16px 0px;
+}
+div.the-screen-project-funding div.the-project-royalties-amount {
+	width: 100%;
+	margin-left: 0;
+	padding: 20px 0px;
+}
+div.the-project-estimated-turnover-by-year {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+div.the-project-estimated-turnover-by-year-item {
+	width: 90%;
+}
+div.the-screen-project-funding div.project-funding-subpart h3 {
+	text-align: center;
+}
+div.the-project-commercial-margin .wdg-input {
+	width: 90%;
+	margin: 16px auto;
+}
+div.the-screen-project-funding .wdg-slider {
+	width: 80%;
+	margin: auto;
+}
+div.the-project-royalties-amount .wdg-input input {
+	padding: 5px 0px;
+}
+div.the-screen-project-funding div.the-project-royalties-warning {
+	max-width: 90%;
+	margin: 16px auto;
+}
+div.the-project-royalties-chart h3 {
+	margin-top: 50px;
+}
+div.the-screen-project-funding #bar-chart {
+	width: 90% !important; /* écrasement de la taille du graphique pour le mobile sinon ce n'est pas pris en compte */
+	height: 60% !important;
+	margin-bottom: 40px;
+}
+div.wdg-toggle span.wdg-toggle-label.before {
+	width: 250px;
+	text-align: left;
+	font-size: 14px;
+	vertical-align: middle;
+	margin-right: 30px;
+}
+div.project-funding-navigation a {
+	font-size: 16px;
+}
+.the-screen-project-investors .checkboxes-container {
+	width: 95%;
+	margin-left: auto;
+}
+}
 </style>
