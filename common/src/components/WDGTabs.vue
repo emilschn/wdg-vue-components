@@ -17,10 +17,11 @@
 
 					<span class="tab-label">
 						<span v-if="tabItem.Index">{{ tabItem.Index }}.</span>
-						{{ tabItem.Label }}<br>
+						{{ tabItem.Label }}
 						<span class="subtitle" v-if="tabItem.Subtitle">{{ tabItem.Subtitle }}</span>
 						<a @click="onClickLocalEvent(tabItem.Id)" v-if="tabItem.LinkLabel">{{ tabItem.LinkLabel }}</a>
 					</span>
+					<svg width="25" height="25" class="chevron-down"><image xlink:href="@/../../common/src/assets/icons/chevron-down-solid.svg" src="@/../../common/src/assets/icons/chevron-down-solid.png" width="25" height="25" /></svg>
 				</div>
 			</li>
 		</ul>
@@ -99,9 +100,9 @@ export default {
 	font-size: 17px;
 }
 .wdg-tabs ul li div span.tab-label span.subtitle, .wdg-tabs ul li div span.tab-label a {
-	display: inline-block;
+	display: block;
 	margin-top: 8px;
-	margin-left: 10px;
+	margin-left: 65px;
 	font-size: 13px;
 	font-weight: 400;
 	color: #B4B4B4;
@@ -109,9 +110,15 @@ export default {
 .wdg-tabs ul li div span.tab-label span.subtitle {
 	text-decoration: none;
 }
+.wdg-tabs ul li div span.tab-label:last-of-type .subtitle {
+	margin-left: 10px;
+}
 .wdg-tabs ul li div span.tab-label a {
 	text-decoration: underline;
 	cursor: pointer;
+}
+.wdg-tabs .chevron-down {
+	display: none;
 }
 
 @media screen and (max-width: 767px) {
@@ -126,6 +133,7 @@ export default {
 		display: none;
 		width: 100%;
 		border-bottom: 1px solid #B4B4B4;
+		padding: 10px 5px;
 	}
 	.wdg-tabs ul li.selected {
 		display: block;
@@ -134,29 +142,39 @@ export default {
 	.wdg-tabs ul li.selected div {
 		border-right: none;
 		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
 	}
 	.wdg-tabs ul li.expanded {
 		display: block;
 	}
-	.wdg-tabs ul li div span.tab-label::after {
-		border-style: solid;
-		border-width: 0.25em 0.25em 0 0;
-		content: '';
-		display: inline-block;
-		height: 0.45em;
-		left: 0.15em;
-		position: relative;
-		vertical-align: top;
-		width: 0.45em;
-		top: 0;
-		transform: rotate(135deg);
+	.wdg-tabs ul li.expanded div {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	.wdg-tabs ul li div {
+		border-right: none;
 	}
 	.wdg-tabs ul li div span.tab-label {
 		font-size: 18px;
-		margin: auto 20px;
+	}
+	.wdg-tabs ul li div span.tab-label a {
+		display: none;
 	}
 	.wdg-tabs ul li div span.tab-label span.subtitle {
 		margin-left: 20px;
+	}
+	.wdg-tabs svg, .wdg-tabs image {
+		width: 35px;
+		height: 35px;
+	}
+	.wdg-tabs .chevron-down, .wdg-tabs .chevron-down image {
+		display: block;
+		float: none;
+		width: 25px;
+		height: 25px;
 	}
 }
 </style>
