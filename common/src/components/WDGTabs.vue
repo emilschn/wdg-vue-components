@@ -16,8 +16,12 @@
 					</svg>
 
 					<span class="tab-label">
-						<span v-if="tabItem.Index">{{ tabItem.Index }}.</span>
-						{{ tabItem.Label }}
+						<span v-if="tabItem.Index">{{ tabItem.Index }}.&nbsp;</span>
+						<span class="full-size">{{ tabItem.Label }}</span>
+						<span class="responsive">
+							<span v-if="tabItem.LinkLabel && tabItem.Id !== currentTab"><a @click="onClickLocalEvent(tabItem.Id)">{{ tabItem.Label }}</a></span>
+							<span v-else>{{ tabItem.Label }}</span>
+						</span>
 						<span class="subtitle" v-if="tabItem.Subtitle">{{ tabItem.Subtitle }}</span>
 						<a @click="onClickLocalEvent(tabItem.Id)" v-if="tabItem.LinkLabel">{{ tabItem.LinkLabel }}</a>
 					</span>
@@ -57,6 +61,9 @@ export default {
 </script>
 
 <style>
+.responsive {
+	display: none;
+}
 .wdg-tabs {
 	margin-top: -1px;
 }
@@ -117,11 +124,20 @@ export default {
 	text-decoration: underline;
 	cursor: pointer;
 }
+div.wdg-tabs li.selected div span.tab-label a {
+	visibility: hidden;
+}
 .wdg-tabs .chevron-down {
 	display: none;
 }
 
 @media screen and (max-width: 767px) {
+	.full-size {
+		display: none;
+	}
+	span.responsive {
+		display: inline;
+	}
 	.wdg-tabs ul {
 		display: flex;
 		flex-direction: column;
@@ -162,6 +178,12 @@ export default {
 	}
 	.wdg-tabs ul li div span.tab-label a {
 		display: none;
+	}
+	.wdg-tabs ul li div span.tab-label span.responsive a {
+		display: inline;
+		margin: 0px;
+		font-weight: 600;
+		font-size: 17px;
 	}
 	.wdg-tabs ul li div span.tab-label span.subtitle {
 		margin-left: 20px;
