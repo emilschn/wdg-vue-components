@@ -318,6 +318,9 @@ div.wdg-toggle span.wdg-toggle-label.before {
 div.project-funding-navigation a {
 	font-size: 16px;
 }
+div.project-funding-navigation div.wdg-button {
+	margin-top: 20px;
+}
 .the-screen-project-investors .checkboxes-container {
 	width: 95%;
 	margin-left: auto;

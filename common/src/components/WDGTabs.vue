@@ -168,7 +168,6 @@ div.wdg-tabs li.selected div span.tab-label a {
 	.wdg-tabs ul li.expanded div {
 		display: flex;
 		align-items: center;
-		justify-content: space-between;
 	}
 	.wdg-tabs ul li div {
 		border-right: none;
@@ -197,6 +196,12 @@ div.wdg-tabs li.selected div span.tab-label a {
 		float: none;
 		width: 25px;
 		height: 25px;
+	}
+	.wdg-tabs .expanded .chevron-down {
+		display: none;
+	}
+	.wdg-tabs .selected.expanded .chevron-down {
+		display: block;
 	}
 }
 </style>

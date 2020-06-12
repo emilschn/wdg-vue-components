@@ -131,4 +131,10 @@ div.the-project-investors-circles button.button-lovemoney.selected::before {
 	content: "\002713";
 	margin-right: 5px;
 }
+@media only screen and (max-width: 767px) {
+	div.the-project-investors-circles div.circle.inner {
+		left: 0;
+		top: 0;
+	}
+}
 </style>

@@ -303,9 +303,8 @@ div.the-project-investors-circles {
 	align-items: center;
 }
 div.the-project-investors-circles div.button-list {
-	margin-right: 0;
-	max-width: none;
-	width: 50%;
+	text-align: center;
+	margin-top: 30px;
 }
 div.the-project-investors-circles div.button-list button {
 	font-size: 16px;
