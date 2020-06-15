@@ -313,5 +313,8 @@ div.the-project-investors-circles div.button-list button {
 div.project-investors-navigation a {
 	font-size: 16px;
 }
+div.project-investors-navigation button.red {
+	margin-top: 20px;
+}
 }
 </style>

@@ -25,7 +25,7 @@
 						<span class="subtitle" v-if="tabItem.Subtitle">{{ tabItem.Subtitle }}</span>
 						<a @click="onClickLocalEvent(tabItem.Id)" v-if="tabItem.LinkLabel">{{ tabItem.LinkLabel }}</a>
 					</span>
-					<svg width="25" height="25" class="chevron-down"><image xlink:href="@/../../common/src/assets/icons/chevron-down-solid.svg" src="@/../../common/src/assets/icons/chevron-down-solid.png" width="25" height="25" /></svg>
+					<svg width="25" height="25" class="points-menu"><image xlink:href="@/../../common/src/assets/icons/points-menu.svg" src="@/../../common/src/assets/icons/points-menu.png" width="25" height="25" /></svg>
 				</div>
 			</li>
 		</ul>
@@ -127,7 +127,7 @@ export default {
 div.wdg-tabs li.selected div span.tab-label a {
 	visibility: hidden;
 }
-.wdg-tabs .chevron-down {
+.wdg-tabs .points-menu {
 	display: none;
 }
 
@@ -191,16 +191,16 @@ div.wdg-tabs li.selected div span.tab-label a {
 		width: 35px;
 		height: 35px;
 	}
-	.wdg-tabs .chevron-down, .wdg-tabs .chevron-down image {
+	.wdg-tabs .points-menu, .wdg-tabs .points-menu image {
 		display: block;
 		float: none;
 		width: 25px;
 		height: 25px;
 	}
-	.wdg-tabs .expanded .chevron-down {
+	.wdg-tabs .expanded .points-menu {
 		display: none;
 	}
-	.wdg-tabs .selected.expanded .chevron-down {
+	.wdg-tabs .selected.expanded .points-menu {
 		display: block;
 	}
 }
