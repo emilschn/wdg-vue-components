@@ -7,7 +7,7 @@
 			<span v-if="sharedState.project.circlesToCommunicate === 'private'">{{ $t('project-setup.project-result.TARGET_PRIVATE') }}<br></span>
 			<span v-if="sharedState.project.circlesToCommunicate === 'public'">{{ $t('project-setup.project-result.TARGET_PUBLIC') }}<br></span>
 			{{ $t('project-setup.project-result.YOU_WILL_PAY') }}
-			{{ percentRoyalties }} %
+			{{ percentRoyaltiesFormatted }} %
 			{{ $t('project-setup.project-result.OF_YOUR_TURNOVER') }}<br>
 		</div>
 
@@ -138,6 +138,9 @@ export default {
 		}
 	},
     computed: {
+		percentRoyaltiesFormatted () {
+			return this.percentRoyalties.toString().split('.').join(',')
+		},
 		amountRaisedFormatted () {
 			return this.amountRaised.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
 		},

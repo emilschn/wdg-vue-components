@@ -17,6 +17,7 @@
 			  :minPercent="minPercentAdvice"
 			  :maxPercent="maxPercentAdvice"
 			  :advicePercent="advicePercent"
+			  :totalTurnover="totalTurnover"
 			  />
 
 			<div class="estimation-margin-goal-container">

@@ -21,6 +21,12 @@
 			{{ $t('project-setup.project-funding.royalties-amount.OF_MY_QUARTERLY_TURNOVER') }}
 		</div>
 
+		<div class="yield-for-investors" v-if="royaltiesPercentType == 'default' || royaltiesPercentType == 'custom'">
+			{{ $t('project-setup.project-funding.royalties-amount.YIELD_FOR_INVESTORS_1') }}
+			<span>{{ yieldValueFormatted }}</span>
+			{{ $t('project-setup.project-funding.royalties-amount.YIELD_FOR_INVESTORS_2') }}
+		</div>
+
 		<div class="advice default" v-if="royaltiesPercentType == 'default'">
 			{{ $t('project-setup.project-funding.royalties-amount.ROYALTIES_PERCENT_DEFAULT', { adviceMinPercent: minPercentFormatted, adviceMaxPercent: maxPercentFormatted }) }}
 		</div>
@@ -76,17 +82,24 @@ export default {
 		onReinitParameters: { type: Function },
 		advicePercent: { type: Number, default: 1 },
 		minPercent: { type: Number, default: 1 },
-		maxPercent: { type: Number, default: 2 }
+		maxPercent: { type: Number, default: 2 },
+		totalTurnover: { type: Number, default: 0 }
 	},
 	data () {
 		return {
 			sharedState: store.state,
-			valueReturn: store.state.project.royaltiesAmount.toString().split('.').join(',')
+			valueReturn: store.state.project.royaltiesAmount.toString().split('.').join(','),
+			yield: 0
 		}
 	},
 	methods: {
 		setRoyaltiesOK (isOK) {
 			this.sharedState.project.royaltiesOK = isOK
+		},
+		setYield () {
+			let royaltiesTotal = this.sharedState.project.royaltiesAmount * this.totalTurnover / 100
+			let realAmountNeeded = this.sharedState.project.amountNeeded * 1000
+			this.yield = Math.round(royaltiesTotal / realAmountNeeded * 100) / 100
 		},
 		onChangeEvent () {
 			let tempRoyaltiesAmountStr = this.valueReturn
@@ -116,6 +129,10 @@ export default {
 			}
 			this.setRoyaltiesOK(true)
 			return 'custom'
+		},
+		yieldValueFormatted () {
+			this.setYield()
+			return 'x' + this.yield.toString().split('.').join(',')
 		},
 		minPercentFormatted () {
 			return this.minPercent.toString().split('.').join(',')
@@ -150,6 +167,14 @@ div.the-project-royalties-amount .royalties-for-5-years {
 	margin-bottom: 16px;
 	font-size: 14px;
 	color: #555;
+}
+div.the-project-royalties-amount .yield-for-investors {
+	margin-bottom: 16px;
+	font-size: 13px;
+	color: #555;
+}
+div.the-project-royalties-amount .yield-for-investors span {
+	font-weight: bold;
 }
 div.the-project-royalties-amount .advice {
 	margin: 16px 0px;

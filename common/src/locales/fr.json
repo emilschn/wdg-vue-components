@@ -183,6 +183,8 @@
 			"royalties-amount": {
 				"TITLE": "Royalties que je cèderais",
 				"OF_MY_QUARTERLY_TURNOVER": "de mon CA trimestriel pendant 5 ans *",
+				"YIELD_FOR_INVESTORS_1": "soit un rendement de",
+				"YIELD_FOR_INVESTORS_2": "pour mes investisseurs",
 				"ROYALTIES_PERCENT_DEFAULT": "Vous pouvez personnaliser ce taux. WE DO GOOD vous conseille un taux entre {adviceMinPercent} % et {adviceMaxPercent} %.",
 				"ROYALTIES_PERCENT_WARNING_OVER": "Le pourcentage est trop élevé par rapport à votre niveau de marge, les royalties risqueraient de fragiliser votre modèle économique. WE DO GOOD vous conseille un taux entre {adviceMinPercent} % et {adviceMaxPercent} %.",
 				"ROYALTIES_PERCENT_WARNING_UNDER": "Le pourcentage est trop faible, vous devez avoir déjà validé votre modèle économique (plus de 100 000 € de chiffre d'affaires) pour valider ce pourcentage.  WE DO GOOD vous conseille un taux entre {adviceMinPercent} % et {adviceMaxPercent} %.",
