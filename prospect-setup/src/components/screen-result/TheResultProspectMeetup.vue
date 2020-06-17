@@ -45,7 +45,7 @@
 			{{ $t('project-setup.project-result.prospect-meetup.PLAN_RENDEZVOUS_TEXT') }}
 		</div>
 
-		<div v-if="hasSentFiles" class="meetings-iframe-container" data-src="https://app.hubspot.com/meetings/jean-david/rendez-vous-avec-we-do-good?embed=true"></div>
+		<div v-if="hasSentFiles" class="meetings-iframe-container" :data-src="meetingURL"></div>
 	</div>
 </template>
 
@@ -139,6 +139,30 @@ export default {
 				.finally (() => {
 					this.loading = true
 				})
+		}
+	},
+	computed: {
+		meetingURL () {
+			console.log('meetingURL')
+			let sParams = ''
+			if (this.sharedState.user.email !== '') {
+				sParams += '&email=' + escape(this.sharedState.user.email)
+			}
+			if (this.sharedState.user.phone !== '') {
+				sParams += '&phone=' + escape(this.sharedState.user.phone)
+			}
+			if (this.sharedState.user.name !== '') {
+				let aNameSplit = this.sharedState.user.name.split(' ')
+				if (aNameSplit.length > 1) {
+					let sFirstName = aNameSplit[0]
+					let sLastName = aNameSplit[1]
+					sParams += '&firstname=' + escape(sFirstName)
+					sParams += '&lastname=' + escape(sLastName)
+				} else {
+					sParams += '&lastname=' + escape(this.sharedState.user.name)
+				}
+			}
+			return 'https://app.hubspot.com/meetings/jean-david/rendez-vous-avec-we-do-good?embed=true' + sParams
 		}
 	}
 }
