@@ -87,6 +87,10 @@ export const store = {
 				break
 
 			case 'project-investors':
+				if (itemInfos.Status === 'incomplete') {
+					itemInfos.Status = 'complete'
+					itemInfos.LinkLabel = i18n.t('project-setup.tabs.MODIFY')
+				}
 				if (itemFunding.Status === 'incomplete') {
 					this.saveProject()
 				}
@@ -98,6 +102,14 @@ export const store = {
 				break
 
 			case 'project-result':
+				if (itemInfos.Status === 'incomplete') {
+					itemInfos.Status = 'complete'
+					itemInfos.LinkLabel = i18n.t('project-setup.tabs.MODIFY')
+				}
+				if (itemFunding.Status === 'incomplete') {
+					itemFunding.Status = 'complete'
+					itemFunding.LinkLabel = i18n.t('project-setup.tabs.MODIFY')
+				}
 				if (itemInvestors.Status === 'incomplete') {
 					this.saveProject()
 				}
