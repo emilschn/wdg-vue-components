@@ -27,10 +27,10 @@ export const CheckedAfter = () => ({
 
 export const InFormUncheckedAfter = () => ({
   components: { WDGCheckbox },
-  template: '<div class="wdg-form"><WDGCheckbox :value="false"><slot slot="label-after">J\'accepte</slot></WDGCheckbox></div>',
+  template: '<div class="wdg-form"><WDGCheckbox :value="false" style="font-family: Trebuchet MS;"><slot slot="label-after">J\'accepte</slot></WDGCheckbox></div>',
 });
 
 export const InFormCheckedAfter = () => ({
   components: { WDGCheckbox },
-  template: '<div class="wdg-form"><WDGCheckbox :value="true"><slot slot="label-after">J\'accepte</slot></WDGCheckbox></div>',
+  template: '<div class="wdg-form"><WDGCheckbox :value="true" style="font-family: Trebuchet MS;"><slot slot="label-after">J\'accepte</slot></WDGCheckbox></div>',
 });
