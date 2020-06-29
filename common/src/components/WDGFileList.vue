@@ -46,7 +46,7 @@ export default {
 		id: { type: String, default: null },
 		name: { type: String, default: null },
 		disabled: { type: Boolean, default: false },
-		initFileList: { type: Array },
+		initFileList: { type: Array, default: () => [] },
 		initNbFiles: { type: Number, default: 1 },
 		onFileListChange: Function
 	},
