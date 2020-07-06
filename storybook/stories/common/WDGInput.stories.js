@@ -7,5 +7,5 @@ export default {
 
 export const Default = () => ({
     components: { WDGInput },
-    template: '<WDGInput><div class="wdg-input><label :for="id"><div class="wdg-input-comment><slot name="comment"></slot></div><span class="input-suffix"></span></label></div></WDGInput>',
+    template: '<div class="wdg-form"><WDGInput><div class="wdg-input><label :for="id"><div class="wdg-input-comment><slot name="comment"></slot></div><span class="input-suffix"></span></label></div></WDGInput></div>',
   });
