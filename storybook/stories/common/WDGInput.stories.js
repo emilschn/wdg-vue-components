@@ -5,7 +5,32 @@ export default {
   component: WDGInput,
 };
 
-export const Default = () => ({
-    components: { WDGInput },
-    template: '<div class="wdg-form"><WDGInput><div class="wdg-input><label :for="id"><div class="wdg-input-comment><slot name="comment"></slot></div><span class="input-suffix"></span></label></div></WDGInput></div>',
-  });
+export const SingleLine = () => ({
+	components: { WDGInput },
+	template: '<WDGInput></WDGInput>',
+});
+
+export const SingleLineLabel = () => ({
+	components: { WDGInput },
+	template: '<WDGInput><slot slot="label">Name :</slot></WDGInput>',
+});
+
+export const SingleLineLabelComment = () => ({
+	components: { WDGInput },
+	template: '<WDGInput><slot slot="label">Label</slot><slot slot="comment">Comment</slot></WDGInput>',
+});
+
+export const SingleLineLabelGreyBG = () => ({
+	components: { WDGInput },
+	template: '<div style="background: grey; width: 100%; height: 100px;"><WDGInput><slot slot="label">Name :</slot></WDGInput></div>',
+});
+
+export const SingleLineGreyBG = () => ({
+	components: { WDGInput },
+	template: '<div style="background: grey; width: 100%; height: 100px;"><WDGInput></WDGInput></div>',
+});
+
+export const MultilineGreyBG = () => ({
+	components: { WDGInput },
+	template: '<div style="background: grey; width: 100%; height: 100px;"><WDGInput :multiline="true"></WDGInput></div>',
+});
