@@ -1,16 +1,58 @@
 import WDGSelect from './../../../common/src/components/WDGSelect';
 
 export default {
-    title: 'WDGSelect',
-    component: WDGSelect,
-  };
+	title: 'WDGSelect',
+	component: WDGSelect,
+};
 
-  export const Empty = () => ({
-    components: { WDGSelect },
-    template: '<WDGSelect></WDGSelect>',
-  });
+const listMultipleItems = [
+	{ Id: '1', Text: 'First item' },
+	{ Id: '2', Text: 'Second item' },
+	{ Id: '3', Text: 'Third item' }
+];
 
-  export const Default = () => ({ // pas de style qui s'applique
-    components: { WDGSelect },
-    template: '<div class="wdg-form"><WDGSelect class="wdg-select"><label:for="id">Une liste déroulante</label><select><option>Le choix numéro 1</option></select></WDGSelect></div>',
-  });
+const listMultipleItemsLong = [
+	{ Id: '1', Text: 'First long long long long item' },
+	{ Id: '2', Text: 'Second long long long long item' },
+	{ Id: '3', Text: 'Third long long long long item' }
+];
+
+export const Default = () => ({
+	components: { WDGSelect },
+	template: '<WDGSelect></WDGSelect>',
+});
+
+export const DefaultItems = () => ({
+	components: { WDGSelect },
+	template: '<WDGSelect :optionItems="optionItems"></WDGSelect>',
+	props: {
+		optionItems: {
+			default: () => listMultipleItems
+		}
+	},
+});
+
+export const DefaultItemsSelected = () => ({
+	components: { WDGSelect },
+	template: '<WDGSelect :optionItems="optionItems" value="2"></WDGSelect>',
+	props: {
+		optionItems: {
+			default: () => listMultipleItems
+		}
+	},
+});
+
+export const DefaultItemsLong = () => ({
+	components: { WDGSelect },
+	template: '<WDGSelect :optionItems="optionItems"></WDGSelect>',
+	props: {
+		optionItems: {
+			default: () => listMultipleItemsLong
+		}
+	},
+});
+
+export const NaturalLanguage = () => ({
+	components: { WDGSelect },
+	template: '<WDGSelect customStyle="natural-language"></WDGSelect>',
+});
