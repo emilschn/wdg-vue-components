@@ -40,14 +40,24 @@ export const DefaultLongText = () => ({ // va à la ligne à cause de la largeur
   template: '<WDGButton><slot slot="label">Découvrir tous les projets</slot></WDGButton>', 
 });
 
+export const AlignCenter = () => ({
+  components: { WDGButton },
+  template: '<div style="text-align: center;"><WDGButton color="red"><slot slot="label">Continuer</slot></WDGButton><br><br><br><WDGButton color="blue"><slot slot="label">Continuer</slot></WDGButton></div>',
+});
+
 export const DefaultAlignCenter = () => ({
   components: { WDGButton },
-  template: '<WDGButton style="text-align: center;"><slot slot="label">Continuer</slot></WDGButton>',
+  template: '<div style="text-align: center;"><WDGButton><slot slot="label">Continuer</slot></WDGButton></div>',
 });
 
 export const DefaultAlignRight = () => ({
   components: { WDGButton },
-  template: '<WDGButton style="text-align: right;"><slot slot="label">Continuer</slot></WDGButton>',
+  template: '<div style="text-align: right;"><WDGButton><slot slot="label">Continuer</slot></WDGButton></div>',
+});
+
+export const BlackBG = () => ({
+  components: { WDGButton },
+  template: '<div style="background: #333; width: 100%; height: 100px;"><WDGButton><slot slot="label">Continuer</slot></WDGButton></div>',
 });
 
 export const Black = () => ({ // ne fonctionne pas
