@@ -40,11 +40,6 @@ export const DefaultLongText = () => ({ // va à la ligne à cause de la largeur
   template: '<WDGButton><slot slot="label">Découvrir tous les projets</slot></WDGButton>', 
 });
 
-export const AlignCenter = () => ({
-  components: { WDGButton },
-  template: '<div style="text-align: center;"><WDGButton color="red"><slot slot="label">Continuer</slot></WDGButton><br><br><br><WDGButton color="blue"><slot slot="label">Continuer</slot></WDGButton></div>',
-});
-
 export const DefaultAlignCenter = () => ({
   components: { WDGButton },
   template: '<div style="text-align: center;"><WDGButton><slot slot="label">Continuer</slot></WDGButton></div>',
@@ -57,55 +52,88 @@ export const DefaultAlignRight = () => ({
 
 export const BlackBG = () => ({
   components: { WDGButton },
-  template: '<div style="background: #333; width: 100%; height: 100px;"><WDGButton><slot slot="label">Continuer</slot></WDGButton></div>',
+  template: '<div style="background: #333; width: 100%; height: 300px;"><WDGButton><slot slot="label">Continuer</slot></WDGButton><WDGButton color="blue"><slot slot="label">Continuer</slot></WDGButton><WDGButton color="facebook"><slot slot="label">Continuer</slot></WDGButton><WDGButton color="transparent"><slot slot="label">Continuer</slot></WDGButton></div>',
 });
 
-export const Black = () => ({ // ne fonctionne pas
+export const GreyBG = () => ({
   components: { WDGButton },
-  template: '<WDGButton style="color: #333;"><slot slot="label">Continuer</slot></WDGButton>', 
+  template: '<div style="background: #e1e2e3; width: 100%; height: 300px;"><WDGButton><slot slot="label">Continuer</slot></WDGButton><WDGButton color="blue"><slot slot="label">Continuer</slot></WDGButton><WDGButton color="facebook"><slot slot="label">Continuer</slot></WDGButton><WDGButton color="transparent"><slot slot="label">Continuer</slot></WDGButton></div>',
 });
 
-export const Grey = () => ({ // ne fonctionne pas + gris de la nouvelle charte
+export const RedBG = () => ({
   components: { WDGButton },
-  template: '<WDGButton style="color: #e1e2e3;"><slot slot="label">Continuer</slot></WDGButton>', 
+  template: '<div style="background: #EA4F51; width: 100%; height: 300px;"><WDGButton><slot slot="label">Continuer</slot></WDGButton><WDGButton color="blue"><slot slot="label">Continuer</slot></WDGButton><WDGButton color="facebook"><slot slot="label">Continuer</slot></WDGButton><WDGButton color="transparent"><slot slot="label">Continuer</slot></WDGButton></div>',
 });
 
-export const Pink = () => ({ // ne fonctionne pas + rose de la nouvelle charte
+export const BlueBG = () => ({
   components: { WDGButton },
-  template: '<WDGButton style="color: #f9cbcb;"><slot slot="label">Continuer</slot></WDGButton>', 
+  template: '<div style="background: #00879B; width: 100%; height: 300px;"><WDGButton><slot slot="label">Continuer</slot></WDGButton><WDGButton color="blue"><slot slot="label">Continuer</slot></WDGButton><WDGButton color="facebook"><slot slot="label">Continuer</slot></WDGButton><WDGButton color="transparent"><slot slot="label">Continuer</slot></WDGButton></div>',
 });
 
-export const Green = () => ({ // ne fonctionne pas + vert de la nouvelle charte
+export const GreenBG = () => ({
   components: { WDGButton },
-  template: '<WDGButton style="color: #5EB82C;"><slot slot="label">Continuer</slot></WDGButton>', 
+  template: '<div style="background: #5EB82C; width: 100%; height: 300px;"><WDGButton><slot slot="label">Continuer</slot></WDGButton><WDGButton color="blue"><slot slot="label">Continuer</slot></WDGButton><WDGButton color="facebook"><slot slot="label">Continuer</slot></WDGButton><WDGButton color="transparent"><slot slot="label">Continuer</slot></WDGButton></div>',
 });
 
-export const Yellow = () => ({ // ne fonctionne pas + jaune de la nouvelle charte
+export const YellowBG = () => ({
   components: { WDGButton },
-  template: '<WDGButton style="color: #EBCE67;"><slot slot="label">Continuer</slot></WDGButton>', 
+  template: '<div style="background: #EBCE67; width: 100%; height: 300px;"><WDGButton><slot slot="label">Continuer</slot></WDGButton><WDGButton color="blue"><slot slot="label">Continuer</slot></WDGButton><WDGButton color="facebook"><slot slot="label">Continuer</slot></WDGButton><WDGButton color="transparent"><slot slot="label">Continuer</slot></WDGButton></div>',
 });
 
-export const DefaultLowercase = () => ({ // ne fonctionne pas
+export const PinkBG = () => ({
   components: { WDGButton },
-  template: '<WDGButton style="text-transform: none;"><slot slot="label">Continuer</slot></WDGButton>', 
-});
-
-export const DefaultNormalWeight = () => ({ // ne fonctionne pas
-  components: { WDGButton },
-  template: '<WDGButton style="font-weight: 400;"><slot slot="label">Continuer</slot></WDGButton>', 
-});
-
-export const DefaultItalic = () => ({ // ne fonctionne pas
-  components: { WDGButton },
-  template: '<WDGButton style="font-style: italic;"><slot slot="label">Continuer</slot></WDGButton>', 
-});
-
-export const DefaultUnderline= () => ({  // ne fonctionne pas
-  components: { WDGButton },
-  template: '<WDGButton style="text-decoration: underline;"><slot slot="label">Continuer</slot></WDGButton>', 
+  template: '<div style="background: #F9CBCB; width: 100%; height: 300px;"><WDGButton><slot slot="label">Continuer</slot></WDGButton><WDGButton color="blue"><slot slot="label">Continuer</slot></WDGButton><WDGButton color="facebook"><slot slot="label">Continuer</slot></WDGButton><WDGButton color="transparent"><slot slot="label">Continuer</slot></WDGButton></div>',
 });
 
 export const DefaultMargin= () => ({  
   components: { WDGButton },
-  template: '<WDGButton style="margin: 20px;"><slot slot="label">Continuer</slot></WDGButton>', 
+  template: '<div style="margin: 20px;"><WDGButton><slot slot="label">Continuer</slot></WDGButton></div>', 
 });
+
+//// Cas ne fonctionnant pas mais pas dans la charte graphique
+
+export const Black = () => ({ 
+  components: { WDGButton },
+  template: '<div style="color: #333;"><WDGButton style="color: #333;"><slot slot="label">Continuer</slot></WDGButton>', 
+});
+
+export const Grey = () => ({ 
+  components: { WDGButton },
+  template: '<div style="color: #e1e2e3;"><WDGButton><slot slot="label">Continuer</slot></WDGButton></div>', 
+});
+
+export const Pink = () => ({ 
+  components: { WDGButton },
+  template: '<div style="color: #f9cbcb;"><WDGButton><slot slot="label">Continuer</slot></WDGButton></div>', 
+});
+
+export const Green = () => ({ 
+  components: { WDGButton },
+  template: '<div style="color: #5EB82C;"><WDGButton><slot slot="label">Continuer</slot></WDGButton></div>', 
+});
+
+export const Yellow = () => ({ 
+  components: { WDGButton },
+  template: '<div style="color: #EBCE67;"><WDGButton><slot slot="label">Continuer</slot></WDGButton></div>', 
+});
+
+export const DefaultLowercase = () => ({ 
+  components: { WDGButton },
+  template: '<div style="text-transform: none;"><WDGButton><slot slot="label">Continuer</slot></WDGButton></div>', 
+});
+
+export const DefaultNormalWeight = () => ({ 
+  components: { WDGButton },
+  template: '<div style="font-weight: 400;"><WDGButton><slot slot="label">Continuer</slot></WDGButton></div>', 
+});
+
+export const DefaultItalic = () => ({ 
+  components: { WDGButton },
+  template: '<div style="font-style: italic;"><WDGButton><slot slot="label">Continuer</slot></WDGButton></div>', 
+});
+
+export const DefaultUnderline= () => ({  
+  components: { WDGButton },
+  template: '<div style="text-decoration: underline;"><WDGButton><slot slot="label">Continuer</slot></WDGButton></div>', 
+});
+
