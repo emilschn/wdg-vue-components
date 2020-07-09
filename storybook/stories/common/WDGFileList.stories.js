@@ -35,7 +35,7 @@ export const OneFile = () => ({
 
 export const OneFileBlackBackground = () => ({
 	components: { WDGFileList },
-	template: '<div style="background: black;"><WDGFileList :initFileList="initFileList"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList></div>',
+	template: '<div style="background: #333;"><WDGFileList :initFileList="initFileList"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList></div>',
 	i18n,
 	props: {
 		initFileList: {
@@ -46,7 +46,7 @@ export const OneFileBlackBackground = () => ({
 
 export const OneFileGreyBackground = () => ({
 	components: { WDGFileList },
-	template: '<WDGFileList :initFileList="initFileList" style="background-color: #e1e2e3; font-family: Trebuchet MS;"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList>',
+	template: '<div style="background-color: #e1e2e3; font-family: Trebuchet MS;"><WDGFileList :initFileList="initFileList"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList></div>',
 	i18n,
 	props: {
 		initFileList: {
@@ -57,7 +57,7 @@ export const OneFileGreyBackground = () => ({
 
 export const OneFileBlueBackground = () => ({ 
 	components: { WDGFileList },
-	template: '<WDGFileList :initFileList="initFileList" style="background-color: #00879B; font-family: Trebuchet MS;"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList>',
+	template: '<div style="background-color: #00879B; font-family: Trebuchet MS;"><WDGFileList :initFileList="initFileList"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList></div>',
 	i18n,
 	props: {
 		initFileList: {
@@ -68,7 +68,7 @@ export const OneFileBlueBackground = () => ({
 
 export const OneFilePinkBackground = () => ({ // pas très lisible le texte blanc sur rose + rose de la nouvelle charte
 	components: { WDGFileList },
-	template: '<WDGFileList :initFileList="initFileList" style="background-color: #F9CBCB; font-family: Trebuchet MS;"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList>',
+	template: '<div style="background-color: #F9CBCB; font-family: Trebuchet MS;"><WDGFileList :initFileList="initFileList"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList></div>',
 	i18n,
 	props: {
 		initFileList: {
@@ -79,7 +79,7 @@ export const OneFilePinkBackground = () => ({ // pas très lisible le texte blan
 
 export const OneFileGreenBackground = () => ({ // vert de la nouvelle charte
 	components: { WDGFileList },
-	template: '<WDGFileList :initFileList="initFileList" style="background-color: #5EB82C; font-family: Trebuchet MS;"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList>',
+	template: '<div style="background-color: #5EB82C; font-family: Trebuchet MS;"><WDGFileList :initFileList="initFileList"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList></div>',
 	i18n,
 	props: {
 		initFileList: {
@@ -90,7 +90,7 @@ export const OneFileGreenBackground = () => ({ // vert de la nouvelle charte
 
 export const OneFileYellowBackground = () => ({ // pas très lisible le texte blanc sur jaune + jaune de la nouvelle charte
 	components: { WDGFileList },
-	template: '<WDGFileList :initFileList="initFileList" style="background-color: #EBCE67; font-family: Trebuchet MS;"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList>',
+	template: '<div style="background-color: #EBCE67; font-family: Trebuchet MS;"><WDGFileList :initFileList="initFileList"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList></div>',
 	i18n,
 	props: {
 		initFileList: {
@@ -101,7 +101,7 @@ export const OneFileYellowBackground = () => ({ // pas très lisible le texte bl
 
 export const OneFileBlackBackgroundUppercase = () => ({
 	components: { WDGFileList },
-	template: '<WDGFileList :initFileList="initFileList" style="background-color: #333; font-family: Trebuchet MS; text-transform: uppercase;"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList>',
+	template: '<div style="background-color: #333; font-family: Trebuchet MS; text-transform: uppercase;"><WDGFileList :initFileList="initFileList"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList></div>',
 	i18n,
 	props: {
 		initFileList: {
@@ -112,7 +112,7 @@ export const OneFileBlackBackgroundUppercase = () => ({
 
 export const OneFileBlackBackgroundBold = () => ({
 	components: { WDGFileList },
-	template: '<WDGFileList :initFileList="initFileList" style="background-color: #333; font-family: Trebuchet MS; font-weight: 700;"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList>',
+	template: '<div style="background-color: #333; font-family: Trebuchet MS; font-weight: 700;"><WDGFileList :initFileList="initFileList"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList></div>',
 	i18n,
 	props: {
 		initFileList: {
@@ -123,7 +123,7 @@ export const OneFileBlackBackgroundBold = () => ({
 
 export const OneFileBlackBackgroundAlignCenter = () => ({ // le petit point avant "fichier 1" reste à gauche
 	components: { WDGFileList },
-	template: '<WDGFileList :initFileList="initFileList" style="background-color: #333; font-family: Trebuchet MS; text-align: center;"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList>',
+	template: '<div style="background-color: #333; font-family: Trebuchet MS; text-align: center;"><WDGFileList :initFileList="initFileList"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList></div>',
 	i18n,
 	props: {
 		initFileList: {
@@ -134,7 +134,7 @@ export const OneFileBlackBackgroundAlignCenter = () => ({ // le petit point avan
 
 export const OneFileBlackBackgroundAlignRight = () => ({ // le petit point avant "fichier 1" reste à gauche
 	components: { WDGFileList },
-	template: '<WDGFileList :initFileList="initFileList" style="background-color: #333; font-family: Trebuchet MS; text-align: right;"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList>',
+	template: '<div style="background-color: #333; font-family: Trebuchet MS; text-align: right;"><WDGFileList :initFileList="initFileList"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList></div>',
 	i18n,
 	props: {
 		initFileList: {
@@ -145,7 +145,7 @@ export const OneFileBlackBackgroundAlignRight = () => ({ // le petit point avant
 
 export const OneFileBlackBackgroundItalic = () => ({ 
 	components: { WDGFileList },
-	template: '<WDGFileList :initFileList="initFileList" style="background-color: #333; font-family: Trebuchet MS; font-style: italic"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList>',
+	template: '<div style="background-color: #333; font-family: Trebuchet MS; font-style: italic"><WDGFileList :initFileList="initFileList"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList></div>',
 	i18n,
 	props: {
 		initFileList: {
@@ -156,7 +156,7 @@ export const OneFileBlackBackgroundItalic = () => ({
 
 export const OneFileBlackBackgroundUnderline = () => ({ 
 	components: { WDGFileList },
-	template: '<WDGFileList :initFileList="initFileList" style="background-color: #333; font-family: Trebuchet MS; text-decoration: underline #fff;"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList>',
+	template: '<div style="background-color: #333; font-family: Trebuchet MS; text-decoration: underline #fff;"><WDGFileList :initFileList="initFileList"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList></div>',
 	i18n,
 	props: {
 		initFileList: {
@@ -167,7 +167,7 @@ export const OneFileBlackBackgroundUnderline = () => ({
 
 export const OneFileBlackText = () => ({ // ne modifie que le texte "aucun fichier choisi"
 	components: { WDGFileList },
-	template: '<WDGFileList :initFileList="initFileList" style="color: #333;"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList>',
+	template: '<div style="color: #333;"><WDGFileList :initFileList="initFileList"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList></div>',
 	i18n,
 	props: {
 		initFileList: {
@@ -178,7 +178,7 @@ export const OneFileBlackText = () => ({ // ne modifie que le texte "aucun fichi
 
 export const OneFileBlueText = () => ({ // ne modifie que le texte "aucun fichier choisi"
 	components: { WDGFileList },
-	template: '<WDGFileList :initFileList="initFileList" style="color: #00879B;"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList>',
+	template: '<div style="color: #00879B;"><WDGFileList :initFileList="initFileList"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList></div>',
 	i18n,
 	props: {
 		initFileList: {
@@ -189,7 +189,7 @@ export const OneFileBlueText = () => ({ // ne modifie que le texte "aucun fichie
 
 export const OneFileRedText = () => ({ // ne modifie que le texte "aucun fichier choisi"
 	components: { WDGFileList },
-	template: '<WDGFileList :initFileList="initFileList" style="color: #EA4F51;"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList>',
+	template: '<div style="color: #EA4F51;"><WDGFileList :initFileList="initFileList"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList></div>',
 	i18n,
 	props: {
 		initFileList: {
@@ -200,7 +200,7 @@ export const OneFileRedText = () => ({ // ne modifie que le texte "aucun fichier
 
 export const OneFileGreenText = () => ({ // ne modifie que le texte "aucun fichier choisi" + vert de la nouvelle charte
 	components: { WDGFileList },
-	template: '<WDGFileList :initFileList="initFileList" style="color: #5EB82C;"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList>',
+	template: '<div style="color: #5EB82C;"><WDGFileList :initFileList="initFileList"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList></div>',
 	i18n,
 	props: {
 		initFileList: {
@@ -211,7 +211,7 @@ export const OneFileGreenText = () => ({ // ne modifie que le texte "aucun fichi
 
 export const OneFilePinkText = () => ({ // ne modifie que le texte "aucun fichier choisi" + rose de la nouvelle charte
 	components: { WDGFileList },
-	template: '<WDGFileList :initFileList="initFileList" style="color: #F9CBCB;"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList>',
+	template: '<div style="color: #F9CBCB;"><WDGFileList :initFileList="initFileList"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList></div>',
 	i18n,
 	props: {
 		initFileList: {
@@ -222,7 +222,7 @@ export const OneFilePinkText = () => ({ // ne modifie que le texte "aucun fichie
 
 export const OneFileYellowText = () => ({ // ne modifie que le texte "aucun fichier choisi" + jaune de la nouvelle charte
 	components: { WDGFileList },
-	template: '<WDGFileList :initFileList="initFileList" style="color: #EBCE67;"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList>',
+	template: '<div style="color: #EBCE67;"><WDGFileList :initFileList="initFileList"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList></div>',
 	i18n,
 	props: {
 		initFileList: {
@@ -233,7 +233,7 @@ export const OneFileYellowText = () => ({ // ne modifie que le texte "aucun fich
 
 export const OneFileBlackBackgroundMargin = () => ({ 
 	components: { WDGFileList },
-	template: '<WDGFileList :initFileList="initFileList" style="background-color: #333; font-family: Trebuchet MS; margin: 20px;"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList>',
+	template: '<div style="background-color: #333; font-family: Trebuchet MS; margin: 20px;"><WDGFileList :initFileList="initFileList"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList></div>',
 	i18n,
 	props: {
 		initFileList: {
@@ -244,7 +244,7 @@ export const OneFileBlackBackgroundMargin = () => ({
 
 export const OneFileBlackBackgroundMaxWidth = () => ({ 
 	components: { WDGFileList },
-	template: '<WDGFileList :initFileList="initFileList" style="background-color: #333; font-family: Trebuchet MS; max-width: 400px;"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList>',
+	template: '<div style="background-color: #333; font-family: Trebuchet MS; max-width: 400px;"><WDGFileList :initFileList="initFileList"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList></div>',
 	i18n,
 	props: {
 		initFileList: {
@@ -272,7 +272,7 @@ export const MultipleFile = () => ({
 
 export const MultipleFileBlackBackground = () => ({
 	components: { WDGFileList },
-	template: '<WDGFileList :initFileList="initFileList" style="background-color: #333"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList>',
+	template: '<div style="background-color: #333"><WDGFileList :initFileList="initFileList"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList></div>',
 	i18n,
 	props: {
 		initFileList: {
@@ -283,7 +283,7 @@ export const MultipleFileBlackBackground = () => ({
 
 export const MultipleFileGreyBackground = () => ({
 	components: { WDGFileList },
-	template: '<WDGFileList :initFileList="initFileList" style="background-color: #e1e2e3; font-family: Trebuchet MS;"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList>',
+	template: '<div style="background-color: #e1e2e3; font-family: Trebuchet MS;"><WDGFileList :initFileList="initFileList"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList></div>',
 	i18n,
 	props: {
 		initFileList: {
@@ -294,7 +294,7 @@ export const MultipleFileGreyBackground = () => ({
 
 export const MultipleFileBlueBackground = () => ({ 
 	components: { WDGFileList },
-	template: '<WDGFileList :initFileList="initFileList" style="background-color: #00879B; font-family: Trebuchet MS;"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList>',
+	template: '<div style="background-color: #00879B; font-family: Trebuchet MS;"><WDGFileList :initFileList="initFileList"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList></div>',
 	i18n,
 	props: {
 		initFileList: {
@@ -305,7 +305,7 @@ export const MultipleFileBlueBackground = () => ({
 
 export const MultipleFilePinkBackground = () => ({ // pas très lisible le texte blanc sur rose + rose de la nouvelle charte
 	components: { WDGFileList },
-	template: '<WDGFileList :initFileList="initFileList" style="background-color: #F9CBCB; font-family: Trebuchet MS;"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList>',
+	template: '<div style="background-color: #F9CBCB; font-family: Trebuchet MS;"><WDGFileList :initFileList="initFileList"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList></div>',
 	i18n,
 	props: {
 		initFileList: {
@@ -316,7 +316,7 @@ export const MultipleFilePinkBackground = () => ({ // pas très lisible le texte
 
 export const MultipleFileGreenBackground = () => ({ // vert de la nouvelle charte
 	components: { WDGFileList },
-	template: '<WDGFileList :initFileList="initFileList" style="background-color: #5EB82C; font-family: Trebuchet MS;"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList>',
+	template: '<div style="background-color: #5EB82C; font-family: Trebuchet MS;"><WDGFileList :initFileList="initFileList"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList></div>',
 	i18n,
 	props: {
 		initFileList: {
@@ -327,7 +327,7 @@ export const MultipleFileGreenBackground = () => ({ // vert de la nouvelle chart
 
 export const MultipleFileYellowBackground = () => ({ // pas très lisible le texte blanc sur jaune + jaune de la nouvelle charte
 	components: { WDGFileList },
-	template: '<WDGFileList :initFileList="initFileList" style="background-color: #EBCE67; font-family: Trebuchet MS;"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList>',
+	template: '<div style="background-color: #EBCE67; font-family: Trebuchet MS;"><WDGFileList :initFileList="initFileList"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList></div>',
 	i18n,
 	props: {
 		initFileList: {
@@ -338,7 +338,7 @@ export const MultipleFileYellowBackground = () => ({ // pas très lisible le tex
 
 export const MultipleFileBlackBackgroundUppercase = () => ({
 	components: { WDGFileList },
-	template: '<WDGFileList :initFileList="initFileList" style="background-color: #333; font-family: Trebuchet MS; text-transform: uppercase;"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList>',
+	template: '<div style="background-color: #333; font-family: Trebuchet MS; text-transform: uppercase;"><WDGFileList :initFileList="initFileList"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList></div>',
 	i18n,
 	props: {
 		initFileList: {
@@ -349,7 +349,7 @@ export const MultipleFileBlackBackgroundUppercase = () => ({
 
 export const MultipleFileBlackBackgroundBold = () => ({
 	components: { WDGFileList },
-	template: '<WDGFileList :initFileList="initFileList" style="background-color: #333; font-family: Trebuchet MS; font-weight: 700;"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList>',
+	template: '<div style="background-color: #333; font-family: Trebuchet MS; font-weight: 700;"><WDGFileList :initFileList="initFileList"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList></div>',
 	i18n,
 	props: {
 		initFileList: {
@@ -360,7 +360,7 @@ export const MultipleFileBlackBackgroundBold = () => ({
 
 export const MultipleFileBlackBackgroundAlignCenter = () => ({ // les petits points avant "fichier" restent à gauche
 	components: { WDGFileList },
-	template: '<WDGFileList :initFileList="initFileList" style="background-color: #333; font-family: Trebuchet MS; text-align: center;"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList>',
+	template: '<div style="background-color: #333; font-family: Trebuchet MS; text-align: center;"><WDGFileList :initFileList="initFileList"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList></div>',
 	i18n,
 	props: {
 		initFileList: {
@@ -371,7 +371,7 @@ export const MultipleFileBlackBackgroundAlignCenter = () => ({ // les petits poi
 
 export const MultipleFileBlackBackgroundAlignRight = () => ({ // les petits points avant "fichier" restent à gauche
 	components: { WDGFileList },
-	template: '<WDGFileList :initFileList="initFileList" style="background-color: #333; font-family: Trebuchet MS; text-align: right;"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList>',
+	template: '<div style="background-color: #333; font-family: Trebuchet MS; text-align: right;"><WDGFileList :initFileList="initFileList"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList></div>',
 	i18n,
 	props: {
 		initFileList: {
@@ -382,7 +382,7 @@ export const MultipleFileBlackBackgroundAlignRight = () => ({ // les petits poin
 
 export const MultipleFileBlackBackgroundItalic = () => ({ 
 	components: { WDGFileList },
-	template: '<WDGFileList :initFileList="initFileList" style="background-color: #333; font-family: Trebuchet MS; font-style: italic"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList>',
+	template: '<div style="background-color: #333; font-family: Trebuchet MS; font-style: italic"><WDGFileList :initFileList="initFileList"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList></div>',
 	i18n,
 	props: {
 		initFileList: {
@@ -393,7 +393,7 @@ export const MultipleFileBlackBackgroundItalic = () => ({
 
 export const MultipleFileBlackBackgroundUnderline = () => ({ 
 	components: { WDGFileList },
-	template: '<WDGFileList :initFileList="initFileList" style="background-color: #333; font-family: Trebuchet MS; text-decoration: underline #fff;"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList>',
+	template: '<div style="background-color: #333; font-family: Trebuchet MS; text-decoration: underline #fff;"><WDGFileList :initFileList="initFileList"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList></div>',
 	i18n,
 	props: {
 		initFileList: {
@@ -404,7 +404,7 @@ export const MultipleFileBlackBackgroundUnderline = () => ({
 
 export const MultipleFileBlackText = () => ({ // ne modifie que le texte "aucun fichier choisi"
 	components: { WDGFileList },
-	template: '<WDGFileList :initFileList="initFileList" style="color: #333;"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList>',
+	template: '<div style="color: #333;"><WDGFileList :initFileList="initFileList"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList></div>',
 	i18n,
 	props: {
 		initFileList: {
@@ -415,7 +415,7 @@ export const MultipleFileBlackText = () => ({ // ne modifie que le texte "aucun 
 
 export const MultipleFileBlueText = () => ({ // ne modifie que le texte "aucun fichier choisi"
 	components: { WDGFileList },
-	template: '<WDGFileList :initFileList="initFileList" style="color: #00879B;"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList>',
+	template: '<div style="color: #00879B;"><WDGFileList :initFileList="initFileList"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList></div>',
 	i18n,
 	props: {
 		initFileList: {
@@ -426,7 +426,7 @@ export const MultipleFileBlueText = () => ({ // ne modifie que le texte "aucun f
 
 export const MultipleFileRedText = () => ({ // ne modifie que le texte "aucun fichier choisi"
 	components: { WDGFileList },
-	template: '<WDGFileList :initFileList="initFileList" style="color: #EA4F51;"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList>',
+	template: '<div style="color: #EA4F51;"><WDGFileList :initFileList="initFileList"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList></div>',
 	i18n,
 	props: {
 		initFileList: {
@@ -437,7 +437,7 @@ export const MultipleFileRedText = () => ({ // ne modifie que le texte "aucun fi
 
 export const MultipleFileGreenText = () => ({ // ne modifie que le texte "aucun fichier choisi" + vert de la nouvelle charte
 	components: { WDGFileList },
-	template: '<WDGFileList :initFileList="initFileList" style="color: #5EB82C;"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList>',
+	template: '<div style="color: #5EB82C;"><WDGFileList :initFileList="initFileList"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList></div>',
 	i18n,
 	props: {
 		initFileList: {
@@ -448,7 +448,7 @@ export const MultipleFileGreenText = () => ({ // ne modifie que le texte "aucun 
 
 export const MultipleFilePinkText = () => ({ // ne modifie que le texte "aucun fichier choisi" + rose de la nouvelle charte
 	components: { WDGFileList },
-	template: '<WDGFileList :initFileList="initFileList" style="color: #F9CBCB;"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList>',
+	template: '<div style="color: #F9CBCB;"><WDGFileList :initFileList="initFileList"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList></div>',
 	i18n,
 	props: {
 		initFileList: {
@@ -459,7 +459,7 @@ export const MultipleFilePinkText = () => ({ // ne modifie que le texte "aucun f
 
 export const MultipleFileYellowText = () => ({ // ne modifie que le texte "aucun fichier choisi" + jaune de la nouvelle charte
 	components: { WDGFileList },
-	template: '<WDGFileList :initFileList="initFileList" style="color: #EBCE67;"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList>',
+	template: '<div style="color: #EBCE67;"><WDGFileList :initFileList="initFileList"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList></div>',
 	i18n,
 	props: {
 		initFileList: {
@@ -470,7 +470,7 @@ export const MultipleFileYellowText = () => ({ // ne modifie que le texte "aucun
 
 export const MultipleFileBlackBackgroundMargin = () => ({ 
 	components: { WDGFileList },
-	template: '<WDGFileList :initFileList="initFileList" style="background-color: #333; font-family: Trebuchet MS; margin: 20px;"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList>',
+	template: '<div style="background-color: #333; font-family: Trebuchet MS; margin: 20px;"><WDGFileList :initFileList="initFileList"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList></div>',
 	i18n,
 	props: {
 		initFileList: {
@@ -481,7 +481,7 @@ export const MultipleFileBlackBackgroundMargin = () => ({
 
 export const MultipleFileBlackBackgroundMaxWidth = () => ({ 
 	components: { WDGFileList },
-	template: '<WDGFileList :initFileList="initFileList" style="background-color: #333; font-family: Trebuchet MS; max-width: 400px;"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList>',
+	template: '<div style="background-color: #333; font-family: Trebuchet MS; max-width: 400px;"><WDGFileList :initFileList="initFileList"><div class="wdg-file-list"><label :for="id"><slot name="label">Hello</slot></label></div></WDGFileList></div>',
 	i18n,
 	props: {
 		initFileList: {
