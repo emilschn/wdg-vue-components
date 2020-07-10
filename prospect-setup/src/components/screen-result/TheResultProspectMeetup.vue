@@ -143,23 +143,25 @@ export default {
 	},
 	computed: {
 		meetingURL () {
-			console.log('meetingURL')
 			let sParams = ''
 			if (this.sharedState.user.email !== '') {
-				sParams += '&email=' + escape(this.sharedState.user.email)
+				let sParamEmail = escape(this.sharedState.user.email.normalize('NFD').replace(/[\u0300-\u036f]/g, ''))
+				sParams += '&email=' + sParamEmail
 			}
 			if (this.sharedState.user.phone !== '') {
-				sParams += '&phone=' + escape(this.sharedState.user.phone)
+				let sParamPhone = escape(this.sharedState.user.phone.normalize('NFD').replace(/[\u0300-\u036f]/g, ''))
+				sParams += '&phone=' + sParamPhone
 			}
 			if (this.sharedState.user.name !== '') {
 				let aNameSplit = this.sharedState.user.name.split(' ')
 				if (aNameSplit.length > 1) {
-					let sFirstName = aNameSplit[0]
-					let sLastName = aNameSplit[1]
-					sParams += '&firstname=' + escape(sFirstName)
-					sParams += '&lastname=' + escape(sLastName)
+					let sFirstName = escape(aNameSplit[0].normalize('NFD').replace(/[\u0300-\u036f]/g, ''))
+					let sLastName = escape(aNameSplit[1].normalize('NFD').replace(/[\u0300-\u036f]/g, ''))
+					sParams += '&firstname=' + sFirstName
+					sParams += '&lastname=' + sLastName
 				} else {
-					sParams += '&lastname=' + escape(this.sharedState.user.name)
+					let sFullName = escape(this.sharedState.user.name.normalize('NFD').replace(/[\u0300-\u036f]/g, ''))
+					sParams += '&lastname=' + sFullName
 				}
 			}
 			return 'https://app.hubspot.com/meetings/jean-david/rendez-vous-avec-we-do-good?embed=true' + sParams
