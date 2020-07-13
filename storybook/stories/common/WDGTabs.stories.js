@@ -1,7 +1,7 @@
 import WDGTabs from './../../../common/src/components/WDGTabs';
 
 export default {
-  title: 'WDGTabs',
+  title: 'Onglets (WDGTabs)',
   component: WDGTabs,
 };
 
@@ -18,13 +18,13 @@ const tabItemsLong = [
 ];
 
 export const Default = () => ({
-  components: { WDGTabs },
-  template: '<WDGTabs :tabItems="tabItems"></WDGTabs>',
-  props: {
-	tabItems: {
-		default: () => tabItems
-	}
-  },
+	components: { WDGTabs },
+	template: '<WDGTabs :tabItems="tabItems"></WDGTabs>',
+	props: {
+		tabItems: {
+			default: () => tabItems
+		}
+	},
 });
 
 export const DefaultLongItems = () => ({
