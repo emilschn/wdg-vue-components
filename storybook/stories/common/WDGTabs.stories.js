@@ -31,7 +31,7 @@ export const DefaultLongItems = () => ({
   components: { WDGTabs },
   template: '<WDGTabs :tabItems="tabItemsLong"></WDGTabs>',
   props: {
-	tabItems: {
+	tabItemsLong: {
 		default: () => tabItemsLong
 	}
   },
