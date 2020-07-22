@@ -15,6 +15,11 @@ export const MarginTop = () => ({
   template: '<div style="margin-top: 150px"><WDGToolTip><slot slot="text">Information</slot></WDGToolTip></div>',
 });
 
+export const MarginTopWithLink = () => ({
+  components: { WDGToolTip },
+  template: '<div style="margin-top: 150px"><WDGToolTip><slot slot="text">Information <a href="#">le lien</a></slot></WDGToolTip></div>',
+});
+
 export const MarginTopLongText = () => ({
   components: { WDGToolTip },
   template: '<div style="margin-top: 150px"><WDGToolTip><slot slot="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec magna turpis. Morbi consequat sit amet nibh at rhoncus. Interdum. </slot></WDGToolTip></div>',
@@ -42,7 +47,7 @@ export const MarginTopAndLeftBlackBackground = () => ({
 
 export const MarginTopAndLeftGreyBackground = () => ({
   components: { WDGToolTip },
-  template: '<div style="margin-top: 150px; margin-left: 50px; background-color: #e1e2e3"><WDGToolTip><slot slot="text">Information</slot></WDGToolTip></div>',
+  template: '<div style="margin-top: 150px; margin-left: 50px; background-color: #e1e2e3"><WDGToolTip TextBGColor="grey"><slot slot="text">Information</slot></WDGToolTip></div>',
 });
 
 export const MarginTopAndLeftRedBackground = () => ({
@@ -127,7 +132,7 @@ export const MarginTopAndLeftYellowText = () => ({ // ne fonctionne pas + jaune 
 
 export const MarginTopAndLeftGreyText = () => ({ // ne fonctionne pas
   components: { WDGToolTip },
-  template: '<div style="margin-top: 150px; margin-left: 50px; color: #e1e2e3; font-family: Trebuchet MS;"><WDGToolTip><slot slot="text">Information</slot></WDGToolTip></div>',
+  template: '<div style="margin-top: 150px; margin-left: 50px; color: #e1e2e3; font-family: Trebuchet MS;"><WDGToolTip TextColor="grey"><slot slot="text">Information</slot></WDGToolTip></div>',
 });
 
 export const MarginTopAndLeftPinkText = () => ({ // ne fonctionne pas + rose de la nouvelle charte

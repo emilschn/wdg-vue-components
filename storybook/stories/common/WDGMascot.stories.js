@@ -80,39 +80,39 @@ export const Side2LongText = () => ({
   template: '<WDGMascot type="side-2"><slot slot="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla at sagittis est, ut pharetra lectus. Aliquam accumsan quam ut auctor aliquet. Fusce dolor mi, mattis vel scelerisque non, vulputate et velit. In varius, diam ac sagittis tincidunt, ex neque aliquet orci, eget blandit metus augue sed tellus. Vestibulum tincidunt arcu. </slot></WDGMascot>',
 });
 
-export const Face1GreyBG = () => ({ // ne fonctionne pas
+export const Face1GreyBG = () => ({ 
   components: { WDGMascot },
-  template: '<div style="background: #e1e2e3"><WDGMascot type="face-1"><slot slot="text">Hello !</slot></WDGMascot></div>',
+  template: '<div style="background: #e1e2e3"><WDGMascot type="face-1" BGColor="grey"><slot slot="text">Hello !</slot></WDGMascot></div>',
 });
 
-export const Face1BlackBG = () => ({ // ne fonctionne pas
+export const Face1BlackBG = () => ({ 
   components: { WDGMascot },
-  template: '<div style="background: #333"><WDGMascot type="face-1"><slot slot="text">Hello !</slot></WDGMascot></div>',
+  template: '<div style="background: #333"><WDGMascot type="face-1" BGColor="black"><slot slot="text">Hello !</slot></WDGMascot></div>',
 });
 
-export const Face1RedBG = () => ({ // ne fonctionne pas
+export const Face1RedBG = () => ({ 
   components: { WDGMascot },
-  template: '<div style="background: #EA4F51"><WDGMascot type="face-1"><slot slot="text">Hello !</slot></WDGMascot></div>',
+  template: '<div style="background: #EA4F51"><WDGMascot type="face-1" BGColor="red"><slot slot="text">Hello !</slot></WDGMascot></div>',
 });
 
-export const Face1BlueBG = () => ({ // ne fonctionne pas
+export const Face1BlueBG = () => ({ 
   components: { WDGMascot },
-  template: '<div style="background: #00879B"><WDGMascot type="face-1"><slot slot="text">Hello !</slot></WDGMascot></div>',
+  template: '<div style="background: #00879B"><WDGMascot type="face-1" BGColor="blue"><slot slot="text">Hello !</slot></WDGMascot></div>',
 });
 
-export const Face1GreenBG = () => ({ // ne fonctionne pas
+export const Face1GreenBG = () => ({ 
   components: { WDGMascot },
-  template: '<div style="background: #5EB82C"><WDGMascot type="face-1"><slot slot="text">Hello !</slot></WDGMascot></div>',
+  template: '<div style="background: #5EB82C"><WDGMascot type="face-1" BGColor="green"><slot slot="text">Hello !</slot></WDGMascot></div>',
 });
 
-export const Face1YellowBG = () => ({ // ne fonctionne pas
+export const Face1YellowBG = () => ({ 
   components: { WDGMascot },
-  template: '<div style="background: #EBCE67"><WDGMascot type="face-1"><slot slot="text">Hello !</slot></WDGMascot></div>',
+  template: '<div style="background: #EBCE67"><WDGMascot type="face-1" BGColor="yellow"><slot slot="text">Hello !</slot></WDGMascot></div>',
 });
 
-export const Face1PinkBG = () => ({ // ne fonctionne pas
+export const Face1PinkBG = () => ({ 
   components: { WDGMascot },
-  template: '<div style="background: #F9CBCB"><WDGMascot type="face-1"><slot slot="text">Hello !</slot></WDGMascot></div>',
+  template: '<div style="background: #F9CBCB"><WDGMascot type="face-1" BGColor="pink"><slot slot="text">Hello !</slot></WDGMascot></div>',
 });
 
 export const Face1Uppercase = () => ({ 
@@ -135,9 +135,14 @@ export const Face1Bold = () => ({ // ne fonctionne pas
   template: '<div style="font-weight: bold; font-family: Trebuchet MS"><WDGMascot type="face-1"><slot slot="text">Hello !</slot></WDGMascot></div>',
 });
 
+export const Face1TextAlignLeft = () => ({ 
+  components: { WDGMascot },
+  template: '<div style="font-family: Trebuchet MS"><WDGMascot type="face-1" alignMascot="left"><slot slot="text">Hello !</slot></WDGMascot></div>',
+});
+
 export const Face1TextAlignCenter = () => ({ 
   components: { WDGMascot },
-  template: '<div style="text-align: center; font-family: Trebuchet MS"><WDGMascot type="face-1"><slot slot="text">Hello !</slot></WDGMascot></div>',
+  template: '<div style="font-family: Trebuchet MS; text-align: center;"><WDGMascot type="face-1"><slot slot="text">Hello !</slot></WDGMascot></div>',
 });
 
 export const Face1TextAlignRight = () => ({ 
@@ -150,37 +155,32 @@ export const Face1Margin = () => ({
   template: '<div style="margin: 20px; font-family: Trebuchet MS"><WDGMascot type="face-1"><slot slot="text">Hello !</slot></WDGMascot></div>',
 });
 
-export const Face1GreyText = () => ({ // ne fonctionne pas
+export const Face1GreyText = () => ({
   components: { WDGMascot },
-  template: '<div style="color: #e1e2e3"><WDGMascot type="face-1"><slot slot="text">Hello !</slot></WDGMascot></div>',
+  template: '<div style="color: #e1e2e3"><WDGMascot type="face-1" TextColor="grey"><slot slot="text">Hello !</slot></WDGMascot></div>',
 });
 
-export const Face1BlackText = () => ({ // ne fonctionne pas
+export const Face1RedText = () => ({ 
   components: { WDGMascot },
-  template: '<div style="color: #333"><WDGMascot type="face-1"><slot slot="text">Hello !</slot></WDGMascot></div>',
+  template: '<div style="color: #EA4F51"><WDGMascot type="face-1" TextColor="red"><slot slot="text">Hello !</slot></WDGMascot></div>',
 });
 
-export const Face1RedText = () => ({ // ne fonctionne pas
+export const Face1BlueText = () => ({
   components: { WDGMascot },
-  template: '<div style="color: #EA4F51"><WDGMascot type="face-1"><slot slot="text">Hello !</slot></WDGMascot></div>',
+  template: '<div style="color: #00879B"><WDGMascot type="face-1" TextColor="blue"><slot slot="text">Hello !</slot></WDGMascot></div>',
 });
 
-export const Face1BlueText = () => ({ // ne fonctionne pas
+export const Face1GreenText = () => ({ 
   components: { WDGMascot },
-  template: '<div style="color: #00879B"><WDGMascot type="face-1"><slot slot="text">Hello !</slot></WDGMascot></div>',
+  template: '<div style="color: #5EB82C"><WDGMascot type="face-1" TextColor="green"><slot slot="text">Hello !</slot></WDGMascot></div>',
 });
 
-export const Face1GreenText = () => ({ // ne fonctionne pas
+export const Face1YellowText = () => ({ 
   components: { WDGMascot },
-  template: '<div style="color: #5EB82C"><WDGMascot type="face-1"><slot slot="text">Hello !</slot></WDGMascot></div>',
+  template: '<div style="color: #EBCE67"><WDGMascot type="face-1" TextColor="yellow"><slot slot="text">Hello !</slot></WDGMascot></div>',
 });
 
-export const Face1YellowText = () => ({ // ne fonctionne pas
+export const Face1PinkText = () => ({ 
   components: { WDGMascot },
-  template: '<div style="color: #EBCE67"><WDGMascot type="face-1"><slot slot="text">Hello !</slot></WDGMascot></div>',
-});
-
-export const Face1PinkText = () => ({ // ne fonctionne pas
-  components: { WDGMascot },
-  template: '<div style="color: #F9CBCB"><WDGMascot type="face-1"><slot slot="text">Hello !</slot></WDGMascot></div>',
+  template: '<div style="color: #F9CBCB"><WDGMascot type="face-1" TextColor="pink"><slot slot="text">Hello !</slot></WDGMascot></div>',
 });
