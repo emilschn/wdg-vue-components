@@ -12,39 +12,51 @@ export const Default = () => ({
 	i18n,
 });
 
-export const RedBG = () => ({ // ne fonctionne pas
+export const RedBG = () => ({ 
 	components: { WDGFooter },
-	template: '<div style="background: #EA4F51; font-family: Trebuchet MS"><WDGFooter></WDGFooter></div>',
+	template: '<div style="font-family: Trebuchet MS"><WDGFooter BGColor="red"></WDGFooter></div>',
 	i18n,
 });
 
-export const BlueBG = () => ({ // ne fonctionne pas
+export const BlueBG = () => ({ 
 	components: { WDGFooter },
-	template: '<div style="background: #EA4F51; font-family: Trebuchet MS"><WDGFooter></WDGFooter></div>',
+	template: '<div style="font-family: Trebuchet MS"><WDGFooter BGColor="blue"></WDGFooter></div>',
 	i18n,
 });
 
-export const GreenBG = () => ({ // ne fonctionne pas
+export const GreenBG = () => ({ 
 	components: { WDGFooter },
-	template: '<div style="background: #EA4F51; font-family: Trebuchet MS"><WDGFooter></WDGFooter></div>',
+	template: '<div style="font-family: Trebuchet MS"><WDGFooter BGColor="green"></WDGFooter></div>',
 	i18n,
 });
 
-export const YellowBG = () => ({ // ne fonctionne pas
+export const YellowBG = () => ({ 
 	components: { WDGFooter },
-	template: '<div style="background: #EA4F51; font-family: Trebuchet MS"><WDGFooter></WDGFooter></div>',
+	template: '<div style="font-family: Trebuchet MS"><WDGFooter BGColor="yellow"></WDGFooter></div>',
+	i18n,
+});
+
+export const PinkBG = () => ({ 
+	components: { WDGFooter },
+	template: '<div style="font-family: Trebuchet MS"><WDGFooter BGColor="pink"></WDGFooter></div>',
+	i18n,
+});
+
+export const GreyBG = () => ({ 
+	components: { WDGFooter },
+	template: '<div style="font-family: Trebuchet MS"><WDGFooter BGColor="grey"></WDGFooter></div>',
 	i18n,
 });
 
 export const UppercaseText = () => ({ 
 	components: { WDGFooter },
-	template: '<div style="text-transform: uppercase; font-family: Trebuchet MS"><WDGFooter></WDGFooter></div>',
+	template: '<div style="font-family: Trebuchet MS"><WDGFooter></WDGFooter></div>',
 	i18n,
 });
 
 export const ItalicText = () => ({ 
 	components: { WDGFooter },
-	template: '<div style="font-style: italic; font-family: Trebuchet MS"><WDGFooter></WDGFooter></div>',
+	template: '<div style="font-family: Trebuchet MS"><WDGFooter></WDGFooter></div>',
 	i18n,
 });
 
@@ -54,45 +66,45 @@ export const UnderlineText = () => ({  // ne fonctionne pas
 	i18n,
 });
 
-export const BlackText = () => ({ // ne fonctionne pas
+export const BlackText = () => ({ 
 	components: { WDGFooter },
-	template: '<div style="color: #333; font-family: Trebuchet MS"><WDGFooter></WDGFooter></div>',
+	template: '<div style="font-family: Trebuchet MS"><WDGFooter TextColor="black"></WDGFooter></div>',
 	i18n,
 });
 
-export const RedText = () => ({ // ne fonctionne pas
+export const RedText = () => ({ 
 	components: { WDGFooter },
-	template: '<div style="color: #EA4F51; font-family: Trebuchet MS"><WDGFooter></WDGFooter></div>',
+	template: '<div style="font-family: Trebuchet MS"><WDGFooter TextColor="red"></WDGFooter></div>',
 	i18n,
 });
 
-export const BlueText = () => ({ // ne fonctionne pas
+export const BlueText = () => ({ 
 	components: { WDGFooter },
-	template: '<div style="color: #00879B; font-family: Trebuchet MS"><WDGFooter></WDGFooter></div>',
+	template: '<div style="font-family: Trebuchet MS"><WDGFooter TextColor="blue"></WDGFooter></div>',
 	i18n,
 });
 
-export const GreenText = () => ({ // ne fonctionne pas
+export const GreenText = () => ({ 
 	components: { WDGFooter },
-	template: '<div style="color: #5EB82C; font-family: Trebuchet MS"><WDGFooter></WDGFooter></div>',
+	template: '<div style="font-family: Trebuchet MS"><WDGFooter TextColor="green"></WDGFooter></div>',
 	i18n,
 });
 
-export const YellowText = () => ({ // ne fonctionne pas
+export const YellowText = () => ({ 
 	components: { WDGFooter },
-	template: '<div style="color: #EBCE67; font-family: Trebuchet MS"><WDGFooter></WDGFooter></div>',
+	template: '<div style="font-family: Trebuchet MS"><WDGFooter TextColor="yellow"></WDGFooter></div>',
 	i18n,
 });
 
-export const GreyText = () => ({ // ne fonctionne pas
+export const GreyText = () => ({ 
 	components: { WDGFooter },
-	template: '<div style="color: #E1E2E3; font-family: Trebuchet MS"><WDGFooter></WDGFooter></div>',
+	template: '<div style="font-family: Trebuchet MS"><WDGFooter TextColor="grey"></WDGFooter></div>',
 	i18n,
 });
 
-export const PinkText = () => ({ // ne fonctionne pas
+export const PinkText = () => ({ 
 	components: { WDGFooter },
-	template: '<div style="color: #F9CBCB; font-family: Trebuchet MS"><WDGFooter></WDGFooter></div>',
+	template: '<div style="font-family: Trebuchet MS"><WDGFooter TextColor="pink"></WDGFooter></div>',
 	i18n,
 });
 

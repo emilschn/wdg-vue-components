@@ -50,9 +50,9 @@ export const Items = () => ({
   },
 });
 
-export const BlackBG = () => ({ // ne couvre pas tout le fond pour le default, ne change pas du tout le fond pour le items
+export const BlackBG = () => ({ 
 	components: { WDGSeeMore },
-	template: '<div style="background: #333; font-family: Trebuchet MS"><WDGSeeMore><slot slot="title">My Title</slot><slot slot="text">My text</slot></WDGSeeMore><WDGSeeMore :checkedItems="checkedItems" :uncheckedItems="uncheckedItems"><slot slot="title">My Title</slot><slot slot="text">My text</slot></WDGSeeMore></div>',
+	template: '<div class="wdg-see-more" style="background: #333; font-family: Trebuchet MS"><WDGSeeMore><slot slot="title">My Title</slot><slot slot="text">My text</slot></WDGSeeMore><WDGSeeMore :checkedItems="checkedItems" :uncheckedItems="uncheckedItems"><slot slot="title">My Title</slot><slot slot="text">My text</slot></WDGSeeMore></div>',
 	i18n,
 	props: {
 		checkedItems: {
@@ -64,9 +64,9 @@ export const BlackBG = () => ({ // ne couvre pas tout le fond pour le default, n
 	  },
   });
 
-  export const GreyBG = () => ({ // ne couvre pas tout le fond pour le default, ne change pas du tout le fond pour le items
+  export const GreyBG = () => ({ 
 	components: { WDGSeeMore },
-	template: '<div style="background: #e1e2e3; font-family: Trebuchet MS"><WDGSeeMore><slot slot="title">My Title</slot><slot slot="text">My text</slot></WDGSeeMore><WDGSeeMore :checkedItems="checkedItems" :uncheckedItems="uncheckedItems"><slot slot="title">My Title</slot><slot slot="text">My text</slot></WDGSeeMore></div>',
+	template: '<div class="wdg-see-more" style="background: #e1e2e3; font-family: Trebuchet MS"><WDGSeeMore><slot slot="title">My Title</slot><slot slot="text">My text</slot></WDGSeeMore><WDGSeeMore :checkedItems="checkedItems" :uncheckedItems="uncheckedItems"><slot slot="title">My Title</slot><slot slot="text">My text</slot></WDGSeeMore></div>',
 	i18n,
 	props: {
 		checkedItems: {
@@ -78,9 +78,9 @@ export const BlackBG = () => ({ // ne couvre pas tout le fond pour le default, n
 	  },
   });
 
-  export const RedBG = () => ({ // ne couvre pas tout le fond pour le default, ne change pas du tout le fond pour le items
+  export const RedBG = () => ({ 
 	components: { WDGSeeMore },
-	template: '<div style="background: #EA4F51; font-family: Trebuchet MS"><WDGSeeMore><slot slot="title">My Title</slot><slot slot="text">My text</slot></WDGSeeMore><WDGSeeMore :checkedItems="checkedItems" :uncheckedItems="uncheckedItems"><slot slot="title">My Title</slot><slot slot="text">My text</slot></WDGSeeMore></div>',
+	template: '<div class="wdg-see-more" style="background: #EA4F51; font-family: Trebuchet MS"><WDGSeeMore><slot slot="title">My Title</slot><slot slot="text">My text</slot></WDGSeeMore><WDGSeeMore :checkedItems="checkedItems" :uncheckedItems="uncheckedItems"><slot slot="title">My Title</slot><slot slot="text">My text</slot></WDGSeeMore></div>',
 	i18n,
 	props: {
 		checkedItems: {
@@ -92,9 +92,9 @@ export const BlackBG = () => ({ // ne couvre pas tout le fond pour le default, n
 	  },
   });
 
-  export const BlueBG = () => ({ // ne couvre pas tout le fond pour le default, ne change pas du tout le fond pour le items
+  export const BlueBG = () => ({ 
 	components: { WDGSeeMore },
-	template: '<div style="background: #00879B; font-family: Trebuchet MS"><WDGSeeMore><slot slot="title">My Title</slot><slot slot="text">My text</slot></WDGSeeMore><WDGSeeMore :checkedItems="checkedItems" :uncheckedItems="uncheckedItems"><slot slot="title">My Title</slot><slot slot="text">My text</slot></WDGSeeMore></div>',
+	template: '<div class="wdg-see-more" style="background: #00879B; font-family: Trebuchet MS"><WDGSeeMore><slot slot="title">My Title</slot><slot slot="text">My text</slot></WDGSeeMore><WDGSeeMore :checkedItems="checkedItems" :uncheckedItems="uncheckedItems"><slot slot="title">My Title</slot><slot slot="text">My text</slot></WDGSeeMore></div>',
 	i18n,
 	props: {
 		checkedItems: {
@@ -106,9 +106,9 @@ export const BlackBG = () => ({ // ne couvre pas tout le fond pour le default, n
 	  },
   });
 
-  export const GreenBG = () => ({ // ne couvre pas tout le fond pour le default, ne change pas du tout le fond pour le items
+  export const GreenBG = () => ({ 
 	components: { WDGSeeMore },
-	template: '<div style="background: #5EB82C; font-family: Trebuchet MS"><WDGSeeMore><slot slot="title">My Title</slot><slot slot="text">My text</slot></WDGSeeMore><WDGSeeMore :checkedItems="checkedItems" :uncheckedItems="uncheckedItems"><slot slot="title">My Title</slot><slot slot="text">My text</slot></WDGSeeMore></div>',
+	template: '<div class="wdg-see-more" style="background: #5EB82C; font-family: Trebuchet MS"><WDGSeeMore><slot slot="title">My Title</slot><slot slot="text">My text</slot></WDGSeeMore><WDGSeeMore :checkedItems="checkedItems" :uncheckedItems="uncheckedItems"><slot slot="title">My Title</slot><slot slot="text">My text</slot></WDGSeeMore></div>',
 	i18n,
 	props: {
 		checkedItems: {
@@ -120,9 +120,9 @@ export const BlackBG = () => ({ // ne couvre pas tout le fond pour le default, n
 	  },
   });
 
-  export const YellowBG = () => ({ // ne couvre pas tout le fond pour le default, ne change pas du tout le fond pour le items
+  export const YellowBG = () => ({ 
 	components: { WDGSeeMore },
-	template: '<div style="background: #EBCE67; font-family: Trebuchet MS"><WDGSeeMore><slot slot="title">My Title</slot><slot slot="text">My text</slot></WDGSeeMore><WDGSeeMore :checkedItems="checkedItems" :uncheckedItems="uncheckedItems"><slot slot="title">My Title</slot><slot slot="text">My text</slot></WDGSeeMore></div>',
+	template: '<div class="wdg-see-more" style="background: #EBCE67; font-family: Trebuchet MS"><WDGSeeMore><slot slot="title">My Title</slot><slot slot="text">My text</slot></WDGSeeMore><WDGSeeMore :checkedItems="checkedItems" :uncheckedItems="uncheckedItems"><slot slot="title">My Title</slot><slot slot="text">My text</slot></WDGSeeMore></div>',
 	i18n,
 	props: {
 		checkedItems: {
@@ -134,9 +134,9 @@ export const BlackBG = () => ({ // ne couvre pas tout le fond pour le default, n
 	  },
   });
 
-  export const PinkBG = () => ({ // ne couvre pas tout le fond pour le default, ne change pas du tout le fond pour le items
+  export const PinkBG = () => ({ 
 	components: { WDGSeeMore },
-	template: '<div style="background: #F9CBCB; font-family: Trebuchet MS"><WDGSeeMore><slot slot="title">My Title</slot><slot slot="text">My text</slot></WDGSeeMore><WDGSeeMore :checkedItems="checkedItems" :uncheckedItems="uncheckedItems"><slot slot="title">My Title</slot><slot slot="text">My text</slot></WDGSeeMore></div>',
+	template: '<div class="wdg-see-more" style="background: #F9CBCB; font-family: Trebuchet MS"><WDGSeeMore><slot slot="title">My Title</slot><slot slot="text">My text</slot></WDGSeeMore><WDGSeeMore :checkedItems="checkedItems" :uncheckedItems="uncheckedItems"><slot slot="title">My Title</slot><slot slot="text">My text</slot></WDGSeeMore></div>',
 	i18n,
 	props: {
 		checkedItems: {
