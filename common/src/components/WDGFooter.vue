@@ -1,5 +1,5 @@
 <template>
-	<div class="footer">
+	<div class="footer" :class="['bg-'+BGColor, 'text-'+TextColor]">
         <!-- TODO : avoir différents styles de footer  -->
         <div>
             <span class="title">{{ $t('project-setup.footer.SUCCESS_TEXT_1') }}</span><br>
@@ -25,6 +25,7 @@ export default {
 	components: {
 	},
 	props: {
+        BGColor: { type: String, default: 'black' }
 	}
 }
 </script>
@@ -59,6 +60,46 @@ export default {
     text-align: center;
     display: inline-block;
     width:160px;
+}
+.footer.bg-blue {
+    background: #00879B;
+}
+.footer.bg-red {
+    background: #EA4F51;
+}
+.footer.bg-yellow {
+    background: #EBCE67;
+}
+.footer.bg-green {
+    background: #5EB82C;
+}
+.footer.bg-grey {
+    background: #e1e2e3;
+}
+.footer.bg-pink {
+    background: #F9CBCB;
+}
+.footer.title.text-black {
+    color: #333333;
+    background: #fff;
+}
+.footer.title.text-blue {
+    color: #00879B;
+}
+.footer.title.text-red {
+    color: #EA4F51;
+}
+.footer.title.text-yellow {
+    color: #EBCE67;
+}
+.footer.title.text-green {
+    color: #5EB82C;
+}
+.footer.title.text-grey {
+    color: #e1e2e3;
+}
+.footer.title.text-pink {
+    color: #F9CBCB;
 }
 @media only screen and (max-width: 767px) {
 .footer {

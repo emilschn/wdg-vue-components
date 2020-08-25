@@ -85,6 +85,7 @@ export default {
 <style>
 .wdg-file-list {
 	margin-bottom: 16px;
+	font-family: 'Trebuchet MS';
 }
 .wdg-file-list .init-file-list {
 	margin: 24px 0px;
@@ -112,5 +113,8 @@ export default {
 .wdg-file-list .link-container a::before {
 	display: inline-block;
 	content: "+"
+}
+.wdg-file-list ul li {
+	list-style-position: inside;
 }
 </style>

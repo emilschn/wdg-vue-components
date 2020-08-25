@@ -1,5 +1,5 @@
 <template>
-	<div class="wdg-tooltip">
+	<div class="wdg-tooltip" >
 		<button
 		  type="button"
 		  :class="color"
@@ -10,7 +10,7 @@
 			i
 		</button>
 		<transition name="fade">
-			<div class="tooltip-text" v-if="isTextVisible">
+			<div class="tooltip-text" v-if="isTextVisible" :class="['text-'+TextColor, 'bg-'+TextBGColor]">
 				<slot name="text"></slot>
 			</div>
 		</transition>
@@ -21,7 +21,9 @@
 export default {
 	name: 'WDGToolTip',
 	props: {
-		color: { type: String, default: 'grey' }
+		color: { type: String, default: 'grey' },
+		TextBGColor: { type: String, default: 'black' },
+		TextColor: { type: String, default: 'white' }
 	},
 	data () {
 		return {
@@ -72,7 +74,16 @@ div.wdg-tooltip div.tooltip-text {
 	font-weight: normal;
 	background: #333;
 	color: #FFF;
+	text-align: left;
 }
+div.wdg-tooltip div.tooltip-text.text-grey {
+	color: grey;
+}
+
+div.wdg-tooltip div.tooltip-text.bg-grey {
+	background-color: grey;
+}
+
 div.wdg-tooltip div.tooltip-text:after {
 	content: "";
 	position: absolute;
@@ -82,6 +93,12 @@ div.wdg-tooltip div.tooltip-text:after {
 	border-width: 8px;
 	border-style: solid;
 	border-color: #333 transparent transparent transparent;
+}
+div.wdg-tooltip div.tooltip-text.bg-grey:after {
+	border-color: grey transparent transparent transparent;
+}
+div.wdg-tooltip div.tooltip-text a{
+	color: #fff;
 }
 .fade-enter, .fade-leave-to {
 	opacity: 0;
