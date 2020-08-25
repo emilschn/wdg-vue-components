@@ -106,6 +106,7 @@ export default {
 	margin: 10px 0px;
 	padding: 10px;
 	background-color: #fff;
+	font-family: 'Trebuchet MS';
 }
 .wdg-file-list .link-container {
 	text-align: center;
