@@ -1,5 +1,8 @@
 <template>
-  	<div class="wdg-file-list">
+  	<div
+	  :class="textColor"
+	  class="wdg-file-list"
+	  >
 		<label :for="id">
 			<slot name="label"></slot>
 		</label>
@@ -45,6 +48,7 @@ export default {
 	props: {
 		id: { type: String, default: null },
 		name: { type: String, default: null },
+		textColor: { type: String, default: 'white' },
 		disabled: { type: Boolean, default: false },
 		initFileList: { type: Array, default: () => [] },
 		initNbFiles: { type: Number, default: 1 },
@@ -92,6 +96,9 @@ export default {
 .wdg-file-list .init-file-list, .wdg-file-list .init-file-list a {
 	color: #ffffff;
 }
+.wdg-file-list.grey .init-file-list, .wdg-file-list.grey .init-file-list a {
+	color: #333;
+}
 .wdg-file-list input {
 	max-width: 95%;
 	font-size: 16px;
@@ -108,6 +115,9 @@ export default {
 	text-decoration: underline;
 	cursor: pointer;
 	font-size: 14px;
+}
+.wdg-file-list.grey .link-container a {
+	color: #333;
 }
 .wdg-file-list .link-container a::before {
 	display: inline-block;
