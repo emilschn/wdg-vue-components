@@ -66,6 +66,12 @@ export const UnderlineText = () => ({  // ne fonctionne pas
 	i18n,
 });
 
+
+////////////
+////////// le texte ne change pas de couleur, on avisera par la suite si c'est important /////////
+/////////////
+
+
 export const BlackText = () => ({ 
 	components: { WDGFooter },
 	template: '<div style="font-family: Trebuchet MS"><WDGFooter TextColor="black"></WDGFooter></div>',
