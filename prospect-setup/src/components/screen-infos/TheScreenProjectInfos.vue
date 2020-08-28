@@ -313,7 +313,10 @@ export default {
 	}
 	.the-screen-project-infos .wdg-form button {
 		margin-top: 40px;
-		max-width: 176px;
+		min-width: 176px;
+		width: auto;
+		margin-bottom: 0px;
+		padding: 0px 24px;
 	}
 	.the-screen-project-infos .wdg-mascot.face-2 {
 		margin-top: 100px;

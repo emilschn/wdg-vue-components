@@ -158,10 +158,11 @@ export default {
 		text-align: center;
 	}
 	.the-screen-intro button {
+		min-width: 176px;
+		width: auto;
 		margin-top: 0px;
 		margin-bottom: 0px;
-		max-width: 176px;
-        font-weight: 700;
+		padding: 0px 24px;
 	}
     .the-screen-intro .the-project-link-send{
 		margin-top: 10px;
