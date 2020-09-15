@@ -25,7 +25,8 @@ export default {
 	components: {
 	},
 	props: {
-        BGColor: { type: String, default: 'black' }
+        BGColor: { type: String, default: 'black' },
+        TextColor: { type: String, default: 'black' }
 	}
 }
 </script>
@@ -33,33 +34,33 @@ export default {
 <style>
 .footer {
 	background: #333333;
-    width: 100%;
-    height: 160px;
+	width: 100%;
+	height: 160px;
 	display: flex;
-    justify-content: space-around;
-    align-items: center;
+	justify-content: space-around;
+	align-items: center;
 }
 .footer .logo_bcorp img {
-    width: 60px;
-  filter: invert(100%);
+	width: 60px;
+	filter: invert(100%);
 }
 .footer .logo_ifp img {
-    width: 100px;
+	width: 100px;
 }
 .footer .title {
 	color: #FFFFFF;
 	font-size: 24px;
 	font-weight: 100;
-    text-align: center;
-    display: inline-block;
-    width:160px;
+	text-align: center;
+	display: inline-block;
+	width:160px;
 }
 .footer .text {
 	color: #FFFFFF;
-    font-weight: 500;
-    text-align: center;
-    display: inline-block;
-    width:160px;
+	font-weight: 500;
+	text-align: center;
+	display: inline-block;
+	width:160px;
 }
 .footer.bg-blue {
     background: #00879B;

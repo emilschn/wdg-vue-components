@@ -100,6 +100,7 @@ export default {
 			let royaltiesTotal = this.sharedState.project.royaltiesAmount * this.totalTurnover / 100
 			let realAmountNeeded = this.sharedState.project.amountNeeded * 1000
 			this.yield = Math.round(royaltiesTotal / realAmountNeeded * 100) / 100
+			this.yield = Math.min(3, this.yield)
 		},
 		onChangeEvent () {
 			let tempRoyaltiesAmountStr = this.valueReturn

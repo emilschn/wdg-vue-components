@@ -166,29 +166,60 @@ export default {
 					year5 = year5 * 2
 					break
 
-				case 'stop_the_royalties':
-					// Calcul fait plus bas pour les royalties de l'année 3
-					year4 = 0
-					year5 = 0
-					break
-
 				case 'activity_stop':
 					year4 = 0
 					year5 = 0
 					break
 			}
 
+			// Calculs des royalties à reverser
+			let royaltiesTotal = 0
+			let royaltiesCap = this.sharedState.project.amountNeeded * 1000 * 3
 			this.chartDatasets.datasets[0].data = []
-			this.chartDatasets.datasets[0].data.push(year1 - year1 * this.sharedState.project.royaltiesAmount / 100)
-			this.chartDatasets.datasets[0].data.push(year2 - year2 * this.sharedState.project.royaltiesAmount / 100)
-			this.chartDatasets.datasets[0].data.push(year3 - year3 * this.sharedState.project.royaltiesAmount / 100)
-			this.chartDatasets.datasets[0].data.push(year4 - year4 * this.sharedState.project.royaltiesAmount / 100)
-			this.chartDatasets.datasets[0].data.push(year5 - year5 * this.sharedState.project.royaltiesAmount / 100)
 
+			var year1Royalties = year1 * this.sharedState.project.royaltiesAmount / 100
+			year1Royalties = Math.min(year1Royalties, royaltiesCap)
+			royaltiesTotal += year1Royalties
+
+			var year2Royalties = year2 * this.sharedState.project.royaltiesAmount / 100
+			year2Royalties = Math.min(year2Royalties, royaltiesCap - royaltiesTotal)
+			royaltiesTotal += year2Royalties
+
+			var year3Royalties = year3 * this.sharedState.project.royaltiesAmount / 100
+			year3Royalties = Math.min(year3Royalties, royaltiesCap - royaltiesTotal)
+			royaltiesTotal += year3Royalties
+
+			var year4Royalties = year4 * this.sharedState.project.royaltiesAmount / 100
+			year4Royalties = Math.min(year4Royalties, royaltiesCap - royaltiesTotal)
+			royaltiesTotal += year4Royalties
+
+			var year5Royalties = year5 * this.sharedState.project.royaltiesAmount / 100
+			year5Royalties = Math.min(year5Royalties, royaltiesCap - royaltiesTotal)
+			royaltiesTotal += year5Royalties
+
+			// Test de l'arret des royalties
+			if (this.selectedScenario === 'stop_the_royalties') {
+				year4Royalties = 0
+				year5Royalties = 0
+				// Si il y a des royalties en année 3, on arrête là
+				if (year3Royalties > 0) {
+					year3Royalties += Number(this.sharedState.project.amountNeeded * 1000)
+				// Sinon on arrête en année 2
+				} else {
+					year2Royalties += Number(this.sharedState.project.amountNeeded * 1000)
+				}
+			}
+			this.chartDatasets.datasets[0].data.push(year1 - year1Royalties)
+			this.chartDatasets.datasets[0].data.push(year2 - year2Royalties)
+			this.chartDatasets.datasets[0].data.push(year3 - year3Royalties)
+			this.chartDatasets.datasets[0].data.push(year4 - year4Royalties)
+			this.chartDatasets.datasets[0].data.push(year5 - year5Royalties)
+
+			// Affichage du CA
 			this.chartDatasets.datasets[1].data = []
 			this.chartDatasets.datasets[1].data.push(year1)
 			this.chartDatasets.datasets[1].data.push(year2)
-			if (this.selectedScenario === 'stop_the_royalties') {
+			if (this.selectedScenario === 'stop_the_royalties' && year3Royalties > 0) {
 				year3 += Number(this.sharedState.project.amountNeeded * 1000)
 			}
 			this.chartDatasets.datasets[1].data.push(year3)
