@@ -1,11 +1,11 @@
 <template>
-	<div class="wdg-toggle">
+	<div class="wdg-toggle" :class="theme">
 		<span class="wdg-toggle-label before">
 			<slot name="label-before"></slot>
 		</span>
 
 		<ToggleButton
-		  :value="false"
+		  :value="initValue"
 		  :color="{ checked: colorChecked, unchecked: colorUnchecked }"
 		  @change="onChangeLocalEvent"
 		  />
@@ -24,9 +24,11 @@ export default {
 		ToggleButton
 	},
 	props: {
+		theme: { type: String, default: '' },
 		colorChecked: { type: String, default: 'red' },
 		colorUnchecked: { type: String, default: 'red' },
-        changeEvent: Function
+		initValue: { type: Boolean, default: false },
+		changeEvent: Function
     },
 	methods: {
 		onChangeLocalEvent (newValue) {
@@ -41,6 +43,16 @@ export default {
 <style>
 div.wdg-toggle {
 	text-align: center;
+}
+div.wdg-toggle.admin {
+	color: #F1A074;
+}
+
+div.wdg-toggle .vue-js-switch div.v-switch-core {
+	display: inline-block;
+}
+div.wdg-toggle .vue-js-switch div.v-switch-core div.v-switch-button {
+	display: inline-block;
 }
 
 div.wdg-toggle span.wdg-toggle-label {

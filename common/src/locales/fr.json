@@ -262,7 +262,7 @@
 			"OF_YOUR_TURNOVER": "de votre chiffre d'affaires pendant 5 ans.",
 			"formulas": {
 				"RECOMMENDED": "Formule recommandée",
-				"REDUCTION": "(-50 % jeunes entreprises)",
+				"REDUCTION": "jeunes entreprises",
 				"lovemoney": {
 					"TITLE": "Love Money",
 					"TEXT": "Faites investir vos proches de manière confidentielle et rapide",
@@ -296,7 +296,7 @@
 			},
 			"options": {
 				"RECOMMENDED": "Option recommandée",
-				"REDUCTION": "(-25 % jeunes entreprises)",
+				"REDUCTION": "jeunes entreprises",
 				"basic": {
 					"TITLE": "Accompagnement Basique",
 					"TEXT": "Pour les entrepreneurs ayant déjà identifié leurs investisseurs ou ayant déjà mené une campagne de financement"
@@ -337,6 +337,16 @@
 				"SEND_FILES_INPUT_LABEL": "Pouvez-vous nous en dire un peu plus sur votre projet et vos éventuelles questions ?",
 				"PLAN_RENDEZVOUS": "Prendre rendez-vous",
 				"PLAN_RENDEZVOUS_TEXT": "Parlons-en ! Pour démarrer votre projet et vous conseiller au mieux, prenez rendez-vous !"
+			},
+			"admin": {
+				"ENABLE_PAYMENT": "Autoriser le paiement"
+			}
+		},
+		"payment": {
+			"header": {
+				"SUMMARY": "Récapitulatif",
+				"VALIDATION": "Confirmation",
+				"PAYMENT": "Paiement"
 			}
 		}
 	}

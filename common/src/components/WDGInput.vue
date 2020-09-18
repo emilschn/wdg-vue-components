@@ -2,7 +2,7 @@
   	<div
       v-show="!honeypot"
 	  class="wdg-input"
-	  :class="customStyle"
+	  :class="customStyle + ' ' + suffixClass"
 	  >
 		<label :for="id">
 			<slot name="label"></slot>
@@ -21,6 +21,13 @@
 			  class="wdg-message error"
 			  >
 				{{ v.errors[0] }}
+			</span>
+
+			<span
+			  v-if="!multiline && prefix !== ''"
+			  class="input-prefix"
+			  >
+			  {{ prefix }}
 			</span>
 
 			<input
@@ -74,6 +81,7 @@ export default {
 		multiline: { type: Boolean, default: false },
 		disabled: { type: Boolean, default: false },
 		honeypot: { type: Boolean, default: false },
+		prefix: { type: String, default: '' },
 		suffix: { type: String, default: '' },
 		eventNameToListen: { type: String, default: '' },
 		validationRule: { type: String, default: '' },
@@ -148,7 +156,9 @@ export default {
 			return !!this.$slots.comment
 		},
 		suffixClass () {
-			return (this.suffix !== '' ? 'has-suffix' : '')
+			let buffer = (this.suffix !== '' ? 'has-suffix' : '')
+			buffer += ' ' + (this.prefix !== '' ? 'has-prefix' : '')
+			return buffer
 		}
 	}
 }
@@ -199,14 +209,30 @@ export default {
 		font-weight: 500;
 	}
 
+	.wdg-input.natural-language.admin input {
+		color: #F1A074;
+		border-bottom: 2px solid #F1A074;
+	}
+
+	.wdg-input input.has-prefix {
+		width: -webkit-calc(100% - 32px);
+		width: -moz-calc(100% - 32px);
+		width: calc(100% - 32px);
+		padding-left: 24px;
+	}
 	.wdg-input input.has-suffix {
 		width: -webkit-calc(100% - 32px);
 		width: -moz-calc(100% - 32px);
 		width: calc(100% - 32px);
 		padding-right: 24px;
 	}
+	.wdg-input input.has-suffix.has-prefix {
+		width: -webkit-calc(100% - 64px);
+		width: -moz-calc(100% - 64px);
+		width: calc(100% - 64px);
+	}
 
-	.wdg-input span.input-suffix {
+	.wdg-input span.input-prefix, .wdg-input span.input-suffix {
 		float: right;
 		height: 0px;
 		line-height: 40px;
@@ -214,5 +240,18 @@ export default {
 		top: -40px;
 		left: -8px;
 		font-size: 16px;
+	}
+	.wdg-input span.input-prefix {
+		float: left;
+		top: 0px;
+		left: 0px;
+	}
+	.wdg-input.has-suffix.has-prefix span.input-suffix {
+		top: 0px;
+		left: -16px;
+	}
+
+	.wdg-input.natural-language.admin span.input-prefix, .wdg-input.natural-language.admin span.input-suffix {
+		color: #F1A074;
 	}
 </style>

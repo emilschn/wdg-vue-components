@@ -314,13 +314,6 @@ div.total-funding-container {
 		height: 60% !important;
 		margin-bottom: 40px;
 	}
-	div.wdg-toggle span.wdg-toggle-label.before {
-		width: 250px;
-		text-align: left;
-		font-size: 14px;
-		vertical-align: middle;
-		margin-right: 30px;
-	}
 	div.project-funding-navigation a {
 		font-size: 16px;
 	}

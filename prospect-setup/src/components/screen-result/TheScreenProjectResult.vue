@@ -2,11 +2,16 @@
 	<div class="the-screen-project-result">
 		<div class="project-eligible" v-if="isProjectEligible">
 			<TheTabTitle
-			v-bind:hasPictoBalloon="true"
-			:nMinutes="0"
-			>
+			  v-bind:hasPictoBalloon="true"
+			  :nMinutes="0"
+			  >
 				<slot slot="title">{{ $t('project-setup.project-result.TITLE') }}</slot>
 			</TheTabTitle>
+
+			<TheResultPaymentHeader
+			  v-if="sharedState.package.canPay"
+			  currentTab="summary"
+			  />
 
 			<div class="result-container">
 				<TheResultCampaignAdvice
@@ -25,6 +30,7 @@
 <script>
 import { store } from '../../store.js'
 import TheTabTitle from '@/components/common/TheTabTitle'
+import TheResultPaymentHeader from '@/components/screen-result/TheResultPaymentHeader'
 import TheResultCampaignAdvice from '@/components/screen-result/TheResultCampaignAdvice'
 import TheResultProspectMeetup from '@/components/screen-result/TheResultProspectMeetup'
 import TheResultNotEligible from '@/components/screen-result/TheResultNotEligible'
@@ -33,6 +39,7 @@ export default {
 	name: 'TheScreenProjectResult',
 	components: {
 		TheTabTitle,
+		TheResultPaymentHeader,
 		TheResultCampaignAdvice,
 		TheResultProspectMeetup,
 		TheResultNotEligible

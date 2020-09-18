@@ -45,11 +45,29 @@ export const store = {
 			alreadyDoneCrowdfunding: false,
 			needCommunicationAdvice: false,
 			fileComments: ''
+		},
+		package: {
+			canPay: false,
+			bundle1: {
+				title: '',
+				type: '',
+				priceWithoutDiscount: 0,
+				discount: '0',
+				discountReason: ''
+			},
+			bundle2: {
+				title: '',
+				type: '',
+				priceWithoutDiscount: 0,
+				discount: '0',
+				discountReason: ''
+			}
 		}
 	},
 	props: {
 		ajaxURL: '',
-		initFileList: []
+		initFileList: [],
+		capacities: []
 	},
 	tabItems: [
 		{ Id: 'project-infos', Label: i18n.t('project-setup.tabs.MY_PROJECT'), Index: '1', Subtitle: '', Status: 'incomplete', LinkLabel: '' },

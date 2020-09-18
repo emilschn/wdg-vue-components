@@ -87,6 +87,7 @@ export default {
 					let responseData = response.data
 					this.initWithGuid(responseData.data.metadata, responseData.data.file_list)
 					store.changeStep(this.sharedState.step)
+					this.loadCapacities()
 				})
 				.catch (error => {
 					console.log(error)
@@ -94,6 +95,8 @@ export default {
 				.finally (() => {
 					this.loading = false
 				})
+		} else {
+			this.loadCapacities()
 		}
 	},
 	computed: {
@@ -150,6 +153,26 @@ export default {
 			this.sharedState.project.fileComments = metadata.project.fileComments
 
 			this.sharedProps.initFileList = fileList
+		},
+		loadCapacities () {
+			if (this.sharedProps.ajaxurl === undefined || this.sharedProps.ajaxurl === '') {
+				return
+			}
+			let data = new FormData()
+			data.append('action', 'prospect_setup_load_capacities')
+
+			axios
+				.post (this.sharedProps.ajaxurl, data)
+				.then (response => {
+					this.loading = false
+					this.sharedProps.capacities = response.data
+				})
+				.catch (error => {
+					console.log(error)
+				})
+				.finally (() => {
+					this.loading = false
+				})
 		}
 	}
 }

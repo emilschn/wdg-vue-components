@@ -77,4 +77,12 @@ export default {
 	cursor: pointer;
 }
 
+.wdg-select.admin select {
+	background-image:
+		linear-gradient(45deg, transparent 50%, #F1A074 50%),
+		linear-gradient(135deg, #F1A074 50%, transparent 50%);
+	color: #F1A074;
+	border-bottom: 2px solid #F1A074;
+}
+
 </style>
