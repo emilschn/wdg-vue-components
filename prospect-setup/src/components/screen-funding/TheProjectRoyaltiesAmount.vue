@@ -114,7 +114,7 @@ export default {
 	computed: {
 		royaltiesPercentType () {
 			this.setRoyaltiesOK(false)
-			if (this.sharedState.project.commercialMargin === 0) {
+			if (this.sharedState.project.commercialMargin === 0 && !this.sharedState.project.isAutoFilledRoyalties) {
 				return 'warning-over'
 			} else if (isNaN(this.minPercent) || this.minPercent === 0 || isNaN(this.maxPercent) || this.maxPercent === 0) {
 				return ''
