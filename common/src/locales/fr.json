@@ -347,6 +347,11 @@
 				"SUMMARY": "Récapitulatif",
 				"VALIDATION": "Confirmation",
 				"PAYMENT": "Paiement"
+			},
+			"cart": {
+				"TOTAL_WITHOUT_TAXES": "Total H.T.",
+				"TAXES": "TVA 20%",
+				"TOTAL_WITH_TAXES": "Total T.T.C."
 			}
 		}
 	}

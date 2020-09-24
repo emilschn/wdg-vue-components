@@ -20,7 +20,7 @@
 		<TheScreenProjectInfos v-if="!loading && sharedState.step === 'project-infos'" />
 		<TheScreenProjectFunding v-if="!loading && sharedState.step === 'project-funding'" />
 		<TheScreenProjectInvestors v-if="!loading && sharedState.step === 'project-investors'" />
-		<TheScreenProjectResult v-if="!loading && sharedState.step === 'project-result'" />
+		<TheScreenProjectResult v-if="!loading && (sharedState.step === 'project-result' || sharedState.step === 'project-cart' || sharedState.step === 'project-payment')" />
 
 		<div class="loading-guid" v-if="loading">
 			<WDGLoader
@@ -166,6 +166,7 @@ export default {
 				.then (response => {
 					this.loading = false
 					this.sharedProps.capacities = response.data
+					this.sharedProps.capacities.enable_payment = '1' // TODO : supprimer
 				})
 				.catch (error => {
 					console.log(error)

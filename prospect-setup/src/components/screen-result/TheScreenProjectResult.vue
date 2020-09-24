@@ -10,15 +10,42 @@
 
 			<TheResultPaymentHeader
 			  v-if="sharedState.package.canPay"
-			  currentTab="summary"
+			  :currentTab="sharedState.step"
 			  />
 
-			<div class="result-container">
+			<div
+			  v-if="sharedState.step == 'project-result'"
+			  class="result-container"
+			  >
 				<TheResultCampaignAdvice
-				:amountRaised="sharedState.project.amountNeeded * 1000"
-				:percentRoyalties="getPercentRoyaltiesNumber"
-				/>
+				  :amountRaised="sharedState.project.amountNeeded * 1000"
+				  :percentRoyalties="getPercentRoyaltiesNumber"
+				  />
 				<TheResultProspectMeetup />
+			</div>
+
+			<div
+			  v-if="sharedState.step == 'project-cart'"
+			  class="cart-container"
+			  >
+				<TheResultCart
+				  :bundle1Type="sharedState.package.bundle1.type"
+				  :bundle1Title="sharedState.package.bundle1.title"
+				  :bundle1PriceWithoutDiscount="sharedState.package.bundle1.priceWithoutDiscount"
+				  :bundle1Discount="sharedState.package.bundle1.discount"
+				  :bundle1DiscountReason="sharedState.package.bundle1.discountReason"
+				  :bundle2Type="sharedState.package.bundle2.type"
+				  :bundle2Title="sharedState.package.bundle2.title"
+				  :bundle2PriceWithoutDiscount="sharedState.package.bundle2.priceWithoutDiscount"
+				  :bundle2Discount="sharedState.package.bundle2.discount"
+				  :bundle2DiscountReason="sharedState.package.bundle2.discountReason"
+				  />
+			</div>
+
+			<div
+			  v-if="sharedState.step == 'project-payment'"
+			  class="payment-container"
+			  >
 			</div>
 			<div class="clear"></div>
 		</div>
@@ -33,6 +60,7 @@ import TheTabTitle from '@/components/common/TheTabTitle'
 import TheResultPaymentHeader from '@/components/screen-result/TheResultPaymentHeader'
 import TheResultCampaignAdvice from '@/components/screen-result/TheResultCampaignAdvice'
 import TheResultProspectMeetup from '@/components/screen-result/TheResultProspectMeetup'
+import TheResultCart from '@/components/screen-result/TheResultCart'
 import TheResultNotEligible from '@/components/screen-result/TheResultNotEligible'
 
 export default {
@@ -42,6 +70,7 @@ export default {
 		TheResultPaymentHeader,
 		TheResultCampaignAdvice,
 		TheResultProspectMeetup,
+		TheResultCart,
 		TheResultNotEligible
 	},
 	data () {
@@ -67,7 +96,7 @@ export default {
 	width: 780px;
 	margin: auto;
 }
-.the-screen-project-result div.result-container {
+.the-screen-project-result div.result-container, .the-screen-project-result div.cart-container {
 	margin-top: 32px;
 	display: flex;
 	justify-content: space-between;
@@ -77,6 +106,9 @@ export default {
 	margin-bottom: 32px;
 }
 .the-screen-project-result div.result-container div.the-result-campaign-advice, .the-screen-project-result div.result-container div.the-result-prospect-meetup {
+	width: 40%;
+}
+.the-screen-project-result div.cart-container div.the-result-cart {
 	width: 40%;
 }
 @media only screen and (max-width: 767px) {

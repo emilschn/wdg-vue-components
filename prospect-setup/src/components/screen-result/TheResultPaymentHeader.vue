@@ -1,10 +1,10 @@
 <template>
 	<div class="the-result-payment-header">
-		<span class="header-item" :class="selectionClass('summary')">{{ $t('project-setup.payment.header.SUMMARY') }}</span>
+		<span class="header-item" :class="selectionClass('project-result')">{{ $t('project-setup.payment.header.SUMMARY') }}</span>
 		<span class="arrow">-></span>
-		<span class="header-item" :class="selectionClass('validation')">{{ $t('project-setup.payment.header.VALIDATION') }}</span>
+		<span class="header-item" :class="selectionClass('project-cart')">{{ $t('project-setup.payment.header.VALIDATION') }}</span>
 		<span class="arrow">-></span>
-		<span class="header-item" :class="selectionClass('payment')">{{ $t('project-setup.payment.header.PAYMENT') }}</span>
+		<span class="header-item" :class="selectionClass('project-payment')">{{ $t('project-setup.payment.header.PAYMENT') }}</span>
 	</div>
 </template>
 

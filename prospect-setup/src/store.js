@@ -94,6 +94,7 @@ export const store = {
 				break
 
 			case 'project-funding':
+				// Si on n'était pas encore passé sur cet onglet, on sauvegarde
 				if (itemInfos.Status === 'incomplete') {
 					this.saveProject()
 				}
@@ -109,6 +110,7 @@ export const store = {
 					itemInfos.Status = 'complete'
 					itemInfos.LinkLabel = i18n.t('project-setup.tabs.MODIFY')
 				}
+				// Si on n'était pas encore passé sur cet onglet, on sauvegarde
 				if (itemFunding.Status === 'incomplete') {
 					this.saveProject()
 				}
@@ -120,6 +122,7 @@ export const store = {
 				break
 
 			case 'project-result':
+			case 'project-cart':
 				if (itemInfos.Status === 'incomplete') {
 					itemInfos.Status = 'complete'
 					itemInfos.LinkLabel = i18n.t('project-setup.tabs.MODIFY')
@@ -128,6 +131,7 @@ export const store = {
 					itemFunding.Status = 'complete'
 					itemFunding.LinkLabel = i18n.t('project-setup.tabs.MODIFY')
 				}
+				// Si on n'était pas encore passé sur cet onglet, on sauvegarde
 				if (itemInvestors.Status === 'incomplete') {
 					this.saveProject()
 				}

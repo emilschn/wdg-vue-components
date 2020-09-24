@@ -72,6 +72,7 @@
 
 		<WDGButton
 		  v-if="sharedState.package.canPay"
+		  :clickEvent="onContinueClickEvent"
 		  >
 			<slot slot="label">{{ $t('project-setup.CONTINUE') }}</slot>
 		</WDGButton>
@@ -289,6 +290,9 @@ export default {
 			bundleToEdit.discountReason = discountReason
 			this.updateTexts(bundleIndex)
 			store.saveProject()
+		},
+		onContinueClickEvent () {
+			store.changeStep('project-cart')
 		}
 	},
 	mounted () {
