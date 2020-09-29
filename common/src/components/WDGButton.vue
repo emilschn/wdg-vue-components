@@ -57,6 +57,11 @@ button.blue {
 	background: #00879B;
 	color: #FFF
 }
+button.grey {
+	border: 0 solid #333;
+	background: #333;
+	color: #FFF
+}
 button.facebook {
 	border: 0 solid #3b5998;
 	background: #3b5998;
@@ -64,6 +69,11 @@ button.facebook {
 }
 button.transparent {
 	border: 2px solid #333;
+	background: #FFF;
+	color: #333
+}
+button.transparent-no-border {
+	border: 0px solid #FFF;
 	background: #FFF;
 	color: #333
 }

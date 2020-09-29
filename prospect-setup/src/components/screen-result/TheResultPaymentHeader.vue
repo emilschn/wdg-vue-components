@@ -1,10 +1,28 @@
 <template>
 	<div class="the-result-payment-header">
-		<span class="header-item" :class="selectionClass('project-result')">{{ $t('project-setup.payment.header.SUMMARY') }}</span>
+		<a
+		  class="header-item"
+		  :class="selectionClass('project-result')"
+		  @click="changeStep('project-result')"
+		  >
+			{{ $t('project-setup.payment.header.SUMMARY') }}
+		</a>
 		<span class="arrow">-></span>
-		<span class="header-item" :class="selectionClass('project-cart')">{{ $t('project-setup.payment.header.VALIDATION') }}</span>
+		<a
+		  class="header-item"
+		  :class="selectionClass('project-cart')"
+		  @click="changeStep('project-cart')"
+		  >
+			{{ $t('project-setup.payment.header.VALIDATION') }}
+		</a>
 		<span class="arrow">-></span>
-		<span class="header-item" :class="selectionClass('project-payment')">{{ $t('project-setup.payment.header.PAYMENT') }}</span>
+		<a
+		  class="header-item"
+		  :class="selectionClass('project-payment')"
+		  @click="changeStep('project-payment')"
+		  >
+			{{ $t('project-setup.payment.header.PAYMENT') }}
+		</a>
 	</div>
 </template>
 
@@ -14,11 +32,33 @@ export default {
 	components: {
 	},
 	props: {
-		currentTab: { type: String, default: 'summary' }
+		currentTab: { type: String, default: 'project-result' },
+		onChangeStep: { type: Function }
 	},
 	methods: {
 		selectionClass (itemId) {
-			return (itemId === this.currentTab) ? 'selected' : ''
+			let buffer = (itemId === this.currentTab) ? 'selected' : ''
+			if (this.currentTab === 'project-cart' && itemId === 'project-result') {
+				buffer += ' clickable'
+			}
+			if (this.currentTab === 'project-payment' && itemId !== this.currentTab) {
+				buffer += ' clickable'
+			}
+			return buffer
+		},
+		changeStep (itemId) {
+			let canChangeStep = false
+			if (this.currentTab === 'project-cart' && itemId === 'project-result') {
+				canChangeStep = true
+			}
+			if (this.currentTab === 'project-payment' && itemId !== this.currentTab) {
+				canChangeStep = true
+			}
+			if (canChangeStep) {
+				if (this.onChangeStep !== undefined) {
+					this.onChangeStep(itemId)
+				}
+			}
 		}
 	}
 }
@@ -32,12 +72,15 @@ div.the-result-payment-header {
 	padding: 8px;
 	text-align: center;
 }
-div.the-result-payment-header span.header-item {
+div.the-result-payment-header a.header-item {
 	color: #B4B4B4;
 	font-weight: bold;
 }
-div.the-result-payment-header span.header-item.selected {
+div.the-result-payment-header a.header-item.selected {
 	color: #00879b;
+}
+div.the-result-payment-header a.header-item.clickable {
+	cursor: pointer;
 }
 div.the-result-payment-header span.arrow {
 	display: inline-block;

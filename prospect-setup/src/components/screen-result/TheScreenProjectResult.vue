@@ -11,6 +11,7 @@
 			<TheResultPaymentHeader
 			  v-if="sharedState.package.canPay"
 			  :currentTab="sharedState.step"
+			  :onChangeStep="onChangeStepEvent"
 			  />
 
 			<div
@@ -25,10 +26,10 @@
 			</div>
 
 			<div
-			  v-if="sharedState.step == 'project-cart'"
 			  class="cart-container"
 			  >
 				<TheResultCart
+				  v-if="sharedState.step == 'project-cart' || sharedState.step == 'project-payment'"
 				  :bundle1Type="sharedState.package.bundle1.type"
 				  :bundle1Title="sharedState.package.bundle1.title"
 				  :bundle1PriceWithoutDiscount="sharedState.package.bundle1.priceWithoutDiscount"
@@ -40,13 +41,17 @@
 				  :bundle2Discount="sharedState.package.bundle2.discount"
 				  :bundle2DiscountReason="sharedState.package.bundle2.discountReason"
 				  />
+
+				<TheResultOrganizationInfo
+				  v-if="sharedState.step == 'project-cart'"
+				  />
+
+				<TheResultPaymentSelector
+				  v-if="sharedState.step == 'project-payment'"
+				  :canUseWire="canUseWire"
+				  />
 			</div>
 
-			<div
-			  v-if="sharedState.step == 'project-payment'"
-			  class="payment-container"
-			  >
-			</div>
 			<div class="clear"></div>
 		</div>
 
@@ -61,6 +66,8 @@ import TheResultPaymentHeader from '@/components/screen-result/TheResultPaymentH
 import TheResultCampaignAdvice from '@/components/screen-result/TheResultCampaignAdvice'
 import TheResultProspectMeetup from '@/components/screen-result/TheResultProspectMeetup'
 import TheResultCart from '@/components/screen-result/TheResultCart'
+import TheResultOrganizationInfo from '@/components/screen-result/TheResultOrganizationInfo'
+import TheResultPaymentSelector from '@/components/screen-result/TheResultPaymentSelector'
 import TheResultNotEligible from '@/components/screen-result/TheResultNotEligible'
 
 export default {
@@ -71,6 +78,8 @@ export default {
 		TheResultCampaignAdvice,
 		TheResultProspectMeetup,
 		TheResultCart,
+		TheResultOrganizationInfo,
+		TheResultPaymentSelector,
 		TheResultNotEligible
 	},
 	data () {
@@ -78,7 +87,7 @@ export default {
 			sharedState: store.state
 		}
 	},
-    computed: {
+	computed: {
 		getPercentRoyaltiesNumber () {
 			return Number(this.sharedState.project.royaltiesAmount)
 		},
@@ -86,8 +95,23 @@ export default {
 			return (
 				this.sharedState.organization.type !== 'microbusiness' && this.sharedState.organization.location !== 'out-euro' && this.sharedState.project.readyToCommunicate && this.sharedState.project.royaltiesOK
 			)
+		},
+		canUseWire () {
+			let bundle1PriceWithoutDiscount = this.sharedState.package.bundle1.priceWithoutDiscount
+			let bundle1DiscountAmount = bundle1PriceWithoutDiscount * this.sharedState.package.bundle1.discount / 100
+			let bundle2PriceWithoutDiscount = this.sharedState.package.bundle2.priceWithoutDiscount
+			let bundle2DiscountAmount = bundle2PriceWithoutDiscount * this.sharedState.package.bundle2.discount / 100
+			let totalWithoutTaxes = bundle1PriceWithoutDiscount - bundle1DiscountAmount + bundle2PriceWithoutDiscount - bundle2DiscountAmount
+			let totalTaxes = totalWithoutTaxes * 20 / 100
+			let totalAmount = totalWithoutTaxes + totalTaxes
+			return (totalAmount > 1000)
 		}
-    }
+	},
+	methods: {
+		onChangeStepEvent (sId) {
+			store.changeStep(sId)
+		}
+	}
 }
 </script>
 
@@ -108,25 +132,25 @@ export default {
 .the-screen-project-result div.result-container div.the-result-campaign-advice, .the-screen-project-result div.result-container div.the-result-prospect-meetup {
 	width: 40%;
 }
-.the-screen-project-result div.cart-container div.the-result-cart {
+.the-screen-project-result div.cart-container div.the-result-cart, .the-screen-project-result div.cart-container div.the-result-organization-info {
 	width: 40%;
 }
 @media only screen and (max-width: 767px) {
-.the-screen-project-result {
-	width: auto;
-}
-.the-screen-project-result div.result-container {
-	flex-direction: column;
-	align-items: center;
-}
-.the-screen-project-result div.result-container div.the-result-campaign-advice, .the-screen-project-result div.result-container div.the-result-prospect-meetup {
-	width: 80%;
-}
-.the-screen-project-result div.result-container div.the-result-prospect-meetup {
-	margin-top: 16px;
-}
-div.the-result-prospect-meetup .wdg-button button {
-	text-align: center;
-}
+	.the-screen-project-result {
+		width: auto;
+	}
+	.the-screen-project-result div.result-container {
+		flex-direction: column;
+		align-items: center;
+	}
+	.the-screen-project-result div.result-container div.the-result-campaign-advice, .the-screen-project-result div.result-container div.the-result-prospect-meetup {
+		width: 80%;
+	}
+	.the-screen-project-result div.result-container div.the-result-prospect-meetup {
+		margin-top: 16px;
+	}
+	div.the-result-prospect-meetup .wdg-button button {
+		text-align: center;
+	}
 }
 </style>

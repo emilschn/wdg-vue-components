@@ -160,6 +160,12 @@
 				"MICROBUSINESS": "WE DO GOOD ne peut accompagner que des activités portées par des personnes morales.",
 				"OUT_EURO": "WE DO GOOD ne peut accompagner que des organisations immatriculées dans la zone Euro.",
 				"LESS_10K": "WE DO GOOD ne peut accompagner que pour des montants supérieurs à 10 000 €."
+			},
+			"address-number-complements": {
+				"BIS": "BIS",
+				"TER": "TER",
+				"QUATER": "QUATER",
+				"QUINQUIES": "QUINQUIES"
 			}
 		},
 		"project-funding": {
@@ -352,6 +358,23 @@
 				"TOTAL_WITHOUT_TAXES": "Total H.T.",
 				"TAXES": "TVA 20%",
 				"TOTAL_WITH_TAXES": "Total T.T.C."
+			},
+			"organization-info": {
+				"INTRO": "Nous avons besoin de quelques informations complémentaires :",
+				"TAX_LABEL": "Mon numéro de TVA est",
+				"ADDRESS_LABEL": "Mon siège social est situé :",
+				"ADDRESS_NUMBER_PLACEHOLDER": "N°",
+				"ADDRESS_STREET_PLACEHOLDER": "Rue",
+				"ADDRESS_POSTAL_CODE_PLACEHOLDER": "Code postal",
+				"ADDRESS_CITY_PLACEHOLDER": "Ville",
+				"EMAIL_LABEL": "L'adresse e-mail de mon entreprise (différente de mon adresse personnelle) est :",
+				"EMAIL_PLACEHOLDER": "contact@monentreprise.com"
+			},
+			"methods": {
+				"SECURED_PAYMENT": "Paiement sécurisé",
+				"METHOD_CHOICE": "Choix du mode de paiement",
+				"CARD": "Carte bancaire",
+				"WIRE": "Virement bancaire"
 			}
 		}
 	}

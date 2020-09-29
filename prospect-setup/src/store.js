@@ -25,7 +25,15 @@ export const store = {
 			location: '',
 			amountNeeded: '',
 			sourceProspect: '',
-			sourceProspectDetails: ''
+			sourceProspectDetails: '',
+			taxNumber: '',
+			addressNumber: '',
+			addressNumberComplement: '',
+			addressStreet: '',
+			addressPostalCode: '',
+			addressCity: '',
+			addressCountry: '',
+			email: ''
 		},
 		project: {
 			estimatedTurnover: {

@@ -107,7 +107,11 @@ export default {
 			return this.sharedTabItems
 		},
 		currentStep () {
-			return this.sharedState.step
+			let result = this.sharedState.step
+			if (result === 'project-cart' || result === 'project-payment') {
+				result = 'project-result'
+			}
+			return result
 		}
 	},
 	methods: {
@@ -166,6 +170,7 @@ export default {
 				.then (response => {
 					this.loading = false
 					this.sharedProps.capacities = response.data
+					this.sharedProps.capacities.edit_bundles = '1' // TODO : supprimer
 					this.sharedProps.capacities.enable_payment = '1' // TODO : supprimer
 				})
 				.catch (error => {
