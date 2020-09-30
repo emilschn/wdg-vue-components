@@ -48,7 +48,6 @@
 </template>
 
 <script>
-// import i18n from '@/i18n'
 import WDGButton from '@/../../common/src/components/WDGButton'
 export default {
 	name: 'TheResultPaymentSelector',
@@ -56,7 +55,8 @@ export default {
 		WDGButton
 	},
 	props: {
-		canUseWire: { type: Boolean, default: true }
+		canUseWire: { type: Boolean, default: true },
+		onMethodValidate: { type: Function }
 	},
 	data () {
 		return {
@@ -73,14 +73,8 @@ export default {
 			this.currentMethod = 'wire'
 		},
 		onContinueClickEvent () {
-			// Si carte
-			if (this.currentMethod === 'card') {
-				// appel Ajax
-			}
-			// Si virement
-			if (this.currentMethod === 'wire') {
-				// affichage infos de paiement
-				// appel Ajax pour notification
+			if (this.onMethodValidate !== undefined) {
+				this.onMethodValidate(this.currentMethod)
 			}
 		}
 	},

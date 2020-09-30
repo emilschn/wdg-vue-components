@@ -9,7 +9,7 @@
 			</TheTabTitle>
 
 			<TheResultPaymentHeader
-			  v-if="sharedState.package.canPay"
+			  v-if="sharedState.package.canPay && sharedState.step !== 'project-complete'"
 			  :currentTab="sharedState.step"
 			  :onChangeStep="onChangeStepEvent"
 			  />
@@ -26,10 +26,10 @@
 			</div>
 
 			<div
+			  v-if="sharedState.step == 'project-cart' || sharedState.step == 'project-payment'"
 			  class="cart-container"
 			  >
 				<TheResultCart
-				  v-if="sharedState.step == 'project-cart' || sharedState.step == 'project-payment'"
 				  :bundle1Type="sharedState.package.bundle1.type"
 				  :bundle1Title="sharedState.package.bundle1.title"
 				  :bundle1PriceWithoutDiscount="sharedState.package.bundle1.priceWithoutDiscount"
@@ -47,10 +47,21 @@
 				  />
 
 				<TheResultPaymentSelector
-				  v-if="sharedState.step == 'project-payment'"
+				  v-if="sharedState.step === 'project-payment' && sharedState.package.paymentMethod === ''"
 				  :canUseWire="canUseWire"
+				  :onMethodValidate="onMethodValidateEvent"
+				  />
+
+				<TheResultPaymentWire
+				  v-if="sharedState.step === 'project-payment' && sharedState.package.paymentMethod === 'wire'"
+				  :canAcceptWire="sharedProps.capacities.accept_wire_payment === '1'"
+				  :onAdminContinue="onWireReceivedEvent"
 				  />
 			</div>
+
+			<TheResultPaymentComplete
+			  v-if="sharedState.step === 'project-complete'"
+			  />
 
 			<div class="clear"></div>
 		</div>
@@ -68,6 +79,8 @@ import TheResultProspectMeetup from '@/components/screen-result/TheResultProspec
 import TheResultCart from '@/components/screen-result/TheResultCart'
 import TheResultOrganizationInfo from '@/components/screen-result/TheResultOrganizationInfo'
 import TheResultPaymentSelector from '@/components/screen-result/TheResultPaymentSelector'
+import TheResultPaymentWire from '@/components/screen-result/TheResultPaymentWire'
+import TheResultPaymentComplete from '@/components/screen-result/TheResultPaymentComplete'
 import TheResultNotEligible from '@/components/screen-result/TheResultNotEligible'
 
 export default {
@@ -80,11 +93,14 @@ export default {
 		TheResultCart,
 		TheResultOrganizationInfo,
 		TheResultPaymentSelector,
+		TheResultPaymentWire,
+		TheResultPaymentComplete,
 		TheResultNotEligible
 	},
 	data () {
 		return {
-			sharedState: store.state
+			sharedState: store.state,
+			sharedProps: store.props
 		}
 	},
 	computed: {
@@ -110,6 +126,31 @@ export default {
 	methods: {
 		onChangeStepEvent (sId) {
 			store.changeStep(sId)
+		},
+		onMethodValidateEvent (sMethod) {
+			store.saveProject()
+			switch (sMethod) {
+				case 'card':
+					// appel Ajax pour récupérer une URL de redirection vers LW
+					break
+				case 'wire':
+					// appel Ajax pour envoi de notification de choix au PP et à l'admin
+					store.sendWireSelected()
+					// affichage des infos de paiement
+					this.sharedState.package.paymentMethod = 'wire'
+					break
+			}
+		},
+		onWireReceivedEvent () {
+			// affichage validation
+			store.changeStep('project-complete')
+			// enregistrement de la date de réception de paiement
+			let currentDate = new Date()
+			this.sharedState.package.paymentDate = currentDate.toString()
+			this.sharedState.package.paymentStatus = 'complete'
+			store.saveProject()
+			// appel Ajax pour notification au PP et à l'admin
+			store.sendWireReceived()
 		}
 	}
 }

@@ -375,6 +375,15 @@
 				"METHOD_CHOICE": "Choix du mode de paiement",
 				"CARD": "Carte bancaire",
 				"WIRE": "Virement bancaire"
+			},
+			"wire": {
+				"TITLE": "Virement vers WE DO GOOD",
+				"IBAN_LABEL": "IBAN :"
+			},
+			"complete": {
+				"CONFIRMATION": "Votre paiement est confirmé !",
+				"THANK_YOU": "Merci pour votre confiance.",
+				"CREATE": "Vous pouvez dès à présent créer votre projet sur WE DO GOOD !"
 			}
 		}
 	}

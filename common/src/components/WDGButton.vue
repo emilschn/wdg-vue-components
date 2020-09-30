@@ -67,6 +67,11 @@ button.facebook {
 	background: #3b5998;
 	color: #FFF
 }
+button.admin {
+	border: 0 solid #F1A074;
+	background: #F1A074;
+	color: #FFF;
+}
 button.transparent {
 	border: 2px solid #333;
 	background: #FFF;

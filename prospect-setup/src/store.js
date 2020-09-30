@@ -56,6 +56,9 @@ export const store = {
 		},
 		package: {
 			canPay: false,
+			paymentMethod: '',
+			paymentStatus: '',
+			paymentDate: '',
 			bundle1: {
 				title: '',
 				type: '',
@@ -250,6 +253,28 @@ export const store = {
 		}
 		let data = new FormData()
 		data.append('action', 'prospect_setup_send_mail_user_draft_finished')
+		data.append('guid', this.state.guid)
+
+		axios
+			.post (this.props.ajaxurl, data)
+	},
+	sendWireSelected () {
+		if (process.env.NODE_ENV === 'development') {
+			return
+		}
+		let data = new FormData()
+		data.append('action', 'prospect_setup_send_mail_payment_method_select_wire')
+		data.append('guid', this.state.guid)
+
+		axios
+			.post (this.props.ajaxurl, data)
+	},
+	sendWireReceived () {
+		if (process.env.NODE_ENV === 'development') {
+			return
+		}
+		let data = new FormData()
+		data.append('action', 'prospect_setup_send_mail_payment_method_received_wire')
 		data.append('guid', this.state.guid)
 
 		axios
