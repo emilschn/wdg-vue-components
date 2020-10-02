@@ -9,6 +9,7 @@
 			<br>
 			{{ $t('project-setup.payment.complete.CREATE') }}
 		</div>
+		<br><br>
 
 		<WDGButton
 		  color="red"
@@ -21,9 +22,11 @@
 </template>
 
 <script>
+import WDGButton from '@/../../common/src/components/WDGButton'
 export default {
 	name: 'TheResultPaymentComplete',
 	components: {
+		WDGButton
 	},
 	props: {
 		onContinue: { type: Function }

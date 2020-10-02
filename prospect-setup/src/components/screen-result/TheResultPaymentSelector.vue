@@ -38,7 +38,8 @@
 
 		<WDGButton
 		  v-if="currentMethod !== ''"
-		  color="red"
+		  id="btnContinue"
+		  :color="buttonContinueColor"
 		  type="button"
 		  :clickEvent="onContinueClickEvent"
 		  >
@@ -56,6 +57,7 @@ export default {
 	},
 	props: {
 		canUseWire: { type: Boolean, default: true },
+		isLoading: { type: Boolean, default: false },
 		onMethodValidate: { type: Function }
 	},
 	data () {
@@ -73,7 +75,7 @@ export default {
 			this.currentMethod = 'wire'
 		},
 		onContinueClickEvent () {
-			if (this.onMethodValidate !== undefined) {
+			if (this.onMethodValidate !== undefined && !this.isLoading) {
 				this.onMethodValidate(this.currentMethod)
 			}
 		}
@@ -84,6 +86,9 @@ export default {
 		},
 		buttonWireColor () {
 			return (this.currentMethod === 'wire') ? 'grey' : 'transparent-no-border'
+		},
+		buttonContinueColor () {
+			return (this.isLoading) ? 'transparent-no-border' : 'red'
 		}
 	}
 }
@@ -107,5 +112,8 @@ div.the-result-payment-selector div.payment-methods-buttons .wdg-button button {
 div.the-result-payment-selector div.payment-methods-buttons .wdg-button button.grey {
 	background: #333 url('../../../../common/src/assets/icons/check-white.png') no-repeat 8px center;
 	padding: 0px 16px 0px 32px;
+}
+div.the-result-payment-selector #btnContinue.transparent-no-border {
+	cursor: default;
 }
 </style>

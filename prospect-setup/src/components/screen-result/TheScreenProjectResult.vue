@@ -9,7 +9,7 @@
 			</TheTabTitle>
 
 			<TheResultPaymentHeader
-			  v-if="sharedState.package.canPay && sharedState.step !== 'project-complete'"
+			  v-if="sharedState.authorization === 'can-pay' && sharedState.step !== 'project-complete'"
 			  :currentTab="sharedState.step"
 			  :onChangeStep="onChangeStepEvent"
 			  />
@@ -49,6 +49,7 @@
 				<TheResultPaymentSelector
 				  v-if="sharedState.step === 'project-payment' && sharedState.package.paymentMethod === ''"
 				  :canUseWire="canUseWire"
+				  :isLoading="sharedRuntime.isLoadingPayment"
 				  :onMethodValidate="onMethodValidateEvent"
 				  />
 
@@ -99,8 +100,10 @@ export default {
 	},
 	data () {
 		return {
+			sharedRuntime: store.runtime,
 			sharedState: store.state,
-			sharedProps: store.props
+			sharedProps: store.props,
+			isPaymentLoading: false
 		}
 	},
 	computed: {
@@ -113,6 +116,11 @@ export default {
 			)
 		},
 		canUseWire () {
+			return (this.getTotalAmount() > 1000)
+		}
+	},
+	methods: {
+		getTotalAmount () {
 			let bundle1PriceWithoutDiscount = this.sharedState.package.bundle1.priceWithoutDiscount
 			let bundle1DiscountAmount = bundle1PriceWithoutDiscount * this.sharedState.package.bundle1.discount / 100
 			let bundle2PriceWithoutDiscount = this.sharedState.package.bundle2.priceWithoutDiscount
@@ -120,10 +128,8 @@ export default {
 			let totalWithoutTaxes = bundle1PriceWithoutDiscount - bundle1DiscountAmount + bundle2PriceWithoutDiscount - bundle2DiscountAmount
 			let totalTaxes = totalWithoutTaxes * 20 / 100
 			let totalAmount = totalWithoutTaxes + totalTaxes
-			return (totalAmount > 1000)
-		}
-	},
-	methods: {
+			return totalAmount
+		},
 		onChangeStepEvent (sId) {
 			store.changeStep(sId)
 		},
@@ -132,6 +138,7 @@ export default {
 			switch (sMethod) {
 				case 'card':
 					// appel Ajax pour récupérer une URL de redirection vers LW
+					store.askCardPayment(this.getTotalAmount())
 					break
 				case 'wire':
 					// appel Ajax pour envoi de notification de choix au PP et à l'admin
@@ -146,6 +153,7 @@ export default {
 			store.changeStep('project-complete')
 			// enregistrement de la date de réception de paiement
 			let currentDate = new Date()
+			this.sharedState.status = 'paid'
 			this.sharedState.package.paymentDate = currentDate.toString()
 			this.sharedState.package.paymentStatus = 'complete'
 			store.saveProject()

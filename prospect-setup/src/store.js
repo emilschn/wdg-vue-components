@@ -55,7 +55,6 @@ export const store = {
 			fileComments: ''
 		},
 		package: {
-			canPay: false,
 			paymentMethod: '',
 			paymentStatus: '',
 			paymentDate: '',
@@ -79,6 +78,9 @@ export const store = {
 		ajaxURL: '',
 		initFileList: [],
 		capacities: []
+	},
+	runtime: {
+		isLoadingPayment: false
 	},
 	tabItems: [
 		{ Id: 'project-infos', Label: i18n.t('project-setup.tabs.MY_PROJECT'), Index: '1', Subtitle: '', Status: 'incomplete', LinkLabel: '' },
@@ -257,6 +259,55 @@ export const store = {
 
 		axios
 			.post (this.props.ajaxurl, data)
+	},
+	askCardPayment (nAmountToPay) {
+		if (process.env.NODE_ENV === 'development') {
+			return
+		}
+		this.runtime.isLoadingPayment = true
+		let data = new FormData()
+		data.append('action', 'prospect_setup_ask_card_payment')
+		data.append('guid', this.state.guid)
+		data.append('amount', nAmountToPay)
+
+		axios
+			.post (this.props.ajaxurl, data)
+			.then (response => {
+				let responseData = response.data
+				console.log(responseData)
+				if (responseData.has_error === '1') {
+					this.runtime.isLoadingPayment = false
+					console.log(responseData.error_str)
+				} else {
+					if (responseData.url_redirect !== '') {
+						window.location = responseData.url_redirect
+					}
+				}
+			})
+			.catch (error => {
+				this.runtime.isLoadingPayment = false
+				if (error.response) {
+					// The request was made and the server responded with a status code
+					// that falls out of the range of 2xx
+					console.log('error.response')
+					console.log(error.response.data)
+					console.log(error.response.status)
+					console.log(error.response.headers)
+				} else if (error.request) {
+					// The request was made but no response was received
+					// `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+					// http.ClientRequest in node.js
+					console.log('error.request')
+					console.log(error.request)
+				} else {
+					// Something happened in setting up the request that triggered an Error
+					console.log('error.message')
+					console.log('Error', error.message)
+				}
+				console.log('error.toJSON')
+				console.log(error.toJSON())
+				console.log(error.config)
+			})
 	},
 	sendWireSelected () {
 		if (process.env.NODE_ENV === 'development') {

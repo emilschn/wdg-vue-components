@@ -60,7 +60,7 @@
 
 		<WDGToggle
 		  v-if="sharedProps.capacities.enable_payment === '1'"
-		  :initValue="sharedState.package.canPay"
+		  :initValue="sharedState.authorization === 'can-pay'"
 		  :changeEvent="onEnablePaymentChangeEvent"
 		  theme="admin"
 		  colorChecked="#F1A074"
@@ -71,7 +71,7 @@
 		<br><br>
 
 		<WDGButton
-		  v-if="sharedState.package.canPay"
+		  v-if="sharedState.authorization === 'can-pay'"
 		  :clickEvent="onContinueClickEvent"
 		  >
 			<slot slot="label">{{ $t('project-setup.CONTINUE') }}</slot>
@@ -269,7 +269,7 @@ export default {
 			}
 		},
 		onEnablePaymentChangeEvent (newValue) {
-			this.sharedState.package.canPay = newValue
+			this.sharedState.authorization = 'can-pay'
 			store.saveProject()
 		},
 		onEditBundle (bundleIndex, isEditing) {
