@@ -1,5 +1,8 @@
 <template>
 	<div class="the-result-payment-wire">
+		<a @click="clickBack">&lt; {{ $t('project-setup.payment.wire.BACK') }}</a>
+		<br><br>
+
 		<strong>{{ $t('project-setup.payment.wire.TITLE') }}</strong>
 		<br><br>
 
@@ -29,7 +32,8 @@ export default {
 	},
 	props: {
 		canAcceptWire: { type: Boolean, default: false },
-		onAdminContinue: { type: Function }
+		onAdminContinue: { type: Function },
+		onClickBack: { type: Function }
 	},
 	data () {
 		return {
@@ -42,6 +46,11 @@ export default {
 			if (this.onAdminContinue !== undefined) {
 				this.onAdminContinue()
 			}
+		},
+		clickBack () {
+			if (this.onClickBack !== undefined) {
+				this.onClickBack()
+			}
 		}
 	},
 	computed: {
@@ -53,5 +62,8 @@ export default {
 div.the-result-payment-wire {
 	padding: 32px;
 	background: #FFF;
+}
+div.the-result-payment-wire a {
+	cursor: pointer;
 }
 </style>

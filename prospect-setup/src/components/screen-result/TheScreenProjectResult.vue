@@ -8,6 +8,9 @@
 				<slot slot="title">{{ $t('project-setup.project-result.TITLE') }}</slot>
 			</TheTabTitle>
 
+			{{ $t('project-setup.project-result.SUBTITLES_SELECTION_STANDARDS') }}
+			<a href="https://www.wedogood.co/investissement/criteres-selection/">{{ $t('project-setup.project-result.SUBTITLES_SELECTION_STANDARDS_LINK') }}</a>.
+
 			<TheResultPaymentHeader
 			  v-if="sharedState.authorization === 'can-pay' && sharedState.step !== 'project-complete'"
 			  :currentTab="sharedState.step"
@@ -57,6 +60,7 @@
 				  v-if="sharedState.step === 'project-payment' && sharedState.package.paymentMethod === 'wire'"
 				  :canAcceptWire="sharedProps.capacities.accept_wire_payment === '1'"
 				  :onAdminContinue="onWireReceivedEvent"
+				  :onClickBack="onClickBackEvent"
 				  />
 			</div>
 
@@ -159,6 +163,9 @@ export default {
 			store.saveProject()
 			// appel Ajax pour notification au PP et à l'admin
 			store.sendWireReceived()
+		},
+		onClickBackEvent () {
+			this.sharedState.package.paymentMethod = ''
 		}
 	}
 }

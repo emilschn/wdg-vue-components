@@ -259,6 +259,8 @@
 		},
 		"project-result": {
 			"TITLE": "Votre projet est éligible !",
+			"SUBTITLES_SELECTION_STANDARDS": "sous réserve de respecter l'ensemble de nos",
+			"SUBTITLES_SELECTION_STANDARDS_LINK": "critères de sélection",
 			"TITLE_FAILED": "Votre projet n'est pas éligible...",
 			"YOU_CAN_RAISE": "Vous pouvez lever",
 			"TARGET_LOVEMONEY": "auprès de vos proches",
@@ -377,6 +379,7 @@
 				"WIRE": "Virement bancaire"
 			},
 			"wire": {
+				"BACK": "Retour au choix du mode de paiement",
 				"TITLE": "Virement vers WE DO GOOD",
 				"IBAN_LABEL": "IBAN :"
 			},
