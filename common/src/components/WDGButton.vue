@@ -19,14 +19,19 @@ export default {
 		id: { type: String, default: null },
 		type: { type: String, default: 'submit' },
 		color: { type: String, default: 'red' },
-        name: { type: String, default: null },
-        disabled: { type: Boolean, default: false },
-        clickEvent: Function
+		name: { type: String, default: null },
+		link: { type: String, default: '' },
+		disabled: { type: Boolean, default: false },
+		clickEvent: Function
     },
     computed: {
 	},
 	methods: {
 		onClickLocalEvent () {
+			if (this.link !== '' && this.link !== undefined) {
+				this.disabled = true
+				window.location = this.link
+			}
 			if (this.clickEvent !== undefined) {
 				this.clickEvent()
 			}

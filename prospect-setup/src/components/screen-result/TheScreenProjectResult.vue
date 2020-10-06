@@ -66,6 +66,7 @@
 
 			<TheResultPaymentComplete
 			  v-if="sharedState.step === 'project-complete'"
+			  :guid="sharedState.guid"
 			  />
 
 			<div class="clear"></div>

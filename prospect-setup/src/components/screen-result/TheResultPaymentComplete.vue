@@ -14,7 +14,7 @@
 		<WDGButton
 		  color="red"
 		  type="button"
-		  :clickEvent="onContinueClickEvent"
+		  :link="continueLink"
 		  >
 			<slot slot="label">{{ $t('project-setup.CONTINUE') }}</slot>
 		</WDGButton>
@@ -29,13 +29,13 @@ export default {
 		WDGButton
 	},
 	props: {
-		onContinue: { type: Function }
+		guid: { type: String, default: '' }
 	},
 	methods: {
-		onContinueClickEvent () {
-			if (this.onContinue !== undefined) {
-				this.onContinue()
-			}
+	},
+	computed: {
+		continueLink () {
+			return 'https://www.wedogood.co/lancement/?guid=' + this.guid
 		}
 	}
 }
