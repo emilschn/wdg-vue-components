@@ -132,7 +132,7 @@
 			"PLACEHOLDER_PROJECT_ID": "Numéro SIREN",
 			"PLACEHOLDER_PROJECT_DESCRIPTION": "Mon activité...",
 			"PLACEHOLDER_USER_NAME": "Prénom Nom",
-			"PLACEHOLDER_USER_EMAIL": "contact@mon-projet.fr",
+			"PLACEHOLDER_USER_EMAIL": "prenom.nom@entreprise.com",
 			"PLACEHOLDER_USER_PHONE": "06 06 06 06 06",
 			"organization-types": {
 				"NOT_CREATED": "en cours de création",
@@ -370,7 +370,7 @@
 				"ADDRESS_POSTAL_CODE_PLACEHOLDER": "Code postal",
 				"ADDRESS_CITY_PLACEHOLDER": "Ville",
 				"EMAIL_LABEL": "L'adresse e-mail de mon entreprise (différente de mon adresse personnelle) est :",
-				"EMAIL_PLACEHOLDER": "contact@monentreprise.com"
+				"EMAIL_PLACEHOLDER": "contact@entreprise.com"
 			},
 			"methods": {
 				"SECURED_PAYMENT": "Paiement sécurisé",

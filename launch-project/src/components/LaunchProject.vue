@@ -86,7 +86,7 @@
 				<slot slot="label" v-if="!isExistingOrga">{{ $t('common.ORGA_NAME') }}</slot>
 			</WDGInput>
 			<WDGInput
-				:placeholder="$t('common.EMAIL_ADDRESS_PLACEHOLDER')"
+				:placeholder="$t('project-setup.payment.organization-info.EMAIL_PLACEHOLDER')"
 				id="email"
 				name="email"
 				v-bind:multiline="false"
@@ -156,6 +156,8 @@ export default {
 		firstname: { type: String, default: '' },
 		lastname: { type: String, default: '' },
 		phonenumber: { type: String, default: '' },
+		organame: { type: String, default: '' },
+		orgaemail: { type: String, default: '' },
 		projectname: { type: String, default: '' },
 		urlcgu: { type: String, default: '' },
 		existingprojects: { type: Object, default: null },
@@ -170,8 +172,6 @@ export default {
 			new_orgaemail: '',
 			isExistingOrga: false,
 			firstorga_id: null,
-			organame: '',
-			orgaemail: '',
 			select_organame: ''
 		}
 	},

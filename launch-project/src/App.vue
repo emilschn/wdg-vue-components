@@ -1,22 +1,22 @@
 <template>
-  <div
-  	id="app"
-	:data-ajaxurl="ajaxurl"
-	>
-    <!-- <router-view/> -->
-    <LaunchProject
-	  	:ajaxurl="ajaxurl"
-		:firstname="firstname"
-		:lastname="lastname"
-		:email="email"
-		:phonenumber="phonenumber"
-		:organame="organame"
-		:projectname="projectname"
-		:existingprojects="existingprojects"
-		:existingorganisations="existingorganisations"
-		:urlcgu="urlcgu"
-	/>
-  </div>
+	<div
+	  id="app"
+	  :data-ajaxurl="ajaxurl"
+	  >
+		<!-- <router-view/> -->
+		<LaunchProject
+		  :ajaxurl="ajaxurl"
+		  :firstname="firstname"
+		  :lastname="lastname"
+		  :phonenumber="phonenumber"
+		  :organame="organame"
+		  :orgaemail="orgaemail"
+		  :projectname="projectname"
+		  :existingprojects="existingprojects"
+		  :existingorganisations="existingorganisations"
+		  :urlcgu="urlcgu"
+		  />
+	</div>
 </template>
 
 <script>
@@ -33,7 +33,7 @@ export default {
 			lastname: '',
 			phonenumber: '',
 			organame: '',
-			email: '',
+			orgaemail: '',
 			projectname: '',
 			existingorganisations: '',
 			urlcgu: '',
@@ -48,7 +48,7 @@ export default {
 		this.firstname = initElements.dataset.firstname
 		this.lastname = initElements.dataset.lastname
 		this.phonenumber = initElements.dataset.phonenumber
-		this.email = initElements.dataset.email
+		this.orgaemail = initElements.dataset.orgaemail
 		this.organame = initElements.dataset.organame
 		this.projectname = initElements.dataset.projectname
 		if (initElements.dataset.existingprojects) {
