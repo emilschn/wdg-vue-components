@@ -13,6 +13,7 @@
 		</div>
 
     	<ValidationProvider
+		  v-if="validationRule !== ''"
 		  :rules="validationRule"
 		  v-slot="v"
 		  >
@@ -59,10 +60,65 @@
 			  {{ suffix }}
 			</span>
 		</ValidationProvider>
+
+		<span v-else>
+      		<span
+			  v-if="(validationRule && v.errors[0])"
+			  class="wdg-message error"
+			  >
+				{{ v.errors[0] }}
+			</span>
+
+			<span
+			  v-if="!multiline && prefix !== ''"
+			  class="input-prefix"
+			  >
+			  {{ prefix }}
+			</span>
+
+			<input
+			  v-if="!multiline"
+			  :id="id"
+			  v-model="valueReturn"
+			  :placeholder="placeholder"
+			  :disabled="disabled"
+			  :required="isRequired"
+			  :type="type"
+			  :class="suffixClass"
+			  @input="onInputLocalEvent"
+			  @change="onChangeLocalEvent"
+			  />
+
+			<textarea
+			  v-else
+			  :id="id"
+			  v-model="valueReturn"
+			  :disabled="disabled"
+			  :required="isRequired"
+			  @input="onInputLocalEvent"
+			  />
+
+			<span
+			  v-if="!multiline && suffix !== ''"
+			  class="input-suffix"
+			  >
+			  {{ suffix }}
+			</span>
+		</span>
   	</div>
 </template>
 
 <script>
+// Je ne tire aucune gloire de cet affreux copier-coller de balises ci-dessus,
+// Mais suite à une MAJ des dépendances, il avait un warning à chaque modification d'input
+// Ce warning est provoqué par vee-validate
+// Il est de type : $listeners is readonly.
+// OU : $attrs is readonly.
+// Cela viendrait du fait que 2 instances de Vue sont chargées
+// cf : https://stackoverflow.com/questions/53206078/vue-warn-listeners-and-attrs-is-readonly?noredirect=1&lq=1
+// On est censé pouvoir contrer ça en appliquant une modification sur le fichier de config
+// Cela ne fonctionne pas
+// J'ai passé environ 4h dessus, j'en avais marre...
 import { ValidationProvider } from 'vee-validate'
 
 export default {
