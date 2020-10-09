@@ -170,15 +170,15 @@ export default {
 				.then (response => {
 					this.loading = false
 					this.sharedProps.capacities = response.data
-					this.sharedProps.capacities.edit_bundles = '1' // TODO : supprimer
-					this.sharedProps.capacities.enable_payment = '1' // TODO : supprimer
-					this.sharedProps.capacities.accept_wire_payment = '1' // TODO : supprimer
 				})
 				.catch (error => {
 					console.log(error)
 				})
 				.finally (() => {
 					this.loading = false
+					this.sharedProps.capacities.edit_bundles = '1' // TODO : supprimer
+					this.sharedProps.capacities.enable_payment = '1' // TODO : supprimer
+					this.sharedProps.capacities.accept_wire_payment = '1' // TODO : supprimer
 				})
 		}
 	}
