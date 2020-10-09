@@ -7,8 +7,8 @@
 			<button
 			  @click="toggleEdit"
 			  >
-				<svg width="25" height="25">
-					<image xlink:href="@/../../common/src/assets/icons/pencil.svg" src="@/../../common/src/assets/icons/pencil.png" width="25" height="25" />
+				<svg width="20" height="20">
+					<image xlink:href="@/../../common/src/assets/icons/pencil.svg" src="@/../../common/src/assets/icons/pencil.png" width="20" height="20" />
 				</svg>
 			</button>
 		</div>
@@ -169,5 +169,9 @@ div.the-result-bundle-editor div.bundle-editor button {
 	border: 0px;
 	background: #F1A074;
 	color: #FFF;
+}
+
+div.the-result-bundle-editor div.btn-edit button svg {
+	vertical-align: middle;
 }
 </style>

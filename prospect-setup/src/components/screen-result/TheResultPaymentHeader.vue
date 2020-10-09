@@ -69,7 +69,7 @@ div.the-result-payment-header {
 	background: #f4f2f2;
 	width: 500px;
 	margin: auto;
-	padding: 8px;
+	padding: 16px;
 	text-align: center;
 }
 div.the-result-payment-header a.header-item {
