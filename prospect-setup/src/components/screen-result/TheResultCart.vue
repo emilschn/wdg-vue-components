@@ -3,12 +3,14 @@
 		<div class="cart-bundle1">
 			<strong>{{ bundle1Title }}</strong><br>
 				<div class="bundle-description-prices">
-					<span class="bundle-description">{{ bundle1Description }}<br></span>
-					<div class="bundle-prices">
-						<span class="price-without-discount">{{ bundle1PriceWithoutDiscount }}&nbsp;&euro; {{ $t('common.WITHOUT_TAXES_LETTERS') }}</span><br>
-						<span class="price-discount">{{ bundle1Discount }}&nbsp;%
-						{{ bundle1DiscountReason }}<br></span>
-						<span class="discount-amount">{{ bundle1DiscountAmount }}&nbsp;&euro; {{ $t('common.WITHOUT_TAXES_LETTERS') }}<br></span>
+					<div class="description-price">
+						<span class="bundle-description">{{ bundle1Description }}</span>
+						<span class="price-without-discount">{{ bundle1PriceWithoutDiscount }}&nbsp;&euro; {{ $t('common.WITHOUT_TAXES_LETTERS') }}</span>
+					</div>
+					<div class="price-discount">
+						<span class="discount-reason">{{ bundle1Discount }}&nbsp;%
+						{{ bundle1DiscountReason }}</span>
+						<span class="discount-amount">-{{ bundle1DiscountAmount }}&nbsp;&euro; {{ $t('common.WITHOUT_TAXES_LETTERS') }}</span>
 					</div>
 				</div>
 	</div>
@@ -17,9 +19,11 @@
 			<strong>{{ bundle2Title }}</strong><br>
 				<div class="bundle-description-prices">
 					<span class="price-without-discount">{{ bundle2PriceWithoutDiscount }}&nbsp;&euro; {{ $t('common.WITHOUT_TAXES_LETTERS') }}</span><br>
-					<span class="price-discount">{{ bundle2Discount }}&nbsp;%
-					{{ bundle2DiscountReason }}<br></span>
-					<span class="discount-amount">{{ bundle2DiscountAmount }}&nbsp;&euro; {{ $t('common.WITHOUT_TAXES_LETTERS') }}<br></span>
+					<div class="price-discount">
+						<span class="discount-reason">{{ bundle2Discount }}&nbsp;%
+						{{ bundle2DiscountReason }}</span>
+						<span class="discount-amount">-{{ bundle2DiscountAmount }}&nbsp;&euro; {{ $t('common.WITHOUT_TAXES_LETTERS') }}<br></span>
+					</div>
 				</div>
 		</div>
 
@@ -114,20 +118,27 @@ div.the-result-cart div.cart-bundle1 strong, div.the-result-cart div.cart-bundle
 div.the-result-cart div.cart-bundle1 div.bundle-description-prices {
 	margin-top: 10px;
 	display: flex;
+	flex-flow: wrap;
+}
+
+div.the-result-cart div.bundle-description-prices div.description-price {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
 }
 
 div.the-result-cart div.cart-bundle2 div.bundle-description-prices {
 	text-align: right;
+	margin-top: 15px;
 }
 
 div.the-result-cart span.bundle-description {
 	font-size: 12px;
 	color: #b4b4b4;
 	width: 60%;
-	margin-right: 10px;
 }
 
-div.the-result-cart div.cart-bundle2 div.bundle-description, div.the-result-cart div.cart-bundle1 div.bundle-prices {
+div.the-result-cart div.cart-bundle2 div.bundle-description {
 	text-align: right;
 }
 
@@ -136,13 +147,21 @@ div.the-result-cart .price-without-discount {
 	font-weight: 500;
 }
 
-div.the-result-cart .price-discount {
-	font-size: 10px;
+div.the-result-cart div.price-discount {
+	width: 100%;
+	margin-top: 20px;
+	display: flex;
+	justify-content: space-between;
 }
 
 div.the-result-cart .discount-amount  {
 	font-size: 16px;
 	font-weight: 500;
+}
+
+div.the-result-cart .discount-reason {
+	font-size: 14px;
+	font-weight: 700;
 }
 
 div.the-result-cart div.cart-total-without-taxes, div.the-result-cart div.cart-total-taxes, div.the-result-cart div.cart-total-with-taxes {

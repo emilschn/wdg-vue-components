@@ -65,5 +65,9 @@ div.the-result-payment-wire {
 }
 div.the-result-payment-wire a {
 	cursor: pointer;
+	font-size: 14px;
+}
+div.the-result-payment-wire strong {
+	font-size: 20px;
 }
 </style>

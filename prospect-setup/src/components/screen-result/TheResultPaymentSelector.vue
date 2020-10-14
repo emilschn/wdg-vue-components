@@ -102,16 +102,24 @@ div.the-result-payment-selector {
 div.the-result-payment-selector div.payment-methods-pictos svg {
 	margin-right: 8px;
 }
+div.the-result-payment-selector div.payment-methods-buttons {
+	width: 400px;
+}
 div.the-result-payment-selector div.payment-methods-buttons .wdg-button {
 	display: inline-block;
 	margin-right: 16px;
 }
 div.the-result-payment-selector div.payment-methods-buttons .wdg-button button {
 	padding: 0px 16px;
+	border: 1px solid #333;
+	margin-top: 15px;
 }
 div.the-result-payment-selector div.payment-methods-buttons .wdg-button button.grey {
 	background: #333 url('../../../../common/src/assets/icons/check-white.png') no-repeat 8px center;
 	padding: 0px 16px 0px 32px;
+}
+div.the-result-payment-selector .wdg-button button.red {
+	width: 170px;
 }
 div.the-result-payment-selector #btnContinue.transparent-no-border {
 	cursor: default;

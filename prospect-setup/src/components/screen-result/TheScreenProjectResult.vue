@@ -8,8 +8,8 @@
 				<slot slot="title">{{ $t('project-setup.project-result.TITLE') }}</slot>
 			</TheTabTitle>
 
-			{{ $t('project-setup.project-result.SUBTITLES_SELECTION_STANDARDS') }}
-			<a href="https://www.wedogood.co/investissement/criteres-selection/">{{ $t('project-setup.project-result.SUBTITLES_SELECTION_STANDARDS_LINK') }}</a>.
+			<div class="subtitles-selection-standards">{{ $t('project-setup.project-result.SUBTITLES_SELECTION_STANDARDS') }}
+			<a href="https://www.wedogood.co/investissement/criteres-selection/">{{ $t('project-setup.project-result.SUBTITLES_SELECTION_STANDARDS_LINK') }}</a>.</div>
 
 			<TheResultPaymentHeader
 			  v-if="sharedState.authorization === 'can-pay' && sharedState.step !== 'project-complete'"
@@ -192,6 +192,11 @@ export default {
 .the-screen-project-result div.cart-container div.the-result-cart, .the-screen-project-result div.cart-container div.the-result-organization-info {
 	width: 40%;
 }
+
+div.subtitles-selection-standards {
+	text-align: center;
+	margin-bottom: 15px;
+}
 @media only screen and (max-width: 767px) {
 	.the-screen-project-result {
 		width: auto;
@@ -208,6 +213,28 @@ export default {
 	}
 	div.the-result-prospect-meetup .wdg-button button {
 		text-align: center;
+	}
+	.the-screen-project-result .the-result-payment-header {
+		width: auto;
+		display: flex;
+		flex-direction: column;
+	}
+	.the-screen-project-result div.cart-container {
+		display: flex;
+		flex-direction: column;
+	}
+	.the-screen-project-result div.cart-container div.the-result-cart, .the-screen-project-result div.cart-container div.the-result-organization-info {
+		width: auto;
+	}
+	.the-screen-project-result div.cart-container div.the-result-organization-info {
+		text-align: center;
+		font-size: 18px;
+	}
+	.the-screen-project-result div.cart-container div.the-result-organization-info select, .the-screen-project-result div.cart-container div.the-result-organization-info input {
+		margin-top: 20px;
+	}
+	.the-screen-project-result div.cart-container .the-result-payment-selector strong {
+		font-size: 20px;
 	}
 }
 </style>

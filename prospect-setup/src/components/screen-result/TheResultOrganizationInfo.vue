@@ -2,7 +2,8 @@
 	<div class="the-result-organization-info">
 		<strong>{{ $t('project-setup.payment.organization-info.INTRO') }}</strong><br>
 
-		<WDGForm>
+		<div class="organization-form">
+			<WDGForm>
 			{{ $t('project-setup.payment.organization-info.TAX_LABEL') }}
 				<WDGInput
 				  id="organizationTaxNumber"
@@ -89,7 +90,8 @@
 				<slot slot="label">{{ $t('project-setup.CONTINUE') }}</slot>
 			</WDGButton>
 
-		</WDGForm>
+			</WDGForm>
+		</div>
 	</div>
 </template>
 
@@ -394,6 +396,23 @@ div.the-result-organization-info {
 	padding: 32px;
 	background: #FFF;
 }
+
+div.the-result-organization-info div.organization-form {
+	margin-top: 20px;
+}
+
+div.the-result-organization-info input {
+	margin-top: 10px;
+}
+
+div.the-result-organization-info .wdg-input.natural-language input {
+	padding-left: 0px;
+}
+
+div.the-result-organization-info .wdg-select.natural-language select {
+	padding: 10px 30px 9px 0px;
+}
+
 div.the-result-organization-info input#organizationAddressNumber {
 	width: 50px;
 	margin-right: 24px;
