@@ -147,7 +147,7 @@ export default {
 					break
 				case 'wire':
 					// appel Ajax pour envoi de notification de choix au PP et à l'admin
-					store.sendWireSelected()
+					store.sendWireSelected(this.getTotalAmount())
 					// affichage des infos de paiement
 					this.sharedState.package.paymentMethod = 'wire'
 					break
@@ -163,7 +163,7 @@ export default {
 			this.sharedState.package.paymentStatus = 'complete'
 			store.saveProject()
 			// appel Ajax pour notification au PP et à l'admin
-			store.sendWireReceived()
+			store.sendWireReceived(this.getTotalAmount())
 		},
 		onClickBackEvent () {
 			this.sharedState.package.paymentMethod = ''

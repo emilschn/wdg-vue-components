@@ -309,24 +309,26 @@ export const store = {
 				console.log(error.config)
 			})
 	},
-	sendWireSelected () {
+	sendWireSelected (nAmountToPay) {
 		if (process.env.NODE_ENV === 'development') {
 			return
 		}
 		let data = new FormData()
 		data.append('action', 'prospect_setup_send_mail_payment_method_select_wire')
 		data.append('guid', this.state.guid)
+		data.append('amount', nAmountToPay)
 
 		axios
 			.post (this.props.ajaxurl, data)
 	},
-	sendWireReceived () {
+	sendWireReceived (nAmountToPay) {
 		if (process.env.NODE_ENV === 'development') {
 			return
 		}
 		let data = new FormData()
 		data.append('action', 'prospect_setup_send_mail_payment_method_received_wire')
 		data.append('guid', this.state.guid)
+		data.append('amount', nAmountToPay)
 
 		axios
 			.post (this.props.ajaxurl, data)
