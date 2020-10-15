@@ -1,6 +1,9 @@
 <template>
 	<div class="the-result-payment-selector">
-		[CADENAS] <strong>{{ $t('project-setup.payment.methods.SECURED_PAYMENT') }}</strong>
+		<svg width="20" height="20">
+			<image xlink:href="@/../../common/src/assets/logos/payment/lock.svg" src="@/../../common/src/assets/logos/payment/lock.png" width="20" height="20" />
+		</svg>
+		<strong>{{ $t('project-setup.payment.methods.SECURED_PAYMENT') }}</strong>
 		<div class="payment-methods-pictos">
 			<svg width="50" height="50">
 				<image xlink:href="@/../../common/src/assets/logos/payment/CB.svg" src="@/../../common/src/assets/logos/payment/CB.png" width="50" height="50" />
@@ -98,12 +101,10 @@ export default {
 div.the-result-payment-selector {
 	padding: 32px;
 	background: #FFF;
+	width: 48%;
 }
-div.the-result-payment-selector div.payment-methods-pictos svg {
+div.the-result-payment-selector div.payment-methods-pictos svg, div.the-result-payment-selector svg {
 	margin-right: 8px;
-}
-div.the-result-payment-selector div.payment-methods-buttons {
-	width: 400px;
 }
 div.the-result-payment-selector div.payment-methods-buttons .wdg-button {
 	display: inline-block;
@@ -123,5 +124,10 @@ div.the-result-payment-selector .wdg-button button.red {
 }
 div.the-result-payment-selector #btnContinue.transparent-no-border {
 	cursor: default;
+}
+@media only screen and (max-width: 767px) {
+	div.the-result-payment-selector {
+		width: auto;
+	}
 }
 </style>

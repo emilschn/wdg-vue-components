@@ -87,4 +87,9 @@ div.the-result-payment-header span.arrow {
 	padding: 0px 24px;
 	color: #B4B4B4;
 }
+@media only screen and (max-width: 767px) {
+	div.the-result-payment-header span.arrow {
+		transform: rotate(90deg)
+	}
+}
 </style>

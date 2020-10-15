@@ -62,6 +62,7 @@ export default {
 div.the-result-payment-wire {
 	padding: 32px;
 	background: #FFF;
+	width: 48%;
 }
 div.the-result-payment-wire a {
 	cursor: pointer;
@@ -69,5 +70,10 @@ div.the-result-payment-wire a {
 }
 div.the-result-payment-wire strong {
 	font-size: 20px;
+}
+@media only screen and (max-width: 767px) {
+	div.the-result-payment-wire {
+		width: auto;
+	}
 }
 </style>
