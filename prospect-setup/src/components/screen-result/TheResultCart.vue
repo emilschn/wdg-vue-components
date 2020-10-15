@@ -3,27 +3,14 @@
 		<div class="cart-bundle1">
 			<strong>{{ bundle1Title }}</strong><br>
 				<div class="bundle-description-prices">
-<<<<<<< HEAD
 					<div class="description-price">
 						<span class="bundle-description">{{ bundle1Description }}</span>
 						<span class="price-without-discount">{{ bundle1PriceWithoutDiscount }}&nbsp;&euro; {{ $t('common.WITHOUT_TAXES_LETTERS') }}</span>
 					</div>
-					<div class="price-discount">
+					<div class="price-discount" v-if="bundle1Discount> 0">
 						<span class="discount-reason">{{ bundle1Discount }}&nbsp;%
 						{{ bundle1DiscountReason }}</span>
 						<span class="discount-amount">-{{ bundle1DiscountAmount }}&nbsp;&euro; {{ $t('common.WITHOUT_TAXES_LETTERS') }}</span>
-=======
-					<span class="bundle-description">{{ bundle1Description }}<br></span>
-					<div class="bundle-prices">
-						<span class="price-without-discount">{{ bundle1PriceWithoutDiscount }}&nbsp;&euro; {{ $t('common.WITHOUT_TAXES_LETTERS') }}</span><br>
-						<span
-						  v-if="bundle1Discount> 0"
-						  class="price-discount">
-						  	{{ bundle1Discount }}&nbsp;%
-							{{ bundle1DiscountReason }}<br>
-						</span>
-						<span v-if="bundle1Discount> 0" class="discount-amount">{{ bundle1DiscountAmount }}&nbsp;&euro; {{ $t('common.WITHOUT_TAXES_LETTERS') }}<br></span>
->>>>>>> bf7f9072ec49bd5e4fa8a430dfbbc69d8ce8abe1
 					</div>
 				</div>
 	</div>
@@ -32,21 +19,11 @@
 			<strong>{{ bundle2Title }}</strong><br>
 				<div class="bundle-description-prices">
 					<span class="price-without-discount">{{ bundle2PriceWithoutDiscount }}&nbsp;&euro; {{ $t('common.WITHOUT_TAXES_LETTERS') }}</span><br>
-<<<<<<< HEAD
-					<div class="price-discount">
+					<div class="price-discount" v-if="bundle2Discount> 0">
 						<span class="discount-reason">{{ bundle2Discount }}&nbsp;%
 						{{ bundle2DiscountReason }}</span>
 						<span class="discount-amount">-{{ bundle2DiscountAmount }}&nbsp;&euro; {{ $t('common.WITHOUT_TAXES_LETTERS') }}<br></span>
 					</div>
-=======
-					<span
-					  v-if="bundle2Discount> 0"
-					  class="price-discount">
-						{{ bundle2Discount }}&nbsp;%
-						{{ bundle2DiscountReason }}<br>
-					</span>
-					<span v-if="bundle2Discount> 0" class="discount-amount">{{ bundle2DiscountAmount }}&nbsp;&euro; {{ $t('common.WITHOUT_TAXES_LETTERS') }}<br></span>
->>>>>>> bf7f9072ec49bd5e4fa8a430dfbbc69d8ce8abe1
 				</div>
 		</div>
 

@@ -1,7 +1,9 @@
 <template>
 	<div class="the-result-payment-complete">
 		<div class="message-confirmation">
-			<image xlink:href="/img/complete.cc68a174.svg" src="@../../../common/src/assets/icons/complete.png" width="48" height="48"></image>
+			<svg width="48" height="48">
+				<image xlink:href="@/../../common/src/assets/icons/complete.svg" src="@/../../common/src/assets/icons/complete.png" width="48" height="48"></image>
+			</svg>
 			{{ $t('project-setup.payment.complete.CONFIRMATION') }}
 		</div>
 
