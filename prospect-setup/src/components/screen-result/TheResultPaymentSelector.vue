@@ -18,7 +18,10 @@
 		<br><br>
 
 		<strong>{{ $t('project-setup.payment.methods.METHOD_CHOICE') }}</strong><br>
-		<div class="payment-methods-buttons">
+		<div
+		  v-if="canUseWire"
+		  class="payment-methods-buttons"
+		  >
 			<WDGButton
 			  id="btnSelectCard"
 			  :color="buttonCardColor"
@@ -40,23 +43,42 @@
 		<br><br>
 
 		<WDGButton
-		  v-if="currentMethod !== ''"
+		  v-if="!canUseWire && !isLoading"
 		  id="btnContinue"
-		  :color="buttonContinueColor"
+		  color="red"
+		  type="button"
+		  :clickEvent="onContinueClickEvent"
+		  >
+			<slot slot="label">{{ $t('project-setup.payment.methods.PAY_WITH_CARD') }}</slot>
+		</WDGButton>
+
+		<WDGButton
+		  v-if="canUseWire && currentMethod !== '' && !isLoading"
+		  id="btnContinue"
+		  color="red"
 		  type="button"
 		  :clickEvent="onContinueClickEvent"
 		  >
 			<slot slot="label">{{ $t('project-setup.CONTINUE') }}</slot>
 		</WDGButton>
+
+		<WDGLoader
+		  v-if="isLoading"
+		  type="ring"
+		  color="grey"
+		  >
+		</WDGLoader>
 	</div>
 </template>
 
 <script>
 import WDGButton from '@/../../common/src/components/WDGButton'
+import WDGLoader from '@/../../common/src/components/WDGLoader'
 export default {
 	name: 'TheResultPaymentSelector',
 	components: {
-		WDGButton
+		WDGButton,
+		WDGLoader
 	},
 	props: {
 		canUseWire: { type: Boolean, default: true },
@@ -65,7 +87,7 @@ export default {
 	},
 	data () {
 		return {
-			currentMethod: ''
+			currentMethod: this.canUseWire ? '' : 'card'
 		}
 	},
 	methods: {
@@ -89,9 +111,6 @@ export default {
 		},
 		buttonWireColor () {
 			return (this.currentMethod === 'wire') ? 'grey' : 'transparent-no-border'
-		},
-		buttonContinueColor () {
-			return (this.isLoading) ? 'transparent-no-border' : 'red'
 		}
 	}
 }

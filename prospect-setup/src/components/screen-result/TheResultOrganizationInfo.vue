@@ -128,6 +128,7 @@ export default {
 	computed: {
 		countryList () {
 			return [
+				{ Id: 'FR', Text: 'FRANCE' },
 				{ Id: 'AF', Text: 'AFGHANISTAN' },
 				{ Id: 'AX', Text: 'ÅLAND ISLANDS' },
 				{ Id: 'AL', Text: 'ALBANIA' },
@@ -203,7 +204,6 @@ export default {
 				{ Id: 'FO', Text: 'FAROE ISLANDS' },
 				{ Id: 'FJ', Text: 'FIJI' },
 				{ Id: 'FI', Text: 'FINLAND' },
-				{ Id: 'FR', Text: 'FRANCE' },
 				{ Id: 'GF', Text: 'FRENCH GUIANA' },
 				{ Id: 'PF', Text: 'FRENCH POLYNESIA' },
 				{ Id: 'TF', Text: 'FRENCH SOUTHERN TERRITORIES' },

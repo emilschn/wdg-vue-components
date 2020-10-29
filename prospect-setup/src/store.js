@@ -262,6 +262,7 @@ export const store = {
 	},
 	askCardPayment (nAmountToPay) {
 		if (process.env.NODE_ENV === 'development') {
+			this.runtime.isLoadingPayment = true
 			return
 		}
 		this.runtime.isLoadingPayment = true

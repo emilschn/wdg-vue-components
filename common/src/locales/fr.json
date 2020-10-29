@@ -373,10 +373,11 @@
 				"EMAIL_PLACEHOLDER": "contact@entreprise.com"
 			},
 			"methods": {
-				"SECURED_PAYMENT": "Paiement sécurisé",
+				"SECURED_PAYMENT": "Paiement sécurisé par Lemon Way",
 				"METHOD_CHOICE": "Choix du mode de paiement",
 				"CARD": "Carte bancaire",
-				"WIRE": "Virement bancaire"
+				"WIRE": "Virement bancaire",
+				"PAY_WITH_CARD": "Payer par carte bancaire"
 			},
 			"wire": {
 				"BACK": "Retour au choix du mode de paiement",
@@ -384,7 +385,7 @@
 				"IBAN_LABEL": "IBAN :"
 			},
 			"complete": {
-				"CONFIRMATION": "Votre paiement est confirmé !",
+				"CONFIRMATION": "Votre souscription est confirmée !",
 				"THANK_YOU": "Merci pour votre confiance.",
 				"CREATE": "Vous pouvez dès à présent créer votre projet sur WE DO GOOD !"
 			}

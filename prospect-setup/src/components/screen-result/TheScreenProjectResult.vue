@@ -9,7 +9,7 @@
 			</TheTabTitle>
 
 			<div class="subtitles-selection-standards">{{ $t('project-setup.project-result.SUBTITLES_SELECTION_STANDARDS') }}
-			<a href="https://www.wedogood.co/investissement/criteres-selection/">{{ $t('project-setup.project-result.SUBTITLES_SELECTION_STANDARDS_LINK') }}</a>.</div>
+			<a href="https://www.wedogood.co/investissement/criteres-selection/" target="_blank">{{ $t('project-setup.project-result.SUBTITLES_SELECTION_STANDARDS_LINK') }}</a>.</div>
 
 			<TheResultPaymentHeader
 			  v-if="sharedState.authorization === 'can-pay' && sharedState.step !== 'project-complete'"
