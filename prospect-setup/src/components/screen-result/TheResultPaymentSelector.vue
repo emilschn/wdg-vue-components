@@ -5,14 +5,14 @@
 		</svg>
 		<strong>{{ $t('project-setup.payment.methods.SECURED_PAYMENT') }}</strong>
 		<div class="payment-methods-pictos">
-			<svg width="50" height="50">
-				<image xlink:href="@/../../common/src/assets/logos/payment/CB.svg" src="@/../../common/src/assets/logos/payment/CB.png" width="50" height="50" />
+			<svg width="55" height="38">
+				<image xlink:href="@/../../common/src/assets/logos/payment/CB.svg" src="@/../../common/src/assets/logos/payment/CB.png" width="55" height="38" />
 			</svg>
-			<svg width="50" height="50">
-				<image xlink:href="@/../../common/src/assets/logos/payment/visa.svg" src="@/../../common/src/assets/logos/payment/visa.png" width="50" height="50" />
+			<svg width="121" height="38">
+				<image xlink:href="@/../../common/src/assets/logos/payment/visa.svg" src="@/../../common/src/assets/logos/payment/visa.png" width="121" height="38" />
 			</svg>
-			<svg width="50" height="50">
-				<image xlink:href="@/../../common/src/assets/logos/payment/mastercard.svg" src="@/../../common/src/assets/logos/payment/mastercard.png" width="50" height="50" />
+			<svg width="66" height="38">
+				<image xlink:href="@/../../common/src/assets/logos/payment/mastercard.svg" src="@/../../common/src/assets/logos/payment/mastercard.png" width="66" height="38" />
 			</svg>
 		</div>
 		<br><br>
@@ -102,6 +102,9 @@ div.the-result-payment-selector {
 	padding: 32px;
 	background: #FFF;
 	width: 48%;
+}
+div.the-result-payment-selector div.payment-methods-pictos {
+	margin-top: 8px;
 }
 div.the-result-payment-selector div.payment-methods-pictos svg, div.the-result-payment-selector svg {
 	margin-right: 8px;
