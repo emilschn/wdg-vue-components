@@ -17,7 +17,8 @@
 		</div>
 		<br><br>
 
-		<strong>{{ $t('project-setup.payment.methods.METHOD_CHOICE') }}</strong><br>
+		<strong v-if="canUseWire">{{ $t('project-setup.payment.methods.METHOD_CHOICE') }}</strong>
+		<br v-if="canUseWire">
 		<div
 		  v-if="canUseWire"
 		  class="payment-methods-buttons"
@@ -39,8 +40,8 @@
 			  >
 				<slot slot="label">{{ $t('project-setup.payment.methods.WIRE') }}</slot>
 			</WDGButton>
+			<br><br>
 		</div>
-		<br><br>
 
 		<WDGButton
 		  v-if="!canUseWire && !isLoading"

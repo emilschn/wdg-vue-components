@@ -280,7 +280,7 @@ export default {
 			}
 		},
 		onEnablePaymentChangeEvent (newValue) {
-			this.sharedState.authorization = 'can-pay'
+			this.sharedState.authorization = newValue ? 'can-pay' : ''
 			store.saveProject()
 		},
 		onEditBundle (bundleIndex, isEditing) {

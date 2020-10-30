@@ -121,7 +121,7 @@ export default {
 			)
 		},
 		canUseWire () {
-			return (this.getTotalAmount() > 1000)
+			return (this.getTotalAmount() > 1000 || this.sharedState.hasAuthorizedWire === '1')
 		}
 	},
 	methods: {
