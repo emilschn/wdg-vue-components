@@ -13,7 +13,7 @@
 						<span class="discount-amount">-{{ bundle1DiscountAmount }}&nbsp;&euro; {{ $t('common.WITHOUT_TAXES_LETTERS') }}</span>
 					</div>
 				</div>
-	</div>
+		</div>
 
 		<div class="cart-bundle2">
 			<strong>{{ bundle2Title }}</strong><br>
@@ -42,15 +42,28 @@
 			<span class="total-with-taxes-amount">{{ totalWithTaxes }}&nbsp;&euro;</span>
 		</div>
 
+		<WDGToggle
+		  v-if="sharedProps.capacities.enable_payment === '1'"
+		  :initValue="sharedState.hasAuthorizedWire === '1'"
+		  :changeEvent="onEnableWireChangeEvent"
+		  theme="admin"
+		  colorChecked="#F1A074"
+		  colorUnchecked="#333333"
+		  >
+			<slot slot="label-before">{{ $t('project-setup.project-result.admin.ENABLE_WIRE') }}</slot>
+		</WDGToggle>
 	</div>
 </template>
 
 <script>
+import { store } from '../../store.js'
 import i18n from '@/i18n'
+import WDGToggle from '@/../../common/src/components/WDGToggle'
 
 export default {
 	name: 'TheResultCart',
 	components: {
+		WDGToggle
 	},
 	props: {
 		bundle1Type: { type: String, default: '' },
@@ -63,6 +76,12 @@ export default {
 		bundle2PriceWithoutDiscount: { type: Number, default: 0 },
 		bundle2Discount: { type: String, default: '' },
 		bundle2DiscountReason: { type: String, default: '' }
+	},
+	data () {
+		return {
+			sharedState: store.state,
+			sharedProps: store.props
+		}
 	},
 	computed: {
 		bundle1Description () {
@@ -91,6 +110,11 @@ export default {
 		},
 		totalWithTaxes () {
 			return this.totalWithoutTaxes + this.totalTaxes
+		}
+	},
+	methods: {
+		onEnableWireChangeEvent (newValue) {
+			this.sharedState.hasAuthorizedWire = newValue ? '1' : '0'
 		}
 	}
 }

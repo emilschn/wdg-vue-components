@@ -75,6 +75,7 @@ export default {
 	border: 0px;
 	border-bottom: 2px solid #00879B;
 	cursor: pointer;
+	outline: none;
 }
 
 .wdg-select.admin select {
