@@ -4,6 +4,9 @@
 			<image xlink:href="@/../../common/src/assets/logos/payment/lock.svg" src="@/../../common/src/assets/logos/payment/lock.png" width="20" height="20" />
 		</svg>
 		<strong>{{ $t('project-setup.payment.methods.SECURED_PAYMENT') }}</strong>
+		<svg width="20" height="20" style="margin-left: 5px; vertical-align: sub;">
+			<image xlink:href="@/../../common/src/assets/logos/payment/lemonway.svg" src="@/../../common/src/assets/logos/payment/lemonway.png" width="20" height="20" />
+		</svg>
 		<div class="payment-methods-pictos">
 			<svg width="55" height="38">
 				<image xlink:href="@/../../common/src/assets/logos/payment/CB.svg" src="@/../../common/src/assets/logos/payment/CB.png" width="55" height="38" />
@@ -69,6 +72,7 @@
 		  color="grey"
 		  >
 		</WDGLoader>
+
 	</div>
 </template>
 
