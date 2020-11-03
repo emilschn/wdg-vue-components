@@ -347,7 +347,8 @@
 				"PLAN_RENDEZVOUS_TEXT": "Parlons-en ! Pour démarrer votre projet et vous conseiller au mieux, prenez rendez-vous !"
 			},
 			"admin": {
-				"ENABLE_PAYMENT": "Autoriser le paiement"
+				"ENABLE_PAYMENT": "Autoriser le paiement",
+				"ENABLE_WIRE": "Autoriser les virements bancaires sans minimum"
 			}
 		},
 		"payment": {
@@ -370,13 +371,19 @@
 				"ADDRESS_POSTAL_CODE_PLACEHOLDER": "Code postal",
 				"ADDRESS_CITY_PLACEHOLDER": "Ville",
 				"EMAIL_LABEL": "L'adresse e-mail de mon entreprise (différente de mon adresse personnelle) est :",
-				"EMAIL_PLACEHOLDER": "contact@entreprise.com"
+				"EMAIL_PLACEHOLDER": "contact@entreprise.com",
+				"AGREE_TERMS": "Je reconnais avoir pris connaissance et accepter la description des prestations et les conditions de publication de projet de WE DO GOOD :",
+				"GENERAL_TERMS": "CGU",
+				"PARTICULAR_TERMS": "Conditions particulières",
+				"6_MONTHS_TERMS": "Si le projet n’est pas mis en ligne dans les 6 mois à compter de la date de validation de ce formulaire, WE DO GOOD pourra exiger de nouveau les frais de dossier.",
+				"PAYMENT_TERMS": "Modalités de règlement : frais fixes et options à régler à la souscription ; frais au succès prélevés lors du versement des fonds sur le compte lié au projet. Frais sur les versements aux investisseurs facturés au moment de ces versements (non intégrés aux royalties)."
 			},
 			"methods": {
-				"SECURED_PAYMENT": "Paiement sécurisé",
+				"SECURED_PAYMENT": "Paiement sécurisé par Lemon Way",
 				"METHOD_CHOICE": "Choix du mode de paiement",
 				"CARD": "Carte bancaire",
-				"WIRE": "Virement bancaire"
+				"WIRE": "Virement bancaire",
+				"PAY_WITH_CARD": "Payer par carte bancaire"
 			},
 			"wire": {
 				"BACK": "Retour au choix du mode de paiement",
@@ -384,7 +391,7 @@
 				"IBAN_LABEL": "IBAN :"
 			},
 			"complete": {
-				"CONFIRMATION": "Votre paiement est confirmé !",
+				"CONFIRMATION": "Votre souscription est confirmée !",
 				"THANK_YOU": "Merci pour votre confiance.",
 				"CREATE": "Vous pouvez dès à présent créer votre projet sur WE DO GOOD !"
 			}

@@ -187,7 +187,15 @@ export default {
 			return this.checkedItemsCrowdfunding
 		},
 		bundle1DiscountReasonText () {
-			return '(-' + this.sharedState.package.bundle1.discount + ' % ' + this.sharedState.package.bundle1.discountReason + ')'
+			if (this.sharedState.package.bundle1.discount > 0) {
+				let buffer = '(-' + this.sharedState.package.bundle1.discount + ' %'
+				if (this.sharedState.package.bundle1.discountReason !== '') {
+					buffer += ' ' + this.sharedState.package.bundle1.discountReason
+				}
+				buffer += ')'
+				return buffer
+			}
+			return ''
 		},
 
 		// Options d'affichage pour bundle 2
@@ -201,12 +209,15 @@ export default {
 			return i18n.t('project-setup.project-result.options.complete.TEXT')
 		},
 		bundle2DiscountReasonText () {
-			let buffer = '(-' + this.sharedState.package.bundle2.discount + ' %'
-			if (this.sharedState.package.bundle2.discountReason !== '') {
-				buffer += ' ' + this.sharedState.package.bundle2.discountReason
+			if (this.sharedState.package.bundle2.discount > 0) {
+				let buffer = '(-' + this.sharedState.package.bundle2.discount + ' %'
+				if (this.sharedState.package.bundle2.discountReason !== '') {
+					buffer += ' ' + this.sharedState.package.bundle2.discountReason
+				}
+				buffer += ')'
+				return buffer
 			}
-			buffer += ')'
-			return buffer
+			return ''
 		},
 		bundle2CheckedItems () {
 			switch (this.sharedState.package.bundle2.type) {
@@ -269,7 +280,7 @@ export default {
 			}
 		},
 		onEnablePaymentChangeEvent (newValue) {
-			this.sharedState.authorization = 'can-pay'
+			this.sharedState.authorization = newValue ? 'can-pay' : ''
 			store.saveProject()
 		},
 		onEditBundle (bundleIndex, isEditing) {

@@ -4,21 +4,28 @@
 			<image xlink:href="@/../../common/src/assets/logos/payment/lock.svg" src="@/../../common/src/assets/logos/payment/lock.png" width="20" height="20" />
 		</svg>
 		<strong>{{ $t('project-setup.payment.methods.SECURED_PAYMENT') }}</strong>
+		<svg width="20" height="20" style="margin-left: 5px; vertical-align: sub;">
+			<image xlink:href="@/../../common/src/assets/logos/payment/lemonway.svg" src="@/../../common/src/assets/logos/payment/lemonway.png" width="20" height="20" />
+		</svg>
 		<div class="payment-methods-pictos">
-			<svg width="50" height="50">
-				<image xlink:href="@/../../common/src/assets/logos/payment/CB.svg" src="@/../../common/src/assets/logos/payment/CB.png" width="50" height="50" />
+			<svg width="55" height="38">
+				<image xlink:href="@/../../common/src/assets/logos/payment/CB.svg" src="@/../../common/src/assets/logos/payment/CB.png" width="55" height="38" />
 			</svg>
-			<svg width="50" height="50">
-				<image xlink:href="@/../../common/src/assets/logos/payment/visa.svg" src="@/../../common/src/assets/logos/payment/visa.png" width="50" height="50" />
+			<svg width="121" height="38">
+				<image xlink:href="@/../../common/src/assets/logos/payment/visa.svg" src="@/../../common/src/assets/logos/payment/visa.png" width="121" height="38" />
 			</svg>
-			<svg width="50" height="50">
-				<image xlink:href="@/../../common/src/assets/logos/payment/mastercard.svg" src="@/../../common/src/assets/logos/payment/mastercard.png" width="50" height="50" />
+			<svg width="66" height="38">
+				<image xlink:href="@/../../common/src/assets/logos/payment/mastercard.svg" src="@/../../common/src/assets/logos/payment/mastercard.png" width="66" height="38" />
 			</svg>
 		</div>
 		<br><br>
 
-		<strong>{{ $t('project-setup.payment.methods.METHOD_CHOICE') }}</strong><br>
-		<div class="payment-methods-buttons">
+		<strong v-if="canUseWire">{{ $t('project-setup.payment.methods.METHOD_CHOICE') }}</strong>
+		<br v-if="canUseWire">
+		<div
+		  v-if="canUseWire"
+		  class="payment-methods-buttons"
+		  >
 			<WDGButton
 			  id="btnSelectCard"
 			  :color="buttonCardColor"
@@ -36,27 +43,47 @@
 			  >
 				<slot slot="label">{{ $t('project-setup.payment.methods.WIRE') }}</slot>
 			</WDGButton>
+			<br><br>
 		</div>
-		<br><br>
 
 		<WDGButton
-		  v-if="currentMethod !== ''"
+		  v-if="!canUseWire && !isLoading"
 		  id="btnContinue"
-		  :color="buttonContinueColor"
+		  color="red"
+		  type="button"
+		  :clickEvent="onContinueClickEvent"
+		  >
+			<slot slot="label">{{ $t('project-setup.payment.methods.PAY_WITH_CARD') }}</slot>
+		</WDGButton>
+
+		<WDGButton
+		  v-if="canUseWire && currentMethod !== '' && !isLoading"
+		  id="btnContinue"
+		  color="red"
 		  type="button"
 		  :clickEvent="onContinueClickEvent"
 		  >
 			<slot slot="label">{{ $t('project-setup.CONTINUE') }}</slot>
 		</WDGButton>
+
+		<WDGLoader
+		  v-if="isLoading"
+		  type="ring"
+		  color="grey"
+		  >
+		</WDGLoader>
+
 	</div>
 </template>
 
 <script>
 import WDGButton from '@/../../common/src/components/WDGButton'
+import WDGLoader from '@/../../common/src/components/WDGLoader'
 export default {
 	name: 'TheResultPaymentSelector',
 	components: {
-		WDGButton
+		WDGButton,
+		WDGLoader
 	},
 	props: {
 		canUseWire: { type: Boolean, default: true },
@@ -65,7 +92,7 @@ export default {
 	},
 	data () {
 		return {
-			currentMethod: ''
+			currentMethod: this.canUseWire ? '' : 'card'
 		}
 	},
 	methods: {
@@ -89,9 +116,6 @@ export default {
 		},
 		buttonWireColor () {
 			return (this.currentMethod === 'wire') ? 'grey' : 'transparent-no-border'
-		},
-		buttonContinueColor () {
-			return (this.isLoading) ? 'transparent-no-border' : 'red'
 		}
 	}
 }
@@ -102,6 +126,9 @@ div.the-result-payment-selector {
 	padding: 32px;
 	background: #FFF;
 	width: 48%;
+}
+div.the-result-payment-selector div.payment-methods-pictos {
+	margin-top: 8px;
 }
 div.the-result-payment-selector div.payment-methods-pictos svg, div.the-result-payment-selector svg {
 	margin-right: 8px;

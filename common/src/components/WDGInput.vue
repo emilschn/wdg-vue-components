@@ -263,6 +263,7 @@ export default {
 		border-bottom: 2px solid #00879B;
 		padding-left: 10px;
 		font-weight: 500;
+		outline: none;
 	}
 
 	.wdg-input.natural-language.admin input {

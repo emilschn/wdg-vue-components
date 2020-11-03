@@ -82,7 +82,21 @@
 				  />
 			<br><br>
 
+			<WDGCheckbox
+			  :value="sharedState.project.acceptTerms"
+			  v-bind:valueReturn.sync="sharedState.project.acceptTerms"
+			  >
+				<slot slot="label">{{ $t('project-setup.payment.organization-info.AGREE_TERMS') }}</slot>
+			</WDGCheckbox>
+			<ul>
+				<li><a href="https://www.wedogood.co/cgu" target="_blank">{{ $t('project-setup.payment.organization-info.GENERAL_TERMS') }}</a></li>
+				<li><a href="https://www.wedogood.co/conditions-particulieres" target="_blank">{{ $t('project-setup.payment.organization-info.PARTICULAR_TERMS') }}</a></li>
+				<li>{{ $t('project-setup.payment.organization-info.6_MONTHS_TERMS') }}</li>
+				<li>{{ $t('project-setup.payment.organization-info.PAYMENT_TERMS') }}</li>
+			</ul>
+
 			<WDGButton
+			  v-if="canShowButtonContinue"
 			  color="red"
 			  type="button"
 			  :clickEvent="onContinueClickEvent"
@@ -101,6 +115,7 @@ import i18n from '@/i18n'
 import WDGForm from '@/../../common/src/components/WDGForm'
 import WDGInput from '@/../../common/src/components/WDGInput'
 import WDGSelect from '@/../../common/src/components/WDGSelect'
+import WDGCheckbox from '@/../../common/src/components/WDGCheckbox'
 import WDGButton from '@/../../common/src/components/WDGButton'
 
 export default {
@@ -109,6 +124,7 @@ export default {
 		WDGForm,
 		WDGInput,
 		WDGSelect,
+		WDGCheckbox,
 		WDGButton
 	},
 	props: {
@@ -128,6 +144,7 @@ export default {
 	computed: {
 		countryList () {
 			return [
+				{ Id: 'FR', Text: 'FRANCE' },
 				{ Id: 'AF', Text: 'AFGHANISTAN' },
 				{ Id: 'AX', Text: 'ÅLAND ISLANDS' },
 				{ Id: 'AL', Text: 'ALBANIA' },
@@ -203,7 +220,6 @@ export default {
 				{ Id: 'FO', Text: 'FAROE ISLANDS' },
 				{ Id: 'FJ', Text: 'FIJI' },
 				{ Id: 'FI', Text: 'FINLAND' },
-				{ Id: 'FR', Text: 'FRANCE' },
 				{ Id: 'GF', Text: 'FRENCH GUIANA' },
 				{ Id: 'PF', Text: 'FRENCH POLYNESIA' },
 				{ Id: 'TF', Text: 'FRENCH SOUTHERN TERRITORIES' },
@@ -378,6 +394,14 @@ export default {
 				{ Id: 'ZM', Text: 'ZAMBIA' },
 				{ Id: 'ZW', Text: 'ZIMBABWE' }
 			]
+		},
+		canShowButtonContinue () {
+			if (process.env.NODE_ENV === 'development') {
+				return true
+			}
+			return this.sharedState.project.acceptTerms &&
+					this.sharedState.organization.email !== '' && this.sharedState.organization.taxNumber !== '' &&
+					this.sharedState.organization.addressCity !== '' && this.sharedState.organization.addressCountry !== ''
 		}
 	},
 	methods: {

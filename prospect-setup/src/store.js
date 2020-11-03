@@ -10,6 +10,7 @@ export const store = {
         step: 'intro',
         status: '',
 		authorization: '',
+		hasAuthorizedWire: '0',
 		hasSaved: '0',
 		hasSentResult: '0',
 		user: {
@@ -52,7 +53,8 @@ export const store = {
 			circlesToCommunicate: '',
 			alreadyDoneCrowdfunding: false,
 			needCommunicationAdvice: false,
-			fileComments: ''
+			fileComments: '',
+			acceptTerms: false
 		},
 		package: {
 			paymentMethod: '',
@@ -262,6 +264,7 @@ export const store = {
 	},
 	askCardPayment (nAmountToPay) {
 		if (process.env.NODE_ENV === 'development') {
+			this.runtime.isLoadingPayment = true
 			return
 		}
 		this.runtime.isLoadingPayment = true
