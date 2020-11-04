@@ -208,17 +208,20 @@ export default {
 		return {
 			sharedState: store.state,
 			organizationTypeList: [
+				{ Id: '', Text: '' },
 				{ Id: 'company', Text: i18n.t('project-setup.project-infos.organization-types.COMPANY') },
 				{ Id: 'association', Text: i18n.t('project-setup.project-infos.organization-types.ASSOCIATION') },
 				{ Id: 'not-created', Text: i18n.t('project-setup.project-infos.organization-types.NOT_CREATED') },
 				{ Id: 'microbusiness', Text: i18n.t('project-setup.project-infos.organization-types.MICROBUSINESS') }
 			],
 			organizationLocationList: [
+				{ Id: '', Text: '' },
 				{ Id: 'france', Text: i18n.t('project-setup.project-infos.location-types.FRANCE') },
 				{ Id: 'euro', Text: i18n.t('project-setup.project-infos.location-types.EURO') },
 				{ Id: 'out-euro', Text: i18n.t('project-setup.project-infos.location-types.OUT_EURO') }
 			],
 			sourceProspectList: [
+				{ Id: '', Text: '' },
 				{ Id: 'event', Text: i18n.t('project-setup.project-infos.source-types.EVENT') },
 				{ Id: 'social-networks', Text: i18n.t('project-setup.project-infos.source-types.SOCIAL_NETWORKS') },
 				{ Id: 'website', Text: i18n.t('project-setup.project-infos.source-types.WEBSITE') },
