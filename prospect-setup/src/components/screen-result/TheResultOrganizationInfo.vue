@@ -144,6 +144,7 @@ export default {
 	computed: {
 		countryList () {
 			return [
+				{ Id: '', Text: '' },
 				{ Id: 'FR', Text: 'FRANCE' },
 				{ Id: 'AF', Text: 'AFGHANISTAN' },
 				{ Id: 'AX', Text: 'ÅLAND ISLANDS' },
@@ -397,7 +398,7 @@ export default {
 		},
 		canShowButtonContinue () {
 			if (process.env.NODE_ENV === 'development') {
-				return true
+				return this.sharedState.project.acceptTerms
 			}
 			return this.sharedState.project.acceptTerms &&
 					this.sharedState.organization.email !== '' && this.sharedState.organization.taxNumber !== '' &&
