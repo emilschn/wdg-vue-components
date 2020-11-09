@@ -155,6 +155,21 @@ export default {
 			this.sharedState.project.alreadyDoneCrowdfunding = metadata.project.alreadyDoneCrowdfunding
 			this.sharedState.project.needCommunicationAdvice = metadata.project.needCommunicationAdvice
 			this.sharedState.project.fileComments = metadata.project.fileComments
+			this.sharedState.project.acceptTerms = metadata.project.acceptTerms
+
+			this.sharedState.package.paymentMethod = metadata.package.paymentMethod
+			this.sharedState.package.paymentStatus = metadata.package.paymentStatus
+			this.sharedState.package.paymentDate = metadata.package.paymentDate
+			this.sharedState.package.bundle1.title = metadata.package.bundle1.title
+			this.sharedState.package.bundle1.type = metadata.package.bundle1.type
+			this.sharedState.package.bundle1.priceWithoutDiscount = metadata.package.bundle1.priceWithoutDiscount
+			this.sharedState.package.bundle1.discount = metadata.package.bundle1.discount
+			this.sharedState.package.bundle1.discountReason = metadata.package.bundle1.discountReason
+			this.sharedState.package.bundle2.title = metadata.package.bundle2.title
+			this.sharedState.package.bundle2.type = metadata.package.bundle2.type
+			this.sharedState.package.bundle2.priceWithoutDiscount = metadata.package.bundle2.priceWithoutDiscount
+			this.sharedState.package.bundle2.discount = metadata.package.bundle2.discount
+			this.sharedState.package.bundle2.discountReason = metadata.package.bundle2.discountReason
 
 			this.sharedProps.initFileList = fileList
 		},
