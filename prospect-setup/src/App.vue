@@ -191,9 +191,11 @@ export default {
 				})
 				.finally (() => {
 					this.loading = false
-					this.sharedProps.capacities.edit_bundles = '1' // TODO : supprimer
-					this.sharedProps.capacities.enable_payment = '1' // TODO : supprimer
-					this.sharedProps.capacities.accept_wire_payment = '1' // TODO : supprimer
+					if (process.env.NODE_ENV === 'development') {
+						this.sharedProps.capacities.edit_bundles = '1'
+						this.sharedProps.capacities.enable_payment = '1'
+						this.sharedProps.capacities.accept_wire_payment = '1'
+					}
 				})
 		}
 	}
