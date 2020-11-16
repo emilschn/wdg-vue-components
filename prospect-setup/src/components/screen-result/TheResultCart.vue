@@ -115,6 +115,7 @@ export default {
 	methods: {
 		onEnableWireChangeEvent (newValue) {
 			this.sharedState.hasAuthorizedWire = newValue ? '1' : '0'
+			store.saveProject()
 		}
 	}
 }
