@@ -144,6 +144,7 @@ export default {
 				case 'card':
 					// appel Ajax pour récupérer une URL de redirection vers LW
 					store.askCardPayment(this.getTotalAmount())
+					this.sharedState.package.paymentMethod = 'card'
 					break
 				case 'wire':
 					// appel Ajax pour envoi de notification de choix au PP et à l'admin
