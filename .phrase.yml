@@ -1,0 +1,12 @@
+phrase:
+  access_token: 078cd499fbeca7535f919866c42feaa2ab00c44edd7b871538cc6a28d3679835
+  project_id: 0f4e1eab2a7a81b344181640dfc5d8bc
+  file_format: yml
+  push:
+    sources:
+    - file: ./common/src/locales/en.json
+    - file: ./common/src/locales/fr.json
+  pull:
+    targets:
+    - file: ./common/src/locales/en.json
+    - file: ./common/src/locales/fr.json
