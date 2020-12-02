@@ -8,12 +8,12 @@ phrase:
       params:
         locale_id: 8c702d7cc05197000271a45a530cccd0
         update_translations: true
-        tag: wdgvuejs
+        tags: wdgvuejs
     - file: ./common/src/locales/fr.json
       params:
         locale_id: de52e4472d0c4fdabdfa7f2a8ae744d5
         update_translations: true
-        tag: wdgvuejs
+        tags: wdgvuejs
   pull:
     targets:
     - file: ./common/src/locales/en.json
