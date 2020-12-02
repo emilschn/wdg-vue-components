@@ -60,6 +60,7 @@ export const store = {
 			paymentMethod: '',
 			paymentStatus: '',
 			paymentDate: '',
+			paymentTransferedOnAccount: '',
 			bundle1: {
 				title: '',
 				type: '',
