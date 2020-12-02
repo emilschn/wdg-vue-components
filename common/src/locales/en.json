@@ -1,393 +1,443 @@
 {
-	"common": {
-		"YES": "Yes",
-		"NO": "No",
-		"EMAIL_ADDRESS": "Email address",
-		"PASSWORD": "Password",
-		"FIRSTNAME": "First name",
-		"LASTNAME": "Surname",
-		"PHONE_NUMBER": "Mobile phone number",
-		"ORGA_EMAIL_ADDRESS": "Email address of the entity",
-		"ORGA_NAME": "Company name",
-		"VALIDATE": "Validate",
-		"REQUEST_ERROR": "Problem sending request",
-		"REQUIRED_FIELDS": "Required fields",
-		"SEND": "Send",
-		"VIEW_MORE": "See more",
-		"VIEW_LESS": "See less",
-		"WITHOUT_TAXES_LETTERS": "(excl. VAT)",
-		"ADD_DOCUMENT": "Add document"
-	},
-	"validations": {
-		"REQUIRED": "This field is required",
-		"NAME": "This field is not valid",
-		"EMAIL": "This email address is not valid",
-		"PHONE_NUMBER": "This phone number is not valid"
-	},
-	"signin-signup": {
-		"FORGOTTEN_PASSWORD": "Forgotten password",
-		"PASSWORD_CONFIRMATION": "Password confirmation",
-		"REMEMBER_ME": "Remember me",
-		"I_ACCEPT_THE": "I accept",
-		"GENERAL_USE_TERMS": "general terms and conditions of use",
-		"CONNECTION": "Log in",
-		"CONNECT_TO_FACEBOOK": "Log in with Facebook",
-		"CREATE_MY_ACCOUNT": "Create account",
-		"I_ALREADY_HAVE_AN_ACCOUNT": "I already have an account",
-		"SIGNIN_SIGNUP_ERROR_TYPE_ERROR": "Input error.",
-		"SIGNIN_ERROR_EMPTY": "Please enter your username and password.",
-		"SIGNIN_ERROR_NOT_FOUND": "This user does not exist.",
-		"SIGNIN_ERROR_INCORRECT_PASSWORD": "The password entered does not match.",
-		"SIGNUP_ERROR_EMAIL_EMPTY": "The email address must be provided.",
-		"SIGNUP_ERROR_EMAIL_FOUND": "The email address is already in use.",
-		"SIGNUP_ERROR_EMAIL_INCORRECT": "The email address is not valid.",
-		"SIGNUP_ERROR_FIRSTNAME_EMPTY": "First name must be given.",
-		"SIGNUP_ERROR_LASTNAME_EMPTY": "Surname must be given.",
-		"SIGNUP_ERROR_PASSWORD_EMPTY": "Have you entered the password twice?",
-		"SIGNUP_ERROR_PASSWORD_NOT_MATCHING": "The passwords entered do not match.",
-		"SIGNUP_ERROR_TERMS": "Please check the box to accept the general terms and conditions of use.",
-		"SIGNUP_ERROR_UNDEFINED": "An error occurred when creating the user.",
-		"SIGNUP_ERROR_ROBOT": "Please check the box confirming that you are not a robot."
-	},
-	"launch-project": {
-		"TITLE": "Fundraising launch",
-		"TEXT_1": "Congratulations, your brief has been validated by WE DO GOOD!",
-		"TEXT_2": "Ready for the next step?",
-		"TEXT_3": "Please note, the fundraising must be set up by the company's legal representative from their personal account, who can then invite the rest of the team.",
-		"ALREADY_EXISTING_PROJECTS": "You have already created one (or more) project(s) on the platform:",
-		"CREATE_NEW_PROJECT_INDEED": "If you still want to create a new project, please fill out the form below.",
-		"ORGA_MAIL_DIFFERENT": "This address must be different from that of your personal account, for instance contact@your-business.com",
-		"PROJECT_NAME": "Name of the project",
-		"PROJECT_NAME_PLACEHOLDER": "Name of the project",
-		"PROJECT_DESCRIPTION": "Project description",
-		"PROJECT_DESCRIPTION_PLACEHOLDER": "Project description",
-		"VALIDATE_CONDITIONS": "I accept the special terms and conditions",
-		"EMPTY_OR_WRONG_FORMAT_FIELD": "One of the fields is empty or is not in the correct format",
-		"REQUEST_ERROR": "Connection problem (FX84R83)"
-	},
-	"project-setup": {
-		"TITLE": "My eligibility for royalties",
-		"PICTO_TITLE_BALLOON": "Hot air balloon",
-		"PICTO_TITLE_TIMER": "Stopwatch",
-		"MINUTE": "minute | minutes",
-		"CONTINUE": "Continue",
-		"PREVIOUS_STEP": "Previous step",
-		"START": "Begin",
-		"SAVE_PROJECT": "Save my project for later",
-		"SAVING_PROJECT": "Save the current project",
-		"SAVED_PROJECT": "Project saved",
-		"SAVED_PROJECT_ERROR": "Error while trying to save",
-		"footer": {
-			"SUCCESS_TEXT_1": "82%",
-			"SUCCESS_TEXT_2": "of fundraising efforts successful",
-			"TIME_TEXT_1": "1 to 4 months",
-			"TIME_TEXT_2": "to release funds"
-		},
-		"intro": {
-			"TITLE": "Is my project eligible?",
-			"MASCOT_TEXT_1": "You will need:",
-			"MASCOT_TEXT_2": "Your forecast turnover",
-			"MASCOT_TEXT_3": "Your margin level",
-			"MASCOT_TEXT_4": "To know your financing needs",
-			"TEXT_1": "Instant result sent by email.",
-			"TEXT_2": "Possibility of making an appointment to start the fundraising as soon as possible!",
-			"TEXT_3": "Response in approx. 5 minutes",
-			"TEXT_4": "You can save, exit and come back at any time!",
-			"the-project-link-send": {
-				"TITLE": "Resume a previous test",
-				"TEXT": "Please enter the email previously used to start your test. If one or more tests are in progress, you will receive the access links by email.",
-				"EMAIL_SENT": "The email has been sent.",
-				"EMAIL_SEND_ERROR": "Error sending email.",
-				"ERROR_EMAIL_NO_PROJECT": "No test has been performed using this address.",
-				"ERROR_EMAIL_INCORRECT": "The email address is not valid.",
-				"ERROR_EMAIL_EMPTY": "The email address must be provided."
-			}
-		},
-		"tabs": {
-			"MY_PROJECT": "My project",
-			"MY_FUNDING": "My financing",
-			"MY_INVESTORS": "My investors",
-			"MY_RESULT": "My result",
-			"MODIFY": "Edit",
-			"IN_PROGRESS": "In progress...",
-			"SEE_RESULTS": "See the result"
-		},
-		"project-infos": {
-			"TITLE": "My project",
-			"SUBTITLE": "All fields are mandatory",
-			"FORM_TEXT_ORGANIZATION_TYPE": "My organisation is",
-			"FORM_TEXT_ORGANIZATION_LOCATED": "located",
-			"FORM_TEXT_ORGANIZATION_NOT_CREATED_NAME": "under the name of",
-			"FORM_TEXT_ORGANIZATION_CREATED_NAME": "on behalf of",
-			"FORM_TEXT_ORGANIZATION_ID": "whose SIREN number is",
-			"FORM_TEXT_AMOUNT_NEEDED": "I need",
-			"FORM_TEXT_ORGANIZATION_DESCRIPTION": "for my activity of",
-			"FORM_TEXT_SOURCE_PROSPECT": "I heard about WE DO GOOD through",
-			"FORM_TEXT_SOURCE_PROSPECT_DETAILS": "More specifically:",
-			"FORM_TEXT_SOURCE_PROSPECT_DETAILS_PLACEHOLDER": "Date, person...",
-			"FORM_TEXT_USER_NAME": "My name is",
-			"FORM_TEXT_USER_EMAIL": "you can reach me at the email address",
-			"FORM_TEXT_USER_PHONE": "and phone number",
-			"PLACEHOLDER_PROJECT_NAME": "My project",
-			"PLACEHOLDER_PROJECT_ID": "SIREN number",
-			"PLACEHOLDER_PROJECT_DESCRIPTION": "My activity...",
-			"PLACEHOLDER_USER_NAME": "First name Surname",
-			"PLACEHOLDER_USER_EMAIL": "firstname.surname@enterprise.com",
-			"PLACEHOLDER_USER_PHONE": "07 07 07 07 07",
-			"organization-types": {
-				"NOT_CREATED": "being created",
-				"COMPANY": "a company",
-				"MICROBUSINESS": "a sole proprietorship / micro-enterprise",
-				"ASSOCIATION": "an association"
-			},
-			"location-types": {
-				"FRANCE": "in France",
-				"EURO": "in the euro zone",
-				"OUT_EURO": "outside the euro zone"
-			},
-			"source-types": {
-				"EVENT": "an event",
-				"SOCIAL_NETWORKS": "social media",
-				"WEBSITE": "a website",
-				"SOMEONE": "someone who told me about it",
-				"POST": "a press article / blog / programme",
-				"OTHER": "another way"
-			},
-			"mascot-text": {
-				"INIT": "Your information is not passed on to third parties and remains confidential.",
-				"NEED_EMAIL": "Once your email address has been provided, you can resume your test at any time.",
-				"NOT_CREATED": "WE DO GOOD can assist you once the company is registered.",
-				"MICROBUSINESS": "WE DO GOOD can only support activities carried out by legal persons.",
-				"OUT_EURO": "WE DO GOOD can only support organisations registered in the euro zone.",
-				"LESS_10K": "WE DO GOOD can only assist you for amounts exceeding €10,000."
-			},
-			"address-number-complements": {
-				"BIS": "a)",
-				"TER": "b)",
-				"QUATER": "c)",
-				"QUINQUIES": "d)"
-			}
-		},
-		"project-funding": {
-			"TITLE": "My financing",
-			"TOGGLE_LABEL": "I understand the forecast of royalty payments",
-			"the-project-goal-amount": {
-				"TITLE": "I want to raise €",
-				"TOOLTIP": "This amount is the maximum you want to raise in exchange for royalties.",
-				"MIN": "min. 10K",
-				"MAX": "max. 500K"
-			},
-			"estimated-turnover-by-year": {
-				"TITLE": "My forecast turnover of €",
-				"INPUT_LABEL": "Year"
-			},
-			"commercial-margin": {
-				"TITLE": "My commercial margin",
-				"INPUT_LABEL": "Rate",
-				"TOOLTIP": "Your gross margin or margin on variable costs. The royalty rate should not exceed 10% of your margin."
-			},
-			"royalties-amount": {
-				"TITLE": "Royalties that I would give up",
-				"OF_MY_QUARTERLY_TURNOVER": "of my quarterly turnover for 5 years*",
-				"YIELD_FOR_INVESTORS_1": "i.e. a yield of",
-				"YIELD_FOR_INVESTORS_2": "for my investors",
-				"ROYALTIES_PERCENT_DEFAULT": "You can customise this rate. WE DO GOOD advises you to set a rate between {adviceMinPercent}% and {adviceMaxPercent}%.",
-				"ROYALTIES_PERCENT_WARNING_OVER": "The percentage is too high compared with your margin; the royalties would risk weakening your economic model. WE DO GOOD advises you to set a rate between {adviceMinPercent}% and {adviceMaxPercent}%.",
-				"ROYALTIES_PERCENT_WARNING_UNDER": "The percentage is too low. You must have already validated your economic model (turnover of more than €100,000) to validate this percentage.  WE DO GOOD advises you to set a rate between {adviceMinPercent}% and {adviceMaxPercent}%.",
-				"ROYALTIES_PERCENT_CUSTOM": "The percentage entered is correct. WE DO GOOD advises you to set a rate between {adviceMinPercent}% and {adviceMaxPercent}%.",
-				"ROYALTIES_NOT_OK": "Royalties do not seem suited to your business model.",
-				"VIEW_ADVICE": "See our tips",
-				"VIEW_DETAILS": "See details",
-				"REINIT_PARAMETERS": "Reset settings"
-			},
-			"royalties-warning": {
-				"WARNING_1": "The recommended percentage is calculated so that your investors double their investment in 5 years, according to your forecast.",
-				"WARNING_2": "The minimum that you can set for your investors to recover their investment in 5 years is {warningMinPercent}%."
-			},
-			"royalties-chart": {
-				"TITLE": "Details of projected royalties",
-				"IF_MY_ACTIVITY": "If my activity",
-				"LABEL_TURNOVER": "Forecast turnover",
-				"LABEL_ROYALTIES": "Royalties to be paid",
-				"turnover-scenario": {
-					"AS_PLANNED": "move forward as planned",
-					"LESS_THAN_PLANNED": "is not going as well as expected",
-					"MORE_THAN_PLANNED": "is going better than expected",
-					"STOP_THE_ROYALTIES": "royalties need to stop",
-					"ACTIVITY_STOP": "stops along the way"
-				},
-				"scenario-description": {
-					"AS_PLANNED": "The royalties follow the progression of your turnover.",
-					"LESS_THAN_PLANNED": "If your turnover is less than expected, you will pay fewer royalties (or zero if there is no turnover at all). Payments continue until the investors are reimbursed.",
-					"MORE_THAN_PLANNED": "If your turnover is more than expected, you pay more royalties, knowing that the maximum gain for your investors is capped at three times the investment made and that the royalties payment contracts have a fixed term (5 years).",
-					"STOP_THE_ROYALTIES": "You have the option to terminate your contract early if necessary.",
-					"ACTIVITY_STOP": "If unfortunately your business goes bankrupt, your investors will lose their investment, but they will have recovered royalties until that point. You do not have to provide any collateral."
-				}
-			},
-			"advice": {
-				"TITLE": "WE DO GOOD tips",
-				"SUBTITLE": "To make your project eligible, you can:",
-				"ADVICE1_TITLE": "Reduce the amount to be raised in royalties.",
-				"ADVICE1_TEXT": "Bear in mind that royalties can be used on part of the funding requirement to unblock a bank loan or grants.",
-				"ADVICE2_TITLE": "Use a more optimistic forecast.",
-				"ADVICE3_TITLE": "Use the percentage recommended by WE DO GOOD below.",
-				"NO_SOLUTION1": "If none of these solutions are possible, your business model may not be suited to royalties.",
-				"NO_SOLUTION2": "You can visit www.trouverlebonfinancement.fr to discover other types of crowdfunding.",
-				"ADVICE_PERCENT": "Recommended percentage:",
-				"TEST_PERCENT": "Test this percentage"
-			}
-		},
-		"project-investors": {
-			"TITLE": "My investors",
-			"READY_TO_COMMUNICATE": "I am ready to communicate with those around me",
-			"WHICH_CIRCLES_TO_COMMUNICATE": "Which circles are you ready to communicate with?",
-			"ALREADY_DONE_CROWDFUNDING": "I have already run a crowdfunding campaign",
-			"NEED_COMMUNICATION_ADVICE": "I need communications advice",
-			"MASCOT_TEXT_1A": "Starting and succeeding in fundraising takes time and a personal commitment by you and your team.",
-			"MASCOT_TEXT_1B": "You must be ready to communicate with those around you to tip the odds in your favour.",
-			"MASCOT_TEXT_2": "Unfortunately, without mobilising your friends and family and network, it will be difficult for you to convince and gain the confidence of other investors.",
-			"MASCOT_TEXT_LOVEMONEY": "Royalties are a good option for a small number of people from your personal circle (love money) or professional network to invest. Simple, quick and confidential.",
-			"MASCOT_TEXT_PRIVATE": "As many people as you want can invest by reserving this possibility for the people you have identified. Quick and confidential.",
-			"MASCOT_TEXT_PUBLIC": "You can benefit from good visibility through Crowdfunding, but to reach the general public, you must start with your friends and family!",
-			"MASCOT_TEXT_ALREADY_DONE": "Great, I see we are dealing with someone experienced!",
-			"MASCOT_TEXT_NEED_ADVICE": "WE DO GOOD can assist you with your communications",
-			"investors-circles": {
-				"CIRCLE_LOVEMONEY": "Relatives",
-				"CIRCLE_PRIVATE": "Contacts",
-				"CIRCLE_PUBLIC": "Public"
-			}
-		},
-		"project-result": {
-			"TITLE": "Your project is eligible!",
-			"SUBTITLES_SELECTION_STANDARDS": "subject to fulfilling all our",
-			"SUBTITLES_SELECTION_STANDARDS_LINK": "selection criteria",
-			"TITLE_FAILED": "Your project is not eligible...",
-			"YOU_CAN_RAISE": "You can raise it",
-			"TARGET_LOVEMONEY": "with your loved ones",
-			"TARGET_PRIVATE": "with your family and friends",
-			"TARGET_PUBLIC": "with your loved ones, your contacts and the general public",
-			"YOU_WILL_PAY": "and you will pay them every quarter",
-			"OF_YOUR_TURNOVER": "from your turnover for 5 years.",
-			"formulas": {
-				"RECOMMENDED": "Recommended formula",
-				"REDUCTION": "young companies",
-				"lovemoney": {
-					"TITLE": "Love Money",
-					"TEXT": "Have your loved ones invest confidentially and quickly",
-					"AMOUNT_1": "2% success fee on the amount raised",
-					"AMOUNT_2": "5% on the royalties paid (min. €60 per declaration)"
-				},
-				"private": {
-					"TITLE": "Private network",
-					"TEXT": "Have your network invest by using the platform privately",
-					"AMOUNT_1": "4% success fee on the amount raised",
-					"AMOUNT_2": "5% on the royalties paid (min. €60 per declaration)"
-				},
-				"crowdfunding": {
-					"TITLE": "Crowdfunding",
-					"TEXT": "Mobilise your networks and promote your project to new investors",
-					"AMOUNT_1": "8% success fee on the amount raised (6% with comprehensive assistance, 4% on amounts raised over €100,000)",
-					"AMOUNT_2": "3% on the royalties paid (min. €60 per declaration)"
-				},
-				"options": {
-					"PAGE_VISIBLE_ON_WDG": "Publicly visible page on WE DO GOOD",
-					"COMMUNICATION_ON_NETWORKS": "Dissemination of your fundraising on our social media and newsletter",
-					"REFERENCED_TO_PARTNERS": "Referencing of your fundraising on the websites of our partners (BPI Tous Nos Projets, Novafi, Info Durable)",
-					"MANAGED_THROUGH_PLATFORM": "Centralised management of investors and royalty payments",
-					"SUPPORT": "Technical, legal and tax support for you and your investors",
-					"PAYMENTS": "Collection of investments online and by cheque",
-					"EVALUATION": "Evaluation period to validate the interest of potential investors and bring together pre-investments",
-					"GREEN_LABEL": "Crowdfunding for Green Growth label (on request and subject to project evaluation)",
-					"LIMITED_INVESTORS": "Unlimited number of investors",
-					"UP_TO_5_INVESTORS": "Up to 5 investors"
-				}
-			},
-			"options": {
-				"RECOMMENDED": "Recommended option",
-				"REDUCTION": "young companies",
-				"basic": {
-					"TITLE": "Basic Support",
-					"TEXT": "For entrepreneurs who have already identified their investors or who have already conducted a fundraising campaign"
-				},
-				"standard": {
-					"TITLE": "Essential Support",
-					"TEXT": "For entrepreneurs wishing to follow a well-informed path to conduct their fundraising with confidence"
-				},
-				"complete": {
-					"TITLE": "Comprehensive Support",
-					"TEXT": "For entrepreneurs who want responses, opinions and advice to move faster and more efficiently"
-				},
-				"list": {
-					"READ_PITCH": "Proofreading your presentation",
-					"READ_PITCH_AND_COM": "Proofreading your presentation and your communication media",
-					"SUPPORT_TO_INVESTORS": "Support for your investors",
-					"SUPPORT_CENTER": "Access to the support centre",
-					"COMMISSION_REDUCTION": "Fee of 6% rather than 8% in the CROWDFUNDING formula",
-					"CUSTOM_MONITORING": "Personalised follow-up and priority support",
-					"INVESTORS_MONITORING": "Investor conversion tracking",
-					"WORKSHOP": "Two-hour preparation workshop to lay the foundations with your team (communication tips and crowdfunding methodology advice, definition of the action plan, handling of the platform)"
-				}
-			},
-			"not-eligible": {
-				"PROJECT_DOESNT_SEEM_ELIGIBLE": "Your project does not appear to be eligible...",
-				"POSSIBLE_REASONS": "Here are the possible reasons:",
-				"MICROBUSINESS": "you work as a sole proprietorship or micro-enterprise",
-				"OUT_EURO": "your company is or will not be registered in the euro zone",
-				"NOT_ADAPTED": "the royalties model cannot be adapted to your business model",
-				"NEED_LOVEMONEY": "crowdfunding requires the mobilisation of those around you to get off to a good start",
-				"SPECIFIC_PROJECT": "Your project is specific and could still benefit from royalties (longer duration, financing of equipment with margin...)",
-				"SEND_EMAIL": "Send us an email at projects@wedogood.co"
-			},
-			"prospect-meetup": {
-				"ADD_FILES_TEXT": "To prepare for our meeting, you need to have these documents ready:",
-				"FILE_BUSINESS_PLAN": "- A business plan",
-				"FILE_PREVISIONNEL": "- A financial forecast including a financing plan and a forecast income statement",
-				"SEND_FILES_INPUT_LABEL": "Can you tell us a little more about your project and any possible questions?",
-				"PLAN_RENDEZVOUS": "Make an appointment",
-				"PLAN_RENDEZVOUS_TEXT": "Let's talk about it! To get your project started and get the best advice, make an appointment!"
-			},
-			"admin": {
-				"ENABLE_PAYMENT": "Authorise payment"
-			}
-		},
-		"payment": {
-			"header": {
-				"SUMMARY": "Summary",
-				"VALIDATION": "Confirmation",
-				"PAYMENT": "Payment"
-			},
-			"cart": {
-				"TOTAL_WITHOUT_TAXES": "Total (excl. VAT)",
-				"TAXES": "20% VAT",
-				"TOTAL_WITH_TAXES": "Total price"
-			},
-			"organization-info": {
-				"INTRO": "We need some additional information:",
-				"TAX_LABEL": "My VAT number is",
-				"ADDRESS_LABEL": "My head office is located at:",
-				"ADDRESS_NUMBER_PLACEHOLDER": "No.",
-				"ADDRESS_STREET_PLACEHOLDER": "Street",
-				"ADDRESS_POSTAL_CODE_PLACEHOLDER": "Postcode",
-				"ADDRESS_CITY_PLACEHOLDER": "City",
-				"EMAIL_LABEL": "My company's email address (different from my personal address) is:",
-				"EMAIL_PLACEHOLDER": "contact@company.com"
-			},
-			"methods": {
-				"SECURED_PAYMENT": "Secure payment",
-				"METHOD_CHOICE": "Choice of payment method",
-				"CARD": "Card",
-				"WIRE": "Bank transfer"
-			},
-			"wire": {
-				"BACK": "Return to the choice of payment method",
-				"TITLE": "Transfer to WE DO GOOD",
-				"IBAN_LABEL": "IBAN:"
-			},
-			"complete": {
-				"CONFIRMATION": "Your payment is confirmed!",
-				"THANK_YOU": "Thank you for placing your trust in us.",
-				"CREATE": "You can now create your project on WE DO GOOD!"
-			}
-		}
-	}
+  "65969": {
+    "content": {
+      "core/paragraph": {
+        "15a47d88-886a-4a59-8867-3b6a21aaecf1": "This is a test page .",
+        "2ac78127-0f6b-44e5-bc6c-65ca88e3d65e": "<p class=\"has-text-align-center\"><strong><span class=\"has-inline-color has-vivid-cyan-blue-color\">Offre 2</span></strong></p>",
+        "4103f592-b49b-4447-9c26-c164af55cc05": "<p class=\"has-text-align-left has-large-font-size\">Title</p>",
+        "58b0b765-5a49-45d3-9c27-90af0f607fa7": "<p>Other informations.</p>",
+        "8116e8ed-9d81-4d3e-95c3-06030fb4b80e": "<p>Columns</p>",
+        "aa408fa3-bd91-470e-bcb6-bf0bb89dba24": "<p class=\"has-text-align-center\"><span class=\"has-inline-color has-vivid-cyan-blue-color\"><strong>Offre </strong>3</span></p>",
+        "aefa05aa-5497-4c75-a952-bc9a032900e6": "<p class=\"has-text-align-center\"><strong><span class=\"has-inline-color has-vivid-cyan-blue-color\">Offer 1</span></strong></p>"
+      },
+      "core/table": {
+        "5ec6ab58-7804-43c6-bc15-2d4c785902a3": "<figure class=\"wp-block-table is-style-stripes\"><table class=\"has-subtle-pale-blue-background-color has-background\"><tbody><tr><td></td><td>Rewards</td><td>Royalties</td><td>Equity</td><td>Prêt</td></tr><tr><td>Montant</td><td></td><td></td><td></td><td></td></tr><tr><td>Commitment</td><td></td><td></td><td></td><td></td></tr><tr><td>Duration</td><td></td><td></td><td></td><td></td></tr></tbody></table></figure>"
+      },
+      "core/verse": {
+        "9706b64d-e877-4965-9f25-6384df36ed7f": "<pre class=\"wp-block-verse\">Quote</pre>"
+      }
+    },
+    "slug": "gutenberg ",
+    "title": "Gutenberg "
+  },
+  "66306": {
+    "content": {
+      "core/paragraph": {
+        "77f02793-97d2-4e42-ac48-115a7497e493": "<p>This is a test page about Phrase plugin.</p>"
+      }
+    },
+    "slug": "phrase-plugin",
+    "title": "Phrase plugin"
+  },
+  "66313": {
+    "content": {
+      "core/paragraph": {
+        "2edcaa8f-8891-4a93-9c1a-b18111f89abf": "<p>Test page about managing translation with Phrase plugin.</p>"
+      }
+    },
+    "slug": "phrase-translation",
+    "title": "Phrase Translation"
+  },
+  "66320": {
+    "content": {
+      "core/paragraph": {
+        "4b9a2616-4c7d-41cb-b446-480ac1fec6e7": "<p>This is a test page about using Phrase plugin.</p>"
+      }
+    },
+    "slug": "automated-translation",
+    "title": "Automated translation "
+  },
+  "common": {
+    "ADD_DOCUMENT": "Add document",
+    "EMAIL_ADDRESS": "Email address",
+    "FIRSTNAME": "First name",
+    "LASTNAME": "Surname",
+    "NO": "No",
+    "ORGA_EMAIL_ADDRESS": "Email address of the entity",
+    "ORGA_NAME": "Company name",
+    "PASSWORD": "Password",
+    "PHONE_NUMBER": "Mobile phone number",
+    "REQUEST_ERROR": "Problem sending request",
+    "REQUIRED_FIELDS": "Required fields",
+    "SEND": "Send",
+    "VALIDATE": "Validate",
+    "VIEW_LESS": "See less",
+    "VIEW_MORE": "See more",
+    "WITHOUT_TAXES_LETTERS": "(excl. VAT)",
+    "YES": "Yes"
+  },
+  "launch-project": {
+    "ALREADY_EXISTING_PROJECTS": "You have already created one (or more) project(s) on the platform:",
+    "CREATE_NEW_PROJECT_INDEED": "If you still want to create a new project, please fill out the form below.",
+    "EMPTY_OR_WRONG_FORMAT_FIELD": "One of the fields is empty or is not in the correct format",
+    "ORGA_MAIL_DIFFERENT": "This address must be different from that of your personal account, for instance contact@your-business.com",
+    "PROJECT_DESCRIPTION": "Project description",
+    "PROJECT_DESCRIPTION_PLACEHOLDER": "Project description",
+    "PROJECT_NAME": "Name of the project",
+    "PROJECT_NAME_PLACEHOLDER": "Name of the project",
+    "REQUEST_ERROR": "Connection problem (FX84R83)",
+    "TEXT_1": "Congratulations, your brief has been validated by WE DO GOOD!",
+    "TEXT_2": "Ready for the next step?",
+    "TEXT_3": "Please note, the fundraising must be set up by the company's legal representative from their personal account, who can then invite the rest of the team.",
+    "TITLE": "Fundraising launch",
+    "VALIDATE_CONDITIONS": "I accept the special terms and conditions"
+  },
+  "project-setup": {
+    "CONTINUE": "Continue",
+    "footer": {
+      "SUCCESS_TEXT_1": "82%",
+      "SUCCESS_TEXT_2": "of fundraising efforts successful",
+      "TIME_TEXT_1": "1 to 4 months",
+      "TIME_TEXT_2": "to release funds"
+    },
+    "intro": {
+      "MASCOT_TEXT_1": "You will need:",
+      "MASCOT_TEXT_2": "Your forecast turnover",
+      "MASCOT_TEXT_3": "Your margin level",
+      "MASCOT_TEXT_4": "To know your financing needs",
+      "TEXT_1": "Instant result sent by email.",
+      "TEXT_2": "Possibility of making an appointment to start the fundraising as soon as possible!",
+      "TEXT_3": "Response in approx. 5 minutes",
+      "TEXT_4": "You can save, exit and come back at any time!",
+      "the-project-link-send": {
+        "EMAIL_SEND_ERROR": "Error sending email.",
+        "EMAIL_SENT": "The email has been sent.",
+        "ERROR_EMAIL_EMPTY": "The email address must be provided.",
+        "ERROR_EMAIL_INCORRECT": "The email address is not valid.",
+        "ERROR_EMAIL_NO_PROJECT": "No test has been performed using this address.",
+        "TEXT": "Please enter the email previously used to start your test. If one or more tests are in progress, you will receive the access links by email.",
+        "TITLE": "Resume a previous test"
+      },
+      "TITLE": "Is my project eligible?"
+    },
+    "MINUTE": "minute | minutes",
+    "payment": {
+      "cart": {
+        "TAXES": "20% VAT",
+        "TOTAL_WITH_TAXES": "Total price",
+        "TOTAL_WITHOUT_TAXES": "Total (excl. VAT)"
+      },
+      "complete": {
+        "CONFIRMATION": "Your payment is confirmed!",
+        "CREATE": "You can now create your project on WE DO GOOD!",
+        "THANK_YOU": "Thank you for placing your trust in us."
+      },
+      "header": {
+        "PAYMENT": "Payment",
+        "SUMMARY": "Summary",
+        "VALIDATION": "Confirmation"
+      },
+      "methods": {
+        "CARD": "Card",
+        "METHOD_CHOICE": "Choice of payment method",
+        "SECURED_PAYMENT": "Secure payment",
+        "WIRE": "Bank transfer"
+      },
+      "organization-info": {
+        "ADDRESS_CITY_PLACEHOLDER": "City",
+        "ADDRESS_LABEL": "My head office is located at:",
+        "ADDRESS_NUMBER_PLACEHOLDER": "No.",
+        "ADDRESS_POSTAL_CODE_PLACEHOLDER": "Postcode",
+        "ADDRESS_STREET_PLACEHOLDER": "Street",
+        "EMAIL_LABEL": "My company's email address (different from my personal address) is:",
+        "EMAIL_PLACEHOLDER": "contact@company.com",
+        "INTRO": "We need some additional information:",
+        "TAX_LABEL": "My VAT number is"
+      },
+      "wire": {
+        "BACK": "Return to the choice of payment method",
+        "IBAN_LABEL": "IBAN:",
+        "TITLE": "Transfer to WE DO GOOD"
+      }
+    },
+    "PICTO_TITLE_BALLOON": "Hot air balloon",
+    "PICTO_TITLE_TIMER": "Stopwatch",
+    "PREVIOUS_STEP": "Previous step",
+    "project-funding": {
+      "advice": {
+        "ADVICE_PERCENT": "Recommended percentage:",
+        "ADVICE1_TEXT": "Bear in mind that royalties can be used on part of the funding requirement to unblock a bank loan or grants.",
+        "ADVICE1_TITLE": "Reduce the amount to be raised in royalties.",
+        "ADVICE2_TITLE": "Use a more optimistic forecast.",
+        "ADVICE3_TITLE": "Use the percentage recommended by WE DO GOOD below.",
+        "NO_SOLUTION1": "If none of these solutions are possible, your business model may not be suited to royalties.",
+        "NO_SOLUTION2": "You can visit www.trouverlebonfinancement.fr to discover other types of crowdfunding.",
+        "SUBTITLE": "To make your project eligible, you can:",
+        "TEST_PERCENT": "Test this percentage",
+        "TITLE": "WE DO GOOD tips"
+      },
+      "commercial-margin": {
+        "INPUT_LABEL": "Rate",
+        "TITLE": "My commercial margin",
+        "TOOLTIP": "Your gross margin or margin on variable costs. The royalty rate should not exceed 10% of your margin."
+      },
+      "estimated-turnover-by-year": {
+        "INPUT_LABEL": "Year",
+        "TITLE": "My forecast turnover of €"
+      },
+      "royalties-amount": {
+        "OF_MY_QUARTERLY_TURNOVER": "of my quarterly turnover for 5 years*",
+        "REINIT_PARAMETERS": "Reset settings",
+        "ROYALTIES_NOT_OK": "Royalties do not seem suited to your business model.",
+        "ROYALTIES_PERCENT_CUSTOM": "The percentage entered is correct. WE DO GOOD advises you to set a rate between {adviceMinPercent}% and {adviceMaxPercent}%.",
+        "ROYALTIES_PERCENT_DEFAULT": "You can customise this rate. WE DO GOOD advises you to set a rate between {adviceMinPercent}% and {adviceMaxPercent}%.",
+        "ROYALTIES_PERCENT_WARNING_OVER": "The percentage is too high compared with your margin; the royalties would risk weakening your economic model. WE DO GOOD advises you to set a rate between {adviceMinPercent}% and {adviceMaxPercent}%.",
+        "ROYALTIES_PERCENT_WARNING_UNDER": "The percentage is too low. You must have already validated your economic model (turnover of more than €100,000) to validate this percentage.  WE DO GOOD advises you to set a rate between {adviceMinPercent}% and {adviceMaxPercent}%.",
+        "TITLE": "Royalties that I would give up",
+        "VIEW_ADVICE": "See our tips",
+        "VIEW_DETAILS": "See details",
+        "YIELD_FOR_INVESTORS_1": "i.e. a yield of",
+        "YIELD_FOR_INVESTORS_2": "for my investors"
+      },
+      "royalties-chart": {
+        "IF_MY_ACTIVITY": "If my activity",
+        "LABEL_ROYALTIES": "Royalties to be paid",
+        "LABEL_TURNOVER": "Forecast turnover",
+        "scenario-description": {
+          "ACTIVITY_STOP": "If unfortunately your business goes bankrupt, your investors will lose their investment, but they will have recovered royalties until that point. You do not have to provide any collateral.",
+          "AS_PLANNED": "The royalties follow the progression of your turnover.",
+          "LESS_THAN_PLANNED": "If your turnover is less than expected, you will pay fewer royalties (or zero if there is no turnover at all). Payments continue until the investors are reimbursed.",
+          "MORE_THAN_PLANNED": "If your turnover is more than expected, you pay more royalties, knowing that the maximum gain for your investors is capped at three times the investment made and that the royalties payment contracts have a fixed term (5 years).",
+          "STOP_THE_ROYALTIES": "You have the option to terminate your contract early if necessary."
+        },
+        "TITLE": "Details of projected royalties",
+        "turnover-scenario": {
+          "ACTIVITY_STOP": "stops along the way",
+          "AS_PLANNED": "move forward as planned",
+          "LESS_THAN_PLANNED": "is not going as well as expected",
+          "MORE_THAN_PLANNED": "is going better than expected",
+          "STOP_THE_ROYALTIES": "royalties need to stop"
+        }
+      },
+      "royalties-warning": {
+        "WARNING_1": "The recommended percentage is calculated so that your investors double their investment in 5 years, according to your forecast.",
+        "WARNING_2": "The minimum that you can set for your investors to recover their investment in 5 years is {warningMinPercent}%."
+      },
+      "the-project-goal-amount": {
+        "MAX": "max. 500K",
+        "MIN": "min. 10K",
+        "TITLE": "I want to raise €",
+        "TOOLTIP": "This amount is the maximum you want to raise in exchange for royalties."
+      },
+      "TITLE": "My financing",
+      "TOGGLE_LABEL": "I understand the forecast of royalty payments"
+    },
+    "project-infos": {
+      "address-number-complements": {
+        "BIS": "a)",
+        "QUATER": "c)",
+        "QUINQUIES": "d)",
+        "TER": "b)"
+      },
+      "FORM_TEXT_AMOUNT_NEEDED": "I need",
+      "FORM_TEXT_ORGANIZATION_CREATED_NAME": "on behalf of",
+      "FORM_TEXT_ORGANIZATION_DESCRIPTION": "for my activity of",
+      "FORM_TEXT_ORGANIZATION_ID": "whose SIREN number is",
+      "FORM_TEXT_ORGANIZATION_LOCATED": "located",
+      "FORM_TEXT_ORGANIZATION_NOT_CREATED_NAME": "under the name of",
+      "FORM_TEXT_ORGANIZATION_TYPE": "My organisation is",
+      "FORM_TEXT_SOURCE_PROSPECT": "I heard about WE DO GOOD through",
+      "FORM_TEXT_SOURCE_PROSPECT_DETAILS": "More specifically:",
+      "FORM_TEXT_SOURCE_PROSPECT_DETAILS_PLACEHOLDER": "Date, person...",
+      "FORM_TEXT_USER_EMAIL": "you can reach me at the email address",
+      "FORM_TEXT_USER_NAME": "My name is",
+      "FORM_TEXT_USER_PHONE": "and phone number",
+      "location-types": {
+        "EURO": "in the euro zone",
+        "FRANCE": "in France",
+        "OUT_EURO": "outside the euro zone"
+      },
+      "mascot-text": {
+        "INIT": "Your information is not passed on to third parties and remains confidential.",
+        "LESS_10K": "WE DO GOOD can only assist you for amounts exceeding €10,000.",
+        "MICROBUSINESS": "WE DO GOOD can only support activities carried out by legal persons.",
+        "NEED_EMAIL": "Once your email address has been provided, you can resume your test at any time.",
+        "NOT_CREATED": "WE DO GOOD can assist you once the company is registered.",
+        "OUT_EURO": "WE DO GOOD can only support organisations registered in the euro zone."
+      },
+      "organization-types": {
+        "ASSOCIATION": "an association",
+        "COMPANY": "a company",
+        "MICROBUSINESS": "a sole proprietorship / micro-enterprise",
+        "NOT_CREATED": "being created"
+      },
+      "PLACEHOLDER_PROJECT_DESCRIPTION": "My activity...",
+      "PLACEHOLDER_PROJECT_ID": "SIREN number",
+      "PLACEHOLDER_PROJECT_NAME": "My project",
+      "PLACEHOLDER_USER_EMAIL": "firstname.surname@enterprise.com",
+      "PLACEHOLDER_USER_NAME": "First name Surname",
+      "PLACEHOLDER_USER_PHONE": "07 07 07 07 07",
+      "source-types": {
+        "EVENT": "an event",
+        "OTHER": {
+          "other": "another way"
+        },
+        "POST": "a press article / blog / programme",
+        "SOCIAL_NETWORKS": "social media",
+        "SOMEONE": "someone who told me about it",
+        "WEBSITE": "a website"
+      },
+      "SUBTITLE": "All fields are mandatory",
+      "TITLE": "My project"
+    },
+    "project-investors": {
+      "ALREADY_DONE_CROWDFUNDING": "I have already run a crowdfunding campaign",
+      "investors-circles": {
+        "CIRCLE_LOVEMONEY": "Relatives",
+        "CIRCLE_PRIVATE": "Contacts",
+        "CIRCLE_PUBLIC": "Public"
+      },
+      "MASCOT_TEXT_1A": "Starting and succeeding in fundraising takes time and a personal commitment by you and your team.",
+      "MASCOT_TEXT_1B": "You must be ready to communicate with those around you to tip the odds in your favour.",
+      "MASCOT_TEXT_2": "Unfortunately, without mobilising your friends and family and network, it will be difficult for you to convince and gain the confidence of other investors.",
+      "MASCOT_TEXT_ALREADY_DONE": "Great, I see we are dealing with someone experienced!",
+      "MASCOT_TEXT_LOVEMONEY": "Royalties are a good option for a small number of people from your personal circle (love money) or professional network to invest. Simple, quick and confidential.",
+      "MASCOT_TEXT_NEED_ADVICE": "WE DO GOOD can assist you with your communications",
+      "MASCOT_TEXT_PRIVATE": "As many people as you want can invest by reserving this possibility for the people you have identified. Quick and confidential.",
+      "MASCOT_TEXT_PUBLIC": "You can benefit from good visibility through Crowdfunding, but to reach the general public, you must start with your friends and family!",
+      "NEED_COMMUNICATION_ADVICE": "I need communications advice",
+      "READY_TO_COMMUNICATE": "I am ready to communicate with those around me",
+      "TITLE": "My investors",
+      "WHICH_CIRCLES_TO_COMMUNICATE": "Which circles are you ready to communicate with?"
+    },
+    "project-result": {
+      "admin": {
+        "ENABLE_PAYMENT": "Authorise payment"
+      },
+      "formulas": {
+        "crowdfunding": {
+          "AMOUNT_1": "8% success fee on the amount raised (6% with comprehensive assistance, 4% on amounts raised over €100,000)",
+          "AMOUNT_2": "3% on the royalties paid (min. €60 per declaration)",
+          "TEXT": "Mobilise your networks and promote your project to new investors",
+          "TITLE": "Crowdfunding"
+        },
+        "lovemoney": {
+          "AMOUNT_1": "2% success fee on the amount raised",
+          "AMOUNT_2": "5% on the royalties paid (min. €60 per declaration)",
+          "TEXT": "Have your loved ones invest confidentially and quickly",
+          "TITLE": "Love Money"
+        },
+        "options": {
+          "COMMUNICATION_ON_NETWORKS": "Dissemination of your fundraising on our social media and newsletter",
+          "EVALUATION": "Evaluation period to validate the interest of potential investors and bring together pre-investments",
+          "GREEN_LABEL": "Crowdfunding for Green Growth label (on request and subject to project evaluation)",
+          "LIMITED_INVESTORS": "Unlimited number of investors",
+          "MANAGED_THROUGH_PLATFORM": "Centralised management of investors and royalty payments",
+          "PAGE_VISIBLE_ON_WDG": "Publicly visible page on WE DO GOOD",
+          "PAYMENTS": "Collection of investments online and by cheque",
+          "REFERENCED_TO_PARTNERS": "Referencing of your fundraising on the websites of our partners (BPI Tous Nos Projets, Novafi, Info Durable)",
+          "SUPPORT": "Technical, legal and tax support for you and your investors",
+          "UP_TO_5_INVESTORS": "Up to 5 investors"
+        },
+        "private": {
+          "AMOUNT_1": "4% success fee on the amount raised",
+          "AMOUNT_2": "5% on the royalties paid (min. €60 per declaration)",
+          "TEXT": "Have your network invest by using the platform privately",
+          "TITLE": "Private network"
+        },
+        "RECOMMENDED": "Recommended formula",
+        "REDUCTION": "young companies"
+      },
+      "not-eligible": {
+        "MICROBUSINESS": "you work as a sole proprietorship or micro-enterprise",
+        "NEED_LOVEMONEY": "crowdfunding requires the mobilisation of those around you to get off to a good start",
+        "NOT_ADAPTED": "the royalties model cannot be adapted to your business model",
+        "OUT_EURO": "your company is or will not be registered in the euro zone",
+        "POSSIBLE_REASONS": "Here are the possible reasons:",
+        "PROJECT_DOESNT_SEEM_ELIGIBLE": "Your project does not appear to be eligible...",
+        "SEND_EMAIL": "Send us an email at projects@wedogood.co",
+        "SPECIFIC_PROJECT": "Your project is specific and could still benefit from royalties (longer duration, financing of equipment with margin...)"
+      },
+      "OF_YOUR_TURNOVER": "from your turnover for 5 years.",
+      "options": {
+        "basic": {
+          "TEXT": "For entrepreneurs who have already identified their investors or who have already conducted a fundraising campaign",
+          "TITLE": "Basic Support"
+        },
+        "complete": {
+          "TEXT": "For entrepreneurs who want responses, opinions and advice to move faster and more efficiently",
+          "TITLE": "Comprehensive Support"
+        },
+        "list": {
+          "COMMISSION_REDUCTION": "Fee of 6% rather than 8% in the CROWDFUNDING formula",
+          "CUSTOM_MONITORING": "Personalised follow-up and priority support",
+          "INVESTORS_MONITORING": "Investor conversion tracking",
+          "READ_PITCH": "Proofreading your presentation",
+          "READ_PITCH_AND_COM": "Proofreading your presentation and your communication media",
+          "SUPPORT_CENTER": "Access to the support centre",
+          "SUPPORT_TO_INVESTORS": "Support for your investors",
+          "WORKSHOP": "Two-hour preparation workshop to lay the foundations with your team (communication tips and crowdfunding methodology advice, definition of the action plan, handling of the platform)"
+        },
+        "RECOMMENDED": "Recommended option",
+        "REDUCTION": "young companies",
+        "standard": {
+          "TEXT": "For entrepreneurs wishing to follow a well-informed path to conduct their fundraising with confidence",
+          "TITLE": "Essential Support"
+        }
+      },
+      "prospect-meetup": {
+        "ADD_FILES_TEXT": "To prepare for our meeting, you need to have these documents ready:",
+        "FILE_BUSINESS_PLAN": "- A business plan",
+        "FILE_PREVISIONNEL": "- A financial forecast including a financing plan and a forecast income statement",
+        "PLAN_RENDEZVOUS": "Make an appointment",
+        "PLAN_RENDEZVOUS_TEXT": "Let's talk about it! To get your project started and get the best advice, make an appointment!",
+        "SEND_FILES_INPUT_LABEL": "Can you tell us a little more about your project and any possible questions?"
+      },
+      "SUBTITLES_SELECTION_STANDARDS": "subject to fulfilling all our",
+      "SUBTITLES_SELECTION_STANDARDS_LINK": "selection criteria",
+      "TARGET_LOVEMONEY": "with your loved ones",
+      "TARGET_PRIVATE": "with your family and friends",
+      "TARGET_PUBLIC": "with your loved ones, your contacts and the general public",
+      "TITLE": "Your project is eligible!",
+      "TITLE_FAILED": "Your project is not eligible...",
+      "YOU_CAN_RAISE": "You can raise it",
+      "YOU_WILL_PAY": "and you will pay them every quarter"
+    },
+    "SAVE_PROJECT": "Save my project for later",
+    "SAVED_PROJECT": "Project saved",
+    "SAVED_PROJECT_ERROR": "Error while trying to save",
+    "SAVING_PROJECT": "Save the current project",
+    "START": "Begin",
+    "tabs": {
+      "IN_PROGRESS": "In progress...",
+      "MODIFY": "Edit",
+      "MY_FUNDING": "My financing",
+      "MY_INVESTORS": "My investors",
+      "MY_PROJECT": "My project",
+      "MY_RESULT": "My result",
+      "SEE_RESULTS": "See the result"
+    },
+    "TITLE": "My eligibility for royalties"
+  },
+  "signin-signup": {
+    "CONNECT_TO_FACEBOOK": "Log in with Facebook",
+    "CONNECTION": "Log in",
+    "CREATE_MY_ACCOUNT": "Create account",
+    "FORGOTTEN_PASSWORD": "Forgotten password",
+    "GENERAL_USE_TERMS": "general terms and conditions of use",
+    "I_ACCEPT_THE": "I accept",
+    "I_ALREADY_HAVE_AN_ACCOUNT": "I already have an account",
+    "PASSWORD_CONFIRMATION": "Password confirmation",
+    "REMEMBER_ME": "Remember me",
+    "SIGNIN_ERROR_EMPTY": "Please enter your username and password.",
+    "SIGNIN_ERROR_INCORRECT_PASSWORD": "The password entered does not match.",
+    "SIGNIN_ERROR_NOT_FOUND": "This user does not exist.",
+    "SIGNIN_SIGNUP_ERROR_TYPE_ERROR": "Input error.",
+    "SIGNUP_ERROR_EMAIL_EMPTY": "The email address must be provided.",
+    "SIGNUP_ERROR_EMAIL_FOUND": "The email address is already in use.",
+    "SIGNUP_ERROR_EMAIL_INCORRECT": "The email address is not valid.",
+    "SIGNUP_ERROR_FIRSTNAME_EMPTY": "First name must be given.",
+    "SIGNUP_ERROR_LASTNAME_EMPTY": "Surname must be given.",
+    "SIGNUP_ERROR_PASSWORD_EMPTY": "Have you entered the password twice?",
+    "SIGNUP_ERROR_PASSWORD_NOT_MATCHING": "The passwords entered do not match.",
+    "SIGNUP_ERROR_ROBOT": "Please check the box confirming that you are not a robot.",
+    "SIGNUP_ERROR_TERMS": "Please check the box to accept the general terms and conditions of use.",
+    "SIGNUP_ERROR_UNDEFINED": "An error occurred when creating the user."
+  },
+  "validations": {
+    "EMAIL": "This email address is not valid",
+    "NAME": "This field is not valid",
+    "PHONE_NUMBER": "This phone number is not valid",
+    "REQUIRED": "This field is required"
+  }
 }

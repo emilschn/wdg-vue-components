@@ -1,400 +1,560 @@
 {
-	"common": {
-		"YES": "Oui",
-		"NO": "Non",
-		"EMAIL_ADDRESS": "Adresse e-mail",
-		"PASSWORD": "Mot de passe",
-		"FIRSTNAME": "Prénom",
-		"LASTNAME": "Nom de famille",
-		"PHONE_NUMBER": "Téléphone mobile",
-		"ORGA_EMAIL_ADDRESS": "Adresse mail de la structure",
-		"ORGA_NAME": "Nom de l'entreprise",
-		"VALIDATE": "Valider",
-		"REQUEST_ERROR": "Problème d'envoi de requête",
-		"REQUIRED_FIELDS": "Champs obligatoires",
-		"SEND": "Envoyer",
-		"VIEW_MORE": "Voir plus",
-		"VIEW_LESS": "Voir moins",
-		"WITHOUT_TAXES_LETTERS": "H.T.",
-		"ADD_DOCUMENT": "Ajouter un document"
-	},
-	"validations": {
-		"REQUIRED": "Ce champ est obligatoire",
-		"NAME": "Ce champ n'est pas valide",
-		"EMAIL": "Cet email n'est pas valide",
-		"PHONE_NUMBER": "Ce numéro de téléphone n'est pas valide"
-	},
-	"signin-signup": {
-		"FORGOTTEN_PASSWORD": "Mot de passe oublié",
-		"PASSWORD_CONFIRMATION": "Confirmation du mot de passe",
-		"REMEMBER_ME": "Se souvenir de moi",
-		"I_ACCEPT_THE": "J'accepte",
-		"GENERAL_USE_TERMS": "conditions générales d'utilisation",
-		"CONNECTION": "Connexion",
-		"CONNECT_TO_FACEBOOK": "Se connecter avec Facebook",
-		"CREATE_MY_ACCOUNT": "Créer mon compte",
-		"I_ALREADY_HAVE_AN_ACCOUNT": "J'ai déjà un compte",
-		"SIGNIN_SIGNUP_ERROR_TYPE_ERROR": "Erreur de saisie.",
-		"SIGNIN_ERROR_EMPTY": "Merci de saisir votre identifiant et votre mot de passe.",
-		"SIGNIN_ERROR_NOT_FOUND": "Cet utilisateur n'existe pas.",
-		"SIGNIN_ERROR_INCORRECT_PASSWORD": "Le mot de passe saisi ne correspond pas.",
-		"SIGNUP_ERROR_EMAIL_EMPTY": "L'adresse e-mail doit être définie.",
-		"SIGNUP_ERROR_EMAIL_FOUND": "Cette adresse e-mail est déjà utilisée.",
-		"SIGNUP_ERROR_EMAIL_INCORRECT": "Cette adresse e-mail n'est pas valide.",
-		"SIGNUP_ERROR_FIRSTNAME_EMPTY": "Le prénom doit être défini.",
-		"SIGNUP_ERROR_LASTNAME_EMPTY": "Le nom de famille doit être défini.",
-		"SIGNUP_ERROR_PASSWORD_EMPTY": "Avez-vous saisi deux fois le mot de passe ?",
-		"SIGNUP_ERROR_PASSWORD_NOT_MATCHING": "Les mots de passe saisis ne correspondent pas.",
-		"SIGNUP_ERROR_TERMS": "Merci de cocher la case pour accepter les conditions générales d'utilisation.",
-		"SIGNUP_ERROR_UNDEFINED": "Problème de création d'utilisateur.",
-		"SIGNUP_ERROR_ROBOT": "Merci de cocher la case confirmant que vous n'êtes pas un robot."
-	},
-	"launch-project": {
-		"TITLE": "Lancement de levée de fonds",
-		"TEXT_1": "Félicitations, votre dossier a été validé par WE DO GOOD !",
-		"TEXT_2": "Prêt-e pour la suite ?",
-		"TEXT_3": "Attention, la levée de fonds doit être configurée par le représentant ou la représentante légal-e de l’entreprise avec son compte personnel, qui pourra ensuite inviter le reste de l’équipe.",
-		"ALREADY_EXISTING_PROJECTS": "Vous avez déjà créé un (ou des) projet(s) sur la plateforme précédemment :",
-		"CREATE_NEW_PROJECT_INDEED": "Si vous souhaitez tout de même créer un nouveau projet, veuillez remplir le formulaire ci-dessous.",
-		"ORGA_MAIL_DIFFERENT": "Cette adresse doit être différente de celle de votre compte personnel, utilisez une adresse telle que contact@votre-entreprise.fr",
-		"PROJECT_NAME": "Nom du projet",
-		"PROJECT_NAME_PLACEHOLDER": "Nom du projet",
-		"PROJECT_DESCRIPTION": "Description du projet",
-		"PROJECT_DESCRIPTION_PLACEHOLDER": "Description du projet",
-		"VALIDATE_CONDITIONS": "Je valide les conditions particulières",
-		"EMPTY_OR_WRONG_FORMAT_FIELD": "Un des champs est vide ou n'est pas au bon format",
-		"REQUEST_ERROR": "Problème de connexion (FX84R83)"
-	},
-	"project-setup": {
-		"TITLE": "Mon éligibilité aux royalties",
-		"PICTO_TITLE_BALLOON": "Mongolfière",
-		"PICTO_TITLE_TIMER": "Chronomètre",
-		"MINUTE": "minute | minutes",
-		"CONTINUE": "Continuer",
-		"PREVIOUS_STEP": "Etape précédente",
-		"START": "Commencer",
-		"SAVE_PROJECT": "Enregistrer mon projet pour plus tard",
-		"SAVING_PROJECT": "Enregistrement du projet en cours",
-		"SAVED_PROJECT": "Projet enregistré",
-		"SAVED_PROJECT_ERROR": "Erreur lors de la tentative d'enregistrement",
-		"footer": {
-			"SUCCESS_TEXT_1": "82%",
-			"SUCCESS_TEXT_2": "de levées de fonds réussies",
-			"TIME_TEXT_1": "1 à 4 mois",
-			"TIME_TEXT_2": "pour débloquer les fonds"
-		},
-		"intro": {
-			"TITLE": "Mon projet est-il éligible ?",
-			"MASCOT_TEXT_1": "Vous aurez besoin :",
-			"MASCOT_TEXT_2": "De votre chiffre d'affaires prévisionnel",
-			"MASCOT_TEXT_3": "De votre niveau de marge",
-			"MASCOT_TEXT_4": "De connaître votre besoin de financement",
-			"TEXT_1": "Résultat immédiat envoyé par mail.",
-			"TEXT_2": "Possibilité de prise de rendez-vous pour démarrer la levée de fonds au plus vite !",
-			"TEXT_3": "Réponse en env. 5 min.",
-			"TEXT_4": "Vous pouvez enregistrer, quitter, et revenir à tout moment !",
-			"the-project-link-send": {
-				"TITLE": "Reprendre un test précédent",
-				"TEXT": "Veuillez renseigner l'email précédemment utilisé pour commencer votre test. Si un ou plusieurs tests sont en cours, vous recevrez les liens d'accès par mail.",
-				"EMAIL_SENT": "L'email a bien été envoyé.",
-				"EMAIL_SEND_ERROR": "Erreur d'envoi d'e-mail.",
-				"ERROR_EMAIL_NO_PROJECT": "Aucun test n'a été effectué avec cette adresse.",
-				"ERROR_EMAIL_INCORRECT": "Cette adresse e-mail n'est pas valide.",
-				"ERROR_EMAIL_EMPTY": "L'adresse e-mail doit être définie."
-			}
-		},
-		"tabs": {
-			"MY_PROJECT": "Mon projet",
-			"MY_FUNDING": "Mon financement",
-			"MY_INVESTORS": "Mes investisseurs",
-			"MY_RESULT": "Mon résultat",
-			"MODIFY": "Modifier",
-			"IN_PROGRESS": "En cours...",
-			"SEE_RESULTS": "Voir le résultat"
-		},
-		"project-infos": {
-			"TITLE": "Mon projet",
-			"SUBTITLE": "Tous les champs sont obligatoires",
-			"FORM_TEXT_ORGANIZATION_TYPE": "Ma structure est",
-			"FORM_TEXT_ORGANIZATION_LOCATED": "située",
-			"FORM_TEXT_ORGANIZATION_NOT_CREATED_NAME": "sous le nom de",
-			"FORM_TEXT_ORGANIZATION_CREATED_NAME": "du nom de",
-			"FORM_TEXT_ORGANIZATION_ID": "dont le numéro SIREN est",
-			"FORM_TEXT_AMOUNT_NEEDED": "J'ai besoin de",
-			"FORM_TEXT_ORGANIZATION_DESCRIPTION": "pour mon activité de",
-			"FORM_TEXT_SOURCE_PROSPECT": "J'ai connu WE DO GOOD via",
-			"FORM_TEXT_SOURCE_PROSPECT_DETAILS": "Plus précisément :",
-			"FORM_TEXT_SOURCE_PROSPECT_DETAILS_PLACEHOLDER": "Date, personne, ...",
-			"FORM_TEXT_USER_NAME": "Je m'appelle",
-			"FORM_TEXT_USER_EMAIL": "vous pouvez me joindre à l'adresse mail",
-			"FORM_TEXT_USER_PHONE": "et au numéro de téléphone",
-			"PLACEHOLDER_PROJECT_NAME": "Mon projet",
-			"PLACEHOLDER_PROJECT_ID": "Numéro SIREN",
-			"PLACEHOLDER_PROJECT_DESCRIPTION": "Mon activité...",
-			"PLACEHOLDER_USER_NAME": "Prénom Nom",
-			"PLACEHOLDER_USER_EMAIL": "prenom.nom@entreprise.com",
-			"PLACEHOLDER_USER_PHONE": "06 06 06 06 06",
-			"organization-types": {
-				"NOT_CREATED": "en cours de création",
-				"COMPANY": "une entreprise",
-				"MICROBUSINESS": "une entreprise individuelle / micro-entreprise",
-				"ASSOCIATION": "une association"
-			},
-			"location-types": {
-				"FRANCE": "en France",
-				"EURO": "en Zone Euro",
-				"OUT_EURO": "hors Zone Euro"
-			},
-			"source-types": {
-				"EVENT": "un événement",
-				"SOCIAL_NETWORKS": "les réseaux sociaux",
-				"WEBSITE": "un site internet",
-				"SOMEONE": "quelqu'un qui m'en a parlé",
-				"POST": "un article de presse / blog / émission",
-				"OTHER": "un autre moyen"
-			},
-			"mascot-text": {
-				"INIT": "Vos informations ne sont pas transmises à des tiers et restent confidentielles.",
-				"NEED_EMAIL": "Une fois que votre e-mail est renseigné, vous pouvez reprendre votre test à tout moment.",
-				"NOT_CREATED": "WE DO GOOD pourra vous accompagner une fois la société immatriculée.",
-				"MICROBUSINESS": "WE DO GOOD ne peut accompagner que des activités portées par des personnes morales.",
-				"OUT_EURO": "WE DO GOOD ne peut accompagner que des organisations immatriculées dans la zone Euro.",
-				"LESS_10K": "WE DO GOOD ne peut accompagner que pour des montants supérieurs à 10 000 €."
-			},
-			"address-number-complements": {
-				"BIS": "BIS",
-				"TER": "TER",
-				"QUATER": "QUATER",
-				"QUINQUIES": "QUINQUIES"
-			}
-		},
-		"project-funding": {
-			"TITLE": "Mon financement",
-			"TOGGLE_LABEL": "J'ai bien compris le prévisionnel des versements de royalties",
-			"the-project-goal-amount": {
-				"TITLE": "Je souhaite lever en €",
-				"TOOLTIP": "Ce montant est le maximum que vous souhaitez lever en échange de royalties.",
-				"MIN": "min. 10 K",
-				"MAX": "max. 500 K"
-			},
-			"estimated-turnover-by-year": {
-				"TITLE": "Mon chiffre d'affaires prévisionnel en €",
-				"INPUT_LABEL": "Année"
-			},
-			"commercial-margin": {
-				"TITLE": "Ma marge commerciale",
-				"INPUT_LABEL": "Taux",
-				"TOOLTIP": "Votre marge brute ou marge sur coûts variables. Le taux de royalties ne devra pas dépasser 10 % de votre marge."
-			},
-			"royalties-amount": {
-				"TITLE": "Royalties que je cèderais",
-				"OF_MY_QUARTERLY_TURNOVER": "de mon CA trimestriel pendant 5 ans *",
-				"YIELD_FOR_INVESTORS_1": "soit un rendement de",
-				"YIELD_FOR_INVESTORS_2": "pour mes investisseurs",
-				"ROYALTIES_PERCENT_DEFAULT": "Vous pouvez personnaliser ce taux. WE DO GOOD vous conseille un taux entre {adviceMinPercent} % et {adviceMaxPercent} %.",
-				"ROYALTIES_PERCENT_WARNING_OVER": "Le pourcentage est trop élevé par rapport à votre niveau de marge, les royalties risqueraient de fragiliser votre modèle économique. WE DO GOOD vous conseille un taux entre {adviceMinPercent} % et {adviceMaxPercent} %.",
-				"ROYALTIES_PERCENT_WARNING_UNDER": "Le pourcentage est trop faible, vous devez avoir déjà validé votre modèle économique (plus de 100 000 € de chiffre d'affaires) pour valider ce pourcentage.  WE DO GOOD vous conseille un taux entre {adviceMinPercent} % et {adviceMaxPercent} %.",
-				"ROYALTIES_PERCENT_CUSTOM": "Le pourcentage saisi est correct. WE DO GOOD vous conseille un taux entre {adviceMinPercent} % et {adviceMaxPercent} %.",
-				"ROYALTIES_NOT_OK": "Les royalties ne semblent pas adaptés à votre modèle économique.",
-				"VIEW_ADVICE": "Voir nos conseils",
-				"VIEW_DETAILS": "Voir le détail",
-				"REINIT_PARAMETERS": "Réinitialiser les paramètres"
-			},
-			"royalties-warning": {
-				"WARNING_1": "Le pourcentage conseillé est calculé pour que vos investisseurs doublent leur investissement en 5 ans, selon votre prévisionnel.",
-				"WARNING_2": "Le minimum que vous puissiez définir pour que vos investisseurs récupèrent leur investissement en 5 ans est {warningMinPercent} %."
-			},
-			"royalties-chart": {
-				"TITLE": "Détails des royalties prévisionnelles",
-				"IF_MY_ACTIVITY": "Si mon activité",
-				"LABEL_TURNOVER": "CA prévisionnel",
-				"LABEL_ROYALTIES": "Royalties à verser",
-				"turnover-scenario": {
-					"AS_PLANNED": "avance comme prévu",
-					"LESS_THAN_PLANNED": "se déroule moins bien que prévu",
-					"MORE_THAN_PLANNED": "se développe mieux que prévu",
-					"STOP_THE_ROYALTIES": "nécessite l'arrêt des royalties",
-					"ACTIVITY_STOP": "s'arrête en cours de route"
-				},
-				"scenario-description": {
-					"AS_PLANNED": "Les royalties suivent la progression de votre chiffre d’affaires.",
-					"LESS_THAN_PLANNED": "Si vous faites moins de chiffre d'affaires que prévu, vous reverserez moins de royalties (ou zéro s'il n'y a pas de chiffres d'affaires du tout). Les versements continuent jusqu’au remboursement des investisseurs.",
-					"MORE_THAN_PLANNED": "Si vous faites plus de chiffre d'affaires que prévu, vous reversez plus de royalties, sachant que le gain maximum pour vos investisseurs est plafonné au triple et que les contrats de versement de royalties ont une durée déterminée (5 ans).",
-					"STOP_THE_ROYALTIES": "Vous avez la possibilité de résilier votre contrat de manière anticipée en cas de besoin.",
-					"ACTIVITY_STOP": "Si malheureusement votre entreprise dépose le bilan, vos investisseurs perdront leur investissement, mais ils auront récupéré des royalties jusqu'à ce moment-là. Vous n'avez pas de garantie à fournir."
-				}
-			},
-			"advice": {
-				"TITLE": "Les conseils WE DO GOOD",
-				"SUBTITLE": "Pour rendre votre projet éligible, vous pouvez :",
-				"ADVICE1_TITLE": "Diminuer le montant à lever en royalties.",
-				"ADVICE1_TEXT": "Gardez en tête que les royalties peuvent intervenir sur une partie du besoin de financement pour débloquer un prêt bancaire ou des subventions.",
-				"ADVICE2_TITLE": "Utiliser un prévisionnel plus optimiste.",
-				"ADVICE3_TITLE": "Utiliser le pourcentage conseillé par WE DO GOOD ci-dessous.",
-				"NO_SOLUTION1": "Si aucune de ces solutions n'est possible, votre modèle économique n'est peut-être pas adapté aux royalties.",
-				"NO_SOLUTION2": "Vous pouvez visiter www.trouverlebonfinancement.fr pour identifier d'autres types de financements participatifs.",
-				"ADVICE_PERCENT": "Pourcentage conseillé :",
-				"TEST_PERCENT": "Tester ce pourcentage"
-			}
-		},
-		"project-investors": {
-			"TITLE": "Mes investisseurs",
-			"READY_TO_COMMUNICATE": "Je suis prêt-e à communiquer auprès de mon entourage",
-			"WHICH_CIRCLES_TO_COMMUNICATE": "Auprès de quels cercles êtes-vous prêt-e à communiquer ?",
-			"ALREADY_DONE_CROWDFUNDING": "J'ai déjà mené une campagne de financement participatif",
-			"NEED_COMMUNICATION_ADVICE": "J'ai besoin de conseils pour la communication",
-			"MASCOT_TEXT_1A": "Lancer et réussir une levée de fonds demande du temps et un engagement personnel pour vous et votre équipe.",
-			"MASCOT_TEXT_1B": "Vous devez être prêt-e à communiquer auprès de votre entourage pour mettre toutes les chances de votre côté.",
-			"MASCOT_TEXT_2": "Malheureusement, sans mobiliser votre entourage et votre réseau, il vous sera compliqué de convaincre et de gagner la confiance d’autres investisseurs.",
-			"MASCOT_TEXT_LOVEMONEY": "Les royalties sont une bonne option pour faire investir un petit nombre de personnes de votre réseau personnel (love money) ou professionnel. Simple, rapide, confidentiel.",
-			"MASCOT_TEXT_PRIVATE": "Vous pouvez faire investir autant de personnes que vous le souhaitez en réservant cette possibilité à celles que vous avez identifiées. Rapide et confidentiel.",
-			"MASCOT_TEXT_PUBLIC": "Vous pouvez bénéficier d'une belle visibilité en faisant du Crowdfunding mais pour toucher le grand public, il faut commencer par votre entourage !",
-			"MASCOT_TEXT_ALREADY_DONE": "Super, je vois que nous avons à faire à une personne expérimentée !",
-			"MASCOT_TEXT_NEED_ADVICE": "WE DO GOOD peut vous accompagner pour votre communication",
-			"investors-circles": {
-				"CIRCLE_LOVEMONEY": "Proches",
-				"CIRCLE_PRIVATE": "Relations",
-				"CIRCLE_PUBLIC": "Public"
-			}
-		},
-		"project-result": {
-			"TITLE": "Votre projet est éligible !",
-			"SUBTITLES_SELECTION_STANDARDS": "sous réserve de respecter l'ensemble de nos",
-			"SUBTITLES_SELECTION_STANDARDS_LINK": "critères de sélection",
-			"TITLE_FAILED": "Votre projet n'est pas éligible...",
-			"YOU_CAN_RAISE": "Vous pouvez lever",
-			"TARGET_LOVEMONEY": "auprès de vos proches",
-			"TARGET_PRIVATE": "auprès de vos proches et relations",
-			"TARGET_PUBLIC": "auprès de vos proches, de vos relations et du grand public",
-			"YOU_WILL_PAY": "et vous leur verserez tous les trimestres",
-			"OF_YOUR_TURNOVER": "de votre chiffre d'affaires pendant 5 ans.",
-			"formulas": {
-				"RECOMMENDED": "Formule recommandée",
-				"REDUCTION": "jeunes entreprises",
-				"lovemoney": {
-					"TITLE": "Love Money",
-					"TEXT": "Faites investir vos proches de manière confidentielle et rapide",
-					"AMOUNT_1": "2 % Commission au succès sur le montant levé",
-					"AMOUNT_2": "5 % Sur les royalties versées (min. 60 € par déclaration)"
-				},
-				"private": {
-					"TITLE": "Réseau privé",
-					"TEXT": "Faites investir votre réseau en utilisant la plateforme de manière privée",
-					"AMOUNT_1": "4 % Commission au succès sur le montant levé",
-					"AMOUNT_2": "5 % Sur les royalties versées (min. 60 € par déclaration)"
-				},
-				"crowdfunding": {
-					"TITLE": "Crowdfunding",
-					"TEXT": "Mobilisez vos réseaux et faites connaître votre projet auprès de nouveaux investisseurs",
-					"AMOUNT_1": "8 % Commission au succès sur le montant levé (6 % avec l’accompagnement INTÉGRAL, 4 % sur le montant levé au-delà de 100 000 €.)",
-					"AMOUNT_2": "3 % Sur les royalties versées (min. 60 € par déclaration)"
-				},
-				"options": {
-					"PAGE_VISIBLE_ON_WDG": "Page visible publiquement sur WE DO GOOD",
-					"COMMUNICATION_ON_NETWORKS": "Diffusion de votre levée de fonds sur nos réseaux sociaux et dans notre newsletter",
-					"REFERENCED_TO_PARTNERS": "Référencement de votre levée de fonds sur les sites de nos partenaires (BPI Tous Nos Projets, Novafi, Info Durable)",
-					"MANAGED_THROUGH_PLATFORM": "Gestion centralisée des investisseurs et des versements de royalties",
-					"SUPPORT": "Support technique, juridique et fiscal pour vous et vos investisseurs",
-					"PAYMENTS": "Collecte des investissements en ligne et par chèque",
-					"EVALUATION": "Période d’évaluation pour valider l’intérêt des investisseurs potentiels et réunir des pré-investissements",
-					"GREEN_LABEL": "Label Financement Participatif pour la Croissance Verte (sur demande et évaluation du projet)",
-					"LIMITED_INVESTORS": "Nombre d’investisseurs illimité",
-					"UP_TO_5_INVESTORS": "Jusqu'à 5 investisseurs"
-				}
-			},
-			"options": {
-				"RECOMMENDED": "Option recommandée",
-				"REDUCTION": "jeunes entreprises",
-				"basic": {
-					"TITLE": "Accompagnement Basique",
-					"TEXT": "Pour les entrepreneurs ayant déjà identifié leurs investisseurs ou ayant déjà mené une campagne de financement"
-				},
-				"standard": {
-					"TITLE": "Accompagnement Essentiel",
-					"TEXT": "Pour les entrepreneurs souhaitant avoir le chemin bien éclairé pour mener leur levée de fonds en toute sérénité"
-				},
-				"complete": {
-					"TITLE": "Accompagnement Intégral",
-					"TEXT": "Pour les entrepreneurs qui souhaitent avoir des réponses, des avis et des conseils pour avancer plus vite et plus efficacement"
-				},
-				"list": {
-					"READ_PITCH": "Relecture de votre présentation",
-					"READ_PITCH_AND_COM": "Relecture de votre présentation, et de vos supports de communication",
-					"SUPPORT_TO_INVESTORS": "Support auprès de vos investisseurs",
-					"SUPPORT_CENTER": "Accès au centre de support",
-					"COMMISSION_REDUCTION": "Commission à 6 % au lieu de 8 % sur la formule CROWDFUNDING",
-					"CUSTOM_MONITORING": "Suivi personnalisé et support prioritaire",
-					"INVESTORS_MONITORING": "Suivi de conversion des investisseurs",
-					"WORKSHOP": "Atelier de préparation de 2h pour poser les bases avec votre équipe (Conseils en communication et méthodologie sur le financement participatif, définition du plan d’actions, prise en main de la plateforme)"
-				}
-			},
-			"not-eligible": {
-				"PROJECT_DOESNT_SEEM_ELIGIBLE": "Votre projet ne semble pas éligible...",
-				"POSSIBLE_REASONS": "Voici les raisons possibles :",
-				"MICROBUSINESS": "vous travaillez en tant qu’entreprise individuelle ou micro-entreprise",
-				"OUT_EURO": "votre entreprise n'est ou ne sera pas immatriculée en zone Euro",
-				"NOT_ADAPTED": "le modèle des royalties n'est peut-être pas adapté à votre modèle économique",
-				"NEED_LOVEMONEY": "un financement participatif requiert une mobilisation de votre entourage pour bien démarrer",
-				"SPECIFIC_PROJECT": "Votre projet est particulier et pourrait tout de même bénéficier des royalties (durée plus longue, financement de matériel avec marge...) ?",
-				"SEND_EMAIL": "Envoyez-nous un mail à projets@wedogood.co"
-			},
-			"prospect-meetup": {
-				"ADD_FILES_TEXT": "Pour préparer notre rencontre, ces fichiers sont nécessaires :",
-				"FILE_BUSINESS_PLAN": "- Un business plan",
-				"FILE_PREVISIONNEL": "- Un prévisionnel financier comportant un plan de financement et un compte de résultat prévisionnel",
-				"SEND_FILES_INPUT_LABEL": "Pouvez-vous nous en dire un peu plus sur votre projet et vos éventuelles questions ?",
-				"PLAN_RENDEZVOUS": "Prendre rendez-vous",
-				"PLAN_RENDEZVOUS_TEXT": "Parlons-en ! Pour démarrer votre projet et vous conseiller au mieux, prenez rendez-vous !"
-			},
-			"admin": {
-				"ENABLE_PAYMENT": "Autoriser le paiement",
-				"ENABLE_WIRE": "Autoriser les virements bancaires sans minimum"
-			}
-		},
-		"payment": {
-			"header": {
-				"SUMMARY": "Récapitulatif",
-				"VALIDATION": "Confirmation",
-				"PAYMENT": "Paiement"
-			},
-			"cart": {
-				"TOTAL_WITHOUT_TAXES": "Total H.T.",
-				"TAXES": "TVA 20%",
-				"TOTAL_WITH_TAXES": "Total T.T.C."
-			},
-			"organization-info": {
-				"INTRO": "Nous avons besoin de quelques informations complémentaires :",
-				"TAX_LABEL": "Mon numéro de TVA est",
-				"ADDRESS_LABEL": "Mon siège social est situé :",
-				"ADDRESS_NUMBER_PLACEHOLDER": "N°",
-				"ADDRESS_STREET_PLACEHOLDER": "Rue",
-				"ADDRESS_POSTAL_CODE_PLACEHOLDER": "Code postal",
-				"ADDRESS_CITY_PLACEHOLDER": "Ville",
-				"EMAIL_LABEL": "L'adresse e-mail de mon entreprise (différente de mon adresse personnelle) est :",
-				"EMAIL_PLACEHOLDER": "contact@entreprise.com",
-				"AGREE_TERMS": "Je reconnais avoir pris connaissance et accepter la description des prestations et les conditions de publication de projet de WE DO GOOD :",
-				"GENERAL_TERMS": "CGU",
-				"PARTICULAR_TERMS": "Conditions particulières",
-				"6_MONTHS_TERMS": "Si le projet n’est pas mis en ligne dans les 6 mois à compter de la date de validation de ce formulaire, WE DO GOOD pourra exiger de nouveau les frais de dossier.",
-				"PAYMENT_TERMS": "Modalités de règlement : frais fixes et options à régler à la souscription ; frais au succès prélevés lors du versement des fonds sur le compte lié au projet. Frais sur les versements aux investisseurs facturés au moment de ces versements (non intégrés aux royalties)."
-			},
-			"methods": {
-				"SECURED_PAYMENT": "Paiement sécurisé par Lemon Way",
-				"METHOD_CHOICE": "Choix du mode de paiement",
-				"CARD": "Carte bancaire",
-				"WIRE": "Virement bancaire",
-				"PAY_WITH_CARD": "Payer par carte bancaire"
-			},
-			"wire": {
-				"BACK": "Retour au choix du mode de paiement",
-				"TITLE": "Virement vers WE DO GOOD",
-				"IBAN_LABEL": "IBAN :"
-			},
-			"complete": {
-				"CONFIRMATION": "Votre souscription est confirmée !",
-				"THANK_YOU": "Merci pour votre confiance.",
-				"CREATE": "Vous pouvez dès à présent créer votre projet sur WE DO GOOD !"
-			}
-		}
-	}
+  "00030c49-7166-4462-ab92-f62cd7e5c77f": "Épargne positive",
+  "034d2fcb-2904-4d1f-8b01-89c1120601ce": "Bonjour",
+  "03a10faf-5ff7-4c6d-b0a6-9e63f6a6e549": "56%",
+  "04885298-b222-4edb-a9b1-ceab2b5606e4": "Créer un compte",
+  "0b5efce4-e0c3-4dae-8901-248dbbcf52dc": "Épargne positive",
+  "0c7fef66-dd42-4d8e-a593-7305af84c794": "Vous ne trouvez pas le projet que vous cherchez ? Il est peut-être privé.",
+  "0ebe0412-d12d-40e5-93a6-c547ba369bb2": "Globfit le site qui permet de faire/pratiquer du sport en toute liberté et sans aucun engagement !",
+  "1020b418-6478-4324-90b5-fb237ec07d54": "5 626 €",
+  "1185e45d-aef8-4f42-9554-76adc828e111": "Vision",
+  "127438cd-cef6-4521-8aa1-7d5038fb08e7": "Nous activons",
+  "1351eee3-9d1d-421b-9219-89718ff3b278": "77 pers.",
+  "1409c5c3-6ad2-4ae8-b442-acd16239d2b6": "Investir en royalties",
+  "15d5f6b6-1884-4785-9fcb-d82a96fe920b": "Découvrir le panorama",
+  "18ff612b-c26a-46e7-a315-4286f055837f": "Découvrir tous les projets",
+  "19210fc3-ce01-4e72-a63f-e2e3948485e5": "en savoir plus",
+  "19c9c464-937d-440a-8b00-5183c5642f9a": "levés",
+  "1c52b73c-a251-4c50-9a35-ff9d4e03575b": "En poursuivant votre navigation sur WE DO GOOD.co, vous acceptez l'utilisation de cookies afin de nous permettre d'améliorer votre expérience utilisateur (",
+  "1cfe8022-0692-4fae-82fc-e42ef412fd48": "77",
+  "259d7a68-f1b7-4e86-be5e-7c0b0433f5ad": "Investir en royalties",
+  "297c3e04-7b18-42c3-bf6b-be4addb7b22d": "En savoir plus.",
+  "2a90159c-4329-4052-9938-30cbed56a895": "S'inscrire à la newsletter",
+  "2d2d60c0-818a-4673-b20a-eaca7ccc0919": "une finance à impact positif",
+  "2fe4638e-97dc-467b-adf7-2fe38cc285b1": "Beehelp est une plate-forme web générant le partage des savoir-faire entre salariés et professionnels. Souple, ergonomique et pragmatique l'application est la solution aux 1 000 et une petites difficultés quotidiennes en entreprise.",
+  "3501c4d9-a1c8-4e31-92fc-cc28d8b37df4": "Financer mon projet",
+  "37ae5f6b-9e5b-43aa-80be-08b6125ac695": "Investisseurs",
+  "38a85522-5347-4266-83ab-ee454a8dc9e6": "75 jours",
+  "3b85c857-cb66-4873-8309-ece09f6958c4": "Contactez-nous",
+  "40307239-8af6-4f16-b678-6f25415d2350": "17002712",
+  "40963ade-f79e-4d8c-870d-932fa639b8cc": "Se souvenir de moi",
+  "442395cc-325f-4ebb-aa65-c5a070b507d8": "entreprises royaltisent*",
+  "4cad9bfb-c5ba-40a5-9171-322814df9198": "Grâce à nous, vos achats professionnels vous rapportent. Décliné d'un modèle gagnant auprès particuliers (principe de remises commerciales), notre solution pro Monguru se déploie massivement avec l'Organisation Nationale des Très Petites Entreprises. Rejoignez notre modèle vertueux.",
+  "4d091c29-d80f-438f-aac9-3694b5eb119c": "Partenaires",
+  "4e8ca4e1-2056-41dc-9f1e-34b9ae05fadd": "/ les projets /",
+  "4f8e8ab5-4acc-4ebd-bf8c-566494e3f300": "impact économique",
+  "54261789-fa4b-4763-a948-c320d0359900": "Statistiques",
+  "58168a4c-21d4-42b9-bc89-915b530a530a": "Les projets",
+  "5906e0e1-97d5-4e65-aacd-016719c24f8c": "Partenaire de Lemon Way, établissement de paiement agréé par l’ACPR en France le 24/12/2012 sous le numéro 16568J.",
+  "5adce973-ea99-4511-b802-00d04f79daf4": "FAQ",
+  "64647f51-79bb-43c3-8b61-d22163180c4b": "pour investir",
+  "64fea0b8-fecf-4238-b3d0-853dca6d8fdc": "investir sur ce projet",
+  "65969": {
+    "content": {
+      "core/paragraph": {
+        "15a47d88-886a-4a59-8867-3b6a21aaecf1": "<p>Ceci est une page de test.</p>",
+        "2ac78127-0f6b-44e5-bc6c-65ca88e3d65e": "<p class=\"has-text-align-center\"><strong><span class=\"has-inline-color has-vivid-cyan-blue-color\">Offre 2</span></strong></p>",
+        "4103f592-b49b-4447-9c26-c164af55cc05": "<p class=\"has-text-align-left has-large-font-size\">Titre</p>",
+        "58b0b765-5a49-45d3-9c27-90af0f607fa7": "<p>Autres informations.</p>",
+        "8116e8ed-9d81-4d3e-95c3-06030fb4b80e": "<p>Colonnes</p>",
+        "aa408fa3-bd91-470e-bcb6-bf0bb89dba24": "<p class=\"has-text-align-center\"><span class=\"has-inline-color has-vivid-cyan-blue-color\"><strong>Offre </strong>3</span></p>",
+        "aefa05aa-5497-4c75-a952-bc9a032900e6": "<p class=\"has-text-align-center\"><strong><span class=\"has-inline-color has-vivid-cyan-blue-color\">Offre 1</span></strong></p>"
+      },
+      "core/table": {
+        "5ec6ab58-7804-43c6-bc15-2d4c785902a3": "<figure class=\"wp-block-table is-style-stripes\"><table class=\"has-subtle-pale-blue-background-color has-background\"><tbody><tr><td></td><td>Contreparties</td><td>Royalties</td><td>Capital</td><td>Prêt</td></tr><tr><td>Montant</td><td></td><td></td><td></td><td></td></tr><tr><td>Engagement</td><td></td><td></td><td></td><td></td></tr><tr><td>Durée</td><td></td><td></td><td></td><td></td></tr></tbody></table></figure>"
+      },
+      "core/verse": {
+        "9706b64d-e877-4965-9f25-6384df36ed7f": "<pre class=\"wp-block-verse\">Citation</pre>"
+      }
+    },
+    "slug": "gutenberg",
+    "title": "Gutenberg"
+  },
+  "66306": {
+    "content": {
+      "core/paragraph": {
+        "77f02793-97d2-4e42-ac48-115a7497e493": "<p>Ceci est une page de test sur le plugin Phrase.</p>"
+      }
+    },
+    "slug": "phrase-plugin",
+    "title": "Phrase plugin"
+  },
+  "66313": {
+    "content": {
+      "core/paragraph": {
+        "2edcaa8f-8891-4a93-9c1a-b18111f89abf": "<p>Page de test sur la gestion de traduction avec le plugin Phrase.</p>"
+      }
+    },
+    "slug": "phrase-translation",
+    "title": "Phrase Translation"
+  },
+  "66320": {
+    "content": {
+      "core/paragraph": {
+        "4b9a2616-4c7d-41cb-b446-480ac1fec6e7": "<p>Ceci est une page de test sur l'utilisation du plugin Phrase.</p>"
+      }
+    },
+    "slug": "traduction-automatique",
+    "title": "Traduction automatique"
+  },
+  "67682c60-e3d2-44d1-97d8-993e6b192d98": "Confidentialité",
+  "68068be2-7d63-4c90-bd02-9d562f8adf3a": "/ Comment ça marche ? /",
+  "6c6726a1-d037-4836-9d1f-a143704d78bc": "Mentions légales",
+  "753bc128-0d9c-448c-92a5-2a2a855e4833": "impact social",
+  "7767ca08-c7a4-4119-b5ff-99de51c4691d": "60%",
+  "7955cbbb-8555-46cc-876b-e11fee30a424": "Les projets",
+  "7a049a5e-7e8e-4548-90df-6e45e370f9b6": "5 051 849 €",
+  "7c702f63-e77d-4fbe-981b-f98b9a12c8b0": "Immatriculée à l'ORIAS sous le numéro",
+  "82b9ce8e-60ae-4e51-b3ef-8eef90beaea5": "Monguru.pro",
+  "87272f35-0ac0-42da-b794-80db864a539b": "investir sur ce projet",
+  "8969b07a-f8d0-4fd4-95b4-41dd206c19ef": "Recrutement",
+  "8be8a4fd-827b-4463-8bde-4cd3a0d69939": "impact social",
+  "8d37ba22-1b9c-4b82-bade-e49056b4fe11": "Solutions",
+  "8d9fe33c-2612-4b40-aece-2e19622c798b": "Conditions générales d’utilisation",
+  "8eef104a-70ad-48cc-8bba-458ad731e719": "suivent le projet",
+  "8f30276f-3b1c-4278-bcd6-f4d27c8c9873": "85 pers.",
+  "91235d48-cfff-4bfc-8c28-d2fbc638fed0": "Critères de sélection des projets",
+  "93128df8-96b8-4368-8fc4-67fbb6c8349b": "pour investir",
+  "944329a7-a597-443e-b9cf-67ec71591ce1": "Découvrir tous les projets",
+  "95531ee5-84f6-4445-a0fb-048136c1f663": "L’équipe",
+  "96444998-b810-4204-aa57-a58f1bb07983": "Mon compte",
+  "96769200-e888-4560-beb2-a30c4fbe8156": "6 jours",
+  "96888de6-bf13-42ea-af13-816ed354f336": "Vision",
+  "982cb5c2-e05b-4ae3-8d77-025de4d18c25": "Investir sur un projet",
+  "9b5243df-d2d5-408c-85a9-97e5a3c76ca7": "133 pers.",
+  "9ca291a3-00cf-433c-9edf-f205e2056506": "Indicateurs de performance",
+  "9ce56940-4724-4c3c-8c11-101fd876f591": "Some rights reserved",
+  "a259657e-8392-4235-93ab-f4defdc61174": "Globfit",
+  "a26ff2a9-0997-46ae-afd9-2b481eac0ef9": "Espace presse",
+  "a3921a86-0df5-457c-8f16-735fb8b8b457": "Connexion",
+  "a8b36010-06d3-4870-a6e3-0ede1b4cf5d8": "WE DO GOOD : financement en royalties",
+  "aa23db91-0b6b-4137-b8b1-ed81d02d7947": "Professionnels ou particuliers rejoignez la communauté des Globfiters... celle des gens qui font du sport quel que soit l'endroit où ils se trouvent !",
+  "abaa474f-22bf-436b-a822-2ec08473a394": "Ils parlent de nous",
+  "acbcc681-69aa-40bb-99f7-2d9c580f073f": "2%",
+  "aebdcc2e-b106-4318-be3b-412700fc6f66": "Blog",
+  "b071fd8e-d55e-4fe3-8c19-8dbfb37eb8c7": "Entrepreneurs",
+  "b07fedb8-eae9-499c-888e-682f3b8a16dd": "Financer mon projet",
+  "b149ff54-b64d-49f7-88a9-becebad528c9": "Mon compte",
+  "b3db83c6-700b-4c79-84ad-28320701a430": "(Mot de passe oublié)",
+  "b49b5195-cdd4-40ce-96df-f6071deec1e8": "suivent le projet",
+  "bd0acee5-e994-4da7-b4ab-e1aae5638156": "impact économique",
+  "c11d784a-4550-4408-ac67-59840dc27a42": "Financer mon projet",
+  "c437774c-f708-4aea-8af4-f86e3bd4f5c1": "90 310 €",
+  "c9015616-2408-46d1-b5f1-0b0bd27802ef": "Contact",
+  "ca61cf22-c11c-482a-bce7-f515bedd8a2a": "Nous suivre",
+  "cb739c2d-bd0c-4fec-b4b8-7d45df44ebd0": "24 jours",
+  "cf3ca039-b94b-4c94-a4df-5d6210c018b1": "investir sur ce projet",
+  "cf4b726b-f0f9-4674-815e-f4a4591f3f69": "impact économique",
+  "cfd1be3a-89d8-488e-9e65-c586c476df12": "1 030 €",
+  "common": {
+    "ADD_DOCUMENT": "Ajouter un document",
+    "EMAIL_ADDRESS": "Adresse e-mail",
+    "FIRSTNAME": "Prénom",
+    "LASTNAME": "Nom de famille",
+    "NO": "Non",
+    "ORGA_EMAIL_ADDRESS": "Adresse mail de la structure",
+    "ORGA_NAME": "Nom de l'entreprise",
+    "PASSWORD": "Mot de passe",
+    "PHONE_NUMBER": "Téléphone mobile",
+    "REQUEST_ERROR": "Problème d'envoi de requête",
+    "REQUIRED_FIELDS": "Champs obligatoires",
+    "SEND": "Envoyer",
+    "VALIDATE": "Valider",
+    "VIEW_LESS": "Voir moins",
+    "VIEW_MORE": "Voir plus",
+    "WITHOUT_TAXES_LETTERS": "H.T.",
+    "YES": "Oui"
+  },
+  "d0e68a67-4211-444b-aa9c-3b3cf0a93404": "Plus de 100 projets financés en royalties avec WE DO GOOD",
+  "d21b8d68-cbd2-4a61-8696-8267699d88c9": "en développant",
+  "d6feecee-0262-4865-b5b5-5615a34a11d6": "pour investir",
+  "d9dfea4d-2ba4-4f2a-b5a8-1ab946bad3a5": "suivent le projet",
+  "da316bce-ca6a-4dac-9918-3514dff3f881": "Beehelp – les savoir-faire partagés",
+  "ddac4b36-825b-4e3e-a979-8cd5185e3d9d": "Financer mon projet",
+  "e001ebeb-fdaf-4a4b-a03a-5e793c3f76df": "Vision",
+  "e013c211-6a0b-4f2d-98d9-d6922fa5bef1": "Se connecter avec Facebook",
+  "e230be65-a2c2-4608-b691-4e99886e4f90": "les levées de fonds en royalties",
+  "e30db86d-1f0e-4c90-ac8a-7f9836c8d303": "Qui sommes-nous ?",
+  "e550f28b-4446-4465-b13f-927d996ecaee": "Investissement en royalties",
+  "e62eac61-3a26-4174-8fc2-3f2ba44008b9": "Me déconnecter",
+  "e9a30fd2-9bb6-4f7d-8748-639f1540728a": "*ROYALTISER, v. intr. XXIe siècle. d'apr. angl. Verser une partie de son chiffre d'affaires à ses merveilleux investisseurs. \"Un projet qui royaltise plus que prévu\"",
+  "ed7543b2-c321-4bde-9c14-9429a6c04da9": "investisseurs",
+  "eec96119-9bef-48eb-b8db-ea9a0ce1bb18": "Connexion",
+  "f45da905-4968-4c3f-8a24-619a1d3f4535": "FAQ",
+  "f5f0ee58-c2e3-459b-b4ea-99121bc56c3d": "Accepter",
+  "f647cdd3-ceed-4887-b5ac-31482e79b4a2": ").",
+  "fa9a612a-6801-4dba-bbb8-f05e39197613": "Connexion",
+  "fb20475d-315b-405a-a413-a5319efe9744": "Réclamations",
+  "ff42f2fb-1d9c-49bd-be85-54b034e6676a": "5 360",
+  "launch-project": {
+    "ALREADY_EXISTING_PROJECTS": "Vous avez déjà créé un (ou des) projet(s) sur la plateforme précédemment :",
+    "CREATE_NEW_PROJECT_INDEED": "Si vous souhaitez tout de même créer un nouveau projet, veuillez remplir le formulaire ci-dessous.",
+    "EMPTY_OR_WRONG_FORMAT_FIELD": "Un des champs est vide ou n'est pas au bon format",
+    "ORGA_MAIL_DIFFERENT": "Cette adresse doit être différente de celle de votre compte personnel, utilisez une adresse telle que contact@votre-entreprise.fr",
+    "PROJECT_DESCRIPTION": "Description du projet",
+    "PROJECT_DESCRIPTION_PLACEHOLDER": "Description du projet",
+    "PROJECT_NAME": "Nom du projet",
+    "PROJECT_NAME_PLACEHOLDER": "Nom du projet",
+    "REQUEST_ERROR": "Problème de connexion (FX84R83)",
+    "TEXT_1": "Félicitations, votre dossier a été validé par WE DO GOOD !",
+    "TEXT_2": "Prêt-e pour la suite ?",
+    "TEXT_3": "Attention, la levée de fonds doit être configurée par le représentant ou la représentante légal-e de l’entreprise avec son compte personnel, qui pourra ensuite inviter le reste de l’équipe.",
+    "TITLE": "Lancement de levée de fonds",
+    "VALIDATE_CONDITIONS": "Je valide les conditions particulières"
+  },
+  "project-setup": {
+    "CONTINUE": "Continuer",
+    "footer": {
+      "SUCCESS_TEXT_1": "82%",
+      "SUCCESS_TEXT_2": "de levées de fonds réussies",
+      "TIME_TEXT_1": "1 à 4 mois",
+      "TIME_TEXT_2": "pour débloquer les fonds"
+    },
+    "intro": {
+      "MASCOT_TEXT_1": "Vous aurez besoin :",
+      "MASCOT_TEXT_2": "De votre chiffre d'affaires prévisionnel",
+      "MASCOT_TEXT_3": "De votre niveau de marge",
+      "MASCOT_TEXT_4": "De connaître votre besoin de financement",
+      "TEXT_1": "Résultat immédiat envoyé par mail.",
+      "TEXT_2": "Possibilité de prise de rendez-vous pour démarrer la levée de fonds au plus vite !",
+      "TEXT_3": "Réponse en env. 5 min.",
+      "TEXT_4": "Vous pouvez enregistrer, quitter, et revenir à tout moment !",
+      "the-project-link-send": {
+        "EMAIL_SEND_ERROR": "Erreur d'envoi d'e-mail.",
+        "EMAIL_SENT": "L'email a bien été envoyé.",
+        "ERROR_EMAIL_EMPTY": "L'adresse e-mail doit être définie.",
+        "ERROR_EMAIL_INCORRECT": "Cette adresse e-mail n'est pas valide.",
+        "ERROR_EMAIL_NO_PROJECT": "Aucun test n'a été effectué avec cette adresse.",
+        "TEXT": "Veuillez renseigner l'email précédemment utilisé pour commencer votre test. Si un ou plusieurs tests sont en cours, vous recevrez les liens d'accès par mail.",
+        "TITLE": "Reprendre un test précédent"
+      },
+      "TITLE": "Mon projet est-il éligible ?"
+    },
+    "MINUTE": "minute | minutes",
+    "payment": {
+      "cart": {
+        "TAXES": "TVA 20%",
+        "TOTAL_WITH_TAXES": "Total T.T.C.",
+        "TOTAL_WITHOUT_TAXES": "Total H.T."
+      },
+      "complete": {
+        "CONFIRMATION": "Votre souscription est confirmée !",
+        "CREATE": "Vous pouvez dès à présent créer votre projet sur WE DO GOOD !",
+        "THANK_YOU": "Merci pour votre confiance."
+      },
+      "header": {
+        "PAYMENT": "Paiement",
+        "SUMMARY": "Récapitulatif",
+        "VALIDATION": "Confirmation"
+      },
+      "methods": {
+        "CARD": "Carte bancaire",
+        "METHOD_CHOICE": "Choix du mode de paiement",
+        "PAY_WITH_CARD": "Payer par carte bancaire",
+        "SECURED_PAYMENT": "Paiement sécurisé par Lemon Way",
+        "WIRE": "Virement bancaire"
+      },
+      "organization-info": {
+        "6_MONTHS_TERMS": "Si le projet n’est pas mis en ligne dans les 6 mois à compter de la date de validation de ce formulaire, WE DO GOOD pourra exiger de nouveau les frais de dossier.",
+        "ADDRESS_CITY_PLACEHOLDER": "Ville",
+        "ADDRESS_LABEL": "Mon siège social est situé :",
+        "ADDRESS_NUMBER_PLACEHOLDER": "N°",
+        "ADDRESS_POSTAL_CODE_PLACEHOLDER": "Code postal",
+        "ADDRESS_STREET_PLACEHOLDER": "Rue",
+        "AGREE_TERMS": "Je reconnais avoir pris connaissance et accepter la description des prestations et les conditions de publication de projet de WE DO GOOD :",
+        "EMAIL_LABEL": "L'adresse e-mail de mon entreprise (différente de mon adresse personnelle) est :",
+        "EMAIL_PLACEHOLDER": "contact@entreprise.com",
+        "GENERAL_TERMS": "CGU",
+        "INTRO": "Nous avons besoin de quelques informations complémentaires :",
+        "PARTICULAR_TERMS": "Conditions particulières",
+        "PAYMENT_TERMS": "Modalités de règlement : frais fixes et options à régler à la souscription ; frais au succès prélevés lors du versement des fonds sur le compte lié au projet. Frais sur les versements aux investisseurs facturés au moment de ces versements (non intégrés aux royalties).",
+        "TAX_LABEL": "Mon numéro de TVA est"
+      },
+      "wire": {
+        "BACK": "Retour au choix du mode de paiement",
+        "IBAN_LABEL": "IBAN :",
+        "TITLE": "Virement vers WE DO GOOD"
+      }
+    },
+    "PICTO_TITLE_BALLOON": "Mongolfière",
+    "PICTO_TITLE_TIMER": "Chronomètre",
+    "PREVIOUS_STEP": "Etape précédente",
+    "project-funding": {
+      "advice": {
+        "ADVICE_PERCENT": "Pourcentage conseillé :",
+        "ADVICE1_TEXT": "Gardez en tête que les royalties peuvent intervenir sur une partie du besoin de financement pour débloquer un prêt bancaire ou des subventions.",
+        "ADVICE1_TITLE": "Diminuer le montant à lever en royalties.",
+        "ADVICE2_TITLE": "Utiliser un prévisionnel plus optimiste.",
+        "ADVICE3_TITLE": "Utiliser le pourcentage conseillé par WE DO GOOD ci-dessous.",
+        "NO_SOLUTION1": "Si aucune de ces solutions n'est possible, votre modèle économique n'est peut-être pas adapté aux royalties.",
+        "NO_SOLUTION2": "Vous pouvez visiter www.trouverlebonfinancement.fr pour identifier d'autres types de financements participatifs.",
+        "SUBTITLE": "Pour rendre votre projet éligible, vous pouvez :",
+        "TEST_PERCENT": "Tester ce pourcentage",
+        "TITLE": "Les conseils WE DO GOOD"
+      },
+      "commercial-margin": {
+        "INPUT_LABEL": "Taux",
+        "TITLE": "Ma marge commerciale",
+        "TOOLTIP": "Votre marge brute ou marge sur coûts variables. Le taux de royalties ne devra pas dépasser 10 % de votre marge."
+      },
+      "estimated-turnover-by-year": {
+        "INPUT_LABEL": "Année",
+        "TITLE": "Mon chiffre d'affaires prévisionnel en €"
+      },
+      "royalties-amount": {
+        "OF_MY_QUARTERLY_TURNOVER": "de mon CA trimestriel pendant 5 ans *",
+        "REINIT_PARAMETERS": "Réinitialiser les paramètres",
+        "ROYALTIES_NOT_OK": "Les royalties ne semblent pas adaptés à votre modèle économique.",
+        "ROYALTIES_PERCENT_CUSTOM": "Le pourcentage saisi est correct. WE DO GOOD vous conseille un taux entre {adviceMinPercent} % et {adviceMaxPercent} %.",
+        "ROYALTIES_PERCENT_DEFAULT": "Vous pouvez personnaliser ce taux. WE DO GOOD vous conseille un taux entre {adviceMinPercent} % et {adviceMaxPercent} %.",
+        "ROYALTIES_PERCENT_WARNING_OVER": "Le pourcentage est trop élevé par rapport à votre niveau de marge, les royalties risqueraient de fragiliser votre modèle économique. WE DO GOOD vous conseille un taux entre {adviceMinPercent} % et {adviceMaxPercent} %.",
+        "ROYALTIES_PERCENT_WARNING_UNDER": "Le pourcentage est trop faible, vous devez avoir déjà validé votre modèle économique (plus de 100 000 € de chiffre d'affaires) pour valider ce pourcentage.  WE DO GOOD vous conseille un taux entre {adviceMinPercent} % et {adviceMaxPercent} %.",
+        "TITLE": "Royalties que je cèderais",
+        "VIEW_ADVICE": "Voir nos conseils",
+        "VIEW_DETAILS": "Voir le détail",
+        "YIELD_FOR_INVESTORS_1": "soit un rendement de",
+        "YIELD_FOR_INVESTORS_2": "pour mes investisseurs"
+      },
+      "royalties-chart": {
+        "IF_MY_ACTIVITY": "Si mon activité",
+        "LABEL_ROYALTIES": "Royalties à verser",
+        "LABEL_TURNOVER": "CA prévisionnel",
+        "scenario-description": {
+          "ACTIVITY_STOP": "Si malheureusement votre entreprise dépose le bilan, vos investisseurs perdront leur investissement, mais ils auront récupéré des royalties jusqu'à ce moment-là. Vous n'avez pas de garantie à fournir.",
+          "AS_PLANNED": "Les royalties suivent la progression de votre chiffre d’affaires.",
+          "LESS_THAN_PLANNED": "Si vous faites moins de chiffre d'affaires que prévu, vous reverserez moins de royalties (ou zéro s'il n'y a pas de chiffres d'affaires du tout). Les versements continuent jusqu’au remboursement des investisseurs.",
+          "MORE_THAN_PLANNED": "Si vous faites plus de chiffre d'affaires que prévu, vous reversez plus de royalties, sachant que le gain maximum pour vos investisseurs est plafonné au triple et que les contrats de versement de royalties ont une durée déterminée (5 ans).",
+          "STOP_THE_ROYALTIES": "Vous avez la possibilité de résilier votre contrat de manière anticipée en cas de besoin."
+        },
+        "TITLE": "Détails des royalties prévisionnelles",
+        "turnover-scenario": {
+          "ACTIVITY_STOP": "s'arrête en cours de route",
+          "AS_PLANNED": "avance comme prévu",
+          "LESS_THAN_PLANNED": "se déroule moins bien que prévu",
+          "MORE_THAN_PLANNED": "se développe mieux que prévu",
+          "STOP_THE_ROYALTIES": "nécessite l'arrêt des royalties"
+        }
+      },
+      "royalties-warning": {
+        "WARNING_1": "Le pourcentage conseillé est calculé pour que vos investisseurs doublent leur investissement en 5 ans, selon votre prévisionnel.",
+        "WARNING_2": "Le minimum que vous puissiez définir pour que vos investisseurs récupèrent leur investissement en 5 ans est {warningMinPercent} %."
+      },
+      "the-project-goal-amount": {
+        "MAX": "max. 500 K",
+        "MIN": "min. 10 K",
+        "TITLE": "Je souhaite lever en €",
+        "TOOLTIP": "Ce montant est le maximum que vous souhaitez lever en échange de royalties."
+      },
+      "TITLE": "Mon financement",
+      "TOGGLE_LABEL": "J'ai bien compris le prévisionnel des versements de royalties"
+    },
+    "project-infos": {
+      "address-number-complements": {
+        "BIS": "BIS",
+        "QUATER": "QUATER",
+        "QUINQUIES": "QUINQUIES",
+        "TER": "TER"
+      },
+      "FORM_TEXT_AMOUNT_NEEDED": "J'ai besoin de",
+      "FORM_TEXT_ORGANIZATION_CREATED_NAME": "du nom de",
+      "FORM_TEXT_ORGANIZATION_DESCRIPTION": "pour mon activité de",
+      "FORM_TEXT_ORGANIZATION_ID": "dont le numéro SIREN glag",
+      "FORM_TEXT_ORGANIZATION_LOCATED": "située",
+      "FORM_TEXT_ORGANIZATION_NOT_CREATED_NAME": "sous le nom de",
+      "FORM_TEXT_ORGANIZATION_TYPE": "Ma structure est",
+      "FORM_TEXT_SOURCE_PROSPECT": "J'ai connu WE DO GOOD via",
+      "FORM_TEXT_SOURCE_PROSPECT_DETAILS": "Plus précisément :",
+      "FORM_TEXT_SOURCE_PROSPECT_DETAILS_PLACEHOLDER": "Date, personne, ...",
+      "FORM_TEXT_USER_EMAIL": "vous pouvez me joindre à l'adresse mail",
+      "FORM_TEXT_USER_NAME": "Je m'appelle",
+      "FORM_TEXT_USER_PHONE": "et au numéro de téléphone",
+      "location-types": {
+        "EURO": "en Zone Euro",
+        "FRANCE": "en France",
+        "OUT_EURO": "hors Zone Euro"
+      },
+      "mascot-text": {
+        "INIT": "Vos informations ne sont pas transmises à des tiers et restent confidentielles.",
+        "LESS_10K": "WE DO GOOD ne peut accompagner que pour des montants supérieurs à 10 000 €.",
+        "MICROBUSINESS": "WE DO GOOD ne peut accompagner que des activités portées par des personnes morales.",
+        "NEED_EMAIL": "Une fois que votre e-mail est renseigné, vous pouvez reprendre votre test à tout moment.",
+        "NOT_CREATED": "WE DO GOOD pourra vous accompagner une fois la société immatriculée.",
+        "OUT_EURO": "WE DO GOOD ne peut accompagner que des organisations immatriculées dans la zone Euro."
+      },
+      "organization-types": {
+        "ASSOCIATION": "une association",
+        "COMPANY": "une entreprise",
+        "MICROBUSINESS": "une entreprise individuelle / micro-entreprise",
+        "NOT_CREATED": "en cours de création"
+      },
+      "PLACEHOLDER_PROJECT_DESCRIPTION": "Mon activité...",
+      "PLACEHOLDER_PROJECT_ID": "Numéro SIREN",
+      "PLACEHOLDER_PROJECT_NAME": "Mon projet",
+      "PLACEHOLDER_USER_EMAIL": "prenom.nom@entreprise.com",
+      "PLACEHOLDER_USER_NAME": "Prénom Nom",
+      "PLACEHOLDER_USER_PHONE": "06 06 06 06 06",
+      "source-types": {
+        "EVENT": "un événement",
+        "OTHER": {
+          "other": "un autre moyen"
+        },
+        "POST": "un article de presse / blog / émission",
+        "SOCIAL_NETWORKS": "les réseaux sociaux",
+        "SOMEONE": "quelqu'un qui m'en a parlé",
+        "WEBSITE": "un site internet"
+      },
+      "SUBTITLE": "Tous les champs sont obligatoires",
+      "TITLE": "Mon projet"
+    },
+    "project-investors": {
+      "ALREADY_DONE_CROWDFUNDING": "J'ai déjà mené une campagne de financement participatif",
+      "investors-circles": {
+        "CIRCLE_LOVEMONEY": "Proches",
+        "CIRCLE_PRIVATE": "Relations",
+        "CIRCLE_PUBLIC": "Public"
+      },
+      "MASCOT_TEXT_1A": "Lancer et réussir une levée de fonds demande du temps et un engagement personnel pour vous et votre équipe.",
+      "MASCOT_TEXT_1B": "Vous devez être prêt-e à communiquer auprès de votre entourage pour mettre toutes les chances de votre côté.",
+      "MASCOT_TEXT_2": "Malheureusement, sans mobiliser votre entourage et votre réseau, il vous sera compliqué de convaincre et de gagner la confiance d’autres investisseurs.",
+      "MASCOT_TEXT_ALREADY_DONE": "Super, je vois que nous avons à faire à une personne expérimentée !",
+      "MASCOT_TEXT_LOVEMONEY": "Les royalties sont une bonne option pour faire investir un petit nombre de personnes de votre réseau personnel (love money) ou professionnel. Simple, rapide, confidentiel.",
+      "MASCOT_TEXT_NEED_ADVICE": "WE DO GOOD peut vous accompagner pour votre communication",
+      "MASCOT_TEXT_PRIVATE": "Vous pouvez faire investir autant de personnes que vous le souhaitez en réservant cette possibilité à celles que vous avez identifiées. Rapide et confidentiel.",
+      "MASCOT_TEXT_PUBLIC": "Vous pouvez bénéficier d'une belle visibilité en faisant du Crowdfunding mais pour toucher le grand public, il faut commencer par votre entourage !",
+      "NEED_COMMUNICATION_ADVICE": "J'ai besoin de conseils pour la communication",
+      "READY_TO_COMMUNICATE": "Je suis prêt-e à communiquer auprès de mon entourage",
+      "TITLE": "Mes investisseurs",
+      "WHICH_CIRCLES_TO_COMMUNICATE": "Auprès de quels cercles êtes-vous prêt-e à communiquer ?"
+    },
+    "project-result": {
+      "admin": {
+        "ENABLE_PAYMENT": "Autoriser le paiement",
+        "ENABLE_WIRE": "Autoriser les virements bancaires sans minimum"
+      },
+      "formulas": {
+        "crowdfunding": {
+          "AMOUNT_1": "8 % Commission au succès sur le montant levé (6 % avec l’accompagnement INTÉGRAL, 4 % sur le montant levé au-delà de 100 000 €.)",
+          "AMOUNT_2": "3 % Sur les royalties versées (min. 60 € par déclaration)",
+          "TEXT": "Mobilisez vos réseaux et faites connaître votre projet auprès de nouveaux investisseurs",
+          "TITLE": "Crowdfunding"
+        },
+        "lovemoney": {
+          "AMOUNT_1": "2 % Commission au succès sur le montant levé",
+          "AMOUNT_2": "5 % Sur les royalties versées (min. 60 € par déclaration)",
+          "TEXT": "Faites investir vos proches de manière confidentielle et rapide",
+          "TITLE": "Love Money"
+        },
+        "options": {
+          "COMMUNICATION_ON_NETWORKS": "Diffusion de votre levée de fonds sur nos réseaux sociaux et dans notre newsletter",
+          "EVALUATION": "Période d’évaluation pour valider l’intérêt des investisseurs potentiels et réunir des pré-investissements",
+          "GREEN_LABEL": "Label Financement Participatif pour la Croissance Verte (sur demande et évaluation du projet)",
+          "LIMITED_INVESTORS": "Nombre d’investisseurs illimité",
+          "MANAGED_THROUGH_PLATFORM": "Gestion centralisée des investisseurs et des versements de royalties",
+          "PAGE_VISIBLE_ON_WDG": "Page visible publiquement sur WE DO GOOD",
+          "PAYMENTS": "Collecte des investissements en ligne et par chèque",
+          "REFERENCED_TO_PARTNERS": "Référencement de votre levée de fonds sur les sites de nos partenaires (BPI Tous Nos Projets, Novafi, Info Durable)",
+          "SUPPORT": "Support technique, juridique et fiscal pour vous et vos investisseurs",
+          "UP_TO_5_INVESTORS": "Jusqu'à 5 investisseurs"
+        },
+        "private": {
+          "AMOUNT_1": "4 % Commission au succès sur le montant levé",
+          "AMOUNT_2": "5 % Sur les royalties versées (min. 60 € par déclaration)",
+          "TEXT": "Faites investir votre réseau en utilisant la plateforme de manière privée",
+          "TITLE": "Réseau privé"
+        },
+        "RECOMMENDED": "Formule recommandée",
+        "REDUCTION": "jeunes entreprises"
+      },
+      "not-eligible": {
+        "MICROBUSINESS": "vous travaillez en tant qu’entreprise individuelle ou micro-entreprise",
+        "NEED_LOVEMONEY": "un financement participatif requiert une mobilisation de votre entourage pour bien démarrer",
+        "NOT_ADAPTED": "le modèle des royalties n'est peut-être pas adapté à votre modèle économique",
+        "OUT_EURO": "votre entreprise n'est ou ne sera pas immatriculée en zone Euro",
+        "POSSIBLE_REASONS": "Voici les raisons possibles :",
+        "PROJECT_DOESNT_SEEM_ELIGIBLE": "Votre projet ne semble pas éligible...",
+        "SEND_EMAIL": "Envoyez-nous un mail à projets@wedogood.co",
+        "SPECIFIC_PROJECT": "Votre projet est particulier et pourrait tout de même bénéficier des royalties (durée plus longue, financement de matériel avec marge...) ?"
+      },
+      "OF_YOUR_TURNOVER": "de votre chiffre d'affaires pendant 5 ans.",
+      "options": {
+        "basic": {
+          "TEXT": "Pour les entrepreneurs ayant déjà identifié leurs investisseurs ou ayant déjà mené une campagne de financement",
+          "TITLE": "Accompagnement Basique"
+        },
+        "complete": {
+          "TEXT": "Pour les entrepreneurs qui souhaitent avoir des réponses, des avis et des conseils pour avancer plus vite et plus efficacement",
+          "TITLE": "Accompagnement Intégral"
+        },
+        "list": {
+          "COMMISSION_REDUCTION": "Commission à 6 % au lieu de 8 % sur la formule CROWDFUNDING",
+          "CUSTOM_MONITORING": "Suivi personnalisé et support prioritaire",
+          "INVESTORS_MONITORING": "Suivi de conversion des investisseurs",
+          "READ_PITCH": "Relecture de votre présentation",
+          "READ_PITCH_AND_COM": "Relecture de votre présentation, et de vos supports de communication",
+          "SUPPORT_CENTER": "Accès au centre de support",
+          "SUPPORT_TO_INVESTORS": "Support auprès de vos investisseurs",
+          "WORKSHOP": "Atelier de préparation de 2h pour poser les bases avec votre équipe (Conseils en communication et méthodologie sur le financement participatif, définition du plan d’actions, prise en main de la plateforme)"
+        },
+        "RECOMMENDED": "Option recommandée",
+        "REDUCTION": "jeunes entreprises",
+        "standard": {
+          "TEXT": "Pour les entrepreneurs souhaitant avoir le chemin bien éclairé pour mener leur levée de fonds en toute sérénité",
+          "TITLE": "Accompagnement Essentiel"
+        }
+      },
+      "prospect-meetup": {
+        "ADD_FILES_TEXT": "Pour préparer notre rencontre, ces fichiers sont nécessaires :",
+        "FILE_BUSINESS_PLAN": "- Un business plan",
+        "FILE_PREVISIONNEL": "- Un prévisionnel financier comportant un plan de financement et un compte de résultat prévisionnel",
+        "PLAN_RENDEZVOUS": "Prendre rendez-vous",
+        "PLAN_RENDEZVOUS_TEXT": "Parlons-en ! Pour démarrer votre projet et vous conseiller au mieux, prenez rendez-vous !",
+        "SEND_FILES_INPUT_LABEL": "Pouvez-vous nous en dire un peu plus sur votre projet et vos éventuelles questions ?"
+      },
+      "SUBTITLES_SELECTION_STANDARDS": "sous réserve de respecter l'ensemble de nos",
+      "SUBTITLES_SELECTION_STANDARDS_LINK": "critères de sélection",
+      "TARGET_LOVEMONEY": "auprès de vos proches",
+      "TARGET_PRIVATE": "auprès de vos proches et relations",
+      "TARGET_PUBLIC": "auprès de vos proches, de vos relations et du grand public",
+      "TITLE": "Votre projet est éligible !",
+      "TITLE_FAILED": "Votre projet n'est pas éligible...",
+      "YOU_CAN_RAISE": "Vous pouvez lever",
+      "YOU_WILL_PAY": "et vous leur verserez tous les trimestres"
+    },
+    "SAVE_PROJECT": "Enregistrer mon projet pour plus tard",
+    "SAVED_PROJECT": "Projet enregistré",
+    "SAVED_PROJECT_ERROR": "Erreur lors de la tentative d'enregistrement",
+    "SAVING_PROJECT": "Enregistrement du projet en cours",
+    "START": "Commencer",
+    "tabs": {
+      "IN_PROGRESS": "En cours...",
+      "MODIFY": "Modifier",
+      "MY_FUNDING": "Mon financement",
+      "MY_INVESTORS": "Mes investisseurs",
+      "MY_PROJECT": "Mon projet",
+      "MY_RESULT": "Mon résultat",
+      "SEE_RESULTS": "Voir le résultat"
+    },
+    "TITLE": "Mon éligibilité aux royalties"
+  },
+  "signin-signup": {
+    "CONNECT_TO_FACEBOOK": "Se connecter avec Facebook",
+    "CONNECTION": "Connexion",
+    "CREATE_MY_ACCOUNT": "Créer mon compte",
+    "FORGOTTEN_PASSWORD": "Mot de passe oublié",
+    "GENERAL_USE_TERMS": "conditions générales d'utilisation",
+    "I_ACCEPT_THE": "J'accepte",
+    "I_ALREADY_HAVE_AN_ACCOUNT": "J'ai déjà un compte",
+    "PASSWORD_CONFIRMATION": "Confirmation du mot de passe",
+    "REMEMBER_ME": "Se souvenir de moi",
+    "SIGNIN_ERROR_EMPTY": "Merci de saisir votre identifiant et votre mot de passe.",
+    "SIGNIN_ERROR_INCORRECT_PASSWORD": "Le mot de passe saisi ne correspond pas.",
+    "SIGNIN_ERROR_NOT_FOUND": "Cet utilisateur n'existe pas.",
+    "SIGNIN_SIGNUP_ERROR_TYPE_ERROR": "Erreur de saisie.",
+    "SIGNUP_ERROR_EMAIL_EMPTY": "L'adresse e-mail doit être définie.",
+    "SIGNUP_ERROR_EMAIL_FOUND": "Cette adresse e-mail est déjà utilisée.",
+    "SIGNUP_ERROR_EMAIL_INCORRECT": "Cette adresse e-mail n'est pas valide.",
+    "SIGNUP_ERROR_FIRSTNAME_EMPTY": "Le prénom doit être défini.",
+    "SIGNUP_ERROR_LASTNAME_EMPTY": "Le nom de famille doit être défini.",
+    "SIGNUP_ERROR_PASSWORD_EMPTY": "Avez-vous saisi deux fois le mot de passe ?",
+    "SIGNUP_ERROR_PASSWORD_NOT_MATCHING": "Les mots de passe saisis ne correspondent pas.",
+    "SIGNUP_ERROR_ROBOT": "Merci de cocher la case confirmant que vous n'êtes pas un robot.",
+    "SIGNUP_ERROR_TERMS": "Merci de cocher la case pour accepter les conditions générales d'utilisation.",
+    "SIGNUP_ERROR_UNDEFINED": "Problème de création d'utilisateur."
+  },
+  "validations": {
+    "EMAIL": "Cet email n'est pas valide",
+    "NAME": "Ce champ n'est pas valide",
+    "PHONE_NUMBER": "Ce numéro de téléphone n'est pas valide",
+    "REQUIRED": "Ce champ est obligatoire"
+  }
 }
