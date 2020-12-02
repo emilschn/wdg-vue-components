@@ -5,8 +5,14 @@ phrase:
   push:
     sources:
     - file: ./common/src/locales/en.json
+      update_translations: true
+      file_format: json
     - file: ./common/src/locales/fr.json
+      update_translations: true
+      file_format: json
   pull:
     targets:
     - file: ./common/src/locales/en.json
+      file_format: json
     - file: ./common/src/locales/fr.json
+      file_format: json
