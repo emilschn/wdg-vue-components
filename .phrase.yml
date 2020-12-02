@@ -6,23 +6,19 @@ phrase:
     sources:
     - file: ./common/src/locales/en.json
       params:
-        update_translations: true
-        file_format: json
+        file_format: nested_json
         locale_id: 8c702d7cc05197000271a45a530cccd0
-        format_options: react_nested_json
+        update_translations: true
     - file: ./common/src/locales/fr.json
       params:
-        update_translations: true
-        file_format: json
+        file_format: nested_json
         locale_id: de52e4472d0c4fdabdfa7f2a8ae744d5
-        format_options: react_nested_json
+        update_translations: true
   pull:
     targets:
     - file: ./common/src/locales/en.json
       params:
-        file_format: json
-        format_options: react_nested_json
+        file_format: nested_json
     - file: ./common/src/locales/fr.json
       params:
-        file_format: json
-        format_options: react_nested_json
+        file_format: nested_json
