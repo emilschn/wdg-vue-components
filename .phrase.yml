@@ -7,9 +7,11 @@ phrase:
     - file: ./common/src/locales/en.json
       update_translations: true
       file_format: json
+      locale_id: 8c702d7cc05197000271a45a530cccd0
     - file: ./common/src/locales/fr.json
       update_translations: true
       file_format: json
+      locale_id: de52e4472d0c4fdabdfa7f2a8ae744d5
   pull:
     targets:
     - file: ./common/src/locales/en.json
