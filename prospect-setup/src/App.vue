@@ -160,6 +160,7 @@ export default {
 			this.sharedState.package.paymentMethod = metadata.package.paymentMethod
 			this.sharedState.package.paymentStatus = metadata.package.paymentStatus
 			this.sharedState.package.paymentDate = metadata.package.paymentDate
+			this.sharedState.package.paymentTransferedOnAccount = metadata.package.paymentTransferedOnAccount
 			this.sharedState.package.bundle1.title = metadata.package.bundle1.title
 			this.sharedState.package.bundle1.type = metadata.package.bundle1.type
 			this.sharedState.package.bundle1.priceWithoutDiscount = metadata.package.bundle1.priceWithoutDiscount
