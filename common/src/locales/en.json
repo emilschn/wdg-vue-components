@@ -347,7 +347,8 @@
 				"PLAN_RENDEZVOUS_TEXT": "Let's talk about it! To get your project started and get the best advice, make an appointment!"
 			},
 			"admin": {
-				"ENABLE_PAYMENT": "Authorise payment"
+				"ENABLE_PAYMENT": "Authorise payment",
+				"ENABLE_WIRE": "Autoriser les virements bancaires sans minimum"
 			}
 		},
 		"payment": {
@@ -370,13 +371,19 @@
 				"ADDRESS_POSTAL_CODE_PLACEHOLDER": "Postcode",
 				"ADDRESS_CITY_PLACEHOLDER": "City",
 				"EMAIL_LABEL": "My company's email address (different from my personal address) is:",
-				"EMAIL_PLACEHOLDER": "contact@company.com"
+				"EMAIL_PLACEHOLDER": "contact@company.com",
+				"AGREE_TERMS": "Je reconnais avoir pris connaissance et accepter la description des prestations et les conditions de publication de projet de WE DO GOOD :",
+				"GENERAL_TERMS": "CGU",
+				"PARTICULAR_TERMS": "Conditions particulières",
+				"6_MONTHS_TERMS": "Si le projet n’est pas mis en ligne dans les 6 mois à compter de la date de validation de ce formulaire, WE DO GOOD pourra exiger de nouveau les frais de dossier.",
+				"PAYMENT_TERMS": "Modalités de règlement : frais fixes et options à régler à la souscription ; frais au succès prélevés lors du versement des fonds sur le compte lié au projet. Frais sur les versements aux investisseurs facturés au moment de ces versements (non intégrés aux royalties)."
 			},
 			"methods": {
 				"SECURED_PAYMENT": "Secure payment",
 				"METHOD_CHOICE": "Choice of payment method",
 				"CARD": "Card",
-				"WIRE": "Bank transfer"
+				"WIRE": "Bank transfer",
+				"PAY_WITH_CARD": "Pay with bank card"
 			},
 			"wire": {
 				"BACK": "Return to the choice of payment method",
