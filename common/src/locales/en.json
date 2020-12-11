@@ -381,7 +381,8 @@
 			"wire": {
 				"BACK": "Return to the choice of payment method",
 				"TITLE": "Transfer to WE DO GOOD",
-				"IBAN_LABEL": "IBAN:"
+				"IBAN_LABEL": "IBAN:",
+				"VALIDATE": "Confirm bank transfer's reception"
 			},
 			"complete": {
 				"CONFIRMATION": "Your payment is confirmed!",

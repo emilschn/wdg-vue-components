@@ -21,15 +21,28 @@
 		  >
 			<slot slot="label">{{ $t('project-setup.CONTINUE') }}</slot>
 		</WDGButton>
+
+		<WDGFileList
+			v-if="sharedProps.capacities.edit_bundles === '1'"
+			id="files"
+			name="files"
+		  	textColor="grey"
+			disabled="true"
+			:initFileList="sharedProps.initFileList"
+			>
+		</WDGFileList>
 	</div>
 </template>
 
 <script>
+import { store } from '../../store.js'
 import WDGButton from '@/../../common/src/components/WDGButton'
+import WDGFileList from '@/../../common/src/components/WDGFileList'
 export default {
 	name: 'TheResultPaymentComplete',
 	components: {
-		WDGButton
+		WDGButton,
+		WDGFileList
 	},
 	props: {
 		guid: { type: String, default: '' }
@@ -39,6 +52,13 @@ export default {
 	computed: {
 		continueLink () {
 			return 'https://www.wedogood.co/lancement/?guid=' + this.guid
+		}
+	},
+	data () {
+		return {
+			sharedState: store.state,
+			sharedProps: store.props,
+			fileList: []
 		}
 	}
 }
