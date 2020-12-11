@@ -22,15 +22,21 @@
 			<slot slot="label">{{ $t('project-setup.CONTINUE') }}</slot>
 		</WDGButton>
 
-		<WDGFileList
-			v-if="sharedProps.capacities.edit_bundles === '1'"
-			id="files"
-			name="files"
-		  	textColor="grey"
-			disabled="true"
-			:initFileList="sharedProps.initFileList"
-			>
-		</WDGFileList>
+		<div class="message-admin"  v-if="sharedProps.capacities.edit_bundles === '1'">
+			<WDGFileList
+				id="files"
+				name="files"
+				textColor="grey"
+				disabled="true"
+				:initFileList="sharedProps.initFileList"
+				>
+			</WDGFileList>
+			<div>
+				{{sharedState.project}}
+			</div>
+		</div>
+		<br><br>
+
 	</div>
 </template>
 
@@ -84,5 +90,11 @@ div.the-result-payment-complete .message-confirmation svg {
 }
 div.the-result-payment-complete .wdg-button button.red {
 	width: 170px;
+}
+div.the-result-payment-complete .message-admin {
+	background-color: #F1A074;
+	color: #fff;
+	padding: 20px 0px;
+	margin-bottom: 25px;
 }
 </style>
