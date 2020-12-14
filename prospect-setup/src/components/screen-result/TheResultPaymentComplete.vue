@@ -21,15 +21,34 @@
 		  >
 			<slot slot="label">{{ $t('project-setup.CONTINUE') }}</slot>
 		</WDGButton>
+
+		<div class="message-admin"  v-if="sharedProps.capacities.edit_bundles === '1'">
+			<WDGFileList
+				id="files"
+				name="files"
+				textColor="grey"
+				disabled="true"
+				:initFileList="sharedProps.initFileList"
+				>
+			</WDGFileList>
+			<div>
+				{{sharedState.project}}
+			</div>
+		</div>
+		<br><br>
+
 	</div>
 </template>
 
 <script>
+import { store } from '../../store.js'
 import WDGButton from '@/../../common/src/components/WDGButton'
+import WDGFileList from '@/../../common/src/components/WDGFileList'
 export default {
 	name: 'TheResultPaymentComplete',
 	components: {
-		WDGButton
+		WDGButton,
+		WDGFileList
 	},
 	props: {
 		guid: { type: String, default: '' }
@@ -39,6 +58,13 @@ export default {
 	computed: {
 		continueLink () {
 			return 'https://www.wedogood.co/lancement/?guid=' + this.guid
+		}
+	},
+	data () {
+		return {
+			sharedState: store.state,
+			sharedProps: store.props,
+			fileList: []
 		}
 	}
 }
@@ -64,5 +90,11 @@ div.the-result-payment-complete .message-confirmation svg {
 }
 div.the-result-payment-complete .wdg-button button.red {
 	width: 170px;
+}
+div.the-result-payment-complete .message-admin {
+	background-color: #F1A074;
+	color: #fff;
+	padding: 20px 0px;
+	margin-bottom: 25px;
 }
 </style>

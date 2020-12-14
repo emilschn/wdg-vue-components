@@ -388,7 +388,8 @@
 			"wire": {
 				"BACK": "Retour au choix du mode de paiement",
 				"TITLE": "Virement vers WE DO GOOD",
-				"IBAN_LABEL": "IBAN :"
+				"IBAN_LABEL": "IBAN :",
+				"VALIDATE": "Valider la réception du virement"
 			},
 			"complete": {
 				"CONFIRMATION": "Votre souscription est confirmée !",
