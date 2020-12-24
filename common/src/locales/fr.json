@@ -142,7 +142,7 @@
 			},
 			"location-types": {
 				"FRANCE": "en France",
-				"EURO": "en Zone Euro",
+				"EURO": "en Zone Euro, Royaume Uni ou Suisse",
 				"OUT_EURO": "hors Zone Euro"
 			},
 			"source-types": {
@@ -261,6 +261,7 @@
 			"TITLE": "Votre projet est éligible !",
 			"SUBTITLES_SELECTION_STANDARDS": "sous réserve de respecter l'ensemble de nos",
 			"SUBTITLES_SELECTION_STANDARDS_LINK": "critères de sélection",
+			"SUBTITLES_SELECTION_STANDARDS_LINK_URL": "https://www.wedogood.co/investissement/criteres-selection/",
 			"TITLE_FAILED": "Votre projet n'est pas éligible...",
 			"YOU_CAN_RAISE": "Vous pouvez lever",
 			"TARGET_LOVEMONEY": "auprès de vos proches",

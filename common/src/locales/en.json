@@ -90,7 +90,7 @@
 			"MASCOT_TEXT_3": "Your margin level",
 			"MASCOT_TEXT_4": "To know your financing needs",
 			"TEXT_1": "Instant result sent by email.",
-			"TEXT_2": "Possibility of making an appointment to start the fundraising as soon as possible!",
+			"TEXT_2": "Book an appointment with a WDG advisor and start fundraising immediately.",
 			"TEXT_3": "Response in approx. 5 minutes",
 			"TEXT_4": "You can save, exit and come back at any time!",
 			"the-project-link-send": {
@@ -142,7 +142,7 @@
 			},
 			"location-types": {
 				"FRANCE": "in France",
-				"EURO": "in the euro zone",
+				"EURO": "in the euro zone, United Kingdom or Swiss",
 				"OUT_EURO": "outside the euro zone"
 			},
 			"source-types": {
@@ -261,6 +261,7 @@
 			"TITLE": "Your project is eligible!",
 			"SUBTITLES_SELECTION_STANDARDS": "subject to fulfilling all our",
 			"SUBTITLES_SELECTION_STANDARDS_LINK": "selection criteria",
+			"SUBTITLES_SELECTION_STANDARDS_LINK_URL": "https://www.wedogood.co/investissement/",
 			"TITLE_FAILED": "Your project is not eligible...",
 			"YOU_CAN_RAISE": "You can raise it",
 			"TARGET_LOVEMONEY": "with your loved ones",
