@@ -139,6 +139,8 @@ export const store = {
 
 			case 'project-result':
 			case 'project-cart':
+			case 'project-payment':
+			case 'project-complete':
 				if (itemInfos.Status === 'incomplete') {
 					itemInfos.Status = 'complete'
 					itemInfos.LinkLabel = i18n.t('project-setup.tabs.MODIFY')
