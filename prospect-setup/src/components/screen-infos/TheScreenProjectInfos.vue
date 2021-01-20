@@ -88,6 +88,16 @@
 			</div>
 
 			<div>
+				{{ $t('project-setup.project-infos.FORM_TEXT_ORGANIZATION_DESCRIPTION') }}
+
+				<WDGInput
+				  id="organizationDescription"
+				  name="organizationDescription"
+				  :value="sharedState.organization.description"
+				  v-bind:valueReturn.sync="sharedState.organization.description"
+				  customStyle="natural-language"
+			  	  />.<br>
+
 				{{ $t('project-setup.project-infos.FORM_TEXT_AMOUNT_NEEDED') }}
 
 				<WDGInput
@@ -98,17 +108,7 @@
 				  customStyle="natural-language"
 				  autoFormat="wdg-number"
 				  :onChange="onOrganizationAmountNeededChange"
-			  	  /> €,<br>
-
-				{{ $t('project-setup.project-infos.FORM_TEXT_ORGANIZATION_DESCRIPTION') }}
-
-				<WDGInput
-				  id="organizationDescription"
-				  name="organizationDescription"
-				  :value="sharedState.organization.description"
-				  v-bind:valueReturn.sync="sharedState.organization.description"
-				  customStyle="natural-language"
-			  	  />.<br>
+			  	  /> €.<br>
 
 				{{ $t('project-setup.project-infos.FORM_TEXT_SOURCE_PROSPECT') }}
 
