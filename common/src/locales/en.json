@@ -259,6 +259,7 @@
 		},
 		"project-result": {
 			"TITLE": "Your project is eligible!",
+			"LINK_CRITERIA": "https://www.wedogood.co/en/investment/selection-criteria/",
 			"SUBTITLES_SELECTION_STANDARDS": "subject to fulfilling all our",
 			"SUBTITLES_SELECTION_STANDARDS_LINK": "selection criteria",
 			"TITLE_FAILED": "Your project is not eligible...",

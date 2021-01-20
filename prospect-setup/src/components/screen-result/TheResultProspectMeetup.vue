@@ -52,6 +52,7 @@
 <script>
 import axios from 'axios'
 import { store } from '../../store.js'
+import i18n from '@/i18n'
 import WDGForm from '@/../../common/src/components/WDGForm'
 import WDGFileList from '@/../../common/src/components/WDGFileList'
 import WDGInput from '@/../../common/src/components/WDGInput'
@@ -164,7 +165,11 @@ export default {
 					sParams += '&lastname=' + sFullName
 				}
 			}
-			return 'https://app.hubspot.com/meetings/jean-david/rendez-vous-avec-we-do-good?embed=true' + sParams
+			let sHSURL = 'https://app.hubspot.com/meetings/jean-david/revenue-based-finance-meeting-with-we-do-good'
+			if (i18n.locale === 'fr') {
+				sHSURL = 'https://app.hubspot.com/meetings/jean-david/rendez-vous-avec-we-do-good?embed=true'
+			}
+			return sHSURL + sParams
 		}
 	}
 }

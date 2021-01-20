@@ -9,7 +9,7 @@
 			</TheTabTitle>
 
 			<div class="subtitles-selection-standards">{{ $t('project-setup.project-result.SUBTITLES_SELECTION_STANDARDS') }}
-			<a href="https://www.wedogood.co/investissement/criteres-selection/" target="_blank">{{ $t('project-setup.project-result.SUBTITLES_SELECTION_STANDARDS_LINK') }}</a>.</div>
+			<a :href="linkToCriteria" target="_blank">{{ $t('project-setup.project-result.SUBTITLES_SELECTION_STANDARDS_LINK') }}</a>.</div>
 
 			<TheResultPaymentHeader
 			  v-if="sharedState.authorization === 'can-pay' && sharedState.step !== 'project-complete'"
@@ -78,6 +78,7 @@
 
 <script>
 import { store } from '../../store.js'
+import i18n from '@/i18n'
 import TheTabTitle from '@/components/common/TheTabTitle'
 import TheResultPaymentHeader from '@/components/screen-result/TheResultPaymentHeader'
 import TheResultCampaignAdvice from '@/components/screen-result/TheResultCampaignAdvice'
@@ -122,6 +123,9 @@ export default {
 		},
 		canUseWire () {
 			return (this.getTotalAmount() > 1000 || this.sharedState.hasAuthorizedWire === '1')
+		},
+		linkToCriteria () {
+			return i18n.t('project-setup.project-result.LINK_CRITERIA')
 		}
 	},
 	methods: {

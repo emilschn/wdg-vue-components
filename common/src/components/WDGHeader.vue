@@ -2,7 +2,7 @@
 	<div class="header">
         <span class="logo">
             <!-- TODO : récupérer home_url -->
-            <a href="https://www.wedogood.co/"><img src="@/../../common/src/assets/logo-wdg.png"  alt="WE DO GOOD" /></a>
+            <a href="https://www.wedogood.co/"><img src="@/../../common/src/assets/logos/logo-wdg.png"  alt="WE DO GOOD" /></a>
         </span>
         <!-- TODO : prévoir qu'on puisse afficher le menu ou juste un titre -->
 		<span class="title">
