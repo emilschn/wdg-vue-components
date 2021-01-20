@@ -17,7 +17,7 @@
 		  type="button"
 		  :clickEvent="onContinueClickEvent"
 		  >
-			<slot slot="label">{{ $t('project-setup.CONTINUE') }}</slot>
+			<slot slot="label">{{ $t('project-setup.payment.wire.VALIDATE') }}</slot>
 		</WDGButton>
 	</div>
 </template>

@@ -121,7 +121,7 @@
 			"FORM_TEXT_ORGANIZATION_CREATED_NAME": "on behalf of",
 			"FORM_TEXT_ORGANIZATION_ID": "whose SIREN number is",
 			"FORM_TEXT_AMOUNT_NEEDED": "I need",
-			"FORM_TEXT_ORGANIZATION_DESCRIPTION": "for my activity of",
+			"FORM_TEXT_ORGANIZATION_DESCRIPTION": "Its activity consists of",
 			"FORM_TEXT_SOURCE_PROSPECT": "I heard about WE DO GOOD through",
 			"FORM_TEXT_SOURCE_PROSPECT_DETAILS": "More specifically:",
 			"FORM_TEXT_SOURCE_PROSPECT_DETAILS_PLACEHOLDER": "Date, person...",
@@ -382,7 +382,8 @@
 			"wire": {
 				"BACK": "Return to the choice of payment method",
 				"TITLE": "Transfer to WE DO GOOD",
-				"IBAN_LABEL": "IBAN:"
+				"IBAN_LABEL": "IBAN:",
+				"VALIDATE": "Confirm bank transfer's reception"
 			},
 			"complete": {
 				"CONFIRMATION": "Your payment is confirmed!",
