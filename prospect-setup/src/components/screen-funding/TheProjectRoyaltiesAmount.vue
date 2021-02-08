@@ -80,9 +80,9 @@ export default {
 		onViewDetails: { type: Function },
 		onViewAdvice: { type: Function },
 		onReinitParameters: { type: Function },
-		advicePercent: { type: Number, default: 1 },
-		minPercent: { type: Number, default: 1 },
-		maxPercent: { type: Number, default: 2 },
+		advicePercent: { type: Number, default: 3 },
+		minPercent: { type: Number, default: 3 },
+		maxPercent: { type: Number, default: 4 },
 		totalTurnover: { type: Number, default: 0 }
 	},
 	data () {
