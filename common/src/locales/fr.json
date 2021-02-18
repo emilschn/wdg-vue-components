@@ -49,6 +49,14 @@
 		"SIGNUP_ERROR_UNDEFINED": "Problème de création d'utilisateur.",
 		"SIGNUP_ERROR_ROBOT": "Merci de cocher la case confirmant que vous n'êtes pas un robot."
 	},
+	"account-signin": {
+		"MASCOT_TEXT_WEDOGOOD": "Sur WE DO GOOD, vous pouvez investir en échange de royalties sur les projets de votre choix et avoir des impacts positifs économiques, sociaux, ou environnementaux. ", 
+		"MASCOT_TEXT_NOTICE": "Nous allons procéder ensemble à votre inscription. Elle ne vous prendra que quelques minutes. Pour vous inscrire dans le but d'investir, pensez à préparer <b>2 pièces d'identité dont au moins une carte d'identité et/ou un passeport.</b> <i>Vos informations ne seront pas transmises à des tiers et restent confidentielles.</i>",
+		"LABEL_MAIL": "Mon adresse mail est :",
+		"SIGNIN_ERROR_NOT_FOUND": "Vous n'avez pas encore de compte, choisissez un mot de passe pour en créer un.",
+		"LABEL_PASSWORD": "Je choisis mon mot de passe :",
+		"NOTICE_PASSWORD": "Votre mot de passe doit comporter au minimum 8 caractères et être composé de lettres majuscules, minuscules et de chiffres."
+	},
 	"launch-project": {
 		"TITLE": "Lancement de levée de fonds",
 		"TEXT_1": "Félicitations, votre dossier a été validé par WE DO GOOD !",

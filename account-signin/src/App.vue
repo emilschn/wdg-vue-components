@@ -1,26 +1,36 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div
+    id="app"
+	  class="account-signin"
+  >
+		<WDGHeader>
+			<!-- <slot slot="title">{{ $t('project-setup.TITLE') }}</slot> -->
+		</WDGHeader>
+		<TheScreenSignin  />
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import WDGHeader from '@/../../common/src/components/WDGHeader'
+import TheScreenSignin from './components/TheScreenSignin.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+		WDGHeader,
+    TheScreenSignin
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,500;0,700;1,500&display=swap');
+body, input, select, button {
+	font-family: Poppins,Trebuchet MS,sans-serif;
+	color: #333;
+}
+div.account-signin {
+	max-width: 1024px;
+	margin: 0px auto;
 }
 </style>
