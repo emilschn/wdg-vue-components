@@ -76,11 +76,19 @@ export default {
 		this.sharedState.guid = initElements.dataset.guid
 		this.sharedProps.ajaxurl = initElements.dataset.ajaxurl
 		this.sharedProps.locale = initElements.dataset.locale
-		// Pas génial mais nécessaire pour le menu qui est chargé avant dans le store
-		i18n.locale = this.sharedProps.locale
-		if (i18n.locale === 'fr_FR' || i18n.locale === '' || i18n.locale === undefined) {
-			i18n.locale = 'fr'
+
+		let tempLocale = 'fr'
+		if (initElements.dataset.locale !== undefined && initElements.dataset.locale !== '') {
+			if (initElements.dataset.locale.indexOf('_') > -1) {
+				let splitLocale = initElements.dataset.locale.split('_')
+				tempLocale = splitLocale[0]
+			} else {
+				tempLocale = initElements.dataset.locale
+			}
 		}
+		i18n.locale = tempLocale
+
+		// Pas génial mais nécessaire pour le menu qui est chargé avant dans le store
 		if (i18n.locale !== 'fr') {
 			store.tabItems[0].Label = i18n.t('project-setup.tabs.MY_PROJECT')
 			store.tabItems[1].Label = i18n.t('project-setup.tabs.MY_FUNDING')
