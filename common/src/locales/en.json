@@ -66,7 +66,7 @@
 		"REQUEST_ERROR": "Connection problem (FX84R83)"
 	},
 	"project-setup": {
-		"TITLE": "My eligibility for royalties",
+		"TITLE": "My royalty funding eligibility",
 		"PICTO_TITLE_BALLOON": "Hot air balloon",
 		"PICTO_TITLE_TIMER": "Stopwatch",
 		"MINUTE": "minute | minutes",
@@ -121,7 +121,7 @@
 			"FORM_TEXT_ORGANIZATION_CREATED_NAME": "on behalf of",
 			"FORM_TEXT_ORGANIZATION_ID": "whose SIREN number is",
 			"FORM_TEXT_AMOUNT_NEEDED": "I need",
-			"FORM_TEXT_ORGANIZATION_DESCRIPTION": "Its activity consists of",
+			"FORM_TEXT_ORGANIZATION_DESCRIPTION": "Its business consists of",
 			"FORM_TEXT_SOURCE_PROSPECT": "I heard about WE DO GOOD through",
 			"FORM_TEXT_SOURCE_PROSPECT_DETAILS": "More specifically:",
 			"FORM_TEXT_SOURCE_PROSPECT_DETAILS_PLACEHOLDER": "Date, person...",
@@ -347,7 +347,8 @@
 				"PLAN_RENDEZVOUS_TEXT": "Let's talk about it! To get your project started and get the best advice, make an appointment!"
 			},
 			"admin": {
-				"ENABLE_PAYMENT": "Authorise payment"
+				"ENABLE_PAYMENT": "Authorise payment",
+				"ENABLE_WIRE": "Allow bank transfers without a minimum"
 			}
 		},
 		"payment": {
@@ -370,19 +371,25 @@
 				"ADDRESS_POSTAL_CODE_PLACEHOLDER": "Postcode",
 				"ADDRESS_CITY_PLACEHOLDER": "City",
 				"EMAIL_LABEL": "My company's email address (different from my personal address) is:",
-				"EMAIL_PLACEHOLDER": "contact@company.com"
+				"EMAIL_PLACEHOLDER": "contact@company.com",
+				"AGREE_TERMS": "I acknowledge that I have read and accepted the description of the benefits and the terms of publication of WE DO GOOD's project:",
+				"GENERAL_TERMS": "Terms",
+				"PARTICULAR_TERMS": "Special terms and conditions",
+				"6_MONTHS_TERMS": "If the project is not put online within 6 months of the validation date of this form, WE DO GOOD may re-charge the application fee.",
+				"PAYMENT_TERMS": "Settlement terms: fixed fees and options to be paid on subscription; success fees levied on the payment of funds to the project-related account. Fees on investor payments invoiced at the time of these payments (not included in royalties)."
 			},
 			"methods": {
 				"SECURED_PAYMENT": "Secure payment",
 				"METHOD_CHOICE": "Choice of payment method",
 				"CARD": "Card",
-				"WIRE": "Bank transfer"
+				"WIRE": "Bank transfer",
+				"PAY_WITH_CARD": "Pay with bank card"
 			},
 			"wire": {
 				"BACK": "Return to the choice of payment method",
 				"TITLE": "Transfer to WE DO GOOD",
 				"IBAN_LABEL": "IBAN:",
-				"VALIDATE": "Confirm bank transfer's reception"
+				"VALIDATE": "Validate the receipt of the transfer"
 			},
 			"complete": {
 				"CONFIRMATION": "Your payment is confirmed!",
