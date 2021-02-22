@@ -78,6 +78,9 @@ export default {
 		this.sharedProps.locale = initElements.dataset.locale
 		// Pas génial mais nécessaire pour le menu qui est chargé avant dans le store
 		i18n.locale = this.sharedProps.locale
+		if (i18n.locale === 'fr_FR' || i18n.locale === '' || i18n.locale === undefined) {
+			i18n.locale = 'fr'
+		}
 		if (i18n.locale !== 'fr') {
 			store.tabItems[0].Label = i18n.t('project-setup.tabs.MY_PROJECT')
 			store.tabItems[1].Label = i18n.t('project-setup.tabs.MY_FUNDING')

@@ -109,6 +109,7 @@ export default {
         left: 55px;
         top:50px;
         font-weight: 500;
+		font-size: 16px;
 	}
 	.the-screen-intro .time {
         width:322px;
