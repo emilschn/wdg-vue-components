@@ -1,8 +1,8 @@
 <template>
   <div
     id="app"
-	  class="account-signin"
-  >
+	class="account-signin"
+  	>
 		<WDGHeader>
 			<!-- <slot slot="title">{{ $t('project-setup.TITLE') }}</slot> -->
 		</WDGHeader>
@@ -17,7 +17,7 @@ import TheScreenSignin from './components/TheScreenSignin.vue'
 export default {
   name: 'App',
   components: {
-		WDGHeader,
+	WDGHeader,
     TheScreenSignin
   }
 }

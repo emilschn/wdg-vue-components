@@ -16,6 +16,7 @@
 		"VIEW_MORE": "Voir plus",
 		"VIEW_LESS": "Voir moins",
 		"WITHOUT_TAXES_LETTERS": "H.T.",
+		"CONTINUE": "Continuer",
 		"ADD_DOCUMENT": "Ajouter un document"
 	},
 	"validations": {
@@ -51,11 +52,26 @@
 	},
 	"account-signin": {
 		"MASCOT_TEXT_WEDOGOOD": "Sur WE DO GOOD, vous pouvez investir en échange de royalties sur les projets de votre choix et avoir des impacts positifs économiques, sociaux, ou environnementaux. ", 
-		"MASCOT_TEXT_NOTICE": "Nous allons procéder ensemble à votre inscription. Elle ne vous prendra que quelques minutes. Pour vous inscrire dans le but d'investir, pensez à préparer <b>2 pièces d'identité dont au moins une carte d'identité et/ou un passeport.</b> <i>Vos informations ne seront pas transmises à des tiers et restent confidentielles.</i>",
+		"MASCOT_TEXT_WELCOME": "Bonjour!",
+		"MASCOT_TEXT_NOTICE_1": "Nous allons procéder ensemble à votre inscription. Elle ne vous prendra que quelques minutes. ",
+		"MASCOT_TEXT_NOTICE_2": "Pour vous inscrire dans le but d'investir, pensez à préparer ",
+		"MASCOT_TEXT_NOTICE_2bis": "2 pièces d'identité dont au moins une carte d'identité et/ou un passeport.",
+		"MASCOT_TEXT_NOTICE_3": "Vos informations ne seront pas transmises à des tiers et restent confidentielles.",
 		"LABEL_MAIL": "Mon adresse mail est :",
 		"SIGNIN_ERROR_NOT_FOUND": "Vous n'avez pas encore de compte, choisissez un mot de passe pour en créer un.",
-		"LABEL_PASSWORD": "Je choisis mon mot de passe :",
-		"NOTICE_PASSWORD": "Votre mot de passe doit comporter au minimum 8 caractères et être composé de lettres majuscules, minuscules et de chiffres."
+		"LABEL_CREATE_PASSWORD": "Je choisis mon mot de passe :",
+		"LABEL_WRITE_PASSWORD": "Je saisis mon mot de passe :",
+		"NOTICE_PASSWORD": "Votre mot de passe doit comporter au minimum 8 caractères et être composé de lettres majuscules, minuscules et de chiffres.",
+		"LABEL_NAME": "Je m'appelle :",
+		"CONNECTION": "Connexion",
+		"CONNECT_TO_FACEBOOK": "Se connecter avec Facebook",
+		"FORGOTTEN_PASSWORD": "Mot de passe oublié",
+		"PASSWORD_CONFIRMATION": "Confirmation du mot de passe",
+		"REMEMBER_ME": "Se souvenir de moi",
+		"SIGNIN_ERROR_ORGA": "Cette adresse mail correspond à une organisation. Pour vous connecter, choisissez l'un des comptes ci-dessous.",
+		"LABEL_ORGA": "Organisation",
+		"I_ACCEPT_THE": "J'accepte les",
+		"GENERAL_USE_TERMS": "conditions générales d'utilisation"
 	},
 	"launch-project": {
 		"TITLE": "Lancement de levée de fonds",
