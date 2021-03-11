@@ -26,11 +26,13 @@
 				  id="email"
 				  name="email"
 				  type="email"
+                  icon="ok"
+                  :iconVisibility=validateEmail(sharedState.user.email)
 				  :value="sharedState.user.email"
 				  v-bind:valueReturn.sync="sharedState.user.email"
 				  customStyle="natural-language"
 		          :onChange="onChangeEmailEvent"
-		            eventNameToListen="changeEmailAccount"
+		          eventNameToListen="changeEmailAccount"
 			  	  /><br>
             </div>
 			<div v-if="loginEmailStep === 'orga-account'">

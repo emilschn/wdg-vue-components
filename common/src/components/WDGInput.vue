@@ -59,6 +59,13 @@
 			  >
 			  {{ suffix }}
 			</span>
+			<span class="input-icon">
+				<span
+					v-if="!multiline && this.icon && this.iconVisibility"
+					:class="[ 'glyphicon', `glyphicon-${this.icon}`, `glyphicon-${this.icon}-${this.shape}` ]"
+					>
+				</span>
+			</span>
 		</ValidationProvider>
 
 		<span v-else>
@@ -104,6 +111,13 @@
 			  >
 			  {{ suffix }}
 			</span>
+			<span class="input-icon">
+				<span
+					v-if="!multiline && this.icon && this.iconVisibility"
+					:class="[ 'glyphicon', `glyphicon-${this.icon}`, `glyphicon-${this.icon}-${this.shape}` ]"
+					>
+				</span>
+			</span>
 		</span>
   	</div>
 </template>
@@ -141,6 +155,9 @@ export default {
 		suffix: { type: String, default: '' },
 		eventNameToListen: { type: String, default: '' },
 		validationRule: { type: String, default: '' },
+        icon: { type: String, default: '' },
+        shape: { type: String, default: '' },
+		iconVisibility: { type: Boolean, default: false },
 		onChange: Function
 	},
 	data () {
@@ -310,5 +327,11 @@ export default {
 
 	.wdg-input.natural-language.admin span.input-prefix, .wdg-input.natural-language.admin span.input-suffix {
 		color: #F1A074;
+	}
+	.wdg-input span.input-icon {
+		position: relative;
+		left: -16px;
+		color: #CEE9C0;
+
 	}
 </style>
