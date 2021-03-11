@@ -52,7 +52,7 @@
 	},
 	"account-signin": {
 		"MASCOT_TEXT_WEDOGOOD": "Sur WE DO GOOD, vous pouvez investir en échange de royalties sur les projets de votre choix et avoir des impacts positifs économiques, sociaux, ou environnementaux. ", 
-		"MASCOT_TEXT_WELCOME": "Bonjour!",
+		"MASCOT_TEXT_WELCOME": "Bonjour ",
 		"MASCOT_TEXT_NOTICE_1": "Nous allons procéder ensemble à votre inscription. Elle ne vous prendra que quelques minutes. ",
 		"MASCOT_TEXT_NOTICE_2": "Pour vous inscrire dans le but d'investir, pensez à préparer ",
 		"MASCOT_TEXT_NOTICE_2bis": "2 pièces d'identité dont au moins une carte d'identité et/ou un passeport.",
@@ -65,7 +65,7 @@
 		"LABEL_NAME": "Je m'appelle :",
 		"CONNECTION": "Connexion",
 		"CONNECT_TO_FACEBOOK": "Se connecter avec Facebook",
-		"FORGOTTEN_PASSWORD": "Mot de passe oublié",
+		"FORGOTTEN_PASSWORD": "Mot de passe oublié ?",
 		"PASSWORD_CONFIRMATION": "Confirmation du mot de passe",
 		"REMEMBER_ME": "Se souvenir de moi",
 		"SIGNIN_ERROR_ORGA": "Cette adresse mail correspond à une organisation. Pour vous connecter, choisissez l'un des comptes ci-dessous.",

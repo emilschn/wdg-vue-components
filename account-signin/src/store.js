@@ -8,7 +8,9 @@ export const store = {
     state: {
 		user: {
 			email: '',
-            password: ''
+            password: '',
+            firstname: '',
+            lastname: ''
         }
     }
 }

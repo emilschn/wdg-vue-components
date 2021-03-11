@@ -7,6 +7,7 @@
 		  :class="color"
 		  @click="onClickLocalEvent"
           >
+        	<span v-show="icon" :class="[ 'glyphicon', `glyphicon-${this.icon}`, `glyphicon-${this.icon}-${this.shape}` ]"></span>
 			<slot name="label"></slot>
         </button>
     </div>
@@ -22,6 +23,8 @@ export default {
 		name: { type: String, default: null },
 		link: { type: String, default: '' },
 		disabled: { type: Boolean, default: false },
+        icon: { type: String, default: '' },
+        shape: { type: String, default: '' },
 		clickEvent: Function
     },
     computed: {
@@ -33,7 +36,7 @@ export default {
 				window.location = this.link
 			}
 			if (this.clickEvent !== undefined) {
-				this.clickEvent()
+				this.clickEvent(this._props)
 			}
 		}
 	}
