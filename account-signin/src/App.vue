@@ -7,17 +7,20 @@
 			<!-- <slot slot="title">{{ $t('project-setup.TITLE') }}</slot> -->
 		</WDGHeader>
 		<TheScreenSignin  />
+		<WDGFooter BGColor="grey" TextColor="black" FooterStyle="account"/>
   </div>
 </template>
 
 <script>
 import WDGHeader from '@/../../common/src/components/WDGHeader'
 import TheScreenSignin from './components/TheScreenSignin.vue'
+import WDGFooter from '@/../../common/src/components/WDGFooter'
 
 export default {
   name: 'App',
   components: {
 	WDGHeader,
+	WDGFooter,
     TheScreenSignin
   }
 }
