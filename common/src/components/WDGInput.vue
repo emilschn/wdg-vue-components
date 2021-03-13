@@ -33,6 +33,7 @@
 
 			<input
 			  v-if="!multiline"
+			  ref="input"
 			  :id="id"
 			  v-model="valueReturn"
 			  :placeholder="placeholder"
@@ -62,7 +63,7 @@
 			<span class="input-icon">
 				<span
 					v-if="!multiline && this.icon && this.iconVisibility"
-					:class="[ 'glyphicon', `glyphicon-${this.icon}`, `glyphicon-${this.icon}-${this.shape}` ]"
+					:class="[ 'glyphicon', `glyphicon-${this.icon}` ]"
 					>
 				</span>
 			</span>
@@ -86,6 +87,7 @@
 			<input
 			  v-if="!multiline"
 			  :id="id"
+			  ref="input"
 			  v-model="valueReturn"
 			  :placeholder="placeholder"
 			  :disabled="disabled"
@@ -114,7 +116,7 @@
 			<span class="input-icon">
 				<span
 					v-if="!multiline && this.icon && this.iconVisibility"
-					:class="[ 'glyphicon', `glyphicon-${this.icon}`, `glyphicon-${this.icon}-${this.shape}` ]"
+					:class="[ 'glyphicon', `glyphicon-${this.icon}` ]"
 					>
 				</span>
 			</span>
@@ -156,7 +158,6 @@ export default {
 		eventNameToListen: { type: String, default: '' },
 		validationRule: { type: String, default: '' },
         icon: { type: String, default: '' },
-        shape: { type: String, default: '' },
 		iconVisibility: { type: Boolean, default: false },
 		onChange: Function
 	},
@@ -219,6 +220,10 @@ export default {
 				sInput = aCutDecimals[ 0 ]
 			}
 			return sInput
+		},
+		// utilisé pour mettre le focus sur ce champ à partir du parent
+		focus: function () {
+			this.$refs.input.focus()
 		}
 	},
 	computed: {
@@ -332,6 +337,5 @@ export default {
 		position: relative;
 		left: -16px;
 		color: #CEE9C0;
-
 	}
 </style>

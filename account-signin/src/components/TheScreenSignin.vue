@@ -79,17 +79,16 @@
                 <br>
                 <div>
                     {{ $t('account-signin.LABEL_CREATE_PASSWORD') }}<br>
-                    <WDGInput
-                    id="password"
-                    name="password"
-                    type="password"
-                    :value="sharedState.user.password"
-                    v-bind:valueReturn.sync="sharedState.user.password"
-                    customStyle="natural-language"
-                    /><br>
+                    <WDGInputPassword
+                        type="password"
+                        :value="sharedState.user.password"
+                        v-bind:valueReturn.sync="sharedState.user.password"
+                        customStyle="natural-language"
+		                :onValidatePassword="onValidatePasswordEvent"
+                        />
                     <div class="info">{{ $t('account-signin.NOTICE_PASSWORD') }}</div><br>
                 </div>
-                <div v-if="sharedState.user.password !== '' && isValidPassword(sharedState.user.password)">
+                <div v-if="sharedState.user.password !== '' && passwordIsValid">
                     {{ $t('account-signin.LABEL_NAME') }}<br>
                     <div class="name">
                         <WDGInput
@@ -110,7 +109,7 @@
                         />
                     </div>
                 </div>
-                <div class="cgu" v-if="sharedState.user.password !== '' && isValidPassword(sharedState.user.password) && sharedState.user.firstname !== '' && sharedState.user.lastname !== ''">
+                <div class="cgu" v-if="sharedState.user.password !== '' && passwordIsValid && sharedState.user.firstname !== '' && sharedState.user.lastname !== ''">
                     <WDGCheckbox
                     id="acceptterms"
                     name="acceptterms"
@@ -144,14 +143,14 @@
                 <br><br>
                 <div>
                     {{ $t('account-signin.LABEL_WRITE_PASSWORD') }}<br>
-                    <WDGInput
-                    id="password"
-                    name="password"
-                    type="password"
-                    :value="sharedState.user.password"
-                    v-bind:valueReturn.sync="sharedState.user.password"
-                    customStyle="natural-language"
-                    /><br><br>
+                    <WDGInputPassword
+                        type="password"
+                        :value="sharedState.user.password"
+                        v-bind:valueReturn.sync="sharedState.user.password"
+                        customStyle="natural-language"
+		                :onValidatePassword="onValidatePasswordEvent"
+                        />
+                    <br><br>
                     <div class="forgotten-password">
                         <a href="/mot-de-passe-oublie/">{{ $t('account-signin.FORGOTTEN_PASSWORD') }}</a>
                     </div><br>
@@ -182,6 +181,7 @@ import { store } from '../store.js'
 import WDGMascot from '@/../../common/src/components/WDGMascot'
 import WDGForm from '@/../../common/src/components/WDGForm'
 import WDGInput from '@/../../common/src/components/WDGInput'
+import WDGInputPassword from '@/../../common/src/components/WDGInputPassword'
 import WDGMessage from '@/../../common/src/components/WDGMessage'
 import WDGCheckbox from '@/../../common/src/components/WDGCheckbox'
 import WDGButton from '@/../../common/src/components/WDGButton'
@@ -193,7 +193,8 @@ export default {
 		WDGMascot,
         WDGMessage,
         WDGCheckbox,
-        WDGButton
+        WDGButton,
+        WDGInputPassword
 	},
 	props: {
 	},
@@ -205,20 +206,13 @@ export default {
 		    acceptterms: false,
             orgaAccounts: { type: Array },
             orgaName: '',
-            rememberme: false
+            rememberme: false,
+		    passwordIsValid: { type: Boolean, default: false }
 		}
 	},
     methods: {
         validateEmail (value) {
             if (/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value)) {
-                return true
-            } else {
-                return false
-            }
-        },
-        isValidPassword (value) {
-            const regex = /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/gm
-            if (regex.test(value)) {
                 return true
             } else {
                 return false
@@ -245,6 +239,9 @@ export default {
                     //
                 }
             }
+        },
+        onValidatePasswordEvent (value) {
+            this.passwordIsValid = true
         },
         getOrgaName () {
             // TODO : aller chercher le nom de cette orga
