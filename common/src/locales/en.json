@@ -142,7 +142,7 @@
 			},
 			"location-types": {
 				"FRANCE": "in France",
-				"EURO": "in the euro zone",
+				"EURO": "Eurozone, UK or Switzerland",
 				"OUT_EURO": "outside the euro zone"
 			},
 			"source-types": {
@@ -259,8 +259,10 @@
 		},
 		"project-result": {
 			"TITLE": "Your project is eligible!",
+			"LINK_CRITERIA": "https://www.wedogood.co/investissement/criteres-selection/",
 			"SUBTITLES_SELECTION_STANDARDS": "subject to fulfilling all our",
 			"SUBTITLES_SELECTION_STANDARDS_LINK": "selection criteria",
+			"SUBTITLES_SELECTION_STANDARDS_LINK_URL": "https://www.wedogood.co/investissement/criteres-selection/",
 			"TITLE_FAILED": "Your project is not eligible...",
 			"YOU_CAN_RAISE": "You can raise it",
 			"TARGET_LOVEMONEY": "with your loved ones",
