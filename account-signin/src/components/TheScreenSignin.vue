@@ -34,6 +34,14 @@
 		          :onChange="onChangeEmailEvent"
 		          eventNameToListen="changeEmailAccount"
 			  	  /><br>
+                <WDGInput
+                    placeholder=""
+                    id="email1"
+                    name="email1"
+                    validationRule="length:0"
+                    v-bind:honeypot="true"
+                    v-bind:valueReturn.sync="honeypot1"
+                    />
             </div>
 			<div v-if="loginEmailStep === 'orga-account'">
                 <!-- le compte existe et c'est une organization -->
@@ -207,7 +215,8 @@ export default {
             orgaAccounts: { type: Array },
             orgaName: '',
             rememberme: false,
-		    passwordIsValid: { type: Boolean, default: false }
+		    passwordIsValid: { type: Boolean, default: false },
+            honeypot1: ''
 		}
 	},
     methods: {
