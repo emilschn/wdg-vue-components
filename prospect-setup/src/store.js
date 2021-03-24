@@ -172,8 +172,8 @@ export const store = {
 	// Fonction de log des erreurs de requetes
 	logRequestError(message) {
 		let data = new FormData()
-		data.append('action', 'prospect_setup_error_catcher')
-		data.append('guid', this.state.guid)
+		data.append('action', 'vuejs_error_catcher')
+		data.append('app', 'prospect_setup::' + this.state.guid)
 		data.append('message', message)
 		axios
 			.post(this.props.ajaxurl, data)
@@ -227,17 +227,16 @@ export const store = {
 					}
 				} else {
 					bus.$root.$emit('updateSaveStatus', 'error')
+					this.logRequestError('saveProject >> error de responseData.save_status >> ' + responseData.save_status)
 				}
 			})
 			.catch(error => {
-				let messageToLog = ''
 				if (error.response) {
 					// The request was made and the server responded with a status code
 					// that falls out of the range of 2xx
 					console.log('error.response')
 					console.log(error.response.data)
 					console.log(error.response.status)
-					messageToLog = '[status::' + error.response.status + '] >> '
 					console.log(error.response.headers)
 				} else if (error.request) {
 					// The request was made but no response was received
@@ -253,8 +252,7 @@ export const store = {
 				console.log('error.toJSON')
 				console.log(error.toJSON())
 				console.log(error.config)
-				messageToLog += error.message
-				this.logRequestError('error >> ' + messageToLog)
+				this.logRequestError('saveProject >> error >> ' + error.toString() + ' >>>> ' + JSON.stringify(error))
 				bus.$root.$emit('updateSaveStatus', 'error')
 			})
 	},
@@ -269,7 +267,7 @@ export const store = {
 		axios
 			.post(this.props.ajaxurl, data, { timeout: 3000 })
 			.catch(error => {
-				this.logRequestError('error >> ' + error.message)
+				this.logRequestError('sendDraftStarted >> error >> ' + error.toString() + ' >>>> ' + JSON.stringify(error))
 			})
 	},
 	sendDraftFinished() {
@@ -283,7 +281,7 @@ export const store = {
 		axios
 			.post(this.props.ajaxurl, data, { timeout: 3000 })
 			.catch(error => {
-				this.logRequestError('error >> ' + error.message)
+				this.logRequestError('sendDraftFinished >> error >> ' + error.toString() + ' >>>> ' + JSON.stringify(error))
 			})
 	},
 	askCardPayment(nAmountToPay) {
@@ -305,6 +303,7 @@ export const store = {
 				if (responseData.has_error === '1') {
 					this.runtime.isLoadingPayment = false
 					console.log(responseData.error_str)
+					this.logRequestError('askCardPayment >> error de responseData.has_error >> ' + responseData.error_str)
 				} else {
 					if (responseData.url_redirect !== '') {
 						window.location = responseData.url_redirect
@@ -312,7 +311,6 @@ export const store = {
 				}
 			})
 			.catch(error => {
-				let messageToLog = ''
 				this.runtime.isLoadingPayment = false
 				if (error.response) {
 					// The request was made and the server responded with a status code
@@ -320,7 +318,6 @@ export const store = {
 					console.log('error.response')
 					console.log(error.response.data)
 					console.log(error.response.status)
-					messageToLog = '[status::' + error.response.status + '] >> '
 					console.log(error.response.headers)
 				} else if (error.request) {
 					// The request was made but no response was received
@@ -336,8 +333,7 @@ export const store = {
 				console.log('error.toJSON')
 				console.log(error.toJSON())
 				console.log(error.config)
-				messageToLog += error.message
-				this.logRequestError('error >> ' + messageToLog)
+				this.logRequestError('askCardPayment >> error >> ' + error.toString() + ' >>>> ' + JSON.stringify(error))
 			})
 	},
 	sendWireSelected(nAmountToPay) {
@@ -352,7 +348,7 @@ export const store = {
 		axios
 			.post(this.props.ajaxurl, data, { timeout: 3000 })
 			.catch(error => {
-				this.logRequestError('error >> ' + error.message)
+				this.logRequestError('sendWireSelected >> error >> ' + error.toString() + ' >>>> ' + JSON.stringify(error))
 			})
 	},
 	sendWireReceived(nAmountToPay) {
@@ -367,7 +363,7 @@ export const store = {
 		axios
 			.post(this.props.ajaxurl, data, { timeout: 3000 })
 			.catch(error => {
-				this.logRequestError('error >> ' + error.message)
+				this.logRequestError('sendWireReceived >> error >> ' + error.toString() + ' >>>> ' + JSON.stringify(error))
 			})
 	}
 }
