@@ -92,11 +92,12 @@
                         :value="sharedState.user.password"
                         v-bind:valueReturn.sync="sharedState.user.password"
                         customStyle="natural-language"
+		                :onChange="onChangePasswordEvent"
 		                :onValidatePassword="onValidatePasswordEvent"
                         />
                     <div class="info">{{ $t('account-signin.NOTICE_PASSWORD') }}</div><br>
                 </div>
-                <div v-if="sharedState.user.password !== '' && passwordIsValid">
+                <div v-if="sharedState.user.password !== '' && passwordIsValid === true">
                     {{ $t('account-signin.LABEL_NAME') }}<br>
                     <div class="name">
                         <WDGInput
@@ -117,7 +118,16 @@
                         />
                     </div>
                 </div>
-                <div class="cgu" v-if="sharedState.user.password !== '' && passwordIsValid && sharedState.user.firstname !== '' && sharedState.user.lastname !== ''">
+                <div class="cgu" v-if="sharedState.user.password !== '' && passwordIsValid === true && sharedState.user.firstname !== '' && sharedState.user.lastname !== ''">
+                     <vue-recaptcha
+                        ref="recaptcha"
+                        @verify="onCaptchaVerified"
+                        @expired="onCaptchaExpired"
+                        :sitekey="sitekey"
+                        :loadRecaptchaScript="true"
+                        >
+                    </vue-recaptcha>
+                    <br>
                     <WDGCheckbox
                     id="acceptterms"
                     name="acceptterms"
@@ -156,6 +166,7 @@
                         :value="sharedState.user.password"
                         v-bind:valueReturn.sync="sharedState.user.password"
                         customStyle="natural-language"
+		                :onChange="onChangePasswordEvent"
 		                :onValidatePassword="onValidatePasswordEvent"
                         />
                     <br><br>
@@ -193,6 +204,7 @@ import WDGInputPassword from '@/../../common/src/components/WDGInputPassword'
 import WDGMessage from '@/../../common/src/components/WDGMessage'
 import WDGCheckbox from '@/../../common/src/components/WDGCheckbox'
 import WDGButton from '@/../../common/src/components/WDGButton'
+import VueRecaptcha from 'vue-recaptcha'
 export default {
 	name: 'TheScreenSignin',
 	components: {
@@ -202,9 +214,11 @@ export default {
         WDGMessage,
         WDGCheckbox,
         WDGButton,
-        WDGInputPassword
+        WDGInputPassword,
+        VueRecaptcha
 	},
 	props: {
+        // define('RECAPTCHA_SECRET', '6LcoHRIUAAAAALw2iKHxMCvfyZ_6eKai92vF4bog');
 	},
 	data () {
 		return {
@@ -212,10 +226,12 @@ export default {
 			sharedState: store.state,
 			userMail: '',
 		    acceptterms: false,
+            acceptcaptcha: false,
             orgaAccounts: { type: Array },
             orgaName: '',
             rememberme: false,
 		    passwordIsValid: { type: Boolean, default: false },
+            sitekey: '6LcoHRIUAAAAALw2iKHxMCvfyZ_6eKai92vF4bog',
             honeypot1: ''
 		}
 	},
@@ -248,6 +264,9 @@ export default {
                     //
                 }
             }
+        },
+        onChangePasswordEvent (value) {
+            this.passwordIsValid = false
         },
         onValidatePasswordEvent (value) {
             this.passwordIsValid = true
@@ -296,10 +315,46 @@ export default {
         },
 		createAccount: function (event) {
 			//
+            // this.$refs.recaptcha.execute()
 		},
 		connectAccount: function (event) {
+            // this.$refs.recaptcha.execute()
 			//
-		}
+		},
+        onCaptchaVerified: function (recaptchaToken) {
+            console.log('onCaptchaVerified: ' + recaptchaToken)
+        //   const self = this;
+        //   self.status = "submitting";
+        //   self.$refs.recaptcha.reset();
+        //   axios.post("https://vue-recaptcha-demo.herokuapp.com/signup", {
+        //     email: self.email,
+        //     password: self.password,
+        //     recaptchaToken: recaptchaToken
+        //   }).then((response) => {
+        //     self.sucessfulServerResponse = response.data.message;
+        //   }).catch((err) => {
+        //     self.serverError = getErrorMessage(err);
+        //     //helper to get a displayable message to the user
+        //     function getErrorMessage(err) {
+        //       let responseBody;
+        //       responseBody = err.response;
+        //       if (!responseBody) {
+        //         responseBody = err;
+        //       }
+        //       else {
+        //         responseBody = err.response.data || responseBody;
+        //       }
+        //       return responseBody.message || JSON.stringify(responseBody);
+        //     }
+
+        //   }).then(() => {
+        //     self.status = "";
+        //   });
+        },
+        onCaptchaExpired: function () {
+            console.log('onCaptchaExpired: ')
+            this.$refs.recaptcha.reset()
+        }
     },
 	computed: {
 		getMascotType () {
