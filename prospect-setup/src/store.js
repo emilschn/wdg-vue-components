@@ -5,10 +5,10 @@ import axios from 'axios'
 export const bus = new Vue()
 
 export const store = {
-    state: {
-        guid: '',
-        step: 'intro',
-        status: '',
+	state: {
+		guid: '',
+		step: 'intro',
+		status: '',
 		authorization: '',
 		hasAuthorizedWire: '0',
 		hasSaved: '0',
@@ -91,13 +91,13 @@ export const store = {
 		{ Id: 'project-investors', Label: i18n.t('project-setup.tabs.MY_INVESTORS'), Index: '3', Subtitle: '', Status: 'incomplete', LinkLabel: '' },
 		{ Id: 'project-result', Label: i18n.t('project-setup.tabs.MY_RESULT'), Subtitle: i18n.t('project-setup.tabs.IN_PROGRESS'), Status: '', LinkLabel: '' }
 	],
-	changeStep (newStep) {
+	changeStep(newStep) {
 		this.state.step = newStep
 
-		let itemInfos = this.tabItems[ 0 ]
-		let itemFunding = this.tabItems[ 1 ]
-		let itemInvestors = this.tabItems[ 2 ]
-		let itemResult = this.tabItems[ 3 ]
+		let itemInfos = this.tabItems[0]
+		let itemFunding = this.tabItems[1]
+		let itemInvestors = this.tabItems[2]
+		let itemResult = this.tabItems[3]
 
 		// item de fin si déjà passé
 		if (itemResult.Status === 'complete') {
@@ -168,7 +168,18 @@ export const store = {
 		}
 		window.scrollTo(0, 0)
 	},
-	saveProject () {
+
+	// Fonction de log des erreurs de requetes
+	logRequestError(message) {
+		let data = new FormData()
+		data.append('action', 'vuejs_error_catcher')
+		data.append('app', 'prospect_setup::' + this.state.guid)
+		data.append('message', message)
+		axios
+			.post(this.props.ajaxurl, data)
+	},
+
+	saveProject() {
 		let shouldSendLink = false
 		if (this.state.hasSaved !== '1') {
 			shouldSendLink = true
@@ -197,8 +208,8 @@ export const store = {
 		data.append('metadata', JSON.stringify(this.state))
 
 		axios
-			.post (this.props.ajaxurl, data)
-			.then (response => {
+			.post(this.props.ajaxurl, data, { timeout: 3000 })
+			.then(response => {
 				let responseData = response.data
 				console.log('then')
 				console.log(responseData)
@@ -216,9 +227,10 @@ export const store = {
 					}
 				} else {
 					bus.$root.$emit('updateSaveStatus', 'error')
+					this.logRequestError('saveProject >> error de responseData.save_status >> ' + responseData.save_status)
 				}
 			})
-			.catch (error => {
+			.catch(error => {
 				if (error.response) {
 					// The request was made and the server responded with a status code
 					// that falls out of the range of 2xx
@@ -240,10 +252,11 @@ export const store = {
 				console.log('error.toJSON')
 				console.log(error.toJSON())
 				console.log(error.config)
+				this.logRequestError('saveProject >> error >> ' + error.toString() + ' >>>> ' + JSON.stringify(error))
 				bus.$root.$emit('updateSaveStatus', 'error')
 			})
 	},
-	sendDraftStarted () {
+	sendDraftStarted() {
 		if (process.env.NODE_ENV === 'development') {
 			return
 		}
@@ -252,9 +265,12 @@ export const store = {
 		data.append('guid', this.state.guid)
 
 		axios
-			.post (this.props.ajaxurl, data)
+			.post(this.props.ajaxurl, data, { timeout: 3000 })
+			.catch(error => {
+				this.logRequestError('sendDraftStarted >> error >> ' + error.toString() + ' >>>> ' + JSON.stringify(error))
+			})
 	},
-	sendDraftFinished () {
+	sendDraftFinished() {
 		if (process.env.NODE_ENV === 'development') {
 			return
 		}
@@ -263,9 +279,12 @@ export const store = {
 		data.append('guid', this.state.guid)
 
 		axios
-			.post (this.props.ajaxurl, data)
+			.post(this.props.ajaxurl, data, { timeout: 3000 })
+			.catch(error => {
+				this.logRequestError('sendDraftFinished >> error >> ' + error.toString() + ' >>>> ' + JSON.stringify(error))
+			})
 	},
-	askCardPayment (nAmountToPay) {
+	askCardPayment(nAmountToPay) {
 		if (process.env.NODE_ENV === 'development') {
 			this.runtime.isLoadingPayment = true
 			return
@@ -277,20 +296,21 @@ export const store = {
 		data.append('amount', nAmountToPay)
 
 		axios
-			.post (this.props.ajaxurl, data)
-			.then (response => {
+			.post(this.props.ajaxurl, data, { timeout: 3000 })
+			.then(response => {
 				let responseData = response.data
 				console.log(responseData)
 				if (responseData.has_error === '1') {
 					this.runtime.isLoadingPayment = false
 					console.log(responseData.error_str)
+					this.logRequestError('askCardPayment >> error de responseData.has_error >> ' + responseData.error_str)
 				} else {
 					if (responseData.url_redirect !== '') {
 						window.location = responseData.url_redirect
 					}
 				}
 			})
-			.catch (error => {
+			.catch(error => {
 				this.runtime.isLoadingPayment = false
 				if (error.response) {
 					// The request was made and the server responded with a status code
@@ -313,9 +333,10 @@ export const store = {
 				console.log('error.toJSON')
 				console.log(error.toJSON())
 				console.log(error.config)
+				this.logRequestError('askCardPayment >> error >> ' + error.toString() + ' >>>> ' + JSON.stringify(error))
 			})
 	},
-	sendWireSelected (nAmountToPay) {
+	sendWireSelected(nAmountToPay) {
 		if (process.env.NODE_ENV === 'development') {
 			return
 		}
@@ -325,9 +346,12 @@ export const store = {
 		data.append('amount', nAmountToPay)
 
 		axios
-			.post (this.props.ajaxurl, data)
+			.post(this.props.ajaxurl, data, { timeout: 3000 })
+			.catch(error => {
+				this.logRequestError('sendWireSelected >> error >> ' + error.toString() + ' >>>> ' + JSON.stringify(error))
+			})
 	},
-	sendWireReceived (nAmountToPay) {
+	sendWireReceived(nAmountToPay) {
 		if (process.env.NODE_ENV === 'development') {
 			return
 		}
@@ -337,6 +361,9 @@ export const store = {
 		data.append('amount', nAmountToPay)
 
 		axios
-			.post (this.props.ajaxurl, data)
+			.post(this.props.ajaxurl, data, { timeout: 3000 })
+			.catch(error => {
+				this.logRequestError('sendWireReceived >> error >> ' + error.toString() + ' >>>> ' + JSON.stringify(error))
+			})
 	}
 }
