@@ -1,19 +1,19 @@
 <template>
 	<div class="header">
         <span class="logo">
-            <a :href="getHomeURL"><img src="@/../../common/src/assets/logo-wdg.png"  alt="WE DO GOOD" /></a>
+            <a :href="getHomeURL"><img src="@/../../common/src/assets/logos/logo-wdg.png"  alt="WE DO GOOD" /></a>
         </span>
 		<span class="title" v-if="hasTitle === true">
 			<slot name="title"></slot>
 		</span>
 		<span class="lang" v-if="langSelector === true">
 			<WDGSelect
-			id="selectLang"
-			name="selectLang"
-			value="fr"
-			:optionItems="langList"
-			:onSelect="onLangSelect"
-			/>
+			  id="lang-select"
+			  name="lang-select"
+			  :optionItems="langList"
+			  :value="$i18n.locale"
+			  v-bind:valueReturn.sync="$i18n.locale"
+			  />
 		</span>
 		<span class="close" v-if="closeButton === true">
 			<WDGButton
@@ -100,6 +100,15 @@ hr {
     border-bottom: 1px solid #f4f2f2;
 	width: 100%;
 }
+.close .wdg-button button {
+	border: 0;
+}
+.lang {
+	align-self: center;
+	width: 45%;
+	text-align: right;
+}
+
 @media screen and (max-width: 767px) {
 .header {
 	align-items: center;

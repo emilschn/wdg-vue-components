@@ -36,7 +36,7 @@
                 <a href="https://bcorporation.net/directory/we-do-good"><img src="@/../../common/src/assets/logos/bw_bcorp.svg"  alt="CERTIFIE B CORPS" /></a>
             </div>
         </div>
-		<div class="subfooter">
+		<div class="subfooter" v-if="FooterStyle == 'prospect-setup'">
 			<WDGSelect
 			  id="lang-select"
 			  name="lang-select"
