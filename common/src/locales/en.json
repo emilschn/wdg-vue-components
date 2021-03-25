@@ -333,10 +333,12 @@
 			"not-eligible": {
 				"PROJECT_DOESNT_SEEM_ELIGIBLE": "Your project does not appear to be eligible...",
 				"POSSIBLE_REASONS": "Here are the possible reasons:",
-				"MICROBUSINESS": "you work as a sole proprietorship or micro-enterprise",
-				"OUT_EURO": "your company is or will not be registered in the euro zone",
-				"NOT_ADAPTED": "the royalties model cannot be adapted to your business model",
-				"NEED_LOVEMONEY": "crowdfunding requires the mobilisation of those around you to get off to a good start",
+				"MICROBUSINESS": "You work as a sole proprietorship or micro-enterprise.",
+				"OUT_EURO": "Your company is or will not be registered in the euro zone.",
+				"NOT_ADAPTED": "The royalties model might not be adapted to your business model.",
+				"NEED_LOVEMONEY": "Crowdfunding requires the mobilisation of those around you to get off to a good start.",
+				"MADE_MISTAKE": "Did you make a mistake?",
+				"CORRECT_MISTAKE": "Correct information",
 				"SPECIFIC_PROJECT": "Your project is specific and could still benefit from royalties (longer duration, financing of equipment with margin...)",
 				"SEND_EMAIL": "Send us an email at projects@wedogood.co"
 			},
