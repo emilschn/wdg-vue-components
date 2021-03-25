@@ -12,5 +12,10 @@ export const store = {
             firstname: '',
             lastname: ''
         }
-    }
+    },
+	props: {
+		ajaxURL: '',
+		initFileList: [],
+		capacities: []
+	}
 }

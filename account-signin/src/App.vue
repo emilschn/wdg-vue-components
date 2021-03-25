@@ -2,6 +2,8 @@
   <div
     id="app"
 	class="account-signin"
+	:data-ajaxurl="sharedProps.ajaxurl"
+	:data-locale="sharedProps.locale"
   	>
 		<WDGHeader
 			v-bind:hasTitle=false
@@ -14,9 +16,12 @@
 </template>
 
 <script>
+import i18n from '@/i18n'
+import { store } from './store.js'
 import WDGHeader from '@/../../common/src/components/WDGHeader'
 import TheScreenSignin from './components/TheScreenSignin.vue'
 import WDGFooter from '@/../../common/src/components/WDGFooter'
+const initElements = document.querySelector('#app')
 
 export default {
   name: 'App',
@@ -24,7 +29,25 @@ export default {
 	WDGHeader,
 	WDGFooter,
     TheScreenSignin
-  }
+  },
+	data () {
+		return {
+			sharedState: store.state,
+			sharedProps: store.props
+		}
+	},
+  	created () {
+		this.sharedProps.ajaxurl = initElements.dataset.ajaxurl
+		this.sharedProps.locale = initElements.dataset.locale
+		// Pas génial mais nécessaire pour le menu qui est chargé avant dans le store
+		i18n.locale = this.sharedProps.locale
+		if (i18n.locale !== 'fr') {
+			// store.tabItems[0].Label = i18n.t('project-setup.tabs.MY_PROJECT')
+			// store.tabItems[1].Label = i18n.t('project-setup.tabs.MY_FUNDING')
+			// store.tabItems[2].Label = i18n.t('project-setup.tabs.MY_INVESTORS')
+			// store.tabItems[3].Label = i18n.t('project-setup.tabs.MY_RESULT')
+		}
+  	}
 }
 </script>
 
