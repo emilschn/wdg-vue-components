@@ -1,24 +1,74 @@
 <template>
 	<div class="header">
         <span class="logo">
-            <!-- TODO : récupérer home_url -->
-            <a href="https://www.wedogood.co/"><img src="@/../../common/src/assets/logo-wdg.png"  alt="WE DO GOOD" /></a>
+            <a :href="getHomeURL"><img src="@/../../common/src/assets/logo-wdg.png"  alt="WE DO GOOD" /></a>
         </span>
-        <!-- TODO : prévoir qu'on puisse afficher le menu ou juste un titre -->
-		<span class="title">
+		<span class="title" v-if="hasTitle === true">
 			<slot name="title"></slot>
+		</span>
+		<span class="lang" v-if="langSelector === true">
+			<WDGSelect
+			id="selectLang"
+			name="selectLang"
+			value="fr"
+			:optionItems="langList"
+			:onSelect="onLangSelect"
+			/>
+		</span>
+		<span class="close" v-if="closeButton === true">
+			<WDGButton
+			color="transparent"
+			type="button"
+			:clickEvent="closeApp"
+			>
+				<slot slot="label">X</slot>
+			</WDGButton>
 		</span>
         <hr>
 	</div>
 </template>
 
 <script>
+import WDGSelect from '@/../../common/src/components/WDGSelect'
+import WDGButton from '@/../../common/src/components/WDGButton'
 
 export default {
 	name: 'WDGHeader',
 	components: {
+		WDGSelect,
+		WDGButton
 	},
 	props: {
+        langSelector: { type: Boolean, default: false },
+		closeButton: {type: Boolean, default: false},
+		hasTitle: {type: Boolean, default: true}
+	},
+	computed: {
+		getHomeURL () {
+            // TODO : récupérer home_url
+			if (process.env.NODE_ENV === 'development') {
+				return 'http://wedogood.local/'
+			} else {
+				return 'https://www.wedogood.co/'
+			}
+		}
+	},
+	data () {
+		return {
+			langList: [
+				{ 'Id': 'fr', 'Text': 'FR' },
+				{ 'Id': 'en', 'Text': 'EN' }
+			]
+		}
+	},
+	methods: {
+		closeApp: function () {
+			// home URL ou page précédente ?
+        	location.href = this.getHomeURL
+		},
+		onLangSelect (sSelectedLang) {
+			console.log('onLangSelect sSelectedLang = ' + sSelectedLang)
+		}
 	}
 }
 </script>

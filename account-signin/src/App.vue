@@ -3,9 +3,11 @@
     id="app"
 	class="account-signin"
   	>
-		<WDGHeader>
-			<!-- <slot slot="title">{{ $t('project-setup.TITLE') }}</slot> -->
-		</WDGHeader>
+		<WDGHeader
+			v-bind:hasTitle=false
+			v-bind:langSelector=true
+			v-bind:closeButton=true
+			/>
 		<TheScreenSignin  />
 		<WDGFooter BGColor="grey" TextColor="black" FooterStyle="account"/>
   </div>
