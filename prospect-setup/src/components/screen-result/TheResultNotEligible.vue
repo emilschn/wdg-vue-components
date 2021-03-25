@@ -75,7 +75,7 @@ export default {
 				store.changeStep('project-funding')
 
 			// Si le PP n'est pas prêt à communiquer, on revient à la classification des investisseurs
-			} else if (this.isRejectReasonRoyalties) {
+			} else if (this.isRejectReasonCommunication) {
 				store.changeStep('project-investors')
 			}
 		}
