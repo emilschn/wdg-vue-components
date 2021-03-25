@@ -43,6 +43,8 @@ export default {
 	margin: 16px 15px;
 	font-size: 30px;
 	font-weight: bold;
+	text-transform: none;
+	font-family: Poppins,Trebuchet MS,sans-serif;
 }
 
 .the-tab-title .the-tab-title-picto {

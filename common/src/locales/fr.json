@@ -166,7 +166,7 @@
 			},
 			"location-types": {
 				"FRANCE": "en France",
-				"EURO": "en Zone Euro",
+				"EURO": "en Zone Euro, Royaume Uni ou Suisse",
 				"OUT_EURO": "hors Zone Euro"
 			},
 			"source-types": {
@@ -283,8 +283,10 @@
 		},
 		"project-result": {
 			"TITLE": "Votre projet est éligible !",
+			"LINK_CRITERIA": "https://www.wedogood.co/investissement/criteres-selection/",
 			"SUBTITLES_SELECTION_STANDARDS": "sous réserve de respecter l'ensemble de nos",
 			"SUBTITLES_SELECTION_STANDARDS_LINK": "critères de sélection",
+			"SUBTITLES_SELECTION_STANDARDS_LINK_URL": "https://www.wedogood.co/investissement/criteres-selection/",
 			"TITLE_FAILED": "Votre projet n'est pas éligible...",
 			"YOU_CAN_RAISE": "Vous pouvez lever",
 			"TARGET_LOVEMONEY": "auprès de vos proches",
@@ -355,10 +357,12 @@
 			"not-eligible": {
 				"PROJECT_DOESNT_SEEM_ELIGIBLE": "Votre projet ne semble pas éligible...",
 				"POSSIBLE_REASONS": "Voici les raisons possibles :",
-				"MICROBUSINESS": "vous travaillez en tant qu’entreprise individuelle ou micro-entreprise",
-				"OUT_EURO": "votre entreprise n'est ou ne sera pas immatriculée en zone Euro",
-				"NOT_ADAPTED": "le modèle des royalties n'est peut-être pas adapté à votre modèle économique",
-				"NEED_LOVEMONEY": "un financement participatif requiert une mobilisation de votre entourage pour bien démarrer",
+				"MICROBUSINESS": "Vous travaillez en tant qu’entreprise individuelle ou micro-entreprise.",
+				"OUT_EURO": "Votre entreprise n'est ou ne sera pas immatriculée en zone Euro.",
+				"NOT_ADAPTED": "Le modèle des royalties n'est peut-être pas adapté à votre modèle économique.",
+				"NEED_LOVEMONEY": "Un financement participatif requiert une mobilisation de votre entourage pour bien démarrer.",
+				"MADE_MISTAKE": "Vous avez fait une erreur ?",
+				"CORRECT_MISTAKE": "Corriger mes informations",
 				"SPECIFIC_PROJECT": "Votre projet est particulier et pourrait tout de même bénéficier des royalties (durée plus longue, financement de matériel avec marge...) ?",
 				"SEND_EMAIL": "Envoyez-nous un mail à projets@wedogood.co"
 			},

@@ -4,6 +4,7 @@
 	  class="prospect-setup"
 	  :data-guid="sharedState.guid"
 	  :data-ajaxurl="sharedProps.ajaxurl"
+	  :data-locale="sharedProps.locale"
 	  >
 		<WDGHeader>
 			<slot slot="title">{{ $t('project-setup.TITLE') }}</slot>
@@ -37,6 +38,7 @@
 
 <script>
 import axios from 'axios'
+import i18n from '@/i18n'
 import { store } from './store.js'
 import WDGHeader from '@/../../common/src/components/WDGHeader'
 import WDGTabs from '@/../../common/src/components/WDGTabs'
@@ -73,6 +75,26 @@ export default {
 	created () {
 		this.sharedState.guid = initElements.dataset.guid
 		this.sharedProps.ajaxurl = initElements.dataset.ajaxurl
+		this.sharedProps.locale = initElements.dataset.locale
+
+		let tempLocale = 'fr'
+		if (initElements.dataset.locale !== undefined && initElements.dataset.locale !== '') {
+			if (initElements.dataset.locale.indexOf('_') > -1) {
+				let splitLocale = initElements.dataset.locale.split('_')
+				tempLocale = splitLocale[0]
+			} else {
+				tempLocale = initElements.dataset.locale
+			}
+		}
+		i18n.locale = tempLocale
+
+		// Pas génial mais nécessaire pour le menu qui est chargé avant dans le store
+		if (i18n.locale !== 'fr') {
+			store.tabItems[0].Label = i18n.t('project-setup.tabs.MY_PROJECT')
+			store.tabItems[1].Label = i18n.t('project-setup.tabs.MY_FUNDING')
+			store.tabItems[2].Label = i18n.t('project-setup.tabs.MY_INVESTORS')
+			store.tabItems[3].Label = i18n.t('project-setup.tabs.MY_RESULT')
+		}
 
 		if (this.sharedState.guid !== undefined) {
 			this.loading = true
