@@ -10,7 +10,8 @@
 			v-bind:langSelector=true
 			v-bind:closeButton=true
 			/>
-		<TheScreenSignin  />
+		<TheScreenSignin v-if="sharedState.step === 'signin'" />
+		<TheScreenConfirmation v-if="sharedState.step === 'confirmation'" />
 		<WDGFooter BGColor="grey" TextColor="black" FooterStyle="account"/>
   </div>
 </template>
@@ -20,6 +21,7 @@ import i18n from '@/i18n'
 import { store } from './store.js'
 import WDGHeader from '@/../../common/src/components/WDGHeader'
 import TheScreenSignin from './components/TheScreenSignin.vue'
+import TheScreenConfirmation from './components/TheScreenConfirmation.vue'
 import WDGFooter from '@/../../common/src/components/WDGFooter'
 const initElements = document.querySelector('#app')
 
@@ -28,7 +30,8 @@ export default {
   components: {
 	WDGHeader,
 	WDGFooter,
-    TheScreenSignin
+    TheScreenSignin,
+	TheScreenConfirmation
   },
 	data () {
 		return {
@@ -40,7 +43,16 @@ export default {
 		this.sharedProps.ajaxurl = initElements.dataset.ajaxurl
 		this.sharedProps.locale = initElements.dataset.locale
 		// Pas génial mais nécessaire pour le menu qui est chargé avant dans le store
-		i18n.locale = this.sharedProps.locale
+		let tempLocale = 'fr'
+		if (initElements.dataset.locale !== undefined && initElements.dataset.locale !== '') {
+			if (initElements.dataset.locale.indexOf('_') > -1) {
+				let splitLocale = initElements.dataset.locale.split('_')
+				tempLocale = splitLocale[0]
+			} else {
+				tempLocale = initElements.dataset.locale
+			}
+		}
+		i18n.locale = tempLocale
 		if (i18n.locale !== 'fr') {
 			// store.tabItems[0].Label = i18n.t('project-setup.tabs.MY_PROJECT')
 			// store.tabItems[1].Label = i18n.t('project-setup.tabs.MY_FUNDING')

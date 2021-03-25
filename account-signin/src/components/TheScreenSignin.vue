@@ -314,12 +314,12 @@ export default {
 			return false
         },
 		createAccount: function (event) {
-			//
-            // this.$refs.recaptcha.execute()
+            store.setCreationTag(true)
+			store.changeStep('confirmation')
 		},
 		connectAccount: function (event) {
-            // this.$refs.recaptcha.execute()
-			//
+            store.setCreationTag(false)
+			store.changeStep('confirmation')
 		},
         onCaptchaVerified: function (recaptchaToken) {
             console.log('onCaptchaVerified: ' + recaptchaToken)
