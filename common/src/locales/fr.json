@@ -52,7 +52,7 @@
 		"SIGNUP_ERROR_ROBOT": "Merci de cocher la case confirmant que vous n'êtes pas un robot."
 	},
 	"account-signin": {
-		"MASCOT_TEXT_WEDOGOOD": "Sur WE DO GOOD, vous pouvez investir en échange de royalties sur les projets de votre choix et avoir des impacts positifs économiques, sociaux, ou environnementaux. ", 
+		"MASCOT_TEXT_WEDOGOOD": "Sur WE DO GOOD, vous pouvez investir en échange de royalties sur les projets de votre choix et avoir des impacts positifs économiques, sociaux, ou environnementaux. ",
 		"MASCOT_TEXT_WELCOME": "Bonjour ",
 		"MASCOT_TEXT_NOTICE_1": "Nous allons procéder ensemble à votre inscription. Elle ne vous prendra que quelques minutes. ",
 		"MASCOT_TEXT_NOTICE_2": "Pour vous inscrire dans le but d'investir, pensez à préparer ",
@@ -86,7 +86,7 @@
 		"FORGOTTEN_PASS_TITLE": "Récupération de mot de passe",
 		"FORGOTTEN_PASS_TEXT_1": "Vous avez oublié votre mot de passe ? Pas d'inquiétude : indiquez votre adresse mail de connexion ci-dessous et vous recevrez les instructions par mail afin de le réinitialiser.",
 		"FORGOTTEN_PASS_TEXT_2": "Si vous ne vous souvenez plus de l'adresse mail utilisée pour vous connecter, contactez-nous via le chat en ligne ou le formulaire de contact afin que l'on puisse vous guider.",
-		"FORGOTTEN_PASS_BUTTON": "Réinitialiser le mot de passe"    
+		"FORGOTTEN_PASS_BUTTON": "Réinitialiser le mot de passe"
 	},
 	"launch-project": {
 		"TITLE": "Lancement de levée de fonds",

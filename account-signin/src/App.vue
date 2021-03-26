@@ -21,7 +21,7 @@
 import i18n from '@/i18n'
 import { store } from './store.js'
 import WDGHeader from '@/../../common/src/components/WDGHeader'
-import TheScreenSignin from './components/TheScreenSignin.vue'
+import TheScreenSignin from './components/screen-signin/TheScreenSignin.vue'
 import TheScreenConfirmation from './components/TheScreenConfirmation.vue'
 import TheScreenForgottenPassword from './components/TheScreenForgottenPassword.vue'
 import WDGFooter from '@/../../common/src/components/WDGFooter'
@@ -56,21 +56,14 @@ export default {
 			}
 		}
 		i18n.locale = tempLocale
-		if (i18n.locale !== 'fr') {
-			// store.tabItems[0].Label = i18n.t('project-setup.tabs.MY_PROJECT')
-			// store.tabItems[1].Label = i18n.t('project-setup.tabs.MY_FUNDING')
-			// store.tabItems[2].Label = i18n.t('project-setup.tabs.MY_INVESTORS')
-			// store.tabItems[3].Label = i18n.t('project-setup.tabs.MY_RESULT')
-		}
   	}
 }
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,500;0,700;1,500&display=swap');
 @import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css');
 body, input, select, button {
-	font-family: Poppins,Trebuchet MS,sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	color: #333;
 }
 div.account-signin {

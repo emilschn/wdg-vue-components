@@ -28,7 +28,15 @@ export default {
     },
     computed: {
 		getIcon: function () {
-			return require('@/../../common/src/assets/icons/' + this.icon)
+			let iconSrc = ''
+			if (this.iconSVG !== '') {
+				iconSrc = this.iconSVG
+			} else if (this.iconFont !== '') {
+				iconSrc = this.iconFont
+			} else if (this.iconColor !== '') {
+				iconSrc = this.iconColor
+			}
+			return require('@/../../common/src/assets/icons/' + iconSrc)
 		}
     }
 }
