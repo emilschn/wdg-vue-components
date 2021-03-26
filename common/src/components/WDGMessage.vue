@@ -1,6 +1,7 @@
 <template>
     <div class="wdg-message">
-		<span v-if="icon !== null" class="icon">
+        <span v-show="iconFont" :class="[ 'glyphicon', `glyphicon-${this.iconFont}`, 'icon-'+iconColor ]"></span>
+		<span v-if="iconSVG !== null" class="icon">
 			<svg width="40" height="40">
 				<image
 				:href="getIcon"
@@ -21,7 +22,9 @@ export default {
 	name: 'WDGMessage',
 	props: {
 		id: { type: String, default: null },
-		icon: { type: String, default: null }
+		iconSVG: { type: String, default: null },
+        iconFont: { type: String, default: null },
+		iconColor: { type: String, default: 'black' }
     },
     computed: {
 		getIcon: function () {
@@ -45,5 +48,41 @@ export default {
 }
 .wdg-message .text {
 	left: 20px;
+}
+.wdg-message .icon-white {
+	font-size: 20px;
+    color: #FFFFFF;
+}
+.wdg-message .icon-black {
+	font-size: 20px;
+    color: #333333;
+}
+.wdg-message .icon-blue {
+	font-size: 20px;
+    color: #00879B;
+}
+.wdg-message .icon-red {
+	font-size: 20px;
+    color: #EA4F51;
+}
+.wdg-message .icon-yellow {
+	font-size: 20px;
+    color: #EBCE67;
+}
+.wdg-message .icon-green {
+	font-size: 20px;
+    color: #5EB82C;
+}
+.wdg-message .icon-grey {
+	font-size: 20px;
+    color: #e1e2e3;
+}
+.wdg-message .icon-palegreen {
+	font-size: 20px;
+    color: #CEE9C0;
+}
+.wdg-message .icon-pink {
+	font-size: 20px;
+    color: #F9CBCB;
 }
 </style>

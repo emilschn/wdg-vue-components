@@ -25,6 +25,8 @@ export const store = {
 		window.scrollTo(0, 0)
 	},
 	setCreationTag (value) {
+		// Je n'ai pas réussi à changer directement cette prop depuis un composant, d'où cette fonction nullissime
+		// faut que je revoie ça
 		this.state.creation = value
 	}
 }

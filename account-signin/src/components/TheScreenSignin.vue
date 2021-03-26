@@ -48,7 +48,7 @@
 		        <br>
                 <WDGMessage
 				  id="message"
-                  icon="info.svg"
+                  iconSVG="info.svg"
                   >
 					<slot slot="label">{{ $t('account-signin.SIGNIN_ERROR_ORGA') }}</slot>
                 </WDGMessage><br>
@@ -80,7 +80,7 @@
 		        <br>
                 <WDGMessage
 				  id="message"
-                  icon="info.svg"
+                  iconSVG="info.svg"
                   >
 					<slot slot="label">{{ $t('account-signin.SIGNIN_ERROR_NOT_FOUND') }}</slot>
                 </WDGMessage>
@@ -171,7 +171,7 @@
                         />
                     <br><br>
                     <div class="forgotten-password">
-                        <a href="/mot-de-passe-oublie/">{{ $t('account-signin.FORGOTTEN_PASSWORD') }}</a>
+                        <a @click="onForgottenPassword">{{ $t('account-signin.FORGOTTEN_PASSWORD') }}</a>
                     </div><br>
                     <WDGCheckbox
                     id="rememberme"
@@ -302,6 +302,7 @@ export default {
         isOrgaAccount () {
             // TODO : vérifier ce mail correspond à une orga
             if (this.sharedState.user.email === 'orga@wedogood.co') {
+                this.sharedState.isOrgaAccount = true
                 return true
             }
 			return false
@@ -309,6 +310,7 @@ export default {
         isFacebookConnection () {
             // TODO : vérifier  ce mail correspond à une connexion avec facebook
             if (this.sharedState.user.email === 'facebook@wedogood.co' || this.sharedState.user.email === 'marianne@wadogood.co') {
+                this.sharedState.isFacebookAccount = true
                 return true
             }
 			return false
@@ -321,6 +323,9 @@ export default {
             store.setCreationTag(false)
 			store.changeStep('confirmation')
 		},
+        onForgottenPassword: function () {
+			store.changeStep('forgotten-pass')
+        },
         onCaptchaVerified: function (recaptchaToken) {
             console.log('onCaptchaVerified: ' + recaptchaToken)
         //   const self = this;
@@ -439,7 +444,12 @@ export default {
         margin-top: 10px;
         max-width: 370px;
     }
-    .wdg-mascot{
+    div.the-screen-signin a {
+        color: #EA4F51;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+    .the-screen-signin .wdg-mascot{
         max-width: 300px;
     }
 @media only screen and (max-width: 767px) {

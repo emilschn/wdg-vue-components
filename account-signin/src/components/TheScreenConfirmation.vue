@@ -6,7 +6,7 @@
         <div v-else>
             <WDGMessage
                 id="message"
-                icon="info.svg"
+                iconSVG="info.svg"
                 >
                 <slot slot="label">{{ $t('account-signin.CONFIRMATION_EXPLICATION') }}</slot>
             </WDGMessage>
@@ -61,7 +61,8 @@
                             <WDGMessage
                                 v-if="newMailSent === true"
                                 id="message"
-                                icon="info.svg"
+                                iconFont="ok"
+                                iconColor="palegreen"
                                 >
                                 <slot slot="label">{{ $t('account-signin.CONFIRMATION_MAIL_SENT') }}</slot>
                             </WDGMessage>

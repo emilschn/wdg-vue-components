@@ -82,7 +82,11 @@
 		"CONFIRMATION_EXPLICATION": "Dans le cadre de la refonte de notre site et pour que la communication entre nous soit optimale, nous procédons à une vérification des adresses e-mail de tous nos utilisateurs.",
 		"CONFIRMATION_CHANGE_MAIL": "Je souhaite changer mon adresse e-mail",
 		"CONFIRMATION_NEW_MAIL": "Ma nouvelle adresse e-mail est ",
-		"CONFIRMATION_MAIL_SENT": "Très bien ! Un nouvel e-mail vous a été envoyé."
+		"CONFIRMATION_MAIL_SENT": "Très bien ! Un nouvel e-mail vous a été envoyé.",
+		"FORGOTTEN_PASS_TITLE": "Récupération de mot de passe",
+		"FORGOTTEN_PASS_TEXT_1": "Vous avez oublié votre mot de passe ? Pas d'inquiétude : indiquez votre adresse mail de connexion ci-dessous et vous recevrez les instructions par mail afin de le réinitialiser.",
+		"FORGOTTEN_PASS_TEXT_2": "Si vous ne vous souvenez plus de l'adresse mail utilisée pour vous connecter, contactez-nous via le chat en ligne ou le formulaire de contact afin que l'on puisse vous guider.",
+		"FORGOTTEN_PASS_BUTTON": "Réinitialiser le mot de passe"    
 	},
 	"launch-project": {
 		"TITLE": "Lancement de levée de fonds",
