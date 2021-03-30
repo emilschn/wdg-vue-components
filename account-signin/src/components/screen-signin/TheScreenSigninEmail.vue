@@ -83,18 +83,18 @@ export default {
 
 			if (this.sharedState.user.email === '') {
 				this.loading = false
-				// this.onEmailChanged({ status: 'empty-email' })
+				this.onEmailChanged({ status: 'empty-email' })
 			} else if (!this.isEmailValid(this.sharedState.user.email)) {
 				this.loading = false
 				this.onEmailChanged({ status: 'bad-email' })
 			} else {
 				// Récupération des informations de compte via requete Ajax
-				requests.getEmailAddressInfo(this.sharedState.user.email, this.onEmailRequestResult)
+				requests.getEmailAddressInfo(this.sharedState.user.email, this.onEmailRequestResultEvent)
 			}
 		},
 
 		// A la réception de la requête de recherche de mail
-		onEmailRequestResult (requestResult) {
+		onEmailRequestResultEvent (requestResult) {
 			this.loading = false
 			this.onEmailChanged(requestResult)
 		}
@@ -103,4 +103,8 @@ export default {
 </script>
 
 <style>
+div.wdg-loader {
+	max-width: 370px;
+	text-align: center;
+}
 </style>

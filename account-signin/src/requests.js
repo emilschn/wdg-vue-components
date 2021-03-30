@@ -31,7 +31,6 @@ export const requests = {
 				let responseData = response.data
 				console.log('then')
 				console.log(responseData)
-				bus.$root.$emit('updateSaveStatus', 'error')
 				functionReturn(responseData)
 			})
 			.catch(error => {
@@ -39,7 +38,33 @@ export const requests = {
 				console.log(error.toJSON())
 				console.log(error.config)
 				this.logRequestError('getEmailAddressInfo >> error >> ' + error.toString() + ' >>>> ' + JSON.stringify(error))
-				bus.$root.$emit('updateSaveStatus', 'error')
+				functionReturn('error')
+			})
+	},
+
+	/**
+	 * Fonction de vérification de correspondance email/mot de passe
+	 */
+	getCheckPassword(emailAddress, password, rememberme, functionReturn) {
+		console.log('getCheckPassword >> ' + emailAddress)
+		let data = new FormData()
+		data.append('action', 'account_signin_check_password')
+		data.append('email-address', emailAddress)
+		data.append('password', password)
+		data.append('rememberme', rememberme)
+		axios
+			.post(store.props.ajaxurl, data, { timeout: 10000 })
+			.then(response => {
+				let responseData = response.data
+				console.log('then')
+				console.log(responseData)
+				functionReturn(responseData)
+			})
+			.catch(error => {
+				console.log('error.toJSON')
+				console.log(error.toJSON())
+				console.log(error.config)
+				this.logRequestError('getCheckPassword >> error >> ' + error.toString() + ' >>>> ' + JSON.stringify(error))
 				functionReturn('error')
 			})
 	}

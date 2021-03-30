@@ -1,20 +1,20 @@
 <template>
-    <div class="wdg-message">
-        <span v-show="iconFont" :class="[ 'glyphicon', `glyphicon-${this.iconFont}`, 'icon-'+iconColor ]"></span>
+	<div class="wdg-message">
+		<span v-show="iconFont" :class="[ 'glyphicon', `glyphicon-${this.iconFont}`, 'icon-'+iconColor ]"></span>
 		<span v-if="iconSVG !== null" class="icon">
 			<svg width="40" height="40">
 				<image
-				:href="getIcon"
-				:src="getIcon"
-				width="40"
-				height="40"
-				/>
+				  :href="getIcon"
+				  :src="getIcon"
+				  width="40"
+				  height="40"
+				  />
 			</svg>
 		</span>
 		<span class="text">
 			<slot name="label"></slot>
 		</span>
-    </div>
+	</div>
 </template>
 
 <script>

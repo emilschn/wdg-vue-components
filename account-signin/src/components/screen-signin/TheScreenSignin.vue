@@ -129,42 +129,13 @@
 				  >
 					<slot slot="label">{{ $t('common.CONTINUE') }}</slot>
 				</WDGButton>
-            </div>
+			</div>
 
 			<!-- le compte existe on se connecte avec mot de passe -->
-			<div v-else-if="loginEmailStep === 'existing-account'">
-				<br><br>
-				<div>
-					{{ $t('account-signin.LABEL_WRITE_PASSWORD') }}<br>
-					<WDGInputPassword
-					  type="password"
-					  :value="sharedState.user.password"
-					  v-bind:valueReturn.sync="sharedState.user.password"
-					  customStyle="natural-language"
-					  :onChange="onChangePasswordEvent"
-					  :onValidatePassword="onValidatePasswordEvent"
-					  />
-					<br><br>
-					<div class="forgotten-password">
-						<a @click="onForgottenPassword">{{ $t('account-signin.FORGOTTEN_PASSWORD') }}</a>
-					</div><br>
-					<WDGCheckbox
-					  id="rememberme"
-					  name="rememberme"
-					  v-bind:valueReturn.sync="rememberme"
-					  >
-						<slot slot="label">{{ $t('account-signin.REMEMBER_ME') }}</slot>
-					</WDGCheckbox>
-					<WDGButton
-					  v-if="canShowConnexion"
-					  color="red"
-					  type="button"
-					  :clickEvent="connectAccount"
-					  >
-						<slot slot="label">{{ $t('account-signin.CONNECTION') }}</slot>
-					</WDGButton>
-				</div>
-			</div>
+			<TheScreenSigninPassword
+			  v-else-if="loginEmailStep === 'existing-account'"
+			  :onLoginSuccess="onLoginSuccessEvent"
+			  />
 		</WDGForm>
 	</div>
 </template>
@@ -173,6 +144,7 @@
 // import i18n from '@/i18n'
 import { store } from '../../store.js'
 import TheScreenSigninEmail from '@/../../account-signin/src/components/screen-signin/TheScreenSigninEmail'
+import TheScreenSigninPassword from '@/../../account-signin/src/components/screen-signin/TheScreenSigninPassword'
 import WDGMascot from '@/../../common/src/components/WDGMascot'
 import WDGForm from '@/../../common/src/components/WDGForm'
 import WDGInput from '@/../../common/src/components/WDGInput'
@@ -185,6 +157,7 @@ export default {
 	name: 'TheScreenSignin',
 	components: {
 		TheScreenSigninEmail,
+		TheScreenSigninPassword,
 		WDGForm,
 		WDGInput,
 		WDGMascot,
@@ -203,12 +176,14 @@ export default {
 			acceptcaptcha: false,
 			orgaAccounts: { type: Array },
 			orgaName: '',
-			rememberme: false,
 			passwordIsValid: { type: Boolean, default: false },
 			sitekey: '6LcoHRIUAAAAALw2iKHxMCvfyZ_6eKai92vF4bog'
 		}
 	},
 	methods: {
+		/**
+		 * Fin de l'analyse de la modification de l'e-mail saisi
+		 */
 		onEmailChangedEvent (result) {
 			this.loginEmailStep = result.status
 			if (result.organizationname !== undefined && result.organizationname !== '') {
@@ -228,6 +203,14 @@ export default {
 				this.sharedState.user.name = result.firstname + ' ' + result.lastname
 			}
 		},
+
+		/**
+		 * La requête d'identification a retourné succès
+		 */
+		onLoginSuccessEvent () {
+			store.changeStep('confirmation')
+		},
+
 		onChangePasswordEvent (value) {
 			this.passwordIsValid = false
 		},
@@ -247,13 +230,6 @@ export default {
 		createAccount: function (event) {
 			store.setCreationTag(true)
 			store.changeStep('confirmation')
-		},
-		connectAccount: function (event) {
-			store.setCreationTag(false)
-			store.changeStep('confirmation')
-		},
-		onForgottenPassword: function () {
-			store.changeStep('forgotten-pass')
 		},
 		onCaptchaVerified: function (recaptchaToken) {
 			console.log('onCaptchaVerified: ' + recaptchaToken)
@@ -312,15 +288,6 @@ export default {
 				this.sharedState.user.firstname !== '' &&
 				this.sharedState.user.lastname !== '' &&
 				this.acceptterms !== false
-			)
-		},
-		canShowConnexion () {
-			if (process.env.NODE_ENV === 'development') {
-				// return true
-			}
-			return (
-				this.sharedState.user.email !== '' &&
-				this.sharedState.user.password !== ''
 			)
 		}
 	}

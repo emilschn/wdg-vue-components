@@ -62,6 +62,7 @@
 		"SIGNIN_ERROR_NOT_FOUND": "Vous n'avez pas encore de compte, choisissez un mot de passe pour en créer un.",
 		"LABEL_CREATE_PASSWORD": "Je choisis mon mot de passe :",
 		"LABEL_WRITE_PASSWORD": "Je saisis mon mot de passe :",
+		"ERROR_PASSWORD": "Il y a une erreur dans votre mot de passe",
 		"NOTICE_PASSWORD": "Votre mot de passe doit comporter au minimum 8 caractères et être composé de lettres majuscules, minuscules et de chiffres.",
 		"LABEL_NAME": "Je m'appelle :",
 		"CONNECTION": "Connexion",
