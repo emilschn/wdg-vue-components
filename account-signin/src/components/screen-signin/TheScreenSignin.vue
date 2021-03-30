@@ -49,14 +49,7 @@
 			</div>
 
 			<!-- le compte existe et c'est une connexion via facebook -->
-			<div v-else-if="loginEmailStep === 'facebook-account'">
-				<WDGButton
-				  color="facebook"
-				  type="button"
-				  >
-					<slot slot="label">{{ $t('account-signin.CONNECT_TO_FACEBOOK') }}</slot>
-				</WDGButton>
-			</div>
+			<TheScreenSigninFacebook v-else-if="loginEmailStep === 'facebook-account'" />
 
 			<!-- le compte n'existe pas, on doit le créer -->
 			<div v-else-if="loginEmailStep === 'not-existing-account'">
@@ -145,6 +138,7 @@
 import { store } from '../../store.js'
 import TheScreenSigninEmail from '@/../../account-signin/src/components/screen-signin/TheScreenSigninEmail'
 import TheScreenSigninPassword from '@/../../account-signin/src/components/screen-signin/TheScreenSigninPassword'
+import TheScreenSigninFacebook from '@/../../account-signin/src/components/screen-signin/TheScreenSigninFacebook'
 import WDGMascot from '@/../../common/src/components/WDGMascot'
 import WDGForm from '@/../../common/src/components/WDGForm'
 import WDGInput from '@/../../common/src/components/WDGInput'
@@ -158,6 +152,7 @@ export default {
 	components: {
 		TheScreenSigninEmail,
 		TheScreenSigninPassword,
+		TheScreenSigninFacebook,
 		WDGForm,
 		WDGInput,
 		WDGMascot,
@@ -207,8 +202,15 @@ export default {
 		/**
 		 * La requête d'identification a retourné succès
 		 */
-		onLoginSuccessEvent () {
-			store.changeStep('confirmation')
+		onLoginSuccessEvent (urlToRedirect) {
+			// Validation par mail
+			if (urlToRedirect === 'email-validation') {
+				store.changeStep('confirmation')
+
+			// Redirection vers le site
+			} else {
+				window.location = urlToRedirect
+			}
 		},
 
 		onChangePasswordEvent (value) {

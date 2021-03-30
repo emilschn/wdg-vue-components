@@ -62,6 +62,7 @@
 		"LABEL_WRITE_PASSWORD": "Je saisis mon mot de passe :",
 		"ERROR_PASSWORD": "Il y a une erreur dans votre mot de passe",
 		"NOTICE_PASSWORD": "Votre mot de passe doit comporter au minimum 8 caractères et être composé de lettres majuscules, minuscules et de chiffres.",
+		"ERROR_FACEBOOK": "Erreur de connexion à Facebook",
 		"LABEL_NAME": "Je m'appelle :",
 		"CONNECTION": "Connexion",
 		"CONNECT_TO_FACEBOOK": "Se connecter avec Facebook",

@@ -67,5 +67,29 @@ export const requests = {
 				this.logRequestError('getCheckPassword >> error >> ' + error.toString() + ' >>>> ' + JSON.stringify(error))
 				functionReturn('error')
 			})
+	},
+
+	/**
+	 * Fonction de récupération de l'URL de redirection de Facebook
+	 */
+	getFacebookRedirectUrl(functionReturn) {
+		console.log('getFacebookRedirectUrl')
+		let data = new FormData()
+		data.append('action', 'get_connect_to_facebook_url')
+		axios
+			.post(store.props.ajaxurl, data, { timeout: 10000 })
+			.then(response => {
+				let responseData = response.data
+				console.log('then')
+				console.log(responseData)
+				functionReturn(responseData)
+			})
+			.catch(error => {
+				console.log('error.toJSON')
+				console.log(error.toJSON())
+				console.log(error.config)
+				this.logRequestError('getFacebookRedirectUrl >> error >> ' + error.toString() + ' >>>> ' + JSON.stringify(error))
+				functionReturn('error')
+			})
 	}
 }

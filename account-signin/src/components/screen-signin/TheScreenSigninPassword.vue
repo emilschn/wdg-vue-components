@@ -100,7 +100,7 @@ export default {
 			if (requestResult.signin_status === 'error') {
 				this.hasPasswordError = true
 			} else {
-				this.onLoginSuccess()
+				this.onLoginSuccess(requestResult.url_redirect)
 			}
 		}
 	},
