@@ -79,16 +79,6 @@
                     {{ $t('account-signin.CONFIRMATION_MAIL_NOT_RECEIVED') }}
                 </a>
             </div><br>
-            <div>
-                <WDGButton
-                    color="blue"
-                    type="button"
-                    :clickEvent="onGoNextClick"
-                    icon="arrow-right"
-                    >
-                    <slot slot="label"></slot>
-                </WDGButton>
-            </div>
         </div>
     </div>
 </template>
@@ -128,9 +118,6 @@ export default {
 		onMailNotReceived () {
 			console.log('onMailNotReceived')
 		},
-        onGoNextClick () {
-			console.log('onGoNextClick')
-        },
         onChangeEmailEvent () {
 			console.log('onChangeEmailEvent')
             this.newMailSent = true

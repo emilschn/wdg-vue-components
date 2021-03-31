@@ -22,7 +22,9 @@
 		</WDGMascot>
 
 		<WDGForm>
-			<TheScreenSigninEmail :onEmailChanged="onEmailChangedEvent" />
+			<TheScreenSigninEmail
+			  :onEmailChanged="onEmailChangedEvent"
+			  />
 
 			<!-- le compte existe et c'est une organization -->
 			<div v-if="loginEmailStep === 'orga-account'">
@@ -49,80 +51,14 @@
 			</div>
 
 			<!-- le compte existe et c'est une connexion via facebook -->
-			<TheScreenSigninFacebook v-else-if="loginEmailStep === 'facebook-account'" />
+			<TheScreenSigninFacebook
+			  v-else-if="loginEmailStep === 'facebook-account'"
+			  />
 
 			<!-- le compte n'existe pas, on doit le créer -->
-			<div v-else-if="loginEmailStep === 'not-existing-account'">
-				<br>
-				<WDGMessage
-				  id="message"
-				  iconSVG="info.svg"
-				  >
-					<slot slot="label">{{ $t('account-signin.SIGNIN_ERROR_NOT_FOUND') }}</slot>
-				</WDGMessage>
-				<br>
-				<div>
-					{{ $t('account-signin.LABEL_CREATE_PASSWORD') }}<br>
-					<WDGInputPassword
-					  type="password"
-					  :value="sharedState.user.password"
-					  v-bind:valueReturn.sync="sharedState.user.password"
-					  customStyle="natural-language"
-					  :onChange="onChangePasswordEvent"
-					  :onValidatePassword="onValidatePasswordEvent"
-					  />
-					<div class="info">{{ $t('account-signin.NOTICE_PASSWORD') }}</div><br>
-				</div>
-				<div v-if="sharedState.user.password !== '' && passwordIsValid === true">
-					{{ $t('account-signin.LABEL_NAME') }}<br>
-					<div class="name">
-						<WDGInput
-						  id="userFirstName"
-						  name="userFirstName"
-						  :placeholder="$t('common.FIRSTNAME')"
-						  :value="sharedState.user.firstname"
-						  v-bind:valueReturn.sync="sharedState.user.firstname"
-						  customStyle="natural-language"
-						  />
-
-						<WDGInput
-						  id="userLastName"
-						  name="userLastName"
-						  :placeholder="$t('common.LASTNAME')"
-						  :value="sharedState.user.lastname"
-						  v-bind:valueReturn.sync="sharedState.user.lastname"
-						  customStyle="natural-language"
-						  />
-					</div>
-				</div>
-				<div class="cgu" v-if="sharedState.user.password !== '' && passwordIsValid === true && sharedState.user.firstname !== '' && sharedState.user.lastname !== ''">
-					<vue-recaptcha
-					  ref="recaptcha"
-					  @verify="onCaptchaVerified"
-					  @expired="onCaptchaExpired"
-					  :sitekey="sitekey"
-					  :loadRecaptchaScript="true"
-					  >
-					</vue-recaptcha>
-					<br>
-					<WDGCheckbox
-					  id="acceptterms"
-					  name="acceptterms"
-					  validationRule="required"
-					  v-bind:valueReturn.sync="acceptterms"
-					  >
-						<slot slot="label">{{ $t('account-signin.I_ACCEPT_THE') }} <a href="/cgu/" target="_blank">{{ $t('account-signin.GENERAL_USE_TERMS') }}</a></slot>
-					</WDGCheckbox>
-				</div>
-				<WDGButton
-				  v-if="canShowCreateAccount"
-				  color="red"
-				  type="button"
-				  :clickEvent="createAccount"
-				  >
-					<slot slot="label">{{ $t('common.CONTINUE') }}</slot>
-				</WDGButton>
-			</div>
+			<TheScreenSigninNewAccount
+			  v-else-if="loginEmailStep === 'not-existing-account'"
+			  />
 
 			<!-- le compte existe on se connecte avec mot de passe -->
 			<TheScreenSigninPassword
@@ -139,40 +75,29 @@ import { store } from '../../store.js'
 import TheScreenSigninEmail from '@/../../account-signin/src/components/screen-signin/TheScreenSigninEmail'
 import TheScreenSigninPassword from '@/../../account-signin/src/components/screen-signin/TheScreenSigninPassword'
 import TheScreenSigninFacebook from '@/../../account-signin/src/components/screen-signin/TheScreenSigninFacebook'
+import TheScreenSigninNewAccount from '@/../../account-signin/src/components/screen-signin/TheScreenSigninNewAccount'
 import WDGMascot from '@/../../common/src/components/WDGMascot'
 import WDGForm from '@/../../common/src/components/WDGForm'
-import WDGInput from '@/../../common/src/components/WDGInput'
-import WDGInputPassword from '@/../../common/src/components/WDGInputPassword'
 import WDGMessage from '@/../../common/src/components/WDGMessage'
-import WDGCheckbox from '@/../../common/src/components/WDGCheckbox'
 import WDGButton from '@/../../common/src/components/WDGButton'
-import VueRecaptcha from 'vue-recaptcha'
 export default {
 	name: 'TheScreenSignin',
 	components: {
 		TheScreenSigninEmail,
 		TheScreenSigninPassword,
 		TheScreenSigninFacebook,
+		TheScreenSigninNewAccount,
 		WDGForm,
-		WDGInput,
 		WDGMascot,
 		WDGMessage,
-		WDGCheckbox,
-		WDGButton,
-		WDGInputPassword,
-		VueRecaptcha
+		WDGButton
 	},
 	data () {
 		return {
 			loginEmailStep: { type: String, default: 'empty-email' },
 			sharedState: store.state,
-			userMail: '',
-			acceptterms: false,
-			acceptcaptcha: false,
 			orgaAccounts: { type: Array },
-			orgaName: '',
-			passwordIsValid: { type: Boolean, default: false },
-			sitekey: '6LcoHRIUAAAAALw2iKHxMCvfyZ_6eKai92vF4bog'
+			orgaName: ''
 		}
 	},
 	methods: {
@@ -213,12 +138,6 @@ export default {
 			}
 		},
 
-		onChangePasswordEvent (value) {
-			this.passwordIsValid = false
-		},
-		onValidatePasswordEvent (value) {
-			this.passwordIsValid = true
-		},
 		switchOrgaAccount: async function (...args) {
 			this.sharedState.user.email = args[0].id
 			this.sharedState.user.name = args[0].name
@@ -228,44 +147,6 @@ export default {
 					this.loginEmailStep = this.orgaAccounts[i].status
 				}
 			}
-		},
-		createAccount: function (event) {
-			store.setCreationTag(true)
-			store.changeStep('confirmation')
-		},
-		onCaptchaVerified: function (recaptchaToken) {
-			console.log('onCaptchaVerified: ' + recaptchaToken)
-		//   const self = this;
-		//   self.status = "submitting";
-		//   self.$refs.recaptcha.reset();
-		//   axios.post("https://vue-recaptcha-demo.herokuapp.com/signup", {
-		//     email: self.email,
-		//     password: self.password,
-		//     recaptchaToken: recaptchaToken
-		//   }).then((response) => {
-		//     self.sucessfulServerResponse = response.data.message;
-		//   }).catch((err) => {
-		//     self.serverError = getErrorMessage(err);
-		//     //helper to get a displayable message to the user
-		//     function getErrorMessage(err) {
-		//       let responseBody;
-		//       responseBody = err.response;
-		//       if (!responseBody) {
-		//         responseBody = err;
-		//       }
-		//       else {
-		//         responseBody = err.response.data || responseBody;
-		//       }
-		//       return responseBody.message || JSON.stringify(responseBody);
-		//     }
-
-		//   }).then(() => {
-		//     self.status = "";
-		//   });
-		},
-		onCaptchaExpired: function () {
-			console.log('onCaptchaExpired: ')
-			this.$refs.recaptcha.reset()
 		}
 	},
 	computed: {
@@ -279,18 +160,6 @@ export default {
 			} else {
 				return 'ask-email'
 			}
-		},
-		canShowCreateAccount () {
-			if (process.env.NODE_ENV === 'development') {
-				// return true
-			}
-			return (
-				this.sharedState.user.email !== '' &&
-				this.sharedState.user.password !== '' &&
-				this.sharedState.user.firstname !== '' &&
-				this.sharedState.user.lastname !== '' &&
-				this.acceptterms !== false
-			)
 		}
 	}
 }

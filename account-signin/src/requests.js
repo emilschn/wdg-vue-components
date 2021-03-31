@@ -91,5 +91,33 @@ export const requests = {
 				this.logRequestError('getFacebookRedirectUrl >> error >> ' + error.toString() + ' >>>> ' + JSON.stringify(error))
 				functionReturn('error')
 			})
+	},
+
+	/**
+	 * Fonction de création de compte via mot de passe
+	 */
+	getCreateAccount(emailAddress, password, firstname, lastname, functionReturn) {
+		console.log('getCreateAccount')
+		let data = new FormData()
+		data.append('action', 'account_signin_create_account')
+		data.append('email-address', emailAddress)
+		data.append('password', password)
+		data.append('first-name', firstname)
+		data.append('last-name', lastname)
+		axios
+			.post(store.props.ajaxurl, data, { timeout: 15000 })
+			.then(response => {
+				let responseData = response.data
+				console.log('then')
+				console.log(responseData)
+				functionReturn(responseData)
+			})
+			.catch(error => {
+				console.log('error.toJSON')
+				console.log(error.toJSON())
+				console.log(error.config)
+				this.logRequestError('getCreateAccount >> error >> ' + error.toString() + ' >>>> ' + JSON.stringify(error))
+				functionReturn('error')
+			})
 	}
 }
