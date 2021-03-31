@@ -334,13 +334,14 @@
 				"PROJECT_DOESNT_SEEM_ELIGIBLE": "Votre projet ne semble pas éligible...",
 				"POSSIBLE_REASONS": "Voici les raisons possibles :",
 				"MICROBUSINESS": "Vous travaillez en tant qu’entreprise individuelle ou micro-entreprise.",
-				"OUT_EURO": "Votre entreprise n'est ou ne sera pas immatriculée en zone Euro.",
-				"NOT_ADAPTED": "Le modèle des royalties n'est peut-être pas adapté à votre modèle économique.",
-				"NEED_LOVEMONEY": "Un financement participatif requiert une mobilisation de votre entourage pour bien démarrer.",
+				"OUT_EURO": "Votre entreprise n'est ou ne sera pas immatriculée en zone Euro, au Royaume-Uni ou en Confédération Helvétique.",
+				"NOT_ADAPTED": "Le modèle des royalties n'est peut-être pas adapté à votre modèle économique. Il est possible que la marge brute indiquée ne corresponde pas.",
+				"NEED_LOVEMONEY": "Un financement participatif requiert la mobilisation d'un premier cercle pour bien démarrer (entourage ou partenaires industriels et commerciaux).",
 				"MADE_MISTAKE": "Vous avez fait une erreur ?",
 				"CORRECT_MISTAKE": "Corriger mes informations",
 				"SPECIFIC_PROJECT": "Votre projet est particulier et pourrait tout de même bénéficier des royalties (durée plus longue, financement de matériel avec marge...) ?",
-				"SEND_EMAIL": "Envoyez-nous un mail à projets@wedogood.co"
+				"SEND_EMAIL": "Envoyez-nous un mail à projets@wedogood.co",
+				"KNOW_MORE": "En savoir plus"
 			},
 			"prospect-meetup": {
 				"ADD_FILES_TEXT": "Pour préparer notre rencontre, ces fichiers sont nécessaires :",
