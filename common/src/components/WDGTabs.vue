@@ -105,6 +105,7 @@ export default {
 	margin-left: 10px;
 	font-weight: 600;
 	font-size: 17px;
+	font-family: 'Trebuchet MS', sans-serif;
 }
 .wdg-tabs ul li div span.tab-label span.subtitle, .wdg-tabs ul li div span.tab-label a {
 	display: block;
