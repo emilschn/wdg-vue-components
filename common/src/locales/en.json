@@ -334,13 +334,14 @@
 				"PROJECT_DOESNT_SEEM_ELIGIBLE": "Your project does not appear to be eligible...",
 				"POSSIBLE_REASONS": "Here are the possible reasons:",
 				"MICROBUSINESS": "You work as a sole proprietorship or micro-enterprise.",
-				"OUT_EURO": "Your company is or will not be registered in the euro zone.",
-				"NOT_ADAPTED": "The royalties model might not be adapted to your business model.",
-				"NEED_LOVEMONEY": "Crowdfunding requires the mobilisation of those around you to get off to a good start.",
+				"OUT_EURO": "Your company is or will not be registered in the euro zone, in the United Kingdom or in Swiss.",
+				"NOT_ADAPTED": "The royalties model might not be adapted to your business model. Your gross margin might not be exact.",
+				"NEED_LOVEMONEY": "Crowdfunding requires the mobilisation of those around you to get off to a good start (relatives or industrial and commercial partners).",
 				"MADE_MISTAKE": "Did you make a mistake?",
 				"CORRECT_MISTAKE": "Correct information",
 				"SPECIFIC_PROJECT": "Your project is specific and could still benefit from royalties (longer duration, financing of equipment with margin...)",
-				"SEND_EMAIL": "Send us an email at projects@wedogood.co"
+				"SEND_EMAIL": "Send us an email at projects@wedogood.co",
+				"KNOW_MORE": "Know more"
 			},
 			"prospect-meetup": {
 				"ADD_FILES_TEXT": "To prepare for our meeting, you need to have these documents ready:",
