@@ -232,7 +232,7 @@ body, input, select, button {
 	font-family: 'Arial',sans-serif;
 	color: #333;
 }
-body h1, h2, .title, span.tab-label {
+body h1, h2, span.tab-label {
 	font-family: 'Trebuchet MS', sans-serif;
 	text-transform: uppercase;
 }
