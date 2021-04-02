@@ -12,7 +12,7 @@
 			/>
 		<TheScreenSignin v-if="sharedState.step === 'signin'" />
 		<TheScreenConfirmation v-if="sharedState.step === 'confirmation'" />
-		<TheScreenForgottenPassword v-if="sharedState.step === 'forgotten-pass'" />
+		<TheScreenForgottenPassword v-if="sharedState.step === 'forgotten-pass'" :context="sharedState.context" />
 		<WDGFooter BGColor="grey" TextColor="black" FooterStyle="account"/>
   </div>
 </template>
@@ -23,7 +23,7 @@ import { store } from './store.js'
 import WDGHeader from '@/../../common/src/components/WDGHeader'
 import TheScreenSignin from './components/screen-signin/TheScreenSignin.vue'
 import TheScreenConfirmation from './components/TheScreenConfirmation.vue'
-import TheScreenForgottenPassword from './components/TheScreenForgottenPassword.vue'
+import TheScreenForgottenPassword from './components/screen-lost-password/TheScreenForgottenPassword.vue'
 import WDGFooter from '@/../../common/src/components/WDGFooter'
 const initElements = document.querySelector('#app')
 

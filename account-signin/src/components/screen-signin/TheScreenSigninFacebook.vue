@@ -10,6 +10,10 @@
 			<slot slot="label-loading">{{ $t('account-signin.CONNECT_TO_FACEBOOK_LOADING') }}</slot>
 		</WDGButton>
 
+		<div class="lost-facebook-access">
+			<a @click="onFacebookLostAccessClickEvent">{{ $t('account-signin.LOST_ACCESS_TO_FACEBOOK') }}</a>
+		</div>
+
 		<WDGMessage
 		  v-if="isErrorVisible"
 		  iconSVG="warning.svg"
@@ -59,10 +63,22 @@ export default {
 			} else {
 				this.isErrorVisible = true
 			}
+		},
+
+		/**
+		 * Clic sur le bouton de perte d'accès au compte Facebook
+		 */
+		onFacebookLostAccessClickEvent: function () {
+			store.changeStep('forgotten-pass')
 		}
 	}
 }
 </script>
 
 <style>
+div.lost-facebook-access {
+	max-width: 370px;
+	margin-top: 8px;
+	text-align: center;
+}
 </style>

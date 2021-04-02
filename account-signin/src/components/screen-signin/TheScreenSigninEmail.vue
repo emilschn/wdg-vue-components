@@ -7,7 +7,7 @@
 		  type="email"
 		  :loading="loading"
 		  icon="ok"
-		  :iconVisibility=isEmailValid(sharedState.user.email)
+		  :iconVisibility=isEmailValid
 		  :value="sharedState.user.email"
 		  v-bind:valueReturn.sync="sharedState.user.email"
 		  customStyle="natural-language"
@@ -50,16 +50,6 @@ export default {
 		}
 	},
 	methods: {
-		// Vérification si l'adresse e-mail est valable
-		isEmailValid (value) {
-			var mailformat = /^[a-zA-Z0-9._+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/
-			if (mailformat.test(value)) {
-				return true
-			} else {
-				return false
-			}
-		},
-
 		// Evénement à la saisie dans le champ de mail
 		onChangeEmailEvent () {
 			// Réinitialise comme si le mail était vide
@@ -78,7 +68,7 @@ export default {
 			if (this.sharedState.user.email === '') {
 				this.loading = false
 				this.onEmailChanged({ status: 'empty-email' })
-			} else if (!this.isEmailValid(this.sharedState.user.email)) {
+			} else if (!store.isEmailValid(this.sharedState.user.email)) {
 				this.loading = false
 				this.onEmailChanged({ status: 'bad-email' })
 			} else {
@@ -91,6 +81,11 @@ export default {
 		onEmailRequestResultEvent (requestResult) {
 			this.loading = false
 			this.onEmailChanged(requestResult)
+		}
+	},
+	computed: {
+		isEmailValid() {
+			return store.isEmailValid(this.sharedState.user.email)
 		}
 	}
 }

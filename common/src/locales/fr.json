@@ -71,6 +71,7 @@
 		"CONNECTION_LOADING": "Connexion...",
 		"CONNECT_TO_FACEBOOK": "Se connecter avec Facebook",
 		"CONNECT_TO_FACEBOOK_LOADING": "Connexion avec Facebook...",
+		"LOST_ACCESS_TO_FACEBOOK": "Je n'ai plus accès à mon compte Facebook",
 		"CONTINUE_LOADING": "Enregistrement...",
 		"FORGOTTEN_PASSWORD": "Mot de passe oublié ?",
 		"REMEMBER_ME": "Se souvenir de moi",
@@ -92,7 +93,9 @@
 		"FORGOTTEN_PASS_TITLE": "Récupération de mot de passe",
 		"FORGOTTEN_PASS_TEXT_1": "Vous avez oublié votre mot de passe ? Pas d'inquiétude : indiquez votre adresse mail de connexion ci-dessous et vous recevrez les instructions par mail afin de le réinitialiser.",
 		"FORGOTTEN_PASS_TEXT_2": "Si vous ne vous souvenez plus de l'adresse mail utilisée pour vous connecter, contactez-nous via le chat en ligne ou le formulaire de contact afin que l'on puisse vous guider.",
-		"FORGOTTEN_PASS_BUTTON": "Réinitialiser le mot de passe"
+		"FORGOTTEN_PASS_BUTTON": "Réinitialiser le mot de passe",
+		"UNLINK_FACEBOOK_TITLE": "Délier un compte de Facebook",
+		"UNLINK_FACEBOOK_TEXT": "Afin de délier votre compte de Facebook, nous allons vous envoyer un e-mail avec un lien unique sécurisé. Il vous faudra cliquer sur ce lien pour prouver que vous avez toujours accès à cette adresse e-mail, et vous pourrez alors réinitialiser votre mot de passe."
 	},
 	"launch-project": {
 		"TITLE": "Lancement de levée de fonds",

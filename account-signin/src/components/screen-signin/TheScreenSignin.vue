@@ -105,6 +105,10 @@ export default {
 		 * Fin de l'analyse de la modification de l'e-mail saisi
 		 */
 		onEmailChangedEvent (result) {
+			this.sharedState.context = 'wdg'
+			if (result.status === 'facebook-account') {
+				this.sharedState.context = 'facebook'
+			}
 			this.loginEmailStep = result.status
 			if (result.organizationname !== undefined && result.organizationname !== '') {
 				this.orgaName = result.organizationname
