@@ -266,6 +266,10 @@ export default {
 		outline: none;
 	}
 
+	.wdg-input.natural-language input .placeholder {
+		color: #B3DAE1;
+	}
+
 	.wdg-input.natural-language.admin input {
 		color: #F1A074;
 		border-bottom: 2px solid #F1A074;
