@@ -62,7 +62,12 @@
 			</span>
 			<span class="input-icon">
 				<span
-					v-if="!multiline && icon && iconVisibility"
+					v-if="loading"
+					:class="[ 'glyphicon', `glyphicon-hourglass` ]"
+					>
+				</span>
+				<span
+					v-else-if="!multiline && icon && iconVisibility && !loading"
 					:class="[ 'glyphicon', `glyphicon-${icon}` ]"
 					>
 				</span>
@@ -115,7 +120,12 @@
 			</span>
 			<span class="input-icon">
 				<span
-					v-if="!multiline && this.icon && this.iconVisibility"
+					v-if="loading"
+					:class="[ 'glyphicon', `glyphicon-hourglass` ]"
+					>
+				</span>
+				<span
+					v-else-if="!multiline && this.icon && this.iconVisibility"
 					:class="[ 'glyphicon', `glyphicon-${this.icon}` ]"
 					>
 				</span>
@@ -159,6 +169,7 @@ export default {
 		validationRule: { type: String, default: '' },
         icon: { type: String, default: '' },
 		iconVisibility: { type: Boolean, default: false },
+		loading: { type: Boolean, default: false },
 		onChange: Function
 	},
 	data () {
@@ -339,5 +350,8 @@ export default {
 		position: relative;
 		left: -16px;
 		color: #CEE9C0;
+	}
+	.wdg-input span.input-icon span.glyphicon-hourglass {
+		color: #EBEBEB;
 	}
 </style>

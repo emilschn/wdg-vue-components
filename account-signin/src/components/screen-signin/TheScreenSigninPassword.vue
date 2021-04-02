@@ -32,16 +32,12 @@
 		  v-if="isButtonVisible"
 		  color="red"
 		  type="button"
-		  :disabled="loading"
+		  :loading="loading"
 		  :clickEvent="onButtonConnectionClickedEvent"
 		  >
 			<slot slot="label">{{ $t('account-signin.CONNECTION') }}</slot>
+			<slot slot="label-loading">{{ $t('account-signin.CONNECTION_LOADING') }}</slot>
 		</WDGButton>
-
-		<WDGLoader
-		  v-if="loading"
-		  color="grey"
-		  />
 	</div>
 </template>
 
@@ -52,15 +48,13 @@ import WDGInputPassword from '@/../../common/src/components/WDGInputPassword'
 import WDGMessage from '@/../../common/src/components/WDGMessage'
 import WDGCheckbox from '@/../../common/src/components/WDGCheckbox'
 import WDGButton from '@/../../common/src/components/WDGButton'
-import WDGLoader from '@/../../common/src/components/WDGLoader'
 export default {
 	name: 'TheScreenSigninPassword',
 	components: {
 		WDGInputPassword,
 		WDGMessage,
 		WDGCheckbox,
-		WDGButton,
-		WDGLoader
+		WDGButton
 	},
 	props: {
 		onLoginSuccess: Function
@@ -123,9 +117,5 @@ export default {
 <style>
 div.the-screen-signin-password, div.forgotten-password, div.wdg-message, div.wdg-checkbox {
 	margin-top: 16px;
-}
-div.wdg-loader {
-	max-width: 370px;
-	text-align: center;
 }
 </style>

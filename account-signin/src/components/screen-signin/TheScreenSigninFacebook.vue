@@ -3,16 +3,12 @@
 		<WDGButton
 		  color="facebook"
 		  type="button"
-		  :disabled="loading"
+		  :loading="loading"
 		  :clickEvent="onButtonFacebookClickedEvent"
 		  >
 			<slot slot="label">{{ $t('account-signin.CONNECT_TO_FACEBOOK') }}</slot>
+			<slot slot="label-loading">{{ $t('account-signin.CONNECT_TO_FACEBOOK_LOADING') }}</slot>
 		</WDGButton>
-
-		<WDGLoader
-		  v-if="loading"
-		  color="grey"
-		  />
 
 		<WDGMessage
 		  v-if="isErrorVisible"
@@ -28,13 +24,11 @@ import { store } from '../../store.js'
 import { requests } from '../../requests.js'
 import WDGButton from '@/../../common/src/components/WDGButton'
 import WDGMessage from '@/../../common/src/components/WDGMessage'
-import WDGLoader from '@/../../common/src/components/WDGLoader'
 export default {
 	name: 'TheScreenSigninFacebook',
 	components: {
 		WDGButton,
-		WDGMessage,
-		WDGLoader
+		WDGMessage
 	},
 	props: {
 	},
@@ -71,8 +65,4 @@ export default {
 </script>
 
 <style>
-div.wdg-loader {
-	max-width: 370px;
-	text-align: center;
-}
 </style>

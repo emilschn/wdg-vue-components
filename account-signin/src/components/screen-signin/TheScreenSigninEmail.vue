@@ -5,6 +5,7 @@
 		  id="email"
 		  name="email"
 		  type="email"
+		  :loading="loading"
 		  icon="ok"
 		  :iconVisibility=isEmailValid(sharedState.user.email)
 		  :value="sharedState.user.email"
@@ -23,11 +24,6 @@
 		  v-bind:honeypot="true"
 		  v-bind:valueReturn.sync="honeypot1"
 		  />
-
-		<WDGLoader
-		  v-if="loading"
-		  color="grey"
-		  />
 	</div>
 </template>
 
@@ -35,12 +31,10 @@
 import { store } from '../../store.js'
 import { requests } from '../../requests.js'
 import WDGInput from '@/../../common/src/components/WDGInput'
-import WDGLoader from '@/../../common/src/components/WDGLoader'
 export default {
 	name: 'TheScreenSigninInput',
 	components: {
-		WDGInput,
-		WDGLoader
+		WDGInput
 	},
 	props: {
 		onEmailChanged: Function
@@ -103,8 +97,4 @@ export default {
 </script>
 
 <style>
-div.wdg-loader {
-	max-width: 370px;
-	text-align: center;
-}
 </style>

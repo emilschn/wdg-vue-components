@@ -73,16 +73,12 @@
 		  v-if="canShowCreateAccount"
 		  color="red"
 		  type="button"
-		  :disabled="loading"
+		  :loading="loading"
 		  :clickEvent="onButtonCreateAccountEvent"
 		  >
 			<slot slot="label">{{ $t('common.CONTINUE') }}</slot>
+			<slot slot="label-loading">{{ $t('account-signin.CONTINUE_LOADING') }}</slot>
 		</WDGButton>
-
-		<WDGLoader
-		  v-if="loading"
-		  color="grey"
-		  />
 	</div>
 </template>
 
@@ -91,7 +87,6 @@ import i18n from '@/i18n'
 import { store } from '../../store.js'
 import { requests } from '../../requests.js'
 import WDGInput from '@/../../common/src/components/WDGInput'
-import WDGLoader from '@/../../common/src/components/WDGLoader'
 import WDGInputPassword from '@/../../common/src/components/WDGInputPassword'
 import WDGMessage from '@/../../common/src/components/WDGMessage'
 import WDGCheckbox from '@/../../common/src/components/WDGCheckbox'
@@ -105,7 +100,6 @@ export default {
 		WDGMessage,
 		WDGCheckbox,
 		WDGButton,
-		WDGLoader,
 		VueRecaptcha
 	},
 	props: {

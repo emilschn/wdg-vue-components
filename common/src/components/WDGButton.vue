@@ -3,12 +3,14 @@
         <button
           :type="type"
           :id="id"
-          :disabled="disabled"
-		  :class="color"
+          :disabled="disabled || loading"
+		  :class="[ this.color, this.loading ? 'loading' : '' ]"
 		  @click="onClickLocalEvent"
           >
         	<span v-show="icon" :class="[ 'glyphicon', `glyphicon-${this.icon}` ]"></span>
-			<slot name="label"></slot>
+			<slot name="label-loading" v-if="loading"></slot>
+			<slot name="label" v-else></slot>
+			<img v-if="loading" src="@/../../common/src/assets/icons/loading-grey.gif" />
         </button>
     </div>
 </template>
@@ -23,6 +25,7 @@ export default {
 		name: { type: String, default: null },
 		link: { type: String, default: '' },
 		disabled: { type: Boolean, default: false },
+		loading: { type: Boolean, default: false },
         icon: { type: String, default: '' },
 		clickEvent: Function
     },
@@ -53,6 +56,9 @@ button {
 }
 button:disabled {
 	opacity: 0.7;
+}
+button.loading {
+	background: #EBEBEB !important;
 }
 button.red {
 	border: 0 solid #ea4f51;
@@ -88,6 +94,9 @@ button.transparent-no-border {
 	border: 0px solid #FFF;
 	background: #FFF;
 	color: #333
+}
+button img {
+	height: 48px;
 }
 @media only screen and (max-width: 767px) {
 	button.red {
