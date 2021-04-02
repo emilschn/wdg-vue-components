@@ -63,6 +63,7 @@ export default {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
+	border-top: 1.5px solid #C2C2C2;
 }
 .footer .logo_bcorp img {
 	width: 60px;
