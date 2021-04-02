@@ -4,17 +4,45 @@
 			{{ $t( "project-setup.project-result.not-eligible.PROJECT_DOESNT_SEEM_ELIGIBLE" ) }}
 		</div>
 
-		<div v-if="isRejectReasonMicroBusiness">
+		<div v-if="isRejectReasonMicroBusiness" class="margin-top">
 			{{ $t("project-setup.project-result.not-eligible.MICROBUSINESS") }}
+			<a
+			  v-if="isKnowMoreDisplayed"
+			  href="https://support.wedogood.co/je-suis-auto-entrepreneur-puis-je-faire-une-lev%C3%A9e-de-fonds-en-royalties-avec-we-do-good"
+			  target="_blank"
+			  >
+				{{ $t("project-setup.project-result.not-eligible.KNOW_MORE") }}
+			</a>
 		</div>
-		<div v-if="isRejectReasonOutEuro">
+		<div v-if="isRejectReasonOutEuro" class="margin-top">
 			{{ $t("project-setup.project-result.not-eligible.OUT_EURO") }}
+			<a
+			  v-if="isKnowMoreDisplayed"
+			  href="https://support.wedogood.co/faut-il-que-mon-entreprise-soit-immatricul%C3%A9e-en-france"
+			  target="_blank"
+			  >
+				{{ $t("project-setup.project-result.not-eligible.KNOW_MORE") }}
+			</a>
 		</div>
-		<div v-if="isRejectReasonRoyalties">
+		<div v-if="isRejectReasonRoyalties" class="margin-top">
 			{{ $t("project-setup.project-result.not-eligible.NOT_ADAPTED") }}
+			<a
+			  v-if="isKnowMoreDisplayed"
+			  href="https://support.wedogood.co/fr/comment-est-calcul%C3%A9-le-niveau-de-royalties-%C3%A0-verser"
+			  target="_blank"
+			  >
+				{{ $t("project-setup.project-result.not-eligible.KNOW_MORE") }}
+			</a>
 		</div>
-		<div v-if="isRejectReasonCommunication">
+		<div v-if="isRejectReasonCommunication" class="margin-top">
 			{{ $t("project-setup.project-result.not-eligible.NEED_LOVEMONEY") }}
+			<a
+			  v-if="isKnowMoreDisplayed"
+			  href="https://support.wedogood.co/comment-animer-ma-campagne-de-financement/comment-communiquer-aupr%C3%A8s-de-quelle-cible/comment-dois-je-d%C3%A9finir-mes-cibles"
+			  target="_blank"
+			  >
+				{{ $t("project-setup.project-result.not-eligible.KNOW_MORE") }}
+			</a>
 		</div>
 
 		<br>
@@ -35,6 +63,7 @@
 
 <script>
 import { store } from '../../store.js'
+import i18n from '@/i18n'
 import WDGButton from '@/../../common/src/components/WDGButton'
 export default {
 	name: 'TheResultNotEligible',
@@ -62,6 +91,10 @@ export default {
 		// Si le PP n'est pas prêt à communiquer
 		isRejectReasonCommunication () {
 			return (!this.sharedState.project.readyToCommunicate)
+		},
+		// Définit si on affiche bien le lien "En savoir plus"
+		isKnowMoreDisplayed () {
+			return (i18n.locale === 'fr')
 		}
 	},
 	methods: {
@@ -97,5 +130,8 @@ div.the-result-not-eligible .intro {
 div.the-result-not-eligible .wdg-button {
 	max-width: 300px;
 	margin-top: 8px;
+}
+div.the-result-not-eligible div.margin-top {
+	margin-top: 16px;
 }
 </style>
