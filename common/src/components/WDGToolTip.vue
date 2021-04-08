@@ -7,7 +7,7 @@
 		  @focusout="onClickOutLocalEvent"
 		  tabindex="0"
 		  >
-			i
+			?
 		</button>
 		<transition name="fade">
 			<div class="tooltip-text" v-if="isTextVisible" :class="['text-'+TextColor, 'bg-'+TextBGColor]">
@@ -57,8 +57,8 @@ div.wdg-tooltip button {
 	cursor: pointer;
 }
 div.wdg-tooltip button.grey {
-	border: 0 solid #B4B4B4;
-	background: #B4B4B4;
+	border: 0 solid #C2C2C2;
+	background: #C2C2C2;
 	color: #FFF;
 	margin-left: 10px;
 }
