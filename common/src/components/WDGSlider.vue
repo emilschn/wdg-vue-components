@@ -68,10 +68,9 @@ export default {
 
 <style>
 .tooltipPerso{
-    background-color: #A3A3A3;
-    border-color: #979797;
-    color: #FFFFFF;
-    border-radius: 8px;
+    background-color: #EBEBEB;
+    color: #00879B;
+	border: 1px solid #C2C2C2;
     font-size: 24px;
     font-weight: 700;
     width:130px;
@@ -91,8 +90,18 @@ export default {
     border: 5px solid transparent;
     border-top-color: inherit;
 	transform: translate(-50%, 0);
+	color: #C2C2C2;
 }
 .vue-slide-bar-component {
 	padding-top: 60px !important; /* réécriture sur le CSS de l'élément externe pour l'adapter à la page */
+}
+.vue-slide-bar {
+	border-radius: 0px !important;
+	background-color: #EBEBEB !important;
+
+}
+.vue-slide-bar-process {
+	border-radius: 0px !important;
+	background-color: #00879B !important;
 }
 </style>
