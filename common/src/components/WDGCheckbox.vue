@@ -70,10 +70,10 @@ export default {
 		height: 20px;
 		width: 20px;
 		background-color: #ffffff;
-		border: 1px solid #333;
+		border: 1px solid #C2C2C2;
 	}
 	.wdg-form .wdg-checkbox label input:checked ~ .checkmark {
-		background-color: #333;
+		background: no-repeat center/85% url("../assets/icons/check.png");
 	}
 	.wdg-form .wdg-checkbox label.checkmark:after {
 		content: "";
