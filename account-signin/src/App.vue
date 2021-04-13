@@ -6,10 +6,12 @@
 	:data-locale="sharedProps.locale"
   	>
 		<WDGHeader
-			v-bind:hasTitle=false
-			v-bind:langSelector=true
-			v-bind:closeButton=true
-			/>
+		  v-bind:hasTitle=false
+		  v-bind:langSelector=true
+		  v-bind:closeButton=true
+		  v-bind:backButtonVisible="sharedState.step === 'confirmation' || sharedState.step === 'forgotten-pass'"
+		  :onBack="onBackEvent"
+		  />
 		<TheScreenSignin v-if="sharedState.step === 'signin'" />
 		<TheScreenConfirmation v-if="sharedState.step === 'confirmation'" />
 		<TheScreenForgottenPassword v-if="sharedState.step === 'forgotten-pass'" :context="sharedState.context" />
@@ -67,6 +69,9 @@ export default {
 				sNewLocation = sNewLocation.substring(1)
 			}
 			store.changeStepFromHash(sNewLocation)
+		},
+		onBackEvent () {
+			store.changeStep('signin')
 		}
 	}
 }

@@ -24,7 +24,18 @@
 			  v-bind:valueReturn.sync="sharedState.user.email"
 			  customStyle="natural-language"
 			  />
-			<br><br>
+
+			<div
+			  v-if="reinitPassSent"
+			  class="message-confirmation"
+			  >
+				<WDGMessage
+					iconFont="ok"
+					iconColor="palegreen"
+					>
+					<slot slot="label">{{ $t('account-signin.CONFIRMATION_MAIL_SENT') }}</slot>
+				</WDGMessage>
+			</div>
 
 			<div class="send-mail">
 				<WDGButton
@@ -42,18 +53,6 @@
 				  >
 					<slot slot="label">{{ $t('account-signin.FORGOTTEN_PASS_BUTTON') }}</slot>
 				</WDGButton>
-			</div>
-
-			<div
-			  v-if="reinitPassSent"
-			  class="message-confirmation"
-			  >
-				<WDGMessage
-					iconFont="ok"
-					iconColor="palegreen"
-					>
-					<slot slot="label">{{ $t('account-signin.CONFIRMATION_MAIL_SENT') }}</slot>
-				</WDGMessage>
 			</div>
 		</WDGForm>
 
@@ -112,8 +111,9 @@ div.the-screen-forgotten-password .intro {
 	text-transform: uppercase;
 }
 div.the-screen-forgotten-password .wdg-form .send-mail {
-	display:flex;
+	display: flex;
 	align-items: center;
+	margin-top: 16px;
 }
 div.the-screen-forgotten-password .wdg-button {
 	max-width: 325px;

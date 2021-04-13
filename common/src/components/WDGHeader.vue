@@ -15,12 +15,21 @@
 			  v-bind:valueReturn.sync="$i18n.locale"
 			  />
 		</span>
+		<span class="back" v-if="backButtonVisible">
+			<WDGButton
+			  color="transparent"
+			  type="button"
+			  :clickEvent="onBackEvent"
+			  >
+				<slot slot="label">←</slot>
+			</WDGButton>
+		</span>
 		<span class="close" v-if="closeButton === true">
 			<WDGButton
-			color="transparent"
-			type="button"
-			:clickEvent="closeApp"
-			>
+			  color="transparent"
+			  type="button"
+			  :clickEvent="onCloseEvent"
+			  >
 				<slot slot="label">X</slot>
 			</WDGButton>
 		</span>
@@ -40,6 +49,8 @@ export default {
 	},
 	props: {
         langSelector: { type: Boolean, default: false },
+        backButtonVisible: { type: Boolean, default: false },
+		onBack: {type: Function},
 		closeButton: {type: Boolean, default: false},
 		hasTitle: {type: Boolean, default: true}
 	},
@@ -62,7 +73,10 @@ export default {
 		}
 	},
 	methods: {
-		closeApp: function () {
+		onBackEvent: function () {
+			this.onBack()
+		},
+		onCloseEvent: function () {
 			// home URL ou page précédente ?
         	location.href = this.getHomeURL
 		},
@@ -100,8 +114,11 @@ hr {
     border-bottom: 1px solid #f4f2f2;
 	width: 100%;
 }
-.close .wdg-button button {
+.close .wdg-button button, .back .wdg-button button {
 	border: 0;
+}
+.back {
+	opacity: 0.2;
 }
 .lang {
 	align-self: center;
