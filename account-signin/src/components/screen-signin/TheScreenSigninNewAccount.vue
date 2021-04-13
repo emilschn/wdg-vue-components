@@ -41,18 +41,18 @@
 				  customStyle="natural-language"
 				  />
 			</div>
+
+			<div class="bot">
+				<WDGInput
+				  id="botName"
+				  name="botName"
+				  :value="botvalue"
+				  v-bind:valueReturn.sync="botvalue"
+				  />
+			</div>
 		</div>
 
 		<div class="cgu" v-if="sharedState.user.password !== '' && passwordIsValid === true && sharedState.user.firstname !== '' && sharedState.user.lastname !== ''">
-			<vue-recaptcha
-			  ref="recaptcha"
-			  @verify="onCaptchaVerified"
-			  @expired="onCaptchaExpired"
-			  :sitekey="sitekey"
-			  :loadRecaptchaScript="true"
-			  >
-			</vue-recaptcha>
-			<br>
 			<WDGCheckbox
 			  id="acceptterms"
 			  name="acceptterms"
@@ -91,7 +91,6 @@ import WDGInputPassword from '@/../../common/src/components/WDGInputPassword'
 import WDGMessage from '@/../../common/src/components/WDGMessage'
 import WDGCheckbox from '@/../../common/src/components/WDGCheckbox'
 import WDGButton from '@/../../common/src/components/WDGButton'
-import VueRecaptcha from 'vue-recaptcha'
 export default {
 	name: 'TheScreenSigninNewAccount',
 	components: {
@@ -99,8 +98,7 @@ export default {
 		WDGInputPassword,
 		WDGMessage,
 		WDGCheckbox,
-		WDGButton,
-		VueRecaptcha
+		WDGButton
 	},
 	props: {
 	},
@@ -109,10 +107,9 @@ export default {
 			sharedState: store.state,
 			passwordIsValid: false,
 			acceptterms: false,
-			acceptcaptcha: false,
 			loading: false,
 			isErrorVisible: false,
-			sitekey: '6LcoHRIUAAAAALw2iKHxMCvfyZ_6eKai92vF4bog'
+			botvalue: ''
 		}
 	},
 	methods: {
@@ -122,41 +119,10 @@ export default {
 		onValidatePasswordEvent (value) {
 			this.passwordIsValid = true
 		},
-		onCaptchaVerified: function (recaptchaToken) {
-			console.log('onCaptchaVerified: ' + recaptchaToken)
-		//   const self = this;
-		//   self.status = "submitting";
-		//   self.$refs.recaptcha.reset();
-		//   axios.post("https://vue-recaptcha-demo.herokuapp.com/signup", {
-		//     email: self.email,
-		//     password: self.password,
-		//     recaptchaToken: recaptchaToken
-		//   }).then((response) => {
-		//     self.sucessfulServerResponse = response.data.message;
-		//   }).catch((err) => {
-		//     self.serverError = getErrorMessage(err);
-		//     //helper to get a displayable message to the user
-		//     function getErrorMessage(err) {
-		//       let responseBody;
-		//       responseBody = err.response;
-		//       if (!responseBody) {
-		//         responseBody = err;
-		//       }
-		//       else {
-		//         responseBody = err.response.data || responseBody;
-		//       }
-		//       return responseBody.message || JSON.stringify(responseBody);
-		//     }
-
-		//   }).then(() => {
-		//     self.status = "";
-		//   });
-		},
-		onCaptchaExpired: function () {
-			console.log('onCaptchaExpired: ')
-			this.$refs.recaptcha.reset()
-		},
 		onButtonCreateAccountEvent: function (event) {
+			if (this.botvalue !== '' && this.botvalue !== null && this.botvalue !== undefined) {
+				return ''
+			}
 			store.setCreationTag(true)
 			this.loading = true
 			this.hasPasswordError = false
@@ -200,5 +166,10 @@ export default {
 div.wdg-loader {
 	max-width: 370px;
 	text-align: center;
+}
+div.bot {
+	visibility: hidden;
+	width: 0px;
+	height: 0px;
 }
 </style>

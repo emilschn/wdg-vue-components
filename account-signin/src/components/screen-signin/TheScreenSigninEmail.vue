@@ -2,8 +2,8 @@
 	<div class="the-screen-signin-email">
 		{{ $t('account-signin.LABEL_MAIL') }}<br>
 		<WDGInput
-		  id="email"
-		  name="email"
+		  id="bzz"
+		  name="bzz"
 		  type="email"
 		  :loading="loading"
 		  icon="ok"
@@ -18,8 +18,8 @@
 
 		<WDGInput
 		  placeholder=""
-		  id="email1"
-		  name="email1"
+		  id="email"
+		  name="email"
 		  validationRule="length:0"
 		  v-bind:honeypot="true"
 		  v-bind:valueReturn.sync="honeypot1"

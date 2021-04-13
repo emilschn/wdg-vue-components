@@ -50,6 +50,7 @@
 		"SIGNUP_ERROR_ROBOT": "Please check the box confirming that you are not a robot."
 	},
 	"account-signin": {
+		"BACK": "Back",
 		"MASCOT_TEXT_WEDOGOOD": "[EN] Sur WE DO GOOD, vous pouvez investir en échange de royalties sur les projets de votre choix et avoir des impacts positifs économiques, sociaux, ou environnementaux. ",
 		"MASCOT_TEXT_WELCOME": "Bonjour ",
 		"MASCOT_TEXT_NOTICE_1": "Nous allons procéder ensemble à votre inscription. Elle ne vous prendra que quelques minutes. ",

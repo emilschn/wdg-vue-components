@@ -25,21 +25,33 @@
 			  customStyle="natural-language"
 			  />
 			<br><br>
+
 			<div class="send-mail">
+				<WDGButton
+				  color="transparent"
+				  type="button"
+				  :clickEvent="onBackClickEvent"
+				  >
+					<slot slot="label">{{ $t( "account-signin.BACK" ) }}</slot>
+				</WDGButton>
 				<WDGButton
 				  v-if="isEmailValid"
 				  color="red"
 				  type="button"
-				  :clickEvent="onSendReinitPass"
+				  :clickEvent="onSendReinitPassEvent"
 				  >
 					<slot slot="label">{{ $t('account-signin.FORGOTTEN_PASS_BUTTON') }}</slot>
 				</WDGButton>
+			</div>
+
+			<div
+			  v-if="reinitPassSent"
+			  class="message-confirmation"
+			  >
 				<WDGMessage
-				  v-if="reinitPassSent"
-				  id="message"
-				  iconFont="ok"
-				  iconColor="palegreen"
-				  >
+					iconFont="ok"
+					iconColor="palegreen"
+					>
 					<slot slot="label">{{ $t('account-signin.CONFIRMATION_MAIL_SENT') }}</slot>
 				</WDGMessage>
 			</div>
@@ -72,9 +84,12 @@ export default {
 		}
 	},
 	methods: {
-		onSendReinitPass () {
-			console.log('onSendReinitPass')
+		onSendReinitPassEvent () {
+			console.log('onSendReinitPassEvent')
 			this.reinitPassSent = true
+		},
+		onBackClickEvent () {
+			store.changeStep('signin')
 		}
 	},
 	computed: {
@@ -86,28 +101,30 @@ export default {
 </script>
 <style>
 div.the-screen-forgotten-password {
-  margin: 32px 0px;
-  padding: 30px;
+	margin: 32px 0px;
+	padding: 30px;
 }
 div.the-screen-forgotten-password .intro {
-  margin-bottom: 16px;
-  font-size: 24px;
-  text-align: left;
-  font-weight: 700;
-  text-transform: uppercase;
+	margin-bottom: 16px;
+	font-size: 24px;
+	text-align: left;
+	font-weight: 700;
+	text-transform: uppercase;
 }
 div.the-screen-forgotten-password .wdg-form .send-mail {
-    display:flex;
-    align-items: center;
+	display:flex;
+	align-items: center;
 }
 div.the-screen-forgotten-password .wdg-button {
 	max-width: 325px;
-    width: 325px;
+	width: 325px;
+}
+div.the-screen-forgotten-password .wdg-button:nth-child(1) {
+	margin-right: 8px;
 }
 div.the-screen-forgotten-password .wdg-message {
 	max-width: 325px;
-    width: 325px;
-    margin-left: 16px;
+	width: 325px;
 	height: 48px;
 }
 </style>
