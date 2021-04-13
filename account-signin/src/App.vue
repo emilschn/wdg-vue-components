@@ -28,14 +28,14 @@ import WDGFooter from '@/../../common/src/components/WDGFooter'
 const initElements = document.querySelector('#app')
 
 export default {
-  name: 'App',
-  components: {
-	WDGHeader,
-	WDGFooter,
-    TheScreenSignin,
-	TheScreenConfirmation,
-	TheScreenForgottenPassword
-  },
+	name: 'App',
+	components: {
+		WDGHeader,
+		WDGFooter,
+		TheScreenSignin,
+		TheScreenConfirmation,
+		TheScreenForgottenPassword
+	},
 	data () {
 		return {
 			sharedState: store.state,
@@ -56,7 +56,19 @@ export default {
 			}
 		}
 		i18n.locale = tempLocale
-  	}
+		window.addEventListener('hashchange', () => this.onHashChangedEvent())
+	},
+	methods: {
+		onHashChangedEvent () {
+			let sNewLocation = location.hash
+			if (sNewLocation === '') {
+				sNewLocation = 'signin'
+			} else {
+				sNewLocation = sNewLocation.substring(1)
+			}
+			store.changeStepFromHash(sNewLocation)
+		}
+	}
 }
 </script>
 
