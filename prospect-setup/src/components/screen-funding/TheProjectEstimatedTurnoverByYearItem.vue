@@ -77,9 +77,20 @@ div.the-project-estimated-turnover-by-year-item {
 	margin-top: 16px;
 	margin-right: 1%;
 }
+div.the-project-estimated-turnover-by-year-item label {
+	font-size: 14px;
+	color: #00879B;
+}
 div.the-project-estimated-turnover-by-year-item .wdg-input input {
 	height: 32px;
-	margin-top: 8px;
-	border: 1.5px solid #EBEBEB;
+	border-bottom: 2px solid #00879B;
+	color: #00879B;
+	width: calc(100% - 38px);
+}
+div.the-project-estimated-turnover-by-year-item .wdg-input .input-suffix {
+	color: #00879B;
+}
+div.the-project-estimated-turnover-by-year-item .wdg-input .has-suffix:focus { /* focus propre pour l'accessibilité */
+	outline: dotted 1px #c2c2c2;
 }
 </style>
