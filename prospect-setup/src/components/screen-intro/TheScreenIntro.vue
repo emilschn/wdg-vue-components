@@ -164,6 +164,12 @@ export default {
 @media only screen and (max-width: 767px) {
     .the-screen-intro .content {
         flex-direction: column;
+        width: auto;
+    }
+    .the-screen-intro .content .title{
+        line-height: normal;
+        display: block;
+        margin-bottom: 8px;
     }
     .the-screen-intro .time {
         margin-bottom: 50px;
