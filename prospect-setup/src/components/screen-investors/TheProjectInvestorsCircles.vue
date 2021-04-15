@@ -112,7 +112,7 @@ div.the-project-investors-circles button.button-private {
 }
 div.the-project-investors-circles button.button-private.selected {
 	background: #c2c2c2;
-	color: #◘333;
+	color: #333;
 }
 div.the-project-investors-circles button.button-private.selected::before {
 	content: "\002713";
