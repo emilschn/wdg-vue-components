@@ -28,21 +28,36 @@
 		</div>
 
 		<div class="advice default" v-if="royaltiesPercentType == 'default'">
+			<svg width="11" height="30">
+				<image xlink:href="@/../../common/src/assets/icons/info-blue.svg" src="@/../../common/src/assets/icons/info-blue.png" width="11" height="30"></image>
+			</svg>
 			{{ $t('project-setup.project-funding.royalties-amount.ROYALTIES_PERCENT_DEFAULT', { adviceMinPercent: minPercentFormatted, adviceMaxPercent: maxPercentFormatted }) }}
 		</div>
 		<div class="advice warning-over" v-if="royaltiesPercentType == 'warning-over'">
+			<svg width="11" height="30">
+				<image xlink:href="@/../../common/src/assets/icons/exclamation.svg" src="@/../../common/src/assets/icons/exclamation.png" width="11" height="30"></image>
+			</svg>
 			{{ $t('project-setup.project-funding.royalties-amount.ROYALTIES_PERCENT_WARNING_OVER', { adviceMinPercent: minPercentFormatted, adviceMaxPercent: maxPercentFormatted }) }}
 			<a @click="onViewAdvice">{{ $t('project-setup.project-funding.royalties-amount.VIEW_ADVICE') }}</a>
 		</div>
 		<div class="advice warning-under" v-if="royaltiesPercentType == 'warning-under'">
+			<svg width="11" height="30">
+				<image xlink:href="@/../../common/src/assets/icons/exclamation.svg" src="@/../../common/src/assets/icons/exclamation.png" width="11" height="30"></image>
+			</svg>
 			{{ $t('project-setup.project-funding.royalties-amount.ROYALTIES_PERCENT_WARNING_UNDER', { adviceMinPercent: minPercentFormatted, adviceMaxPercent: maxPercentFormatted }) }}
 			<a @click="onViewAdvice">{{ $t('project-setup.project-funding.royalties-amount.VIEW_ADVICE') }}</a>
 		</div>
 		<div class="advice not-ok" v-if="royaltiesPercentType == 'not-ok'">
+			<svg width="11" height="30">
+				<image xlink:href="@/../../common/src/assets/icons/info-blue.svg" src="@/../../common/src/assets/icons/info-blue.png" width="11" height="30"></image>
+			</svg>
 			{{ $t('project-setup.project-funding.royalties-amount.ROYALTIES_NOT_OK', { adviceMinPercent: minPercentFormatted, adviceMaxPercent: maxPercentFormatted }) }}
 			<a @click="onViewAdvice">{{ $t('project-setup.project-funding.royalties-amount.VIEW_ADVICE') }}</a>
 		</div>
 		<div class="advice custom" v-if="royaltiesPercentType == 'custom'">
+			<svg width="30" height="30">
+				<image xlink:href="@/../../common/src/assets/icons/check-green.svg" src="@/../../common/src/assets/icons/check-green.png" width="30" height="30"></image>
+			</svg>
 			{{ $t('project-setup.project-funding.royalties-amount.ROYALTIES_PERCENT_CUSTOM', { adviceMinPercent: minPercentFormatted, adviceMaxPercent: maxPercentFormatted }) }}
 			<a @click="onViewAdvice">{{ $t('project-setup.project-funding.royalties-amount.VIEW_ADVICE') }}</a>
 		</div>
@@ -162,7 +177,7 @@ div.the-project-royalties-amount .wdg-input input {
 	border-bottom: 2px solid #00879B;
 	color: #00879B;
 }
-div.the-project-royalties-amount .wdg-input input:focus {
+div.the-project-royalties-amount .wdg-input input:focus { /* focus plus propre pour l'accessibilité */
 	outline: dotted 1px #c2c2c2;
 }
 div.the-project-royalties-amount .wdg-input span.input-suffix {
@@ -188,14 +203,26 @@ div.the-project-royalties-amount .advice {
 	margin: 16px 0px;
 	font-size: 13px;
 }
-div.the-project-royalties-amount .advice.default {
-	color: #8BC79C;
+div.the-project-royalties-amount .warning-over, div.the-project-royalties-amount .warning-under, div.the-project-royalties-amount .default, div.the-project-royalties-amount .custom, div.the-project-royalties-amount .not-ok {
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+div.the-project-royalties-amount .warning-over, div.the-project-royalties-amount .warning-under {
+	border: 1px solid #F8CACA;
+}
+div.the-project-royalties-amount .advice svg {
+	margin-bottom: 10px;
+}
+div.the-project-royalties-amount .custom {
+	border: 1px solid #CEE9C0;
+}
+div.the-project-royalties-amount .default, div.the-project-royalties-amount .not-ok {
+	border: 1px solid #B3DAE1;
 }
 div.the-project-royalties-amount .advice.warning-over, div.the-project-royalties-amount .advice.warning-under, div.the-project-royalties-amount .advice.not-ok, div.the-project-royalties-amount .advice.warning-over a, div.the-project-royalties-amount .advice.warning-under a, div.the-project-royalties-amount .advice.not-ok a {
-	color: #EA4F51;
-}
-div.the-project-royalties-amount .advice.custom, div.the-project-royalties-amount .advice.custom a {
-	color: #B4B4B4;
+	color: #333;
 }
 div.the-project-royalties-amount .advice a {
 	text-decoration: underline;
@@ -207,5 +234,10 @@ div.the-project-royalties-amount a.reinit {
 	color: #B4B4B4;
 	cursor: pointer;
 	vertical-align: top;
+}
+@media only screen and (max-width: 767px) {
+	div.the-project-royalties-amount .warning-over, div.the-project-royalties-amount .warning-under, div.the-project-royalties-amount .default, div.the-project-royalties-amount .custom, div.the-project-royalties-amount .not-ok {
+		margin: 10px;
+	}
 }
 </style>

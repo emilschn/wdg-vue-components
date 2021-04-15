@@ -68,7 +68,7 @@ export default {
 
 <style>
 .tooltipPerso{
-    background-color: #EBEBEB;
+    background-color: #fff;
     color: #00879B;
 	border: 1px solid #C2C2C2;
     font-size: 24px;

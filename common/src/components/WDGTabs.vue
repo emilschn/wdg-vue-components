@@ -7,9 +7,6 @@
 			  :class="{ selected: (tabItem.Id == currentTab), expanded: isExpanded }"
 			  >
 				<div @click="onClickMenu(tabItem.Id)">
-					<!-- <svg width="48" height="48" v-if="tabItem.Status == 'incomplete'">
-						<image xlink:href="@/../../common/src/assets/icons/incomplete.svg" src="@/../../common/src/assets/icons/incomplete.png" width="48" height="48" />
-					</svg> -->
 
 					<span class="tab-label">
 						<span v-if="tabItem.Index">{{ tabItem.Index }}.&nbsp;</span>
