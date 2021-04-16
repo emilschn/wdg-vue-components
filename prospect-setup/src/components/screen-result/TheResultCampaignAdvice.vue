@@ -349,7 +349,7 @@ export default {
 <style>
 div.the-result-campaign-advice {
 	padding: 32px;
-	background: #f4f2f2;
+	border: 1px solid #c2c2c2;
 }
 div.the-result-campaign-advice div.intro {
 	margin-bottom: 32px;

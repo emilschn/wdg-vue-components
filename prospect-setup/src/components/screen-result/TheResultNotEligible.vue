@@ -1,6 +1,9 @@
 <template>
 	<div class="the-result-not-eligible">
 		<div class="intro">
+			<svg width="11" height="30">
+				<image xlink:href="@/../../common/src/assets/icons/info-blue.svg" src="@/../../common/src/assets/icons/info-blue.png" width="11" height="30"></image>
+			</svg><br>
 			{{ $t( "project-setup.project-result.not-eligible.PROJECT_DOESNT_SEEM_ELIGIBLE" ) }}
 		</div>
 
@@ -120,6 +123,8 @@ export default {
 div.the-result-not-eligible {
   margin: 32px 0px;
   padding: 30px;
+  border: 1px solid #B3DAE1;
+  text-align: center;
 }
 div.the-result-not-eligible .intro {
   margin-bottom: 16px;
@@ -127,11 +132,15 @@ div.the-result-not-eligible .intro {
   text-align: center;
   font-weight: 700;
 }
+div.the-result-not-eligible .intro svg {
+	margin-bottom: 10px;
+}
 div.the-result-not-eligible .wdg-button {
 	max-width: 300px;
-	margin-top: 8px;
+	margin: 8px auto;
 }
 div.the-result-not-eligible div.margin-top {
-	margin-top: 16px;
+	margin-top:26px;
+	margin-bottom: 10px;
 }
 </style>

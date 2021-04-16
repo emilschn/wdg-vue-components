@@ -10,9 +10,9 @@
 			  :onFileListChange="onFileListChangeEvent"
 			  >
 					<slot slot="label">
-						{{ $t('project-setup.project-result.prospect-meetup.ADD_FILES_TEXT') }}<br>
-						{{ $t('project-setup.project-result.prospect-meetup.FILE_BUSINESS_PLAN') }}<br>
-						{{ $t('project-setup.project-result.prospect-meetup.FILE_PREVISIONNEL') }}
+						{{ $t('project-setup.project-result.prospect-meetup.ADD_FILES_TEXT') }}
+						<p>{{ $t('project-setup.project-result.prospect-meetup.FILE_BUSINESS_PLAN') }}</p>
+						<p>{{ $t('project-setup.project-result.prospect-meetup.FILE_PREVISIONNEL') }}</p>
 					</slot>
 			</WDGFileList>
 
@@ -178,12 +178,12 @@ export default {
 <style>
 div.the-result-prospect-meetup {
 	padding: 32px;
-	background: #00879b;
-	color: #ffffff;
+	color: #333;
 }
 div.the-result-prospect-meetup h3 {
 	margin: 0px 0px 16px 0px;
 	font-size: 26px;
+	color: #00879B;
 }
 div.the-result-prospect-meetup div.title-text {
 	margin: 0px 0px 16px 0px;
@@ -194,8 +194,18 @@ div.the-result-prospect-meetup .wdg-form div.wdg-file-list label {
 	font-size: 16px;
 	font-weight: 500;
 }
+div.the-result-prospect-meetup .wdg-form div.wdg-file-list label p {
+	display: block;
+	margin-top: 10px;
+}
 div.the-result-prospect-meetup .wdg-form textarea {
-	height: 100px;
+	height: 80px;
+	border-bottom: 2px solid #00879B;
+	font-family: 'Arial', sans-serif;
+	color: #00879B;
+}
+div.the-result-prospect-meetup .wdg-form textarea:focus {
+	outline: dotted 1px #c2c2c2;
 }
 div.the-result-prospect-meetup .wdg-form, div.the-result-prospect-meetup .wdg-button button {
 	margin-bottom: 0px;

@@ -101,6 +101,7 @@ export default {
 	margin: 10px 0px;
 	padding: 10px;
 	background-color: #fff;
+	border: 1px solid #c2c2c2;
 }
 .wdg-file-list .link-container {
 	text-align: center;
