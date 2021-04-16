@@ -66,11 +66,7 @@
 			<slot slot="label">{{ $t('project-setup.CONTINUE') }}</slot>
 		</WDGButton>
 
-		<WDGLoader
-		  v-if="isLoading"
-		  type="ring"
-		  color="grey"
-		  >
+		<WDGLoader v-if="isLoading">
 		</WDGLoader>
 
 	</div>
@@ -87,7 +83,7 @@ export default {
 	},
 	props: {
 		canUseWire: { type: Boolean, default: true },
-		isLoading: { type: Boolean, default: false },
+		isLoading: { type: Boolean, default: true },
 		onMethodValidate: { type: Function }
 	},
 	data () {

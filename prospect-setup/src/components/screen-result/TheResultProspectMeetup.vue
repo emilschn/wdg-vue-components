@@ -36,7 +36,7 @@
 
 			<WDGLoader
 			  v-if="loading"
-			  type="ring"
+			  color="grey"
 			  >
 			</WDGLoader>
 		</WDGForm>
