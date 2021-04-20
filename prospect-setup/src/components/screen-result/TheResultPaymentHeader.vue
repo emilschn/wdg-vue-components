@@ -66,18 +66,21 @@ export default {
 
 <style>
 div.the-result-payment-header {
-	background: #f4f2f2;
-	width: 500px;
+	width: 410px;
 	margin: auto;
 	padding: 16px;
 	text-align: center;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #c2c2c2;;
 }
 div.the-result-payment-header a.header-item {
-	color: #B4B4B4;
-	font-weight: bold;
+	color: #c2c2c2;
+	font-weight: 600;
 }
 div.the-result-payment-header a.header-item.selected {
-	color: #00879b;
+	border-bottom: 3px solid #B3DAE1;
+	padding-bottom: 8px;
+	color: #333;
 }
 div.the-result-payment-header a.header-item.clickable {
 	cursor: pointer;

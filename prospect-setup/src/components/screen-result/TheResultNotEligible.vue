@@ -143,4 +143,8 @@ div.the-result-not-eligible div.margin-top {
 	margin-top:26px;
 	margin-bottom: 10px;
 }
+div.the-result-not-eligible div.margin-top a {
+	color: #EA4F51;
+	font-weight: 600;
+}
 </style>

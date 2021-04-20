@@ -378,10 +378,10 @@
 				"EMAIL_LABEL": "L'adresse e-mail de mon entreprise (différente de mon adresse personnelle) est :",
 				"EMAIL_PLACEHOLDER": "contact@entreprise.com",
 				"AGREE_TERMS": "Je reconnais avoir pris connaissance et accepter la description des prestations et les conditions de publication de projet de WE DO GOOD :",
-				"GENERAL_TERMS": "CGU",
-				"PARTICULAR_TERMS": "Conditions particulières",
-				"6_MONTHS_TERMS": "Si le projet n’est pas mis en ligne dans les 6 mois à compter de la date de validation de ce formulaire, WE DO GOOD pourra exiger de nouveau les frais de dossier.",
-				"PAYMENT_TERMS": "Modalités de règlement : frais fixes et options à régler à la souscription ; frais au succès prélevés lors du versement des fonds sur le compte lié au projet. Frais sur les versements aux investisseurs facturés au moment de ces versements (non intégrés aux royalties)."
+				"GENERAL_TERMS": "► CGU",
+				"PARTICULAR_TERMS": "► Conditions particulières",
+				"6_MONTHS_TERMS": "► Si le projet n’est pas mis en ligne dans les 6 mois à compter de la date de validation de ce formulaire, WE DO GOOD pourra exiger de nouveau les frais de dossier.",
+				"PAYMENT_TERMS": "► Modalités de règlement : frais fixes et options à régler à la souscription ; frais au succès prélevés lors du versement des fonds sur le compte lié au projet. Frais sur les versements aux investisseurs facturés au moment de ces versements (non intégrés aux royalties)."
 			},
 			"methods": {
 				"SECURED_PAYMENT": "Paiement sécurisé par Lemon Way",

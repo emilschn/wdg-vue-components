@@ -1,7 +1,6 @@
 <template>
 	<div class="wdg-loader">
 		<img v-if="color == 'white'" src="@/../../common/src/assets/icons/loading.gif" :width=size :height=size />
-		<img v-if="color == 'grey'" src="@/../../common/src/assets/icons/loading-grey.gif" :width=size :height=size />
 	</div>
 </template>
 

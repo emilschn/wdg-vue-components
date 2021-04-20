@@ -36,7 +36,6 @@
 
 			<WDGLoader
 			  v-if="loading"
-			  color="grey"
 			  >
 			</WDGLoader>
 		</WDGForm>
