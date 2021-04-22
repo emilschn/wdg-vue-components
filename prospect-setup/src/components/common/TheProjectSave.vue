@@ -83,12 +83,13 @@ export default {
 }
 .the-project-save div.saved span {
 	border: 1px solid #CEE9C0;
-	color: #FFF;
+	color: #333;
 	display: flex;
 	align-items: center;
 	width: 30%;
 	justify-content: center;
 	margin: 10px auto;
+	padding: 10px;
 }
 .the-project-save div.error span {
 	border: 1px solid #F8CACA;

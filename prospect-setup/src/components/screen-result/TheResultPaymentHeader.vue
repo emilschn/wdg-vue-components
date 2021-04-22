@@ -66,7 +66,7 @@ export default {
 
 <style>
 div.the-result-payment-header {
-	width: 410px;
+	width: 500px;
 	margin: auto;
 	padding: 16px;
 	text-align: center;
@@ -76,11 +76,13 @@ div.the-result-payment-header {
 div.the-result-payment-header a.header-item {
 	color: #c2c2c2;
 	font-weight: 600;
+	text-decoration: none;
 }
 div.the-result-payment-header a.header-item.selected {
 	border-bottom: 3px solid #B3DAE1;
 	padding-bottom: 8px;
 	color: #333;
+	text-decoration: none;
 }
 div.the-result-payment-header a.header-item.clickable {
 	cursor: pointer;
