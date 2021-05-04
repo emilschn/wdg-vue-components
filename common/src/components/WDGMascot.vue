@@ -42,16 +42,12 @@ export default {
 .wdg-mascot div {
 	padding: 24px;
 	max-width: 100%;
-	border-radius: 32px;
 	font-size: 15px;
 	font-weight: 500;
 	font-style: italic;
-	background: #f4f2f2;
+	background: #ebebeb;
+	border-radius: 5px;
 }
-/* .wdg-mascot.face-1 div {
-}
-.wdg-mascot.face-2 div {
-} */
 .wdg-mascot svg {
 	margin-top: -16px;
 	max-width: 100%;

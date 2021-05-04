@@ -202,7 +202,7 @@
 			},
 			"royalties-warning": {
 				"WARNING_1": "Le pourcentage conseillé est calculé pour que vos investisseurs doublent leur investissement en 5 ans, selon votre prévisionnel.",
-				"WARNING_2": "Le minimum que vous puissiez définir pour que vos investisseurs récupèrent leur investissement en 5 ans est {warningMinPercent} %."
+				"WARNING_2": "Le minimum que vous puissiez définir est {warningMinPercent} %."
 			},
 			"royalties-chart": {
 				"TITLE": "Détails des royalties prévisionnelles",
@@ -345,9 +345,10 @@
 			},
 			"prospect-meetup": {
 				"ADD_FILES_TEXT": "Pour préparer notre rencontre, ces fichiers sont nécessaires :",
-				"FILE_BUSINESS_PLAN": "- Un business plan",
-				"FILE_PREVISIONNEL": "- Un prévisionnel financier comportant un plan de financement et un compte de résultat prévisionnel",
+				"FILE_BUSINESS_PLAN": "► Un business plan",
+				"FILE_PREVISIONNEL": "► Un prévisionnel financier comportant un plan de financement et un compte de résultat prévisionnel",
 				"SEND_FILES_INPUT_LABEL": "Pouvez-vous nous en dire un peu plus sur votre projet et vos éventuelles questions ?",
+				"PLACEHOLDER_PROJECT_INFO_QUESTIONS": "Je me demandais...",
 				"PLAN_RENDEZVOUS": "Prendre rendez-vous",
 				"PLAN_RENDEZVOUS_TEXT": "Parlons-en ! Pour démarrer votre projet et vous conseiller au mieux, prenez rendez-vous !"
 			},
@@ -378,10 +379,10 @@
 				"EMAIL_LABEL": "L'adresse e-mail de mon entreprise (différente de mon adresse personnelle) est :",
 				"EMAIL_PLACEHOLDER": "contact@entreprise.com",
 				"AGREE_TERMS": "Je reconnais avoir pris connaissance et accepter la description des prestations et les conditions de publication de projet de WE DO GOOD :",
-				"GENERAL_TERMS": "CGU",
-				"PARTICULAR_TERMS": "Conditions particulières",
-				"6_MONTHS_TERMS": "Si le projet n’est pas mis en ligne dans les 6 mois à compter de la date de validation de ce formulaire, WE DO GOOD pourra exiger de nouveau les frais de dossier.",
-				"PAYMENT_TERMS": "Modalités de règlement : frais fixes et options à régler à la souscription ; frais au succès prélevés lors du versement des fonds sur le compte lié au projet. Frais sur les versements aux investisseurs facturés au moment de ces versements (non intégrés aux royalties)."
+				"GENERAL_TERMS": "► CGU",
+				"PARTICULAR_TERMS": "► Conditions particulières",
+				"6_MONTHS_TERMS": "► Si le projet n’est pas mis en ligne dans les 6 mois à compter de la date de validation de ce formulaire, WE DO GOOD pourra exiger de nouveau les frais de dossier.",
+				"PAYMENT_TERMS": "► Modalités de règlement : frais fixes et options à régler à la souscription ; frais au succès prélevés lors du versement des fonds sur le compte lié au projet. Frais sur les versements aux investisseurs facturés au moment de ces versements (non intégrés aux royalties)."
 			},
 			"methods": {
 				"SECURED_PAYMENT": "Paiement sécurisé par Lemon Way",

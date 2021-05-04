@@ -190,7 +190,7 @@ div.the-screen-project-funding {
 }
 div.the-screen-project-funding div.project-funding-subpart {
 	padding: 24px;
-	background: #f4f2f2;
+	border: 1px solid #C2C2C2;
 }
 div.the-screen-project-funding div.project-funding-subpart h3 {
 	margin: 0px;
@@ -202,6 +202,8 @@ div.the-screen-project-funding div.the-project-royalties-amount {
 }
 div.the-screen-project-funding div.the-project-estimated-turnover-by-year {
 	margin-bottom: 16px;
+	padding: 24px 15px 15px 24px;
+	width: 100%;
 }
 div.the-screen-project-funding div.margin-amount-container {
 	display: flex;

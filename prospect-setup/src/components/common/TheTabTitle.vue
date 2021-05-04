@@ -40,11 +40,10 @@ export default {
 }
 
 .the-tab-title h2 {
-	margin: 16px 15px;
+	margin: 30px 15px;
 	font-size: 30px;
 	font-weight: bold;
-	text-transform: none;
-	font-family: Poppins,Trebuchet MS,sans-serif;
+	text-align: center;
 }
 
 .the-tab-title .the-tab-title-picto {

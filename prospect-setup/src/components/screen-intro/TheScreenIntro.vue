@@ -84,44 +84,33 @@ export default {
     .the-screen-intro .content {
         width: 100%;
         display: flex;
-        justify-content: space-around;
-        align-items: center;
+        justify-content: space-between;
+        padding: 0px 15px;
     }
-	.the-screen-intro .result {
-        width:322px;
-        height:200px;
-		background-image: url("../../assets/intro_bulle.png");
-	}
+    .the-screen-intro .content .left {
+        margin-top: 60px;
+    }
 	.the-screen-intro .result .title {
 		font-size: 24px;
         font-weight: 700;
-        position: relative;
-        display: inline-block;
-        width:250px;
-        left: 55px;
-        top:30px;
-        line-height: 30px;
+        line-height: 2.2;
 	}
 	.the-screen-intro .result .text {
-        position: relative;
-        display: inline-block;
-        width:250px;
-        left: 55px;
-        top:50px;
         font-weight: 500;
 		font-size: 16px;
 	}
 	.the-screen-intro .time {
-        width:322px;
         display: flex;
         margin-top: 50px;
+        border: 1px solid #B3DAE1;
+        padding: 20px;
+        align-items: center;
 	}
     .the-screen-intro .time .clock-text {
         margin-left: 15px;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        padding-top: 18px;
     }
 	.the-screen-intro .time .title {
 		font-size: 16px;
@@ -153,7 +142,7 @@ export default {
     .the-screen-intro .wdg-mascot.face-2 li:before {
         content: "✔";
         color: #00879b;
-        padding-right: 18px;
+        padding-right: 10px;
     }
 	.the-screen-intro .wdg-button {
 		text-align: center;
@@ -175,6 +164,12 @@ export default {
 @media only screen and (max-width: 767px) {
     .the-screen-intro .content {
         flex-direction: column;
+        width: auto;
+    }
+    .the-screen-intro .content .title{
+        line-height: normal;
+        display: block;
+        margin-bottom: 8px;
     }
     .the-screen-intro .time {
         margin-bottom: 50px;

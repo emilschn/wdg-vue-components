@@ -70,7 +70,7 @@ export default {
 			},
 			{
 			'label': i18n.t('project-setup.project-funding.royalties-chart.LABEL_ROYALTIES'),
-			'backgroundColor': patterns.draw('diagonal-right-left', '#8BC79C', '#333'),
+			'backgroundColor': patterns.draw('diagonal-right-left', '#00879B', '#333'),
 			'data': tempValues2
 			}
 		]

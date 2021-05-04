@@ -32,12 +32,8 @@
 		  @change="setFile"
 		  />
 
-		<div class="link-container">
-			<a @click="addFile">
-				{{ $t('common.ADD_DOCUMENT') }}
-			</a>
-		</div>
-  	</div>
+		<button class="link-container transparent" type="button" @click="addFile">+ {{ $t('common.ADD_DOCUMENT') }}</button>
+	</div>
 </template>
 
 <script>
@@ -89,7 +85,6 @@ export default {
 <style>
 .wdg-file-list {
 	margin-bottom: 16px;
-	font-family: 'Trebuchet MS';
 }
 .wdg-file-list .init-file-list {
 	margin: 24px 0px;
@@ -106,17 +101,12 @@ export default {
 	margin: 10px 0px;
 	padding: 10px;
 	background-color: #fff;
-	font-family: 'Trebuchet MS';
+	border: 1px solid #c2c2c2;
 }
 .wdg-file-list .link-container {
 	text-align: center;
 	margin-bottom: 25px;
-}
-.wdg-file-list .link-container a {
-	color: #ffffff;
-	text-decoration: underline;
 	cursor: pointer;
-	font-size: 14px;
 }
 .wdg-file-list.grey .link-container a {
 	color: #333;

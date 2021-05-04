@@ -31,17 +31,6 @@ export default {
 	-moz-border-right-colors: none;
 	-moz-border-top-colors: none;
 	border-color: -moz-use-text-color;
-	border-image: none;
-	border-right: 0 none;
-	border-style: solid none none;
-	border-width: 2px 0 0;
-	color: #333;
-}
-.wdg-separator div {
-	display: inline-block;
-	position: relative;
-	top: -27px;
-	padding: 0px 8px;
-	background: #f2f2f2;
+	border: 1.5px solid #C2C2C2;
 }
 </style>

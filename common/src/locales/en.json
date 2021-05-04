@@ -202,7 +202,7 @@
 			},
 			"royalties-warning": {
 				"WARNING_1": "The recommended percentage is calculated so that your investors double their investment in 5 years, according to your forecast.",
-				"WARNING_2": "The minimum that you can set for your investors to recover their investment in 5 years is {warningMinPercent}%."
+				"WARNING_2": "The minimum that you can set is {warningMinPercent}%."
 			},
 			"royalties-chart": {
 				"TITLE": "Details of projected royalties",
@@ -345,9 +345,10 @@
 			},
 			"prospect-meetup": {
 				"ADD_FILES_TEXT": "To prepare for our meeting, you need to have these documents ready:",
-				"FILE_BUSINESS_PLAN": "- A business plan",
-				"FILE_PREVISIONNEL": "- A financial forecast including a financing plan and a forecast income statement",
+				"FILE_BUSINESS_PLAN": "► A business plan",
+				"FILE_PREVISIONNEL": "► A financial forecast including a financing plan and a forecast income statement",
 				"SEND_FILES_INPUT_LABEL": "Can you tell us a little more about your project and any possible questions?",
+				"PLACEHOLDER_PROJECT_INFO_QUESTIONS": "I was wondering...",
 				"PLAN_RENDEZVOUS": "Make an appointment",
 				"PLAN_RENDEZVOUS_TEXT": "Let's talk about it! To get your project started and get the best advice, make an appointment!"
 			},
@@ -378,10 +379,10 @@
 				"EMAIL_LABEL": "My company's email address (different from my personal address) is:",
 				"EMAIL_PLACEHOLDER": "contact@company.com",
 				"AGREE_TERMS": "I acknowledge that I have read and accepted the description of the benefits and the terms of publication of WE DO GOOD's project:",
-				"GENERAL_TERMS": "Terms",
-				"PARTICULAR_TERMS": "Special terms and conditions",
-				"6_MONTHS_TERMS": "If the project is not put online within 6 months of the validation date of this form, WE DO GOOD may re-charge the application fee.",
-				"PAYMENT_TERMS": "Settlement terms: fixed fees and options to be paid on subscription; success fees levied on the payment of funds to the project-related account. Fees on investor payments invoiced at the time of these payments (not included in royalties)."
+				"GENERAL_TERMS": "► Terms",
+				"PARTICULAR_TERMS": "► Special terms and conditions",
+				"6_MONTHS_TERMS": "► If the project is not put online within 6 months of the validation date of this form, WE DO GOOD may re-charge the application fee.",
+				"PAYMENT_TERMS": "► Settlement terms: fixed fees and options to be paid on subscription; success fees levied on the payment of funds to the project-related account. Fees on investor payments invoiced at the time of these payments (not included in royalties)."
 			},
 			"methods": {
 				"SECURED_PAYMENT": "Secure payment",

@@ -92,6 +92,7 @@
 			<textarea
 			  v-else
 			  :id="id"
+			  :placeholder="placeholder"
 			  v-model="valueReturn"
 			  :disabled="disabled"
 			  :required="isRequired"
@@ -264,6 +265,10 @@ export default {
 		padding-left: 10px;
 		font-weight: 500;
 		outline: none;
+	}
+
+	.wdg-input.natural-language input .placeholder {
+		color: #B3DAE1;
 	}
 
 	.wdg-input.natural-language.admin input {

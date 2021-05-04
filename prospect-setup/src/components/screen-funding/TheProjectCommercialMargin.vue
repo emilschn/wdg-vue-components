@@ -63,6 +63,13 @@ div.the-project-commercial-margin .wdg-input {
 div.the-project-commercial-margin .wdg-input input {
 	height: 32px;
 	margin-top: 8px;
-	border: 1.5px solid #EBEBEB;
+	border-bottom: 2px solid #00879B;
+	color: #00879B;
+}
+div.the-project-commercial-margin .wdg-input .input-suffix {
+	color: #00879B;
+}
+div.the-project-commercial-margin .wdg-input .has-suffix:focus { /* focus plus propre pour l'accessibilité */
+	outline: dotted 1px #c2c2c2;
 }
 </style>

@@ -21,11 +21,19 @@
 		</span>
 
 		<div class="saved" v-if="status == 'saved'">
-			<span>{{ $t('project-setup.SAVED_PROJECT') }}</span>
+			<span>
+				<svg width="30" height="30">
+					<image xlink:href="@/../../common/src/assets/icons/check-green.svg" src="@/../../common/src/assets/icons/check-green.png" width="20" height="20" />
+				</svg>
+			{{ $t('project-setup.SAVED_PROJECT') }}</span>
 		</div>
 
 		<div class="error" v-if="status == 'error'">
-			<span>{{ $t('project-setup.SAVED_PROJECT_ERROR') }}</span>
+			<span>
+				<svg width="11" height="30">
+					<image xlink:href="@/../../common/src/assets/icons/exclamation.svg" src="@/../../common/src/assets/icons/exclamation.png" width="11" height="30" />
+				</svg>
+				{{ $t('project-setup.SAVED_PROJECT_ERROR') }}</span>
 		</div>
 	</div>
 </template>
@@ -74,12 +82,27 @@ export default {
 	font-size: 13px;
 }
 .the-project-save div.saved span {
-	background: #8BC79C;
-	color: #FFF;
+	border: 1px solid #CEE9C0;
+	color: #333;
+	display: flex;
+	align-items: center;
+	width: 30%;
+	justify-content: center;
+	margin: 10px auto;
+	padding: 10px;
 }
 .the-project-save div.error span {
-	background: #EACDCB;
+	border: 1px solid #F8CACA;
+	padding: 10px;
 	color: #333;
+	display: flex;
+	align-items: center;
+	width: 30%;
+	justify-content: center;
+	margin: 10px auto;
+}
+.the-project-save div.saved span svg, .the-project-save div.error span svg {
+	margin-right: 10px;
 }
 .the-project-save a {
 	text-decoration: underline;

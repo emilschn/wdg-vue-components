@@ -57,22 +57,22 @@ export default {
 
 <style>
 .footer {
-	background: #333333;
+	background: #EBEBEB;
 	width: 100%;
 	height: 160px;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
+	border-top: 1.5px solid #C2C2C2;
 }
 .footer .logo_bcorp img {
 	width: 60px;
-	filter: invert(100%);
 }
 .footer .logo_ifp img {
 	width: 100px;
 }
 .footer .title {
-	color: #FFFFFF;
+	color: #333;
 	font-size: 24px;
 	font-weight: 100;
 	text-align: center;
@@ -80,7 +80,7 @@ export default {
 	width:160px;
 }
 .footer .text {
-	color: #FFFFFF;
+	color: #333;
 	font-weight: 500;
 	text-align: center;
 	display: inline-block;
@@ -130,7 +130,7 @@ export default {
 	width: 100%;
 	padding: 16px 0px;
 	text-align: center;
-	background: #333333;
+	background: #EBEBEB;
 	color: #FFF;
 }
 @media only screen and (max-width: 767px) {

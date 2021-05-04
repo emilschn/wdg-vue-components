@@ -201,6 +201,10 @@ div.subtitles-selection-standards {
 	text-align: center;
 	margin-bottom: 15px;
 }
+div.subtitles-selection-standards a {
+	color: #EA4F51;
+	font-weight: 600;
+}
 @media only screen and (max-width: 767px) {
 	.the-screen-project-result {
 		width: auto;
