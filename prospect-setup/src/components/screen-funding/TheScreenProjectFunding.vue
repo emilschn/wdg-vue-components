@@ -202,6 +202,8 @@ div.the-screen-project-funding div.the-project-royalties-amount {
 }
 div.the-screen-project-funding div.the-project-estimated-turnover-by-year {
 	margin-bottom: 16px;
+	padding: 24px 15px 15px 24px;
+	width: 100%;
 }
 div.the-screen-project-funding div.margin-amount-container {
 	display: flex;

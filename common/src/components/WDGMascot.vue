@@ -46,6 +46,7 @@ export default {
 	font-weight: 500;
 	font-style: italic;
 	background: #ebebeb;
+	border-radius: 5px;
 }
 .wdg-mascot svg {
 	margin-top: -16px;

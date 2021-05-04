@@ -202,7 +202,7 @@
 			},
 			"royalties-warning": {
 				"WARNING_1": "Le pourcentage conseillé est calculé pour que vos investisseurs doublent leur investissement en 5 ans, selon votre prévisionnel.",
-				"WARNING_2": "Le minimum que vous puissiez définir pour que vos investisseurs récupèrent leur investissement en 5 ans est {warningMinPercent} %."
+				"WARNING_2": "Le minimum que vous puissiez définir est {warningMinPercent} %."
 			},
 			"royalties-chart": {
 				"TITLE": "Détails des royalties prévisionnelles",
@@ -348,6 +348,7 @@
 				"FILE_BUSINESS_PLAN": "► Un business plan",
 				"FILE_PREVISIONNEL": "► Un prévisionnel financier comportant un plan de financement et un compte de résultat prévisionnel",
 				"SEND_FILES_INPUT_LABEL": "Pouvez-vous nous en dire un peu plus sur votre projet et vos éventuelles questions ?",
+				"PLACEHOLDER_PROJECT_INFO_QUESTIONS": "Je me demandais...",
 				"PLAN_RENDEZVOUS": "Prendre rendez-vous",
 				"PLAN_RENDEZVOUS_TEXT": "Parlons-en ! Pour démarrer votre projet et vous conseiller au mieux, prenez rendez-vous !"
 			},

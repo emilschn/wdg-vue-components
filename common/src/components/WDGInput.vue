@@ -92,6 +92,7 @@
 			<textarea
 			  v-else
 			  :id="id"
+			  :placeholder="placeholder"
 			  v-model="valueReturn"
 			  :disabled="disabled"
 			  :required="isRequired"

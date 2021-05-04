@@ -35,7 +35,7 @@
 			<slot slot="text">{{ bundle1Text }}</slot>
 		</WDGSeeMore>
 
-		<div class="recommended-title">{{ $t('project-setup.project-result.options.RECOMMENDED') }}</div>
+		<div class="recommended-title option-title">{{ $t('project-setup.project-result.options.RECOMMENDED') }}</div>
 
 		<TheResultBundleEditor
 		  v-if="sharedProps.capacities.edit_bundles === '1'"
@@ -361,5 +361,12 @@ div.the-result-campaign-advice div.intro span.intro-amount {
 }
 div.the-result-campaign-advice div.recommended-title {
 	margin-bottom: 10px;
+}
+div.the-result-campaign-advice div.option-title:before { /* ajout d'un + pour montrer qu'on peut cumuler les offres */
+	content: "+";
+	font-size: 22px;
+	font-weight: 600;
+	margin-right: 5px;
+	vertical-align: middle;
 }
 </style>

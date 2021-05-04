@@ -202,7 +202,7 @@
 			},
 			"royalties-warning": {
 				"WARNING_1": "The recommended percentage is calculated so that your investors double their investment in 5 years, according to your forecast.",
-				"WARNING_2": "The minimum that you can set for your investors to recover their investment in 5 years is {warningMinPercent}%."
+				"WARNING_2": "The minimum that you can set is {warningMinPercent}%."
 			},
 			"royalties-chart": {
 				"TITLE": "Details of projected royalties",
@@ -348,6 +348,7 @@
 				"FILE_BUSINESS_PLAN": "► A business plan",
 				"FILE_PREVISIONNEL": "► A financial forecast including a financing plan and a forecast income statement",
 				"SEND_FILES_INPUT_LABEL": "Can you tell us a little more about your project and any possible questions?",
+				"PLACEHOLDER_PROJECT_INFO_QUESTIONS": "I was wondering...",
 				"PLAN_RENDEZVOUS": "Make an appointment",
 				"PLAN_RENDEZVOUS_TEXT": "Let's talk about it! To get your project started and get the best advice, make an appointment!"
 			},

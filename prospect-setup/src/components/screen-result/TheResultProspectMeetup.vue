@@ -17,10 +17,12 @@
 			</WDGFileList>
 
 			<WDGInput
+				:placeholder="$t('project-setup.project-result.prospect-meetup.PLACEHOLDER_PROJECT_INFO_QUESTIONS')"
 			  id="comments"
 			  :multiline="true"
 			  :value="sharedState.project.fileComments"
 			  v-bind:valueReturn.sync="sharedState.project.fileComments"
+
 			  >
 				<slot slot="label">{{ $t('project-setup.project-result.prospect-meetup.SEND_FILES_INPUT_LABEL') }}</slot>
 			</WDGInput>
@@ -201,6 +203,9 @@ div.the-result-prospect-meetup .wdg-form textarea {
 	height: 80px;
 	border-bottom: 2px solid #00879B;
 	font-family: 'Arial', sans-serif;
+	color: #00879B;
+}
+div.the-result-prospect-meetup .wdg-form textarea::placeholder {
 	color: #00879B;
 }
 div.the-result-prospect-meetup .wdg-form textarea:focus {
