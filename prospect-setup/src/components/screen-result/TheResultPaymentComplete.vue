@@ -2,7 +2,7 @@
 	<div class="the-result-payment-complete">
 		<div class="message-confirmation">
 			<svg width="48" height="48">
-				<image xlink:href="@/../../common/src/assets/icons/complete-white.svg" src="@/../../common/src/assets/icons/complete-white.png" width="48" height="48"></image>
+				<image xlink:href="@/../../common/src/assets/icons/check.svg" src="@/../../common/src/assets/icons/check.png" width="48" height="48"></image>
 			</svg><br>
 			{{ $t('project-setup.payment.complete.CONFIRMATION') }}
 		</div>
@@ -78,8 +78,8 @@ div.the-result-payment-complete {
 	width: 70%;
 }
 div.the-result-payment-complete .message-confirmation {
-	background-color: #00879b;
-	color: #fff;
+	border: 1px solid #B3DAE1;
+	color: #333;
 	padding: 20px 0px;
 	font-size: 20px;
 	font-weight: 500;

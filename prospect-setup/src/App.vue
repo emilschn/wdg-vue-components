@@ -24,11 +24,7 @@
 		<TheScreenProjectResult v-if="!loading && (sharedState.step === 'project-result' || sharedState.step === 'project-cart' || sharedState.step === 'project-payment' || sharedState.step === 'project-complete')" />
 
 		<div class="loading-guid" v-if="loading">
-			<WDGLoader
-			  v-if="loading"
-			  type="ring"
-			  color="grey"
-			  >
+			<WDGLoader v-if="loading">
 			</WDGLoader>
 		</div>
 

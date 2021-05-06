@@ -82,6 +82,7 @@ export default {
 	margin-bottom: 56px;
 	padding: 24px 24px 0px 24px;
 	background: #ffffff;
+	border: 1px solid #c2c2c2;
 }
 
 .wdg-see-more .see-more-title {

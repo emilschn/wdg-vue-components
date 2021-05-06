@@ -426,6 +426,17 @@ div.the-result-organization-info div.organization-form {
 	margin-top: 20px;
 }
 
+div.organization-form ul li {
+	display: block;
+	margin-top: 10px;
+	line-height: 1.5;
+}
+
+div.organization-form ul li a {
+	color: #EA4F51;
+	font-weight: 600;
+}
+
 div.the-result-organization-info input {
 	margin-top: 10px;
 }

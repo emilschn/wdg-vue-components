@@ -53,10 +53,10 @@ div.the-project-investors-circles div.circle {
 div.the-project-investors-circles div.circle-public {
 	width: 250px;
 	height: 250px;
-	border: 1px solid #DBD8D8;
+	border: 1px solid #ebebeb;
 }
 div.the-project-investors-circles div.circle-public.selected {
-	background: #DBD8D8;
+	background: #ebebeb;
 }
 
 div.the-project-investors-circles div.circle.inner {
@@ -67,10 +67,10 @@ div.the-project-investors-circles div.circle.inner {
 div.the-project-investors-circles div.circle-private {
 	width: 150px;
 	height: 150px;
-	border: 1px solid #999;
+	border: 1px solid #c2c2c2;
 }
 div.the-project-investors-circles div.circle-private.selected {
-	background: #999;
+	background: #c2c2c2;
 }
 div.the-project-investors-circles div.circle-lovemoney {
 	width: 50px;
@@ -93,26 +93,26 @@ div.the-project-investors-circles button {
 	text-transform: capitalize;
 }
 div.the-project-investors-circles button.button-public {
-	border: 2px solid #DBD8D8;
+	border: 2px solid #ebebeb;
 	background: #FFF;
 	color: #333;
 }
 div.the-project-investors-circles button.button-public.selected {
-	background: #DBD8D8;
-	color: #FFF;
+	background: #ebebeb;
+	color: #333;
 }
 div.the-project-investors-circles button.button-public.selected::before {
 	content: "\002713";
 	margin-right: 5px;
 }
 div.the-project-investors-circles button.button-private {
-	border: 2px solid #999;
+	border: 2px solid #c2c2c2;
 	background: #FFF;
 	color: #333;
 }
 div.the-project-investors-circles button.button-private.selected {
-	background: #999;
-	color: #FFF;
+	background: #c2c2c2;
+	color: #333;
 }
 div.the-project-investors-circles button.button-private.selected::before {
 	content: "\002713";

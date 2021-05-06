@@ -124,7 +124,7 @@ export default {
 <style>
 div.the-result-cart {
 	padding: 32px;
-	background: #f4f2f2;
+	border: 1px solid #c2c2c2;
 }
 
 div.the-result-cart div.cart-bundle2 {
