@@ -33,18 +33,21 @@
 					iconFont="ok"
 					iconColor="palegreen"
 					>
-					<slot slot="label">{{ $t('account-signin.CONFIRMATION_MAIL_SENT') }}</slot>
+					<slot slot="label">{{ $t('account-signin.FORGOTTEN_PASS_MAIL_SENT') }}</slot>
+				</WDGMessage>
+			</div>
+			<div
+			  v-if="isErrorVisible"
+			  class="message-confirmation"
+			  >
+				<WDGMessage
+					iconSVG="warning.svg"
+					>
+					<slot slot="label">{{ errorMessage }}</slot>
 				</WDGMessage>
 			</div>
 
 			<div class="send-mail">
-				<WDGButton
-				  color="transparent"
-				  type="button"
-				  :clickEvent="onBackClickEvent"
-				  >
-					<slot slot="label">{{ $t( "account-signin.BACK" ) }}</slot>
-				</WDGButton>
 				<WDGButton
 				  v-if="isEmailValid"
 				  color="red"
@@ -60,7 +63,9 @@
 </template>
 
 <script>
+import i18n from '@/i18n'
 import { store } from '../../store.js'
+import { requests } from '../../requests.js'
 import WDGButton from '@/../../common/src/components/WDGButton'
 import WDGMessage from '@/../../common/src/components/WDGMessage'
 import WDGForm from '@/../../common/src/components/WDGForm'
@@ -79,16 +84,39 @@ export default {
 	data () {
 		return {
 			sharedState: store.state,
-            reinitPassSent: false
+            reinitPassSent: false,
+			loading: false,
+			isErrorVisible: false,
+			errorMessage: ''
 		}
 	},
 	methods: {
 		onSendReinitPassEvent () {
-			console.log('onSendReinitPassEvent')
-			this.reinitPassSent = true
+			store.setCreationTag(false)
+			this.loading = true
+			requests.sendReinitPass(this.sharedState.user.email, this.onSendReinitPassRequestResult)
 		},
-		onBackClickEvent () {
-			store.changeStep('signin')
+		/**
+		 * Retour de requête d'envoi de mail de réinitialisation de password
+		 */
+		onSendReinitPassRequestResult: function (requestResult) {
+			this.loading = false
+			this.reinitPassSent = false
+			if (requestResult === '' || requestResult === undefined || requestResult === 'error' || requestResult.status === 'email-not-sent') {
+				this.isErrorVisible = true
+				this.errorMessage = i18n.t('account-signin.FORGOTTEN_PASS_MAIL_NOT_SENT')
+			} else if (requestResult.status === 'facebook-account') {
+				this.isErrorVisible = true
+				this.errorMessage = i18n.t('account-signin.FORGOTTEN_PASS_MAIL_FACEBOOK')
+			} else if (requestResult.status === 'not-existing-account') {
+				this.isErrorVisible = true
+				this.errorMessage = i18n.t('account-signin.FORGOTTEN_PASS_MAIL_NO_ACCOUNT')
+			} else if (requestResult.status === 'empty') {
+				this.isErrorVisible = true
+				this.errorMessage = i18n.t('account-signin.FORGOTTEN_PASS_MAIL_NOT_SENT')
+			} else if (requestResult.status === 'email-sent') {
+				this.reinitPassSent = true
+			}
 		}
 	},
 	computed: {

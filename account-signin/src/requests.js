@@ -94,6 +94,32 @@ export const requests = {
 	},
 
 	/**
+	 * Envoi d'un mail de réinitialisation de mot de passe
+	 */
+	sendReinitPass(emailAddress, functionReturn) {
+		console.log('sendReinitPass ' + emailAddress)
+		let data = new FormData()
+		data.append('action', 'send_reinit_pass')
+		data.append('email-address', emailAddress)
+
+		axios
+			.post(store.props.ajaxurl, data, { timeout: 20000 })
+			.then(response => {
+				let responseData = response.data
+				console.log('then')
+				console.log(responseData)
+				functionReturn(responseData)
+			})
+			.catch(error => {
+				console.log('error.toJSON')
+				console.log(error.toJSON())
+				console.log(error.config)
+				this.logRequestError('sendReinitPass >> error >> ' + error.toString() + ' >>>> ' + JSON.stringify(error))
+				functionReturn('error')
+			})
+	},
+
+	/**
 	 * Fonction de création de compte via mot de passe
 	 */
 	getCreateAccount(emailAddress, password, firstname, lastname, functionReturn) {
