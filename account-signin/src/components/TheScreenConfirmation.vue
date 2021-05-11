@@ -84,6 +84,7 @@
 </template>
 <script>
 import { store } from '../store.js'
+import { requests } from '../requests.js'
 import WDGMascot from '@/../../common/src/components/WDGMascot'
 import WDGButton from '@/../../common/src/components/WDGButton'
 import WDGMessage from '@/../../common/src/components/WDGMessage'
@@ -107,6 +108,10 @@ export default {
             newMailSent: false
 		}
 	},
+	created () {
+		console.log('created sendValidationEmail')
+		requests.sendValidationEmail(this.sharedState.user.email, this.sharedState.creation, this.onSendValidationEmailRequestResult)
+    },
 	methods: {
         validateEmail (value) {
             if (/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value)) {
@@ -121,6 +126,9 @@ export default {
         onChangeEmailEvent () {
 			console.log('onChangeEmailEvent')
             this.newMailSent = true
+        },
+		onSendValidationEmailRequestResult: function (requestResult) {
+			console.log('onSendValidationEmailRequestResult')
         }
 	}
 }

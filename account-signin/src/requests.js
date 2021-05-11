@@ -120,6 +120,32 @@ export const requests = {
 	},
 
 	/**
+	 * Envoi d'un mail de validation de compte
+	 */
+	 sendValidationEmail(emailAddress, isNewAccount, functionReturn) {
+		let data = new FormData()
+		data.append('action', 'send_validation_email')
+		data.append('email-address', emailAddress)
+		data.append('is-new-account', isNewAccount)
+
+		axios
+			.post(store.props.ajaxurl, data, { timeout: 20000 })
+			.then(response => {
+				let responseData = response.data
+				console.log('then')
+				console.log(responseData)
+				functionReturn(responseData)
+			})
+			.catch(error => {
+				console.log('error.toJSON')
+				console.log(error.toJSON())
+				console.log(error.config)
+				this.logRequestError('sendValidationEmail >> error >> ' + error.toString() + ' >>>> ' + JSON.stringify(error))
+				functionReturn('error')
+			})
+	},
+
+	/**
 	 * Fonction de création de compte via mot de passe
 	 */
 	getCreateAccount(emailAddress, password, firstname, lastname, functionReturn) {
