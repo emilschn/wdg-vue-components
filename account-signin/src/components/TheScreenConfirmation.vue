@@ -44,14 +44,14 @@
                         name="newMail"
                         type="email"
                         icon="ok"
-                        :iconVisibility=validateEmail(sharedState.user.newMail)
+                        :iconVisibility=isNewEmailValid
                         :value="sharedState.user.newMail"
                         v-bind:valueReturn.sync="sharedState.user.newMail"
                         customStyle="natural-language"
                         />.<br><br>
                         <div class="send-mail">
                             <WDGButton
-                                v-if="validateEmail(this.sharedState.user.newMail)"
+                                v-if="isNewEmailValid"
                                 color="red"
                                 type="button"
                                 :clickEvent="onChangeEmailEvent"
@@ -64,7 +64,7 @@
                                 iconFont="ok"
                                 iconColor="palegreen"
                                 >
-                                <slot slot="label">{{ $t('account-signin.CONFIRMATION_MAIL_SENT') }}</slot>
+                                <slot slot="label">{{ $t('account-signin.CHANGE_MAIL_SENT') }}</slot>
                             </WDGMessage>
                         </div>
                 </div>
@@ -80,9 +80,18 @@
                 </a>
             </div><br>
         </div>
+        <WDGMessage
+            v-if="mailReSent === true"
+            id="message"
+            iconFont="ok"
+            iconColor="palegreen"
+            >
+            <slot slot="label">{{ $t('account-signin.CONFIRMATION_MAIL_SENT') }}</slot>
+        </WDGMessage>
     </div>
 </template>
 <script>
+import i18n from '@/i18n'
 import { store } from '../store.js'
 import { requests } from '../requests.js'
 import WDGMascot from '@/../../common/src/components/WDGMascot'
@@ -105,7 +114,12 @@ export default {
 		return {
             changemail: false,
 			sharedState: store.state,
-            newMailSent: false
+            validationEmailSent: false,
+            newMailSent: false,
+            mailReSent: false,
+			loading: false,
+			isErrorVisible: false,
+			errorMessage: ''
 		}
 	},
 	created () {
@@ -113,23 +127,71 @@ export default {
 		requests.sendValidationEmail(this.sharedState.user.email, this.sharedState.creation, this.onSendValidationEmailRequestResult)
     },
 	methods: {
-        validateEmail (value) {
-            if (/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value)) {
-                return true
-            } else {
-                return false
-            }
-        },
 		onMailNotReceived () {
 			console.log('onMailNotReceived')
+		    requests.sendValidationEmail(this.sharedState.user.email, this.sharedState.creation, this.onResendValidationEmailRequestResult)
 		},
         onChangeEmailEvent () {
 			console.log('onChangeEmailEvent')
-            this.newMailSent = true
+            requests.changeAccountEmail(this.sharedState.user.email, this.sharedState.user.newMail, this.onChangeAccountEmailRequestResult)
         },
 		onSendValidationEmailRequestResult: function (requestResult) {
 			console.log('onSendValidationEmailRequestResult')
+			// this.loading = false
+			this.validationEmailSent = false
+			if (requestResult === '' || requestResult === undefined || requestResult === 'error' || requestResult.status === 'email-not-sent') {
+				this.isErrorVisible = true
+				this.errorMessage = i18n.t('account-signin.CONFIRMATION_MAIL_NOT_SENT')
+			} else if (requestResult.status === 'not-existing-account') {
+				this.isErrorVisible = true
+				this.errorMessage = i18n.t('account-signin.CONFIRMATION_MAIL_NO_ACCOUNT')
+			} else if (requestResult.status === 'empty') {
+				this.isErrorVisible = true
+				this.errorMessage = i18n.t('account-signin.CONFIRMATION_MAIL_NOT_SENT')
+			} else if (requestResult.status === 'email-sent') {
+				this.validationEmailSent = true
+			}
+        },
+		onResendValidationEmailRequestResult: function (requestResult) {
+			console.log('onResendValidationEmailRequestResult')
+            this.mailReSent = false
+			if (requestResult === '' || requestResult === undefined || requestResult === 'error' || requestResult.status === 'email-not-sent') {
+				this.isErrorVisible = true
+				this.errorMessage = i18n.t('account-signin.CONFIRMATION_MAIL_NOT_SENT')
+			} else if (requestResult.status === 'not-existing-account') {
+				this.isErrorVisible = true
+				this.errorMessage = i18n.t('account-signin.CONFIRMATION_MAIL_NO_ACCOUNT')
+			} else if (requestResult.status === 'empty') {
+				this.isErrorVisible = true
+				this.errorMessage = i18n.t('account-signin.CONFIRMATION_MAIL_NOT_SENT')
+			} else if (requestResult.status === 'email-sent') {
+				this.mailReSent = true
+			}
+        },
+        onChangeAccountEmailRequestResult: function (requestResult) {
+			console.log('onChangeAccountEmailRequestResult')
+            this.newMailSent = false
+			if (requestResult === '' || requestResult === undefined || requestResult === 'error' || requestResult.status === 'email-not-sent') {
+				this.isErrorVisible = true
+				this.errorMessage = i18n.t('account-signin.CHANGE_MAIL_NOT_SENT')
+			} else if (requestResult.status === 'not-existing-account') {
+				this.isErrorVisible = true
+				this.errorMessage = i18n.t('account-signin.CHANGE_MAIL_NO_ACCOUNT')
+			} else if (requestResult.status === 'empty') {
+				this.isErrorVisible = true
+				this.errorMessage = i18n.t('account-signin.CHANGE_MAIL_NOT_SENT')
+			} else if (requestResult.status === 'email-adress-not-ok') {
+				this.isErrorVisible = true
+				this.errorMessage = i18n.t('account-signin.CHANGE_MAIL_NOT_OK')
+			} else if (requestResult.status === 'email-changed') {
+				this.newMailSent = true
+			}
         }
+	},
+	computed: {
+		isNewEmailValid() {
+			return store.isEmailValid(this.sharedState.user.newMail)
+		}
 	}
 }
 </script>

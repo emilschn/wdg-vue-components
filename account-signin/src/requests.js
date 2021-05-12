@@ -99,7 +99,7 @@ export const requests = {
 	sendReinitPass(emailAddress, functionReturn) {
 		console.log('sendReinitPass ' + emailAddress)
 		let data = new FormData()
-		data.append('action', 'send_reinit_pass')
+		data.append('action', 'account_signin_send_reinit_pass')
 		data.append('email-address', emailAddress)
 
 		axios
@@ -124,7 +124,7 @@ export const requests = {
 	 */
 	 sendValidationEmail(emailAddress, isNewAccount, functionReturn) {
 		let data = new FormData()
-		data.append('action', 'send_validation_email')
+		data.append('action', 'account_signin_send_validation_email')
 		data.append('email-address', emailAddress)
 		data.append('is-new-account', isNewAccount)
 
@@ -141,6 +141,32 @@ export const requests = {
 				console.log(error.toJSON())
 				console.log(error.config)
 				this.logRequestError('sendValidationEmail >> error >> ' + error.toString() + ' >>>> ' + JSON.stringify(error))
+				functionReturn('error')
+			})
+	},
+
+	/**
+	 * Fonction de changement d'adresse mail pour un compte existant
+	 */
+	changeAccountEmail(emailAddress, newEmailAddress, functionReturn) {
+		console.log('changeAccountEmail')
+		let data = new FormData()
+		data.append('action', 'account_signin_change_account_email')
+		data.append('email-address', emailAddress)
+		data.append('new-email-address', newEmailAddress)
+		axios
+			.post(store.props.ajaxurl, data, { timeout: 15000 })
+			.then(response => {
+				let responseData = response.data
+				console.log('then')
+				console.log(responseData)
+				functionReturn(responseData)
+			})
+			.catch(error => {
+				console.log('error.toJSON')
+				console.log(error.toJSON())
+				console.log(error.config)
+				this.logRequestError('changeAccountEmail >> error >> ' + error.toString() + ' >>>> ' + JSON.stringify(error))
 				functionReturn('error')
 			})
 	},
