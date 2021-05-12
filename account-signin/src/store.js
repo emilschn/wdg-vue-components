@@ -6,6 +6,7 @@ export const bus = new Vue()
 
 export const store = {
 	state: {
+		sessionUID: '',
 		step: 'signin',
 		user: {
 			email: '',

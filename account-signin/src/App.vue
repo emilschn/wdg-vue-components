@@ -45,6 +45,7 @@ export default {
 		}
 	},
   	created () {
+		this.sharedState.sessionUID = Date.now() + Math.floor(Math.random() * 100000000)
 		this.sharedProps.ajaxurl = initElements.dataset.ajaxurl
 		this.sharedProps.locale = initElements.dataset.locale
 		// Pas génial mais nécessaire pour le menu qui est chargé avant dans le store
