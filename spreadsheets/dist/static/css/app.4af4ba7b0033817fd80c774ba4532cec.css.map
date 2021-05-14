@@ -1,1 +1,0 @@
-{"version":3,"sources":["app.4af4ba7b0033817fd80c774ba4532cec.css"],"names":[],"mappings":"AACA,OACC,UACD,CAqCA,mBACC,UACD","file":"app.4af4ba7b0033817fd80c774ba4532cec.css","sourcesContent":["\n.clear {\n\tclear: both;\n}\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n.my-estimated-year {\n\tfloat: left;\n}\n"]}
