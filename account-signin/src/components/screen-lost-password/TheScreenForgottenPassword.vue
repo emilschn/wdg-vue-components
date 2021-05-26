@@ -53,6 +53,7 @@
 				  color="red"
 				  type="button"
 				  :clickEvent="onSendReinitPassEvent"
+				  :loading="loading"
 				  >
 					<slot slot="label">{{ $t('account-signin.FORGOTTEN_PASS_BUTTON') }}</slot>
 				</WDGButton>
