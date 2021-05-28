@@ -1,5 +1,5 @@
 module.exports = {
-	//publicPath: '/wp-content/plugins/wdg-vue-components/prospect-setup/dist/',
+	publicPath: process.env.NODE_ENV === 'development' ? '' : '/wp-content/plugins/wdg-vue-components/account-signin/dist/',
 	pluginOptions: {
 		i18n: {
 			locale: 'fr',

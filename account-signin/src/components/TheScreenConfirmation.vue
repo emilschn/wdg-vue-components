@@ -20,7 +20,7 @@
 					<div v-if="sharedState.creation !== true">
 						<a
 						  @click="onMailNotReceived"
-						  class="mail_not_received"
+						  :class="mailResendLoading ? 'mail_not_received_loading':'mail_not_received'"
 						  >
 							{{ $t('account-signin.CONFIRMATION_MAIL_NOT_RECEIVED_2') }}
 						</a>
@@ -75,7 +75,7 @@
 			<div>
 				<a
 				  @click="onMailNotReceived"
-				  class="mail_not_received"
+				  :class="mailResendLoading ? 'mail_not_received_loading':'mail_not_received'"
 				  >
 					{{ $t('account-signin.CONFIRMATION_MAIL_NOT_RECEIVED') }}
 				</a>
@@ -118,59 +118,32 @@ export default {
 			validationEmailSent: false,
 			newMailSent: false,
 			mailReSent: false,
-			loading: false,
+			mailResendLoading: false,
 			isErrorVisible: false,
 			errorMessage: ''
 		}
 	},
 	created () {
-		console.log('created sendValidationEmail')
 		requests.sendValidationEmail(this.sharedState.user.email, this.sharedState.creation, this.onSendValidationEmailRequestResult)
 	},
 	methods: {
 		onMailNotReceived () {
-			console.log('onMailNotReceived')
+			this.mailResendLoading = true
 			requests.sendValidationEmail(this.sharedState.user.email, this.sharedState.creation, this.onResendValidationEmailRequestResult)
 		},
 		onChangeEmailEvent () {
-			console.log('onChangeEmailEvent')
 			requests.changeAccountEmail(this.sharedState.user.email, this.sharedState.user.newMail, this.onChangeAccountEmailRequestResult)
 		},
 		onSendValidationEmailRequestResult: function (requestResult) {
-			console.log('onSendValidationEmailRequestResult')
-			// this.loading = false
 			this.validationEmailSent = false
-			if (requestResult === '' || requestResult === undefined || requestResult === 'error' || requestResult.status === 'email-not-sent') {
-				this.isErrorVisible = true
-				this.errorMessage = i18n.t('account-signin.CONFIRMATION_MAIL_NOT_SENT')
-			} else if (requestResult.status === 'not-existing-account') {
-				this.isErrorVisible = true
-				this.errorMessage = i18n.t('account-signin.CONFIRMATION_MAIL_NO_ACCOUNT')
-			} else if (requestResult.status === 'empty') {
-				this.isErrorVisible = true
-				this.errorMessage = i18n.t('account-signin.CONFIRMATION_MAIL_NOT_SENT')
-			} else if (requestResult.status === 'email-sent') {
-				this.validationEmailSent = true
-			}
+			this.setValidationEmailErrorFeedback(requestResult, 'validationEmailSent')
 		},
 		onResendValidationEmailRequestResult: function (requestResult) {
-			console.log('onResendValidationEmailRequestResult')
+			this.mailResendLoading = false
 			this.mailReSent = false
-			if (requestResult === '' || requestResult === undefined || requestResult === 'error' || requestResult.status === 'email-not-sent') {
-				this.isErrorVisible = true
-				this.errorMessage = i18n.t('account-signin.CONFIRMATION_MAIL_NOT_SENT')
-			} else if (requestResult.status === 'not-existing-account') {
-				this.isErrorVisible = true
-				this.errorMessage = i18n.t('account-signin.CONFIRMATION_MAIL_NO_ACCOUNT')
-			} else if (requestResult.status === 'empty') {
-				this.isErrorVisible = true
-				this.errorMessage = i18n.t('account-signin.CONFIRMATION_MAIL_NOT_SENT')
-			} else if (requestResult.status === 'email-sent') {
-				this.mailReSent = true
-			}
+			this.setValidationEmailErrorFeedback(requestResult, 'mailReSent')
 		},
 		onChangeAccountEmailRequestResult: function (requestResult) {
-			console.log('onChangeAccountEmailRequestResult')
 			this.newMailSent = false
 			if (requestResult === '' || requestResult === undefined || requestResult === 'error' || requestResult.status === 'email-not-sent') {
 				this.isErrorVisible = true
@@ -186,6 +159,27 @@ export default {
 				this.errorMessage = i18n.t('account-signin.CHANGE_MAIL_NOT_OK')
 			} else if (requestResult.status === 'email-changed') {
 				this.newMailSent = true
+			}
+		},
+		setValidationEmailErrorFeedback: function (requestResult, confirmationVar) {
+			if (requestResult === '' || requestResult === undefined || requestResult === 'error' || requestResult.status === 'email-not-sent') {
+				this.isErrorVisible = true
+				this.errorMessage = i18n.t('account-signin.CONFIRMATION_MAIL_NOT_SENT')
+			} else if (requestResult.status === 'not-existing-account') {
+				this.isErrorVisible = true
+				this.errorMessage = i18n.t('account-signin.CONFIRMATION_MAIL_NO_ACCOUNT')
+			} else if (requestResult.status === 'empty') {
+				this.isErrorVisible = true
+				this.errorMessage = i18n.t('account-signin.CONFIRMATION_MAIL_NOT_SENT')
+			} else if (requestResult.status === 'email-sent') {
+				switch (confirmationVar) {
+					case 'validationEmailSent':
+						this.validationEmailSent = true
+						break
+					case 'mailReSent':
+						this.mailReSent = true
+						break
+				}
 			}
 		}
 	},
@@ -226,9 +220,17 @@ div.the-screen-confirmation .link {
     text-align: center;
 }
 div.the-screen-confirmation a.mail_not_received {
-    color: #EA4F51;
+	color: #EA4F51;
 	text-decoration: underline;
 	cursor: pointer;
+}
+div.the-screen-confirmation a.mail_not_received_loading {
+	color: #C2C2C2;
+	text-decoration: none;
+	cursor: default;
+}
+div.the-screen-confirmation a.mail_not_received_loading:after {
+	content: '...';
 }
 div.the-screen-confirmation .link .wdg-button {
 	max-width: 66px;

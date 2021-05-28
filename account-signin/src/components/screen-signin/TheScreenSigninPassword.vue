@@ -94,6 +94,10 @@ export default {
 			if (requestResult.signin_status === 'error') {
 				this.hasPasswordError = true
 			} else {
+				// Si on a une URL de redirection, on va changer de page, donc autant laisser l'impression de chargement
+				if (requestResult.url_redirect !== 'email-validation') {
+					this.loading = true
+				}
 				this.onLoginSuccess(requestResult.url_redirect)
 			}
 		}
