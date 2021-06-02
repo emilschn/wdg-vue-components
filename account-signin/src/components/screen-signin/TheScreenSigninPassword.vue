@@ -122,4 +122,8 @@ export default {
 div.the-screen-signin-password, div.forgotten-password, div.wdg-message, div.wdg-checkbox {
 	margin-top: 16px;
 }
+
+div.the-screen-signin-password div.wdg-message {
+	border-color: #F8CACA;
+}
 </style>

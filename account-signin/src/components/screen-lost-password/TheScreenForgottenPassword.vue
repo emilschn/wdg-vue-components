@@ -133,11 +133,12 @@ div.the-screen-forgotten-password {
 	padding: 30px;
 }
 div.the-screen-forgotten-password .intro {
-	margin-bottom: 16px;
-	font-size: 24px;
+	margin-bottom: 26px;
+	font-size: 30px;
 	text-align: left;
 	font-weight: 700;
 	text-transform: uppercase;
+	font-family: 'Trebuchet MS', sans-serif;
 }
 div.the-screen-forgotten-password .wdg-form .send-mail {
 	display: flex;
@@ -145,6 +146,7 @@ div.the-screen-forgotten-password .wdg-form .send-mail {
 	margin-top: 16px;
 }
 div.the-screen-forgotten-password .wdg-button {
+	margin-top: 15px;
 	max-width: 325px;
 	width: 325px;
 }

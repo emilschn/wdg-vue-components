@@ -88,4 +88,7 @@ div.account-signin {
 	max-width: 1024px;
 	margin: 0px auto;
 }
+body {
+	font-size: 16px;
+}
 </style>

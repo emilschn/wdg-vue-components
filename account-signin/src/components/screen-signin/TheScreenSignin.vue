@@ -176,6 +176,9 @@ export default {
 	/* line-height: 60px; */
 	font-weight: 500;
 }
+.the-screen-signin .wdg-input {
+	margin-top: 15px;
+}
 .the-screen-signin input#email {
 	width: 370px;
 }
@@ -184,20 +187,19 @@ export default {
 }
 .the-screen-signin div .info {
 	width: 400px;
-	font-size: 12px;
+	font-size: 14px;
 	font-weight: 400;
 	color: #C2C2C2;
-	margin-top: 10px;
+	margin-top: 12px;
 }
-.the-screen-signin .name {
-	display: flex;
-	justify-content: space-between;
+.the-screen-signin #userFirstName {
+	margin-right: 20px;
 }
 .the-screen-signin .cgu {
 	width: 400px;
-	font-size: 12px;
+	font-size: 14px;
 	font-weight: 400;
-	color: #C2C2C2;
+	color: #333;
 	margin-top: 10px;
 }
 .wdg-message {
@@ -207,7 +209,6 @@ export default {
 	font-size: 12px;
 	font-style: normal;
 	font-weight: 400;
-	line-height: 21px;
 	letter-spacing: 0em;
 	text-align: left;
 }
