@@ -119,7 +119,10 @@ export default {
 </script>
 
 <style>
-div.the-screen-signin-password, div.forgotten-password, div.wdg-message, div.wdg-checkbox {
+div.the-screen-signin-password, div.forgotten-password, div.wdg-checkbox {
+	margin-top: 30px;
+}
+div.wdg-message {
 	margin-top: 16px;
 }
 

@@ -182,9 +182,6 @@ export default {
 .the-screen-signin .wdg-input {
 	margin-top: 15px;
 }
-.the-screen-signin input#email {
-	width: 370px;
-}
 .the-screen-signin input#password {
 	width: 370px;
 }
@@ -217,7 +214,8 @@ export default {
 }
 .the-screen-signin button {
 	margin-top: 10px;
-	max-width: 370px;
+	max-width: 250px;
+	font-size: 14px;
 }
 div.the-screen-signin a {
 	color: #EA4F51;
@@ -239,6 +237,12 @@ div.the-screen-signin a {
 	}
 	.the-screen-signin button {
 		max-width: 200px;
+	}
+	.the-screen-signin input#password, .wdg-input.natural-language input, .wdg-message, .the-screen-signin div .info, .the-screen-signin .cgu {
+		width: 80%;
+	}
+	.the-screen-signin #userFirstName {
+		margin: 20px 0px;
 	}
 }
 </style>
