@@ -1,7 +1,10 @@
 <template>
 	<div class="the-screen-signin">
 		<WDGMascot type="face-2" v-if="getMascotType == 'ask-email'">
-			<slot slot="text">{{ $t('account-signin.MASCOT_TEXT_WEDOGOOD') }}</slot>
+			<slot slot="text">
+				<span class="title">{{ $t('account-signin.MASCOT_TEXT_WEDOGOOD') }}</span><br><br>
+				<span class="title"><i>{{ $t('account-signin.MASCOT_TEXT_FORGOTTEN_MAIL') }}</i></span>
+			</slot>
 		</WDGMascot>
 		<WDGMascot type="face-1" v-if="getMascotType == 'connexion'">
 			<slot slot="text">{{ $t('account-signin.MASCOT_TEXT_WELCOME') }}{{ sharedState.user.name }} !</slot>

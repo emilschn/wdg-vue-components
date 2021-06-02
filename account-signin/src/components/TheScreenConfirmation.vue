@@ -13,19 +13,36 @@
 		</div><br>
 		<WDGMascot type="face-3">
 			<slot slot="text">
-				<span>
+				<span v-if="validationEmailSent === true">
 					<span class="title">{{ $t('account-signin.CONFIRMATION_TEXT_1') }}<b>{{ sharedState.user.email }}</b></span><br><br>
 					<span class="title"><b>{{ $t('account-signin.CONFIRMATION_TEXT_2') }}</b></span><br><br>
 					<span class="title">{{ $t('account-signin.CONFIRMATION_TEXT_3') }}</span><br><br>
-					<div v-if="sharedState.creation !== true">
-						<a
-						  @click="onMailNotReceived"
-						  :class="mailResendLoading ? 'mail_not_received_loading':'mail_not_received'"
-						  >
-							{{ $t('account-signin.CONFIRMATION_MAIL_NOT_RECEIVED_2') }}
-						</a>
+				</span>
+				<span v-else>
+					<div
+					v-if="isErrorVisible === true"
+					class="message-confirmation"
+					>
+						<WDGMessage
+							iconSVG="warning.svg"
+							>
+							<slot slot="label">{{ errorMessage }}</slot>
+						</WDGMessage>
 					</div>
 				</span>
+				<div v-if="sharedState.creation !== true">
+					<a
+						@click="onMailNotReceived"
+						:class="mailResendLoading ? 'mail_not_received_loading':'mail_not_received'"
+						>
+						<span v-if="validationEmailSent === true">
+								{{ $t('account-signin.CONFIRMATION_MAIL_NOT_RECEIVED_2') }}
+						</span>
+						<span v-else>
+								{{ $t('account-signin.CONFIRMATION_MAIL_NOT_RECEIVED_3') }}
+						</span>
+					</a>
+				</div>
 			</slot>
 		</WDGMascot><br><br>
 		<div class="form" v-if="sharedState.creation !== true">

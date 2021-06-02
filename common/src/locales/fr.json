@@ -54,6 +54,7 @@
 	"account-signin": {
 		"BACK": "Retour",
 		"MASCOT_TEXT_WEDOGOOD": "Sur WE DO GOOD, vous pouvez investir en échange de royalties sur les projets de votre choix et avoir des impacts positifs économiques, sociaux, ou environnementaux. ",
+		"MASCOT_TEXT_FORGOTTEN_MAIL": "Si vous ne vous souvenez plus de l'adresse mail utilisée pour vous connecter, contactez-nous via le chat en ligne ou le formulaire de contact afin que l'on puisse vous guider.",
 		"MASCOT_TEXT_WELCOME": "Bonjour ",
 		"MASCOT_TEXT_NOTICE_1": "Nous allons procéder ensemble à votre inscription. Elle ne vous prendra que quelques minutes. ",
 		"MASCOT_TEXT_NOTICE_2": "Pour vous inscrire dans le but d'investir, pensez à préparer ",
@@ -87,6 +88,7 @@
 		"CONFIRMATION_TEXT_3": "Il peut mettre quelques minutes à arriver. Pensez à vérifier vos emails indésirables. Si vous avez besoin d'aide, contactez-nous en cliquant sur la bulle de discussion en bas à droite de votre écran.",
 		"CONFIRMATION_MAIL_NOT_RECEIVED": "Je n’ai pas reçu le mail de vérification",
 		"CONFIRMATION_MAIL_NOT_RECEIVED_2": "Vous n'avez pas reçu l'e-mail ?",
+		"CONFIRMATION_MAIL_NOT_RECEIVED_3": "Renvoyer l'e-mail",
 		"CONFIRMATION_EXPLICATION": "Dans le cadre de la refonte de notre site et pour que la communication entre nous soit optimale, nous procédons à une vérification des adresses e-mail de tous nos utilisateurs.",
 		"CONFIRMATION_CHANGE_MAIL": "Je souhaite changer mon adresse e-mail",
 		"CONFIRMATION_NEW_MAIL": "Ma nouvelle adresse e-mail est ",
@@ -99,7 +101,6 @@
 		"CHANGE_MAIL_NOT_OK": "La nouvelle adresse mail n'est pas valide.",
 		"FORGOTTEN_PASS_TITLE": "Récupération de mot de passe",
 		"FORGOTTEN_PASS_TEXT_1": "Vous avez oublié votre mot de passe ? Pas d'inquiétude : indiquez votre adresse mail de connexion ci-dessous et vous recevrez les instructions par mail afin de le réinitialiser.",
-		"FORGOTTEN_PASS_TEXT_2": "Si vous ne vous souvenez plus de l'adresse mail utilisée pour vous connecter, contactez-nous via le chat en ligne ou le formulaire de contact afin que l'on puisse vous guider.",
 		"FORGOTTEN_PASS_BUTTON": "Réinitialiser le mot de passe",
 		"FORGOTTEN_PASS_MAIL_SENT": "Un message a été envoyé à votre adresse e-mail.",
 		"FORGOTTEN_PASS_MAIL_NOT_SENT": "Problème d'envoi : l'e-mail de réinitialisation n'a pas été envoyé.",
