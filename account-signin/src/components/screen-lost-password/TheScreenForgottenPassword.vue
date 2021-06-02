@@ -7,8 +7,6 @@
 		<div class="description">
 			<span v-if="context === 'wdg'">
 				{{ $t( "account-signin.FORGOTTEN_PASS_TEXT_1" ) }}
-				<br><br>
-				{{ $t( "account-signin.FORGOTTEN_PASS_TEXT_2" ) }}
 			</span>
 			<span v-else>{{ $t( "account-signin.UNLINK_FACEBOOK_TEXT" ) }}</span>
 			<br><br>
