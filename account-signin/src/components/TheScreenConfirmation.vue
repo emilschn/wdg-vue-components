@@ -16,7 +16,7 @@
 				<span v-if="validationEmailSent === true">
 					<span class="title">{{ $t('account-signin.CONFIRMATION_TEXT_1') }}<b>{{ sharedState.user.email }}</b></span><br><br>
 					<span class="title"><b>{{ $t('account-signin.CONFIRMATION_TEXT_2') }}</b></span><br><br>
-					<span class="title">{{ $t('account-signin.CONFIRMATION_TEXT_3') }}</span><br><br>
+					<span class="title">{{ $t('account-signin.CONFIRMATION_TEXT_3') }}</span>
 				</span>
 				<span v-else>
 					<div
@@ -44,7 +44,7 @@
 					</a>
 				</div>
 			</slot>
-		</WDGMascot><br><br>
+		</WDGMascot>
 		<div class="form" v-if="sharedState.creation !== true">
 			<WDGForm>
 				<WDGCheckbox
@@ -96,6 +96,7 @@
 				  >
 					{{ $t('account-signin.CONFIRMATION_MAIL_NOT_RECEIVED') }}
 				</a>
+				<img v-if="mailResendLoading" src="@/../../common/src/assets/icons/loading.gif" />
 			</div><br>
 		</div>
 		<WDGMessage
@@ -214,23 +215,25 @@ div.the-screen-confirmation {
 }
 div.the-screen-confirmation .intro {
   margin-bottom: 16px;
-  font-size: 24px;
+  font-size: 29px;
   text-align: center;
   font-weight: 700;
+  font-family: 'Trebuchet MS', sans-serif;
 }
 div.the-screen-confirmation .wdg-message {
 	max-width: 566px;
     margin: auto;
+	width: max-content;
 }
 div.the-screen-confirmation .wdg-mascot {
     display: flex;
     flex-direction: row-reverse;
     max-width: 100%;
-    margin-bottom: 16px;
+    margin-bottom: 50px;
     float:none;
 }
 div.the-screen-confirmation .wdg-mascot .image{
-    width: 100%;
+    width: 90%;
 }
 div.the-screen-confirmation .link {
     margin-bottom: 16px;
@@ -249,6 +252,10 @@ div.the-screen-confirmation a.mail_not_received_loading {
 div.the-screen-confirmation a.mail_not_received_loading:after {
 	content: '...';
 }
+div.the-screen-confirmation .link img {
+	width: 30px;
+	height: 30px;
+}
 div.the-screen-confirmation .link .wdg-button {
 	max-width: 66px;
     margin: auto;
@@ -264,5 +271,15 @@ div.the-screen-confirmation .form .wdg-button {
 	max-width: 177px;
     width: 177px;
 }
-
+@media only screen and (max-width: 767px) {
+div.the-screen-confirmation .wdg-mascot {
+	flex-direction: column;
+	align-items: center;
+	margin-bottom: 16px;
+}
+div.the-screen-confirmation .wdg-mascot .image {
+	width: auto;
+	margin-top: 15px;
+}
+}
 </style>

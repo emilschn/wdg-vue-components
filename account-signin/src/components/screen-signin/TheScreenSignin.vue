@@ -182,7 +182,7 @@ export default {
 .the-screen-signin .wdg-input {
 	margin-top: 15px;
 }
-.the-screen-signin input#password {
+.the-screen-signin input#password, .the-screen-signin input#bzz {
 	width: 370px;
 }
 .the-screen-signin div .info {
@@ -226,6 +226,9 @@ div.the-screen-signin a {
 	max-width: 300px;
 }
 @media only screen and (max-width: 767px) {
+	.the-screen-signin {
+		min-height: 50vh; /* permet d'avoir le footer pas directement collé en dessous si peu d'informations sont affichées */
+	}
 	.the-screen-signin .content {
 		flex-direction: column;
 	}
@@ -238,7 +241,7 @@ div.the-screen-signin a {
 	.the-screen-signin button {
 		max-width: 200px;
 	}
-	.the-screen-signin input#password, .wdg-input.natural-language input, .wdg-message, .the-screen-signin div .info, .the-screen-signin .cgu {
+	.the-screen-signin input#password, .the-screen-signin input#bzz, .wdg-message, .the-screen-signin div .info, .the-screen-signin .cgu {
 		width: 80%;
 	}
 	.the-screen-signin #userFirstName {
