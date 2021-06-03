@@ -31,14 +31,13 @@
 
 			<!-- le compte existe et c'est une organization -->
 			<div v-if="loginEmailStep === 'orga-account'">
-				<br>
 				<WDGMessage
 				  id="message"
 				  iconSVG="info.svg"
 				  >
 					<slot slot="label">{{ $t('account-signin.SIGNIN_ERROR_ORGA') }}</slot>
 				</WDGMessage><br>
-				{{ $t('account-signin.LABEL_ORGA') }} {{orgaName}}
+				<p class="orga-name">{{ $t('account-signin.LABEL_ORGA') }} {{orgaName}}</p>
 				<WDGButton
 				  color="transparent"
 				  type="button"
@@ -217,6 +216,23 @@ export default {
 	max-width: 250px;
 	font-size: 14px;
 }
+.the-screen-signin button.facebook {
+	max-width: 290px;
+	margin-top: 20px;
+}
+.the-screen-signin .wdg-button button.transparent { /* modification exceptionnelle du bouton pour être raccord avec la maquette */
+	border-color: #c2c2c2;
+	padding: 15px;
+	max-width: 370px;
+	height: auto;
+	text-align: left;
+}
+.the-screen-signin .wdg-button button.transparent span {
+	color: #EBCE67;
+	background-color: #F9F0D1;
+	padding: 3px;
+	margin-right: 10px;
+}
 div.the-screen-signin a {
 	color: #EA4F51;
 	text-decoration: underline;
@@ -224,6 +240,9 @@ div.the-screen-signin a {
 }
 .the-screen-signin .wdg-mascot{
 	max-width: 300px;
+}
+.the-screen-signin .orga-name {
+	font-weight: 600;
 }
 @media only screen and (max-width: 767px) {
 	.the-screen-signin {

@@ -78,7 +78,7 @@ export default {
 <style>
 div.lost-facebook-access {
 	max-width: 370px;
-	margin-top: 8px;
-	text-align: center;
+	margin-top: 20px;
+	text-align: left;
 }
 </style>
