@@ -7,7 +7,7 @@
 		  :customStyle="customStyle"
 		  :type="typeValue"
 		  icon="ok"
-		  :iconVisibility=isValidPassword(valueReturn)
+		  :iconVisibility="isValidPassword(valueReturn) && displayValidPassword"
 		  :value="valueReturn"
 		  v-bind:valueReturn.sync="valueReturn"
 		  :onChange="onChangePassEvent"
@@ -44,6 +44,7 @@ export default {
 		customStyle: { type: String, default: '' },
 		type: { type: String, default: 'password' },
 		value: { type: [String, Number], default: null },
+		displayValidPassword: { type: Boolean, default: true },
 		disableToggle: { type: Boolean, default: false },
 		onValidatePassword: Function
 	},
@@ -73,7 +74,7 @@ export default {
 			this.$refs.inputPassword.focus()
 		},
 		getClassToggle (value) {
-			if (this.isValidPassword(value)) {
+			if (this.isValidPassword(value) && this.displayValidPassword) {
 				return 'input-icon-toggle veryleft'
 			} else {
 				return 'input-icon-toggle'
@@ -86,7 +87,7 @@ export default {
 	.wdg-input-password .input-icon-toggle {
 		position: relative;
 		width: 22px;
-		left: -42px;
+		left: -30px;
 		height: 100%;
 		border: 0px solid #FFF;
 		background: #FFF;

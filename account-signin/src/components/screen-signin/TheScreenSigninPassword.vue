@@ -7,6 +7,7 @@
 		  :value="sharedState.user.password"
 		  v-bind:valueReturn.sync="sharedState.user.password"
 		  customStyle="natural-language"
+		  :displayValidPassword="false"
 		  />
 
 		<WDGMessage
