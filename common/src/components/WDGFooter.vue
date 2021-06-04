@@ -161,11 +161,12 @@ export default {
 @media only screen and (max-width: 767px) {
 	.footer {
 		flex-wrap: wrap;
-		height: 220px;
+		height: auto;
 	}
 	.footer div {
 		width: 45%;
 		text-align: center;
+		margin: 10px;
 	}
 	.footer .title {
 		font-size: 18px;

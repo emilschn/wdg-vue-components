@@ -129,6 +129,7 @@ hr {
 @media screen and (max-width: 767px) {
 .header {
 	align-items: center;
+	padding-right: 15px;
 }
 .header .logo img {
 	width: 70%;

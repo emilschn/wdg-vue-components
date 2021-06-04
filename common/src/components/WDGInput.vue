@@ -355,8 +355,25 @@ export default {
 		position: relative;
 		left: -16px;
 		color: #CEE9C0;
+		background-color: #fff; /* permet de ne pas se superposer au texte si l'adresse est longue */
+		padding-left: 5px;
 	}
 	.wdg-input span.input-icon span.glyphicon-hourglass {
-		color: #EBEBEB;
+		color: #c2c2c2;
+		animation-duration: 2.5s;
+  		animation-name: anim-hourglass;
+		animation-iteration-count: infinite;
+	}
+
+	@keyframes anim-hourglass {
+		0% {
+       		-webkit-transform: rotate(0deg);
+    	}
+    	50% {
+        	-webkit-transform: rotate(180deg);
+    	}
+		100% {
+			-webkit-transform: rotate(360deg);
+		}
 	}
 </style>

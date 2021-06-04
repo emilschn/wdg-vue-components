@@ -2,12 +2,12 @@
 	<div class="wdg-message">
 		<span v-show="iconFont" :class="[ 'glyphicon', `glyphicon-${this.iconFont}`, 'icon-'+iconColor ]"></span>
 		<span v-if="iconSVG !== null" class="icon">
-			<svg width="40" height="40">
+			<svg width="30" height="30">
 				<image
 				  :href="getIcon"
 				  :src="getIcon"
-				  width="40"
-				  height="40"
+				  width="30"
+				  height="30"
 				  />
 			</svg>
 		</span>
@@ -47,15 +47,15 @@ export default {
 	text-align: left;
 	height: 100%;
 	width: 100%;
-	padding: 8px;
+	padding: 14px;
 	margin: 0px;
 	border: 1px solid #B3DAE1;
 	box-sizing: border-box;
 	display: flex;
-	justify-content: space-between;
+	align-items: center;
 }
 .wdg-message .text {
-	left: 20px;
+	margin-left: 10px;
 }
 .wdg-message .icon-white {
 	font-size: 20px;

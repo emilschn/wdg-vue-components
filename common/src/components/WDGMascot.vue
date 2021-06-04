@@ -40,6 +40,7 @@ export default {
 .wdg-mascot {
 	float: right;
 	max-width: 280px;
+	margin-bottom: 40px;
 }
 .wdg-mascot div.text {
 	padding: 24px;

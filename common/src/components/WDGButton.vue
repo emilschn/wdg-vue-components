@@ -51,7 +51,7 @@ button {
 	height: 48px;
 	margin-bottom: 16px;
 	padding: 0px;
-	text-transform: uppercase;
+	text-transform: uppercase !important; /* ajout de important sinon c'est écrasé par normalize.less */
 	cursor: pointer;
 }
 button:disabled {
@@ -59,6 +59,7 @@ button:disabled {
 }
 button.loading {
 	background: #EBEBEB !important;
+	color: #333 !important;
 }
 button.red {
 	border: 0 solid #ea4f51;
