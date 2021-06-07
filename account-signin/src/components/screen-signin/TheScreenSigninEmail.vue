@@ -6,7 +6,7 @@
 		  name="bzz"
 		  type="email"
 		  :loading="loading"
-		  icon="ok"
+		  icon="check"
 		  :iconVisibility=isEmailValid
 		  :value="sharedState.user.email"
 		  v-bind:valueReturn.sync="sharedState.user.email"

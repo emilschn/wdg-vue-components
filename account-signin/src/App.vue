@@ -5,6 +5,10 @@
 	:data-ajaxurl="sharedProps.ajaxurl"
 	:data-locale="sharedProps.locale"
   	>
+    <link rel="stylesheet"
+        href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+        integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+        crossorigin="anonymous">
 		<WDGHeader
 		  v-bind:hasTitle=false
 		  v-bind:langSelector=true
@@ -79,7 +83,6 @@ export default {
 </script>
 
 <style>
-@import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css');
 body, input, select, button {
 	font-family: Arial, Helvetica, sans-serif;
 	color: #333;

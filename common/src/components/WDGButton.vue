@@ -7,7 +7,7 @@
 		  :class="[ this.color, this.loading ? 'loading' : '' ]"
 		  @click="onClickLocalEvent"
           >
-        	<span v-show="icon" :class="[ 'glyphicon', `glyphicon-${this.icon}` ]"></span>
+			<span v-show="icon" :class="[ 'fas', `fa-${this.icon}` ]"></span>
 			<slot name="label-loading" v-if="loading"></slot>
 			<slot name="label" v-else></slot>
 			<img v-if="loading" src="@/../../common/src/assets/icons/loading-grey.gif" />

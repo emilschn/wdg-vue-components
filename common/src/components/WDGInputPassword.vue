@@ -6,7 +6,7 @@
 		  ref="inputPassword"
 		  :customStyle="customStyle"
 		  :type="typeValue"
-		  icon="ok"
+		  icon="check"
 		  :iconVisibility="isValidPassword(valueReturn) && displayValidPassword"
 		  :value="valueReturn"
 		  v-bind:valueReturn.sync="valueReturn"
@@ -23,10 +23,10 @@
 			  @click="togglePassword"
 			  >
 				<span name="password-hide" v-if="this.typeValue === 'text'">
-					<span class="glyphicon glyphicon-eye-close"></span>
+					<span class="fas fa-eye-slash"></span>
 				</span>
 				<span name="password-show" v-else>
-					<span class="glyphicon glyphicon-eye-open"></span>
+					<span class="fas fa-eye"></span>
 				</span>
 			</button>
 		</slot>

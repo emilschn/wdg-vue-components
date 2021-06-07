@@ -60,7 +60,7 @@
 					  id="newMail"
 					  name="newMail"
 					  type="email"
-					  icon="ok"
+					  icon="check"
 					  :iconVisibility=isNewEmailValid
 					  :value="sharedState.user.newMail"
 					  v-bind:valueReturn.sync="sharedState.user.newMail"
@@ -79,7 +79,7 @@
 						<WDGMessage
 						  v-if="newMailSent === true"
 						  id="message"
-						  iconFont="ok"
+						  iconFont="check"
 						  iconColor="palegreen"
 						  >
 							<slot slot="label">{{ $t('account-signin.CHANGE_MAIL_SENT') }}</slot>
@@ -102,7 +102,7 @@
 		<WDGMessage
 		  v-if="mailReSent === true"
 		  id="message"
-		  iconFont="ok"
+		  iconFont="check"
 		  iconColor="palegreen"
 		  >
 			<slot slot="label">{{ $t('account-signin.CONFIRMATION_MAIL_SENT') }}</slot>

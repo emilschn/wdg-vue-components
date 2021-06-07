@@ -16,7 +16,7 @@
 			  id="email"
 			  name="email"
 			  type="email"
-			  icon="ok"
+			  icon="check"
 			  :iconVisibility=isEmailValid
 			  :value="sharedState.user.email"
 			  v-bind:valueReturn.sync="sharedState.user.email"
@@ -28,7 +28,7 @@
 			  class="message-confirmation"
 			  >
 				<WDGMessage
-					iconFont="ok"
+					iconFont="check"
 					iconColor="palegreen"
 					>
 					<slot slot="label">{{ $t('account-signin.FORGOTTEN_PASS_MAIL_SENT') }}</slot>

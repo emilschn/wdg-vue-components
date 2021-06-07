@@ -63,12 +63,12 @@
 			<span class="input-icon">
 				<span
 					v-if="loading"
-					:class="[ 'glyphicon', `glyphicon-hourglass` ]"
+					class="fas fa-hourglass"
 					>
 				</span>
 				<span
 					v-else-if="!multiline && icon && iconVisibility && !loading"
-					:class="[ 'glyphicon', `glyphicon-${icon}` ]"
+					:class="[ 'fas', `fa-${icon}` ]"
 					>
 				</span>
 			</span>
@@ -122,12 +122,12 @@
 			<span class="input-icon">
 				<span
 					v-if="loading"
-					:class="[ 'glyphicon', `glyphicon-hourglass` ]"
+					class="fas fa-hourglass"
 					>
 				</span>
 				<span
-					v-else-if="!multiline && this.icon && this.iconVisibility"
-					:class="[ 'glyphicon', `glyphicon-${this.icon}` ]"
+					v-else-if="!multiline && icon && iconVisibility"
+					:class="[ 'fas', `fa-${icon}` ]"
 					>
 				</span>
 			</span>
@@ -358,7 +358,7 @@ export default {
 		background-color: #fff; /* permet de ne pas se superposer au texte si l'adresse est longue */
 		padding-left: 5px;
 	}
-	.wdg-input span.input-icon span.glyphicon-hourglass {
+	.wdg-input span.input-icon span.fa-hourglass {
 		color: #c2c2c2;
 		animation-duration: 2.5s;
   		animation-name: anim-hourglass;

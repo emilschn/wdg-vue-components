@@ -1,6 +1,10 @@
 <template>
 	<div class="wdg-message">
-		<span v-show="iconFont" :class="[ 'glyphicon', `glyphicon-${this.iconFont}`, 'icon-'+iconColor ]"></span>
+		<span
+			v-show="iconFont"
+			:class="[ 'fas', `fa-${this.iconFont}`, 'icon-'+iconColor ]"
+			>
+		</span>
 		<span v-if="iconSVG !== null" class="icon">
 			<svg width="30" height="30">
 				<image
