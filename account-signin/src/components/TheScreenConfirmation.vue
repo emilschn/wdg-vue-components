@@ -16,13 +16,19 @@
 				<span v-if="validationEmailSent === true">
 					<span class="title">{{ $t('account-signin.CONFIRMATION_TEXT_1') }}<b>{{ sharedState.user.email }}</b></span><br><br>
 					<span class="title"><b>{{ $t('account-signin.CONFIRMATION_TEXT_2') }}</b></span><br><br>
-					<span class="title">{{ $t('account-signin.CONFIRMATION_TEXT_3') }}</span>
+					<span class="title">{{ $t('account-signin.CONFIRMATION_TEXT_3') }}</span><br><br>
 				</span>
 				<span v-else>
+					<span
+						v-if="validationMailLoading"
+						class="loading"
+						>
+						<img src="@/../../common/src/assets/icons/loading-grey.gif" />
+					</span>
 					<div
-					v-if="isErrorVisible === true"
-					class="message-confirmation"
-					>
+						v-else-if="isErrorVisible === true"
+						class="message-confirmation"
+						>
 						<WDGMessage
 							iconSVG="warning.svg"
 							>
@@ -38,7 +44,7 @@
 						<span v-if="validationEmailSent === true">
 								{{ $t('account-signin.CONFIRMATION_MAIL_NOT_RECEIVED_2') }}
 						</span>
-						<span v-else>
+						<span v-else-if="validationMailLoading === false">
 								{{ $t('account-signin.CONFIRMATION_MAIL_NOT_RECEIVED_3') }}
 						</span>
 					</a>
@@ -138,7 +144,8 @@ export default {
 			mailReSent: false,
 			mailResendLoading: false,
 			isErrorVisible: false,
-			errorMessage: ''
+			errorMessage: '',
+			validationMailLoading: true
 		}
 	},
 	created () {
@@ -154,6 +161,7 @@ export default {
 		},
 		onSendValidationEmailRequestResult: function (requestResult) {
 			this.validationEmailSent = false
+			this.validationMailLoading = false
 			this.setValidationEmailErrorFeedback(requestResult, 'validationEmailSent')
 		},
 		onResendValidationEmailRequestResult: function (requestResult) {
@@ -233,7 +241,14 @@ div.the-screen-confirmation .wdg-mascot {
     float:none;
 }
 div.the-screen-confirmation .wdg-mascot .image{
-    width: 90%;
+    width: 40%;
+}
+div.the-screen-confirmation .wdg-mascot .text{
+    width: 60%;
+}
+div.the-screen-confirmation .wdg-mascot .text span.loading{
+	text-align: center;
+	display: block;
 }
 div.the-screen-confirmation .link {
     margin-bottom: 16px;
