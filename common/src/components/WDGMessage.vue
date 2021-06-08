@@ -53,7 +53,7 @@ export default {
 	width: 100%;
 	padding: 14px;
 	margin: 0px;
-	border: 1px solid #B3DAE1;
+	border: 1px solid;
 	box-sizing: border-box;
 	display: flex;
 	align-items: center;

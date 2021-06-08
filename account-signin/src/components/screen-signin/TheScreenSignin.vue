@@ -216,6 +216,11 @@ export default {
 	max-width: 250px;
 	font-size: 14px;
 }
+.the-screen-signin button.loading {/* pour que le texte s'aligne au milieu */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 .the-screen-signin button.facebook {
 	max-width: 290px;
 	margin-top: 20px;
