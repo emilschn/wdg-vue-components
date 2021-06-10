@@ -1,5 +1,5 @@
 <template>
-	<div class="wdg-mascot" :class="[type, additionnalClass, 'text-'+TextColor, 'bg-'+BGColor, alignMascot]">
+	<div class="wdg-mascot" :class="[type, additionnalClass, 'text-'+TextColor, 'bg-'+BGColor, alignMascot, displayTextClass]">
 		<div class="text">
 			<slot name="text"></slot>
 		</div>
@@ -29,9 +29,15 @@ export default {
 	props: {
 		type: { type: String, default: null },
 		additionnalClass: { type: String, default: '' },
+		displayText: { type: Boolean, default: true },
 		TextColor: { type: String, default: 'black' },
 		BGColor: { type: String, default: 'white' },
 		alignMascot: { type: String, default: 'right' }
+	},
+	computed: {
+		displayTextClass () {
+			return this.displayText ? '' : 'text-hidden'
+		}
 	}
 }
 </script>
@@ -41,6 +47,9 @@ export default {
 	float: right;
 	max-width: 280px;
 	margin-bottom: 40px;
+}
+.wdg-mascot.text-hidden div.text {
+	display: none;
 }
 .wdg-mascot div.text {
 	padding: 24px;

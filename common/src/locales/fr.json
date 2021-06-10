@@ -51,6 +51,9 @@
 		"SIGNUP_ERROR_UNDEFINED": "Problème de création d'utilisateur.",
 		"SIGNUP_ERROR_ROBOT": "Merci de cocher la case confirmant que vous n'êtes pas un robot."
 	},
+	"account-authentication": {
+		"INVEST_FOR_ORGANIZATION": "Souhaitez-vous investir au nom d'une organisation (en tant que personne morale) ?"
+	},
 	"account-signin": {
 		"BACK": "Retour",
 		"MASCOT_TEXT_WEDOGOOD": "Sur WE DO GOOD, vous pouvez investir en échange de royalties sur les projets de votre choix et avoir des impacts positifs économiques, sociaux, ou environnementaux. ",

@@ -49,6 +49,9 @@
 		"SIGNUP_ERROR_UNDEFINED": "An error occurred when creating the user.",
 		"SIGNUP_ERROR_ROBOT": "Please check the box confirming that you are not a robot."
 	},
+	"account-authentication": {
+		"INVEST_FOR_ORGANIZATION": "Souhaitez-vous investir au nom d'une organisation (en tant que personne morale) ?"
+	},
 	"account-signin": {
 		"BACK": "Back",
 		"MASCOT_TEXT_WEDOGOOD": "[EN] Sur WE DO GOOD, vous pouvez investir en échange de royalties sur les projets de votre choix et avoir des impacts positifs économiques, sociaux, ou environnementaux. ",
