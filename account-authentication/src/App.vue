@@ -12,6 +12,7 @@
 		  />
 
 		<TheScreenInvestorType :onConfirmUserType="onConfirmUserTypeEvent" v-if="sharedState.step === 'usertype'" />
+		<TheScreenInvestorUserInfo v-if="sharedState.step === 'userinfo'" />
 
 		<WDGFooter BGColor="grey" TextColor="black" FooterStyle="account"/>
 	</div>
@@ -22,7 +23,8 @@ import i18n from '@/i18n'
 import { store } from './store.js'
 import WDGHeader from '@/../../common/src/components/WDGHeader'
 import WDGFooter from '@/../../common/src/components/WDGFooter'
-import TheScreenInvestorType from './components/TheScreenInvestorType.vue'
+import TheScreenInvestorType from './components/screen-investor-type/TheScreenInvestorType.vue'
+import TheScreenInvestorUserInfo from './components/screen-user-info/TheScreenInvestorUserInfo.vue'
 const initElements = document.querySelector('#app')
 
 export default {
@@ -30,7 +32,8 @@ export default {
 	components: {
 		WDGHeader,
 		WDGFooter,
-		TheScreenInvestorType
+		TheScreenInvestorType,
+		TheScreenInvestorUserInfo
 	},
 	data () {
 		return {
@@ -41,13 +44,32 @@ export default {
   	created () {
 		this.sharedProps.ajaxurl = initElements.dataset.ajaxurl
 		this.sharedProps.locale = initElements.dataset.locale
+		// Pas génial mais nécessaire pour le menu qui est chargé avant dans le store
+		let tempLocale = 'fr'
+		if (initElements.dataset.locale !== undefined && initElements.dataset.locale !== '') {
+			if (initElements.dataset.locale.indexOf('_') > -1) {
+				let splitLocale = initElements.dataset.locale.split('_')
+				tempLocale = splitLocale[0]
+			} else {
+				tempLocale = initElements.dataset.locale
+			}
+		}
+		i18n.locale = tempLocale
+		window.addEventListener('hashchange', () => this.onHashChangedEvent())
 	},
 	methods: {
+		onHashChangedEvent () {
+			let sNewLocation = location.hash
+			if (sNewLocation === '') {
+				sNewLocation = 'signin'
+			} else {
+				sNewLocation = sNewLocation.substring(1)
+			}
+			store.changeStepFromHash(sNewLocation)
+		},
 		onConfirmUserTypeEvent (userNeedOrga) {
 			this.sharedState.userNeedOrga = ( userNeedOrga == '1' )
-			if (this.sharedState.userNeedOrga) {
-				this.changeStep( 'userinfo' )
-			}
+			store.changeStep( 'userinfo' )
 		}
 	}
 }

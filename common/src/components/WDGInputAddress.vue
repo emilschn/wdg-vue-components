@@ -1,96 +1,22 @@
 <template>
   	<div
-      v-show="!honeypot"
-	  class="wdg-input"
+	  class="wdg-input-address"
 	  :class="customStyle + ' ' + suffixClass"
 	  >
 		<label :for="id">
 			<slot name="label"></slot>
 			<span v-if="showRequiredStar"> *</span>
 		</label>
-		<div v-if="showComment" class="wdg-input-comment">
-			<slot name="comment"></slot>
-		</div>
 
-    	<ValidationProvider
-		  v-if="validationRule !== ''"
-		  :rules="validationRule"
-		  v-slot="v"
-		  >
-      		<span
-			  v-if="(validationRule && v.errors[0])"
-			  class="wdg-message error"
-			  >
-				{{ v.errors[0] }}
-			</span>
-
+		<span>
 			<span
-			  v-if="!multiline && prefix !== ''"
+			  v-if="prefix !== ''"
 			  class="input-prefix"
 			  >
 			  {{ prefix }}
 			</span>
 
 			<input
-			  v-if="!multiline"
-			  ref="input"
-			  :id="id"
-			  v-model="valueReturn"
-			  :placeholder="placeholder"
-			  :disabled="disabled"
-			  :required="isRequired"
-			  :type="type"
-			  :class="suffixClass"
-			  @input="onInputLocalEvent"
-			  @change="onChangeLocalEvent"
-			  />
-
-			<textarea
-			  v-else
-			  :id="id"
-			  v-model="valueReturn"
-			  :disabled="disabled"
-			  :required="isRequired"
-			  @input="onInputLocalEvent"
-			  />
-
-			<span
-			  v-if="!multiline && suffix !== ''"
-			  class="input-suffix"
-			  >
-			  {{ suffix }}
-			</span>
-			<span class="input-icon">
-				<span
-					v-if="loading"
-					class="fas fa-hourglass"
-					>
-				</span>
-				<span
-					v-else-if="!multiline && icon && iconVisibility && !loading"
-					:class="[ 'fas', `fa-${icon}` ]"
-					>
-				</span>
-			</span>
-		</ValidationProvider>
-
-		<span v-else>
-      		<span
-			  v-if="(validationRule && v.errors[0])"
-			  class="wdg-message error"
-			  >
-				{{ v.errors[0] }}
-			</span>
-
-			<span
-			  v-if="!multiline && prefix !== ''"
-			  class="input-prefix"
-			  >
-			  {{ prefix }}
-			</span>
-
-			<input
-			  v-if="!multiline"
 			  :id="id"
 			  ref="input"
 			  v-model="valueReturn"
@@ -103,24 +29,8 @@
 			  @change="onChangeLocalEvent"
 			  />
 
-			<textarea
-			  v-else
-			  :id="id"
-			  :placeholder="placeholder"
-			  v-model="valueReturn"
-			  :disabled="disabled"
-			  :required="isRequired"
-			  @input="onInputLocalEvent"
-			  />
-
 			<span
-			  v-if="descriptionBelow !== ''"
-			  class="description-below">
-				{{ descriptionBelow }}
-			</span>
-
-			<span
-			  v-if="!multiline && suffix !== ''"
+			  v-if="suffix !== ''"
 			  class="input-suffix"
 			  >
 			  {{ suffix }}
@@ -132,7 +42,7 @@
 					>
 				</span>
 				<span
-					v-else-if="!multiline && icon && iconVisibility"
+					v-else-if="icon && iconVisibility"
 					:class="[ 'fas', `fa-${icon}` ]"
 					>
 				</span>
@@ -142,22 +52,9 @@
 </template>
 
 <script>
-// Je ne tire aucune gloire de cet affreux copier-coller de balises ci-dessus,
-// Mais suite à une MAJ des dépendances, il avait un warning à chaque modification d'input
-// Ce warning est provoqué par vee-validate
-// Il est de type : $listeners is readonly.
-// OU : $attrs is readonly.
-// Cela viendrait du fait que 2 instances de Vue sont chargées
-// cf : https://stackoverflow.com/questions/53206078/vue-warn-listeners-and-attrs-is-readonly?noredirect=1&lq=1
-// On est censé pouvoir contrer ça en appliquant une modification sur le fichier de config
-// Cela ne fonctionne pas
-// J'ai passé environ 4h dessus, j'en avais marre...
-import { ValidationProvider } from 'vee-validate'
-
 export default {
-	name: 'WDGInput',
+	name: 'WDGInputAddresss',
 	components: {
-		ValidationProvider
 	},
 	props: {
 		id: { type: String, default: null },
@@ -167,14 +64,11 @@ export default {
 		customStyle: { type: String, default: '' },
 		autoFormat: { type: String },
 		placeholder: { type: String, default: '' },
-		descriptionBelow: { type: String, default: '' },
-		multiline: { type: Boolean, default: false },
 		disabled: { type: Boolean, default: false },
-		honeypot: { type: Boolean, default: false },
+		isRequired: { type: Boolean, default: false },
 		prefix: { type: String, default: '' },
 		suffix: { type: String, default: '' },
 		eventNameToListen: { type: String, default: '' },
-		validationRule: { type: String, default: '' },
         icon: { type: String, default: '' },
 		iconVisibility: { type: Boolean, default: false },
 		loading: { type: Boolean, default: false },
@@ -182,8 +76,7 @@ export default {
 	},
 	data () {
 		return {
-			valueReturn: this.getAutoFormat(this.value),
-			isRequired: (this.validationRule.indexOf('required') > -1)
+			valueReturn: this.value
 		}
 	},
 	mounted () {
@@ -194,53 +87,17 @@ export default {
 	methods: {
 		onInputLocalEvent () {
 			this.$emit('update:valueReturn', this.valueReturn)
+			/*
 			if (this.onChange !== undefined) {
 				this.onChange(this.valueReturn)
-			}
+			} */
+			this.onChange(this.valueReturn)
 		},
 		onChangeLocalEvent () {
-			this.valueReturn = this.getAutoFormat(this.valueReturn)
+			this.onChange(this.valueReturn)
 		},
 		updateValue (newValue) {
 			this.valueReturn = newValue
-		},
-		getAutoFormat (nInput) {
-			if (this.autoFormat === 'wdg-number' || this.autoFormat === 'wdg-percent') {
-				return this.getAutoFormatWDGNumber(nInput)
-			}
-			return nInput
-		},
-		getAutoFormatWDGNumber (nInput) {
-			console.log('wdgInput getAutoFormatWDGNumber nInput = ' + nInput)
-			// On passe les entiers en float avec .00 pour qu'ils soient reconnus par le pattern en dessous
-			if (nInput === parseInt(nInput, 10)) {
-				nInput = parseFloat(nInput).toFixed(2)
-			}
-			let sInput = nInput.toString()
-			// Suppression des caractères non-numériques
-			sInput = sInput.split(',').join('.')
-			sInput = sInput.replace(/[^\d.-]/g, '')
-			// Si pourcent, on reste entre 0 et 100
-			if (this.autoFormat === 'wdg-percent') {
-				console.log('wdgInput getAutoFormatWDGNumber sInput = ' + sInput)
-				if (Number(sInput) < 0) {
-					sInput = '0'
-				}
-				if (Number(sInput) > 100) {
-					sInput = '100'
-				}
-			}
-			// Remplacement . par , pour les décimales
-			sInput = sInput.split('.').join(',')
-			// Ecarts pour les milliers
-			sInput = sInput.replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
-
-			// Si c'est en fait un entier, on enlève les chiffres après la virgule
-			let aCutDecimals = sInput.split(',')
-			if (aCutDecimals[ 1 ] === '00') {
-				sInput = aCutDecimals[ 0 ]
-			}
-			return sInput
 		},
 		// utilisé pour mettre le focus sur ce champ à partir du parent
 		focus: function () {
@@ -250,9 +107,6 @@ export default {
 	computed: {
 		showRequiredStar () {
 			return this.isRequired && !!this.$slots.label
-		},
-		showComment () {
-			return !!this.$slots.comment
 		},
 		suffixClass () {
 			let buffer = (this.suffix !== '' ? 'has-suffix' : '')
@@ -370,15 +224,6 @@ export default {
 		animation-duration: 2.5s;
   		animation-name: anim-hourglass;
 		animation-iteration-count: infinite;
-	}
-
-	.wdg-input.natural-language .description-below {
-		display: inline-block;
-		position: relative;
-		left: -260px;
-		top: 35px;
-		font-size: 80%;
-		color: #00879B;
 	}
 
 	@keyframes anim-hourglass {

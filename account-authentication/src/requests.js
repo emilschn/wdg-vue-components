@@ -43,5 +43,28 @@ export const requests = {
 				functionReturn('error')
 			})
 			*/
+	},
+
+	searchAddressTyped(addressTyped) {
+		console.log('searchAddressTyped >> addressTyped >> ' + addressTyped)
+		let data = new FormData()
+		data.append('action', 'account_authentication_search_address')
+		data.append('address', addressTyped)
+		axios
+			.post(store.props.ajaxurl, data, { timeout: 10000 })
+			.then(response => {
+				let responseData = response.data
+				console.log('then')
+				console.log(responseData)
+				// functionReturn(responseData)
+			})
+			.catch(error => {
+				// console.log('error.toJSON')
+				console.log(error)
+				console.log(error.config)
+				this.logRequestError('searchAddressTyped >> error >> ' + error.toString() + ' >>>> ' + JSON.stringify(error))
+				// functionReturn('error')
+			})
+
 	}
 }

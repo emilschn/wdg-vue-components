@@ -18,7 +18,15 @@
 		"WITHOUT_TAXES_LETTERS": "H.T.",
 		"CONTINUE": "Continuer",
 		"ADD_DOCUMENT": "Ajouter un document",
-		"CONFIRM": "Confirmer"
+		"CONFIRM": "Confirmer",
+		"date": {
+			"DD": "JJ",
+			"MM": "MM",
+			"YYYY": "AAAA",
+			"description-DD": "Jour",
+			"description-MM": "Mois",
+			"description-YYYY": "Année"
+		}
 	},
 	"validations": {
 		"REQUIRED": "Ce champ est obligatoire",
@@ -53,7 +61,21 @@
 	},
 	"account-authentication": {
 		"INVEST_FOR_ORGANIZATION": "Souhaitez-vous investir au nom d'une organisation (en tant que personne morale) ?",
-		"YOU_MUST_REPRESENT_ORGANIZATION": "Vous devez être le représentant légal de votre organisation."
+		"YOU_MUST_REPRESENT_ORGANIZATION": "Vous devez être le représentant légal de votre organisation.",
+		"user-infos": {
+			"I_AM": "Je suis",
+			"GENDER": "Genre",
+			"A_WOMAN": "une femme",
+			"A_MAN": "un homme",
+			"I_AM_BORN": "je suis né·e le",
+			"IN_THIS_COUNTRY": "dans ce pays :",
+			"IN_THIS_CITY": "dans la ville de",
+			"IN_THIS_DISTRICT": "dans cet arrondissement",
+			"IN_THE_DEPARTMENT": "située dans le département",
+			"MY_NATIONALITY_IS": "Ma nationalité est de ce pays :",
+			"MY_ADDRESS_IS": "Mon adresse est :",
+			"MY_TAX_COUNTRY_IS": "Ma résidence fiscale est :"
+		}
 	},
 	"account-signin": {
 		"BACK": "Retour",

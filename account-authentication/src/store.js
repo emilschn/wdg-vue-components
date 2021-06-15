@@ -10,7 +10,19 @@ export const store = {
 		step: 'usertype',
 		userNeedOrga: false,
 		user: {
-			usertype: ''
+			gender: '',
+			address: '',
+			taxCountry: '',
+			birthday: {
+				day: '',
+				month: '',
+				year: '',
+				city: '',
+				district: '',
+				department: '',
+				country: '',
+				nationality: ''
+			}
 		}
 	},
 	props: {
