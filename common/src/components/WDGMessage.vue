@@ -1,5 +1,8 @@
 <template>
-	<div class="wdg-message">
+	<div
+	  class="wdg-message"
+	  :class="[ 'border-'+iconColor ]"
+	  >
 		<span
 			v-show="iconFont"
 			:class="[ 'fas', `fa-${this.iconFont}`, 'icon-'+iconColor ]"
@@ -63,38 +66,65 @@ export default {
 }
 .wdg-message .icon-white {
 	font-size: 20px;
-    color: #FFFFFF;
+	color: #FFFFFF;
+}
+.wdg-message.border-white {
+	border-color: #FFFFFF;
 }
 .wdg-message .icon-black {
 	font-size: 20px;
-    color: #333333;
+	color: #333333;
+}
+.wdg-message.border-black {
+	border-color: #333333;
 }
 .wdg-message .icon-blue {
 	font-size: 20px;
-    color: #00879B;
+	color: #00879B;
+}
+.wdg-message.border-blue {
+	border-color: #00879B;
 }
 .wdg-message .icon-red {
 	font-size: 20px;
-    color: #EA4F51;
+	color: #EA4F51;
+}
+.wdg-message.border-red {
+	border-color: #EA4F51;
 }
 .wdg-message .icon-yellow {
 	font-size: 20px;
-    color: #EBCE67;
+	color: #EBCE67;
+}
+.wdg-message.border-yellow {
+	border-color: #EBCE67;
 }
 .wdg-message .icon-green {
 	font-size: 20px;
-    color: #5EB82C;
+	color: #5EB82C;
+}
+.wdg-message.border-green {
+	border-color: #5EB82C;
 }
 .wdg-message .icon-grey {
 	font-size: 20px;
-    color: #e1e2e3;
+	color: #e1e2e3;
+}
+.wdg-message.border-grey {
+	border-color: #e1e2e3;
 }
 .wdg-message .icon-palegreen {
 	font-size: 20px;
-    color: #CEE9C0;
+	color: #CEE9C0;
+}
+.wdg-message.border-palegreen {
+	border-color: #CEE9C0;
 }
 .wdg-message .icon-pink {
 	font-size: 20px;
-    color: #F9CBCB;
+	color: #F9CBCB;
+}
+.wdg-message.border-pink {
+	border-color: #F9CBCB;
 }
 </style>

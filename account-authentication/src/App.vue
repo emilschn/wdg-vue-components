@@ -2,13 +2,17 @@
 	<div
 	  id="app"
 	  class="account-authentication"
+	  :data-ajaxurl="sharedProps.ajaxurl"
+	  :data-locale="sharedProps.locale"
 	  >
 		<WDGHeader
 		  v-bind:hasTitle=false
 		  v-bind:langSelector=true
 		  v-bind:closeButton=true
 		  />
-		<TheScreenInvestorType />
+
+		<TheScreenInvestorType :onConfirmUserType="onConfirmUserTypeEvent" v-if="sharedState.step === 'usertype'" />
+
 		<WDGFooter BGColor="grey" TextColor="black" FooterStyle="account"/>
 	</div>
 </template>
@@ -27,12 +31,25 @@ export default {
 		WDGHeader,
 		WDGFooter,
 		TheScreenInvestorType
+	},
+	data () {
+		return {
+			sharedState: store.state,
+			sharedProps: store.props
+		}
+	},
+  	created () {
+		this.sharedProps.ajaxurl = initElements.dataset.ajaxurl
+		this.sharedProps.locale = initElements.dataset.locale
+	},
+	methods: {
+		onConfirmUserTypeEvent (userNeedOrga) {
+			this.sharedState.userNeedOrga = ( userNeedOrga == '1' )
+			if (this.sharedState.userNeedOrga) {
+				this.changeStep( 'userinfo' )
+			}
+		}
 	}
-	/***
-	 * 
-	  :data-ajaxurl="sharedProps.ajaxurl"
-	  :data-locale="sharedProps.locale"
-	 */
 }
 </script>
 

@@ -52,7 +52,8 @@
 		"SIGNUP_ERROR_ROBOT": "Merci de cocher la case confirmant que vous n'êtes pas un robot."
 	},
 	"account-authentication": {
-		"INVEST_FOR_ORGANIZATION": "Souhaitez-vous investir au nom d'une organisation (en tant que personne morale) ?"
+		"INVEST_FOR_ORGANIZATION": "Souhaitez-vous investir au nom d'une organisation (en tant que personne morale) ?",
+		"YOU_MUST_REPRESENT_ORGANIZATION": "Vous devez être le représentant légal de votre organisation."
 	},
 	"account-signin": {
 		"BACK": "Retour",

@@ -8,6 +8,7 @@ export const store = {
 	state: {
 		sessionUID: '',
 		step: 'usertype',
+		userNeedOrga: false,
 		user: {
 			usertype: ''
 		}
