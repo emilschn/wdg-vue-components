@@ -11,8 +11,9 @@
 		  v-bind:closeButton=true
 		  />
 
-		<TheScreenInvestorType :onConfirmUserType="onConfirmUserTypeEvent" v-if="sharedState.step === 'usertype'" />
-		<TheScreenInvestorUserInfo v-if="sharedState.step === 'userinfo'" />
+		<TheScreenInvestorType v-if="sharedState.step === 'usertype'" :onConfirmUserType="onConfirmUserTypeEvent" />
+		<TheScreenInvestorUserInfo v-if="sharedState.step === 'userinfo'" :onConfirmUserInfo="onConfirmUserInfoEvent" />
+		<TheScreenInvestorOrganizationInfo v-if="sharedState.step === 'orgainfo'" />
 
 		<WDGFooter BGColor="grey" TextColor="black" FooterStyle="account"/>
 	</div>
@@ -25,6 +26,7 @@ import WDGHeader from '@/../../common/src/components/WDGHeader'
 import WDGFooter from '@/../../common/src/components/WDGFooter'
 import TheScreenInvestorType from './components/screen-investor-type/TheScreenInvestorType.vue'
 import TheScreenInvestorUserInfo from './components/screen-user-info/TheScreenInvestorUserInfo.vue'
+import TheScreenInvestorOrganizationInfo from './components/screen-organization-info/TheScreenInvestorOrganizationInfo.vue'
 const initElements = document.querySelector('#app')
 
 export default {
@@ -33,7 +35,8 @@ export default {
 		WDGHeader,
 		WDGFooter,
 		TheScreenInvestorType,
-		TheScreenInvestorUserInfo
+		TheScreenInvestorUserInfo,
+		TheScreenInvestorOrganizationInfo
 	},
 	data () {
 		return {
@@ -61,7 +64,7 @@ export default {
 		onHashChangedEvent () {
 			let sNewLocation = location.hash
 			if (sNewLocation === '') {
-				sNewLocation = 'signin'
+				sNewLocation = 'usertype'
 			} else {
 				sNewLocation = sNewLocation.substring(1)
 			}
@@ -70,6 +73,11 @@ export default {
 		onConfirmUserTypeEvent (userNeedOrga) {
 			this.sharedState.userNeedOrga = ( userNeedOrga == '1' )
 			store.changeStep( 'userinfo' )
+		},
+		onConfirmUserInfoEvent () {
+			if (this.sharedState.userNeedOrga) {
+				store.changeStep( 'orgainfo' )
+			}
 		}
 	}
 }

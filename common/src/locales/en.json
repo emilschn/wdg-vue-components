@@ -73,6 +73,21 @@
 			"MY_NATIONALITY_IS": "Ma nationalité est dépendante de ce pays :",
 			"MY_ADDRESS_IS": "Mon adresse est :",
 			"MY_TAX_COUNTRY_IS": "Ma résidence fiscale est dans ce pays :"
+		},
+		"organization-infos": {
+			"MY_ORGANIZATION_NAME": "Le nom de mon organisation est",
+			"ITS_ACTIVITY_CONSISTS": "et son activité consiste à",
+			"ITS_IDENTIFICATION_NUMBER": "Son numéro de SIRET est",
+			"ITS_EMAIL_ADDRESS": "son adresse e-mail est",
+			"ITS_EMAIL_ADDRESS_DESCRIPTOR": "Cette adresse doit être différente de votre adresse personnelle",
+			"ITS_WEBSITE": "et son site web est accessible à l'adresse",
+			"ITS_WEBSITE_DESCRIPTOR": "Si votre organisation n'a pas de site web, vous pouvez copier l'adresse societe.com",
+			"ITS_LEGAL_FORM": "Sa forme juridique est",
+			"ITS_APE": "son code APE est",
+			"ITS_LEGAL_TOWN": "et la ville de son RCS est",
+			"ITS_ADDRESS": "Son adresse est",
+			"ITS_CAPITAL": "son capital social est de",
+			"MY_FUNCTION": "Ma fonction dans l'entreprise est"
 		}
 	},
 	"account-signin": {
