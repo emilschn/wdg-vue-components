@@ -11,6 +11,13 @@
 		  v-bind:closeButton=true
 		  />
 
+		<WDGTabs
+		  v-if="canShowTabs"
+		  :tabItems="currentTabItems"
+		  :currentTab="currentStep"
+		  :clickEvent="onChangeTabEvent"
+		  />
+
 		<TheScreenInvestorType v-if="sharedState.step === 'usertype'" :onConfirmUserType="onConfirmUserTypeEvent" />
 		<TheScreenInvestorUserInfo v-if="sharedState.step === 'userinfo'" :onConfirmUserInfo="onConfirmUserInfoEvent" />
 		<TheScreenInvestorOrganizationInfo v-if="sharedState.step === 'orgainfo'" />
@@ -23,6 +30,7 @@
 import i18n from '@/i18n'
 import { store } from './store.js'
 import WDGHeader from '@/../../common/src/components/WDGHeader'
+import WDGTabs from '@/../../common/src/components/WDGTabs'
 import WDGFooter from '@/../../common/src/components/WDGFooter'
 import TheScreenInvestorType from './components/screen-investor-type/TheScreenInvestorType.vue'
 import TheScreenInvestorUserInfo from './components/screen-user-info/TheScreenInvestorUserInfo.vue'
@@ -33,6 +41,7 @@ export default {
 	name: 'App',
 	components: {
 		WDGHeader,
+		WDGTabs,
 		WDGFooter,
 		TheScreenInvestorType,
 		TheScreenInvestorUserInfo,
@@ -78,6 +87,26 @@ export default {
 			if (this.sharedState.userNeedOrga) {
 				store.changeStep( 'orgainfo' )
 			}
+		},
+		onChangeTabEvent (tabId) {
+			store.changeStep(tabId)
+		}
+	},
+	computed: {
+		canShowTabs () {
+			return (this.sharedState.step !== 'usertype')
+		},
+		currentTabItems () {
+			let tabItems = [
+				{ Id: 'userinfo', Label: i18n.t('account-authentication.tabs.INFORMATION'), Index: '', Subtitle: this.sharedState.userNeedOrga ? i18n.t('account-authentication.tabs.INFORMATION_ORGANIZATION_DURATION') : i18n.t('account-authentication.tabs.INFORMATION_USER_DURATION'), Status: 'incomplete', LinkLabel: '' },
+				{ Id: 'userdocuments', Label: i18n.t('account-authentication.tabs.DOCUMENTS'), Index: '', Subtitle: this.sharedState.userNeedOrga ? i18n.t('account-authentication.tabs.DOCUMENTS_ORGANIZATION_DURATION') : i18n.t('account-authentication.tabs.DOCUMENTS_USER_DURATION'), Status: 'incomplete', LinkLabel: '' },
+				{ Id: 'userprofile', Label: i18n.t('account-authentication.tabs.PROFILE'), Index: '', Subtitle: this.sharedState.userNeedOrga ? i18n.t('account-authentication.tabs.PROFILE_ORGANIZATION_DURATION') : i18n.t('account-authentication.tabs.PROFILE_USER_DURATION'), Status: 'incomplete', LinkLabel: '' },
+				{ Id: 'checking', Label: i18n.t('account-authentication.tabs.CHECKING'), Index: '', Subtitle: i18n.t('account-authentication.tabs.CHECKING_DURATION'), Status: 'incomplete', LinkLabel: '' }
+			]
+			return tabItems
+		},
+		currentStep () {
+			return this.sharedState.step
 		}
 	}
 }
@@ -94,5 +123,8 @@ div.account-authentication {
 }
 body {
 	font-size: 16px;
+}
+div.wdg-tabs span.full-size {
+	text-transform: uppercase;
 }
 </style>

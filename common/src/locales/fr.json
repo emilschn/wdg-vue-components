@@ -60,6 +60,19 @@
 		"SIGNUP_ERROR_ROBOT": "Merci de cocher la case confirmant que vous n'êtes pas un robot."
 	},
 	"account-authentication": {
+		"tabs": {
+			"INFORMATION": "Informations",
+			"INFORMATION_USER_DURATION": "1 minute",
+			"INFORMATION_ORGANIZATION_DURATION": "2 minutes",
+			"DOCUMENTS": "Documents",
+			"DOCUMENTS_USER_DURATION": "5 minutes",
+			"DOCUMENTS_ORGANIZATION_DURATION": "6 minutes",
+			"PROFILE": "Profil investisseurs",
+			"PROFILE_USER_DURATION": "3 minutes",
+			"PROFILE_ORGANIZATION_DURATION": "3 minutes",
+			"CHECKING": "Vérification",
+			"CHECKING_DURATION": "Jusqu'à 48h d'attente"
+		},
 		"INVEST_FOR_ORGANIZATION": "Souhaitez-vous investir au nom d'une organisation (en tant que personne morale) ?",
 		"YOU_MUST_REPRESENT_ORGANIZATION": "Vous devez être le représentant légal de votre organisation.",
 		"user-infos": {
