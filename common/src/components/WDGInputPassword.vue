@@ -46,6 +46,7 @@ export default {
 		value: { type: [String, Number], default: null },
 		displayValidPassword: { type: Boolean, default: true },
 		disableToggle: { type: Boolean, default: false },
+		onChange: Function,
 		onValidatePassword: Function
 	},
 	data () {
@@ -57,6 +58,9 @@ export default {
 	methods: {
 		onChangePassEvent () {
 			this.$emit('update:valueReturn', this.valueReturn)
+			if (this.onChange !== undefined) {
+				this.onChange(this.valueReturn)
+			}
 		},
 		isValidPassword (value) {
 			const regex = /(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/gm

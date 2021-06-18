@@ -147,6 +147,7 @@ export default {
 			return (
 				this.sharedState.user.email !== '' &&
 				this.sharedState.user.password !== '' &&
+				this.passwordIsValid &&
 				this.sharedState.user.firstname !== '' &&
 				this.sharedState.user.lastname !== '' &&
 				this.acceptterms !== false
