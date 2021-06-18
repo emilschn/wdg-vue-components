@@ -1,18 +1,19 @@
 <template>
-    <div class="wdg-button">
-        <button
-          :type="type"
-          :id="id"
-          :disabled="disabled || loading"
+	<div class="wdg-button">
+		<button
+		  :type="type"
+		  :id="id"
+		  :disabled="disabled || loading"
 		  :class="[ this.color, this.loading ? 'loading' : '' ]"
 		  @click="onClickLocalEvent"
-          >
+		  >
 			<span v-show="icon" :class="[ 'fas', `fa-${this.icon}` ]"></span>
 			<slot name="label-loading" v-if="loading"></slot>
 			<slot name="label" v-else></slot>
+			<span class="description"><slot name="description"></slot></span>
 			<img v-if="loading" src="@/../../common/src/assets/icons/loading-grey.gif" />
-        </button>
-    </div>
+		</button>
+	</div>
 </template>
 
 <script>
@@ -26,10 +27,10 @@ export default {
 		link: { type: String, default: '' },
 		disabled: { type: Boolean, default: false },
 		loading: { type: Boolean, default: false },
-        icon: { type: String, default: '' },
+		icon: { type: String, default: '' },
 		clickEvent: Function
-    },
-    computed: {
+	},
+	computed: {
 	},
 	methods: {
 		onClickLocalEvent () {
@@ -93,6 +94,11 @@ button.transparent {
 }
 button.transparent-no-border {
 	border: 0px solid #FFF;
+	background: #FFF;
+	color: #333
+}
+button.document-upload {
+	border: 2px solid #EBEBEB;
 	background: #FFF;
 	color: #333
 }

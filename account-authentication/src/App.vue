@@ -23,6 +23,7 @@
 		<TheScreenInvestorUserInfoComplete v-if="sharedState.step === 'userinfocomplete'" :onContinue="onConfirmInfoCompleteEvent" />
 		<TheScreenInvestorOrganizationInfo v-if="sharedState.step === 'orgainfo'" :onContinue="onConfirmOrgaInfoEvent" />
 		<TheScreenInvestorOrganizationInfoComplete v-if="sharedState.step === 'orgainfocomplete'" :onContinue="onConfirmInfoCompleteEvent" />
+		<TheScreenInvestorUserDocuments v-if="sharedState.step === 'userdocuments'" />
 
 		<WDGFooter BGColor="grey" TextColor="black" FooterStyle="account"/>
 	</div>
@@ -39,6 +40,7 @@ import TheScreenInvestorUserInfo from './components/screen-user-info/TheScreenIn
 import TheScreenInvestorUserInfoComplete from './components/screen-user-info-complete/TheScreenInvestorUserInfoComplete.vue'
 import TheScreenInvestorOrganizationInfo from './components/screen-organization-info/TheScreenInvestorOrganizationInfo.vue'
 import TheScreenInvestorOrganizationInfoComplete from './components/screen-organization-info-complete/TheScreenInvestorOrganizationInfoComplete.vue'
+import TheScreenInvestorUserDocuments from './components/screen-user-documents/TheScreenInvestorUserDocuments.vue'
 const initElements = document.querySelector('#app')
 
 export default {
@@ -51,7 +53,8 @@ export default {
 		TheScreenInvestorUserInfo,
 		TheScreenInvestorUserInfoComplete,
 		TheScreenInvestorOrganizationInfo,
-		TheScreenInvestorOrganizationInfoComplete
+		TheScreenInvestorOrganizationInfoComplete,
+		TheScreenInvestorUserDocuments
 	},
 	data () {
 		return {
@@ -100,7 +103,7 @@ export default {
 			store.changeStep( 'orgainfocomplete' )
 		},
 		onConfirmInfoCompleteEvent () {
-			console.log('onConfirmInfoCompleteEvent')
+			store.changeStep( 'userdocuments' )
 		},
 		onChangeTabEvent (tabId) {
 			store.changeStep(tabId)

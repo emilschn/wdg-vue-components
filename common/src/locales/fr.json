@@ -107,6 +107,14 @@
 			"MY_FUNCTION": "Ma fonction dans l'entreprise est",
 			"INFO_COMPLETE_1": "Pour investir sur WE DO GOOD, vous devez être authentifié auprès de notre prestataire, Lemonway",
 			"INFO_COMPLETE_3": "Vous pouvez également préparer les document suivants pour votre organisation : <strong>KBIS et statuts</strong>"
+		},
+		"user-documents": {
+			"CHOOSE_A_DOCUMENT_TO_SEND": "Choisissez un document à envoyer",
+			"YOUR_DOCUMENT_SHOULD_BE": "Votre document doit être :",
+			"DOCUMENT_READABLE": "entièrement lisible (non rogné)",
+			"DOCUMENT_TYPE": "au format PDF, JPG, PNG ou GIF",
+			"DOCUMENT_SIZE": "d'un poids inférieur à 8Mo",
+			"USE_WECOMPRESS": "Vous pouvez utiliser <a href='https://www.wecompress.com/fr/' target='_blank'>Wecompress</a> si votre fichier est trop lourd"
 		}
 	},
 	"account-signin": {
