@@ -20,7 +20,9 @@
 
 		<TheScreenInvestorType v-if="sharedState.step === 'usertype'" :onConfirmUserType="onConfirmUserTypeEvent" />
 		<TheScreenInvestorUserInfo v-if="sharedState.step === 'userinfo'" :onConfirmUserInfo="onConfirmUserInfoEvent" />
-		<TheScreenInvestorOrganizationInfo v-if="sharedState.step === 'orgainfo'" />
+		<TheScreenInvestorUserInfoComplete v-if="sharedState.step === 'userinfocomplete'" :onContinue="onConfirmInfoCompleteEvent" />
+		<TheScreenInvestorOrganizationInfo v-if="sharedState.step === 'orgainfo'" :onContinue="onConfirmOrgaInfoEvent" />
+		<TheScreenInvestorOrganizationInfoComplete v-if="sharedState.step === 'orgainfocomplete'" :onContinue="onConfirmInfoCompleteEvent" />
 
 		<WDGFooter BGColor="grey" TextColor="black" FooterStyle="account"/>
 	</div>
@@ -34,7 +36,9 @@ import WDGTabs from '@/../../common/src/components/WDGTabs'
 import WDGFooter from '@/../../common/src/components/WDGFooter'
 import TheScreenInvestorType from './components/screen-investor-type/TheScreenInvestorType.vue'
 import TheScreenInvestorUserInfo from './components/screen-user-info/TheScreenInvestorUserInfo.vue'
+import TheScreenInvestorUserInfoComplete from './components/screen-user-info-complete/TheScreenInvestorUserInfoComplete.vue'
 import TheScreenInvestorOrganizationInfo from './components/screen-organization-info/TheScreenInvestorOrganizationInfo.vue'
+import TheScreenInvestorOrganizationInfoComplete from './components/screen-organization-info-complete/TheScreenInvestorOrganizationInfoComplete.vue'
 const initElements = document.querySelector('#app')
 
 export default {
@@ -45,7 +49,9 @@ export default {
 		WDGFooter,
 		TheScreenInvestorType,
 		TheScreenInvestorUserInfo,
-		TheScreenInvestorOrganizationInfo
+		TheScreenInvestorUserInfoComplete,
+		TheScreenInvestorOrganizationInfo,
+		TheScreenInvestorOrganizationInfoComplete
 	},
 	data () {
 		return {
@@ -86,7 +92,15 @@ export default {
 		onConfirmUserInfoEvent () {
 			if (this.sharedState.userNeedOrga) {
 				store.changeStep( 'orgainfo' )
+			} else {
+				store.changeStep( 'userinfocomplete' )
 			}
+		},
+		onConfirmOrgaInfoEvent () {
+			store.changeStep( 'orgainfocomplete' )
+		},
+		onConfirmInfoCompleteEvent () {
+			console.log('onConfirmInfoCompleteEvent')
 		},
 		onChangeTabEvent (tabId) {
 			store.changeStep(tabId)
@@ -106,7 +120,14 @@ export default {
 			return tabItems
 		},
 		currentStep () {
-			return this.sharedState.step
+			let currentStep = this.sharedState.step
+			switch (currentStep) {
+				case 'userinfocomplete':
+				case 'orgainfocomplete':
+					currentStep = 'userdocuments'
+					break
+			}
+			return currentStep
 		}
 	}
 }

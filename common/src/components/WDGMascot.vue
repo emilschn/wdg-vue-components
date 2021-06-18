@@ -13,6 +13,9 @@
 			<svg width="281" height="256" v-if="type == 'face-3'">
 				<image xlink:href="@/../../common/src/assets/mascot/front/3.svg" src="@/../../common/src/assets/mascot/front/3.png" width="281" height="256" />
 			</svg>
+			<svg width="281" height="256" v-if="type == 'face-4'">
+				<image xlink:href="@/../../common/src/assets/mascot/front/4.svg" src="@/../../common/src/assets/mascot/front/4.png" width="281" height="256" />
+			</svg>
 			<svg width="281" height="256" v-if="type == 'side-1'">
 				<image xlink:href="@/../../common/src/assets/mascot/side/1.svg" src="@/../../common/src/assets/mascot/side/1.png" width="281" height="256" />
 			</svg>

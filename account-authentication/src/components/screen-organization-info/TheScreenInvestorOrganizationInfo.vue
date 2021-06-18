@@ -125,6 +125,7 @@
 			<WDGButton
 			  color="red"
 			  type="button"
+			  :clickEvent="onContinue"
 			  >
 				<slot slot="label">{{ $t('common.CONTINUE') }}</slot>
 			</WDGButton>
@@ -139,13 +140,14 @@ import { store } from '../../store.js'
 import WDGInput from '@/../../common/src/components/WDGInput'
 import WDGButton from '@/../../common/src/components/WDGButton'
 export default {
-	name: 'TheScreenInvestorUserInfo',
+	name: 'TheScreenInvestorOrganizationInfo',
 	components: {
 		// WDGSelect,
 		WDGInput,
 		WDGButton
 	},
 	props: {
+		onContinue: Function
 	},
 	data () {
 		return {

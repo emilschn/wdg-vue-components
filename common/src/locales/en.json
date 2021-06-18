@@ -85,7 +85,9 @@
 			"IN_THE_DEPARTMENT": "située dans le département",
 			"MY_NATIONALITY_IS": "Ma nationalité est dépendante de ce pays :",
 			"MY_ADDRESS_IS": "Mon adresse est :",
-			"MY_TAX_COUNTRY_IS": "Ma résidence fiscale est dans ce pays :"
+			"MY_TAX_COUNTRY_IS": "Ma résidence fiscale est dans ce pays :",
+			"INFO_COMPLETE_1": "Suite à un renforcement de la législation, l'<strong>authentification de vos documents</strong> sera nécessaire auprès de notre prestataire de paiement Lemonway, pour tout investissement.",
+			"INFO_COMPLETE_2": "Par conséquent, nous avons besoin de vos justificatifs d'identité : <strong>2 pièces d'identité</strong>, dont au moins une carte d'identité et/ou un passeport."
 		},
 		"organization-infos": {
 			"MY_ORGANIZATION_NAME": "Le nom de mon organisation est",
@@ -100,7 +102,9 @@
 			"ITS_LEGAL_TOWN": "et la ville de son RCS est",
 			"ITS_ADDRESS": "Son adresse est",
 			"ITS_CAPITAL": "son capital social est de",
-			"MY_FUNCTION": "Ma fonction dans l'entreprise est"
+			"MY_FUNCTION": "Ma fonction dans l'entreprise est",
+			"INFO_COMPLETE_1": "Pour investir sur WE DO GOOD, vous devez être authentifié auprès de notre prestataire, Lemonway",
+			"INFO_COMPLETE_3": "Vous pouvez également préparer les document suivants pour votre organisation : <strong>KBIS et statuts</strong>"
 		}
 	},
 	"account-signin": {
