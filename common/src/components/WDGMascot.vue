@@ -47,7 +47,6 @@ export default {
 	max-width: 100%;
 	font-size: 15px;
 	font-weight: 500;
-	font-style: italic;
 	background: #ebebeb;
 	border-radius: 5px;
 }
