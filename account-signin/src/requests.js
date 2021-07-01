@@ -27,7 +27,7 @@ export const requests = {
 		data.append('sessionUID', store.state.sessionUID)
 		data.append('email-address', emailAddress)
 		axios
-			.post(store.props.ajaxurl, data, { timeout: 10000 })
+			.post(store.props.customajaxurl, data, { timeout: 10000 })
 			.then(response => {
 				let responseData = response.data
 				console.log('then')

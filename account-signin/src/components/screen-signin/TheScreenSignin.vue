@@ -98,6 +98,7 @@ export default {
 		return {
 			loginEmailStep: { type: String, default: 'empty-email' },
 			sharedState: store.state,
+			sharedProps: store.props,
 			orgaAccounts: { type: Array },
 			orgaName: ''
 		}
@@ -140,7 +141,9 @@ export default {
 
 			// Redirection vers le site
 			} else {
-				window.location = urlToRedirect
+				if (urlToRedirect === 'redirect') {
+					window.location = this.sharedProps.redirecturl
+				}
 			}
 		},
 

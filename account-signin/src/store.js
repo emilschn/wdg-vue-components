@@ -18,7 +18,10 @@ export const store = {
 		context: 'account'
 	},
 	props: {
-		ajaxURL: '',
+		ajaxurl: '',
+		customajaxurl: '',
+		redirecturl: '',
+		locale: '',
 		initFileList: [],
 		capacities: []
 	},

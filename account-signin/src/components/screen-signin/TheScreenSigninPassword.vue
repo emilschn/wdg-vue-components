@@ -92,7 +92,7 @@ export default {
 		 */
 		onPasswordRequestResult: function (requestResult) {
 			this.loading = false
-			if (requestResult.signin_status === 'error') {
+			if (requestResult === undefined || requestResult === 'error' || requestResult.signin_status === 'error') {
 				this.hasPasswordError = true
 			} else {
 				// Si on a une URL de redirection, on va changer de page, donc autant laisser l'impression de chargement
