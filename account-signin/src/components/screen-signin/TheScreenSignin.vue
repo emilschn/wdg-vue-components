@@ -6,9 +6,11 @@
 				<span class="title"><i>{{ $t('account-signin.MASCOT_TEXT_FORGOTTEN_MAIL') }}</i></span>
 			</slot>
 		</WDGMascot>
+
 		<WDGMascot type="face-1" v-if="getMascotType == 'connexion'">
-			<slot slot="text">{{ $t('account-signin.MASCOT_TEXT_WELCOME') }}{{ sharedState.user.name }} !</slot>
+			<slot slot="text">{{ $t('account-signin.MASCOT_TEXT_WELCOME') }} <span v-html="sharedState.user.name"></span> !</slot>
 		</WDGMascot>
+
 		<WDGMascot type="side-1" v-if="getMascotType == 'create-account'">
 			<slot slot="text">
 				<span>
@@ -48,7 +50,7 @@
 				  v-bind:key="account.email"
 				  :clickEvent="switchOrgaAccount"
 				  >
-					<slot slot="label">{{ account.name }}</slot>
+					<slot slot="label"><span v-html="account.name"></span></slot>
 				</WDGButton>
 			</div>
 
@@ -235,7 +237,7 @@ export default {
 	height: auto;
 	text-align: left;
 }
-.the-screen-signin .wdg-button button.transparent span {
+.the-screen-signin .wdg-button button.transparent span.fas {
 	color: #EBCE67;
 	background-color: #F9F0D1;
 	padding: 3px;
