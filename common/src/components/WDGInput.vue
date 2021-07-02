@@ -63,7 +63,7 @@
 			<span class="input-icon">
 				<span
 					v-if="loading"
-					class="fas fa-hourglass"
+					class="fas fa-hourglass-start"
 					>
 				</span>
 				<span
@@ -122,7 +122,7 @@
 			<span class="input-icon">
 				<span
 					v-if="loading"
-					class="fas fa-hourglass"
+					class="fas fa-hourglass-start"
 					>
 				</span>
 				<span
@@ -358,7 +358,7 @@ export default {
 		background-color: #fff; /* permet de ne pas se superposer au texte si l'adresse est longue */
 		padding-left: 5px;
 	}
-	.wdg-input span.input-icon span.fa-hourglass {
+	.wdg-input span.input-icon span.fa-hourglass-start {
 		color: #c2c2c2;
 		animation-duration: 2.5s;
   		animation-name: anim-hourglass;
