@@ -100,12 +100,13 @@
 		"FORGOTTEN_PASS_TITLE": "Récupération de mot de passe",
 		"FORGOTTEN_PASS_TEXT_1": "Vous avez oublié votre mot de passe ? Pas d'inquiétude : indiquez votre adresse mail de connexion ci-dessous et vous recevrez les instructions par mail afin de le réinitialiser.",
 		"FORGOTTEN_PASS_BUTTON": "Réinitialiser le mot de passe",
+		"FORGOTTEN_PASS_BUTTON_FACEBOOK": "Créer mon mot de passe",
 		"FORGOTTEN_PASS_MAIL_SENT": "Un message a été envoyé à votre adresse e-mail.",
 		"FORGOTTEN_PASS_MAIL_NOT_SENT": "Problème d'envoi : l'e-mail de réinitialisation n'a pas été envoyé.",
 		"FORGOTTEN_PASS_MAIL_FACEBOOK": "Cet utilisateur est lié par son compte Facebook et nous ne pouvons donc pas renouveler son mot de passe. Merci de nous contacter par e-mail, à l'adresse investir@wedogood.co, si vous souhaitez délier le compte Facebook.",
 		"FORGOTTEN_PASS_MAIL_NO_ACCOUNT": "Nous n'avons pas trouvé l'utilisateur correspondant sur le site.",
 		"UNLINK_FACEBOOK_TITLE": "Délier un compte de Facebook",
-		"UNLINK_FACEBOOK_TEXT": "Afin de délier votre compte de Facebook, nous allons vous envoyer un e-mail avec un lien unique sécurisé. Il vous faudra cliquer sur ce lien pour prouver que vous avez toujours accès à cette adresse e-mail, et vous pourrez alors réinitialiser votre mot de passe."
+		"UNLINK_FACEBOOK_TEXT": "Afin de délier votre compte de Facebook, nous allons vous envoyer un e-mail avec un lien unique sécurisé. Il vous faudra cliquer sur ce lien pour prouver que vous avez toujours accès à cette adresse e-mail, et vous pourrez alors créer votre mot de passe."
 	},
 	"launch-project": {
 		"TITLE": "Fundraising launch",

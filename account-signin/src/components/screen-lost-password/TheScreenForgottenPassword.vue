@@ -53,7 +53,18 @@
 				  :clickEvent="onSendReinitPassEvent"
 				  :loading="loading"
 				  >
-					<slot slot="label">{{ $t('account-signin.FORGOTTEN_PASS_BUTTON') }}</slot>
+					<slot
+					  v-if="context === 'wdg'"
+					  slot="label"
+					  >
+						{{ $t('account-signin.FORGOTTEN_PASS_BUTTON') }}
+					</slot>
+					<slot
+					  v-else
+					  slot="label"
+					  >
+						{{ $t('account-signin.FORGOTTEN_PASS_BUTTON_FACEBOOK') }}
+					</slot>
 				</WDGButton>
 
 				<a
