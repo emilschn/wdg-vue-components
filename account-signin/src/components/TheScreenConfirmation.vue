@@ -38,9 +38,9 @@
 				</span>
 				<div v-if="sharedState.creation !== true">
 					<a
-						@click="onMailNotReceived"
-						:class="mailResendLoading ? 'mail_not_received_loading':'mail_not_received'"
-						>
+					  @click="onMailNotReceived"
+					  :class="mailResendLoading ? 'mail_not_received_loading':'mail_not_received'"
+					  >
 						<span v-if="validationEmailSent === true">
 								{{ $t('account-signin.CONFIRMATION_MAIL_NOT_RECEIVED_2') }}
 						</span>
