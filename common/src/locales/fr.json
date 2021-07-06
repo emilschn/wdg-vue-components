@@ -78,6 +78,7 @@
 		"FORGOTTEN_PASSWORD": "Mot de passe oublié ?",
 		"REMEMBER_ME": "Se souvenir de moi",
 		"SIGNIN_ERROR_ORGA": "Cette adresse mail correspond à une organisation. Pour vous connecter, choisissez l'un des comptes ci-dessous.",
+		"SIGNIN_ERROR_REQUEST": "Problème de connexion au site Internet, merci de réessayer.",
 		"LABEL_ORGA": "Organisation",
 		"I_ACCEPT_THE": "J'accepte les",
 		"TERMS_LINK": "https://www.wedogood.co/a-propos/cgu/",

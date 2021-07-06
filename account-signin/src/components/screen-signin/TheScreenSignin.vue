@@ -30,6 +30,13 @@
 			<TheScreenSigninEmail
 			  :onEmailChanged="onEmailChangedEvent"
 			  />
+			<WDGMessage
+				id="message"
+				iconSVG="warning.svg"
+				v-if="isErrorRequest"
+				>
+				<slot slot="label">{{ $t('account-signin.SIGNIN_ERROR_REQUEST') }} {{isErrorCode}}</slot>
+			</WDGMessage><br>
 
 			<!-- le compte existe et c'est une organization -->
 			<div v-if="loginEmailStep === 'orga-account'">
@@ -102,7 +109,9 @@ export default {
 			sharedState: store.state,
 			sharedProps: store.props,
 			orgaAccounts: { type: Array },
-			orgaName: ''
+			orgaName: '',
+			isErrorRequest: false,
+			isErrorCode: ''
 		}
 	},
 	methods: {
@@ -110,26 +119,36 @@ export default {
 		 * Fin de l'analyse de la modification de l'e-mail saisi
 		 */
 		onEmailChangedEvent (result) {
-			this.sharedState.context = 'wdg'
-			if (result.status === 'facebook-account') {
-				this.sharedState.context = 'facebook'
-			}
-			this.loginEmailStep = result.status
-			if (result.organizationname !== undefined && result.organizationname !== '') {
-				this.orgaName = result.organizationname
-				this.orgaAccounts = []
-				for (let i = 0; i < result.team_members.length; i++) {
-					let userTeamMember = result.team_members[i]
-					let userItem = {
-						email: userTeamMember.email,
-						name: userTeamMember.firstname + ' ' + userTeamMember.lastname,
-						status: userTeamMember.status
-					}
-					this.orgaAccounts.push(userItem)
+			if (result.name === 'Error') {
+				this.isErrorRequest = true
+				if (result.message.indexOf('Request failed with status code') !== -1) {
+					this.isErrorCode = 400
+				} else if (result.code === 'ECONNABORTED') {
+					this.isErrorCode = 408
 				}
-			}
-			if (result.firstname !== '') {
-				this.sharedState.user.name = result.firstname + ' ' + result.lastname
+			} else {
+				this.isErrorRequest = false
+				this.sharedState.context = 'wdg'
+				if (result.status === 'facebook-account') {
+					this.sharedState.context = 'facebook'
+				}
+				this.loginEmailStep = result.status
+				if (result.organizationname !== undefined && result.organizationname !== '') {
+					this.orgaName = result.organizationname
+					this.orgaAccounts = []
+					for (let i = 0; i < result.team_members.length; i++) {
+						let userTeamMember = result.team_members[i]
+						let userItem = {
+							email: userTeamMember.email,
+							name: userTeamMember.firstname + ' ' + userTeamMember.lastname,
+							status: userTeamMember.status
+						}
+						this.orgaAccounts.push(userItem)
+					}
+				}
+				if (result.firstname !== '') {
+					this.sharedState.user.name = result.firstname + ' ' + result.lastname
+				}
 			}
 		},
 
