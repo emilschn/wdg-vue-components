@@ -8,11 +8,12 @@
 		</span>
 		<span class="lang" v-if="langSelector === true">
 			<WDGSelect
-			  id="lang-select"
-			  name="lang-select"
-			  :optionItems="langList"
-			  :value="$i18n.locale"
-			  v-bind:valueReturn.sync="$i18n.locale"
+				id="lang-select"
+				name="lang-select"
+				:optionItems="langList"
+				:value="$i18n.locale"
+				v-bind:valueReturn.sync="$i18n.locale"
+		  		:onSelect="onLangSelectEvent"
 			  />
 		</span>
 		<span class="back" v-if="backButtonVisible">
@@ -51,6 +52,7 @@ export default {
         langSelector: { type: Boolean, default: false },
         backButtonVisible: { type: Boolean, default: false },
 		onBack: {type: Function},
+		onLangSelect: {type: Function},
 		closeButton: {type: Boolean, default: false},
 		hasTitle: {type: Boolean, default: true}
 	},
@@ -80,8 +82,8 @@ export default {
 			// home URL ou page précédente ?
         	location.href = this.getHomeURL
 		},
-		onLangSelect (sSelectedLang) {
-			console.log('onLangSelect sSelectedLang = ' + sSelectedLang)
+		onLangSelectEvent (sSelectedLang) {
+			this.onLangSelect(sSelectedLang)
 		}
 	}
 }

@@ -55,5 +55,8 @@ export const store = {
 	isEmailValid(value) {
 		var mailformat = /^[a-zA-Z0-9._+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/
 		return (mailformat.test(value))
+	},
+	changeLang(newLang) {
+		this.props.locale = newLang
 	}
 }

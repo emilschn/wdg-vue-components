@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import axios from 'axios'
 import { store } from './store.js'
+import i18n from '@/i18n'
 
 export const bus = new Vue()
 
@@ -181,7 +182,7 @@ export const requests = {
 	 * Fonction de création de compte via mot de passe
 	 */
 	getCreateAccount(emailAddress, password, firstname, lastname, functionReturn) {
-		console.log('getCreateAccount')
+		console.log('getCreateAccount  emailAddress = ' + emailAddress)
 		let data = new FormData()
 		data.append('action', 'account_signin_create_account')
 		data.append('sessionUID', store.state.sessionUID)
@@ -189,8 +190,9 @@ export const requests = {
 		data.append('password', password)
 		data.append('first-name', firstname)
 		data.append('last-name', lastname)
+		data.append('language', i18n.locale)
 		axios
-			.post(store.props.ajaxurl, data, { timeout: 15000 })
+			.post(store.props.ajaxurl, data, { timeout: 30000 })
 			.then(response => {
 				let responseData = response.data
 				console.log('then')
