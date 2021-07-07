@@ -18,6 +18,12 @@
 			  :onValidatePassword="onValidatePasswordEvent"
 			  />
 			<div class="info">{{ $t('account-signin.NOTICE_PASSWORD') }}</div><br>
+			<WDGMessage
+			v-if="isErrorPasswordFormatVisible"
+			iconSVG="warning.svg"
+			>
+				<slot slot="label">{{ $t('account-signin.BAD_PASSWORD_FORMAT') }}</slot>
+			</WDGMessage>
 		</div>
 
 		<div v-if="sharedState.user.password !== '' && passwordIsValid === true">
@@ -108,16 +114,31 @@ export default {
 			passwordIsValid: false,
 			acceptterms: false,
 			loading: false,
+			currentIntervalId: 0,
 			isErrorVisible: false,
-			botvalue: ''
+			botvalue: '',
+			isErrorPasswordFormatVisible: false
 		}
 	},
 	methods: {
 		onChangePasswordEvent (value) {
 			this.passwordIsValid = false
+			// Timer de déclenchement pour ne pas afficher un message d'erreur immédiatement
+			this.isErrorPasswordFormatVisible = false
+			clearInterval(this.currentIntervalId)
+			this.currentIntervalId = setInterval(this.onIntervalEvent, 1000)
 		},
 		onValidatePasswordEvent (value) {
 			this.passwordIsValid = true
+			this.isErrorPasswordFormatVisible = false
+			clearInterval(this.currentIntervalId)
+		},
+		// Evènement après l'intervalle pour afficher un message d'erreur
+		onIntervalEvent () {
+			clearInterval(this.currentIntervalId)
+			if (this.sharedState.user.password.length > 5) {
+				this.isErrorPasswordFormatVisible = true
+			}
 		},
 		onButtonCreateAccountEvent: function (event) {
 			if (this.botvalue !== '' && this.botvalue !== null && this.botvalue !== undefined) {

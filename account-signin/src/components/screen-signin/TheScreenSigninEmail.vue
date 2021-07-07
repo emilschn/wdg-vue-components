@@ -64,8 +64,6 @@ export default {
 		// Evènement après l'intervalle pour déclencher l'exécution du script
 		onIntervalEvent () {
 			clearInterval(this.currentIntervalId)
-			console.log('onIntervalEvent = ' + Date.now())
-
 			if (this.sharedState.user.email === '') {
 				this.loading = false
 				this.onEmailChanged({ status: 'empty-email' })

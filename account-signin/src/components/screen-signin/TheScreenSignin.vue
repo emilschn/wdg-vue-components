@@ -33,9 +33,9 @@
 			<WDGMessage
 				id="message"
 				iconSVG="warning.svg"
-				v-if="isErrorRequest"
+				v-if="isErrorMail"
 				>
-				<slot slot="label">{{ $t('account-signin.SIGNIN_ERROR_REQUEST') }} {{isErrorCode}}</slot>
+				<slot slot="label">{{ isErrorMessage }} {{isErrorCode}}</slot>
 			</WDGMessage><br>
 
 			<!-- le compte existe et c'est une organization -->
@@ -81,7 +81,7 @@
 </template>
 
 <script>
-// import i18n from '@/i18n'
+import i18n from '@/i18n'
 import { store } from '../../store.js'
 import TheScreenSigninEmail from '@/../../account-signin/src/components/screen-signin/TheScreenSigninEmail'
 import TheScreenSigninPassword from '@/../../account-signin/src/components/screen-signin/TheScreenSigninPassword'
@@ -110,8 +110,9 @@ export default {
 			sharedProps: store.props,
 			orgaAccounts: { type: Array },
 			orgaName: '',
-			isErrorRequest: false,
-			isErrorCode: ''
+			isErrorMail: false,
+			isErrorCode: '',
+			isErrorMessage: ''
 		}
 	},
 	methods: {
@@ -120,14 +121,19 @@ export default {
 		 */
 		onEmailChangedEvent (result) {
 			if (result.name === 'Error') {
-				this.isErrorRequest = true
+				this.isErrorMail = true
+				this.isErrorMessage = i18n.t('account-signin.SIGNIN_ERROR_REQUEST')
 				if (result.message.indexOf('Request failed with status code') !== -1) {
 					this.isErrorCode = 400
 				} else if (result.code === 'ECONNABORTED') {
 					this.isErrorCode = 408
 				}
+			} else if (result.status === 'bad-email' && this.sharedState.user.email.length > 5) {
+				this.isErrorMail = true
+				this.isErrorCode = ''
+				this.isErrorMessage = i18n.t('account-signin.BAD_EMAIL_FORMAT')
 			} else {
-				this.isErrorRequest = false
+				this.isErrorMail = false
 				this.sharedState.context = 'wdg'
 				if (result.status === 'facebook-account') {
 					this.sharedState.context = 'facebook'

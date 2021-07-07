@@ -129,6 +129,7 @@ export const requests = {
 	 */
 	sendValidationEmail(emailAddress, isNewAccount, functionReturn) {
 		let data = new FormData()
+		console.log('sendValidationEmail ' + emailAddress)
 		data.append('action', 'account_signin_send_validation_email')
 		data.append('sessionUID', store.state.sessionUID)
 		data.append('email-address', emailAddress)
