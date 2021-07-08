@@ -134,7 +134,9 @@ hr {
 @media screen and (max-width: 767px) {
 .header {
 	align-items: center;
-	padding-right: 15px;
+}
+.header .logo {
+	width: 40%;
 }
 .header .logo img {
 	width: 70%;
@@ -142,8 +144,17 @@ hr {
 }
 .header .title{
 	font-size: 16px;
-	width: 120px;
+	width: 40%;
 	margin-right: 20px;
+}
+.header .lang {
+	width: 30%;
+}
+.header .close {
+	margin: 0px 15px;
+}
+.header .back {
+	margin-left: 15px;
 }
 }
 </style>
