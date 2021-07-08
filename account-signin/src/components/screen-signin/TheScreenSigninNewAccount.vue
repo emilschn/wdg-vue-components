@@ -126,7 +126,7 @@ export default {
 			// Timer de déclenchement pour ne pas afficher un message d'erreur immédiatement
 			this.isErrorPasswordFormatVisible = false
 			clearInterval(this.currentIntervalId)
-			this.currentIntervalId = setInterval(this.onIntervalEvent, 1000)
+			this.currentIntervalId = setInterval(this.onIntervalEvent, 2000)
 		},
 		onValidatePasswordEvent (value) {
 			this.passwordIsValid = true
@@ -136,7 +136,7 @@ export default {
 		// Evènement après l'intervalle pour afficher un message d'erreur
 		onIntervalEvent () {
 			clearInterval(this.currentIntervalId)
-			if (this.sharedState.user.password.length > 5) {
+			if (this.sharedState.user.password.length > 7) {
 				this.isErrorPasswordFormatVisible = true
 			}
 		},

@@ -110,6 +110,7 @@ export default {
 			sharedProps: store.props,
 			orgaAccounts: { type: Array },
 			orgaName: '',
+			currentIntervalId: 0,
 			isErrorMail: false,
 			isErrorCode: '',
 			isErrorMessage: ''
@@ -120,6 +121,7 @@ export default {
 		 * Fin de l'analyse de la modification de l'e-mail saisi
 		 */
 		onEmailChangedEvent (result) {
+			clearInterval(this.currentIntervalId)
 			if (result.name === 'Error') {
 				this.isErrorMail = true
 				this.isErrorMessage = i18n.t('account-signin.SIGNIN_ERROR_REQUEST')
@@ -129,9 +131,7 @@ export default {
 					this.isErrorCode = 408
 				}
 			} else if (result.status === 'bad-email' && this.sharedState.user.email.length > 5) {
-				this.isErrorMail = true
-				this.isErrorCode = ''
-				this.isErrorMessage = i18n.t('account-signin.BAD_EMAIL_FORMAT')
+				this.currentIntervalId = setInterval(this.onIntervalEvent, 1500)
 			} else {
 				this.isErrorMail = false
 				this.sharedState.context = 'wdg'
@@ -156,6 +156,13 @@ export default {
 					this.sharedState.user.name = result.firstname + ' ' + result.lastname
 				}
 			}
+		},
+		// Evènement après l'intervalle pour afficher un message d'erreur
+		onIntervalEvent () {
+			clearInterval(this.currentIntervalId)
+			this.isErrorMail = true
+			this.isErrorCode = ''
+			this.isErrorMessage = i18n.t('account-signin.BAD_EMAIL_FORMAT')
 		},
 
 		/**
