@@ -33,6 +33,7 @@
 			<WDGMessage
 				id="message"
 				iconSVG="warning.svg"
+				iconColor="pink"
 				v-if="isErrorMail"
 				>
 				<slot slot="label">{{ isErrorMessage }} {{isErrorCode}}</slot>
@@ -43,6 +44,7 @@
 				<WDGMessage
 				  id="message"
 				  iconSVG="info.svg"
+				  iconColor="paleblue"
 				  >
 					<slot slot="label">{{ $t('account-signin.SIGNIN_ERROR_ORGA') }}</slot>
 				</WDGMessage><br>

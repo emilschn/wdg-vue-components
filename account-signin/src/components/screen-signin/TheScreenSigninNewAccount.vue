@@ -3,6 +3,7 @@
 		<WDGMessage
 		  id="message"
 		  iconSVG="info.svg"
+		  iconColor="paleblue"
 		  >
 			<slot slot="label">{{ $t('account-signin.SIGNIN_ERROR_NOT_FOUND') }}</slot>
 		</WDGMessage>
@@ -21,6 +22,7 @@
 			<WDGMessage
 			v-if="isErrorPasswordFormatVisible"
 			iconSVG="warning.svg"
+			iconColor="pink"
 			>
 				<slot slot="label">{{ $t('account-signin.BAD_PASSWORD_FORMAT') }}</slot>
 			</WDGMessage>
@@ -72,6 +74,7 @@
 		<WDGMessage
 		  v-if="isErrorVisible"
 		  iconSVG="warning.svg"
+		  iconColor="pink"
 		  >
 			<slot slot="label">{{ $t('account-signin.ERROR_CREATE_ACCOUNT') }}</slot>
 		</WDGMessage>

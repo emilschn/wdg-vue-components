@@ -13,6 +13,7 @@
 		<WDGMessage
 		  v-if="isErrorVisible"
 		  iconSVG="warning.svg"
+		  iconColor="pink"
 		  >
 			<slot slot="label">{{ $t('account-signin.ERROR_PASSWORD') }}</slot>
 		</WDGMessage>
