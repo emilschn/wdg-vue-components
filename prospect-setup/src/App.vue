@@ -28,7 +28,7 @@
 			</WDGLoader>
 		</div>
 
-		<WDGFooter />
+		<WDGFooter :onLangSelect="onLangSelectEvent" />
 	</div>
 </template>
 
@@ -83,14 +83,10 @@ export default {
 			}
 		}
 		i18n.locale = tempLocale
+		// Ici, on garde en mémoire la langue de démarrage (initialisée par WordPress)
+		this.sharedState.language = i18n.locale
 
-		// Pas génial mais nécessaire pour le menu qui est chargé avant dans le store
-		if (i18n.locale !== 'fr') {
-			store.tabItems[0].Label = i18n.t('project-setup.tabs.MY_PROJECT')
-			store.tabItems[1].Label = i18n.t('project-setup.tabs.MY_FUNDING')
-			store.tabItems[2].Label = i18n.t('project-setup.tabs.MY_INVESTORS')
-			store.tabItems[3].Label = i18n.t('project-setup.tabs.MY_RESULT')
-		}
+		this.reloadMenu()
 
 		if (this.sharedState.guid !== undefined) {
 			this.loading = true
@@ -135,6 +131,15 @@ export default {
 	methods: {
 		changeTab (tabId) {
 			store.changeStep(tabId)
+		},
+		reloadMenu () {
+			// Pas génial mais nécessaire pour le menu qui est chargé avant dans le store
+			if (i18n.locale !== 'fr') {
+				store.tabItems[0].Label = i18n.t('project-setup.tabs.MY_PROJECT')
+				store.tabItems[1].Label = i18n.t('project-setup.tabs.MY_FUNDING')
+				store.tabItems[2].Label = i18n.t('project-setup.tabs.MY_INVESTORS')
+				store.tabItems[3].Label = i18n.t('project-setup.tabs.MY_RESULT')
+			}
 		},
 		initWithGuid (metadataStr, fileList) {
 			let metadata = JSON.parse(metadataStr)
@@ -193,6 +198,11 @@ export default {
 			}
 
 			this.sharedProps.initFileList = fileList
+
+			// Ici on met à jour la langue en cours d'affichage suite au chargement, pour récupérer la langue précédemment utilisée
+			this.sharedState.language = metadata.language
+			i18n.locale = metadata.language
+			this.reloadMenu()
 		},
 		loadCapacities () {
 			if (this.sharedProps.ajaxurl === undefined || this.sharedProps.ajaxurl === '') {
@@ -218,6 +228,9 @@ export default {
 						this.sharedProps.capacities.accept_wire_payment = '1'
 					}
 				})
+		},
+		onLangSelectEvent (sLanguage) {
+			this.sharedState.language = sLanguage
 		}
 	}
 }

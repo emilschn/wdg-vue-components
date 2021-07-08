@@ -9,6 +9,7 @@ export const store = {
 		guid: '',
 		step: 'intro',
 		status: '',
+		language: '',
 		authorization: '',
 		hasAuthorizedWire: '0',
 		hasSaved: '0',
