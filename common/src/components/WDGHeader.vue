@@ -22,7 +22,7 @@
 			  type="button"
 			  :clickEvent="onBackEvent"
 			  >
-				<slot slot="label">←</slot>
+				<slot slot="label"><img src="@/../../common/src/assets/icons/previous.png"  alt="Précédent"/></slot>
 			</WDGButton>
 		</span>
 		<span class="close" v-if="closeButton === true">
@@ -31,7 +31,7 @@
 			  type="button"
 			  :clickEvent="onCloseEvent"
 			  >
-				<slot slot="label">X</slot>
+				<slot slot="label"><img src="@/../../common/src/assets/icons/close.png"  alt="Fermer"/></slot>
 			</WDGButton>
 		</span>
         <hr>
@@ -96,6 +96,7 @@ export default {
 	flex-wrap: wrap;
 	width: 100%;
 	padding-top: 15px;
+	align-items: center;
 }
 .header .logo {
 	width: 45%;
@@ -118,9 +119,11 @@ hr {
 }
 .close .wdg-button button, .back .wdg-button button {
 	border: 0;
+	margin-bottom: 0;
 }
-.back {
-	opacity: 0.2;
+.close img, .back img {
+	width: 20px;
+	height: 20px;
 }
 .lang {
 	align-self: center;
