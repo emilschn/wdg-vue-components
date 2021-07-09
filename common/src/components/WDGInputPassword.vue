@@ -91,13 +91,11 @@ export default {
 	.wdg-input-password .input-icon-toggle {
 		position: relative;
 		width: 22px;
-		left: -30px;
+		left: 5px;
 		height: 100%;
 		border: 0px solid #FFF;
 		background: #FFF;
 		color: #00879B;
 	}
-	.wdg-input-password .veryleft {
-		left: -56px;
-	}
+
 </style>

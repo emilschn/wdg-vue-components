@@ -353,12 +353,12 @@ export default {
 	}
 	.wdg-input span.input-icon {
 		position: relative;
-		left: -16px;
 		color: #CEE9C0;
 		background-color: #fff; /* permet de ne pas se superposer au texte si l'adresse est longue */
 		padding-left: 5px;
 	}
 	.wdg-input span.input-icon span.fa-hourglass-start {
+		left: 0;
 		color: #c2c2c2;
 		animation-duration: 2.5s;
   		animation-name: anim-hourglass;
