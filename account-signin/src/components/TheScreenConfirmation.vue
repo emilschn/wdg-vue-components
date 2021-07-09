@@ -297,6 +297,9 @@ div.the-screen-confirmation .wdg-mascot .image {
 	width: auto;
 	margin-top: 15px;
 }
+div.the-screen-confirmation .wdg-mascot .text {
+	width: auto;
+}
 div.the-screen-confirmation .wdg-message {
 	width: auto;
 }

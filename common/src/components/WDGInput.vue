@@ -376,4 +376,11 @@ export default {
 			-webkit-transform: rotate(360deg);
 		}
 	}
+
+@media only screen and (max-width: 767px) {
+	.wdg-input span.input-icon {
+		padding-left: 0;
+		left: -10px;
+	}
+}
 </style>
