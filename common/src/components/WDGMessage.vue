@@ -134,4 +134,11 @@ export default {
 .wdg-message.border-pink {
 	border-color: #F9CBCB;
 }
+
+/* tablette */
+@media screen and (min-width: 768px) and (max-width: 959px) {
+	div.wdg-message {
+		width: 260px;
+	}
+}
 </style>

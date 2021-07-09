@@ -378,9 +378,14 @@ export default {
 	}
 
 @media only screen and (max-width: 767px) {
+	/* Ajustements pour que l'oeil pour voir le mdp ne saute pas à la ligne */
 	.wdg-input span.input-icon {
 		padding-left: 0;
 		left: -10px;
+	}
+
+	.wdg-input.natural-language input {
+		padding-left: 0;
 	}
 }
 </style>

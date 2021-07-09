@@ -304,4 +304,15 @@ div.the-screen-confirmation .wdg-message {
 	width: auto;
 }
 }
+
+/* tablette */
+@media screen and (min-width: 768px) and (max-width: 959px) {
+	div.the-screen-confirmation .wdg-mascot .text, div.the-screen-confirmation .wdg-mascot .image {
+		width: 45%;
+	}
+
+	div.the-screen-confirmation .wdg-mascot {
+		justify-content: space-between;
+	}
+}
 </style>

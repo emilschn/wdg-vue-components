@@ -281,6 +281,7 @@ div.the-screen-signin a {
 .the-screen-signin .orga-name {
 	font-weight: 600;
 }
+/* mobile */
 @media only screen and (max-width: 767px) {
 	.the-screen-signin {
 		min-height: 50vh; /* permet d'avoir le footer pas directement collé en dessous si peu d'informations sont affichées */
@@ -302,6 +303,17 @@ div.the-screen-signin a {
 	}
 	.the-screen-signin #userFirstName {
 		margin: 20px 0px;
+	}
+}
+
+/* tablette */
+@media screen and (min-width: 768px) and (max-width: 959px) {
+	.the-screen-signin .wdg-mascot {
+		max-width: 300px;
+	}
+
+	.the-screen-signin input#password, .the-screen-signin input#bzz {
+		width: 260px;
 	}
 }
 </style>
