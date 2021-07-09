@@ -8,6 +8,7 @@
 		  v-bind:valueReturn.sync="sharedState.user.password"
 		  customStyle="natural-language"
 		  :displayValidPassword="false"
+		  :onEnter="onEnterPassword"
 		  />
 
 		<WDGMessage
@@ -76,7 +77,13 @@ export default {
 		onForgottenPasswordEvent: function () {
 			store.changeStep('forgotten-pass')
 		},
-
+		/**
+		 * Gestion de la touche entrée pour l'input de mot de passe
+		 */
+		onEnterPassword: function() {
+			console.log('onEnterPassword')
+			this.onButtonConnectionClickedEvent()
+		},
 		/**
 		 * Clic sur le bouton de connexion
 		 */

@@ -43,6 +43,7 @@
 			  :class="suffixClass"
 			  @input="onInputLocalEvent"
 			  @change="onChangeLocalEvent"
+			  v-on:keyup.enter="onEnterLocalEvent"
 			  />
 
 			<textarea
@@ -101,6 +102,7 @@
 			  :class="suffixClass"
 			  @input="onInputLocalEvent"
 			  @change="onChangeLocalEvent"
+			  v-on:keyup.enter="onEnterLocalEvent"
 			  />
 
 			<textarea
@@ -171,7 +173,8 @@ export default {
         icon: { type: String, default: '' },
 		iconVisibility: { type: Boolean, default: false },
 		loading: { type: Boolean, default: false },
-		onChange: Function
+		onChange: Function,
+		onEnter: Function
 	},
 	data () {
 		return {
@@ -193,6 +196,11 @@ export default {
 		},
 		onChangeLocalEvent () {
 			this.valueReturn = this.getAutoFormat(this.valueReturn)
+		},
+		onEnterLocalEvent () {
+			if (this.onEnter !== undefined) {
+				this.onEnter()
+			}
 		},
 		updateValue (newValue) {
 			this.valueReturn = newValue

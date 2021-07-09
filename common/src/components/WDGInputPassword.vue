@@ -11,6 +11,7 @@
 		  :value="valueReturn"
 		  v-bind:valueReturn.sync="valueReturn"
 		  :onChange="onChangePassEvent"
+		  :onEnter="onEnterEvent"
 		  />
 		<slot
 		  v-if="!disableToggle"
@@ -47,6 +48,7 @@ export default {
 		displayValidPassword: { type: Boolean, default: true },
 		disableToggle: { type: Boolean, default: false },
 		onChange: Function,
+		onEnter: Function,
 		onValidatePassword: Function
 	},
 	data () {
@@ -60,6 +62,11 @@ export default {
 			this.$emit('update:valueReturn', this.valueReturn)
 			if (this.onChange !== undefined) {
 				this.onChange(this.valueReturn)
+			}
+		},
+		onEnterEvent () {
+			if (this.onEnter !== undefined) {
+				this.onEnter()
 			}
 		},
 		isValidPassword (value) {
