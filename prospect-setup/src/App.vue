@@ -133,13 +133,10 @@ export default {
 			store.changeStep(tabId)
 		},
 		reloadMenu () {
-			// Pas génial mais nécessaire pour le menu qui est chargé avant dans le store
-			if (i18n.locale !== 'fr') {
-				store.tabItems[0].Label = i18n.t('project-setup.tabs.MY_PROJECT')
-				store.tabItems[1].Label = i18n.t('project-setup.tabs.MY_FUNDING')
-				store.tabItems[2].Label = i18n.t('project-setup.tabs.MY_INVESTORS')
-				store.tabItems[3].Label = i18n.t('project-setup.tabs.MY_RESULT')
-			}
+			store.tabItems[0].Label = i18n.t('project-setup.tabs.MY_PROJECT')
+			store.tabItems[1].Label = i18n.t('project-setup.tabs.MY_FUNDING')
+			store.tabItems[2].Label = i18n.t('project-setup.tabs.MY_INVESTORS')
+			store.tabItems[3].Label = i18n.t('project-setup.tabs.MY_RESULT')
 		},
 		initWithGuid (metadataStr, fileList) {
 			let metadata = JSON.parse(metadataStr)
@@ -231,6 +228,7 @@ export default {
 		},
 		onLangSelectEvent (sLanguage) {
 			this.sharedState.language = sLanguage
+			this.reloadMenu()
 		}
 	}
 }
