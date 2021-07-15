@@ -137,6 +137,7 @@ export default {
 			store.tabItems[1].Label = i18n.t('project-setup.tabs.MY_FUNDING')
 			store.tabItems[2].Label = i18n.t('project-setup.tabs.MY_INVESTORS')
 			store.tabItems[3].Label = i18n.t('project-setup.tabs.MY_RESULT')
+			store.tabItems[3].Subtitle = i18n.t('project-setup.tabs.IN_PROGRESS')
 		},
 		initWithGuid (metadataStr, fileList) {
 			let metadata = JSON.parse(metadataStr)
