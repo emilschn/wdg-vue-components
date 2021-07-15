@@ -3,11 +3,14 @@
         <button
           :type="type"
           :id="id"
-          :disabled="disabled"
-		  :class="color"
+          :disabled="disabled || loading"
+		  :class="[ this.color, this.loading ? 'loading' : '' ]"
 		  @click="onClickLocalEvent"
           >
-			<slot name="label"></slot>
+			<span v-show="icon" :class="[ 'fas', `fa-${this.icon}` ]"></span>
+			<slot name="label-loading" v-if="loading"></slot>
+			<slot name="label" v-else></slot>
+			<img v-if="loading" src="@/../../common/src/assets/icons/loading-grey.gif" />
         </button>
     </div>
 </template>
@@ -22,6 +25,8 @@ export default {
 		name: { type: String, default: null },
 		link: { type: String, default: '' },
 		disabled: { type: Boolean, default: false },
+		loading: { type: Boolean, default: false },
+        icon: { type: String, default: '' },
 		clickEvent: Function
     },
     computed: {
@@ -33,7 +38,7 @@ export default {
 				window.location = this.link
 			}
 			if (this.clickEvent !== undefined) {
-				this.clickEvent()
+				this.clickEvent(this._props)
 			}
 		}
 	}
@@ -46,11 +51,15 @@ button {
 	height: 48px;
 	margin-bottom: 16px;
 	padding: 0px;
-	text-transform: uppercase;
+	text-transform: uppercase !important; /* ajout de important sinon c'est écrasé par normalize.less */
 	cursor: pointer;
 }
 button:disabled {
 	opacity: 0.7;
+}
+button.loading {
+	background: #EBEBEB !important;
+	color: #333 !important;
 }
 button.red {
 	border: 0 solid #ea4f51;
@@ -86,6 +95,9 @@ button.transparent-no-border {
 	border: 0px solid #FFF;
 	background: #FFF;
 	color: #333
+}
+button img {
+	height: 48px;
 }
 @media only screen and (max-width: 767px) {
 	button.red {

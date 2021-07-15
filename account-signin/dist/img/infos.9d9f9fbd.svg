@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>Icons/Infos@1x</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="13" cy="13" r="12.6962891"></circle>
+    </defs>
+    <g id="Icons/Infos" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Color/Charcoal" transform="translate(11.000000, 11.000000)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Mask" fill="#424242" xlink:href="#path-1"></use>
+            <g mask="url(#mask-2)" fill="#333333" id="Rectangle-Copy-10">
+                <g transform="translate(-11.000000, -11.000000)">
+                    <rect x="0" y="0" width="48" height="48"></rect>
+                </g>
+            </g>
+        </g>
+        <path d="M23.93,19.2302891 C24.398,19.2302891 24.776,19.1012891 25.064,18.8432891 C25.352,18.5852891 25.496,18.2582891 25.496,17.8622891 C25.496,17.4542891 25.352,17.1212891 25.064,16.8632891 C24.776,16.6052891 24.398,16.4762891 23.93,16.4762891 C23.462,16.4762891 23.084,16.6052891 22.796,16.8632891 C22.508,17.1212891 22.364,17.4542891 22.364,17.8622891 C22.364,18.2582891 22.508,18.5852891 22.796,18.8432891 C23.084,19.1012891 23.462,19.2302891 23.93,19.2302891 Z M25.19,30.6962891 L25.19,20.7242891 L22.652,20.7242891 L22.652,30.6962891 L25.19,30.6962891 Z" id="i" fill="#FFFFFF" fill-rule="nonzero"></path>
+    </g>
+</svg>

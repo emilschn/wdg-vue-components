@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
+    <title>Icons/Moins@1x</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <circle id="path-1" cx="17" cy="17" r="16.5"></circle>
+    </defs>
+    <g id="Icons/Moins" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Color/Charcoal" transform="translate(7.000000, 7.000000)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Mask" fill="#424242" xlink:href="#path-1"></use>
+            <g mask="url(#mask-2)" fill="#333333" id="Rectangle-Copy-10">
+                <g transform="translate(-7.000000, -7.000000)">
+                    <rect x="0" y="0" width="48" height="48"></rect>
+                </g>
+            </g>
+        </g>
+        <polygon id="-" fill="#FFFFFF" fill-rule="nonzero" points="31.056 26.272 31.056 21.728 16.944 21.728 16.944 26.272"></polygon>
+    </g>
+</svg>

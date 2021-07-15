@@ -1,7 +1,6 @@
 <template>
 	<div>
-		<div class="footer" :class="['bg-'+BGColor, 'text-'+TextColor]">
-			<!-- TODO : avoir différents styles de footer  -->
+        <div class="footer" :class="['bg-'+BGColor, 'text-'+TextColor]" v-if="FooterStyle == 'prospect-setup'">
 			<div>
 				<span class="title">{{ $t('project-setup.footer.SUCCESS_TEXT_1') }}</span><br>
 				<span class="text">{{ $t('project-setup.footer.SUCCESS_TEXT_2') }}</span><br>
@@ -19,8 +18,25 @@
 					<img src="@/../../common/src/assets/logos/bcorp-en.png" alt="Certified B Corp" v-if="$i18n.locale !== 'fr'" />
 				</a>
 			</div>
-		</div>
-		<div class="subfooter">
+        </div>
+        <div class="footer" :class="['bg-'+BGColor, 'text-'+TextColor]" v-else-if="FooterStyle == 'account'">
+            <div class="logo_ifp">
+                <a href="https://acpr.banque-france.fr/agrements-et-autorisations/le-financement-participatif-crowdfunding.html"><img src="@/../../common/src/assets/logos/bw_ifp.svg"  alt="WE DO GOOD" /></a>
+            </div>
+            <div class="logo_fpf">
+                <a href="https://financeparticipative.org/"><img src="@/../../common/src/assets/logos/bw_FPF.svg"  alt="WE DO GOOD" /></a>
+            </div>
+            <div class="logo_fi">
+                <a href="https://finance-innovation.org/"><img src="@/../../common/src/assets/logos/bw_fi.svg"  alt="WE DO GOOD" /></a>
+            </div>
+            <div class="logo_lw">
+                <a href="https://www.lemonway.com/"><img src="@/../../common/src/assets/logos/bw_lemonway.svg"  alt="WE DO GOOD" /></a>
+            </div>
+            <div class="logo_bcorp">
+                <a href="https://bcorporation.net/directory/we-do-good"><img src="@/../../common/src/assets/logos/bw_bcorp.svg"  alt="CERTIFIE B CORPS" /></a>
+            </div>
+        </div>
+		<div class="subfooter" v-if="FooterStyle == 'prospect-setup'">
 			<WDGSelect
 			  id="lang-select"
 			  name="lang-select"
@@ -43,7 +59,8 @@ export default {
 	},
 	props: {
         BGColor: { type: String, default: 'black' },
-        TextColor: { type: String, default: 'black' },
+        TextColor: { type: String, default: 'white' },
+        FooterStyle: { type: String, default: 'prospect-setup' },
         onLangSelect: { type: Function }
 	},
 	computed: {
@@ -70,6 +87,9 @@ export default {
 .footer .logo_bcorp img {
 	width: 60px;
 }
+.footer.bg-black .logo_bcorp img {
+	filter: invert(100%);
+}
 .footer .logo_ifp img {
 	width: 100px;
 }
@@ -87,6 +107,9 @@ export default {
 	text-align: center;
 	display: inline-block;
 	width:160px;
+}
+.footer.bg-black {
+    background: #333333;
 }
 .footer.bg-blue {
     background: #00879B;
@@ -106,26 +129,28 @@ export default {
 .footer.bg-pink {
     background: #F9CBCB;
 }
-.footer.title.text-black {
-    color: #333333;
-    background: #fff;
+.footer.text-white {
+    color: #FFFFFF;
 }
-.footer.title.text-blue {
+.footer.text-black {
+    color: #333333;
+}
+.footer.text-blue {
     color: #00879B;
 }
-.footer.title.text-red {
+.footer.text-red {
     color: #EA4F51;
 }
-.footer.title.text-yellow {
+.footer.text-yellow {
     color: #EBCE67;
 }
-.footer.title.text-green {
+.footer.text-green {
     color: #5EB82C;
 }
-.footer.title.text-grey {
+.footer.text-grey {
     color: #e1e2e3;
 }
-.footer.title.text-pink {
+.footer.text-pink {
     color: #F9CBCB;
 }
 .subfooter {
@@ -138,11 +163,12 @@ export default {
 @media only screen and (max-width: 767px) {
 	.footer {
 		flex-wrap: wrap;
-		height: 220px;
+		height: auto;
 	}
 	.footer div {
 		width: 45%;
 		text-align: center;
+		margin: 10px;
 	}
 	.footer .title {
 		font-size: 18px;

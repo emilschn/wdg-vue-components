@@ -33,6 +33,7 @@
 
 			<input
 			  v-if="!multiline"
+			  ref="input"
 			  :id="id"
 			  v-model="valueReturn"
 			  :placeholder="placeholder"
@@ -42,6 +43,7 @@
 			  :class="suffixClass"
 			  @input="onInputLocalEvent"
 			  @change="onChangeLocalEvent"
+			  v-on:keyup.enter="onEnterLocalEvent"
 			  />
 
 			<textarea
@@ -58,6 +60,18 @@
 			  class="input-suffix"
 			  >
 			  {{ suffix }}
+			</span>
+			<span class="input-icon">
+				<span
+					v-if="loading"
+					class="fas fa-hourglass-start"
+					>
+				</span>
+				<span
+					v-else-if="!multiline && icon && iconVisibility && !loading"
+					:class="[ 'fas', `fa-${icon}` ]"
+					>
+				</span>
 			</span>
 		</ValidationProvider>
 
@@ -79,6 +93,7 @@
 			<input
 			  v-if="!multiline"
 			  :id="id"
+			  ref="input"
 			  v-model="valueReturn"
 			  :placeholder="placeholder"
 			  :disabled="disabled"
@@ -87,6 +102,7 @@
 			  :class="suffixClass"
 			  @input="onInputLocalEvent"
 			  @change="onChangeLocalEvent"
+			  v-on:keyup.enter="onEnterLocalEvent"
 			  />
 
 			<textarea
@@ -104,6 +120,18 @@
 			  class="input-suffix"
 			  >
 			  {{ suffix }}
+			</span>
+			<span class="input-icon">
+				<span
+					v-if="loading"
+					class="fas fa-hourglass-start"
+					>
+				</span>
+				<span
+					v-else-if="!multiline && icon && iconVisibility"
+					:class="[ 'fas', `fa-${icon}` ]"
+					>
+				</span>
 			</span>
 		</span>
   	</div>
@@ -142,7 +170,11 @@ export default {
 		suffix: { type: String, default: '' },
 		eventNameToListen: { type: String, default: '' },
 		validationRule: { type: String, default: '' },
-		onChange: Function
+        icon: { type: String, default: '' },
+		iconVisibility: { type: Boolean, default: false },
+		loading: { type: Boolean, default: false },
+		onChange: Function,
+		onEnter: Function
 	},
 	data () {
 		return {
@@ -165,6 +197,11 @@ export default {
 		onChangeLocalEvent () {
 			this.valueReturn = this.getAutoFormat(this.valueReturn)
 		},
+		onEnterLocalEvent () {
+			if (this.onEnter !== undefined) {
+				this.onEnter()
+			}
+		},
 		updateValue (newValue) {
 			this.valueReturn = newValue
 		},
@@ -175,6 +212,7 @@ export default {
 			return nInput
 		},
 		getAutoFormatWDGNumber (nInput) {
+			console.log('wdgInput getAutoFormatWDGNumber nInput = ' + nInput)
 			// On passe les entiers en float avec .00 pour qu'ils soient reconnus par le pattern en dessous
 			if (nInput === parseInt(nInput, 10)) {
 				nInput = parseFloat(nInput).toFixed(2)
@@ -185,6 +223,7 @@ export default {
 			sInput = sInput.replace(/[^\d.-]/g, '')
 			// Si pourcent, on reste entre 0 et 100
 			if (this.autoFormat === 'wdg-percent') {
+				console.log('wdgInput getAutoFormatWDGNumber sInput = ' + sInput)
 				if (Number(sInput) < 0) {
 					sInput = '0'
 				}
@@ -203,6 +242,10 @@ export default {
 				sInput = aCutDecimals[ 0 ]
 			}
 			return sInput
+		},
+		// utilisé pour mettre le focus sur ce champ à partir du parent
+		focus: function () {
+			this.$refs.input.focus()
 		}
 	},
 	computed: {
@@ -316,4 +359,41 @@ export default {
 	.wdg-input.natural-language.admin span.input-prefix, .wdg-input.natural-language.admin span.input-suffix {
 		color: #F1A074;
 	}
+	.wdg-input span.input-icon {
+		position: relative;
+		color: #CEE9C0;
+		background-color: #fff; /* permet de ne pas se superposer au texte si l'adresse est longue */
+		padding-left: 5px;
+	}
+	.wdg-input span.input-icon span.fa-hourglass-start {
+		left: 0;
+		color: #c2c2c2;
+		animation-duration: 2.5s;
+  		animation-name: anim-hourglass;
+		animation-iteration-count: infinite;
+	}
+
+	@keyframes anim-hourglass {
+		0% {
+       		-webkit-transform: rotate(0deg);
+    	}
+    	50% {
+        	-webkit-transform: rotate(180deg);
+    	}
+		100% {
+			-webkit-transform: rotate(360deg);
+		}
+	}
+
+@media only screen and (max-width: 767px) {
+	/* Ajustements pour que l'oeil pour voir le mdp ne saute pas à la ligne */
+	.wdg-input span.input-icon {
+		padding-left: 0;
+		left: -10px;
+	}
+
+	.wdg-input.natural-language input {
+		padding-left: 0;
+	}
+}
 </style>
