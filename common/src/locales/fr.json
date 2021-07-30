@@ -26,7 +26,9 @@
 			"description-DD": "Jour",
 			"description-MM": "Mois",
 			"description-YYYY": "Année"
-		}
+		},
+		"SEND_FILE": "Envoyez votre fichier",
+		"SEND_FILE_DESCRIPTOR": "Cliquez pour parcourir vos documents, glissez-déposez directement votre fichier ou prenez une photo."
 	},
 	"validations": {
 		"REQUIRED": "Ce champ est obligatoire",
@@ -110,11 +112,22 @@
 		},
 		"user-documents": {
 			"CHOOSE_A_DOCUMENT_TO_SEND": "Choisissez un document à envoyer",
+			"TITLE_ID": "Carte d'identité",
+			"TITLE_PASSPORT": "Passeport",
+			"DESCRIPTOR_ID": "Recto-verso, en cours de validité, avec bande MRZ lisible en intégralité",
+			"DESCRIPTOR_PASSPORT": "En cours de validité, avec bande MRZ lisible en intégralité",
 			"YOUR_DOCUMENT_SHOULD_BE": "Votre document doit être :",
 			"DOCUMENT_READABLE": "entièrement lisible (non rogné)",
 			"DOCUMENT_TYPE": "au format PDF, JPG, PNG ou GIF",
 			"DOCUMENT_SIZE": "d'un poids inférieur à 8Mo",
-			"USE_WECOMPRESS": "Vous pouvez utiliser <a href='https://www.wecompress.com/fr/' target='_blank'>Wecompress</a> si votre fichier est trop lourd"
+			"USE_WECOMPRESS": "Vous pouvez utiliser <a href='https://www.wecompress.com/fr/' target='_blank'>Wecompress</a> si votre fichier est trop lourd",
+			"SEND_ID": "Envoyez votre carte d'identité",
+			"SEND_PASSPORT": "Envoyez votre passeport",
+			"CHOOSE_DOCUMENT_TYPE": "Choisissez votre type de document :",
+			"ONE_FILE": "J'ai un seul fichier",
+			"ONE_FILE_DESCRIPTOR": "Un fichier comprenant le recto et le verso",
+			"TWO_FILE": "J'ai deux fichiers séparés",
+			"TWO_FILE_DESCRIPTOR": "Un fichier pour le recto et un fichier pour le verso"
 		}
 	},
 	"account-signin": {

@@ -7,7 +7,7 @@
 		  :class="[ this.color, this.loading ? 'loading' : '' ]"
 		  @click="onClickLocalEvent"
 		  >
-			<span v-show="icon" :class="[ 'fas', `fa-${this.icon}` ]"></span>
+			<span v-show="icon" :class="[ `fa${this.iconStyle}`, `fa-${this.icon}` ]"></span>
 			<slot name="label-loading" v-if="loading"></slot>
 			<slot name="label" v-else></slot>
 			<span class="description"><slot name="description"></slot></span>
@@ -28,6 +28,7 @@ export default {
 		disabled: { type: Boolean, default: false },
 		loading: { type: Boolean, default: false },
 		icon: { type: String, default: '' },
+		iconStyle: {type: String, default: 's'}, // s->solid, r->regular,
 		clickEvent: Function
 	},
 	computed: {
