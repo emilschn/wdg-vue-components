@@ -76,14 +76,16 @@ export default {
 
 <style>
 	div.the-screen-investor-type {
-		margin: 50px 0px;
+		margin: 90px;
 	}
 	div.the-screen-investor-type div.question {
 		float: left;
 		width: 500px;
+		margin-left: 20px;
 	}
 	div.the-screen-investor-type div.question-bg {
-		padding: 50px;
+		padding: 36px;
 		background: #ebebeb;
+		margin-bottom: 30px;
 	}
 </style>
