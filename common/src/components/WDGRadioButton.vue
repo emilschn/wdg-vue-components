@@ -15,6 +15,7 @@
 			  />
 			<span class="checkmark"></span>
 			<slot name="label-after"></slot>
+			<span class="description"><slot name="description"></slot></span>
 		</label>
     </div>
 </template>
