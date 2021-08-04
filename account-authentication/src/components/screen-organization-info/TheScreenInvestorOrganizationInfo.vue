@@ -10,6 +10,17 @@
 		  />,
 		<br><br>
 
+		{{ $t('account-authentication.organization-infos.ITS_COUNTRY') }}
+		<WDGSelect
+		  id="organizationCountry"
+		  name="organizationCountry"
+		  :optionItems="sharedStatic.countries"
+		  :value="sharedState.organization.country"
+		  v-bind:valueReturn.sync="sharedState.organization.country"
+		  customStyle="natural-language"
+		  />,
+		<br><br>
+
 		{{ $t('account-authentication.organization-infos.ITS_ACTIVITY_CONSISTS') }}
 		<WDGInput
 		  id="organizationActivity"
@@ -21,7 +32,12 @@
 		<br><br>
 
 		<div v-if="canDisplayIDNumber">
-			{{ $t('account-authentication.organization-infos.ITS_IDENTIFICATION_NUMBER') }}
+			<span v-if="sharedState.organization.country === 'FR'">
+				{{ $t('account-authentication.organization-infos.ITS_IDENTIFICATION_NUMBER_FR') }}
+			</span>
+			<span v-else>
+				{{ $t('account-authentication.organization-infos.ITS_IDENTIFICATION_NUMBER') }}
+			</span>
 			<WDGInput
 			  id="organizationIDNumber"
 			  name="organizationIDNumber"
@@ -75,7 +91,12 @@
 			  />,
 			<br><br>
 
-			{{ $t('account-authentication.organization-infos.ITS_LEGAL_TOWN') }}
+			<span v-if="sharedState.organization.country === 'FR'">
+				{{ $t('account-authentication.organization-infos.ITS_LEGAL_TOWN_FR') }}
+			</span>
+			<span v-else>
+				{{ $t('account-authentication.organization-infos.ITS_LEGAL_TOWN') }}
+			</span>
 			<WDGInput
 			  id="organizationLegalTown"
 			  name="organizationLegalTown"
@@ -136,13 +157,13 @@
 <script>
 import i18n from '@/i18n'
 import { store } from '../../store.js'
-// import WDGSelect from '@/../../common/src/components/WDGSelect'
+import WDGSelect from '@/../../common/src/components/WDGSelect'
 import WDGInput from '@/../../common/src/components/WDGInput'
 import WDGButton from '@/../../common/src/components/WDGButton'
 export default {
 	name: 'TheScreenInvestorOrganizationInfo',
 	components: {
-		// WDGSelect,
+		WDGSelect,
 		WDGInput,
 		WDGButton
 	},
@@ -152,6 +173,7 @@ export default {
 	data () {
 		return {
 			sharedState: store.state,
+			sharedStatic: store.static,
 			sharedProps: store.props
 		}
 	},

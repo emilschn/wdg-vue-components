@@ -1,5 +1,4 @@
 import Vue from 'vue'
-import i18n from '@/i18n'
 
 export const bus = new Vue()
 
@@ -31,9 +30,10 @@ export const store = {
 			website: '',
 			legalform: '',
 			apecode: '',
+			capital: '',
 			legaltown: '',
 			address: '',
-			capital: '',
+			country: '',
 			representativefunction: ''
 		}
 	},
@@ -43,6 +43,9 @@ export const store = {
 		capacities: []
 	},
 	static: {
+		inseeConsumerKey: 'ooYZMyPiq7ErRmqpmfduAzkuwxoa',
+		inseeConsumerSecret: 'RTlN5uM3OPKhITaQdN_BqaTG3W0a',
+		inseeAccessToken: '9884f450-5af5-38e8-9d5b-48dd864a1189',
 		frenchDepartments: [
 			{ Id: '', Text: '' },
 			{ Id: '01', Text: 'Ain' },
