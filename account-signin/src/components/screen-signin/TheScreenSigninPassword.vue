@@ -8,11 +8,13 @@
 		  v-bind:valueReturn.sync="sharedState.user.password"
 		  customStyle="natural-language"
 		  :displayValidPassword="false"
+		  :onEnter="onEnterPassword"
 		  />
 
 		<WDGMessage
 		  v-if="isErrorVisible"
 		  iconSVG="warning.svg"
+		  iconColor="pink"
 		  >
 			<slot slot="label">{{ $t('account-signin.ERROR_PASSWORD') }}</slot>
 		</WDGMessage>
@@ -75,7 +77,13 @@ export default {
 		onForgottenPasswordEvent: function () {
 			store.changeStep('forgotten-pass')
 		},
-
+		/**
+		 * Gestion de la touche entrée pour l'input de mot de passe
+		 */
+		onEnterPassword: function() {
+			console.log('onEnterPassword')
+			this.onButtonConnectionClickedEvent()
+		},
 		/**
 		 * Clic sur le bouton de connexion
 		 */
@@ -92,7 +100,7 @@ export default {
 		 */
 		onPasswordRequestResult: function (requestResult) {
 			this.loading = false
-			if (requestResult.signin_status === 'error') {
+			if (requestResult === undefined || requestResult === 'error' || requestResult.signin_status === 'error') {
 				this.hasPasswordError = true
 			} else {
 				// Si on a une URL de redirection, on va changer de page, donc autant laisser l'impression de chargement

@@ -32,7 +32,7 @@ import { store } from '../../store.js'
 import { requests } from '../../requests.js'
 import WDGInput from '@/../../common/src/components/WDGInput'
 export default {
-	name: 'TheScreenSigninInput',
+	name: 'TheScreenSigninEmail',
 	components: {
 		WDGInput
 	},
@@ -64,7 +64,6 @@ export default {
 		// Evènement après l'intervalle pour déclencher l'exécution du script
 		onIntervalEvent () {
 			clearInterval(this.currentIntervalId)
-
 			if (this.sharedState.user.email === '') {
 				this.loading = false
 				this.onEmailChanged({ status: 'empty-email' })

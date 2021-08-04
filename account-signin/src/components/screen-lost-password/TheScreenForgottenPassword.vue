@@ -35,11 +35,12 @@
 				</WDGMessage>
 			</div>
 			<div
-			  v-if="isErrorVisible"
+			  v-if="isErrorVisible && !reinitPassSent"
 			  class="message-confirmation"
 			  >
 				<WDGMessage
 					iconSVG="warning.svg"
+					iconColor="pink"
 					>
 					<slot slot="label">{{ errorMessage }}</slot>
 				</WDGMessage>
@@ -47,14 +48,33 @@
 
 			<div class="send-mail">
 				<WDGButton
-				  v-if="isEmailValid"
+				  v-if="isEmailValid && !reinitPassSent"
 				  color="red"
 				  type="button"
 				  :clickEvent="onSendReinitPassEvent"
 				  :loading="loading"
 				  >
-					<slot slot="label">{{ $t('account-signin.FORGOTTEN_PASS_BUTTON') }}</slot>
+					<slot
+					  v-if="context === 'wdg'"
+					  slot="label"
+					  >
+						{{ $t('account-signin.FORGOTTEN_PASS_BUTTON') }}
+					</slot>
+					<slot
+					  v-else
+					  slot="label"
+					  >
+						{{ $t('account-signin.FORGOTTEN_PASS_BUTTON_FACEBOOK') }}
+					</slot>
 				</WDGButton>
+
+				<a
+				  v-if="reinitPassSent"
+				  @click="onSendReinitPassEvent"
+				  :class="loading ? 'mail_not_received_loading':'mail_not_received'"
+				  >
+				  {{ $t('account-signin.CONFIRMATION_MAIL_NOT_RECEIVED_3') }}
+				</a>
 			</div>
 		</WDGForm>
 
@@ -155,5 +175,18 @@ div.the-screen-forgotten-password .wdg-message {
 	max-width: 325px;
 	width: 325px;
 	height: 48px;
+}
+div.the-screen-forgotten-password a.mail_not_received {
+	color: #EA4F51;
+	text-decoration: underline;
+	cursor: pointer;
+}
+div.the-screen-forgotten-password a.mail_not_received_loading {
+	color: #C2C2C2;
+	text-decoration: none;
+	cursor: default;
+}
+div.the-screen-forgotten-password a.mail_not_received_loading:after {
+	content: '...';
 }
 </style>

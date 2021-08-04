@@ -14,8 +14,8 @@
 			</div>
 			<div class="logo_bcorp">
 				<a href="https://bcorporation.net/directory/we-do-good">
-					<img src="@/../../common/src/assets/logos/bcorp.png" alt="CERTIFIE B CORPS" v-if="$i18n.locale === 'fr'" />
-					<img src="@/../../common/src/assets/logos/bcorp-en.png" alt="CERTIFIED B CORPS" v-if="$i18n.locale !== 'fr'" />
+					<img src="@/../../common/src/assets/logos/bcorp.png" alt="Certifié B Corp" v-if="$i18n.locale === 'fr'" />
+					<img src="@/../../common/src/assets/logos/bcorp-en.png" alt="Certified B Corp" v-if="$i18n.locale !== 'fr'" />
 				</a>
 			</div>
         </div>
@@ -43,6 +43,7 @@
 			  :optionItems="langList"
 			  :value="$i18n.locale"
 			  v-bind:valueReturn.sync="$i18n.locale"
+			  :onSelect="onLangSelect"
 			  />
 		</div>
 	</div>
@@ -59,7 +60,8 @@ export default {
 	props: {
         BGColor: { type: String, default: 'black' },
         TextColor: { type: String, default: 'white' },
-        FooterStyle: { type: String, default: 'prospect-setup' }
+        FooterStyle: { type: String, default: 'prospect-setup' },
+        onLangSelect: { type: Function }
 	},
 	computed: {
 		langList: function () {

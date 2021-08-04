@@ -85,6 +85,13 @@ export default {
 .wdg-message.border-blue {
 	border-color: #00879B;
 }
+.wdg-message .icon-paleblue {
+	font-size: 20px;
+	color: #B3DAE1;
+}
+.wdg-message.border-paleblue {
+	border-color: #B3DAE1;
+}
 .wdg-message .icon-red {
 	font-size: 20px;
 	color: #EA4F51;
@@ -126,5 +133,15 @@ export default {
 }
 .wdg-message.border-pink {
 	border-color: #F9CBCB;
+<<<<<<< HEAD
+=======
+}
+
+/* tablette */
+@media screen and (min-width: 768px) and (max-width: 959px) {
+	div.wdg-message {
+		width: 260px;
+	}
+>>>>>>> 840ae719cdc5fbcf951ddcd7ee34f31d77aec0a0
 }
 </style>

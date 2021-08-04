@@ -8,11 +8,12 @@
 		</span>
 		<span class="lang" v-if="langSelector === true">
 			<WDGSelect
-			  id="lang-select"
-			  name="lang-select"
-			  :optionItems="langList"
-			  :value="$i18n.locale"
-			  v-bind:valueReturn.sync="$i18n.locale"
+				id="lang-select"
+				name="lang-select"
+				:optionItems="langList"
+				:value="$i18n.locale"
+				v-bind:valueReturn.sync="$i18n.locale"
+		  		:onSelect="onLangSelectEvent"
 			  />
 		</span>
 		<span class="back" v-if="backButtonVisible">
@@ -21,7 +22,7 @@
 			  type="button"
 			  :clickEvent="onBackEvent"
 			  >
-				<slot slot="label">←</slot>
+				<slot slot="label"><img src="@/../../common/src/assets/icons/previous.png"  alt="Précédent"/></slot>
 			</WDGButton>
 		</span>
 		<span class="close" v-if="closeButton === true">
@@ -30,7 +31,7 @@
 			  type="button"
 			  :clickEvent="onCloseEvent"
 			  >
-				<slot slot="label">X</slot>
+				<slot slot="label"><img src="@/../../common/src/assets/icons/close.png"  alt="Fermer"/></slot>
 			</WDGButton>
 		</span>
         <hr>
@@ -51,6 +52,7 @@ export default {
         langSelector: { type: Boolean, default: false },
         backButtonVisible: { type: Boolean, default: false },
 		onBack: {type: Function},
+		onLangSelect: {type: Function},
 		closeButton: {type: Boolean, default: false},
 		hasTitle: {type: Boolean, default: true}
 	},
@@ -80,8 +82,8 @@ export default {
 			// home URL ou page précédente ?
         	location.href = this.getHomeURL
 		},
-		onLangSelect (sSelectedLang) {
-			console.log('onLangSelect sSelectedLang = ' + sSelectedLang)
+		onLangSelectEvent (sSelectedLang) {
+			this.onLangSelect(sSelectedLang)
 		}
 	}
 }
@@ -94,6 +96,7 @@ export default {
 	flex-wrap: wrap;
 	width: 100%;
 	padding-top: 15px;
+	align-items: center;
 }
 .header .logo {
 	width: 45%;
@@ -116,9 +119,11 @@ hr {
 }
 .close .wdg-button button, .back .wdg-button button {
 	border: 0;
+	margin-bottom: 0;
 }
-.back {
-	opacity: 0.2;
+.close img, .back img {
+	width: 20px;
+	height: 20px;
 }
 .lang {
 	align-self: center;
@@ -129,7 +134,9 @@ hr {
 @media screen and (max-width: 767px) {
 .header {
 	align-items: center;
-	padding-right: 15px;
+}
+.header .logo {
+	width: 40%;
 }
 .header .logo img {
 	width: 70%;
@@ -137,8 +144,17 @@ hr {
 }
 .header .title{
 	font-size: 16px;
-	width: 120px;
+	width: 40%;
 	margin-right: 20px;
+}
+.header .lang {
+	width: 30%;
+}
+.header .close {
+	margin: 0px 15px;
+}
+.header .back {
+	margin-left: 15px;
 }
 }
 </style>

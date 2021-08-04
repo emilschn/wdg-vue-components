@@ -9,6 +9,7 @@ export const store = {
 		guid: '',
 		step: 'intro',
 		status: '',
+		language: '',
 		authorization: '',
 		hasAuthorizedWire: '0',
 		hasSaved: '0',
@@ -83,7 +84,8 @@ export const store = {
 		capacities: []
 	},
 	runtime: {
-		isLoadingPayment: false
+		isLoadingPayment: false,
+		saveProjectTimeoutId: 0
 	},
 	tabItems: [
 		{ Id: 'project-infos', Label: i18n.t('project-setup.tabs.MY_PROJECT'), Index: '1', Subtitle: '', Status: 'incomplete', LinkLabel: '' },
@@ -179,7 +181,17 @@ export const store = {
 			.post(this.props.ajaxurl, data)
 	},
 
+	saveProjectAfterTimeout() {
+		console.log('saveProjectAfterTimeout')
+		if (this.saveProjectTimeoutId > 0) {
+			clearTimeout(this.saveProjectTimeoutId)
+		}
+		this.saveProjectTimeoutId = setTimeout(() => { this.saveProject() }, 5000)
+	},
+
 	saveProject() {
+		console.log('saveProject')
+		this.saveProjectTimeoutId = 0
 		let shouldSendLink = false
 		if (this.state.hasSaved !== '1') {
 			shouldSendLink = true

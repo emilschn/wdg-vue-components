@@ -118,6 +118,7 @@ export default {
 		},
 		refreshChart: function () {
 			this.$refs.royaltiesChart.refreshChart()
+			store.saveProjectAfterTimeout()
 		},
 		setRoyaltiesAmountAsAdvice: function () {
 			this.sharedState.project.royaltiesAmount = this.advicePercent
