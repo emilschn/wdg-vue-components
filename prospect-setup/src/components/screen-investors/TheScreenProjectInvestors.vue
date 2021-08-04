@@ -140,9 +140,11 @@ export default {
 		},
 		setReadyToCommunicate: function (event) {
 			this.sharedState.project.readyToCommunicate = true
+			store.saveProjectAfterTimeout()
 		},
 		setNotReadyToCommunicate: function (event) {
 			this.sharedState.project.readyToCommunicate = false
+			store.saveProjectAfterTimeout()
 		}
 	},
 	computed: {
