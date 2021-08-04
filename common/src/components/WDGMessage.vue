@@ -133,8 +133,6 @@ export default {
 }
 .wdg-message.border-pink {
 	border-color: #F9CBCB;
-<<<<<<< HEAD
-=======
 }
 
 /* tablette */
@@ -142,6 +140,5 @@ export default {
 	div.wdg-message {
 		width: 260px;
 	}
->>>>>>> 840ae719cdc5fbcf951ddcd7ee34f31d77aec0a0
 }
 </style>
