@@ -40,6 +40,7 @@
 			  >
 				<WDGMessage
 					iconSVG="warning.svg"
+					iconColor="pink"
 					>
 					<slot slot="label">{{ errorMessage }}</slot>
 				</WDGMessage>

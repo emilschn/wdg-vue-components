@@ -8,11 +8,13 @@
 		  v-bind:valueReturn.sync="sharedState.user.password"
 		  customStyle="natural-language"
 		  :displayValidPassword="false"
+		  :onEnter="onEnterPassword"
 		  />
 
 		<WDGMessage
 		  v-if="isErrorVisible"
 		  iconSVG="warning.svg"
+		  iconColor="pink"
 		  >
 			<slot slot="label">{{ $t('account-signin.ERROR_PASSWORD') }}</slot>
 		</WDGMessage>
@@ -75,7 +77,13 @@ export default {
 		onForgottenPasswordEvent: function () {
 			store.changeStep('forgotten-pass')
 		},
-
+		/**
+		 * Gestion de la touche entrée pour l'input de mot de passe
+		 */
+		onEnterPassword: function() {
+			console.log('onEnterPassword')
+			this.onButtonConnectionClickedEvent()
+		},
 		/**
 		 * Clic sur le bouton de connexion
 		 */

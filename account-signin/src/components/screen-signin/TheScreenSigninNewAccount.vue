@@ -3,6 +3,7 @@
 		<WDGMessage
 		  id="message"
 		  iconSVG="info.svg"
+		  iconColor="paleblue"
 		  >
 			<slot slot="label">{{ $t('account-signin.SIGNIN_ERROR_NOT_FOUND') }}</slot>
 		</WDGMessage>
@@ -18,6 +19,13 @@
 			  :onValidatePassword="onValidatePasswordEvent"
 			  />
 			<div class="info">{{ $t('account-signin.NOTICE_PASSWORD') }}</div><br>
+			<WDGMessage
+			v-if="isErrorPasswordFormatVisible"
+			iconSVG="warning.svg"
+			iconColor="pink"
+			>
+				<slot slot="label">{{ $t('account-signin.BAD_PASSWORD_FORMAT') }}</slot>
+			</WDGMessage>
 		</div>
 
 		<div v-if="sharedState.user.password !== '' && passwordIsValid === true">
@@ -66,6 +74,7 @@
 		<WDGMessage
 		  v-if="isErrorVisible"
 		  iconSVG="warning.svg"
+		  iconColor="pink"
 		  >
 			<slot slot="label">{{ $t('account-signin.ERROR_CREATE_ACCOUNT') }}</slot>
 		</WDGMessage>
@@ -108,16 +117,31 @@ export default {
 			passwordIsValid: false,
 			acceptterms: false,
 			loading: false,
+			currentIntervalId: 0,
 			isErrorVisible: false,
-			botvalue: ''
+			botvalue: '',
+			isErrorPasswordFormatVisible: false
 		}
 	},
 	methods: {
 		onChangePasswordEvent (value) {
 			this.passwordIsValid = false
+			// Timer de déclenchement pour ne pas afficher un message d'erreur immédiatement
+			this.isErrorPasswordFormatVisible = false
+			clearInterval(this.currentIntervalId)
+			this.currentIntervalId = setInterval(this.onIntervalEvent, 2000)
 		},
 		onValidatePasswordEvent (value) {
 			this.passwordIsValid = true
+			this.isErrorPasswordFormatVisible = false
+			clearInterval(this.currentIntervalId)
+		},
+		// Evènement après l'intervalle pour afficher un message d'erreur
+		onIntervalEvent () {
+			clearInterval(this.currentIntervalId)
+			if (this.sharedState.user.password.length > 7) {
+				this.isErrorPasswordFormatVisible = true
+			}
 		},
 		onButtonCreateAccountEvent: function (event) {
 			if (this.botvalue !== '' && this.botvalue !== null && this.botvalue !== undefined) {

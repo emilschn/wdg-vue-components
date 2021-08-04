@@ -30,12 +30,21 @@
 			<TheScreenSigninEmail
 			  :onEmailChanged="onEmailChangedEvent"
 			  />
+			<WDGMessage
+				id="message"
+				iconSVG="warning.svg"
+				iconColor="pink"
+				v-if="isErrorMail"
+				>
+				<slot slot="label">{{ isErrorMessage }} {{isErrorCode}}</slot>
+			</WDGMessage><br>
 
 			<!-- le compte existe et c'est une organization -->
 			<div v-if="loginEmailStep === 'orga-account'">
 				<WDGMessage
 				  id="message"
 				  iconSVG="info.svg"
+				  iconColor="paleblue"
 				  >
 					<slot slot="label">{{ $t('account-signin.SIGNIN_ERROR_ORGA') }}</slot>
 				</WDGMessage><br>
@@ -74,7 +83,7 @@
 </template>
 
 <script>
-// import i18n from '@/i18n'
+import i18n from '@/i18n'
 import { store } from '../../store.js'
 import TheScreenSigninEmail from '@/../../account-signin/src/components/screen-signin/TheScreenSigninEmail'
 import TheScreenSigninPassword from '@/../../account-signin/src/components/screen-signin/TheScreenSigninPassword'
@@ -102,7 +111,11 @@ export default {
 			sharedState: store.state,
 			sharedProps: store.props,
 			orgaAccounts: { type: Array },
-			orgaName: ''
+			orgaName: '',
+			currentIntervalId: 0,
+			isErrorMail: false,
+			isErrorCode: '',
+			isErrorMessage: ''
 		}
 	},
 	methods: {
@@ -110,27 +123,48 @@ export default {
 		 * Fin de l'analyse de la modification de l'e-mail saisi
 		 */
 		onEmailChangedEvent (result) {
-			this.sharedState.context = 'wdg'
-			if (result.status === 'facebook-account') {
-				this.sharedState.context = 'facebook'
-			}
-			this.loginEmailStep = result.status
-			if (result.organizationname !== undefined && result.organizationname !== '') {
-				this.orgaName = result.organizationname
-				this.orgaAccounts = []
-				for (let i = 0; i < result.team_members.length; i++) {
-					let userTeamMember = result.team_members[i]
-					let userItem = {
-						email: userTeamMember.email,
-						name: userTeamMember.firstname + ' ' + userTeamMember.lastname,
-						status: userTeamMember.status
+			clearInterval(this.currentIntervalId)
+			if (result.name === 'Error') {
+				this.isErrorMail = true
+				this.isErrorMessage = i18n.t('account-signin.SIGNIN_ERROR_REQUEST')
+				if (result.message.indexOf('Request failed with status code') !== -1) {
+					this.isErrorCode = 400
+				} else if (result.code === 'ECONNABORTED') {
+					this.isErrorCode = 408
+				}
+			} else if (result.status === 'bad-email' && this.sharedState.user.email.length > 5) {
+				this.currentIntervalId = setInterval(this.onIntervalEvent, 1500)
+			} else {
+				this.isErrorMail = false
+				this.sharedState.context = 'wdg'
+				if (result.status === 'facebook-account') {
+					this.sharedState.context = 'facebook'
+				}
+				this.loginEmailStep = result.status
+				if (result.organizationname !== undefined && result.organizationname !== '') {
+					this.orgaName = result.organizationname
+					this.orgaAccounts = []
+					for (let i = 0; i < result.team_members.length; i++) {
+						let userTeamMember = result.team_members[i]
+						let userItem = {
+							email: userTeamMember.email,
+							name: userTeamMember.firstname + ' ' + userTeamMember.lastname,
+							status: userTeamMember.status
+						}
+						this.orgaAccounts.push(userItem)
 					}
-					this.orgaAccounts.push(userItem)
+				}
+				if (result.firstname !== '') {
+					this.sharedState.user.name = result.firstname + ' ' + result.lastname
 				}
 			}
-			if (result.firstname !== '') {
-				this.sharedState.user.name = result.firstname + ' ' + result.lastname
-			}
+		},
+		// Evènement après l'intervalle pour afficher un message d'erreur
+		onIntervalEvent () {
+			clearInterval(this.currentIntervalId)
+			this.isErrorMail = true
+			this.isErrorCode = ''
+			this.isErrorMessage = i18n.t('account-signin.BAD_EMAIL_FORMAT')
 		},
 
 		/**
@@ -254,6 +288,7 @@ div.the-screen-signin a {
 .the-screen-signin .orga-name {
 	font-weight: 600;
 }
+/* mobile */
 @media only screen and (max-width: 767px) {
 	.the-screen-signin {
 		min-height: 50vh; /* permet d'avoir le footer pas directement collé en dessous si peu d'informations sont affichées */
@@ -275,6 +310,17 @@ div.the-screen-signin a {
 	}
 	.the-screen-signin #userFirstName {
 		margin: 20px 0px;
+	}
+}
+
+/* tablette */
+@media screen and (min-width: 768px) and (max-width: 959px) {
+	.the-screen-signin .wdg-mascot {
+		max-width: 300px;
+	}
+
+	.the-screen-signin input#password, .the-screen-signin input#bzz {
+		width: 260px;
 	}
 }
 </style>

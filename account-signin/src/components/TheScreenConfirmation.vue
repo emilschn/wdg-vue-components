@@ -7,6 +7,7 @@
 			<WDGMessage
 			  id="message"
 			  iconSVG="info.svg"
+			  iconColor="paleblue"
 			  >
 				<slot slot="label">{{ $t('account-signin.CONFIRMATION_EXPLICATION') }}</slot>
 			</WDGMessage>
@@ -296,5 +297,22 @@ div.the-screen-confirmation .wdg-mascot .image {
 	width: auto;
 	margin-top: 15px;
 }
+div.the-screen-confirmation .wdg-mascot .text {
+	width: auto;
+}
+div.the-screen-confirmation .wdg-message {
+	width: auto;
+}
+}
+
+/* tablette */
+@media screen and (min-width: 768px) and (max-width: 959px) {
+	div.the-screen-confirmation .wdg-mascot .text, div.the-screen-confirmation .wdg-mascot .image {
+		width: 45%;
+	}
+
+	div.the-screen-confirmation .wdg-mascot {
+		justify-content: space-between;
+	}
 }
 </style>
