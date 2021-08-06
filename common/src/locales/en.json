@@ -146,6 +146,10 @@
 			"TWO_FILES_DESCRIPTOR": "Un fichier pour le recto et un fichier pour le verso",
 			"FILE_ONE_LABEL": "Recto",
 			"FILE_TWO_LABEL": "Verso"
+		},
+		"organization-documents": {
+			"SEND_YOUR_KBIS": "Importez votre KBIS",
+			"SEND_YOUR_STATUS": "Importez les statuts de votre organisation"
 		}
 	},
 	"account-signin": {

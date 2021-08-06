@@ -8,7 +8,7 @@
 			  @change="onFileChangeEvent"
 			  >
 			<span v-if="fileName !== ''">{{ fileName }}</span>
-			<span v-else-if="label !== ''">{{ label }}</span>
+			<span v-else-if="label !== null && label !== ''">{{ label }}</span>
 			<span v-else>{{ $t('common.SEND_FILE') }}</span>
 		</label>
 		{{ $t('common.SEND_FILE_DESCRIPTOR') }}

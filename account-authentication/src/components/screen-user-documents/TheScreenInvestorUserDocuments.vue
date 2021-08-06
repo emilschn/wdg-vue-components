@@ -175,7 +175,8 @@ export default {
 		WDGUpload
 	},
 	props: {
-		onUploadDoc: Function
+		onUploadDoc: Function,
+		onContinue: Function
 	},
 	data () {
 		return {
@@ -230,7 +231,7 @@ export default {
 			if ( this.step === 'choose-first-file-upload' ) {
 				this.step = 'choose-second-file-type'
 			} else if ( this.step === 'choose-second-file-upload' ) {
-				console.log('next')
+				this.onContinue()
 			}
 		}
 	},

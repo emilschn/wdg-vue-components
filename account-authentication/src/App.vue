@@ -18,7 +18,7 @@
 		<WDGTabs
 		  v-if="canShowTabs"
 		  :tabItems="currentTabItems"
-		  :currentTab="currentStep"
+		  :currentTab="currentSelectedTab"
 		  :clickEvent="onChangeTabEvent"
 		  />
 
@@ -27,7 +27,8 @@
 		<TheScreenInvestorUserInfoComplete v-if="sharedState.step === 'userinfocomplete'" :onContinue="onConfirmInfoCompleteEvent" />
 		<TheScreenInvestorOrganizationInfo v-if="sharedState.step === 'orgainfo'" :onContinue="onConfirmOrgaInfoEvent" />
 		<TheScreenInvestorOrganizationInfoComplete v-if="sharedState.step === 'orgainfocomplete'" :onContinue="onConfirmInfoCompleteEvent" />
-		<TheScreenInvestorUserDocuments v-if="sharedState.step === 'userdocuments'" :onUploadDoc="onUploadDocEvent" />
+		<TheScreenInvestorUserDocuments v-if="sharedState.step === 'userdocuments'" :onUploadDoc="onUploadDocEvent" :onContinue="onConfirmUserDocsEvent" />
+		<TheScreenInvestorOrganizationDocuments v-if="sharedState.step === 'orgadocuments'" />
 
 		<WDGFooter BGColor="grey" TextColor="black" FooterStyle="account"/>
 	</div>
@@ -45,6 +46,7 @@ import TheScreenInvestorUserInfoComplete from './components/screen-user-info-com
 import TheScreenInvestorOrganizationInfo from './components/screen-organization-info/TheScreenInvestorOrganizationInfo.vue'
 import TheScreenInvestorOrganizationInfoComplete from './components/screen-organization-info-complete/TheScreenInvestorOrganizationInfoComplete.vue'
 import TheScreenInvestorUserDocuments from './components/screen-user-documents/TheScreenInvestorUserDocuments.vue'
+import TheScreenInvestorOrganizationDocuments from './components/screen-organization-documents/TheScreenInvestorOrganizationDocuments.vue'
 const initElements = document.querySelector('#app')
 
 export default {
@@ -58,7 +60,8 @@ export default {
 		TheScreenInvestorUserInfoComplete,
 		TheScreenInvestorOrganizationInfo,
 		TheScreenInvestorOrganizationInfoComplete,
-		TheScreenInvestorUserDocuments
+		TheScreenInvestorUserDocuments,
+		TheScreenInvestorOrganizationDocuments
 	},
 	data () {
 		return {
@@ -109,6 +112,13 @@ export default {
 		onConfirmInfoCompleteEvent () {
 			store.changeStep( 'userdocuments' )
 		},
+		onConfirmUserDocsEvent () {
+			if ( this.sharedState.userNeedOrga ) {
+				store.changeStep( 'orgadocuments' )
+			} else {
+				console.log( 'doc complete' )
+			}
+		},
 		onChangeTabEvent (tabId) {
 			store.changeStep(tabId)
 		},
@@ -129,15 +139,16 @@ export default {
 			]
 			return tabItems
 		},
-		currentStep () {
-			let currentStep = this.sharedState.step
-			switch (currentStep) {
+		currentSelectedTab () {
+			let currentSelectedTab = this.sharedState.step
+			switch (currentSelectedTab) {
 				case 'userinfocomplete':
 				case 'orgainfocomplete':
-					currentStep = 'userdocuments'
+				case 'orgadocuments':
+					currentSelectedTab = 'userdocuments'
 					break
 			}
-			return currentStep
+			return currentSelectedTab
 		}
 	}
 }
