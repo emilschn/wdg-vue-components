@@ -143,7 +143,9 @@
 			"ONE_FILE": "J'ai un seul fichier",
 			"ONE_FILE_DESCRIPTOR": "Un fichier comprenant le recto et le verso",
 			"TWO_FILES": "J'ai deux fichiers séparés",
-			"TWO_FILES_DESCRIPTOR": "Un fichier pour le recto et un fichier pour le verso"
+			"TWO_FILES_DESCRIPTOR": "Un fichier pour le recto et un fichier pour le verso",
+			"FILE_ONE_LABEL": "Recto",
+			"FILE_TWO_LABEL": "Verso"
 		}
 	},
 	"account-signin": {

@@ -120,15 +120,19 @@
 			<div style="clear: both;"></div>
 
 			<WDGUpload
-			  id="file1"
 		 	  v-if="nbFileToDisplay >= 1"
+			  id="file1"
 			  :onFileChange="onFileUploadChangeEvent"
+			  :label="firstFileLabel"
+			  :class="nbFileToDisplay > 1 ? 'multiple' : ''"
 			  >
 			</WDGUpload>
 			<WDGUpload
-			  id="file2"
 		 	  v-if="nbFileToDisplay > 1"
+			  id="file2"
 			  :onFileChange="onFileUploadChangeEvent"
+			  :label="$t('account-authentication.user-documents.FILE_TWO_LABEL')"
+			  :class="nbFileToDisplay > 1 ? 'multiple' : ''"
 			  >
 			</WDGUpload>
 
@@ -157,6 +161,7 @@
 </template>
 
 <script>
+import i18n from '@/i18n'
 import WDGButton from '@/../../common/src/components/WDGButton'
 import WDGMascot from '@/../../common/src/components/WDGMascot'
 import WDGRadioButton from '@/../../common/src/components/WDGRadioButton'
@@ -240,7 +245,6 @@ export default {
 			return (this.step === 'choose-first-file-upload' || this.step === 'choose-second-file-upload' )
 		},
 		isContinueButtonDisplayed () {
-			console.log(this.step)
 			if ( this.step === 'choose-first-file-upload' ) {
 				for ( let i = 0; i < this.firstDocumentNbFiles; i++ ) {
 					if (this.firstDocumentList[ i ] === undefined) {
@@ -250,8 +254,6 @@ export default {
 				return true
 			}
 			if ( this.step === 'choose-second-file-upload' ) {
-				console.log(this.secondDocumentNbFiles)
-				console.log(this.secondDocumentList)
 				for ( let i = 0; i < this.secondDocumentNbFiles; i++ ) {
 					if (this.secondDocumentList[ i ] === undefined) {
 						return false
@@ -267,6 +269,13 @@ export default {
 				return this.secondDocumentType
 			} else {
 				return this.firstDocumentType
+			}
+		},
+		firstFileLabel () {
+			if ( this.nbFileToDisplay > 1 ) {
+				return i18n.t('account-authentication.user-documents.FILE_ONE_LABEL')
+			} else {
+				return i18n.t('common.SEND_FILE')
 			}
 		}
 	}
@@ -322,5 +331,12 @@ export default {
 		font-weight: normal;
 		color: #EBEBEB;
 		margin-left: 20px;
+	}
+	div.the-screen-investor-user-documents div.upload-container .wdg-upload {
+		float: left;
+		width: 50.1%;
+	}
+	div.the-screen-investor-user-documents div.upload-container .wdg-upload.multiple {
+		float: right;
 	}
 </style>

@@ -8,6 +8,7 @@
 			  @change="onFileChangeEvent"
 			  >
 			<span v-if="fileName !== ''">{{ fileName }}</span>
+			<span v-else-if="label !== ''">{{ label }}</span>
 			<span v-else>{{ $t('common.SEND_FILE') }}</span>
 		</label>
 		{{ $t('common.SEND_FILE_DESCRIPTOR') }}
@@ -22,7 +23,7 @@ export default {
 	props: {
 		id: { type: String, default: null },
 		color: { type: String, default: 'red' },
-		name: { type: String, default: null },
+		label: { type: String, default: null },
 		onFileChange: Function
 	},
 	data () {
