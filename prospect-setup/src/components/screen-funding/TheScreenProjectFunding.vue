@@ -153,12 +153,23 @@ export default {
 		},
 		minPercentAdvice () {
 			if (this.totalTurnover > 0) {
-				// pourcentage minimum pour les royalties (3% quelque soit le montant levé)
-				let percentMin = 3
 				// pourcent permettant le remboursement
 				let percentForReimbursement = this.sharedState.project.amountNeeded * 1000 / this.totalTurnover * 100
-				// le plus grand entre les deux
-				return Math.ceil(Math.max(percentMin, percentForReimbursement) * 100) / 100
+
+				// Si le projet recherche au moins 100k€, on fixe le minimum à 3%
+				if (this.sharedState.project.amountNeeded >= 100) {
+					// pourcentage minimum pour les royalties (3% quelque soit le montant levé)
+					let percentMin = 3
+					// le plus grand entre les deux
+					return Math.ceil(Math.max(percentMin, percentForReimbursement) * 100) / 100
+
+				// Sinon, en dessous de 100k€, on fait un ratio de 3% pour 100k€
+				} else {
+					// ratio de 3 % pour 100 000 €
+					let percentForRatio3per100k = this.sharedState.project.amountNeeded * 3000 / 100000
+					// le plus grand entre les deux
+					return Math.ceil(Math.max(percentForRatio3per100k, percentForReimbursement) * 100) / 100
+				}
 			}
 			return 0
 		},
