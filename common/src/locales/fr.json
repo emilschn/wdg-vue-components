@@ -148,8 +148,13 @@
 			"FILE_TWO_LABEL": "Verso"
 		},
 		"organization-documents": {
-			"SEND_YOUR_KBIS": "Importez votre KBIS",
-			"SEND_YOUR_STATUS": "Importez les statuts de votre organisation"
+			"SEND_YOUR_KBIS": "Importez le KBIS de votre organisation",
+			"SEND_YOUR_KBIS_DESCRIPTION": "datant de moins de 3 mois",
+			"SEND_YOUR_STATUS": "Importez les statuts de votre organisation",
+			"SEND_YOUR_STATUS_DESCRIPTION": "certifiés conformes à l'original par le gérant",
+			"DO_YOU_NEED_TO_SEND_CAPITAL_ALLOCATION": "La répartition du capital de l'organisation est-elle déterminée clairement dans ses statuts ?",
+			"SEND_YOUR_CAPITAL_ALLOCATION": "Importez une attestation de répartition du capital de votre organisation",
+			"SEND_OTHER_PEOPLE": "Importez le justificatif d'identité des personnes partageant le capital"
 		}
 	},
 	"account-signin": {

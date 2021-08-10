@@ -230,6 +230,7 @@ export default {
 		onContinueButtonClickEvent () {
 			if ( this.step === 'choose-first-file-upload' ) {
 				this.step = 'choose-second-file-type'
+				this.nbFileToDisplay = 0
 			} else if ( this.step === 'choose-second-file-upload' ) {
 				this.onContinue()
 			}

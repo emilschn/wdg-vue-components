@@ -3,15 +3,40 @@
 
 		<div class="button-container">
 			<div class="title-container">
-				<span v-if="step === 'upload-kbis'">{{ $t('account-authentication.organization-documents.SEND_YOUR_KBIS') }}</span>
-				<span v-if="step === 'upload-status'">{{ $t('account-authentication.organization-documents.SEND_YOUR_STATUS') }}</span>
-				<span v-if="step === 'upload-capital-allocation'">aaa</span>
+				<span v-if="step === 'upload-kbis'">
+					{{ $t('account-authentication.organization-documents.SEND_YOUR_KBIS') }}<br>
+					{{ $t('account-authentication.organization-documents.SEND_YOUR_KBIS_DESCRIPTION') }}
+				</span>
+				<span v-if="step === 'upload-status'">
+					{{ $t('account-authentication.organization-documents.SEND_YOUR_STATUS') }}<br>
+					{{ $t('account-authentication.organization-documents.SEND_YOUR_STATUS_DESCRIPTION') }}
+				</span>
+				<span v-if="step === 'ask-capital-allocation'">{{ $t('account-authentication.organization-documents.DO_YOU_NEED_TO_SEND_CAPITAL_ALLOCATION') }}</span>
+				<span v-if="step === 'upload-capital-allocation'">{{ $t('account-authentication.organization-documents.SEND_YOUR_CAPITAL_ALLOCATION') }}</span>
+				<span v-if="step === 'upload-other-people'">{{ $t('account-authentication.organization-documents.SEND_OTHER_PEOPLE') }}</span>
 				
 			</div>
 
 			<WDGUpload
+			  v-if="step !== 'ask-capital-allocation'"
 			  :onFileChange="onFileUploadChangeEvent"
 			  />
+
+			<div
+			  v-else
+			  >
+				<WDGButton
+				  :clickEvent="onContinueButtonClickEvent"
+				  >
+					<slot slot="label">{{ $t('common.YES') }}</slot>
+				</WDGButton>
+
+				<WDGButton
+				  :clickEvent="onUploadCapitalAllocationButtonClickEvent"
+				  >
+					<slot slot="label">{{ $t('common.NO') }}</slot>
+				</WDGButton>
+			</div>
 
 			<WDGButton
 			  v-if="isContinueButtonDisplayed"
@@ -55,7 +80,8 @@ export default {
 		return {
 			step: 'upload-kbis',
 			fileKBIS: [],
-			fileStatus: []
+			fileStatus: [],
+			fileCapitalAllocation: []
 		}
 	},
 	methods: {
@@ -64,15 +90,25 @@ export default {
 				this.fileKBIS.splice(0, 1, files)
 			} else if ( this.step === 'upload-status' ) {
 				this.fileStatus.splice(0, 1, files)
+			} else if ( this.step === 'upload-capital-allocation' ) {
+				this.fileCapitalAllocation.splice(0, 1, files)
 			}
 		},
 		onContinueButtonClickEvent () {
+			this.$root.$emit('resetUploadFile', '')
 			if ( this.step === 'upload-kbis' ) {
 				this.step = 'upload-status'
 			} else if ( this.step === 'upload-status' ) {
-				this.step = 'upload-capital-allocation'
+				this.step = 'ask-capital-allocation'
+			} else if ( this.step === 'ask-capital-allocation' || this.step === 'upload-capital-allocation' ) {
+				this.step = 'upload-other-people'
 			} else {
 				this.onContinue()
+			}
+		},
+		onUploadCapitalAllocationButtonClickEvent () {
+			if ( this.step === 'ask-capital-allocation' ) {
+				this.step = 'upload-capital-allocation'
 			}
 		}
 	},
@@ -82,6 +118,9 @@ export default {
 				return true
 			}
 			if ( this.step === 'upload-status' && this.fileStatus.length > 0 ) {
+				return true
+			}
+			if ( this.step === 'upload-capital-allocation' && this.fileCapitalAllocation.length > 0 ) {
 				return true
 			}
 			return false

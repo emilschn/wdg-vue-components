@@ -31,6 +31,9 @@ export default {
 			files: []
 		}
 	},
+	mounted () {
+		this.$root.$on('resetUploadFile', this.onResetEvent)
+	},
 	computed: {
 		fileName () {
 			if ((this.files.length > 0) && 'name' in this.files[0]) {
@@ -43,6 +46,9 @@ export default {
 		onFileChangeEvent (e) {
 			this.files = Array.from(e.target.files)
 			this.onFileChange(this.id, this.files)
+		},
+		onResetEvent () {
+			this.files = []
 		}
 	}
 }
