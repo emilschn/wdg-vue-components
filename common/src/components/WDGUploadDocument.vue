@@ -34,6 +34,7 @@
 		  :class="nbFileToDisplay > 1 ? 'multiple' : ''"
 		  >
 		</WDGUpload>
+		<div style="clear: both;"></div>
 	</div>
 </template>
 

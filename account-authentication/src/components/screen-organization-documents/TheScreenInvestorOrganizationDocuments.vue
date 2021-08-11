@@ -25,6 +25,7 @@
 				
 			</div>
 
+
 			<div
 			  v-if="step === 'ask-capital-allocation'"
 			  >
@@ -40,6 +41,7 @@
 					<slot slot="label">{{ $t('common.NO') }}</slot>
 				</WDGButton>
 			</div>
+
 			<div
 			  v-else-if="step === 'ask-other-people'"
 			  >
@@ -55,10 +57,17 @@
 					<slot slot="label">{{ $t('common.NO') }}</slot>
 				</WDGButton>
 			</div>
+
+			<TheScreenInvestorOrganizationOtherPeopleDocuments
+			  v-else-if="step === 'upload-other-people'"
+			  :onContinue="onContinueButtonClickEvent"
+			  />
+
 			<WDGUpload
 			  v-else
 			  :onFileChange="onFileUploadChangeEvent"
 			  />
+
 
 			<WDGButton
 			  v-if="isContinueButtonDisplayed"
@@ -91,12 +100,14 @@
 import WDGButton from '@/../../common/src/components/WDGButton'
 import WDGMascot from '@/../../common/src/components/WDGMascot'
 import WDGUpload from '@/../../common/src/components/WDGUpload'
+import TheScreenInvestorOrganizationOtherPeopleDocuments from '@/components/screen-organization-documents/TheScreenInvestorOrganizationOtherPeopleDocuments.vue'
 export default {
 	name: 'TheScreenInvestorOrganizationDocuments',
 	components: {
 		WDGButton,
 		WDGMascot,
-		WDGUpload
+		WDGUpload,
+		TheScreenInvestorOrganizationOtherPeopleDocuments
 	},
 	props: {
 		onContinue: Function
@@ -128,7 +139,7 @@ export default {
 			} else if ( this.step === 'ask-capital-allocation' || this.step === 'upload-capital-allocation' ) {
 				this.step = 'ask-other-people'
 			} else if ( this.step === 'ask-other-people' || this.step === 'upload-other-people' ) {
-				this.step = 'ask-other-people'
+				this.onContinue()
 			} else {
 				this.onContinue()
 			}

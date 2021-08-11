@@ -155,7 +155,18 @@
 			"DO_YOU_NEED_TO_SEND_CAPITAL_ALLOCATION": "La répartition du capital de l'organisation est-elle déterminée clairement dans ses statuts ?",
 			"SEND_YOUR_CAPITAL_ALLOCATION": "Importez une attestation de répartition du capital de votre organisation",
 			"DO_YOU_NEED_TO_SEND_OTHER_PEOPLE": "Est-ce que d'autres personnes possèdent au moins 25 % du capital ?",
-			"SEND_OTHER_PEOPLE": "Importez le justificatif d'identité des personnes partageant le capital"
+			"SEND_OTHER_PEOPLE": "Importez le justificatif d'identité des personnes partageant le capital",
+			"SEND_OTHER_PEOPLE_TYPE_DESCRIPTION": "Au moins carte d'identité ou passeport, puis avis d'imposition, carte vitale, livret de famille, acte de naissance, persmis de conduire",
+			"SEND_OTHER_PEOPLE_ADD_ANOTHER": "Ajouter une autre personne",
+			"SEND_OTHER_PEOPLE_SECOND_DOCUMENT": "Et un deuxième justificatif d'identité",
+			"SEND_OTHER_PEOPLE_2": "Sélectionnez un justificatif d'identité de la deuxième personne possédant au moins 25 % du capital",
+			"SEND_OTHER_PEOPLE_3": "Sélectionnez un justificatif d'identité de la troisième personne possédant au moins 25 % du capital",
+			"SEND_OTHER_PEOPLE_4": "Sélectionnez un justificatif d'identité de la quatrième personne possédant au moins 25 % du capital"
+		},
+		"checking": {
+			"DOCUMENTS_IMPORTED": "Vos documents sont importés",
+			"YOUR_DOCUMENTS_MUST_BE_VALIDATED_BY_LEMONWAY": "Vos documents doivent maintenant être validés par notre prestataire, LemonWay. Vous serez notifié par mail dès que cela est fait.",
+			"YOUR_DOCUMENTS_CAN_BE_FOUND_IN_YOUR_ACCOUNT": "Vous pourrez retrouver vos documents dans votre compte utilisateur."
 		}
 	},
 	"account-signin": {

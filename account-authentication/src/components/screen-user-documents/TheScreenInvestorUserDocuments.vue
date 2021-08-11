@@ -183,7 +183,6 @@ export default {
 			}
 		},
 		onUploadDocumentFileChangeEvent (id, index, files) {
-			console.log('onUploadDocumentFileChangeEvent > ' + id)
 			if ( this.step === 'choose-first-file-upload' ) {
 				this.firstDocumentList.splice(index, 1, files)
 			} else {
@@ -191,7 +190,6 @@ export default {
 			}
 		},
 		onUploadDocumentUploadCompleteEvent (id) {
-			console.log('onUploadDocumentUploadCompleteEvent > ' + id)
 			if ( this.step === 'choose-first-file-upload' ) {
 				this.firstDocumentComplete = true
 			} else {

@@ -28,7 +28,8 @@
 		<TheScreenInvestorOrganizationInfo v-if="sharedState.step === 'orgainfo'" :onContinue="onConfirmOrgaInfoEvent" />
 		<TheScreenInvestorOrganizationInfoComplete v-if="sharedState.step === 'orgainfocomplete'" :onContinue="onConfirmInfoCompleteEvent" />
 		<TheScreenInvestorUserDocuments v-if="sharedState.step === 'userdocuments'" :onUploadDoc="onUploadDocEvent" :onContinue="onConfirmUserDocsEvent" />
-		<TheScreenInvestorOrganizationDocuments v-if="sharedState.step === 'orgadocuments'" />
+		<TheScreenInvestorOrganizationDocuments v-if="sharedState.step === 'orgadocuments'" :onContinue="onConfirmOrganizationDocsEvent" />
+		<TheScreenInvestorChecking v-if="sharedState.step === 'checking'" />
 
 		<WDGFooter BGColor="grey" TextColor="black" FooterStyle="account"/>
 	</div>
@@ -47,6 +48,7 @@ import TheScreenInvestorOrganizationInfo from './components/screen-organization-
 import TheScreenInvestorOrganizationInfoComplete from './components/screen-organization-info-complete/TheScreenInvestorOrganizationInfoComplete.vue'
 import TheScreenInvestorUserDocuments from './components/screen-user-documents/TheScreenInvestorUserDocuments.vue'
 import TheScreenInvestorOrganizationDocuments from './components/screen-organization-documents/TheScreenInvestorOrganizationDocuments.vue'
+import TheScreenInvestorChecking from './components/screen-checking/TheScreenInvestorChecking.vue'
 const initElements = document.querySelector('#app')
 
 export default {
@@ -61,7 +63,8 @@ export default {
 		TheScreenInvestorOrganizationInfo,
 		TheScreenInvestorOrganizationInfoComplete,
 		TheScreenInvestorUserDocuments,
-		TheScreenInvestorOrganizationDocuments
+		TheScreenInvestorOrganizationDocuments,
+		TheScreenInvestorChecking
 	},
 	data () {
 		return {
@@ -116,8 +119,11 @@ export default {
 			if ( this.sharedState.userNeedOrga ) {
 				store.changeStep( 'orgadocuments' )
 			} else {
-				console.log( 'doc complete' )
+				store.changeStep( 'checking' )
 			}
+		},
+		onConfirmOrganizationDocsEvent () {
+			store.changeStep( 'checking' )
 		},
 		onChangeTabEvent (tabId) {
 			store.changeStep(tabId)
@@ -134,7 +140,7 @@ export default {
 			let tabItems = [
 				{ Id: 'userinfo', Label: i18n.t('account-authentication.tabs.INFORMATION'), Index: '', Subtitle: this.sharedState.userNeedOrga ? i18n.t('account-authentication.tabs.INFORMATION_ORGANIZATION_DURATION') : i18n.t('account-authentication.tabs.INFORMATION_USER_DURATION'), Status: 'incomplete', LinkLabel: '' },
 				{ Id: 'userdocuments', Label: i18n.t('account-authentication.tabs.DOCUMENTS'), Index: '', Subtitle: this.sharedState.userNeedOrga ? i18n.t('account-authentication.tabs.DOCUMENTS_ORGANIZATION_DURATION') : i18n.t('account-authentication.tabs.DOCUMENTS_USER_DURATION'), Status: 'incomplete', LinkLabel: '' },
-				{ Id: 'userprofile', Label: i18n.t('account-authentication.tabs.PROFILE'), Index: '', Subtitle: this.sharedState.userNeedOrga ? i18n.t('account-authentication.tabs.PROFILE_ORGANIZATION_DURATION') : i18n.t('account-authentication.tabs.PROFILE_USER_DURATION'), Status: 'incomplete', LinkLabel: '' },
+				// { Id: 'userprofile', Label: i18n.t('account-authentication.tabs.PROFILE'), Index: '', Subtitle: this.sharedState.userNeedOrga ? i18n.t('account-authentication.tabs.PROFILE_ORGANIZATION_DURATION') : i18n.t('account-authentication.tabs.PROFILE_USER_DURATION'), Status: 'incomplete', LinkLabel: '' },
 				{ Id: 'checking', Label: i18n.t('account-authentication.tabs.CHECKING'), Index: '', Subtitle: i18n.t('account-authentication.tabs.CHECKING_DURATION'), Status: 'incomplete', LinkLabel: '' }
 			]
 			return tabItems
