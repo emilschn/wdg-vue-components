@@ -1,6 +1,13 @@
 <template>
 	<div class="the-screen-investor-organization-documents">
 
+		<WDGMascot
+		  v-if="step.indexOf('upload') == -1"
+		  type="face-1"
+		  alignMascot="left"
+		  :displayText="false"
+		  />
+
 		<div class="button-container">
 			<div class="title-container">
 				<span v-if="step === 'upload-kbis'">
@@ -13,17 +20,13 @@
 				</span>
 				<span v-if="step === 'ask-capital-allocation'">{{ $t('account-authentication.organization-documents.DO_YOU_NEED_TO_SEND_CAPITAL_ALLOCATION') }}</span>
 				<span v-if="step === 'upload-capital-allocation'">{{ $t('account-authentication.organization-documents.SEND_YOUR_CAPITAL_ALLOCATION') }}</span>
+				<span v-if="step === 'ask-other-people'">{{ $t('account-authentication.organization-documents.DO_YOU_NEED_TO_SEND_OTHER_PEOPLE') }}</span>
 				<span v-if="step === 'upload-other-people'">{{ $t('account-authentication.organization-documents.SEND_OTHER_PEOPLE') }}</span>
 				
 			</div>
 
-			<WDGUpload
-			  v-if="step !== 'ask-capital-allocation'"
-			  :onFileChange="onFileUploadChangeEvent"
-			  />
-
 			<div
-			  v-else
+			  v-if="step === 'ask-capital-allocation'"
 			  >
 				<WDGButton
 				  :clickEvent="onContinueButtonClickEvent"
@@ -37,6 +40,25 @@
 					<slot slot="label">{{ $t('common.NO') }}</slot>
 				</WDGButton>
 			</div>
+			<div
+			  v-else-if="step === 'ask-other-people'"
+			  >
+				<WDGButton
+				  :clickEvent="onUploadOtherPeopleButtonClickEvent"
+				  >
+					<slot slot="label">{{ $t('common.YES') }}</slot>
+				</WDGButton>
+
+				<WDGButton
+				  :clickEvent="onContinueButtonClickEvent"
+				  >
+					<slot slot="label">{{ $t('common.NO') }}</slot>
+				</WDGButton>
+			</div>
+			<WDGUpload
+			  v-else
+			  :onFileChange="onFileUploadChangeEvent"
+			  />
 
 			<WDGButton
 			  v-if="isContinueButtonDisplayed"
@@ -46,7 +68,10 @@
 			</WDGButton>
 		</div>
 
-		<WDGMascot type="side-1">
+		<WDGMascot
+		  v-if="step.indexOf('upload') > -1"
+		  type="side-1"
+		  >
 			<slot slot="text">
 				{{ $t('account-authentication.user-documents.YOUR_DOCUMENT_SHOULD_BE') }}
 				<br>
@@ -101,15 +126,18 @@ export default {
 			} else if ( this.step === 'upload-status' ) {
 				this.step = 'ask-capital-allocation'
 			} else if ( this.step === 'ask-capital-allocation' || this.step === 'upload-capital-allocation' ) {
-				this.step = 'upload-other-people'
+				this.step = 'ask-other-people'
+			} else if ( this.step === 'ask-other-people' || this.step === 'upload-other-people' ) {
+				this.step = 'ask-other-people'
 			} else {
 				this.onContinue()
 			}
 		},
 		onUploadCapitalAllocationButtonClickEvent () {
-			if ( this.step === 'ask-capital-allocation' ) {
-				this.step = 'upload-capital-allocation'
-			}
+			this.step = 'upload-capital-allocation'
+		},
+		onUploadOtherPeopleButtonClickEvent () {
+			this.step = 'upload-other-people'
 		}
 	},
 	computed: {

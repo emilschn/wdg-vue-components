@@ -154,6 +154,7 @@
 			"SEND_YOUR_STATUS_DESCRIPTION": "certifiés conformes à l'original par le gérant",
 			"DO_YOU_NEED_TO_SEND_CAPITAL_ALLOCATION": "La répartition du capital de l'organisation est-elle déterminée clairement dans ses statuts ?",
 			"SEND_YOUR_CAPITAL_ALLOCATION": "Importez une attestation de répartition du capital de votre organisation",
+			"DO_YOU_NEED_TO_SEND_OTHER_PEOPLE": "Est-ce que d'autres personnes possèdent au moins 25 % du capital ?",
 			"SEND_OTHER_PEOPLE": "Importez le justificatif d'identité des personnes partageant le capital"
 		}
 	},

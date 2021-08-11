@@ -101,40 +101,12 @@
 				<br>
 				{{ $t('account-authentication.user-documents.CHOOSE_DOCUMENT_TYPE') }}
 			</div>
-			<WDGRadioButton
-			  name="nb-file"
-			  value="1"
-			  :onChange="onChooseNbFileEvent"
-			  >
-				<slot slot="label-after">{{ $t('account-authentication.user-documents.ONE_FILE') }}</slot>
-				<slot slot="description">{{ $t('account-authentication.user-documents.ONE_FILE_DESCRIPTOR') }}</slot>
-			</WDGRadioButton>
-			<WDGRadioButton
-			  name="nb-file"
-			  value="2"
-			  :onChange="onChooseNbFileEvent"
-			  >
-				<slot slot="label-after">{{ $t('account-authentication.user-documents.TWO_FILES') }}</slot>
-				<slot slot="description">{{ $t('account-authentication.user-documents.TWO_FILES_DESCRIPTOR') }}</slot>
-			</WDGRadioButton>
-			<div style="clear: both;"></div>
 
-			<WDGUpload
-		 	  v-if="nbFileToDisplay >= 1"
-			  id="file1"
-			  :onFileChange="onFileUploadChangeEvent"
-			  :label="firstFileLabel"
-			  :class="nbFileToDisplay > 1 ? 'multiple' : ''"
-			  >
-			</WDGUpload>
-			<WDGUpload
-		 	  v-if="nbFileToDisplay > 1"
-			  id="file2"
-			  :onFileChange="onFileUploadChangeEvent"
-			  :label="$t('account-authentication.user-documents.FILE_TWO_LABEL')"
-			  :class="nbFileToDisplay > 1 ? 'multiple' : ''"
-			  >
-			</WDGUpload>
+			<WDGUploadDocument
+			  id="user-document"
+			  :onFileChange="onUploadDocumentFileChangeEvent"
+			  :onUploadComplete="onUploadDocumentUploadCompleteEvent"
+			  />
 
 			<WDGButton
 			  v-if="isContinueButtonDisplayed"
@@ -161,18 +133,15 @@
 </template>
 
 <script>
-import i18n from '@/i18n'
 import WDGButton from '@/../../common/src/components/WDGButton'
 import WDGMascot from '@/../../common/src/components/WDGMascot'
-import WDGRadioButton from '@/../../common/src/components/WDGRadioButton'
-import WDGUpload from '@/../../common/src/components/WDGUpload'
+import WDGUploadDocument from '@/../../common/src/components/WDGUploadDocument'
 export default {
 	name: 'TheScreenInvestorUserDocuments',
 	components: {
 		WDGButton,
 		WDGMascot,
-		WDGRadioButton,
-		WDGUpload
+		WDGUploadDocument
 	},
 	props: {
 		onUploadDoc: Function,
@@ -181,12 +150,11 @@ export default {
 	data () {
 		return {
 			step: 'choose-first-file-type',
-			nbFileToDisplay: 0,
 			firstDocumentType: '',
-			firstDocumentNbFiles: 0,
+			firstDocumentComplete: false,
 			firstDocumentList: [],
 			secondDocumentType: '',
-			secondDocumentNbFiles: 0,
+			secondDocumentComplete: false,
 			secondDocumentList: []
 		}
 	},
@@ -194,43 +162,46 @@ export default {
 		onChooseTypeEvent: async function (...args) {
 			if ( this.step === 'choose-first-file-type' ) {
 				this.firstDocumentType = args[0].id
-				this.step = 'choose-first-file-count'
+				this.step = 'choose-first-file-upload'
 			} else if ( this.step === 'choose-second-file-type' ) {
 				this.secondDocumentType = args[0].id
-				this.step = 'choose-second-file-count'
+				this.step = 'choose-second-file-upload'
 			}
 		},
 		onChangeDocumentEvent () {
-			if ( this.step === 'choose-first-file-count' || this.step === 'choose-first-file-upload' ) {
+			this.$root.$emit('resetUploadFile', '')
+			if ( this.step === 'choose-first-file-upload' ) {
 				this.firstDocumentType = ''
+				this.firstDocumentList = []
+				this.firstDocumentComplete = false
 				this.step = 'choose-first-file-type'
-			} else if ( this.step === 'choose-second-file-count' || this.step === 'choose-second-file-upload' ) {
+			} else if ( this.step === 'choose-second-file-upload' ) {
 				this.secondDocumentType = ''
+				this.secondDocumentList = []
+				this.secondDocumentComplete = false
 				this.step = 'choose-second-file-type'
 			}
 		},
-		onChooseNbFileEvent (newValue) {
-			if ( this.step === 'choose-first-file-count' ) {
-				this.firstDocumentNbFiles = newValue
-				this.step = 'choose-first-file-upload'
-			} else if ( this.step === 'choose-second-file-count' ) {
-				this.secondDocumentNbFiles = newValue
-				this.step = 'choose-second-file-upload'
-			}
-			this.nbFileToDisplay = newValue
-		},
-		onFileUploadChangeEvent (idUploadDocument, files) {
-			let index = (idUploadDocument == 'file1') ? 0 : 1
+		onUploadDocumentFileChangeEvent (id, index, files) {
+			console.log('onUploadDocumentFileChangeEvent > ' + id)
 			if ( this.step === 'choose-first-file-upload' ) {
 				this.firstDocumentList.splice(index, 1, files)
-			} else if ( this.step === 'choose-second-file-upload' ) {
+			} else {
 				this.secondDocumentList.splice(index, 1, files)
+			}
+		},
+		onUploadDocumentUploadCompleteEvent (id) {
+			console.log('onUploadDocumentUploadCompleteEvent > ' + id)
+			if ( this.step === 'choose-first-file-upload' ) {
+				this.firstDocumentComplete = true
+			} else {
+				this.secondDocumentComplete = true
 			}
 		},
 		onContinueButtonClickEvent () {
 			if ( this.step === 'choose-first-file-upload' ) {
+				this.$root.$emit('resetUploadFile', '')
 				this.step = 'choose-second-file-type'
-				this.nbFileToDisplay = 0
 			} else if ( this.step === 'choose-second-file-upload' ) {
 				this.onContinue()
 			}
@@ -240,28 +211,12 @@ export default {
 		isFileTypeDisplayed () {
 			return (this.step === 'choose-first-file-type' || this.step === 'choose-second-file-type' )
 		},
-		isFileCountDisplayed () {
-			return (this.step === 'choose-first-file-count' || this.step === 'choose-second-file-count' )
-		},
-		isFileUploadDisplayed () {
-			return (this.step === 'choose-first-file-upload' || this.step === 'choose-second-file-upload' )
-		},
 		isContinueButtonDisplayed () {
 			if ( this.step === 'choose-first-file-upload' ) {
-				for ( let i = 0; i < this.firstDocumentNbFiles; i++ ) {
-					if (this.firstDocumentList[ i ] === undefined) {
-						return false
-					}
-				}
-				return true
+				return this.firstDocumentComplete
 			}
 			if ( this.step === 'choose-second-file-upload' ) {
-				for ( let i = 0; i < this.secondDocumentNbFiles; i++ ) {
-					if (this.secondDocumentList[ i ] === undefined) {
-						return false
-					}
-				}
-				return true
+				return this.secondDocumentComplete
 			}
 			return false;
 		},
@@ -271,13 +226,6 @@ export default {
 				return this.secondDocumentType
 			} else {
 				return this.firstDocumentType
-			}
-		},
-		firstFileLabel () {
-			if ( this.nbFileToDisplay > 1 ) {
-				return i18n.t('account-authentication.user-documents.FILE_ONE_LABEL')
-			} else {
-				return i18n.t('common.SEND_FILE')
 			}
 		}
 	}
@@ -318,27 +266,5 @@ export default {
 	div.the-screen-investor-user-documents div.upload-container {
 		float: left;
 		width: 600px;
-	}
-	div.the-screen-investor-user-documents div.upload-container div.wdg-radiobutton {
-		float: left;
-		width: 270px;
-		margin-right: 20px;
-	}
-	div.the-screen-investor-user-documents div.upload-container div.wdg-radiobutton label {
-		height: 200px;
-	}
-	div.the-screen-investor-user-documents div.upload-container div.wdg-radiobutton label span.description {
-		display: block;
-		font-size: 15px;
-		font-weight: normal;
-		color: #EBEBEB;
-		margin-left: 20px;
-	}
-	div.the-screen-investor-user-documents div.upload-container .wdg-upload {
-		float: left;
-		width: 50.1%;
-	}
-	div.the-screen-investor-user-documents div.upload-container .wdg-upload.multiple {
-		float: right;
 	}
 </style>
