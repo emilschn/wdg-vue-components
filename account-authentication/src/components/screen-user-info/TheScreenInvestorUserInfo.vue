@@ -108,12 +108,63 @@
 		</div>
 
 		<div v-if="canDisplayAddress">
+			{{ $t('account-authentication.user-infos.MY_COUNTRY_IS') }}
+			<WDGSelect
+			  id="userAddressCountry"
+			  name="userAddressCountry"
+			  :optionItems="sharedStatic.countries"
+			  :value="sharedState.user.address.country"
+			  v-bind:valueReturn.sync="sharedState.user.address.country"
+			  customStyle="natural-language"
+			  />
+			<br><br>
+
+			{{ $t('account-authentication.user-infos.MY_ADDRESS_NUMBER_IS') }}
+			<WDGInput
+			  id="userAddressNumber"
+			  name="userAddressNumber"
+			  :value="sharedState.user.address.number"
+			  v-bind:valueReturn.sync="sharedState.user.address.number"
+			  customStyle="natural-language"
+			  />
+
+			<WDGSelect
+			  v-if="sharedState.user.address.country === 'FR'"
+			  id="userAddressNumberComp"
+			  name="userAddressNumberComp"
+			  :optionItems="sharedStatic.addressNumberComp"
+			  :value="sharedState.user.address.numberComp"
+			  v-bind:valueReturn.sync="sharedState.user.address.numberComp"
+			  customStyle="natural-language"
+			  />
+			<br><br>
+
 			{{ $t('account-authentication.user-infos.MY_ADDRESS_IS') }}
 			<WDGInput
-			  id="userAddress"
-			  name="userAddress"
-			  :value="sharedState.user.address"
-			  v-bind:valueReturn.sync="sharedState.user.address"
+			  id="userAddressStreet"
+			  name="userAddressStreet"
+			  :value="sharedState.user.address.street"
+			  v-bind:valueReturn.sync="sharedState.user.address.street"
+			  customStyle="natural-language"
+			  />
+			<br><br>
+
+			{{ $t('account-authentication.user-infos.MY_ADDRESS_POSTAL_CODE_IS') }}
+			<WDGInput
+			  id="userAddressPostalCode"
+			  name="userAddressPostalCode"
+			  :value="sharedState.user.address.postalCode"
+			  v-bind:valueReturn.sync="sharedState.user.address.postalCode"
+			  :descriptionBelow="getAddressDescriptor('postalCode')"
+			  customStyle="natural-language"
+			  />
+
+			<WDGInput
+			  id="userAddressCity"
+			  name="userAddressPostalCode"
+			  :value="sharedState.user.address.city"
+			  v-bind:valueReturn.sync="sharedState.user.address.city"
+			  :descriptionBelow="getAddressDescriptor('city')"
 			  customStyle="natural-language"
 			  />
 			<br><br>
@@ -169,8 +220,8 @@ export default {
 			sharedStatic: store.static,
 			userGenderList: [
 				{ Id: '', Text: '' },
-				{ Id: 'woman', Text: i18n.t('account-authentication.user-infos.A_WOMAN') },
-				{ Id: 'man', Text: i18n.t('account-authentication.user-infos.A_MAN') }
+				{ Id: 'female', Text: i18n.t('account-authentication.user-infos.A_WOMAN') },
+				{ Id: 'male', Text: i18n.t('account-authentication.user-infos.A_MAN') }
 			]
 		}
 	},
@@ -183,6 +234,10 @@ export default {
 		},
 		getFrenchDistrictNumbersList(city) {
 			let buffer = new Array()
+			if (city === '' || city === undefined) {
+				return buffer
+			}
+
 			let nbDistricts = 0
 			if (city.indexOf('Paris') > -1) {
 				nbDistricts = 20
@@ -198,6 +253,16 @@ export default {
 				buffer.push(item)
 			}
 			return buffer
+		},
+		getAddressDescriptor(type) {
+			switch (type) {
+				case 'postalCode':
+					return i18n.t('account-authentication.user-infos.POSTAL_CODE')
+
+				case 'city':
+					return i18n.t('account-authentication.user-infos.CITY')
+			}
+			return ''
 		},
 		onAddressChangeEvent(addressTyped) {
 			requests.searchAddressTyped(addressTyped)
@@ -231,11 +296,17 @@ export default {
 			}
 			return (this.canDisplayNationality && this.sharedState.user.birthday.nationality !== '')
 		},
+		canDisplayAddressComplete() {
+			if (process.env.NODE_ENV === 'development') {
+				return true
+			}
+			return (this.canDisplayAddress && this.sharedState.user.address.country !== '')
+		},
 		canDisplayTaxCountry() {
 			if (process.env.NODE_ENV === 'development') {
 				return true
 			}
-			return (this.canDisplayAddress && this.sharedState.user.address !== '')
+			return (this.canDisplayAddressComplete && this.sharedState.user.address.street !== '' && this.sharedState.user.address.city !== '')
 		},
 		canDisplayNextButton() {
 			if (process.env.NODE_ENV === 'development') {

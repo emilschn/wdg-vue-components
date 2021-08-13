@@ -18,17 +18,14 @@ export const requests = {
 	},
 
 	/**
-	 * Fonction de recherche d'infos par adresse e-mail
+	 * Fonction de recherche d'infos de l'utilisateur connecté
 	 */
-	getEmailAddressInfo(emailAddress, functionReturn) {
-		/*
-		console.log('getEmailAddressInfo >> ' + emailAddress)
+	getCurrentUserInfo(functionReturn) {
 		let data = new FormData()
-		data.append('action', 'account_signin_get_email_info')
+		data.append('action', 'account_authentication_get_current_user_info')
 		data.append('sessionUID', store.state.sessionUID)
-		data.append('email-address', emailAddress)
 		axios
-			.post(store.props.ajaxurl, data, { timeout: 10000 })
+			.post(store.props.customajaxurl, data, { timeout: 10000 })
 			.then(response => {
 				let responseData = response.data
 				console.log('then')
@@ -39,10 +36,9 @@ export const requests = {
 				console.log('error.toJSON')
 				console.log(error.toJSON())
 				console.log(error.config)
-				this.logRequestError('getEmailAddressInfo >> error >> ' + error.toString() + ' >>>> ' + JSON.stringify(error))
+				this.logRequestError('getCurrentUserInfo >> error >> ' + error.toString() + ' >>>> ' + JSON.stringify(error))
 				functionReturn('error')
 			})
-			*/
 	},
 
 	searchAddressTyped(addressTyped) {

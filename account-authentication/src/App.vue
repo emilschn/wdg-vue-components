@@ -3,6 +3,7 @@
 	  id="app"
 	  class="account-authentication"
 	  :data-ajaxurl="sharedProps.ajaxurl"
+	  :data-customajaxurl="sharedProps.customajaxurl"
 	  :data-locale="sharedProps.locale"
 	  >
 	<link rel="stylesheet"
@@ -38,6 +39,7 @@
 <script>
 import i18n from '@/i18n'
 import { store } from './store.js'
+import { requests } from './requests.js'
 import WDGHeader from '@/../../common/src/components/WDGHeader'
 import WDGTabs from '@/../../common/src/components/WDGTabs'
 import WDGFooter from '@/../../common/src/components/WDGFooter'
@@ -74,6 +76,7 @@ export default {
 	},
   	created () {
 		this.sharedProps.ajaxurl = initElements.dataset.ajaxurl
+		this.sharedProps.customajaxurl = initElements.dataset.customajaxurl
 		this.sharedProps.locale = initElements.dataset.locale
 		// Pas génial mais nécessaire pour le menu qui est chargé avant dans le store
 		let tempLocale = 'fr'
@@ -87,6 +90,9 @@ export default {
 		}
 		i18n.locale = tempLocale
 		window.addEventListener('hashchange', () => this.onHashChangedEvent())
+
+		// Récupération de toute façon des informations de l'utilisateur connecté
+		requests.getCurrentUserInfo( this.onGetUserInfoRequestReturnEvent )
 	},
 	methods: {
 		onHashChangedEvent () {
@@ -130,6 +136,26 @@ export default {
 		},
 		onUploadDocEvent(docId) {
 			console.log('onUploadDocEvent  ' + docId)
+		},
+		onGetUserInfoRequestReturnEvent(data) {
+			if ( data !== 'error' && data.status === '' ) {
+				this.sharedState.user.gender = data.gender
+				this.sharedState.user.taxCountry = data.tax_country
+				this.sharedState.user.birthday.day = data.birthday_day
+				this.sharedState.user.birthday.month = data.birthday_month
+				this.sharedState.user.birthday.year = data.birthday_year
+				this.sharedState.user.birthday.city = data.birthday_city
+				this.sharedState.user.birthday.district = data.birthday_district
+				this.sharedState.user.birthday.department = data.birthday_department
+				this.sharedState.user.birthday.country = data.birthday_country
+				this.sharedState.user.birthday.nationality = data.nationality
+				this.sharedState.user.address.number = data.address_number
+				this.sharedState.user.address.numberComp = data.address_number_comp
+				this.sharedState.user.address.street = data.address_street
+				this.sharedState.user.address.postalCode = data.address_postalcode
+				this.sharedState.user.address.city = data.address_city
+				this.sharedState.user.address.country = data.address_country
+			}
 		}
 	},
 	computed: {
