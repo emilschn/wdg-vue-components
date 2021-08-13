@@ -3,80 +3,51 @@
 	  class="wdg-input-address"
 	  :class="customStyle + ' ' + suffixClass"
 	  >
-		<label :for="id">
-			<slot name="label"></slot>
-			<span v-if="showRequiredStar"> *</span>
-		</label>
+		<WDGInput
+		  id="inputAddress"
+		  name="inputAddress"
+		  :loading="loading"
+		  :customStyle="customStyle"
+		  :onChange="onSearchAddressChangeEvent"
+		  />
 
-		<span>
-			<span
-			  v-if="prefix !== ''"
-			  class="input-prefix"
+		<ul
+		  v-if="searchResults.length > 0"
+		  class="result-list"
+		  >
+			<li
+			  v-for="resultItem in searchResults"
+			  :key="resultItem.properties.label"
+			  @click="onResultItemSelectEvent(resultItem)"
+			  class="result-item"
 			  >
-			  {{ prefix }}
-			</span>
-
-			<input
-			  :id="id"
-			  ref="input"
-			  v-model="valueReturn"
-			  :placeholder="placeholder"
-			  :disabled="disabled"
-			  :required="isRequired"
-			  :type="type"
-			  :class="suffixClass"
-			  @input="onInputLocalEvent"
-			  @change="onChangeLocalEvent"
-			  />
-
-			<span
-			  v-if="suffix !== ''"
-			  class="input-suffix"
-			  >
-			  {{ suffix }}
-			</span>
-			<span class="input-icon">
-				<span
-					v-if="loading"
-					class="fas fa-hourglass"
-					>
-				</span>
-				<span
-					v-else-if="icon && iconVisibility"
-					:class="[ 'fas', `fa-${icon}` ]"
-					>
-				</span>
-			</span>
-		</span>
+				{{ resultItem.properties.label }}
+			</li>
+		</ul>
   	</div>
 </template>
 
 <script>
+import { requests } from '@/requests.js'
+import WDGInput from '@/../../common/src/components/WDGInput'
 export default {
-	name: 'WDGInputAddresss',
+	name: 'WDGInputAddress',
 	components: {
+		WDGInput
 	},
 	props: {
 		id: { type: String, default: null },
 		name: { type: String, default: null },
-		value: { type: [String, Number], default: null },
-		type: { type: String, default: 'text' },
 		customStyle: { type: String, default: '' },
-		autoFormat: { type: String },
-		placeholder: { type: String, default: '' },
-		disabled: { type: Boolean, default: false },
-		isRequired: { type: Boolean, default: false },
-		prefix: { type: String, default: '' },
-		suffix: { type: String, default: '' },
-		eventNameToListen: { type: String, default: '' },
-        icon: { type: String, default: '' },
-		iconVisibility: { type: Boolean, default: false },
-		loading: { type: Boolean, default: false },
-		onChange: Function
+		suffixClass: { type: String, default: '' },
+		onSelect: Function
 	},
 	data () {
 		return {
-			valueReturn: this.value
+			loading: false,
+			searchAddress: '',
+			searchAddressTimeoutID: 0,
+			searchResults: []
 		}
 	},
 	mounted () {
@@ -85,156 +56,45 @@ export default {
 		}
 	},
 	methods: {
-		onInputLocalEvent () {
-			this.$emit('update:valueReturn', this.valueReturn)
-			/*
-			if (this.onChange !== undefined) {
-				this.onChange(this.valueReturn)
-			} */
-			this.onChange(this.valueReturn)
+		onSearchAddressChangeEvent (addressTyped) {
+			this.searchAddress = addressTyped
+			if (this.searchAddressTimeoutID > 0) {
+				clearTimeout(this.searchAddressTimeoutID)
+			}
+			this.searchAddressTimeoutID = setTimeout(() => { this.onSearchAddressChangeTimeoutEvent() }, 500)
+			this.loading = true
 		},
-		onChangeLocalEvent () {
-			this.onChange(this.valueReturn)
+		onSearchAddressChangeTimeoutEvent () {
+			requests.searchAddressTyped(this.searchAddress, this.onAddressSearchResultEvent)
 		},
-		updateValue (newValue) {
-			this.valueReturn = newValue
+		onAddressSearchResultEvent (requestResult) {
+			this.loading = false
+			if (requestResult !== 'error') {
+				let resultParsed = JSON.parse(requestResult)
+				this.searchResults = resultParsed.features
+			}
 		},
-		// utilisé pour mettre le focus sur ce champ à partir du parent
-		focus: function () {
-			this.$refs.input.focus()
-		}
-	},
-	computed: {
-		showRequiredStar () {
-			return this.isRequired && !!this.$slots.label
-		},
-		suffixClass () {
-			let buffer = (this.suffix !== '' ? 'has-suffix' : '')
-			buffer += ' ' + (this.prefix !== '' ? 'has-prefix' : '')
-			return buffer
+		onResultItemSelectEvent (resultItem) {
+			this.onSelect(resultItem)
 		}
 	}
 }
 </script>
 
 <style>
-	.wdg-input {
-		margin-bottom: 16px;
-	}
-
-	.wdg-input-comment {
-		margin-bottom: 16px;
-	}
-
-	.wdg-input input {
-		width: -webkit-calc(100% - 16px);
-		width: -moz-calc(100% - 16px);
-		width: calc(100% - 16px);
-		height: 48px;
-		padding: 4px 8px;
-		border: none;
-		background: #FFF;
-		font-size: 16px;
-	}
-
-	.wdg-input textarea {
-		width: 100%;
-		border: none;
-		resize: none;
-	}
-
-	.wdg-input.natural-language {
+	.wdg-input-address.natural-language {
 		display: inline;
 	}
 
-	.wdg-input.natural-language label {
-		display: none;
+	.wdg-input-address ul li.result-item {
+		display: block;
+		height: 30px;
+		line-height: 30px;
+		list-style: none;
+		cursor: pointer;
 	}
 
-	.wdg-input.natural-language input {
-		display: inline-block;
-		width: 250px;
-		height: 40px;
-		padding: 0px;
-		color: #00879B;
-		border-bottom: 2px solid #00879B;
-		padding-left: 10px;
-		font-weight: 500;
-		outline: none;
-	}
-
-	.wdg-input.natural-language input .placeholder {
-		color: #B3DAE1;
-	}
-
-	.wdg-input.natural-language.admin input {
-		color: #F1A074;
-		border-bottom: 2px solid #F1A074;
-	}
-
-	.wdg-input input.has-prefix {
-		width: -webkit-calc(100% - 32px);
-		width: -moz-calc(100% - 32px);
-		width: calc(100% - 32px);
-		padding-left: 24px;
-	}
-	.wdg-input input.has-suffix {
-		width: -webkit-calc(100% - 32px);
-		width: -moz-calc(100% - 32px);
-		width: calc(100% - 32px);
-		padding-right: 24px;
-	}
-	.wdg-input input.has-suffix.has-prefix {
-		width: -webkit-calc(100% - 64px);
-		width: -moz-calc(100% - 64px);
-		width: calc(100% - 64px);
-	}
-
-	.wdg-input span.input-prefix, .wdg-input span.input-suffix {
-		float: right;
-		height: 0px;
-		line-height: 40px;
-		position: relative;
-		top: -40px;
-		left: -8px;
-		font-size: 16px;
-	}
-	.wdg-input span.input-prefix {
-		float: left;
-		top: 0px;
-		left: 0px;
-	}
-	.wdg-input.has-suffix.has-prefix span.input-suffix {
-		top: 0px;
-		left: -16px;
-	}
-
-	.wdg-input.natural-language.admin span.input-prefix, .wdg-input.natural-language.admin span.input-suffix {
-		color: #F1A074;
-	}
-	.wdg-input span.input-icon {
-		position: relative;
-		left: -16px;
-		color: #CEE9C0;
-		background-color: #fff; /* permet de ne pas se superposer au texte si l'adresse est longue */
-		padding-left: 5px;
-	}
-	.wdg-input span.input-icon span.fa-hourglass {
-		color: #c2c2c2;
-		animation-duration: 2.5s;
-  		animation-name: anim-hourglass;
-		animation-iteration-count: infinite;
-	}
-
-	@keyframes anim-hourglass {
-		0% {
-       		-webkit-transform: rotate(0deg);
-    	}
-    	50% {
-        	-webkit-transform: rotate(180deg);
-    	}
-		100% {
-			-webkit-transform: rotate(360deg);
-		}
+	.wdg-input-address ul li.result-item:hover {
+		background: #B3DAE1;
 	}
 </style>

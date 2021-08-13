@@ -118,56 +118,72 @@
 			  customStyle="natural-language"
 			  />
 			<br><br>
+			
+			<div
+			  v-if="canDisplaySearchAddress"
+			  >
+				{{ $t('account-authentication.user-infos.SEARCH_MY_ADRESS') }}
+				<WDGInputAddress
+				  id="userAddressSearch"
+				  name="userAddressSearch"
+				  customStyle="natural-language"
+				  :onSelect="onSelectSearchAddressEvent"
+				  />
+			</div>
 
-			{{ $t('account-authentication.user-infos.MY_ADDRESS_NUMBER_IS') }}
-			<WDGInput
-			  id="userAddressNumber"
-			  name="userAddressNumber"
-			  :value="sharedState.user.address.number"
-			  v-bind:valueReturn.sync="sharedState.user.address.number"
-			  customStyle="natural-language"
-			  />
+			<div
+			  v-else
+			  >
+				{{ $t('account-authentication.user-infos.MY_ADDRESS_NUMBER_IS') }}
+				<WDGInput
+				  id="userAddressNumber"
+				  name="userAddressNumber"
+				  :value="sharedState.user.address.number"
+				  v-bind:valueReturn.sync="sharedState.user.address.number"
+				  customStyle="natural-language"
+				  />
 
-			<WDGSelect
-			  v-if="sharedState.user.address.country === 'FR'"
-			  id="userAddressNumberComp"
-			  name="userAddressNumberComp"
-			  :optionItems="sharedStatic.addressNumberComp"
-			  :value="sharedState.user.address.numberComp"
-			  v-bind:valueReturn.sync="sharedState.user.address.numberComp"
-			  customStyle="natural-language"
-			  />
-			<br><br>
+				<WDGSelect
+				  v-if="sharedState.user.address.country === 'FR'"
+				  id="userAddressNumberComp"
+				  name="userAddressNumberComp"
+				  :optionItems="sharedStatic.addressNumberComp"
+				  :value="sharedState.user.address.numberComp"
+				  v-bind:valueReturn.sync="sharedState.user.address.numberComp"
+				  customStyle="natural-language"
+				  />
+				<br><br>
 
-			{{ $t('account-authentication.user-infos.MY_ADDRESS_IS') }}
-			<WDGInput
-			  id="userAddressStreet"
-			  name="userAddressStreet"
-			  :value="sharedState.user.address.street"
-			  v-bind:valueReturn.sync="sharedState.user.address.street"
-			  customStyle="natural-language"
-			  />
-			<br><br>
+				{{ $t('account-authentication.user-infos.MY_ADDRESS_IS') }}
+				<WDGInput
+				  id="userAddressStreet"
+				  name="userAddressStreet"
+				  :value="sharedState.user.address.street"
+				  v-bind:valueReturn.sync="sharedState.user.address.street"
+				  customStyle="natural-language"
+				  />
+				<br><br>
 
-			{{ $t('account-authentication.user-infos.MY_ADDRESS_POSTAL_CODE_IS') }}
-			<WDGInput
-			  id="userAddressPostalCode"
-			  name="userAddressPostalCode"
-			  :value="sharedState.user.address.postalCode"
-			  v-bind:valueReturn.sync="sharedState.user.address.postalCode"
-			  :descriptionBelow="getAddressDescriptor('postalCode')"
-			  customStyle="natural-language"
-			  />
+				{{ $t('account-authentication.user-infos.MY_ADDRESS_POSTAL_CODE_IS') }}
+				<WDGInput
+				  id="userAddressPostalCode"
+				  name="userAddressPostalCode"
+				  :value="sharedState.user.address.postalCode"
+				  v-bind:valueReturn.sync="sharedState.user.address.postalCode"
+				  :descriptionBelow="getAddressDescriptor('postalCode')"
+				  customStyle="natural-language"
+				  />
 
-			<WDGInput
-			  id="userAddressCity"
-			  name="userAddressPostalCode"
-			  :value="sharedState.user.address.city"
-			  v-bind:valueReturn.sync="sharedState.user.address.city"
-			  :descriptionBelow="getAddressDescriptor('city')"
-			  customStyle="natural-language"
-			  />
-			<br><br>
+				<WDGInput
+				  id="userAddressCity"
+				  name="userAddressPostalCode"
+				  :value="sharedState.user.address.city"
+				  v-bind:valueReturn.sync="sharedState.user.address.city"
+				  :descriptionBelow="getAddressDescriptor('city')"
+				  customStyle="natural-language"
+				  />
+				<br><br>
+			</div>
 		</div>
 
 		<div v-if="canDisplayTaxCountry">
@@ -199,15 +215,16 @@
 <script>
 import i18n from '@/i18n'
 import { store } from './../../store.js'
-import { requests } from '../../requests.js'
 import WDGSelect from '@/../../common/src/components/WDGSelect'
 import WDGInput from '@/../../common/src/components/WDGInput'
+import WDGInputAddress from '@/../../common/src/components/WDGInputAddress'
 import WDGButton from '@/../../common/src/components/WDGButton'
 export default {
 	name: 'TheScreenInvestorUserInfo',
 	components: {
 		WDGSelect,
 		WDGInput,
+		WDGInputAddress,
 		WDGButton
 	},
 	props: {
@@ -264,8 +281,15 @@ export default {
 			}
 			return ''
 		},
-		onAddressChangeEvent(addressTyped) {
-			requests.searchAddressTyped(addressTyped)
+		onSelectSearchAddressEvent(searchResultItem) {
+			if ( searchResultItem !== undefined ) {
+				// TODO : Faire une découpe sur bis / ter / etc
+				this.sharedState.user.address.number = searchResultItem.properties.housenumber
+				// sharedState.user.address.numberComp = searchResultItem.properties.housenumber
+				this.sharedState.user.address.street = searchResultItem.properties.street
+				this.sharedState.user.address.postalCode = searchResultItem.properties.postcode
+				this.sharedState.user.address.city = searchResultItem.properties.city
+			}
 		},
 		onButtonConfirmUserInfoEvent () {
 			this.onConfirmUserInfo()
@@ -296,17 +320,14 @@ export default {
 			}
 			return (this.canDisplayNationality && this.sharedState.user.birthday.nationality !== '')
 		},
-		canDisplayAddressComplete() {
-			if (process.env.NODE_ENV === 'development') {
-				return true
-			}
-			return (this.canDisplayAddress && this.sharedState.user.address.country !== '')
+		canDisplaySearchAddress() {
+			return (this.canDisplayAddress && this.sharedState.user.address.country === 'FR' && ( this.sharedState.user.address.street === '' || this.sharedState.user.address.street === undefined ))
 		},
 		canDisplayTaxCountry() {
 			if (process.env.NODE_ENV === 'development') {
 				return true
 			}
-			return (this.canDisplayAddressComplete && this.sharedState.user.address.street !== '' && this.sharedState.user.address.city !== '')
+			return (this.canDisplayAddress && this.sharedState.user.address.street !== '' && this.sharedState.user.address.city !== '')
 		},
 		canDisplayNextButton() {
 			if (process.env.NODE_ENV === 'development') {
