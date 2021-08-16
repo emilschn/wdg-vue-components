@@ -283,9 +283,23 @@ export default {
 		},
 		onSelectSearchAddressEvent(searchResultItem) {
 			if ( searchResultItem !== undefined ) {
-				// TODO : Faire une découpe sur bis / ter / etc
-				this.sharedState.user.address.number = searchResultItem.properties.housenumber
-				// sharedState.user.address.numberComp = searchResultItem.properties.housenumber
+				if (isNaN(searchResultItem.properties.housenumber)) {
+					let splitNum = searchResultItem.properties.housenumber.match(/\d+/g)
+					this.sharedState.user.address.number = splitNum[0]
+					let splitNumComp = searchResultItem.properties.housenumber.match(/[a-zA-Z]+/g)
+					this.sharedState.user.address.numberComp = splitNumComp[0]
+					switch (this.sharedState.user.address.numberComp) {
+						case 'b':
+							this.sharedState.user.address.numberComp = 'bis'
+							break
+						case 't':
+							this.sharedState.user.address.numberComp = 'ter'
+							break
+					}
+
+				} else {
+					this.sharedState.user.address.number = searchResultItem.properties.housenumber
+				}
 				this.sharedState.user.address.street = searchResultItem.properties.street
 				this.sharedState.user.address.postalCode = searchResultItem.properties.postcode
 				this.sharedState.user.address.city = searchResultItem.properties.city
