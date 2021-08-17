@@ -109,6 +109,7 @@ export default {
 			store.changeStep( 'userinfo' )
 		},
 		onConfirmUserInfoEvent () {
+			requests.saveUserInfo(this.sharedState, this.onSaveUserInfoReturnEvent)
 			if (this.sharedState.userNeedOrga) {
 				store.changeStep( 'orgainfo' )
 			} else {
@@ -156,6 +157,9 @@ export default {
 				this.sharedState.user.address.city = data.address_city
 				this.sharedState.user.address.country = data.address_country
 			}
+		},
+		onSaveUserInfoReturnEvent() {
+			console.log('onSaveUserInfoReturnEvent')
 		}
 	},
 	computed: {
