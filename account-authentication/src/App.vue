@@ -74,7 +74,7 @@ export default {
 			sharedProps: store.props
 		}
 	},
-  	created () {
+	created () {
 		this.sharedProps.ajaxurl = initElements.dataset.ajaxurl
 		this.sharedProps.customajaxurl = initElements.dataset.customajaxurl
 		this.sharedProps.locale = initElements.dataset.locale
@@ -159,7 +159,7 @@ export default {
 			}
 		},
 		onSaveUserInfoReturnEvent() {
-			console.log('onSaveUserInfoReturnEvent')
+			this.$root.$emit('headerAlert', i18n.t('account-authentication.user-infos.HEADER_ALERT'), 5000)
 		}
 	},
 	computed: {

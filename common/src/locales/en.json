@@ -97,7 +97,8 @@
 			"CITY": "Ville",
 			"MY_TAX_COUNTRY_IS": "Ma résidence fiscale est :",
 			"INFO_COMPLETE_1": "Suite à un renforcement de la législation, l'<strong>authentification de vos documents</strong> sera nécessaire auprès de notre prestataire de paiement Lemonway, pour tout investissement.",
-			"INFO_COMPLETE_2": "Par conséquent, nous avons besoin de vos justificatifs d'identité : <strong>2 pièces d'identité</strong>, dont au moins une carte d'identité et/ou un passeport."
+			"INFO_COMPLETE_2": "Par conséquent, nous avons besoin de vos justificatifs d'identité : <strong>2 pièces d'identité</strong>, dont au moins une carte d'identité et/ou un passeport.",
+			"HEADER_ALERT": "Votre parcours est enregistré, vous pouvez partir et revenir pour reprendre là où vous en étiez."
 		},
 		"organization-infos": {
 			"MY_ORGANIZATION_NAME": "Le nom de mon organisation est",
