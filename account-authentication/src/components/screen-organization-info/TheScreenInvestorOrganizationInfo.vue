@@ -257,26 +257,34 @@ export default {
 		},
 		onSelectSearchAddressEvent(searchResultItem) {
 			if ( searchResultItem !== undefined ) {
-				if (isNaN(searchResultItem.properties.housenumber)) {
-					let splitNum = searchResultItem.properties.housenumber.match(/\d+/g)
-					this.sharedState.organization.address.number = splitNum[0]
-					let splitNumComp = searchResultItem.properties.housenumber.match(/[a-zA-Z]+/g)
-					this.sharedState.organization.address.numberComp = splitNumComp[0]
-					switch (this.sharedState.organization.address.numberComp) {
-						case 'b':
-							this.sharedState.organization.address.numberComp = 'bis'
-							break
-						case 't':
-							this.sharedState.organization.address.numberComp = 'ter'
-							break
-					}
+				if (searchResultItem.properties.housenumber !== undefined) {
+					if (isNaN(searchResultItem.properties.housenumber)) {
+						let splitNum = searchResultItem.properties.housenumber.match(/\d+/g)
+						this.sharedState.organization.address.number = splitNum[0]
+						let splitNumComp = searchResultItem.properties.housenumber.match(/[a-zA-Z]+/g)
+						this.sharedState.organization.address.numberComp = splitNumComp[0]
+						switch (this.sharedState.organization.address.numberComp) {
+							case 'b':
+								this.sharedState.organization.address.numberComp = 'bis'
+								break
+							case 't':
+								this.sharedState.organization.address.numberComp = 'ter'
+								break
+						}
 
-				} else {
-					this.sharedState.organization.address.number = searchResultItem.properties.housenumber
+					} else {
+						this.sharedState.organization.address.number = searchResultItem.properties.housenumber
+					}
 				}
-				this.sharedState.organization.address.street = searchResultItem.properties.street
-				this.sharedState.organization.address.postalCode = searchResultItem.properties.postcode
-				this.sharedState.organization.address.city = searchResultItem.properties.city
+				if (searchResultItem.properties.street !== undefined) {
+					this.sharedState.organization.address.street = searchResultItem.properties.street
+				}
+				if (searchResultItem.properties.postcode !== undefined) {
+					this.sharedState.organization.address.postalCode = searchResultItem.properties.postcode
+				}
+				if (searchResultItem.properties.city !== undefined) {
+					this.sharedState.organization.address.city = searchResultItem.properties.city
+				}
 			}
 		}
 	},

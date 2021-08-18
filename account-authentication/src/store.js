@@ -30,6 +30,7 @@ export const store = {
 			}
 		},
 		organization: {
+			apiId: '',
 			name: '',
 			activity: '',
 			idnumber: '',

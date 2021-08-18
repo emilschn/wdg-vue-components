@@ -117,6 +117,7 @@ export default {
 			}
 		},
 		onConfirmOrgaInfoEvent () {
+			requests.saveOrganizationInfo(this.sharedState, this.onSaveUserInfoReturnEvent)
 			store.changeStep( 'orgainfocomplete' )
 		},
 		onConfirmInfoCompleteEvent () {
