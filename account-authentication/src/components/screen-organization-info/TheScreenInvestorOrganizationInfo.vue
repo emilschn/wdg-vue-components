@@ -15,8 +15,8 @@
 		  id="organizationCountry"
 		  name="organizationCountry"
 		  :optionItems="sharedStatic.countries"
-		  :value="sharedState.organization.country"
-		  v-bind:valueReturn.sync="sharedState.organization.country"
+		  :value="sharedState.organization.address.country"
+		  v-bind:valueReturn.sync="sharedState.organization.address.country"
 		  customStyle="natural-language"
 		  />,
 		<br><br>
@@ -32,7 +32,7 @@
 		<br><br>
 
 		<div v-if="canDisplayIDNumber">
-			<span v-if="sharedState.organization.country === 'FR'">
+			<span v-if="sharedState.organization.address.country === 'FR'">
 				{{ $t('account-authentication.organization-infos.ITS_IDENTIFICATION_NUMBER_FR') }}
 			</span>
 			<span v-else>
@@ -91,7 +91,7 @@
 			  />,
 			<br><br>
 
-			<span v-if="sharedState.organization.country === 'FR'">
+			<span v-if="sharedState.organization.address.country === 'FR'">
 				{{ $t('account-authentication.organization-infos.ITS_LEGAL_TOWN_FR') }}
 			</span>
 			<span v-else>
@@ -108,15 +108,72 @@
 		</div>
 
 		<div v-if="canDisplayAddress">
-			{{ $t('account-authentication.organization-infos.ITS_ADDRESS') }}
-			<WDGInput
-			  id="organizationAddress"
-			  name="organizationAddress"
-			  :value="sharedState.organization.address"
-			  v-bind:valueReturn.sync="sharedState.organization.address"
-			  customStyle="natural-language"
-			  />,
-			<br><br>
+			<div
+			  v-if="canDisplaySearchAddress"
+			  >
+				{{ $t('account-authentication.organization-infos.ITS_ADDRESS') }}
+				<WDGInputAddress
+				  id="organizationAddressSearch"
+				  name="organizationAddressSearch"
+				  customStyle="natural-language"
+				  :onSelect="onSelectSearchAddressEvent"
+				  />
+			</div>
+
+			<div
+			  v-else
+			  >
+				{{ $t('account-authentication.organization-infos.ITS_ADDRESS_NUMBER_IS') }}
+				<WDGInput
+				  id="organizationAddressNumber"
+				  name="organizationAddressNumber"
+				  :value="sharedState.organization.address.number"
+				  v-bind:valueReturn.sync="sharedState.organization.address.number"
+				  customStyle="natural-language"
+				  />
+
+				<WDGSelect
+				  v-if="sharedState.organization.address.country === 'FR'"
+				  id="organizationAddressNumberComp"
+				  name="organizationAddressNumberComp"
+				  :optionItems="sharedStatic.addressNumberComp"
+				  :value="sharedState.organization.address.numberComp"
+				  v-bind:valueReturn.sync="sharedState.organization.address.numberComp"
+				  customStyle="natural-language"
+				  />
+				<br><br>
+
+				{{ $t('account-authentication.organization-infos.ITS_ADDRESS_IS') }}
+				<WDGInput
+				  id="organizationAddressStreet"
+				  name="organizationAddressStreet"
+				  :value="sharedState.organization.address.street"
+				  v-bind:valueReturn.sync="sharedState.organization.address.street"
+				  customStyle="natural-language"
+				  />
+				<br><br>
+
+				{{ $t('account-authentication.organization-infos.ITS_ADDRESS_POSTAL_CODE_IS') }}
+				<WDGInput
+				  id="organizationAddressPostalCode"
+				  name="organizationAddressPostalCode"
+				  :value="sharedState.organization.address.postalCode"
+				  v-bind:valueReturn.sync="sharedState.organization.address.postalCode"
+				  :descriptionBelow="getAddressDescriptor('postalCode')"
+				  customStyle="natural-language"
+				  />
+
+				<WDGInput
+				  id="organizationAddressCity"
+				  name="organizationAddressPostalCode"
+				  :value="sharedState.organization.address.city"
+				  v-bind:valueReturn.sync="sharedState.organization.address.city"
+				  :descriptionBelow="getAddressDescriptor('city')"
+				  customStyle="natural-language"
+				  />
+				<br><br>
+			</div>
+
 
 			{{ $t('account-authentication.organization-infos.ITS_CAPITAL') }}
 			<WDGInput
@@ -159,12 +216,14 @@ import i18n from '@/i18n'
 import { store } from '../../store.js'
 import WDGSelect from '@/../../common/src/components/WDGSelect'
 import WDGInput from '@/../../common/src/components/WDGInput'
+import WDGInputAddress from '@/../../common/src/components/WDGInputAddress'
 import WDGButton from '@/../../common/src/components/WDGButton'
 export default {
 	name: 'TheScreenInvestorOrganizationInfo',
 	components: {
 		WDGSelect,
 		WDGInput,
+		WDGInputAddress,
 		WDGButton
 	},
 	props: {
@@ -184,6 +243,40 @@ export default {
 					return i18n.t('account-authentication.organization-infos.ITS_EMAIL_ADDRESS_DESCRIPTOR')
 				case 'website':
 					return i18n.t('account-authentication.organization-infos.ITS_WEBSITE_DESCRIPTOR')
+			}
+		},
+		getAddressDescriptor(type) {
+			switch (type) {
+				case 'postalCode':
+					return i18n.t('account-authentication.user-infos.POSTAL_CODE')
+
+				case 'city':
+					return i18n.t('account-authentication.user-infos.CITY')
+			}
+			return ''
+		},
+		onSelectSearchAddressEvent(searchResultItem) {
+			if ( searchResultItem !== undefined ) {
+				if (isNaN(searchResultItem.properties.housenumber)) {
+					let splitNum = searchResultItem.properties.housenumber.match(/\d+/g)
+					this.sharedState.organization.address.number = splitNum[0]
+					let splitNumComp = searchResultItem.properties.housenumber.match(/[a-zA-Z]+/g)
+					this.sharedState.organization.address.numberComp = splitNumComp[0]
+					switch (this.sharedState.organization.address.numberComp) {
+						case 'b':
+							this.sharedState.organization.address.numberComp = 'bis'
+							break
+						case 't':
+							this.sharedState.organization.address.numberComp = 'ter'
+							break
+					}
+
+				} else {
+					this.sharedState.organization.address.number = searchResultItem.properties.housenumber
+				}
+				this.sharedState.organization.address.street = searchResultItem.properties.street
+				this.sharedState.organization.address.postalCode = searchResultItem.properties.postcode
+				this.sharedState.organization.address.city = searchResultItem.properties.city
 			}
 		}
 	},
@@ -205,6 +298,9 @@ export default {
 				return true
 			}
 			return (this.canDisplayLegal && this.sharedState.organization.legalform !== '' && this.sharedState.organization.apecode !== '' && this.sharedState.organization.legaltown !== '')
+		},
+		canDisplaySearchAddress() {
+			return (this.canDisplayAddress && this.sharedState.organization.address.country === 'FR' && ( this.sharedState.organization.address.street === '' || this.sharedState.organization.address.street === undefined ))
 		},
 		canDisplayButtonNext () {
 			if (process.env.NODE_ENV === 'development') {

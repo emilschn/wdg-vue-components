@@ -39,9 +39,15 @@ export const store = {
 			apecode: '',
 			capital: '',
 			legaltown: '',
-			address: '',
-			country: '',
-			representativefunction: ''
+			representativefunction: '',
+			address: {
+				number: '',
+				numberComp: '',
+				street: '',
+				postalCode: '',
+				city: '',
+				country: ''
+			}
 		}
 	},
 	props: {
