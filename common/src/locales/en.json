@@ -28,7 +28,8 @@
 			"description-YYYY": "Year"
 		},
 		"SEND_FILE": "Send your file",
-		"SEND_FILE_DESCRIPTOR": "Click to browse your documents, drag and drop your file or take a picture."
+		"SEND_FILE_DESCRIPTOR": "Click to browse your documents, drag and drop your file or take a picture.",
+		"CANT_FIND_ADDRESS": "Je ne trouve pas mon adresse"
 	},
 	"validations": {
 		"REQUIRED": "This field is required",

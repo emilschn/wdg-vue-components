@@ -239,7 +239,8 @@ export default {
 				{ Id: '', Text: '' },
 				{ Id: 'female', Text: i18n.t('account-authentication.user-infos.A_WOMAN') },
 				{ Id: 'male', Text: i18n.t('account-authentication.user-infos.A_MAN') }
-			]
+			],
+			canFindAddress: true
 		}
 	},
 	methods: {
@@ -283,6 +284,11 @@ export default {
 		},
 		onSelectSearchAddressEvent(searchResultItem) {
 			if ( searchResultItem !== undefined ) {
+				if (searchResultItem === 'cant-find') {
+					this.canFindAddress = false
+					return
+				}
+
 				if (searchResultItem.properties.housenumber !== undefined) {
 					if (isNaN(searchResultItem.properties.housenumber)) {
 						let splitNum = searchResultItem.properties.housenumber.match(/\d+/g)
@@ -304,6 +310,8 @@ export default {
 				}
 				if (searchResultItem.properties.street !== undefined) {
 					this.sharedState.user.address.street = searchResultItem.properties.street
+				} else if (searchResultItem.properties.type === 'street' && searchResultItem.properties.name !== undefined) {
+					this.sharedState.user.address.street = searchResultItem.properties.name
 				}
 				if (searchResultItem.properties.postcode !== undefined) {
 					this.sharedState.user.address.postalCode = searchResultItem.properties.postcode
@@ -343,7 +351,7 @@ export default {
 			return (this.canDisplayNationality && this.sharedState.user.birthday.nationality !== '')
 		},
 		canDisplaySearchAddress() {
-			return (this.canDisplayAddress && this.sharedState.user.address.country === 'FR' && ( this.sharedState.user.address.street === '' || this.sharedState.user.address.street === undefined ))
+			return (this.canDisplayAddress && this.canFindAddress && this.sharedState.user.address.country === 'FR' && ( this.sharedState.user.address.street === '' || this.sharedState.user.address.street === undefined ))
 		},
 		canDisplayTaxCountry() {
 			if (process.env.NODE_ENV === 'development') {

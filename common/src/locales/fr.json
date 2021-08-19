@@ -28,7 +28,8 @@
 			"description-YYYY": "Année"
 		},
 		"SEND_FILE": "Envoyez votre fichier",
-		"SEND_FILE_DESCRIPTOR": "Cliquez pour parcourir vos documents, glissez-déposez directement votre fichier ou prenez une photo."
+		"SEND_FILE_DESCRIPTOR": "Cliquez pour parcourir vos documents, glissez-déposez directement votre fichier ou prenez une photo.",
+		"CANT_FIND_ADDRESS": "Je ne trouve pas mon adresse"
 	},
 	"validations": {
 		"REQUIRED": "Ce champ est obligatoire",

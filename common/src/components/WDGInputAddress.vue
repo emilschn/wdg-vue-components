@@ -23,6 +23,13 @@
 			  >
 				{{ resultItem.properties.label }}
 			</li>
+			<li
+			  key="cant-find"
+			  @click="onResultItemSelectEvent('cant-find')"
+			  class="result-item"
+			  >
+				{{ $t('common.CANT_FIND_ADDRESS') }}
+			</li>
 		</ul>
   	</div>
 </template>

@@ -233,7 +233,8 @@ export default {
 		return {
 			sharedState: store.state,
 			sharedStatic: store.static,
-			sharedProps: store.props
+			sharedProps: store.props,
+			canFindAddress: true
 		}
 	},
 	methods: {
@@ -257,6 +258,11 @@ export default {
 		},
 		onSelectSearchAddressEvent(searchResultItem) {
 			if ( searchResultItem !== undefined ) {
+				if (searchResultItem === 'cant-find') {
+					this.canFindAddress = false
+					return
+				}
+
 				if (searchResultItem.properties.housenumber !== undefined) {
 					if (isNaN(searchResultItem.properties.housenumber)) {
 						let splitNum = searchResultItem.properties.housenumber.match(/\d+/g)
@@ -278,6 +284,8 @@ export default {
 				}
 				if (searchResultItem.properties.street !== undefined) {
 					this.sharedState.organization.address.street = searchResultItem.properties.street
+				} else if (searchResultItem.properties.type === 'street' && searchResultItem.properties.name !== undefined) {
+					this.sharedState.organization.address.street = searchResultItem.properties.name
 				}
 				if (searchResultItem.properties.postcode !== undefined) {
 					this.sharedState.organization.address.postalCode = searchResultItem.properties.postcode
@@ -308,7 +316,7 @@ export default {
 			return (this.canDisplayLegal && this.sharedState.organization.legalform !== '' && this.sharedState.organization.apecode !== '' && this.sharedState.organization.legaltown !== '')
 		},
 		canDisplaySearchAddress() {
-			return (this.canDisplayAddress && this.sharedState.organization.address.country === 'FR' && ( this.sharedState.organization.address.street === '' || this.sharedState.organization.address.street === undefined ))
+			return (this.canDisplayAddress && this.canFindAddress && this.sharedState.organization.address.country === 'FR' && ( this.sharedState.organization.address.street === '' || this.sharedState.organization.address.street === undefined ))
 		},
 		canDisplayButtonNext () {
 			if (process.env.NODE_ENV === 'development') {
