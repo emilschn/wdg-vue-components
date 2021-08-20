@@ -26,7 +26,7 @@
 		<TheScreenInvestorType v-if="sharedState.step === 'usertype'" :onConfirmUserType="onConfirmUserTypeEvent" />
 		<TheScreenInvestorUserInfo v-if="sharedState.step === 'userinfo'" :onConfirmUserInfo="onConfirmUserInfoEvent" />
 		<TheScreenInvestorUserInfoComplete v-if="sharedState.step === 'userinfocomplete'" :onContinue="onConfirmInfoCompleteEvent" />
-		<TheScreenInvestorOrganizationInfo v-if="sharedState.step === 'orgainfo'" :onContinue="onConfirmOrgaInfoEvent" />
+		<TheScreenInvestorOrganizationInfo v-if="sharedState.step === 'orgainfo'" :onConfirmOrganizationInfo="onConfirmOrganizationInfoEvent" />
 		<TheScreenInvestorOrganizationInfoComplete v-if="sharedState.step === 'orgainfocomplete'" :onContinue="onConfirmInfoCompleteEvent" />
 		<TheScreenInvestorUserDocuments v-if="sharedState.step === 'userdocuments'" :onUploadDoc="onUploadDocEvent" :onContinue="onConfirmUserDocsEvent" />
 		<TheScreenInvestorOrganizationDocuments v-if="sharedState.step === 'orgadocuments'" :onContinue="onConfirmOrganizationDocsEvent" />
@@ -109,15 +109,15 @@ export default {
 			store.changeStep( 'userinfo' )
 		},
 		onConfirmUserInfoEvent () {
-			requests.saveUserInfo(this.sharedState, this.onSaveUserInfoReturnEvent)
+			this.$root.$emit('headerAlert', i18n.t('account-authentication.user-infos.HEADER_ALERT'), 5000)
 			if (this.sharedState.userNeedOrga) {
 				store.changeStep( 'orgainfo' )
 			} else {
 				store.changeStep( 'userinfocomplete' )
 			}
 		},
-		onConfirmOrgaInfoEvent () {
-			requests.saveOrganizationInfo(this.sharedState, this.onSaveUserInfoReturnEvent)
+		onConfirmOrganizationInfoEvent () {
+			this.$root.$emit('headerAlert', i18n.t('account-authentication.user-infos.HEADER_ALERT'), 5000)
 			store.changeStep( 'orgainfocomplete' )
 		},
 		onConfirmInfoCompleteEvent () {
@@ -139,28 +139,31 @@ export default {
 		onUploadDocEvent(docId) {
 			console.log('onUploadDocEvent  ' + docId)
 		},
-		onGetUserInfoRequestReturnEvent(data) {
-			if ( data !== 'error' && data.status === '' ) {
-				this.sharedState.user.gender = data.gender
-				this.sharedState.user.taxCountry = data.tax_country
-				this.sharedState.user.birthday.day = data.birthday_day
-				this.sharedState.user.birthday.month = data.birthday_month
-				this.sharedState.user.birthday.year = data.birthday_year
-				this.sharedState.user.birthday.city = data.birthday_city
-				this.sharedState.user.birthday.district = data.birthday_district
-				this.sharedState.user.birthday.department = data.birthday_department
-				this.sharedState.user.birthday.country = data.birthday_country
-				this.sharedState.user.birthday.nationality = data.nationality
-				this.sharedState.user.address.number = data.address_number
-				this.sharedState.user.address.numberComp = data.address_number_comp
-				this.sharedState.user.address.street = data.address_street
-				this.sharedState.user.address.postalCode = data.address_postalcode
-				this.sharedState.user.address.city = data.address_city
-				this.sharedState.user.address.country = data.address_country
+		onGetUserInfoRequestReturnEvent(responseData) {
+			// Assignation des données retournées par le serveur
+			if ( responseData !== 'error' && responseData.status === '' ) {
+				this.sharedState.user.gender = responseData.gender
+				this.sharedState.user.taxCountry = responseData.tax_country
+				this.sharedState.user.birthday.day = responseData.birthday_day
+				this.sharedState.user.birthday.month = responseData.birthday_month
+				this.sharedState.user.birthday.year = responseData.birthday_year
+				this.sharedState.user.birthday.city = responseData.birthday_city
+				this.sharedState.user.birthday.district = responseData.birthday_district
+				this.sharedState.user.birthday.department = responseData.birthday_department
+				this.sharedState.user.birthday.country = responseData.birthday_country
+				this.sharedState.user.birthday.nationality = responseData.nationality
+				this.sharedState.user.address.number = responseData.address_number
+				this.sharedState.user.address.numberComp = responseData.address_number_comp
+				this.sharedState.user.address.street = responseData.address_street
+				this.sharedState.user.address.postalCode = responseData.address_postalcode
+				this.sharedState.user.address.city = responseData.address_city
+				this.sharedState.user.address.country = responseData.address_country
+			} else {
+				// On redirige vers la page donnée par le serveur (la page de connexion) - sauf en mode dev
+				if (responseData.redirectUrl !== undefined && responseData.redirectUrl !== '' && process.env.NODE_ENV !== 'development') {
+					window.location = responseData.redirectUrl
+				}
 			}
-		},
-		onSaveUserInfoReturnEvent() {
-			this.$root.$emit('headerAlert', i18n.t('account-authentication.user-infos.HEADER_ALERT'), 5000)
 		}
 	},
 	computed: {

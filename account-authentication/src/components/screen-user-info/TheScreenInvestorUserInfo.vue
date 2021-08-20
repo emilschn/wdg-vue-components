@@ -212,6 +212,7 @@
 				  name="userAddressNumber"
 				  :value="sharedState.user.address.number"
 				  v-bind:valueReturn.sync="sharedState.user.address.number"
+				  :descriptionBelow="getAddressDescriptor('number')"
 				  customStyle="natural-language"
 				  />
 
@@ -222,6 +223,7 @@
 				  :optionItems="sharedStatic.addressNumberComp"
 				  :value="sharedState.user.address.numberComp"
 				  v-bind:valueReturn.sync="sharedState.user.address.numberComp"
+				  :descriptionBelow="getAddressDescriptor('numberComp')"
 				  customStyle="natural-language"
 				  />
 				<br><br>
@@ -289,15 +291,23 @@
 			  color="red"
 			  type="button"
 			  :clickEvent="onButtonConfirmUserInfoEvent"
+			  :loading="loading"
 			  >
 				<slot slot="label">{{ $t('common.CONTINUE') }}</slot>
 			</WDGButton>
+			<div
+			  v-if="requestError !== ''"
+			  class="request-error"
+			  >
+				{{ requestErrorText }}
+			</div>
 		</div>
 	</div>
 </template>
 
 <script>
 import i18n from '@/i18n'
+import { requests } from './../../requests.js'
 import { store } from './../../store.js'
 import WDGSelect from '@/../../common/src/components/WDGSelect'
 import WDGInput from '@/../../common/src/components/WDGInput'
@@ -325,7 +335,9 @@ export default {
 				{ Id: 'female', Text: i18n.t('account-authentication.user-infos.A_WOMAN') },
 				{ Id: 'male', Text: i18n.t('account-authentication.user-infos.A_MAN') }
 			],
-			canFindAddress: true
+			canFindAddress: true,
+			loading: false,
+			requestError: ''
 		}
 	},
 	methods: {
@@ -415,9 +427,12 @@ export default {
 		},
 		getAddressDescriptor(type) {
 			switch (type) {
+				case 'number':
+					return i18n.t('account-authentication.user-infos.NUMBER')
+				case 'numberComp':
+					return i18n.t('account-authentication.user-infos.NUMBER_COMPLEMENT')
 				case 'postalCode':
 					return i18n.t('account-authentication.user-infos.POSTAL_CODE')
-
 				case 'city':
 					return i18n.t('account-authentication.user-infos.CITY')
 			}
@@ -467,7 +482,34 @@ export default {
 		},
 		onButtonConfirmUserInfoEvent () {
 			if (this.checkUserInfo()) {
+				// En mode dev, on passe directement à la suite
+				if (process.env.NODE_ENV === 'development') {
+					this.onConfirmUserInfo()
+				} else {
+					// On attend le retour du serveur pour passer à la suite
+					this.loading = true
+					this.requestError = ''
+					requests.saveUserInfo(this.sharedState, this.onSaveUserInfoReturnEvent)
+				}
+			}
+		},
+		onSaveUserInfoReturnEvent (responseData) {
+			this.loading = false
+			// Si la sauvegarde est validée, on passe à la suite
+			if (responseData.status === 'saved') {
 				this.onConfirmUserInfo()
+
+			// Erreur lors de la sauvegarde, on affiche un feedback
+			} else {
+				this.requestError = responseData.status
+				// Problème de login (déconnecté / compte d'organisation)
+				if (this.requestError === 'not-logged-in' || this.requestError === 'is-user-organization') {
+					// On redirige vers la page donnée par le serveur (la page de connexion) - sauf en mode dev
+					if (responseData.redirectUrl !== undefined && responseData.redirectUrl !== '' && process.env.NODE_ENV !== 'development') {
+						window.location = responseData.redirectUrl
+						this.loading = true
+					}
+				}
 			}
 		}
 	},
@@ -507,6 +549,16 @@ export default {
 				return true
 			}
 			return (this.sharedState.user.taxCountry !== '')
+		},
+		requestErrorText() {
+			switch (this.requestError) {
+				case 'not-logged-in':
+				case 'is-user-organization':
+					return i18n.t('account-authentication.requests.errors.LOGIN')
+				case 'wrong-birthday-date':
+					return i18n.t('account-authentication.requests.errors.DATE')
+			}
+			return ''
 		}
 	}
 }
@@ -518,5 +570,9 @@ export default {
 	}
 	div.the-screen-investor-user-info span.error {
 		color: red
+	}
+	div.the-screen-investor-user-info div.request-error {
+		color: red;
+		text-align: center;
 	}
 </style>

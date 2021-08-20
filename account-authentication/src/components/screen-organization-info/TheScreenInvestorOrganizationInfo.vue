@@ -199,6 +199,7 @@
 				  name="organizationAddressNumber"
 				  :value="sharedState.organization.address.number"
 				  v-bind:valueReturn.sync="sharedState.organization.address.number"
+				  :descriptionBelow="getAddressDescriptor('number')"
 				  customStyle="natural-language"
 				  />
 
@@ -209,6 +210,7 @@
 				  :optionItems="sharedStatic.addressNumberComp"
 				  :value="sharedState.organization.address.numberComp"
 				  v-bind:valueReturn.sync="sharedState.organization.address.numberComp"
+				  :descriptionBelow="getAddressDescriptor('numberComp')"
 				  customStyle="natural-language"
 				  />
 				<br><br>
@@ -249,7 +251,7 @@
 			  v-if="listError.indexOf('capital') > -1"
 			  class="error"
 			  >
-				{{ $t('account-authentication.user-infos.error.PLEASE_FILL_IN') }}<br>
+				{{ $t('account-authentication.organization-infos.error.CAPITAL') }}<br>
 			</span>
 			{{ $t('account-authentication.organization-infos.ITS_CAPITAL') }}
 			<WDGInput
@@ -287,15 +289,23 @@
 			  color="red"
 			  type="button"
 			  :clickEvent="onButtonContinueEvent"
+			  :loading="loading"
 			  >
 				<slot slot="label">{{ $t('common.CONTINUE') }}</slot>
 			</WDGButton>
+			<div
+			  v-if="requestError !== ''"
+			  class="request-error"
+			  >
+				{{ requestErrorText }}
+			</div>
 		</div>
 	</div>
 </template>
 
 <script>
 import i18n from '@/i18n'
+import { requests } from './../../requests.js'
 import { store } from '../../store.js'
 import WDGSelect from '@/../../common/src/components/WDGSelect'
 import WDGInput from '@/../../common/src/components/WDGInput'
@@ -310,7 +320,7 @@ export default {
 		WDGButton
 	},
 	props: {
-		onContinue: Function
+		onConfirmOrganizationInfo: Function
 	},
 	data () {
 		return {
@@ -318,7 +328,9 @@ export default {
 			sharedStatic: store.static,
 			sharedProps: store.props,
 			listError: [],
-			canFindAddress: true
+			canFindAddress: true,
+			loading: false,
+			requestError: ''
 		}
 	},
 	methods: {
@@ -388,9 +400,12 @@ export default {
 		},
 		getAddressDescriptor(type) {
 			switch (type) {
+				case 'number':
+					return i18n.t('account-authentication.user-infos.NUMBER')
+				case 'numberComp':
+					return i18n.t('account-authentication.user-infos.NUMBER_COMPLEMENT')
 				case 'postalCode':
 					return i18n.t('account-authentication.user-infos.POSTAL_CODE')
-
 				case 'city':
 					return i18n.t('account-authentication.user-infos.CITY')
 			}
@@ -437,7 +452,34 @@ export default {
 		},
 		onButtonContinueEvent() {
 			if (this.checkOrganizationInfo()) {
-				this.onContinue()
+				// En mode dev, on passe directement à la suite
+				/* if (process.env.NODE_ENV === 'development') {
+					this.onConfirmOrganizationInfo()
+				} else { */
+					// On attend le retour du serveur pour passer à la suite
+					this.loading = true
+					this.requestError = ''
+					requests.saveOrganizationInfo(this.sharedState, this.onSaveOrganizationInfoReturnEvent)
+				// }
+			}
+		},
+		onSaveOrganizationInfoReturnEvent (responseData) {
+			this.loading = false
+			// Si la sauvegarde est validée, on passe à la suite
+			if (responseData.status === 'organization-saved') {
+				this.onConfirmOrganizationInfo()
+
+			// Erreur lors de la sauvegarde, on affiche un feedback
+			} else {
+				this.requestError = responseData.status
+				// Problème de login (déconnecté / compte d'organisation)
+				if (this.requestError === 'not-logged-in' || this.requestError === 'is-user-organization') {
+					// On redirige vers la page donnée par le serveur (la page de connexion) - sauf en mode dev
+					if (responseData.redirectUrl !== undefined && responseData.redirectUrl !== '' && process.env.NODE_ENV !== 'development') {
+						window.location = responseData.redirectUrl
+						this.loading = true
+					}
+				}
 			}
 		}
 	},
@@ -465,6 +507,21 @@ export default {
 		},
 		canDisplayButtonNext () {
 			return (this.canDisplayAddress && this.sharedState.organization.address.street !== '' && this.sharedState.organization.capital !== '' && this.sharedState.organization.representativefunction !== '')
+		},
+		requestErrorText() {
+			switch (this.requestError) {
+				case 'not-logged-in':
+				case 'is-user-organization':
+					return i18n.t('account-authentication.requests.errors.LOGIN')
+				case 'cant-edit-organization':
+					return i18n.t('account-authentication.requests.errors.CANT_EDIT_ORGANIZATION')
+				case 'organization-email-exists':
+					return i18n.t('account-authentication.requests.errors.ORGANIZATION_EMAIL_EXIST')
+				case 'organization-linked-user-creation-error':
+				case 'organization-api-creation-error':
+					return i18n.t('account-authentication.requests.errors.ORGANIZATION_CREATION_ERROR')
+			}
+			return ''
 		}
 	}
 }
@@ -476,5 +533,9 @@ export default {
 	}
 	div.the-screen-investor-organization-info span.error {
 		color: red
+	}
+	div.the-screen-investor-user-info div.request-error {
+		color: red;
+		text-align: center;
 	}
 </style>

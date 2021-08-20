@@ -94,6 +94,8 @@
 			"MY_ADDRESS_NUMBER_IS": "J'habite au",
 			"MY_ADDRESS_IS": "dans la rue",
 			"MY_ADDRESS_POSTAL_CODE_IS": "localisée dans le",
+			"NUMBER": "Numéro",
+			"NUMBER_COMPLEMENT": "Complément",
 			"POSTAL_CODE": "Code postal",
 			"CITY": "Ville",
 			"MY_TAX_COUNTRY_IS": "Ma résidence fiscale est :",
@@ -129,7 +131,10 @@
 			"ITS_CAPITAL": "son capital social est de",
 			"MY_FUNCTION": "Ma fonction dans l'entreprise est",
 			"INFO_COMPLETE_1": "Pour investir sur WE DO GOOD, vous devez être authentifié auprès de notre prestataire, Lemonway",
-			"INFO_COMPLETE_3": "Vous pouvez également préparer les document suivants pour votre organisation : <strong>KBIS et statuts</strong>"
+			"INFO_COMPLETE_3": "Vous pouvez également préparer les document suivants pour votre organisation : <strong>KBIS et statuts</strong>",
+			"error": {
+				"CAPITAL": "Le capital doit être un nombre entier"
+			}
 		},
 		"user-documents": {
 			"CHOOSE_A_DOCUMENT_TO_SEND": "Choisissez un document à envoyer",
@@ -185,6 +190,15 @@
 			"DOCUMENTS_IMPORTED": "Vos documents sont importés",
 			"YOUR_DOCUMENTS_MUST_BE_VALIDATED_BY_LEMONWAY": "Vos documents doivent maintenant être validés par notre prestataire, LemonWay. Vous serez notifié par mail dès que cela est fait.",
 			"YOUR_DOCUMENTS_CAN_BE_FOUND_IN_YOUR_ACCOUNT": "Vous pourrez retrouver vos documents dans votre compte utilisateur."
+		},
+		"requests": {
+			"errors": {
+				"LOGIN": "Il y a un problème d'identification sur la plateforme. Le site web vous redirige vers l'interface de connexion.",
+				"DATE": "Il y a eu une erreur lors de la saisie de la date",
+				"CANT_EDIT_ORGANIZATION": "L'utilisateur n'est pas autorisé à modifier cette organisation",
+				"ORGANIZATION_EMAIL_EXIST": "L'adresse e-mail de l'organisation est déjà utilisée par un autre compte",
+				"ORGANIZATION_CREATION_ERROR": "Erreur d'enregistrement de l'organisation dans la base de données"
+			}
 		}
 	},
 	"account-signin": {
