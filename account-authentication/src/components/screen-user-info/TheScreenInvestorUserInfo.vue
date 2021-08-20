@@ -1,5 +1,12 @@
 <template>
 	<div class="the-screen-investor-user-info">
+		<!-- Genre -->
+		<span
+		  v-if="listError.indexOf('gender') > -1"
+		  class="error"
+		  >
+			{{ $t('account-authentication.user-infos.error.PLEASE_SELECT') }}<br>
+		</span>
 		{{ $t('account-authentication.user-infos.I_AM') }}
 		<WDGSelect
 		  id="userGender"
@@ -13,6 +20,25 @@
 		</WDGSelect>,
 		<br><br>
 
+		<!-- Date de naissance -->
+		<span
+		  v-if="listError.indexOf('birthday-day') > -1"
+		  class="error"
+		  >
+			{{ $t('account-authentication.user-infos.error.DATE_DAY') }}<br>
+		</span>
+		<span
+		  v-if="listError.indexOf('birthday-month') > -1"
+		  class="error"
+		  >
+			{{ $t('account-authentication.user-infos.error.DATE_MONTH') }}<br>
+		</span>
+		<span
+		  v-if="listError.indexOf('birthday-year') > -1"
+		  class="error"
+		  >
+			{{ $t('account-authentication.user-infos.error.DATE_YEAR') }}<br>
+		</span>
 		{{ $t('account-authentication.user-infos.I_AM_BORN') }}
 		<WDGInput
 		  id="userBirthdayDay"
@@ -43,6 +69,13 @@
 		  />,
 		<br><br>
 
+		<!-- Pays de naissance -->
+		<span
+		  v-if="listError.indexOf('birthday-country') > -1"
+		  class="error"
+		  >
+			{{ $t('account-authentication.user-infos.error.PLEASE_SELECT') }}<br>
+		</span>
 		{{ $t('account-authentication.user-infos.IN_THIS_COUNTRY') }}
 		<WDGSelect
 		  id="userCountry"
@@ -54,8 +87,15 @@
 		  />
 		<br><br>
 
+		<!-- Lieu de naissance -->
 		<div v-if="canDisplayCity">
 			<div v-if="sharedState.user.birthday.country === 'FR'">
+				<span
+				  v-if="listError.indexOf('birthday-department') > -1"
+				  class="error"
+				  >
+					{{ $t('account-authentication.user-infos.error.PLEASE_SELECT') }}<br>
+				</span>
 				{{ $t('account-authentication.user-infos.IN_THE_DEPARTMENT') }}
 				<WDGSelect
 				  id="userDepartment"
@@ -68,6 +108,12 @@
 				<br><br>
 			</div>
 
+			<span
+			  v-if="listError.indexOf('birthday-city') > -1"
+			  class="error"
+			  >
+				{{ $t('account-authentication.user-infos.error.PLEASE_FILL_IN') }}<br>
+			</span>
 			{{ $t('account-authentication.user-infos.IN_THIS_CITY') }}
 			<WDGInput
 			  id="userCity"
@@ -80,6 +126,12 @@
 			<div v-if="canDisplayFrenchDistrict">
 				<br><br>
 
+				<span
+				  v-if="listError.indexOf('birthday-district') > -1"
+				  class="error"
+				  >
+					{{ $t('account-authentication.user-infos.error.PLEASE_SELECT') }}<br>
+				</span>
 				{{ $t('account-authentication.user-infos.IN_THIS_DISTRICT') }}
 				<WDGSelect
 				  id="userDistrict"
@@ -94,7 +146,14 @@
 			<br><br>
 		</div>
 
+		<!-- Nationalité -->
 		<div v-if="canDisplayNationality">
+			<span
+			  v-if="listError.indexOf('birthday-nationality') > -1"
+			  class="error"
+			  >
+				{{ $t('account-authentication.user-infos.error.PLEASE_SELECT') }}<br>
+			</span>
 			{{ $t('account-authentication.user-infos.MY_NATIONALITY_IS') }}
 			<WDGSelect
 			  id="userNationality"
@@ -107,7 +166,14 @@
 			<br><br>
 		</div>
 
+		<!-- Adresse -->
 		<div v-if="canDisplayAddress">
+			<span
+			  v-if="listError.indexOf('address-country') > -1"
+			  class="error addressCountry"
+			  >
+				{{ $t('account-authentication.user-infos.error.PLEASE_SELECT') }}<br>
+			</span>
 			{{ $t('account-authentication.user-infos.MY_COUNTRY_IS') }}
 			<WDGSelect
 			  id="userAddressCountry"
@@ -119,6 +185,12 @@
 			  />
 			<br><br>
 			
+			<span
+			  v-if="listError.indexOf('address-street') > -1"
+			  class="error addressStreet"
+			  >
+				{{ $t('account-authentication.user-infos.error.PLEASE_FILL_IN') }}<br>
+			</span>
 			<div
 			  v-if="canDisplaySearchAddress"
 			  >
@@ -164,6 +236,12 @@
 				  />
 				<br><br>
 
+				<span
+				  v-if="listError.indexOf('address-city') > -1"
+				  class="error addressCity"
+				  >
+					{{ $t('account-authentication.user-infos.error.PLEASE_FILL_IN') }}<br>
+				</span>
 				{{ $t('account-authentication.user-infos.MY_ADDRESS_POSTAL_CODE_IS') }}
 				<WDGInput
 				  id="userAddressPostalCode"
@@ -187,6 +265,12 @@
 		</div>
 
 		<div v-if="canDisplayTaxCountry">
+			<span
+			  v-if="listError.indexOf('address-taxCountry') > -1"
+			  class="error addressTaxCountry"
+			  >
+				{{ $t('account-authentication.user-infos.error.PLEASE_SELECT') }}<br>
+			</span>
 			{{ $t('account-authentication.user-infos.MY_TAX_COUNTRY_IS') }}
 			<WDGSelect
 			  id="userTaxCountry"
@@ -235,6 +319,7 @@ export default {
 			sharedState: store.state,
 			sharedProps: store.props,
 			sharedStatic: store.static,
+			listError: [],
 			userGenderList: [
 				{ Id: '', Text: '' },
 				{ Id: 'female', Text: i18n.t('account-authentication.user-infos.A_WOMAN') },
@@ -244,6 +329,62 @@ export default {
 		}
 	},
 	methods: {
+		/**
+		 * Vérifie les informations saisies et affiche des messages d'erreur
+		 */
+		checkUserInfo() {
+			this.listError = []
+			if (this.sharedState.user.gender === undefined || this.sharedState.user.gender === '') {
+				this.listError.splice(this.listError.length, 0, 'gender')
+			}
+			if (isNaN(this.sharedState.user.birthday.day) || this.sharedState.user.birthday.day === '' || this.sharedState.user.birthday.day < 1 || this.sharedState.user.birthday.day > 31) {
+				this.listError.splice(this.listError.length, 0, 'birthday-day')
+			}
+			if (isNaN(this.sharedState.user.birthday.month) || this.sharedState.user.birthday.month === '' || this.sharedState.user.birthday.month < 1 || this.sharedState.user.birthday.month > 12) {
+				this.listError.splice(this.listError.length, 0, 'birthday-month')
+			}
+			if (isNaN(this.sharedState.user.birthday.year) || this.sharedState.user.birthday.year === '' || this.sharedState.user.birthday.year < 1850 || this.sharedState.user.birthday.year > 2050) {
+				this.listError.splice(this.listError.length, 0, 'birthday-year')
+			}
+			if (this.sharedState.user.birthday.country === undefined || this.sharedState.user.birthday.country === '') {
+				this.listError.splice(this.listError.length, 0, 'birthday-country')
+			}
+			if (this.sharedState.user.birthday.country === 'FR' && (this.sharedState.user.birthday.department === undefined || this.sharedState.user.birthday.department === '')) {
+				this.listError.splice(this.listError.length, 0, 'birthday-department')
+			}
+			if (this.sharedState.user.birthday.city === undefined || this.sharedState.user.birthday.city === '') {
+				this.listError.splice(this.listError.length, 0, 'birthday-city')
+			}
+			if (this.hasBirthplaceCityDistricts() && (this.sharedState.user.birthday.district === undefined || this.sharedState.user.birthday.district === '')) {
+				this.listError.splice(this.listError.length, 0, 'birthday-district')
+			}
+			if (this.sharedState.user.birthday.nationality === undefined || this.sharedState.user.birthday.nationality === '') {
+				this.listError.splice(this.listError.length, 0, 'birthday-nationality')
+			}
+			if (this.sharedState.user.address.country === undefined || this.sharedState.user.address.country === '') {
+				this.listError.splice(this.listError.length, 0, 'address-country')
+			}
+			if (this.sharedState.user.address.street === undefined || this.sharedState.user.address.street === '') {
+				this.listError.splice(this.listError.length, 0, 'address-street')
+			}
+			if (this.sharedState.user.address.postalCode === undefined || this.sharedState.user.address.postalCode === '') {
+				this.listError.splice(this.listError.length, 0, 'address-city')
+			}
+			if (this.sharedState.user.taxCountry === undefined || this.sharedState.user.taxCountry === '') {
+				this.listError.splice(this.listError.length, 0, 'address-taxCountry')
+			}
+
+			if (this.listError.length > 0) {
+				setTimeout(() => {
+					let el = this.$el.getElementsByClassName('error')[0]
+					if (el !== undefined && el !== null) {
+						el.scrollIntoView({ behavior: 'smooth' })
+					}
+				})
+			}
+			
+			return (this.listError.length === 0)
+		},
 		getDateTranslation(type) {
 			return i18n.t('common.date.'+type)
 		},
@@ -266,7 +407,7 @@ export default {
 			if (city.indexOf('Marseille') > -1) {
 				nbDistricts = 16
 			}
-			for (let i = 0; i <= nbDistricts; i++) {
+			for (let i = 1; i <= nbDistricts; i++) {
 				let item = { Id: i.toString(), Text: i.toString() }
 				buffer.push(item)
 			}
@@ -281,6 +422,9 @@ export default {
 					return i18n.t('account-authentication.user-infos.CITY')
 			}
 			return ''
+		},
+		hasBirthplaceCityDistricts() {
+			return (this.sharedState.user.birthday.city.indexOf('Paris') > -1 || this.sharedState.user.birthday.city.indexOf('Lyon') > -1 || this.sharedState.user.birthday.city.indexOf('Marseille') > -1)
 		},
 		onSelectSearchAddressEvent(searchResultItem) {
 			if ( searchResultItem !== undefined ) {
@@ -322,7 +466,9 @@ export default {
 			}
 		},
 		onButtonConfirmUserInfoEvent () {
-			this.onConfirmUserInfo()
+			if (this.checkUserInfo()) {
+				this.onConfirmUserInfo()
+			}
 		}
 	},
 	computed: {
@@ -333,10 +479,7 @@ export default {
 			return (this.sharedState.user.birthday.country !== '')
 		},
 		canDisplayFrenchDistrict() {
-			if (process.env.NODE_ENV === 'development') {
-				return true
-			}
-			return (this.sharedState.user.birthday.city.indexOf('Paris') > -1 || this.sharedState.user.birthday.city.indexOf('Lyon') > -1 || this.sharedState.user.birthday.city.indexOf('Marseille') > -1)
+			return this.hasBirthplaceCityDistricts()
 		},
 		canDisplayNationality() {
 			if (process.env.NODE_ENV === 'development') {
@@ -363,7 +506,7 @@ export default {
 			if (process.env.NODE_ENV === 'development') {
 				return true
 			}
-			return (this.canDisplayTaxCountry && this.sharedState.user.taxCountry !== '')
+			return (this.sharedState.user.taxCountry !== '')
 		}
 	}
 }
@@ -372,5 +515,8 @@ export default {
 <style>
 	div.the-screen-investor-user-info {
 		margin: 50px 0px;
+	}
+	div.the-screen-investor-user-info span.error {
+		color: red
 	}
 </style>

@@ -1,5 +1,12 @@
 <template>
 	<div class="the-screen-investor-organization-info">
+		<!-- Nom -->
+		<span
+		  v-if="listError.indexOf('name') > -1"
+		  class="error"
+		  >
+			{{ $t('account-authentication.user-infos.error.PLEASE_FILL_IN') }}<br>
+		</span>
 		{{ $t('account-authentication.organization-infos.MY_ORGANIZATION_NAME') }}
 		<WDGInput
 		  id="organizationName"
@@ -10,6 +17,13 @@
 		  />,
 		<br><br>
 
+		<!-- Pays -->
+		<span
+		  v-if="listError.indexOf('address-country') > -1"
+		  class="error"
+		  >
+			{{ $t('account-authentication.user-infos.error.PLEASE_SELECT') }}<br>
+		</span>
 		{{ $t('account-authentication.organization-infos.ITS_COUNTRY') }}
 		<WDGSelect
 		  id="organizationCountry"
@@ -21,6 +35,13 @@
 		  />,
 		<br><br>
 
+		<!-- Activité -->
+		<span
+		  v-if="listError.indexOf('activity') > -1"
+		  class="error"
+		  >
+			{{ $t('account-authentication.user-infos.error.PLEASE_FILL_IN') }}<br>
+		</span>
 		{{ $t('account-authentication.organization-infos.ITS_ACTIVITY_CONSISTS') }}
 		<WDGInput
 		  id="organizationActivity"
@@ -32,6 +53,13 @@
 		<br><br>
 
 		<div v-if="canDisplayIDNumber">
+			<!-- Numéro d'identification -->
+			<span
+			  v-if="listError.indexOf('idnumber') > -1"
+			  class="error"
+			  >
+				{{ $t('account-authentication.user-infos.error.PLEASE_FILL_IN') }}<br>
+			</span>
 			<span v-if="sharedState.organization.address.country === 'FR'">
 				{{ $t('account-authentication.organization-infos.ITS_IDENTIFICATION_NUMBER_FR') }}
 			</span>
@@ -47,6 +75,13 @@
 			  />,
 			<br><br>
 
+			<!-- Adresse e-mail -->
+			<span
+			  v-if="listError.indexOf('email') > -1"
+			  class="error"
+			  >
+				{{ $t('account-authentication.user-infos.error.PLEASE_FILL_IN') }}<br>
+			</span>
 			{{ $t('account-authentication.organization-infos.ITS_EMAIL_ADDRESS') }}
 			<WDGInput
 			  id="organizationEmail"
@@ -58,6 +93,13 @@
 			  />,
 			<br><br>
 
+			<!-- Site web -->
+			<span
+			  v-if="listError.indexOf('website') > -1"
+			  class="error"
+			  >
+				{{ $t('account-authentication.user-infos.error.PLEASE_FILL_IN') }}<br>
+			</span>
 			{{ $t('account-authentication.organization-infos.ITS_WEBSITE') }}
 			<WDGInput
 			  id="organizationWebsite"
@@ -71,6 +113,13 @@
 		</div>
 
 		<div v-if="canDisplayLegal">
+			<!-- Forme légale -->
+			<span
+			  v-if="listError.indexOf('legalform') > -1"
+			  class="error"
+			  >
+				{{ $t('account-authentication.user-infos.error.PLEASE_FILL_IN') }}<br>
+			</span>
 			{{ $t('account-authentication.organization-infos.ITS_LEGAL_FORM') }}
 			<WDGInput
 			  id="organizationLegalForm"
@@ -81,6 +130,13 @@
 			  />,
 			<br><br>
 
+			<!-- Code APE -->
+			<span
+			  v-if="listError.indexOf('apecode') > -1"
+			  class="error"
+			  >
+				{{ $t('account-authentication.user-infos.error.PLEASE_FILL_IN') }}<br>
+			</span>
 			{{ $t('account-authentication.organization-infos.ITS_APE') }}
 			<WDGInput
 			  id="organizationApe"
@@ -91,6 +147,13 @@
 			  />,
 			<br><br>
 
+			<!-- RCS -->
+			<span
+			  v-if="listError.indexOf('legaltown') > -1"
+			  class="error"
+			  >
+				{{ $t('account-authentication.user-infos.error.PLEASE_FILL_IN') }}<br>
+			</span>
 			<span v-if="sharedState.organization.address.country === 'FR'">
 				{{ $t('account-authentication.organization-infos.ITS_LEGAL_TOWN_FR') }}
 			</span>
@@ -108,6 +171,13 @@
 		</div>
 
 		<div v-if="canDisplayAddress">
+			<!-- Adresse -->
+			<span
+			  v-if="listError.indexOf('address-street') > -1"
+			  class="error"
+			  >
+				{{ $t('account-authentication.user-infos.error.PLEASE_FILL_IN') }}<br>
+			</span>
 			<div
 			  v-if="canDisplaySearchAddress"
 			  >
@@ -174,7 +244,13 @@
 				<br><br>
 			</div>
 
-
+			<!-- Capital -->
+			<span
+			  v-if="listError.indexOf('capital') > -1"
+			  class="error"
+			  >
+				{{ $t('account-authentication.user-infos.error.PLEASE_FILL_IN') }}<br>
+			</span>
 			{{ $t('account-authentication.organization-infos.ITS_CAPITAL') }}
 			<WDGInput
 			  id="organizationCapital"
@@ -186,6 +262,13 @@
 			  />,
 			<br><br>
 
+			<!-- Fonction du représentant légal -->
+			<span
+			  v-if="listError.indexOf('representativefunction') > -1"
+			  class="error"
+			  >
+				{{ $t('account-authentication.user-infos.error.PLEASE_FILL_IN') }}<br>
+			</span>
 			{{ $t('account-authentication.organization-infos.MY_FUNCTION') }}
 			<WDGInput
 			  id="organizationRepresentativeFunction"
@@ -203,7 +286,7 @@
 			<WDGButton
 			  color="red"
 			  type="button"
-			  :clickEvent="onContinue"
+			  :clickEvent="onButtonContinueEvent"
 			  >
 				<slot slot="label">{{ $t('common.CONTINUE') }}</slot>
 			</WDGButton>
@@ -234,10 +317,67 @@ export default {
 			sharedState: store.state,
 			sharedStatic: store.static,
 			sharedProps: store.props,
+			listError: [],
 			canFindAddress: true
 		}
 	},
 	methods: {
+		/**
+		 * Vérifie les informations saisies et affiche des messages d'erreur
+		 */
+		checkOrganizationInfo() {
+			this.listError = []
+			if (this.sharedState.organization.name === undefined || this.sharedState.organization.name === '') {
+				this.listError.splice(this.listError.length, 0, 'name')
+			}
+			if (this.sharedState.organization.address.country === undefined || this.sharedState.organization.address.country === '') {
+				this.listError.splice(this.listError.length, 0, 'address-country')
+			}
+			if (this.sharedState.organization.activity === undefined || this.sharedState.organization.activity === '') {
+				this.listError.splice(this.listError.length, 0, 'activity')
+			}
+			if (this.sharedState.organization.idnumber === undefined || this.sharedState.organization.idnumber === '') {
+				this.listError.splice(this.listError.length, 0, 'idnumber')
+			}
+			if (this.sharedState.organization.email === undefined || this.sharedState.organization.email === '') {
+				this.listError.splice(this.listError.length, 0, 'email')
+			}
+			if ( !/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(this.sharedState.organization.email)) {
+				this.listError.splice(this.listError.length, 0, 'email')
+			}
+			if (this.sharedState.organization.website === undefined || this.sharedState.organization.website === '') {
+				this.listError.splice(this.listError.length, 0, 'website')
+			}
+			if (this.sharedState.organization.legalform === undefined || this.sharedState.organization.legalform === '') {
+				this.listError.splice(this.listError.length, 0, 'legalform')
+			}
+			if (this.sharedState.organization.apecode === undefined || this.sharedState.organization.apecode === '') {
+				this.listError.splice(this.listError.length, 0, 'apecode')
+			}
+			if (this.sharedState.organization.legaltown === undefined || this.sharedState.organization.legaltown === '') {
+				this.listError.splice(this.listError.length, 0, 'legaltown')
+			}
+			if (this.sharedState.organization.address.street === undefined || this.sharedState.organization.address.street === '') {
+				this.listError.splice(this.listError.length, 0, 'address-street')
+			}
+			if (this.sharedState.organization.capital === undefined || this.sharedState.organization.capital === '' || isNaN(this.sharedState.organization.capital)) {
+				this.listError.splice(this.listError.length, 0, 'capital')
+			}
+			if (this.sharedState.organization.representativefunction === undefined || this.sharedState.organization.representativefunction === '') {
+				this.listError.splice(this.listError.length, 0, 'representativefunction-street')
+			}
+
+			if (this.listError.length > 0) {
+				setTimeout(() => {
+					let el = this.$el.getElementsByClassName('error')[0]
+					if (el !== undefined && el !== null) {
+						el.scrollIntoView({ behavior: 'smooth' })
+					}
+				})
+			}
+			
+			return (this.listError.length === 0)
+		},
 		getFieldDescriptor (fieldID) {
 			switch (fieldID) {
 				case 'email':
@@ -294,6 +434,11 @@ export default {
 					this.sharedState.organization.address.city = searchResultItem.properties.city
 				}
 			}
+		},
+		onButtonContinueEvent() {
+			if (this.checkOrganizationInfo()) {
+				this.onContinue()
+			}
 		}
 	},
 	computed: {
@@ -319,10 +464,7 @@ export default {
 			return (this.canDisplayAddress && this.canFindAddress && this.sharedState.organization.address.country === 'FR' && ( this.sharedState.organization.address.street === '' || this.sharedState.organization.address.street === undefined ))
 		},
 		canDisplayButtonNext () {
-			if (process.env.NODE_ENV === 'development') {
-				return true
-			}
-			return (this.canDisplayAddress && this.sharedState.organization.address !== '' && this.sharedState.organization.capital !== '' && this.sharedState.organization.representativefunction !== '')
+			return (this.canDisplayAddress && this.sharedState.organization.address.street !== '' && this.sharedState.organization.capital !== '' && this.sharedState.organization.representativefunction !== '')
 		}
 	}
 }
@@ -331,5 +473,8 @@ export default {
 <style>
 	div.the-screen-investor-organization-info {
 		margin: 50px 0px;
+	}
+	div.the-screen-investor-organization-info span.error {
+		color: red
 	}
 </style>
