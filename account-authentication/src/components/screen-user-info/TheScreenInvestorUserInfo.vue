@@ -1,8 +1,5 @@
 <template>
 	<div class="the-screen-investor-user-info">
-<<<<<<< HEAD
-		<div class="user-info-line">
-=======
 		<!-- Genre -->
 		<span
 		  v-if="listError.indexOf('gender') > -1"
@@ -10,7 +7,6 @@
 		  >
 			{{ $t('account-authentication.user-infos.error.PLEASE_SELECT') }}<br>
 		</span>
->>>>>>> 7025351bd04e1fa662bff3dd17a05eac4c5a5a95
 		{{ $t('account-authentication.user-infos.I_AM') }}
 		<WDGSelect
 		  id="userGender"
@@ -24,9 +20,6 @@
 		</WDGSelect>,
 		</div>
 
-<<<<<<< HEAD
-		<div class="user-info-line">
-=======
 		<!-- Date de naissance -->
 		<span
 		  v-if="listError.indexOf('birthday-day') > -1"
@@ -46,7 +39,6 @@
 		  >
 			{{ $t('account-authentication.user-infos.error.DATE_YEAR') }}<br>
 		</span>
->>>>>>> 7025351bd04e1fa662bff3dd17a05eac4c5a5a95
 		{{ $t('account-authentication.user-infos.I_AM_BORN') }}
 		<WDGInput
 		  id="userBirthdayDay"
@@ -77,9 +69,6 @@
 		  />,
 		</div>
 
-<<<<<<< HEAD
-		<div class="user-info-line">
-=======
 		<!-- Pays de naissance -->
 		<span
 		  v-if="listError.indexOf('birthday-country') > -1"
@@ -87,7 +76,6 @@
 		  >
 			{{ $t('account-authentication.user-infos.error.PLEASE_SELECT') }}<br>
 		</span>
->>>>>>> 7025351bd04e1fa662bff3dd17a05eac4c5a5a95
 		{{ $t('account-authentication.user-infos.IN_THIS_COUNTRY') }}
 		<WDGSelect
 		  id="userCountry"
@@ -101,9 +89,6 @@
 
 		<!-- Lieu de naissance -->
 		<div v-if="canDisplayCity">
-<<<<<<< HEAD
-			<div v-if="sharedState.user.birthday.country === 'FR'" class="user-info-line">
-=======
 			<div v-if="sharedState.user.birthday.country === 'FR'">
 				<span
 				  v-if="listError.indexOf('birthday-department') > -1"
@@ -111,7 +96,6 @@
 				  >
 					{{ $t('account-authentication.user-infos.error.PLEASE_SELECT') }}<br>
 				</span>
->>>>>>> 7025351bd04e1fa662bff3dd17a05eac4c5a5a95
 				{{ $t('account-authentication.user-infos.IN_THE_DEPARTMENT') }}
 				<WDGSelect
 				  id="userDepartment"
@@ -123,16 +107,12 @@
 				  />
 			</div>
 
-<<<<<<< HEAD
-			<div class="user-info-line">
-=======
 			<span
 			  v-if="listError.indexOf('birthday-city') > -1"
 			  class="error"
 			  >
 				{{ $t('account-authentication.user-infos.error.PLEASE_FILL_IN') }}<br>
 			</span>
->>>>>>> 7025351bd04e1fa662bff3dd17a05eac4c5a5a95
 			{{ $t('account-authentication.user-infos.IN_THIS_CITY') }}
 			<WDGInput
 			  id="userCity"
@@ -163,10 +143,7 @@
 			</div>
 
 		</div>
-
-<<<<<<< HEAD
 		<div v-if="canDisplayNationality" class="user-info-line">
-=======
 		<!-- Nationalité -->
 		<div v-if="canDisplayNationality">
 			<span
@@ -175,7 +152,6 @@
 			  >
 				{{ $t('account-authentication.user-infos.error.PLEASE_SELECT') }}<br>
 			</span>
->>>>>>> 7025351bd04e1fa662bff3dd17a05eac4c5a5a95
 			{{ $t('account-authentication.user-infos.MY_NATIONALITY_IS') }}
 			<WDGSelect
 			  id="userNationality"
@@ -186,8 +162,6 @@
 			  customStyle="natural-language"
 			  />.
 		</div>
-
-<<<<<<< HEAD
 		<div v-if="canDisplayAddress" class="user-info-line">
 			{{ $t('account-authentication.user-infos.MY_ADDRESS_IS') }}
 			<WDGInput
@@ -200,7 +174,6 @@
 		</div>
 
 		<div v-if="canDisplayTaxCountry" class="user-info-line">
-=======
 		<!-- Adresse -->
 		<div v-if="canDisplayAddress">
 			<span
@@ -308,7 +281,6 @@
 			  >
 				{{ $t('account-authentication.user-infos.error.PLEASE_SELECT') }}<br>
 			</span>
->>>>>>> 7025351bd04e1fa662bff3dd17a05eac4c5a5a95
 			{{ $t('account-authentication.user-infos.MY_TAX_COUNTRY_IS') }}
 			<WDGSelect
 			  id="userTaxCountry"
@@ -603,7 +575,6 @@ export default {
 	div.the-screen-investor-user-info {
 		margin: 50px 0px;
 	}
-<<<<<<< HEAD
 	.the-screen-investor-user-info .wdg-select.natural-language span.placeholder {
 		left: -245px;
 	}
@@ -622,14 +593,11 @@ export default {
 	.wdg-button button {
 		width: 250px;
 	}
-	.wdg-button {
-=======
 	div.the-screen-investor-user-info span.error {
 		color: red
 	}
 	div.the-screen-investor-user-info div.request-error {
 		color: red;
->>>>>>> 7025351bd04e1fa662bff3dd17a05eac4c5a5a95
 		text-align: center;
 	}
 </style>
