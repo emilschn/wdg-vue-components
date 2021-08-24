@@ -3,6 +3,8 @@
     id="app"
 	class="account-signin"
 	:data-ajaxurl="sharedProps.ajaxurl"
+	:data-customajaxurl="sharedProps.customajaxurl"
+	:data-redirecturl="sharedProps.redirecturl"
 	:data-locale="sharedProps.locale"
   	>
     <link rel="stylesheet"
@@ -15,6 +17,7 @@
 		  v-bind:closeButton=true
 		  v-bind:backButtonVisible="sharedState.step === 'confirmation' || sharedState.step === 'forgotten-pass'"
 		  :onBack="onBackEvent"
+		  :onLangSelect="onLangSelectEvent"
 		  />
 		<TheScreenSignin v-if="sharedState.step === 'signin'" />
 		<TheScreenConfirmation v-if="sharedState.step === 'confirmation'" />
@@ -51,6 +54,8 @@ export default {
   	created () {
 		this.sharedState.sessionUID = Date.now() + Math.floor(Math.random() * 100000000)
 		this.sharedProps.ajaxurl = initElements.dataset.ajaxurl
+		this.sharedProps.customajaxurl = initElements.dataset.customajaxurl
+		this.sharedProps.redirecturl = initElements.dataset.redirecturl
 		this.sharedProps.locale = initElements.dataset.locale
 		// Pas génial mais nécessaire pour le menu qui est chargé avant dans le store
 		let tempLocale = 'fr'
@@ -62,6 +67,7 @@ export default {
 				tempLocale = initElements.dataset.locale
 			}
 		}
+		this.sharedProps.locale = tempLocale
 		i18n.locale = tempLocale
 		window.addEventListener('hashchange', () => this.onHashChangedEvent())
 	},
@@ -77,6 +83,9 @@ export default {
 		},
 		onBackEvent () {
 			store.changeStep('signin')
+		},
+		onLangSelectEvent (newLang) {
+			store.changeLang(newLang)
 		}
 	}
 }
@@ -93,5 +102,11 @@ div.account-signin {
 }
 body {
 	font-size: 16px;
+}
+/* ajout de padding pour tablette */
+@media screen and (min-width: 768px) and (max-width: 959px) {
+	.account-signin {
+		padding: 20px;
+	}
 }
 </style>

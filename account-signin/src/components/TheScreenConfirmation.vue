@@ -7,6 +7,7 @@
 			<WDGMessage
 			  id="message"
 			  iconSVG="info.svg"
+			  iconColor="paleblue"
 			  >
 				<slot slot="label">{{ $t('account-signin.CONFIRMATION_EXPLICATION') }}</slot>
 			</WDGMessage>
@@ -38,9 +39,9 @@
 				</span>
 				<div v-if="sharedState.creation !== true">
 					<a
-						@click="onMailNotReceived"
-						:class="mailResendLoading ? 'mail_not_received_loading':'mail_not_received'"
-						>
+					  @click="onMailNotReceived"
+					  :class="mailResendLoading ? 'mail_not_received_loading':'mail_not_received'"
+					  >
 						<span v-if="validationEmailSent === true">
 								{{ $t('account-signin.CONFIRMATION_MAIL_NOT_RECEIVED_2') }}
 						</span>
@@ -296,5 +297,22 @@ div.the-screen-confirmation .wdg-mascot .image {
 	width: auto;
 	margin-top: 15px;
 }
+div.the-screen-confirmation .wdg-mascot .text {
+	width: auto;
+}
+div.the-screen-confirmation .wdg-message {
+	width: auto;
+}
+}
+
+/* tablette */
+@media screen and (min-width: 768px) and (max-width: 959px) {
+	div.the-screen-confirmation .wdg-mascot .text, div.the-screen-confirmation .wdg-mascot .image {
+		width: 45%;
+	}
+
+	div.the-screen-confirmation .wdg-mascot {
+		justify-content: space-between;
+	}
 }
 </style>

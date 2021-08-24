@@ -43,6 +43,7 @@
 			  :class="suffixClass"
 			  @input="onInputLocalEvent"
 			  @change="onChangeLocalEvent"
+			  v-on:keyup.enter="onEnterLocalEvent"
 			  />
 
 			<textarea
@@ -63,7 +64,7 @@
 			<span class="input-icon">
 				<span
 					v-if="loading"
-					class="fas fa-hourglass"
+					class="fas fa-hourglass-start"
 					>
 				</span>
 				<span
@@ -101,6 +102,7 @@
 			  :class="suffixClass"
 			  @input="onInputLocalEvent"
 			  @change="onChangeLocalEvent"
+			  v-on:keyup.enter="onEnterLocalEvent"
 			  />
 
 			<textarea
@@ -128,7 +130,7 @@
 			<span class="input-icon">
 				<span
 					v-if="loading"
-					class="fas fa-hourglass"
+					class="fas fa-hourglass-start"
 					>
 				</span>
 				<span
@@ -178,7 +180,8 @@ export default {
         icon: { type: String, default: '' },
 		iconVisibility: { type: Boolean, default: false },
 		loading: { type: Boolean, default: false },
-		onChange: Function
+		onChange: Function,
+		onEnter: Function
 	},
 	data () {
 		return {
@@ -200,6 +203,11 @@ export default {
 		},
 		onChangeLocalEvent () {
 			this.valueReturn = this.getAutoFormat(this.valueReturn)
+		},
+		onEnterLocalEvent () {
+			if (this.onEnter !== undefined) {
+				this.onEnter()
+			}
 		},
 		updateValue (newValue) {
 			this.valueReturn = newValue
@@ -360,12 +368,12 @@ export default {
 	}
 	.wdg-input span.input-icon {
 		position: relative;
-		left: -16px;
 		color: #CEE9C0;
 		background-color: #fff; /* permet de ne pas se superposer au texte si l'adresse est longue */
 		padding-left: 5px;
 	}
-	.wdg-input span.input-icon span.fa-hourglass {
+	.wdg-input span.input-icon span.fa-hourglass-start {
+		left: 0;
 		color: #c2c2c2;
 		animation-duration: 2.5s;
   		animation-name: anim-hourglass;
@@ -392,4 +400,16 @@ export default {
 			-webkit-transform: rotate(360deg);
 		}
 	}
+
+@media only screen and (max-width: 767px) {
+	/* Ajustements pour que l'oeil pour voir le mdp ne saute pas à la ligne */
+	.wdg-input span.input-icon {
+		padding-left: 0;
+		left: -10px;
+	}
+
+	.wdg-input.natural-language input {
+		padding-left: 0;
+	}
+}
 </style>
