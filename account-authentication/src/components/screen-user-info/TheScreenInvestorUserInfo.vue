@@ -18,7 +18,7 @@
 		  >
 			<slot slot="placeholder">{{ $t('account-authentication.user-infos.GENDER') }}</slot>
 		</WDGSelect>,
-		</div>
+		<br><br>
 
 		<!-- Date de naissance -->
 		<span
@@ -67,7 +67,7 @@
 		  v-bind:valueReturn.sync="sharedState.user.birthday.year"
 		  customStyle="natural-language"
 		  />,
-		</div>
+		<br><br>
 
 		<!-- Pays de naissance -->
 		<span
@@ -85,7 +85,7 @@
 		  v-bind:valueReturn.sync="sharedState.user.birthday.country"
 		  customStyle="natural-language"
 		  />
-		</div>
+		<br><br>
 
 		<!-- Lieu de naissance -->
 		<div v-if="canDisplayCity">
@@ -121,7 +121,7 @@
 			  v-bind:valueReturn.sync="sharedState.user.birthday.city"
 			  customStyle="natural-language"
 			  />
-			</div>
+			<br><br>
 			
 			<div v-if="canDisplayFrenchDistrict" class="user-info-line">
 
@@ -141,11 +141,11 @@
 				  customStyle="natural-language"
 				  />
 			</div>
-
+			<br><br>
 		</div>
-		<div v-if="canDisplayNationality" class="user-info-line">
+
 		<!-- Nationalité -->
-		<div v-if="canDisplayNationality">
+		<div v-if="canDisplayNationality" class="user-info-line">
 			<span
 			  v-if="listError.indexOf('birthday-nationality') > -1"
 			  class="error"
@@ -161,19 +161,9 @@
 			  v-bind:valueReturn.sync="sharedState.user.birthday.nationality"
 			  customStyle="natural-language"
 			  />.
-		</div>
-		<div v-if="canDisplayAddress" class="user-info-line">
-			{{ $t('account-authentication.user-infos.MY_ADDRESS_IS') }}
-			<WDGInput
-			  id="userAddress"
-			  name="userAddress"
-			  :value="sharedState.user.address"
-			  v-bind:valueReturn.sync="sharedState.user.address"
-			  customStyle="natural-language"
-			  />
+			  <br><br>
 		</div>
 
-		<div v-if="canDisplayTaxCountry" class="user-info-line">
 		<!-- Adresse -->
 		<div v-if="canDisplayAddress">
 			<span
@@ -274,7 +264,7 @@
 			</div>
 		</div>
 
-		<div v-if="canDisplayTaxCountry">
+		<div v-if="canDisplayTaxCountry" class="user-info-line">
 			<span
 			  v-if="listError.indexOf('address-taxCountry') > -1"
 			  class="error addressTaxCountry"
