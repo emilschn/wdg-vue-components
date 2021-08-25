@@ -577,15 +577,6 @@ export default {
 	.the-screen-investor-user-info .wdg-select.natural-language span.placeholder {
 		left: -245px;
 	}
-	/* .the-screen-investor-user-info input#userBirthdayDay, .the-screen-investor-user-info input#userBirthdayMonth {
-		width: 40px;
-	}
-	.the-screen-investor-user-info input#userBirthdayYear {
-		width: 60px;
-	}
-	.the-screen-investor-user-info .user-birthday-year span .description-below {
-		left: -70px;
-	} */
 	.the-screen-investor-user-info .date-of-birth, .the-screen-investor-user-info .address-number-container {
 		display: flex;
 		align-items: baseline;
@@ -604,7 +595,7 @@ export default {
 		margin-bottom: 40px;
 	}
 	.wdg-button button {
-		width: 250px;
+		width: 150px;
 	}
 	.close .wdg-button button {
 		width: auto;
