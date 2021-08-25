@@ -606,6 +606,9 @@ export default {
 	.wdg-button button {
 		width: 250px;
 	}
+	.close .wdg-button button {
+		width: auto;
+	}
 	div.the-screen-investor-user-info span.error {
 		color: red
 	}
