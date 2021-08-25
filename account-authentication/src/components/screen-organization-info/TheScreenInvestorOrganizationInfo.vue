@@ -76,40 +76,46 @@
 			<br><br>
 
 			<!-- Adresse e-mail -->
-			<span
-			  v-if="listError.indexOf('email') > -1"
-			  class="error"
-			  >
-				{{ $t('account-authentication.user-infos.error.PLEASE_FILL_IN') }}<br>
-			</span>
-			{{ $t('account-authentication.organization-infos.ITS_EMAIL_ADDRESS') }}
-			<WDGInput
-			  id="organizationEmail"
-			  name="organizationEmail"
-			  :value="sharedState.organization.email"
-			  v-bind:valueReturn.sync="sharedState.organization.email"
-			  :descriptionBelow="getFieldDescriptor('email')"
-			  customStyle="natural-language"
-			  />,
-			<br><br>
+			<div class="email-container">
+				<span
+			 	 v-if="listError.indexOf('email') > -1"
+			 	 class="error"
+			  	>
+					{{ $t('account-authentication.user-infos.error.PLEASE_FILL_IN') }}<br>
+				</span>
+				{{ $t('account-authentication.organization-infos.ITS_EMAIL_ADDRESS') }}
+				<WDGInput
+			 	 id="organizationEmail"
+			 	 name="organizationEmail"
+			 	 class="input-description-below"
+			 	 :value="sharedState.organization.email"
+			 	 v-bind:valueReturn.sync="sharedState.organization.email"
+			 	 :descriptionBelow="getFieldDescriptor('email')"
+			 	 customStyle="natural-language"
+			  	/>,
+				<br><br>
+			</div>
 
 			<!-- Site web -->
-			<span
-			  v-if="listError.indexOf('website') > -1"
-			  class="error"
-			  >
-				{{ $t('account-authentication.user-infos.error.PLEASE_FILL_IN') }}<br>
-			</span>
-			{{ $t('account-authentication.organization-infos.ITS_WEBSITE') }}
-			<WDGInput
-			  id="organizationWebsite"
-			  name="organizationWebsite"
-			  :value="sharedState.organization.website"
-			  v-bind:valueReturn.sync="sharedState.organization.website"
-			  :descriptionBelow="getFieldDescriptor('website')"
-			  customStyle="natural-language"
-			  />.
-			<br><br>
+			<div class="website-container">
+				<span
+			 	 v-if="listError.indexOf('website') > -1"
+			 	 class="error"
+			  	>
+					{{ $t('account-authentication.user-infos.error.PLEASE_FILL_IN') }}<br>
+				</span>
+				{{ $t('account-authentication.organization-infos.ITS_WEBSITE') }}
+				<WDGInput
+			 	 id="organizationWebsite"
+			 	 name="organizationWebsite"
+			 	 class="input-description-below"
+			 	 :value="sharedState.organization.website"
+			 	 v-bind:valueReturn.sync="sharedState.organization.website"
+			 	 :descriptionBelow="getFieldDescriptor('website')"
+			 	 customStyle="natural-language"
+			  	/>.
+				<br><br>
+			</div>
 		</div>
 
 		<div v-if="canDisplayLegal">
@@ -193,15 +199,18 @@
 			<div
 			  v-else
 			  >
-				{{ $t('account-authentication.organization-infos.ITS_ADDRESS_NUMBER_IS') }}
-				<WDGInput
-				  id="organizationAddressNumber"
-				  name="organizationAddressNumber"
-				  :value="sharedState.organization.address.number"
-				  v-bind:valueReturn.sync="sharedState.organization.address.number"
-				  :descriptionBelow="getAddressDescriptor('number')"
-				  customStyle="natural-language"
-				  />
+			  	<div class="address-number-container">
+					{{ $t('account-authentication.organization-infos.ITS_ADDRESS_NUMBER_IS') }}
+					<WDGInput
+				 	 id="organizationAddressNumber"
+				 	 name="organizationAddressNumber"
+				 	 class="input-description-below"
+				 	 :value="sharedState.organization.address.number"
+				 	 v-bind:valueReturn.sync="sharedState.organization.address.number"
+				 	 :descriptionBelow="getAddressDescriptor('number')"
+				 	 customStyle="natural-language"
+				  	/>
+				</div>
 
 				<WDGSelect
 				  v-if="sharedState.organization.address.country === 'FR'"
@@ -229,6 +238,7 @@
 				<WDGInput
 				  id="organizationAddressPostalCode"
 				  name="organizationAddressPostalCode"
+				  class="input-description-below"
 				  :value="sharedState.organization.address.postalCode"
 				  v-bind:valueReturn.sync="sharedState.organization.address.postalCode"
 				  :descriptionBelow="getAddressDescriptor('postalCode')"
@@ -238,6 +248,7 @@
 				<WDGInput
 				  id="organizationAddressCity"
 				  name="organizationAddressPostalCode"
+				  class="input-description-below"
 				  :value="sharedState.organization.address.city"
 				  v-bind:valueReturn.sync="sharedState.organization.address.city"
 				  :descriptionBelow="getAddressDescriptor('city')"
@@ -537,5 +548,9 @@ export default {
 	div.the-screen-investor-user-info div.request-error {
 		color: red;
 		text-align: center;
+	}
+	.the-screen-investor-organization-info .email-container, .the-screen-investor-organization-info .website-container, .the-screen-investor-organization-info .address-number-container {
+		display: flex;
+		align-items: baseline;
 	}
 </style>
