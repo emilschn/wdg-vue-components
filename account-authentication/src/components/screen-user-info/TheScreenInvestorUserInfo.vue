@@ -21,53 +21,57 @@
 		<br><br>
 
 		<!-- Date de naissance -->
-		<span
-		  v-if="listError.indexOf('birthday-day') > -1"
-		  class="error"
-		  >
-			{{ $t('account-authentication.user-infos.error.DATE_DAY') }}<br>
-		</span>
-		<span
-		  v-if="listError.indexOf('birthday-month') > -1"
-		  class="error"
-		  >
-			{{ $t('account-authentication.user-infos.error.DATE_MONTH') }}<br>
-		</span>
-		<span
-		  v-if="listError.indexOf('birthday-year') > -1"
-		  class="error"
-		  >
-			{{ $t('account-authentication.user-infos.error.DATE_YEAR') }}<br>
-		</span>
-		{{ $t('account-authentication.user-infos.I_AM_BORN') }}
-		<WDGInput
-		  id="userBirthdayDay"
-		  name="userBirthdayDay"
-		  :placeholder="getDateTranslation('DD')"
-		  :descriptionBelow="getDateDescriptor('DD')"
-		  :value="sharedState.user.birthday.day"
-		  v-bind:valueReturn.sync="sharedState.user.birthday.day"
-		  customStyle="natural-language"
-		  />
-		<WDGInput
-		  id="userBirthdayMonth"
-		  name="userBirthdayMonth"
-		  :placeholder="getDateTranslation('MM')"
-		  :descriptionBelow="getDateDescriptor('MM')"
-		  :value="sharedState.user.birthday.month"
-		  v-bind:valueReturn.sync="sharedState.user.birthday.month"
-		  customStyle="natural-language"
-		  />
-		<WDGInput class="user-birthday-year"
-		  id="userBirthdayYear"
-		  name="userBirthdayYear"
-		  :placeholder="getDateTranslation('YYYY')"
-		  :descriptionBelow="getDateDescriptor('YYYY')"
-		  :value="sharedState.user.birthday.year"
-		  v-bind:valueReturn.sync="sharedState.user.birthday.year"
-		  customStyle="natural-language"
-		  />,
-		<br><br>
+		<div class="date-of-birth">
+			<span
+		  		v-if="listError.indexOf('birthday-day') > -1"
+		  		class="error"
+		  	>
+				{{ $t('account-authentication.user-infos.error.DATE_DAY') }}<br>
+			</span>
+			<span
+		  		v-if="listError.indexOf('birthday-month') > -1"
+		 		class="error"
+		  	>
+				{{ $t('account-authentication.user-infos.error.DATE_MONTH') }}<br>
+			</span>
+			<span
+		  		v-if="listError.indexOf('birthday-year') > -1"
+		  		class="error"
+		  	>
+				{{ $t('account-authentication.user-infos.error.DATE_YEAR') }}<br>
+			</span>
+			{{ $t('account-authentication.user-infos.I_AM_BORN') }}
+			<WDGInput
+		  		id="userBirthdayDay"
+		  		name="userBirthdayDay"
+		  		class="input-description-below"
+		  		:placeholder="getDateTranslation('DD')"
+		  		:descriptionBelow="getDateDescriptor('DD')"
+		  		:value="sharedState.user.birthday.day"
+		  		v-bind:valueReturn.sync="sharedState.user.birthday.day"
+		  		customStyle="natural-language"
+		  	/>
+			<WDGInput
+		  		id="userBirthdayMonth"
+		  		name="userBirthdayMonth"
+		  		class="input-description-below"
+		  		:placeholder="getDateTranslation('MM')"
+		  		:descriptionBelow="getDateDescriptor('MM')"
+		  		:value="sharedState.user.birthday.month"
+		  		v-bind:valueReturn.sync="sharedState.user.birthday.month"
+		  		customStyle="natural-language"
+		  	/>
+			<WDGInput class="user-birthday-year input-description-below"
+		  		id="userBirthdayYear"
+		  		name="userBirthdayYear"
+		  		:placeholder="getDateTranslation('YYYY')"
+		  		:descriptionBelow="getDateDescriptor('YYYY')"
+		  		:value="sharedState.user.birthday.year"
+		  		v-bind:valueReturn.sync="sharedState.user.birthday.year"
+		  		customStyle="natural-language"
+		  	/>,
+			<br><br>
+		</div>
 
 		<!-- Pays de naissance -->
 		<span
@@ -204,15 +208,18 @@
 			<div
 			  v-else
 			  >
-				{{ $t('account-authentication.user-infos.MY_ADDRESS_NUMBER_IS') }}
-				<WDGInput
-				  id="userAddressNumber"
-				  name="userAddressNumber"
-				  :value="sharedState.user.address.number"
-				  v-bind:valueReturn.sync="sharedState.user.address.number"
-				  :descriptionBelow="getAddressDescriptor('number')"
-				  customStyle="natural-language"
-				  />
+			  	<div class="address-number-container">
+					{{ $t('account-authentication.user-infos.MY_ADDRESS_NUMBER_IS') }}
+					<WDGInput
+				  		id="userAddressNumber"
+				  		name="userAddressNumber"
+				  		class="input-description-below"
+				  		:value="sharedState.user.address.number"
+				  		v-bind:valueReturn.sync="sharedState.user.address.number"
+				  		:descriptionBelow="getAddressDescriptor('number')"
+				  		customStyle="natural-language"
+				  	/>
+				</div>
 
 				<WDGSelect
 				  v-if="sharedState.user.address.country === 'FR'"
@@ -246,6 +253,7 @@
 				<WDGInput
 				  id="userAddressPostalCode"
 				  name="userAddressPostalCode"
+				  class="input-description-below"
 				  :value="sharedState.user.address.postalCode"
 				  v-bind:valueReturn.sync="sharedState.user.address.postalCode"
 				  :descriptionBelow="getAddressDescriptor('postalCode')"
@@ -255,6 +263,7 @@
 				<WDGInput
 				  id="userAddressCity"
 				  name="userAddressPostalCode"
+				  class="input-description-below"
 				  :value="sharedState.user.address.city"
 				  v-bind:valueReturn.sync="sharedState.user.address.city"
 				  :descriptionBelow="getAddressDescriptor('city')"
@@ -568,7 +577,7 @@ export default {
 	.the-screen-investor-user-info .wdg-select.natural-language span.placeholder {
 		left: -245px;
 	}
-	.the-screen-investor-user-info input#userBirthdayDay, .the-screen-investor-user-info input#userBirthdayMonth {
+	/* .the-screen-investor-user-info input#userBirthdayDay, .the-screen-investor-user-info input#userBirthdayMonth {
 		width: 40px;
 	}
 	.the-screen-investor-user-info input#userBirthdayYear {
@@ -576,6 +585,20 @@ export default {
 	}
 	.the-screen-investor-user-info .user-birthday-year span .description-below {
 		left: -70px;
+	} */
+	.the-screen-investor-user-info .date-of-birth, .the-screen-investor-user-info .address-number-container {
+		display: flex;
+		align-items: baseline;
+	}
+	.the-screen-investor-user-info .date-of-birth .wdg-input.natural-language input, .the-screen-investor-user-info .address-number-container .wdg-input.natural-language input {
+		width: 40px;
+		margin-right: 15px;
+	}
+	.the-screen-investor-user-info .date-of-birth .wdg-input.natural-language #userBirthdayYear {
+		width: 60px;
+	}
+	.the-screen-investor-user-info .wdg-input.natural-language #userAddressPostalCode {
+		width: 70px;
 	}
 	.the-screen-investor-user-info div.user-info-line {
 		margin-bottom: 40px;
