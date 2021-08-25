@@ -184,6 +184,10 @@ hr {
 	text-align: right;
 	margin-right: 20px;
 }
+select#lang-select {
+	border: 1px solid #333;
+	padding: 5px;
+}
 
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s;
