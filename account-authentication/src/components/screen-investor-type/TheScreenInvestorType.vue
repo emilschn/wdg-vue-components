@@ -94,4 +94,55 @@ export default {
 	div.the-screen-investor-type .wdg-button {
 		margin-bottom: 40px;
 	}
+
+	/*******/
+	/* CUSTOMISATION DU BOUTON RADIO */
+	/*******/
+
+	/* Customisation du container */
+	.wdg-radiobutton label {
+		display: block;
+		position: relative;
+		padding-left: 35px;
+		margin-bottom: 16px;
+		cursor: pointer;
+		user-select: none;
+	}
+	/* Masquage du bouton par défaut */
+	.wdg-radiobutton label input {
+		position: absolute;
+		opacity: 0;
+		cursor: pointer;
+		height: 0;
+		width: 0;
+	}
+	/* Nouveau bouton personnalisé */
+	.checkmark {
+		position: absolute;
+		top: -2px;
+		left: 0;
+		height: 18px;
+		width: 18px;
+		border: 2px solid #c2c2c2;
+		border-radius: 50%;
+	}
+	/* Cercle à l'intérieur du bouton caché si pas coché */
+	.checkmark:after {
+  		content: "";
+  		position: absolute;
+  		display: none;
+	}
+	/* Cercle a l'intérieur du bouton si coché */
+	.wdg-radiobutton input:checked ~ .checkmark:after {
+		display: block;
+	}
+	/* Customisation du cercle à l'intérieur */
+	.wdg-radiobutton .checkmark:after {
+		border-radius: 50%;
+		background: #00879B;
+		top: 4px;
+		left: 4px; 
+		width: 10px;
+		height: 10px;
+	}
 </style>
