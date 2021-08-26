@@ -198,7 +198,7 @@
 					{{ $t('account-authentication.user-infos.error.PLEASE_FILL_IN') }}<br>
 				</span>
 				<div
-			 	 v-if="canDisplaySearchAddress"
+			 	 v-if="canDisplaySearchAddress" class="user-info-line"
 			  	>
 					{{ $t('account-authentication.user-infos.SEARCH_MY_ADRESS') }}
 					<WDGInputAddress
