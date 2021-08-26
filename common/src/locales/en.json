@@ -29,7 +29,9 @@
 		},
 		"SEND_FILE": "Send your file",
 		"SEND_FILE_DESCRIPTOR": "Click to browse your documents, drag and drop your file or take a picture.",
-		"CANT_FIND_ADDRESS": "Je ne trouve pas mon adresse"
+		"CANT_FIND_ADDRESS": "Je ne trouve pas mon adresse",
+		"FILE_TYPE_NOT_ACCEPTED": "Ce type de fichier n'est pas accepté",
+		"FILE_TOO_BIG": "Ce fichier est trop lourd"
 	},
 	"validations": {
 		"REQUIRED": "This field is required",

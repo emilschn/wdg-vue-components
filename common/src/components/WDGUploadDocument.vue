@@ -26,6 +26,7 @@
 		  :label="firstFileLabel"
 		  :class="nbFileToDisplay > 1 ? 'multiple' : ''"
 		  :uploadPercentage="file1UploadPercentage"
+		  :displayPreview=true
 		  >
 		</WDGUpload>
 		<WDGUpload
@@ -36,6 +37,7 @@
 		  :label="$t('account-authentication.user-documents.FILE_TWO_LABEL')"
 		  :class="nbFileToDisplay > 1 ? 'multiple' : ''"
 		  :uploadPercentage="file2UploadPercentage"
+		  :displayPreview=true
 		  >
 		</WDGUpload>
 		<div style="clear: both;"></div>
