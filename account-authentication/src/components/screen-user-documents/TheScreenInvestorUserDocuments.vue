@@ -236,15 +236,18 @@ export default {
 	}
 	div.the-screen-investor-user-documents div.title-container {
 		margin-bottom: 20px;
+		font-size: 20px;
+		width: 100%;
 	}
 	div.the-screen-investor-user-documents div.button-container {
 		float: left;
 		width: 600px;
+		display: flex;
+		flex-flow: row wrap;
 	}
 	div.the-screen-investor-user-documents div.button-container div.wdg-button {
-		float: left;
-		width: 270px;
-		margin-right: 20px;
+		margin-right: 30px;
+		width: 45%;
 	}
 	div.the-screen-investor-user-documents div.button-container div.wdg-button button {
 		height: 200px;
@@ -259,7 +262,8 @@ export default {
 		display: block;
 		font-size: 15px;
 		font-weight: normal;
-		color: #EBEBEB;
+		color: #c2c2c2;
+		margin-top: 10px;
 	}
 	div.the-screen-investor-user-documents div.upload-container {
 		float: left;

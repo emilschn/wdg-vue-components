@@ -34,11 +34,17 @@ export default {
 <style>
 	div.the-screen-investor-user-info-complete {
 		margin: 50px 0px;
+		display: flex;
+		align-items: center;
 	}
 	div.the-screen-investor-user-info-complete div.description {
 		float: left;
 		width: 500px;
 		padding: 50px;
 		background: #ebebeb;
+		margin-bottom: 50px;
+	}
+	div.the-screen-investor-user-info-complete .wdg-button button {
+		margin-bottom: 0;
 	}
 </style>
