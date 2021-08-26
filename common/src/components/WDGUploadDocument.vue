@@ -68,8 +68,6 @@ export default {
 		}
 	},
 	mounted () {
-		console.log('mounted')
-		console.log(this.$root)
 		this.$root.$on('resetUploadFile', this.onResetEvent)
 		this.$root.$on('updateFileUploadPercentage', this.onUpdateFileUploadPercentageEvent)
 	},
@@ -102,7 +100,6 @@ export default {
 			}
 		},
 		onUpdateFileUploadPercentageEvent (ref, uploadPercentage) {
-			console.log('onUpdateFileUploadPercentageEvent > ' + ref + ' >>' + uploadPercentage)
 			if (ref === 'file1') {
 				this.file1UploadPercentage = uploadPercentage
 			}

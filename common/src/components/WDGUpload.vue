@@ -20,6 +20,12 @@
 			<img :src="filePreviewURL">
 		</div>
 		<div
+		  v-if="fileName"
+		  class="remove-file"
+		  >
+			<a @click="onResetEvent">{{ $t('common.REMOVE') }}</a>
+		</div>
+		<div
 		  v-if="feedbackError !== ''"
 		  class="feedback-error"
 		  >
@@ -65,19 +71,19 @@ export default {
 	},
 	methods: {
 		onFileChangeEvent (e) {
-			this.filePreviewURL = ''
-			this.feedbackError = ''
-			this.files = Array.from(e.target.files)
+			this.onResetEvent()
+			let tempFiles = Array.from(e.target.files)
 
 			// Vérification du poids du fichier
-			let nSizeFile = this.files[0].size
+			let nSizeFile = tempFiles[0].size
 			if (nSizeFile < 8 * 1024 * 1024) {
 				// Si c'est un type de fichier accepté, on l'uploade directement
-				if (this.isFileTypeAccepted()) {
+				if (this.isFileTypeAccepted(tempFiles[0])) {
+					this.files = tempFiles
 					this.onFileChange(this.id, this.files)
 
 					// Si c'est une image, on charge l'url du fichier pour faire un aperçu
-					if (this.isFilePicture()) {
+					if (this.isFilePicture(this.files[0])) {
 						let reader = new FileReader()
 						reader.addEventListener(
 							'load',
@@ -99,15 +105,18 @@ export default {
 		},
 		onResetEvent () {
 			this.files = []
+			this.filePreviewURL = ''
+			this.feedbackError = ''
+			this.$root.$emit('updateFileUploadPercentage', this.id, 0)
 		},
-		isFilePicture () {
-			return /\.(jpe?g|png|gif)$/i.test(this.files[0].name)
+		isFilePicture (file) {
+			return /\.(jpe?g|png|gif)$/i.test(file.name)
 		},
-		isFilePDF () {
-			return /\.(pdf)$/i.test(this.files[0].name)
+		isFilePDF (file) {
+			return /\.(pdf)$/i.test(file.name)
 		},
-		isFileTypeAccepted () {
-			return this.isFilePicture() || this.isFilePDF()
+		isFileTypeAccepted (file) {
+			return this.isFilePicture(file) || this.isFilePDF(file)
 		}
 	}
 }
@@ -143,6 +152,11 @@ export default {
 .wdg-upload div.preview img {
 	max-width: 100%;
 	max-height: 150px;
+}
+.wdg-upload div.remove-file a {
+	color: blue;
+	text-decoration: underline;
+	cursor: pointer;
 }
 .wdg-upload div.feedback-error {
 	color: red;

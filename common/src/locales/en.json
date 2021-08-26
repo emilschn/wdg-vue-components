@@ -10,6 +10,7 @@
 		"ORGA_EMAIL_ADDRESS": "Email address of the entity",
 		"ORGA_NAME": "Company name",
 		"VALIDATE": "Validate",
+		"REMOVE": "Remove",
 		"REQUEST_ERROR": "Problem sending request",
 		"REQUIRED_FIELDS": "Required fields",
 		"SEND": "Send",
