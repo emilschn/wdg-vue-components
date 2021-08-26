@@ -10,6 +10,7 @@
 			<span v-if="fileName !== ''">{{ fileName }}</span>
 			<span v-else-if="label !== null && label !== ''">{{ label }}</span>
 			<span v-else>{{ $t('common.SEND_FILE') }}</span>
+			<progress max="100" :value.prop="uploadPercentage"></progress>
 		</label>
 		{{ $t('common.SEND_FILE_DESCRIPTOR') }}
 	</div>
@@ -24,6 +25,7 @@ export default {
 		id: { type: String, default: null },
 		color: { type: String, default: 'red' },
 		label: { type: String, default: null },
+		uploadPercentage: { type: Number, default: 0 },
 		onFileChange: Function
 	},
 	data () {
@@ -77,5 +79,8 @@ export default {
 	overflow: hidden;
 	position: absolute;
 	z-index: -1;
+}
+.wdg-upload label progress {
+	display: block;
 }
 </style>

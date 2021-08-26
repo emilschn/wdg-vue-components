@@ -478,7 +478,7 @@ export default {
 			}
 		},
 		onButtonConfirmUserInfoEvent () {
-			if (this.checkUserInfo()) {
+			// if (this.checkUserInfo()) {
 				// En mode dev, on passe directement à la suite
 				if (process.env.NODE_ENV === 'development') {
 					this.onConfirmUserInfo()
@@ -488,7 +488,7 @@ export default {
 					this.requestError = ''
 					requests.saveUserInfo(this.sharedState, this.onSaveUserInfoReturnEvent)
 				}
-			}
+			// }
 		},
 		onSaveUserInfoReturnEvent (responseData) {
 			this.loading = false
