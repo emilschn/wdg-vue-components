@@ -249,13 +249,14 @@
 				  		/>
 					</div>
 
-					<div class="user-info-line postal-code-and-city">
+					
 						<span
 				 		 v-if="listError.indexOf('address-city') > -1"
 				 		 class="error addressCity"
 				  		>
 							{{ $t('account-authentication.user-infos.error.PLEASE_FILL_IN') }}<br>
 						</span>
+					<div class="user-info-line postal-code-and-city">
 						{{ $t('account-authentication.user-infos.MY_ADDRESS_POSTAL_CODE_IS') }}
 						<WDGInput
 				 		 id="userAddressPostalCode"
@@ -624,7 +625,26 @@ export default {
 		width: auto;
 	}
 	div.the-screen-investor-user-info span.error {
-		color: red
+		border: 1px solid #F8CACA;
+		padding: 10px;
+		font-size: 14px;
+		display: block;
+		margin-bottom: 2px;
+		width: 30%;
+	}
+	div.the-screen-investor-user-info span.error:before {
+		/* content:url(/../../../common/src/assets/icons/exclamation.png); */
+		content:url(D:/Site/wp-content/plugins/wdg-vue-components/common/src/assets/icons/exclamation.png);
+		width: 15px;
+		display: inline-block;
+		vertical-align: middle;
+	}
+	.the-screen-investor-user-info .date-of-birth {
+		display: flex;
+		flex-flow: row wrap;
+	}
+	.the-screen-investor-user-info .date-of-birth .error {
+		margin-right: 10px;
 	}
 	div.the-screen-investor-user-info div.request-error {
 		color: red;
