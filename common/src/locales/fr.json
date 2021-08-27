@@ -189,7 +189,10 @@
 		"checking": {
 			"DOCUMENTS_IMPORTED": "Vos documents sont importés",
 			"YOUR_DOCUMENTS_MUST_BE_VALIDATED_BY_LEMONWAY": "Vos documents doivent maintenant être validés par notre prestataire, LemonWay. Vous serez notifié par mail dès que cela est fait.",
-			"YOUR_DOCUMENTS_CAN_BE_FOUND_IN_YOUR_ACCOUNT": "Vous pourrez retrouver vos documents dans votre compte utilisateur."
+			"YOUR_DOCUMENTS_CAN_BE_FOUND_IN_YOUR_ACCOUNT": "Vous pourrez retrouver vos documents dans votre compte utilisateur.",
+			"SEND_ME_AUTHENTIFICATION_SMS": "J’aimerais être également notifié de l’authentification de mes documents par SMS",
+			"TITLE_PHONE": "Mon numéro de téléphone mobile est ",
+			"PHONE_ERROR": "Le numéro de téléphone n'est pas valide"
 		},
 		"requests": {
 			"errors": {

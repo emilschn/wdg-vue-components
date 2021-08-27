@@ -105,6 +105,28 @@ export const requests = {
 
 	},
 
+	saveUserPhone(currentState, functionReturn){
+		let data = new FormData()
+		data.append('action', 'account_authentication_save_current_user_phone')
+		data.append('phone_number', currentState.user.phone.number)
+		data.append('send_sms', currentState.user.notification)
+		axios
+			.post(store.props.customajaxurl, data, { timeout: 10000 })
+			.then(response => {
+				let responseData = response.data
+				console.log('then')
+				console.log(responseData)
+				functionReturn(responseData)
+			})
+			.catch(error => {
+				// console.log('error.toJSON')
+				console.log(error)
+				console.log(error.config)
+				this.logRequestError('saveUserPhone >> error >> ' + error.toString() + ' >>>> ' + JSON.stringify(error))
+				functionReturn('error')
+			})
+	},
+
 	saveOrganizationInfo(currentState, functionReturn) {
 		console.log('saveOrganizationInfo')
 		let data = new FormData()

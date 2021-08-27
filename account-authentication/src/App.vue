@@ -93,6 +93,9 @@ export default {
 
 		// Récupération de toute façon des informations de l'utilisateur connecté
 		requests.getCurrentUserInfo( this.onGetUserInfoRequestReturnEvent )
+
+		//temp
+				store.changeStep( 'checking' )
 	},
 	methods: {
 		onHashChangedEvent () {
