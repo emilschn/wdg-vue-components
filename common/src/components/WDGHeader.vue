@@ -168,6 +168,7 @@ hr {
 .header-right-items {
 	display: flex;
 	align-items: center;
+	flex-direction: row;
 }
 .close .wdg-button {
 	text-align: center;
@@ -175,6 +176,7 @@ hr {
 .close .wdg-button button, .back .wdg-button button {
 	border: 0;
 	margin-bottom: 0;
+	margin-top: 0;
 }
 .close img, .back img {
 	width: 20px;
