@@ -8,7 +8,7 @@
 				<WDGUploadDocument
 				  id="organization-user2-document-1"
 				  :onFileChange="onUploadDocumentFileChangeEvent"
-				  :onUploadComplete="onUploadDocumentUploadCompleteEvent"
+				  :onAllFilesSelected="onAllFilesSelectedEvent"
 				  />
 			</div>
 
@@ -18,7 +18,7 @@
 				<WDGUploadDocument
 				  id="organization-user2-document-2"
 				  :onFileChange="onUploadDocumentFileChangeEvent"
-				  :onUploadComplete="onUploadDocumentUploadCompleteEvent"
+				  :onAllFilesSelected="onAllFilesSelectedEvent"
 				  />
 			</div>
 
@@ -42,7 +42,7 @@
 				<WDGUploadDocument
 				  id="organization-user3-document-1"
 				  :onFileChange="onUploadDocumentFileChangeEvent"
-				  :onUploadComplete="onUploadDocumentUploadCompleteEvent"
+				  :onAllFilesSelected="onAllFilesSelectedEvent"
 				  />
 			</div>
 
@@ -52,7 +52,7 @@
 				<WDGUploadDocument
 				  id="organization-user3-document-2"
 				  :onFileChange="onUploadDocumentFileChangeEvent"
-				  :onUploadComplete="onUploadDocumentUploadCompleteEvent"
+				  :onAllFilesSelected="onAllFilesSelectedEvent"
 				  />
 			</div>
 
@@ -76,7 +76,7 @@
 				<WDGUploadDocument
 				  id="organization-user4-document-1"
 				  :onFileChange="onUploadDocumentFileChangeEvent"
-				  :onUploadComplete="onUploadDocumentUploadCompleteEvent"
+				  :onAllFilesSelected="onAllFilesSelectedEvent"
 				  />
 			</div>
 
@@ -86,7 +86,7 @@
 				<WDGUploadDocument
 				  id="organization-user4-document-2"
 				  :onFileChange="onUploadDocumentFileChangeEvent"
-				  :onUploadComplete="onUploadDocumentUploadCompleteEvent"
+				  :onAllFilesSelected="onAllFilesSelectedEvent"
 				  />
 			</div>
 		</div>
@@ -101,6 +101,7 @@
 </template>
 
 <script>
+import { requests } from './../../requests.js'
 import WDGButton from '@/../../common/src/components/WDGButton'
 import WDGUploadDocument from '@/../../common/src/components/WDGUploadDocument'
 export default {
@@ -114,6 +115,7 @@ export default {
 	},
 	data () {
 		return {
+			sharedState: store.state,
 			nbPeople: 1,
 			people2Files: [],
 			people2Doc1Complete: false,
@@ -127,7 +129,7 @@ export default {
 		}
 	},
 	methods: {
-		onUploadDocumentFileChangeEvent (id, index, files) {
+		onUploadDocumentFileChangeEvent (id, index, idUploadDocument, files) {
 			if (id.indexOf('user2') > -1) {
 				this.people2Files.splice(index, 1, files)
 			}
@@ -137,8 +139,10 @@ export default {
 			if (id.indexOf('user4') > -1) {
 				this.people4Files.splice(index, 1, files)
 			}
+			requests.uploadFile(idUploadDocument, files[0], 'organization', sharedState.organization.apiId, this.onDocumentUploadProgressEvent, this.onDocumentUploadCompleteEvent)
 		},
-		onUploadDocumentUploadCompleteEvent (id) {
+		onAllFilesSelectedEvent (id) {
+			console.log('onAllFilesSelectedEvent')
 			if (id.indexOf('user2') > -1) {
 				if (id.indexOf('document-1') > -1) {
 					this.people2Doc1Complete = true
@@ -160,6 +164,13 @@ export default {
 					this.people4Doc2Complete = true
 				}
 			}
+		},
+		onDocumentUploadProgressEvent (inputRef, uploadPercentage) {
+			console.log('onDocumentUploadProgressEvent > ' + inputRef + ' ; ' + uploadPercentage)
+			this.$root.$emit('updateFileUploadPercentage', inputRef, uploadPercentage)
+		},
+		onDocumentUploadCompleteEvent () {
+			console.log('onUploadDocumentUploadCompleteEvent')
 		},
 		onAddAnotherPeopleClickEvent () {
 			if ( this.nbPeople < 3 ) {

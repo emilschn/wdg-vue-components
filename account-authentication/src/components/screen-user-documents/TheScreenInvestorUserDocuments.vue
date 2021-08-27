@@ -105,7 +105,7 @@
 			<WDGUploadDocument
 			  id="user-document"
 			  :onFileChange="onUploadDocumentFileChangeEvent"
-			  :onUploadComplete="onUploadDocumentUploadCompleteEvent"
+			  :onAllFilesSelected="onAllFilesSelectedEvent"
 			  />
 
 			<WDGButton
@@ -133,6 +133,7 @@
 </template>
 
 <script>
+import { requests } from './../../requests.js'
 import WDGButton from '@/../../common/src/components/WDGButton'
 import WDGMascot from '@/../../common/src/components/WDGMascot'
 import WDGUploadDocument from '@/../../common/src/components/WDGUploadDocument'
@@ -182,19 +183,28 @@ export default {
 				this.step = 'choose-second-file-type'
 			}
 		},
-		onUploadDocumentFileChangeEvent (id, index, files) {
+		onUploadDocumentFileChangeEvent (id, index, idUploadDocument, files) {
 			if ( this.step === 'choose-first-file-upload' ) {
 				this.firstDocumentList.splice(index, 1, files)
 			} else {
 				this.secondDocumentList.splice(index, 1, files)
 			}
+			requests.uploadFile(idUploadDocument, files[0], 'user', '', this.onDocumentUploadProgressEvent, this.onDocumentUploadCompleteEvent)
 		},
-		onUploadDocumentUploadCompleteEvent (id) {
+		onAllFilesSelectedEvent () {
+			console.log('onAllFilesSelectedEvent')
 			if ( this.step === 'choose-first-file-upload' ) {
 				this.firstDocumentComplete = true
 			} else {
 				this.secondDocumentComplete = true
 			}
+		},
+		onDocumentUploadProgressEvent (inputRef, uploadPercentage) {
+			console.log('onDocumentUploadProgressEvent > ' + inputRef + ' ; ' + uploadPercentage)
+			this.$root.$emit('updateFileUploadPercentage', inputRef, uploadPercentage)
+		},
+		onDocumentUploadCompleteEvent () {
+			console.log('onUploadDocumentUploadCompleteEvent')
 		},
 		onContinueButtonClickEvent () {
 			if ( this.step === 'choose-first-file-upload' ) {

@@ -88,4 +88,10 @@ export default {
 		background: #ebebeb;
 		margin-bottom: 30px;
 	}
+	div.the-screen-investor-type .wdg-message {
+		margin: 30px 0px 20px 0px;
+	}
+	div.the-screen-investor-type .wdg-button {
+		margin-bottom: 40px;
+	}
 </style>

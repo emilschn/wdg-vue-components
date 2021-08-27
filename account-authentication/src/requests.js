@@ -1,8 +1,5 @@
-import Vue from 'vue'
 import axios from 'axios'
 import { store } from './store.js'
-
-export const bus = new Vue()
 
 export const requests = {
 	/**
@@ -24,6 +21,7 @@ export const requests = {
 		let data = new FormData()
 		data.append('action', 'account_authentication_get_current_user_info')
 		data.append('sessionUID', store.state.sessionUID)
+
 		axios
 			.post(store.props.customajaxurl, data, { timeout: 10000 })
 			.then(response => {
@@ -49,6 +47,7 @@ export const requests = {
 		let data = new FormData()
 		data.append('action', 'account_authentication_search_address')
 		data.append('address', addressTyped)
+
 		axios
 			.post(store.props.customajaxurl, data, { timeout: 10000 })
 			.then(response => {
@@ -87,6 +86,7 @@ export const requests = {
 		data.append('address_postalcode', currentState.user.address.postalCode)
 		data.append('address_city', currentState.user.address.city)
 		data.append('address_country', currentState.user.address.country)
+
 		axios
 			.post(store.props.customajaxurl, data, { timeout: 10000 })
 			.then(response => {
@@ -149,7 +149,6 @@ export const requests = {
 		data.append('address_city', currentState.organization.address.city)
 		data.append('address_country', currentState.organization.address.country)
 
-
 		axios
 			.post(store.props.customajaxurl, data, { timeout: 10000 })
 			.then(response => {
@@ -167,5 +166,44 @@ export const requests = {
 				functionReturn('error')
 			})
 
+	},
+
+	uploadFile(inputRef, file, userType, idAPI, functionProgress, functionEnd) {
+		console.log('uploadFile')
+		let data = new FormData()
+		data.append('action', 'account_authentication_upload_file')
+		data.append('file', file)
+		data.append('user_type', userType)
+		data.append('id_api', idAPI)
+
+		axios
+			.post(
+				store.props.customajaxurl,
+				data,
+				{
+					timeout: 120000,
+					headers: {
+						'Content-Type': 'multipart/form-data'
+					},
+					onUploadProgress: function (progressEvent) {
+						let uploadPercentage = parseInt(Math.round((progressEvent.loaded / progressEvent.total) * 100))
+						functionProgress(inputRef, uploadPercentage)
+					}
+				}
+			)
+			.then(response => {
+				// 
+				let responseData = response.data
+				console.log('then')
+				console.log(responseData)
+				functionEnd(responseData)
+			})
+			.catch(error => {
+				// console.log('error.toJSON')
+				console.log(error)
+				console.log(error.config)
+				this.logRequestError('uploadFile >> error >> ' + error.toString() + ' >>>> ' + JSON.stringify(error))
+				functionEnd('error')
+			})
 	}
 }

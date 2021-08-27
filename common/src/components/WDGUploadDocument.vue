@@ -21,17 +21,23 @@
 		<WDGUpload
 		  v-if="nbFileToDisplay >= 1"
 		  id="file1"
+		  ref="file1"
 		  :onFileChange="onFileUploadChangeEvent"
 		  :label="firstFileLabel"
 		  :class="nbFileToDisplay > 1 ? 'multiple' : ''"
+		  :uploadPercentage="file1UploadPercentage"
+		  :displayPreview=true
 		  >
 		</WDGUpload>
 		<WDGUpload
 		  v-if="nbFileToDisplay > 1"
 		  id="file2"
+		  ref="file2"
 		  :onFileChange="onFileUploadChangeEvent"
 		  :label="$t('account-authentication.user-documents.FILE_TWO_LABEL')"
 		  :class="nbFileToDisplay > 1 ? 'multiple' : ''"
+		  :uploadPercentage="file2UploadPercentage"
+		  :displayPreview=true
 		  >
 		</WDGUpload>
 		<div style="clear: both;"></div>
@@ -51,16 +57,19 @@ export default {
 	props: {
 		id: { type: String, default: null },
 		onFileChange: Function,
-		onUploadComplete: Function
+		onAllFilesSelected: Function
 	},
 	data () {
 		return {
-			nbFileToDisplay: { type: Number, default: 0 },
-			files: []
+			nbFileToDisplay: 0,
+			files: [],
+			file1UploadPercentage: 0,
+			file2UploadPercentage: 0
 		}
 	},
 	mounted () {
 		this.$root.$on('resetUploadFile', this.onResetEvent)
+		this.$root.$on('updateFileUploadPercentage', this.onUpdateFileUploadPercentageEvent)
 	},
 	computed: {
 		firstFileLabel () {
@@ -78,7 +87,7 @@ export default {
 		onFileUploadChangeEvent (idUploadDocument, filesUpload) {
 			let index = (idUploadDocument === 'file1') ? 0 : 1
 			this.files.splice(index, 1, filesUpload)
-			this.onFileChange(this.id, index, filesUpload)
+			this.onFileChange(this.id, index, idUploadDocument, filesUpload)
 
 			let sendUploadComplete = true
 			for (let i = 0; i < this.nbFileToDisplay; i++) {
@@ -87,7 +96,15 @@ export default {
 				}
 			}
 			if (sendUploadComplete) {
-				this.onUploadComplete(this.id)
+				this.onAllFilesSelected(this.id)
+			}
+		},
+		onUpdateFileUploadPercentageEvent (ref, uploadPercentage) {
+			if (ref === 'file1') {
+				this.file1UploadPercentage = uploadPercentage
+			}
+			if (ref === 'file2') {
+				this.file2UploadPercentage = uploadPercentage
 			}
 		},
 		onResetEvent () {

@@ -10,6 +10,7 @@
 		"ORGA_EMAIL_ADDRESS": "Adresse mail de la structure",
 		"ORGA_NAME": "Nom de l'entreprise",
 		"VALIDATE": "Valider",
+		"REMOVE": "Supprimer",
 		"REQUEST_ERROR": "Problème d'envoi de requête",
 		"REQUIRED_FIELDS": "Champs obligatoires",
 		"SEND": "Envoyer",
@@ -29,7 +30,9 @@
 		},
 		"SEND_FILE": "Envoyez votre fichier",
 		"SEND_FILE_DESCRIPTOR": "Cliquez pour parcourir vos documents, glissez-déposez directement votre fichier ou prenez une photo.",
-		"CANT_FIND_ADDRESS": "Je ne trouve pas mon adresse"
+		"CANT_FIND_ADDRESS": "Je ne trouve pas mon adresse",
+		"FILE_TYPE_NOT_ACCEPTED": "Ce type de fichier n'est pas accepté",
+		"FILE_TOO_BIG": "Ce fichier est trop lourd"
 	},
 	"validations": {
 		"REQUIRED": "Ce champ est obligatoire",

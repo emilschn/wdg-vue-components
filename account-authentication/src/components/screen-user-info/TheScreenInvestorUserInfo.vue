@@ -58,7 +58,7 @@
 		  v-bind:valueReturn.sync="sharedState.user.birthday.month"
 		  customStyle="natural-language"
 		  />
-		<WDGInput
+		<WDGInput class="user-birthday-year"
 		  id="userBirthdayYear"
 		  name="userBirthdayYear"
 		  :placeholder="getDateTranslation('YYYY')"
@@ -105,7 +105,6 @@
 				  v-bind:valueReturn.sync="sharedState.user.birthday.department"
 				  customStyle="natural-language"
 				  />
-				<br><br>
 			</div>
 
 			<span
@@ -122,9 +121,9 @@
 			  v-bind:valueReturn.sync="sharedState.user.birthday.city"
 			  customStyle="natural-language"
 			  />
+			<br><br>
 			
-			<div v-if="canDisplayFrenchDistrict">
-				<br><br>
+			<div v-if="canDisplayFrenchDistrict" class="user-info-line">
 
 				<span
 				  v-if="listError.indexOf('birthday-district') > -1"
@@ -142,12 +141,11 @@
 				  customStyle="natural-language"
 				  />
 			</div>
-
 			<br><br>
 		</div>
 
 		<!-- Nationalité -->
-		<div v-if="canDisplayNationality">
+		<div v-if="canDisplayNationality" class="user-info-line">
 			<span
 			  v-if="listError.indexOf('birthday-nationality') > -1"
 			  class="error"
@@ -163,7 +161,7 @@
 			  v-bind:valueReturn.sync="sharedState.user.birthday.nationality"
 			  customStyle="natural-language"
 			  />.
-			<br><br>
+			  <br><br>
 		</div>
 
 		<!-- Adresse -->
@@ -266,7 +264,7 @@
 			</div>
 		</div>
 
-		<div v-if="canDisplayTaxCountry">
+		<div v-if="canDisplayTaxCountry" class="user-info-line">
 			<span
 			  v-if="listError.indexOf('address-taxCountry') > -1"
 			  class="error addressTaxCountry"
@@ -282,7 +280,6 @@
 			  v-bind:valueReturn.sync="sharedState.user.taxCountry"
 			  customStyle="natural-language"
 			  />
-			<br><br>
 		</div>
 
 		
@@ -481,7 +478,7 @@ export default {
 			}
 		},
 		onButtonConfirmUserInfoEvent () {
-			if (this.checkUserInfo()) {
+			// if (this.checkUserInfo()) {
 				// En mode dev, on passe directement à la suite
 				if (process.env.NODE_ENV === 'development') {
 					this.onConfirmUserInfo()
@@ -491,7 +488,7 @@ export default {
 					this.requestError = ''
 					requests.saveUserInfo(this.sharedState, this.onSaveUserInfoReturnEvent)
 				}
-			}
+			// }
 		},
 		onSaveUserInfoReturnEvent (responseData) {
 			this.loading = false
@@ -567,6 +564,24 @@ export default {
 <style>
 	div.the-screen-investor-user-info {
 		margin: 50px 0px;
+	}
+	.the-screen-investor-user-info .wdg-select.natural-language span.placeholder {
+		left: -245px;
+	}
+	.the-screen-investor-user-info input#userBirthdayDay, .the-screen-investor-user-info input#userBirthdayMonth {
+		width: 40px;
+	}
+	.the-screen-investor-user-info input#userBirthdayYear {
+		width: 60px;
+	}
+	.the-screen-investor-user-info .user-birthday-year span .description-below {
+		left: -70px;
+	}
+	.the-screen-investor-user-info div.user-info-line {
+		margin-bottom: 40px;
+	}
+	.wdg-button button {
+		width: 250px;
 	}
 	div.the-screen-investor-user-info span.error {
 		color: red
