@@ -267,7 +267,7 @@ export default {
 	}
 	div.wdg-upload-document div.wdg-radiobutton label {
 		height: auto;
-		margin-bottom: 50px;
+		margin-bottom: 30px;
 	}
 	div.the-screen-investor-user-documents div.button-container div.wdg-button button .far, .fas{
 		padding: 5px;
@@ -303,6 +303,7 @@ export default {
 		color: #EA4F51;
 		text-decoration: underline;
 		display: block;
-		margin-top: 20px;
+		margin-top: 30px;
+		margin-bottom: 50px;
 	}
 </style>
