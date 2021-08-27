@@ -11,7 +11,7 @@
 			<span v-else-if="label !== null && label !== ''">{{ label }}</span>
 			<span v-else>{{ $t('common.SEND_FILE') }}</span>
 		</label>
-		{{ $t('common.SEND_FILE_DESCRIPTOR') }}
+		<span>{{ $t('common.SEND_FILE_DESCRIPTOR') }}</span>
 	</div>
 </template>
 

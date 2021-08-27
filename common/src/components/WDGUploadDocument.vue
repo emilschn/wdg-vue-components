@@ -100,11 +100,12 @@ export default {
 <style>
 div.wdg-upload-document {
 	margin-top: 10px;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
 }
 div.wdg-upload-document div.wdg-radiobutton {
-	float: left;
-	width: 270px;
-	margin-right: 20px;
+	width: 40%;
 }
 div.wdg-upload-document div.wdg-radiobutton label {
 	height: 200px;
@@ -113,12 +114,11 @@ div.wdg-upload-document div.wdg-radiobutton label span.description {
 	display: block;
 	font-size: 15px;
 	font-weight: normal;
-	color: #EBEBEB;
-	margin-left: 20px;
+	color: #c2c2c2;
+	margin-top: 10px;
 }
 div.wdg-upload-document div.wdg-upload {
-	float: left;
-	width: 50.1%;
+	width: 40%;
 }
 div.wdg-upload-document div.wdg-upload.multiple {
 	float: right;
