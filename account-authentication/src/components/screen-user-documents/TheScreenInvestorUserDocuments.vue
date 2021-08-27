@@ -254,6 +254,7 @@ export default {
 		font-size: 20px;
 		font-weight: bold;
 		text-transform: unset !important;
+		width: auto;
 	}
 	div.the-screen-investor-user-documents div.button-container div.wdg-button button .far, .fas{
 		padding: 5px;
