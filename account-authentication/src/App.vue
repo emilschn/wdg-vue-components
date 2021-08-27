@@ -205,6 +205,7 @@ div.account-authentication {
 }
 body {
 	font-size: 16px;
+	margin: 0;
 }
 div.wdg-tabs span.full-size {
 	text-transform: uppercase;
