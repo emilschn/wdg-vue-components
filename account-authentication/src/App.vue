@@ -94,8 +94,6 @@ export default {
 		// Récupération de toute façon des informations de l'utilisateur connecté
 		requests.getCurrentUserInfo( this.onGetUserInfoRequestReturnEvent )
 
-		//temp
-				store.changeStep( 'checking' )
 	},
 	methods: {
 		onHashChangedEvent () {
@@ -161,6 +159,10 @@ export default {
 				this.sharedState.user.address.postalCode = responseData.address_postalcode
 				this.sharedState.user.address.city = responseData.address_city
 				this.sharedState.user.address.country = responseData.address_country
+				this.sharedState.user.language = responseData.language
+				if ( this.sharedState.user.language !== '' ) {
+					i18n.locale = this.sharedState.user.language
+				}
 			} else {
 				// On redirige vers la page donnée par le serveur (la page de connexion) - sauf en mode dev
 				if (responseData.redirectUrl !== undefined && responseData.redirectUrl !== '' && process.env.NODE_ENV !== 'development') {

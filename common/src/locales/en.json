@@ -76,8 +76,8 @@
 			"PROFILE": "Profil investisseurs",
 			"PROFILE_USER_DURATION": "3 minutes",
 			"PROFILE_ORGANIZATION_DURATION": "3 minutes",
-			"CHECKING": "Vérification",
-			"CHECKING_DURATION": "Jusqu'à 48h d'attente"
+			"CHECKING": "Checking",
+			"CHECKING_DURATION": "Up to 48 hours of waiting"
 		},
 		"INVEST_FOR_ORGANIZATION": "Souhaitez-vous investir au nom d'une organisation (en tant que personne morale) ?",
 		"YOU_MUST_REPRESENT_ORGANIZATION": "Vous devez être le représentant légal de votre organisation.",
@@ -187,9 +187,12 @@
 			"SEND_OTHER_PEOPLE_4": "Sélectionnez un justificatif d'identité de la quatrième personne possédant au moins 25 % du capital"
 		},
 		"checking": {
-			"DOCUMENTS_IMPORTED": "Vos documents sont importés",
-			"YOUR_DOCUMENTS_MUST_BE_VALIDATED_BY_LEMONWAY": "Vos documents doivent maintenant être validés par notre prestataire, LemonWay. Vous serez notifié par mail dès que cela est fait.",
-			"YOUR_DOCUMENTS_CAN_BE_FOUND_IN_YOUR_ACCOUNT": "Vous pourrez retrouver vos documents dans votre compte utilisateur."
+			"DOCUMENTS_IMPORTED": "Your documents are imported",
+			"YOUR_DOCUMENTS_MUST_BE_VALIDATED_BY_LEMONWAY": "Your documents must now be validated by our service provider, LemonWay. You will be notified by email as soon as this is done.",
+			"YOUR_DOCUMENTS_CAN_BE_FOUND_IN_YOUR_ACCOUNT": "You can find your documents in your user account.",
+			"SEND_ME_AUTHENTIFICATION_SMS": "I would also like to be notified of the authentication of my documents by SMS",
+			"TITLE_PHONE": "My mobile phone number is ",
+			"PHONE_ERROR": "The phone number is not valid"
 		},
 		"requests": {
 			"errors": {

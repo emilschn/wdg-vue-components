@@ -40,7 +40,7 @@
 						id="userPhoneCode"
 						name="userPhoneCode"
 						:optionItems="sharedStatic.phoneCodes"
-						:value="sharedState.user.phone.code"
+						:value="countryCode"
 						v-bind:valueReturn.sync="sharedState.user.phone.code"
 						customStyle="natural-language"
 						:onSelect="onPhoneCodeSelectEvent"
@@ -68,6 +68,7 @@
 </template>
 
 <script>
+import i18n from '@/i18n'
 import { requests } from './../../requests.js'
 import { store } from './../../store.js'
 import WDGMascot from '@/../../common/src/components/WDGMascot'
@@ -96,21 +97,38 @@ export default {
 			sharedStatic: store.static,
 			loading: false,
 			phoneError: false,
+			countryCode: false,
 			requestError: ''
+		}
+	},
+	created () {
+		// on met le sélecteur de code directement sur le pays de l'utilisateur
+		if (this.sharedState.user.address.country && this.sharedState.user.address.country !== '' ) {
+			this.countryCode = this.sharedState.user.address.country.toUpperCase()
+			this.onPhoneCodeSelectEvent( this.countryCode )
+		} else {
+			this.countryCode = ''
 		}
 	},
 	computed: {
 		getAccountUrl () {
-			// TODO : récupérer home_url et la langue
-			if (process.env.NODE_ENV === 'development') {
-				return 'http://wedogood.local/mon-compte/'
+			// TODO : récupérer home_url
+			if ( i18n.locale == 'fr' ){
+				if (process.env.NODE_ENV === 'development') {
+					return 'http://wedogood.local/mon-compte/'
+				} else {
+					return 'https://www.wedogood.co/mon-compte/'
+				}
 			} else {
-				return 'https://www.wedogood.co/mon-compte/'
+				if (process.env.NODE_ENV === 'development') {
+					return 'http://wedogood.local/my-account/'
+				} else {
+					return 'https://www.wedogood.co/my-account/'
+				}
 			}
 		}
 	},
 	methods: {
-		// TODO : mettre le sélecteur de code directement sur le pays de l'utilisateur
      	getPhoneCodeByCountryCode (arrayName, value) {  
 			var keyName = '';
 			var index = -1;
@@ -125,10 +143,11 @@ export default {
 			}
 			return index;
 		},
-		onPhoneCodeSelectEvent (sSelectedCode) {
+		onPhoneCodeSelectEvent (selectedCode) {
 			// quand on choisit un indicatif on l'assigne par défaut au numéro de téléphone			
-			var index = this.getPhoneCodeByCountryCode(this.sharedStatic.phoneCodes, sSelectedCode)
+			var index = this.getPhoneCodeByCountryCode(this.sharedStatic.phoneCodes, selectedCode)
 			this.sharedState.user.phone.number = this.sharedStatic.phoneCodes[index].dial_code + ' '
+			this.sharedState.user.phone.code = this.sharedStatic.phoneCodes[index].dial_code
 			this.$root.$emit('onPhoneCodeChangeEvent', this.sharedState.user.phone.number)
 		},
 		checkPhoneNumber() {
@@ -138,8 +157,15 @@ export default {
 				window.location = this.getAccountUrl
 				return false
 			} else {
-				// TODO : on vérifie le numéro de téléphone
-				if (this.sharedState.user.phone.number.length > this.sharedState.user.phone.code.length){
+				// on vérifie que le début du numéro de téléphone correspond bien au code choisi
+				var startWithCode = this.sharedState.user.phone.number.startsWith( this.sharedState.user.phone.code )
+				// puis on vérifie qu'il y a assez de chiffres à la suite (mini 4 pour Sainte-Hélène) 
+				var isLongEnough = (this.sharedState.user.phone.number.length > this.sharedState.user.phone.code.length + 4)
+				// et que ce sont des chiffres
+				const regex = /\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}/g;
+				var isNumber = regex.test(this.sharedState.user.phone.number)
+
+				if ( startWithCode && isLongEnough && isNumber ){
 					return true
 				} else {
 					this.phoneError = true
@@ -149,20 +175,15 @@ export default {
 		},
 		onContinue() {
 			// on clique sur le bouton continuer
-			console.log('onContinue :: this.sharedState.user.notification = ' + this.sharedState.user.notification)
-			console.log('onContinue :: this.sharedState.user.phone.number = ' + this.sharedState.user.phone.number)
-			console.log('onContinue :: this.checkPhoneNumber()= ' + this.checkPhoneNumber())
 			this.phoneError = false
 			if (this.checkPhoneNumber()) {
 				// On attend le retour du serveur pour passer à la suite
 				this.loading = true
 				this.requestError = ''
-				console.log('onContinue :: this.sharedState = ' + this.sharedState)
 				requests.saveUserPhone(this.sharedState, this.onSaveUserPhoneReturnEvent)
 			} 
 		},
 		onSaveUserPhoneReturnEvent (responseData) {
-			console.log('onSaveUserPhoneReturnEvent :: responseData = ' + responseData)
 			this.loading = false
 			// Si la sauvegarde est validée, on passe à la suite
 			if (responseData.status === 'saved') {

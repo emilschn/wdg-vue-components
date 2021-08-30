@@ -32,7 +32,8 @@ export const store = {
 			phone: {
 				code: '',
 				number: ''
-			}
+			},
+			language: ''
 		},
 		organization: {
 			apiId: '',
