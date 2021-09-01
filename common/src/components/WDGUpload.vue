@@ -12,7 +12,7 @@
 			<span v-else>{{ $t('common.SEND_FILE') }}</span>
 			<progress max="100" :value.prop="uploadPercentage"></progress>
 		</label>
-		{{ $t('common.SEND_FILE_DESCRIPTOR') }}
+		<span>{{ $t('common.SEND_FILE_DESCRIPTOR') }}</span>
 		<div
 		  v-if="canDisplayPreview"
 		  class="preview"

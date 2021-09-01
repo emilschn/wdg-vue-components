@@ -93,12 +93,28 @@ export default {
 		display: inline;
 	}
 
+	.wdg-input-address .result-list {
+		border: 1px solid #c2c2c2;
+		padding: 15px;
+		width: 600px;
+		margin-left: 173px;
+		margin-top: 0;
+		font-size: 14px;
+	}
 	.wdg-input-address ul li.result-item {
 		display: block;
 		height: 30px;
 		line-height: 30px;
 		list-style: none;
 		cursor: pointer;
+	}
+	.wdg-input-address ul li:last-of-type {
+		color: #EA4F51;
+		font-style: italic;
+		text-decoration: underline;
+	}
+	.wdg-input-address ul.result-list li:last-of-type:hover {
+		background: none;
 	}
 
 	.wdg-input-address ul li.result-item:hover {

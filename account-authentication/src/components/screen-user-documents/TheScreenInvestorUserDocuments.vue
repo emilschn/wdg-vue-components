@@ -97,9 +97,8 @@
 				<span v-if="lastDocumentTypeSelected === 'family'">{{ $t('account-authentication.user-documents.SEND_YOUR_FAMILY') }}</span>
 				<span v-if="lastDocumentTypeSelected === 'birth'">{{ $t('account-authentication.user-documents.SEND_YOUR_BIRTH') }}</span>
 				<span v-if="lastDocumentTypeSelected === 'driving'">{{ $t('account-authentication.user-documents.SEND_YOUR_DRIVING') }}</span>
-				(<a href="#userdocuments" @click="onChangeDocumentEvent">{{ $t('account-authentication.user-documents.SEND_ANOTHER') }}</a>)
 				<br>
-				{{ $t('account-authentication.user-documents.CHOOSE_DOCUMENT_TYPE') }}
+				<span class="title-subtitle">{{ $t('account-authentication.user-documents.CHOOSE_DOCUMENT_TYPE') }}</span>
 			</div>
 
 			<WDGUploadDocument
@@ -107,6 +106,8 @@
 			  :onFileChange="onUploadDocumentFileChangeEvent"
 			  :onAllFilesSelected="onAllFilesSelectedEvent"
 			  />
+
+			<a class="another-doc-link" href="#userdocuments" @click="onChangeDocumentEvent">{{ $t('account-authentication.user-documents.SEND_ANOTHER') }}</a>
 
 			<WDGButton
 			  v-if="isContinueButtonDisplayed"
@@ -243,24 +244,40 @@ export default {
 <style>
 	div.the-screen-investor-user-documents {
 		margin: 50px 0px;
+		/* display: flex; */
+		justify-content: space-between;
 	}
 	div.the-screen-investor-user-documents div.title-container {
 		margin-bottom: 20px;
+		font-size: 20px;
+		width: 100%;
+	}
+	div.the-screen-investor-user-documents div.title-container .title-subtitle {
+		font-size: 16px;
+		display: block;
+		margin-top: 20px;
+		margin-bottom: 30px;
 	}
 	div.the-screen-investor-user-documents div.button-container {
 		float: left;
 		width: 600px;
+		display: flex;
+		flex-flow: row wrap;
 	}
 	div.the-screen-investor-user-documents div.button-container div.wdg-button {
-		float: left;
-		width: 270px;
-		margin-right: 20px;
+		margin-right: 30px;
+		width: 45%;
 	}
 	div.the-screen-investor-user-documents div.button-container div.wdg-button button {
 		height: 200px;
 		font-size: 20px;
 		font-weight: bold;
 		text-transform: unset !important;
+		width: auto;
+	}
+	div.wdg-upload-document div.wdg-radiobutton label {
+		height: auto;
+		margin-bottom: 30px;
 	}
 	div.the-screen-investor-user-documents div.button-container div.wdg-button button .far, .fas{
 		padding: 5px;
@@ -269,10 +286,34 @@ export default {
 		display: block;
 		font-size: 15px;
 		font-weight: normal;
-		color: #EBEBEB;
+		color: #c2c2c2;
+		margin-top: 10px;
 	}
 	div.the-screen-investor-user-documents div.upload-container {
 		float: left;
 		width: 600px;
+	}
+	div.the-screen-investor-user-documents .wdg-upload label {
+		border: 1px solid #c2c2c2;
+		text-transform: none !important;
+		padding: 10px;
+		width: auto;
+	}
+	div.the-screen-investor-user-documents .wdg-upload label span:before {
+		content: url(D:/Site/wp-content/plugins/wdg-vue-components/common/src/assets/icons/upload.png);
+		margin-right: 10px;
+		display: inline-block;
+		vertical-align: middle;
+	}
+	div.the-screen-investor-user-documents .wdg-upload>span {
+		color: #c2c2c2;
+	}
+	div.the-screen-investor-user-documents .another-doc-link {
+		font-size: 14px;
+		color: #EA4F51;
+		text-decoration: underline;
+		display: block;
+		margin-top: 30px;
+		margin-bottom: 50px;
 	}
 </style>

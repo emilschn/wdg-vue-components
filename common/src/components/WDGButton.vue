@@ -52,6 +52,7 @@ button {
 	width: 100%;
 	height: 48px;
 	margin-bottom: 16px;
+	margin-top: 20px;
 	padding: 0px;
 	text-transform: uppercase !important; /* ajout de important sinon c'est écrasé par normalize.less */
 	cursor: pointer;
@@ -99,9 +100,10 @@ button.transparent-no-border {
 	color: #333
 }
 button.document-upload {
-	border: 2px solid #EBEBEB;
+	border: 1px solid #c2c2c2;
 	background: #FFF;
-	color: #333
+	color: #333;
+	padding: 15px;
 }
 button img {
 	height: 48px;

@@ -9,51 +9,54 @@
 		  >
 			<slot name="title"></slot>
 		</span>
+		<div class="header-right-items">
 		<transition name="fade">
 			<span
 			v-if="hasAlert"
 			class="alert"
 			>
+				<img src="@/../../common/src/assets/icons/check-green.png"  alt="WE DO GOOD" />
 				{{ alertContent }}
 			</span>
 		</transition>
 		<span
-		  v-if="langSelector === true"
-		  class="lang"
-		  >
-			<WDGSelect
-				id="lang-select"
-				name="lang-select"
-				:optionItems="langList"
-				:value="$i18n.locale"
-				v-bind:valueReturn.sync="$i18n.locale"
-		  		:onSelect="onLangSelectEvent"
-			  />
-		</span>
-		<span
-		  v-if="backButtonVisible"
-		  class="back"
-		  >
-			<WDGButton
-			  color="transparent"
-			  type="button"
-			  :clickEvent="onBackEvent"
-			  >
-				<slot slot="label"><img src="@/../../common/src/assets/icons/previous.png"  alt="Précédent"/></slot>
-			</WDGButton>
-		</span>
-		<span
-		  v-if="closeButton === true"
-		  class="close"
-		  >
-			<WDGButton
-			  color="transparent"
-			  type="button"
-			  :clickEvent="onCloseEvent"
-			  >
-				<slot slot="label"><img src="@/../../common/src/assets/icons/close.png"  alt="Fermer"/></slot>
-			</WDGButton>
-		</span>
+		  	v-if="langSelector === true"
+		  	class="lang"
+		  	>
+				<WDGSelect
+					id="lang-select"
+					name="lang-select"
+					:optionItems="langList"
+					:value="$i18n.locale"
+					v-bind:valueReturn.sync="$i18n.locale"
+		  			:onSelect="onLangSelectEvent"
+			  	/>
+			</span>
+			<span
+		  		v-if="backButtonVisible"
+		  		class="back"
+		  	>
+				<WDGButton
+			  		color="transparent"
+			  		type="button"
+			  		:clickEvent="onBackEvent"
+			  	>
+					<slot slot="label"><img src="@/../../common/src/assets/icons/previous.png"  alt="Précédent"/></slot>
+				</WDGButton>
+			</span>
+			<span
+		  		v-if="closeButton === true"
+		  		class="close"
+		  	>
+				<WDGButton
+			  		color="transparent"
+			  		type="button"
+			  		:clickEvent="onCloseEvent"
+			  	>
+					<slot slot="label"><img src="@/../../common/src/assets/icons/close.png"  alt="Fermer"/></slot>
+				</WDGButton>
+			</span>
+		</div>
         <hr>
 	</div>
 </template>
@@ -134,9 +137,6 @@ export default {
 	padding-top: 15px;
 	align-items: center;
 }
-.header .logo {
-	width: 35%;
-}
 .header .title {
 	font-size: 23px;
 	font-weight: bold;
@@ -145,7 +145,16 @@ export default {
 	text-align: right;
 }
 .header .alert {
-	width: 10%;
+	font-size: 14px;
+	color: #c2c2c2;
+	margin-right: 20px;
+	display: flex;
+	align-items: center;
+}
+.header .alert img {
+	width: 20px;
+	height: 20px;
+	margin-right: 8px;
 }
 hr {
 	border: 1;
@@ -156,18 +165,30 @@ hr {
 	border-bottom: 1px solid #f4f2f2;
 	width: 100%;
 }
+.header-right-items {
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+}
+.close .wdg-button {
+	text-align: center;
+}
 .close .wdg-button button, .back .wdg-button button {
 	border: 0;
 	margin-bottom: 0;
+	margin-top: 0;
 }
 .close img, .back img {
 	width: 20px;
 	height: 20px;
 }
 .lang {
-	align-self: center;
-	width: 45%;
 	text-align: right;
+	margin-right: 20px;
+}
+select#lang-select {
+	border: 1px solid #333;
+	padding: 5px;
 }
 
 .fade-enter-active, .fade-leave-active {

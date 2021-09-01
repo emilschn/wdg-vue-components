@@ -74,7 +74,7 @@ export default {
 }
 .wdg-tabs ul li {
 	display: table-cell;
-	width: 25%;
+	width: 33%;
 	padding: 20px 16px;
 	margin: 0px;
 	list-style: none;

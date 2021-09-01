@@ -381,12 +381,14 @@ export default {
 	}
 
 	.wdg-input.natural-language .description-below {
-		display: inline-block;
-		position: relative;
-		left: -260px;
-		top: 35px;
 		font-size: 80%;
 		color: #00879B;
+		margin-top: 5px;
+	}
+
+	.input-description-below span {
+		display: flex;
+		flex-direction: column;
 	}
 
 	@keyframes anim-hourglass {

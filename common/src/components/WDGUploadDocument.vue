@@ -18,6 +18,7 @@
 		</WDGRadioButton>
 		<div style="clear: both;"></div>
 
+		<div :class="nbFileToDisplay > 1 ? 'upload-multiple-container' : ''">
 		<WDGUpload
 		  v-if="nbFileToDisplay >= 1"
 		  id="file1"
@@ -41,6 +42,7 @@
 		  >
 		</WDGUpload>
 		<div style="clear: both;"></div>
+		</div>
 	</div>
 </template>
 
@@ -117,11 +119,14 @@ export default {
 <style>
 div.wdg-upload-document {
 	margin-top: 10px;
+	display: flex;
+	flex-flow: row wrap;
 }
 div.wdg-upload-document div.wdg-radiobutton {
-	float: left;
-	width: 270px;
-	margin-right: 20px;
+	width: 40%;
+}
+div.wdg-upload-document div.wdg-radiobutton:first-of-type {
+	margin-right: 55px;
 }
 div.wdg-upload-document div.wdg-radiobutton label {
 	height: 200px;
@@ -130,14 +135,19 @@ div.wdg-upload-document div.wdg-radiobutton label span.description {
 	display: block;
 	font-size: 15px;
 	font-weight: normal;
-	color: #EBEBEB;
-	margin-left: 20px;
+	color: #c2c2c2;
+	margin-top: 10px;
 }
 div.wdg-upload-document div.wdg-upload {
-	float: left;
-	width: 50.1%;
+	width: 40%;
 }
-div.wdg-upload-document div.wdg-upload.multiple {
-	float: right;
+div.wdg-upload-document div.multiple {
+	margin-bottom: 20px;
+}
+div.wdg-upload-document div.upload-multiple-container{
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	margin-right: 50px;
 }
 </style>

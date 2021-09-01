@@ -12,12 +12,11 @@
 		
 		<div class="description">
 			<div class="description-bg">
-			{{ $t('account-authentication.checking.YOUR_DOCUMENTS_MUST_BE_VALIDATED_BY_LEMONWAY') }}<br><br>
-
-			{{ $t('account-authentication.checking.YOUR_DOCUMENTS_CAN_BE_FOUND_IN_YOUR_ACCOUNT') }}<br><br>
-
-			<!-- Maintenant, nous allons compléter votre profil investisseur. Pour investir sur WE DO GOOD, il faut nous assurer que vous compreniez le risque de perte de votre investissement. -->
+				{{ $t('account-authentication.checking.YOUR_DOCUMENTS_MUST_BE_VALIDATED_BY_LEMONWAY') }}<br><br>
+				{{ $t('account-authentication.checking.YOUR_DOCUMENTS_CAN_BE_FOUND_IN_YOUR_ACCOUNT') }}<br><br>
+				<!-- Maintenant, nous allons compléter votre profil investisseur. Pour investir sur WE DO GOOD, il faut nous assurer que vous compreniez le risque de perte de votre investissement. -->
 			</div>
+
 			<br>
 			<WDGForm>
 				<WDGCheckbox
@@ -209,10 +208,24 @@ export default {
 <style>
 	div.the-screen-investor-checking {
 		margin: 50px 0px;
+		display: flex;
+		flex-flow: row wrap;
+		align-items: center;
+	}
+	div.the-screen-investor-checking div.title-container {
+		font-family: 'Trebuchet MS', sans-serif;
+		font-size: 22px;
+		text-transform: uppercase;
+		text-align: center;
+		font-weight: bold;
+		margin-bottom: 40px;
+		width: 100%;
 	}
 	div.the-screen-investor-checking div.description {
-		float: left;
-		width: 650px;
+		background-color: #ebebeb;
+		padding: 40px;
+		width: 55%;
+		height: max-content;
 	}
 	div.the-screen-investor-checking div.description-bg {
 		padding: 50px;
@@ -225,6 +238,4 @@ export default {
 	div.the-screen-investor-checking span.error {
 		color: red
 	}
-
-
 </style>
