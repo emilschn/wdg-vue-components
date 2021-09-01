@@ -300,7 +300,7 @@ export default {
 		width: auto;
 	}
 	div.the-screen-investor-user-documents .wdg-upload label span:before {
-		content: url(D:/Site/wp-content/plugins/wdg-vue-components/common/src/assets/icons/upload.png);
+		/* content: url(D:/Site/wp-content/plugins/wdg-vue-components/common/src/assets/icons/upload.png); */
 		margin-right: 10px;
 		display: inline-block;
 		vertical-align: middle;
