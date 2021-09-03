@@ -31,6 +31,7 @@
 				<slot slot="label">{{ $t('account-authentication.user-documents.TITLE_PASSPORT') }}</slot>
 				<slot slot="description">{{ $t('account-authentication.user-documents.DESCRIPTOR_PASSPORT') }}</slot>
 			</WDGButton>
+			
 
 			<WDGButton
 			  v-if="step === 'choose-second-file-type'"
@@ -97,7 +98,7 @@
 				<span v-if="lastDocumentTypeSelected === 'family'">{{ $t('account-authentication.user-documents.SEND_YOUR_FAMILY') }}</span>
 				<span v-if="lastDocumentTypeSelected === 'birth'">{{ $t('account-authentication.user-documents.SEND_YOUR_BIRTH') }}</span>
 				<span v-if="lastDocumentTypeSelected === 'driving'">{{ $t('account-authentication.user-documents.SEND_YOUR_DRIVING') }}</span>
-				<br>
+				<a class="another-doc-link" href="#userdocuments" @click="onChangeDocumentEvent">{{ $t('account-authentication.user-documents.SEND_ANOTHER') }}</a>
 				<span class="title-subtitle">{{ $t('account-authentication.user-documents.CHOOSE_DOCUMENT_TYPE') }}</span>
 			</div>
 
@@ -107,8 +108,7 @@
 			  :onAllFilesSelected="onAllFilesSelectedEvent"
 			  />
 
-			<a class="another-doc-link" href="#userdocuments" @click="onChangeDocumentEvent">{{ $t('account-authentication.user-documents.SEND_ANOTHER') }}</a>
-
+			
 			<WDGButton
 			  v-if="isContinueButtonDisplayed"
 			  :clickEvent="onContinueButtonClickEvent"
@@ -313,7 +313,7 @@ export default {
 		color: #EA4F51;
 		text-decoration: underline;
 		display: block;
-		margin-top: 30px;
+		margin-top: 15px;
 		margin-bottom: 50px;
 	}
 </style>

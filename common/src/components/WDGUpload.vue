@@ -7,10 +7,16 @@
 			  type="file"
 			  @change="onFileChangeEvent"
 			  >
-			<span v-if="fileName !== ''">{{ fileName }}</span>
+			<span v-if="fileName !== ''" class="file-name">{{ fileName }}</span>
 			<span v-else-if="label !== null && label !== ''">{{ label }}</span>
 			<span v-else>{{ $t('common.SEND_FILE') }}</span>
 			<progress max="100" :value.prop="uploadPercentage"></progress>
+			<div
+		  		v-if="fileName"
+		  		class="remove-file"
+		  	>
+				<a @click="onResetEvent">{{ $t('common.REMOVE') }}</a>
+			</div>
 		</label>
 		<span>{{ $t('common.SEND_FILE_DESCRIPTOR') }}</span>
 		<div
@@ -18,12 +24,6 @@
 		  class="preview"
 		  >
 			<img :src="filePreviewURL">
-		</div>
-		<div
-		  v-if="fileName"
-		  class="remove-file"
-		  >
-			<a @click="onResetEvent">{{ $t('common.REMOVE') }}</a>
 		</div>
 		<div
 		  v-if="feedbackError !== ''"
@@ -129,7 +129,7 @@ export default {
 .wdg-upload label {
 	display: block;
 	width: 100%;
-	height: 48px;
+	/* height: 48px; */
 	margin-bottom: 16px;
 	padding: 0px;
 	text-align: center;
@@ -146,19 +146,35 @@ export default {
 	position: absolute;
 	z-index: -1;
 }
+.wdg-upload .file-name {
+	display: inherit;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
 .wdg-upload label progress {
 	display: block;
+	margin: auto;
 }
 .wdg-upload div.preview img {
 	max-width: 100%;
 	max-height: 150px;
 }
 .wdg-upload div.remove-file a {
-	color: blue;
+	color: #EA4F51;
 	text-decoration: underline;
 	cursor: pointer;
 }
 .wdg-upload div.feedback-error {
-	color: red;
+	border: 1px solid #F8CACA;
+	padding: 15px;
+	margin-top: 10px;
+	display: flex;
+	align-items: center;
+}
+.wdg-upload div.feedback-error:before {
+	content: url("../assets/icons/exclamation.png");
+	margin-right: 15px;
+
 }
 </style>
