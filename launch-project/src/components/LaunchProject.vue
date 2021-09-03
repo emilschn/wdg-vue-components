@@ -20,47 +20,47 @@
 	</div>
 
 	<WDGForm
-		name="form-launch-project"
-		:action="ajaxurl"
-		:onSubmitEvent="formSubmit"
-		v-bind:hasFiles="false"
-		:errorFeedback="errorFeedback"
-		:successFeedback="successFeedback"
-	>
+	  name="form-launch-project"
+	  :action="ajaxurl"
+	  :onSubmitEvent="formSubmit"
+	  v-bind:hasFiles="false"
+	  :errorFeedback="errorFeedback"
+	  :successFeedback="successFeedback"
+	  >
 		<WDGInput
-			:placeholder="$t('common.FIRSTNAME_PLACEHOLDER')"
-			id="firstname"
-			name="firstname"
-			v-bind:multiline="false"
-			validationRule="required|name"
-			:value="firstname"
-			v-bind:valueReturn.sync="firstname"
-		>
+		  :placeholder="$t('common.FIRSTNAME_PLACEHOLDER')"
+		  id="firstname"
+		  name="firstname"
+		  v-bind:multiline="false"
+		  validationRule="required|name"
+		  :value="firstname"
+		  v-bind:valueReturn.sync="firstname"
+		  >
 			<slot slot="label">{{ $t('common.FIRSTNAME') }}</slot>
 		</WDGInput>
 		<WDGInput
-			:placeholder="$t('common.LASTNAME_PLACEHOLDER')"
-			id="lastname"
-			name="lastname"
-			v-bind:multiline="false"
-			validationRule="required|name"
-			:value="lastname"
-			v-bind:valueReturn.sync="lastname"
-		>
+		  :placeholder="$t('common.LASTNAME_PLACEHOLDER')"
+		  id="lastname"
+		  name="lastname"
+		  v-bind:multiline="false"
+		  validationRule="required|name"
+		  :value="lastname"
+		  v-bind:valueReturn.sync="lastname"
+		  >
 			<slot slot="label">{{ $t('common.LASTNAME') }}</slot>
 		</WDGInput>
 		<WDGInput
-			:placeholder="$t('common.PHONE_NUMBER_PLACEHOLDER')"
-			id="phone_number"
-			name="phone_number"
-			v-bind:multiline="false"
-			validationRule="required|phone_number"
-			:value="phonenumber"
-			v-bind:valueReturn.sync="phonenumber"
-		>
+		  :placeholder="$t('common.PHONE_NUMBER_PLACEHOLDER')"
+		  id="phone_number"
+		  name="phone_number"
+		  v-bind:multiline="false"
+		  validationRule="required|phone_number"
+		  :value="phonenumber"
+		  v-bind:valueReturn.sync="phonenumber"
+		  >
 			<slot slot="label">{{ $t('common.PHONE_NUMBER') }}</slot>
 		</WDGInput>
-		<div v-if="isExistingOrga" >
+		<div v-if="isExistingOrga">
 			<WDGSelect
 			  id="company_name"
 			  name="company_name"
@@ -75,25 +75,25 @@
 		</div>
 		<div v-if="!isExistingOrga || select_organame === 'new_orga'">
 			<WDGInput
-				:placeholder="$t('common.ORGA_NAME_PLACEHOLDER')"
-				id="company_name"
-				name="company_name"
-				v-bind:multiline="false"
-				validationRule="required"
-				:value="organame"
-				v-bind:valueReturn.sync="new_organame"
-			>
+			  :placeholder="$t('common.ORGA_NAME_PLACEHOLDER')"
+			  id="company_name"
+			  name="company_name"
+			  v-bind:multiline="false"
+			  validationRule="required"
+			  :value="organame"
+			  v-bind:valueReturn.sync="new_organame"
+			  >
 				<slot slot="label" v-if="!isExistingOrga">{{ $t('common.ORGA_NAME') }}</slot>
 			</WDGInput>
 			<WDGInput
-				:placeholder="$t('project-setup.payment.organization-info.EMAIL_PLACEHOLDER')"
-				id="email"
-				name="email"
-				v-bind:multiline="false"
-				validationRule="required|email"
-				:value="orgaemail"
-				v-bind:valueReturn.sync="new_orgaemail"
-			>
+			  :placeholder="$t('project-setup.payment.organization-info.EMAIL_PLACEHOLDER')"
+			  id="email"
+			  name="email"
+			  v-bind:multiline="false"
+			  validationRule="required|email"
+			  :value="orgaemail"
+			  v-bind:valueReturn.sync="new_orgaemail"
+			  >
 				<slot slot="label">{{ $t('common.ORGA_EMAIL_ADDRESS') }}</slot>
 				<slot slot="comment">{{ $t('launch-project.ORGA_MAIL_DIFFERENT') }}</slot>
 			</WDGInput>
@@ -102,20 +102,20 @@
 			<br>
 		</div>
 		<WDGInput
-			:placeholder="$t('launch-project.PROJECT_NAME_PLACEHOLDER')"
-			id="project_name"
-			name="project_name"
-			v-bind:multiline="false"
-			validationRule="required"
-			:value="projectname"
-			v-bind:valueReturn.sync="projectname"
-		>
+		  :placeholder="$t('launch-project.PROJECT_NAME_PLACEHOLDER')"
+		  id="project_name"
+		  name="project_name"
+		  v-bind:multiline="false"
+		  validationRule="required"
+		  :value="projectname"
+		  v-bind:valueReturn.sync="projectname"
+		  >
 			<slot slot="label">{{ $t('launch-project.PROJECT_NAME') }}</slot>
 		</WDGInput>
 		<WDGCheckbox
-			id="validate"
-			v-bind:optional="false"
-		>
+		  id="validate"
+		  v-bind:optional="false"
+		  >
 			<slot slot="label"><a :href="urlcgu" target="_blank">{{ $t('launch-project.VALIDATE_CONDITIONS') }}</a></slot>
 		</WDGCheckbox>
 
@@ -123,9 +123,9 @@
 			* {{ $t('common.REQUIRED_FIELDS') }}
 		</div>
 		<WDGButton
-			color="red"
-			v-bind:disabled="loading"
-		>
+		  color="red"
+		  v-bind:disabled="loading"
+		  >
 			<slot slot="label">{{ $t('common.VALIDATE') }}</slot>
 		</WDGButton>
 	</WDGForm>
@@ -193,6 +193,9 @@ export default {
 			if (this.isExistingOrga) {
 				if (this.select_organame === 'new_orga') {
 					data.append('company-name', this.select_organame)
+					if (this.new_organame === '' || this.new_organame === undefined) {
+						this.new_organame = this.organame
+					}
 					data.append('new-company-name', this.new_organame)
 					data.append('email-organization', this.new_orgaemail)
 				} else {
@@ -201,6 +204,9 @@ export default {
 					data.append('email-organization', this.existingorganisations.organisations[index].Mail)
 				}
 			} else {
+				if (this.new_organame === '' || this.new_organame === undefined) {
+					this.new_organame = this.organame
+				}
 				data.append('company-name', this.new_organame)
 				data.append('email-organization', this.new_orgaemail)
 			}
