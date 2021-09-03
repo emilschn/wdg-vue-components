@@ -633,8 +633,7 @@ export default {
 		width: 30%;
 	}
 	div.the-screen-investor-user-info span.error:before {
-		/* content:url(/../../../common/src/assets/icons/exclamation.png); */
-		/* content:url(D:/Site/wp-content/plugins/wdg-vue-components/common/src/assets/icons/exclamation.png); */
+		content: url("../../../../common/src/assets/icons/exclamation.png"); 
 		width: 15px;
 		display: inline-block;
 		vertical-align: middle;
