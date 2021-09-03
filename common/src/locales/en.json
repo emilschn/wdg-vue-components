@@ -9,6 +9,7 @@
 		"PHONE_NUMBER": "Mobile phone number",
 		"ORGA_EMAIL_ADDRESS": "Email address of the entity",
 		"ORGA_NAME": "Company name",
+		"ORGA_NAME_PLACEHOLDER": "My company",
 		"VALIDATE": "Validate",
 		"REMOVE": "Remove",
 		"REQUEST_ERROR": "Problem sending request",
