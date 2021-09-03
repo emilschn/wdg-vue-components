@@ -190,7 +190,7 @@ export default {
 			} else {
 				this.secondDocumentList.splice(index, 1, files)
 			}
-			requests.uploadFile(idUploadDocument, files[0], 'user', '', this.onDocumentUploadProgressEvent, this.onDocumentUploadCompleteEvent)
+			requests.uploadFile(idUploadDocument, files[0], 'user', '', this.firstDocumentType, index + 1, this.onDocumentUploadProgressEvent, this.onDocumentUploadCompleteEvent)
 		},
 		onAllFilesSelectedEvent () {
 			console.log('onAllFilesSelectedEvent')
@@ -300,7 +300,7 @@ export default {
 		width: auto;
 	}
 	div.the-screen-investor-user-documents .wdg-upload label span:before {
-		content: url("../../../../common/src/assets/icons/upload.png"); 
+		content: url("../../../../common/src/assets/icons/upload.png");
 		margin-right: 10px;
 		display: inline-block;
 		vertical-align: middle;
