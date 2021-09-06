@@ -6,7 +6,8 @@
 		  class="button-container"
 		  >
 			<div class="title-container">
-				{{ $t('account-authentication.user-documents.CHOOSE_A_DOCUMENT_TO_SEND') }}
+				<span v-if="step === 'choose-first-file-type' ">{{ $t('account-authentication.user-documents.CHOOSE_A_DOCUMENT_TO_SEND') }}</span>
+				<span v-else>{{ $t('account-authentication.user-documents.CHOOSE_A_LAST_DOCUMENT_TO_SEND') }}</span>
 			</div>
 
 			<WDGButton

@@ -142,6 +142,7 @@
 		},
 		"user-documents": {
 			"CHOOSE_A_DOCUMENT_TO_SEND": "Choisissez un document à envoyer",
+			"CHOOSE_A_LAST_DOCUMENT_TO_SEND": "Choisissez un dernier document à envoyer",
 			"TITLE_ID": "Carte d'identité",
 			"DESCRIPTOR_ID": "Recto-verso, en cours de validité, avec bande MRZ lisible en intégralité",
 			"TITLE_PASSPORT": "Passeport",
