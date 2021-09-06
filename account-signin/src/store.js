@@ -53,7 +53,7 @@ export const store = {
 	},
 	// Vérification si l'adresse e-mail est valable
 	isEmailValid(value) {
-		var mailformat = /^[a-zA-Z0-9._+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/
+		var mailformat = /^[a-zA-Z0-9._+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,63}$/
 		return (mailformat.test(value))
 	},
 	changeLang(newLang) {
