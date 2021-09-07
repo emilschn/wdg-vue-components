@@ -40,6 +40,7 @@
 import i18n from '@/i18n'
 import { store } from './store.js'
 import { requests } from './requests.js'
+import { functions } from './functions.js'
 import WDGHeader from '@/../../common/src/components/WDGHeader'
 import WDGTabs from '@/../../common/src/components/WDGTabs'
 import WDGFooter from '@/../../common/src/components/WDGFooter'
@@ -78,6 +79,7 @@ export default {
 		this.sharedProps.ajaxurl = initElements.dataset.ajaxurl
 		this.sharedProps.customajaxurl = initElements.dataset.customajaxurl
 		this.sharedProps.locale = initElements.dataset.locale
+		this.sharedProps.redirecturl = initElements.dataset.redirecturl
 		// Pas génial mais nécessaire pour le menu qui est chargé avant dans le store
 		let tempLocale = 'fr'
 		if (initElements.dataset.locale !== undefined && initElements.dataset.locale !== '') {
@@ -103,39 +105,39 @@ export default {
 			} else {
 				sNewLocation = sNewLocation.substring(1)
 			}
-			store.changeStepFromHash(sNewLocation)
+			functions.changeStepFromHash(sNewLocation)
 		},
 		onConfirmUserTypeEvent (userNeedOrga) {
 			this.sharedState.userNeedOrga = ( userNeedOrga == '1' )
-			store.changeStep( 'userinfo' )
+			functions.changeStep( 'userinfo' )
 		},
 		onConfirmUserInfoEvent () {
 			this.$root.$emit('headerAlert', i18n.t('account-authentication.user-infos.HEADER_ALERT'), 5000)
 			if (this.sharedState.userNeedOrga) {
-				store.changeStep( 'orgainfo' )
+				functions.changeStep( 'orgainfo' )
 			} else {
-				store.changeStep( 'userinfocomplete' )
+				functions.changeStep( 'userinfocomplete' )
 			}
 		},
 		onConfirmOrganizationInfoEvent () {
 			this.$root.$emit('headerAlert', i18n.t('account-authentication.user-infos.HEADER_ALERT'), 5000)
-			store.changeStep( 'orgainfocomplete' )
+			functions.changeStep( 'orgainfocomplete' )
 		},
 		onConfirmInfoCompleteEvent () {
-			store.changeStep( 'userdocuments' )
+			functions.changeStep( 'userdocuments' )
 		},
 		onConfirmUserDocsEvent () {
 			if ( this.sharedState.userNeedOrga ) {
-				store.changeStep( 'orgadocuments' )
+				functions.changeStep( 'orgadocuments' )
 			} else {
-				store.changeStep( 'checking' )
+				functions.changeStep( 'checking' )
 			}
 		},
 		onConfirmOrganizationDocsEvent () {
-			store.changeStep( 'checking' )
+			functions.changeStep( 'checking' )
 		},
 		onChangeTabEvent (tabId) {
-			store.changeStep(tabId)
+			functions.changeStep(tabId)
 		},
 		onUploadDocEvent(docId) {
 			console.log('onUploadDocEvent  ' + docId)

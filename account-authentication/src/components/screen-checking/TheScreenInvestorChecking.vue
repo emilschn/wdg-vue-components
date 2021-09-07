@@ -70,6 +70,7 @@
 import i18n from '@/i18n'
 import { requests } from './../../requests.js'
 import { store } from './../../store.js'
+import { functions } from './../../functions.js'
 import WDGMascot from '@/../../common/src/components/WDGMascot'
 import WDGForm from '@/../../common/src/components/WDGForm'
 import WDGCheckbox from '@/../../common/src/components/WDGCheckbox'
@@ -109,24 +110,6 @@ export default {
 			this.countryCode = ''
 		}
 	},
-	computed: {
-		getAccountUrl () {
-			// TODO : récupérer home_url
-			if ( i18n.locale == 'fr' ){
-				if (process.env.NODE_ENV === 'development') {
-					return 'http://wedogood.local/mon-compte/'
-				} else {
-					return 'https://www.wedogood.co/mon-compte/'
-				}
-			} else {
-				if (process.env.NODE_ENV === 'development') {
-					return 'http://wedogood.local/my-account/'
-				} else {
-					return 'https://www.wedogood.co/my-account/'
-				}
-			}
-		}
-	},
 	methods: {
      	getPhoneCodeByCountryCode (arrayName, value) {  
 			var keyName = '';
@@ -152,8 +135,8 @@ export default {
 		checkPhoneNumber() {
 			// si on ne veut pas recevoir de sms, on ne vérifie pas le numéro de téléphone
 			if (!this.sharedState.user.notification) {
-				// TODO : si on ne veut pas être notifié, on file directement à la suite ? ou on met à jour quand même les meta ?
-				window.location = this.getAccountUrl
+				// si on ne veut pas être notifié, on file directement à la suite 
+				functions.quitAndRedirect()
 				return false
 			} else {
 				// on vérifie que le début du numéro de téléphone correspond bien au code choisi
@@ -187,7 +170,7 @@ export default {
 			// Si la sauvegarde est validée, on passe à la suite
 			if (responseData.status === 'saved') {
 				// TODO : rediriger vers Mon Compte ?
-				window.location = responseData.url_redirect
+				functions.quitAndRedirect()
 			} else {
 				// Erreur lors de la sauvegarde, on affiche un feedback
 				this.requestError = responseData.status
