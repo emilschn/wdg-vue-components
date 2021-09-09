@@ -1,82 +1,86 @@
 <template>
 	<div class="the-screen-investor-organization-info">
 		<!-- Nom -->
-		<span
-		  v-if="listError.indexOf('name') > -1"
-		  class="error"
-		  >
-			{{ $t('account-authentication.user-infos.error.PLEASE_FILL_IN') }}<br>
-		</span>
-		{{ $t('account-authentication.organization-infos.MY_ORGANIZATION_NAME') }}
-		<WDGInput
-		  id="organizationName"
-		  name="organizationName"
-		  :value="sharedState.organization.name"
-		  v-bind:valueReturn.sync="sharedState.organization.name"
-		  customStyle="natural-language"
-		  />,
-		<br><br>
-
-		<!-- Pays -->
-		<span
-		  v-if="listError.indexOf('address-country') > -1"
-		  class="error"
-		  >
-			{{ $t('account-authentication.user-infos.error.PLEASE_SELECT') }}<br>
-		</span>
-		{{ $t('account-authentication.organization-infos.ITS_COUNTRY') }}
-		<WDGSelect
-		  id="organizationCountry"
-		  name="organizationCountry"
-		  :optionItems="sharedStatic.countries"
-		  :value="sharedState.organization.address.country"
-		  v-bind:valueReturn.sync="sharedState.organization.address.country"
-		  customStyle="natural-language"
-		  />,
-		<br><br>
-
-		<!-- Activité -->
-		<span
-		  v-if="listError.indexOf('activity') > -1"
-		  class="error"
-		  >
-			{{ $t('account-authentication.user-infos.error.PLEASE_FILL_IN') }}<br>
-		</span>
-		{{ $t('account-authentication.organization-infos.ITS_ACTIVITY_CONSISTS') }}
-		<WDGInput
-		  id="organizationActivity"
-		  name="organizationActivity"
-		  :value="sharedState.organization.activity"
-		  v-bind:valueReturn.sync="sharedState.organization.activity"
-		  customStyle="natural-language"
-		  />.
-		<br><br>
-
-		<div v-if="canDisplayIDNumber">
-			<!-- Numéro d'identification -->
+		<div class="organization-info-line">
 			<span
-			  v-if="listError.indexOf('idnumber') > -1"
-			  class="error"
-			  >
+		  	 v-if="listError.indexOf('name') > -1"
+			 class="error"
+			>
 				{{ $t('account-authentication.user-infos.error.PLEASE_FILL_IN') }}<br>
 			</span>
-			<span v-if="sharedState.organization.address.country === 'FR'">
-				{{ $t('account-authentication.organization-infos.ITS_IDENTIFICATION_NUMBER_FR') }}
-			</span>
-			<span v-else>
-				{{ $t('account-authentication.organization-infos.ITS_IDENTIFICATION_NUMBER') }}
-			</span>
+			{{ $t('account-authentication.organization-infos.MY_ORGANIZATION_NAME') }}
 			<WDGInput
-			  id="organizationIDNumber"
-			  name="organizationIDNumber"
-			  :value="sharedState.organization.idnumber"
-			  v-bind:valueReturn.sync="sharedState.organization.idnumber"
-			  customStyle="natural-language"
-			  />,
-			<br><br>
+		 	 id="organizationName"
+		 	 name="organizationName"
+		 	 :value="sharedState.organization.name"
+		 	 v-bind:valueReturn.sync="sharedState.organization.name"
+		 	 customStyle="natural-language"
+		 	 />,
+		</div>
+
+		<!-- Pays -->
+		<div class="organization-info-line">
+			<span
+			  v-if="listError.indexOf('address-country') > -1"
+			  class="error"
+			  >
+				{{ $t('account-authentication.user-infos.error.PLEASE_SELECT') }}<br>
+			</span>
+			{{ $t('account-authentication.organization-infos.ITS_COUNTRY') }}
+			<WDGSelect
+		 	 id="organizationCountry"
+		 	 name="organizationCountry"
+		 	 :optionItems="sharedStatic.countries"
+		 	 :value="sharedState.organization.address.country"
+		 	 v-bind:valueReturn.sync="sharedState.organization.address.country"
+		 	 customStyle="natural-language"
+		  	/>,
+		</div>
+
+		<!-- Activité -->
+		<div class="organization-info-line">
+			<span
+		 	 v-if="listError.indexOf('activity') > -1"
+		 	 class="error"
+		  	>
+				{{ $t('account-authentication.user-infos.error.PLEASE_FILL_IN') }}<br>
+			</span>
+			{{ $t('account-authentication.organization-infos.ITS_ACTIVITY_CONSISTS') }}
+			<WDGInput
+		 	 id="organizationActivity"
+		 	 name="organizationActivity"
+		 	 :value="sharedState.organization.activity"
+		 	 v-bind:valueReturn.sync="sharedState.organization.activity"
+		 	 customStyle="natural-language"
+		  	/>.
+		</div>
+
+		<div v-if="canDisplayIDNumber">
+			<div class="organization-info-line">
+				<!-- Numéro d'identification -->
+				<span
+				  v-if="listError.indexOf('idnumber') > -1"
+				  class="error"
+			  	>
+					{{ $t('account-authentication.user-infos.error.PLEASE_FILL_IN') }}<br>
+				</span>
+				<span v-if="sharedState.organization.address.country === 'FR'">
+					{{ $t('account-authentication.organization-infos.ITS_IDENTIFICATION_NUMBER_FR') }}
+				</span>
+				<span v-else>
+					{{ $t('account-authentication.organization-infos.ITS_IDENTIFICATION_NUMBER') }}
+				</span>
+				<WDGInput
+				  id="organizationIDNumber"
+				  name="organizationIDNumber"
+				  :value="sharedState.organization.idnumber"
+				  v-bind:valueReturn.sync="sharedState.organization.idnumber"
+				  customStyle="natural-language"
+			  	/>,
+			</div>
 
 			<!-- Adresse e-mail -->
-			<div class="email-container">
+			<div class="email-container organization-info-line">
 				<span
 			 	 v-if="listError.indexOf('email') > -1"
 			 	 class="error"
@@ -93,11 +97,10 @@
 			 	 :descriptionBelow="getFieldDescriptor('email')"
 			 	 customStyle="natural-language"
 			  	/>,
-				<br><br>
 			</div>
 
 			<!-- Site web -->
-			<div class="website-container">
+			<div class="website-container organization-info-line">
 				<span
 			 	 v-if="listError.indexOf('website') > -1"
 			 	 class="error"
@@ -114,90 +117,94 @@
 			 	 :descriptionBelow="getFieldDescriptor('website')"
 			 	 customStyle="natural-language"
 			  	/>.
-				<br><br>
 			</div>
 		</div>
 
 		<div v-if="canDisplayLegal">
 			<!-- Forme légale -->
-			<span
-			  v-if="listError.indexOf('legalform') > -1"
-			  class="error"
-			  >
-				{{ $t('account-authentication.user-infos.error.PLEASE_FILL_IN') }}<br>
-			</span>
-			{{ $t('account-authentication.organization-infos.ITS_LEGAL_FORM') }}
-			<WDGInput
-			  id="organizationLegalForm"
-			  name="organizationLegalForm"
-			  :value="sharedState.organization.legalform"
-			  v-bind:valueReturn.sync="sharedState.organization.legalform"
-			  customStyle="natural-language"
-			  />,
-			<br><br>
+			<div class="organization-info-line">
+				<span
+				  v-if="listError.indexOf('legalform') > -1"
+				  class="error"
+			  	>
+					{{ $t('account-authentication.user-infos.error.PLEASE_FILL_IN') }}<br>
+				</span>
+				{{ $t('account-authentication.organization-infos.ITS_LEGAL_FORM') }}
+				<WDGInput
+				  id="organizationLegalForm"
+				  name="organizationLegalForm"
+				  :value="sharedState.organization.legalform"
+				  v-bind:valueReturn.sync="sharedState.organization.legalform"
+				  customStyle="natural-language"
+			  	/>,
+			</div>
 
 			<!-- Code APE -->
-			<span
-			  v-if="listError.indexOf('apecode') > -1"
-			  class="error"
-			  >
-				{{ $t('account-authentication.user-infos.error.PLEASE_FILL_IN') }}<br>
-			</span>
-			{{ $t('account-authentication.organization-infos.ITS_APE') }}
-			<WDGInput
-			  id="organizationApe"
-			  name="organizationApe"
-			  :value="sharedState.organization.apecode"
-			  v-bind:valueReturn.sync="sharedState.organization.apecode"
-			  customStyle="natural-language"
-			  />,
-			<br><br>
+			<div class="organization-info-line">
+				<span
+				  v-if="listError.indexOf('apecode') > -1"
+				  class="error"
+			  	>
+					{{ $t('account-authentication.user-infos.error.PLEASE_FILL_IN') }}<br>
+				</span>
+				{{ $t('account-authentication.organization-infos.ITS_APE') }}
+				<WDGInput
+				  id="organizationApe"
+				  name="organizationApe"
+				  :value="sharedState.organization.apecode"
+				  v-bind:valueReturn.sync="sharedState.organization.apecode"
+				  customStyle="natural-language"
+				/>,
+			</div>
 
 			<!-- RCS -->
-			<span
-			  v-if="listError.indexOf('legaltown') > -1"
-			  class="error"
-			  >
-				{{ $t('account-authentication.user-infos.error.PLEASE_FILL_IN') }}<br>
-			</span>
-			<span v-if="sharedState.organization.address.country === 'FR'">
-				{{ $t('account-authentication.organization-infos.ITS_LEGAL_TOWN_FR') }}
-			</span>
-			<span v-else>
-				{{ $t('account-authentication.organization-infos.ITS_LEGAL_TOWN') }}
-			</span>
-			<WDGInput
-			  id="organizationLegalTown"
-			  name="organizationLegalTown"
-			  :value="sharedState.organization.legaltown"
-			  v-bind:valueReturn.sync="sharedState.organization.legaltown"
-			  customStyle="natural-language"
-			  />.
-			<br><br>
+			<div class="organization-info-line">
+				<span
+				  v-if="listError.indexOf('legaltown') > -1"
+				  class="error"
+			  	>
+					{{ $t('account-authentication.user-infos.error.PLEASE_FILL_IN') }}<br>
+				</span>
+				<span v-if="sharedState.organization.address.country === 'FR'">
+					{{ $t('account-authentication.organization-infos.ITS_LEGAL_TOWN_FR') }}
+				</span>
+				<span v-else>
+					{{ $t('account-authentication.organization-infos.ITS_LEGAL_TOWN') }}
+				</span>
+				<WDGInput
+				  id="organizationLegalTown"
+				  name="organizationLegalTown"
+				  :value="sharedState.organization.legaltown"
+				  v-bind:valueReturn.sync="sharedState.organization.legaltown"
+				  customStyle="natural-language"
+			  	/>.
+			</div>
 		</div>
 
 		<div v-if="canDisplayAddress">
 			<!-- Adresse -->
-			<span
-			  v-if="listError.indexOf('address-street') > -1"
-			  class="error"
-			  >
-				{{ $t('account-authentication.user-infos.error.PLEASE_FILL_IN') }}<br>
-			</span>
-			<div
-			  v-if="canDisplaySearchAddress"
-			  >
-				{{ $t('account-authentication.organization-infos.ITS_ADDRESS') }}
-				<WDGInputAddress
-				  id="organizationAddressSearch"
-				  name="organizationAddressSearch"
-				  customStyle="natural-language"
-				  :onSelect="onSelectSearchAddressEvent"
-				  />
-			</div>
+				<span
+				  v-if="listError.indexOf('address-street') > -1"
+				  class="error"
+			  	>
+					{{ $t('account-authentication.user-infos.error.PLEASE_FILL_IN') }}<br>
+				</span>
+				<div
+				  v-if="canDisplaySearchAddress"
+				  class="organization-info-line"
+			  	>
+					{{ $t('account-authentication.organization-infos.ITS_ADDRESS') }}
+					<WDGInputAddress
+					  id="organizationAddressSearch"
+					  name="organizationAddressSearch"
+					  customStyle="natural-language"
+					  :onSelect="onSelectSearchAddressEvent"
+				  	/>
+				</div>
 
 			<div
 			  v-else
+			  class="address-container"
 			  >
 			  	<div class="address-number-container">
 					{{ $t('account-authentication.organization-infos.ITS_ADDRESS_NUMBER_IS') }}
@@ -210,87 +217,90 @@
 				 	 :descriptionBelow="getAddressDescriptor('number')"
 				 	 customStyle="natural-language"
 				  	/>
+
+					<WDGSelect
+					  v-if="sharedState.organization.address.country === 'FR'"
+					  id="organizationAddressNumberComp"
+					  name="organizationAddressNumberComp"
+					  :optionItems="sharedStatic.addressNumberComp"
+					  :value="sharedState.organization.address.numberComp"
+					  v-bind:valueReturn.sync="sharedState.organization.address.numberComp"
+					  :descriptionBelow="getAddressDescriptor('numberComp')"
+					  customStyle="natural-language"
+					/>
 				</div>
 
-				<WDGSelect
-				  v-if="sharedState.organization.address.country === 'FR'"
-				  id="organizationAddressNumberComp"
-				  name="organizationAddressNumberComp"
-				  :optionItems="sharedStatic.addressNumberComp"
-				  :value="sharedState.organization.address.numberComp"
-				  v-bind:valueReturn.sync="sharedState.organization.address.numberComp"
-				  :descriptionBelow="getAddressDescriptor('numberComp')"
-				  customStyle="natural-language"
-				  />
-				<br><br>
+				<div class="organization-info-line">
+					{{ $t('account-authentication.organization-infos.ITS_ADDRESS_IS') }}
+					<WDGInput
+					  id="organizationAddressStreet"
+					  name="organizationAddressStreet"
+					  :value="sharedState.organization.address.street"
+					  v-bind:valueReturn.sync="sharedState.organization.address.street"
+					  customStyle="natural-language"
+				  	/>
+				</div>
+				
+				<div class="organization-info-line postal-code-city-container">
+					{{ $t('account-authentication.organization-infos.ITS_ADDRESS_POSTAL_CODE_IS') }}
+					<WDGInput
+					  id="organizationAddressPostalCode"
+					  name="organizationAddressPostalCode"
+					  class="input-description-below"
+					  :value="sharedState.organization.address.postalCode"
+					  v-bind:valueReturn.sync="sharedState.organization.address.postalCode"
+					  :descriptionBelow="getAddressDescriptor('postalCode')"
+					  customStyle="natural-language"
+				  	/>
 
-				{{ $t('account-authentication.organization-infos.ITS_ADDRESS_IS') }}
-				<WDGInput
-				  id="organizationAddressStreet"
-				  name="organizationAddressStreet"
-				  :value="sharedState.organization.address.street"
-				  v-bind:valueReturn.sync="sharedState.organization.address.street"
-				  customStyle="natural-language"
-				  />
-				<br><br>
-
-				{{ $t('account-authentication.organization-infos.ITS_ADDRESS_POSTAL_CODE_IS') }}
-				<WDGInput
-				  id="organizationAddressPostalCode"
-				  name="organizationAddressPostalCode"
-				  class="input-description-below"
-				  :value="sharedState.organization.address.postalCode"
-				  v-bind:valueReturn.sync="sharedState.organization.address.postalCode"
-				  :descriptionBelow="getAddressDescriptor('postalCode')"
-				  customStyle="natural-language"
-				  />
-
-				<WDGInput
-				  id="organizationAddressCity"
-				  name="organizationAddressPostalCode"
-				  class="input-description-below"
-				  :value="sharedState.organization.address.city"
-				  v-bind:valueReturn.sync="sharedState.organization.address.city"
-				  :descriptionBelow="getAddressDescriptor('city')"
-				  customStyle="natural-language"
-				  />
-				<br><br>
+					<WDGInput
+					  id="organizationAddressCity"
+					  name="organizationAddressPostalCode"
+					  class="input-description-below"
+					  :value="sharedState.organization.address.city"
+					  v-bind:valueReturn.sync="sharedState.organization.address.city"
+					  :descriptionBelow="getAddressDescriptor('city')"
+					  customStyle="natural-language"
+					/>
+				</div>
 			</div>
 
 			<!-- Capital -->
-			<span
-			  v-if="listError.indexOf('capital') > -1"
-			  class="error"
-			  >
-				{{ $t('account-authentication.organization-infos.error.CAPITAL') }}<br>
-			</span>
-			{{ $t('account-authentication.organization-infos.ITS_CAPITAL') }}
-			<WDGInput
-			  id="organizationCapital"
-			  name="organizationCapital"
-			  :value="sharedState.organization.capital"
-			  v-bind:valueReturn.sync="sharedState.organization.capital"
-			  customStyle="natural-language"
-			  suffix="€"
-			  />,
-			<br><br>
+			<div class="organization-info-line">
+				<span
+				  v-if="listError.indexOf('capital') > -1"
+				  class="error"
+			  	>
+					{{ $t('account-authentication.organization-infos.error.CAPITAL') }}<br>
+				</span>
+				{{ $t('account-authentication.organization-infos.ITS_CAPITAL') }}
+				<WDGInput
+				  id="organizationCapital"
+				  name="organizationCapital"
+				  :value="sharedState.organization.capital"
+				  v-bind:valueReturn.sync="sharedState.organization.capital"
+				  customStyle="natural-language"
+				  suffix="€"
+			  	/>,
+			</div>
 
 			<!-- Fonction du représentant légal -->
-			<span
-			  v-if="listError.indexOf('representativefunction') > -1"
-			  class="error"
-			  >
-				{{ $t('account-authentication.user-infos.error.PLEASE_FILL_IN') }}<br>
-			</span>
-			{{ $t('account-authentication.organization-infos.MY_FUNCTION') }}
-			<WDGInput
-			  id="organizationRepresentativeFunction"
-			  name="organizationRepresentativeFunction"
-			  :value="sharedState.organization.representativefunction"
-			  v-bind:valueReturn.sync="sharedState.organization.representativefunction"
-			  customStyle="natural-language"
-			  />.
-			<br><br>
+			<div class="organization-info-line">
+				<span
+				  v-if="listError.indexOf('representativefunction') > -1"
+				  class="error"
+			  	>
+					{{ $t('account-authentication.user-infos.error.PLEASE_FILL_IN') }}<br>
+				</span>
+				{{ $t('account-authentication.organization-infos.MY_FUNCTION') }}
+				<WDGInput
+				  id="organizationRepresentativeFunction"
+				  name="organizationRepresentativeFunction"
+				  :value="sharedState.organization.representativefunction"
+				  v-bind:valueReturn.sync="sharedState.organization.representativefunction"
+				  customStyle="natural-language"
+			  	/>.
+			</div>
 		</div>
 
 		
@@ -553,4 +563,38 @@ export default {
 		display: flex;
 		align-items: baseline;
 	}
+	/* La même marge pour toutes les lignes */
+	.the-screen-investor-organization-info div.organization-info-line {
+		margin-bottom: 40px;
+	}
+	.the-screen-investor-organization-info div.address-container {
+		display: flex;
+		align-items: baseline;
+		flex-direction: column;
+	}
+	.the-screen-investor-organization-info div.postal-code-city-container {
+		display: flex;
+		align-items: baseline;
+	}
+	.the-screen-investor-organization-info div.address-number-container input {
+		width: 40px;
+		margin-right: 15px;
+	}
+	.the-screen-investor-organization-info .address-number-container .wdg-select select#organizationAddressNumberComp {
+		width: 120px;
+	}
+	.the-screen-investor-organization-info #organizationAddressPostalCode {
+		width: 70px;
+		margin-right: 15px;
+	}
+	.the-screen-investor-organization-info #organizationCapital {
+		width: 150px;
+	}
+	.the-screen-investor-organization-info span.input-suffix { /* Est-ce que je l'applique juste à cette page ou à tous les éléments de cette classe en général ? */
+		float: none;
+		height: auto;
+		top: auto;
+		left: auto;
+	}
+
 </style>
