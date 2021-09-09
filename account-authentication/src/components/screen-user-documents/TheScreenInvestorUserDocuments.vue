@@ -36,9 +36,9 @@
 			<WDGButton
 			  v-if="step === 'choose-second-file-type'"
 			  color="document-upload"
-			  icon="tax"
+			  icon="file-invoice"
 			  :clickEvent="onChooseTypeEvent"
-			  id="tax"
+			  id="file-invoice"
 			  >
 				<slot slot="label">{{ $t('account-authentication.user-documents.TITLE_TAX') }}</slot>
 				<slot slot="description">{{ $t('account-authentication.user-documents.DESCRIPTOR_TAX') }}</slot>
@@ -47,9 +47,9 @@
 			<WDGButton
 			  v-if="step === 'choose-second-file-type'"
 			  color="document-upload"
-			  icon="welfare"
+			  icon="id-card"
 			  :clickEvent="onChooseTypeEvent"
-			  id="welfare"
+			  id="id-card"
 			  >
 				<slot slot="label">{{ $t('account-authentication.user-documents.TITLE_WELFARE') }}</slot>
 			</WDGButton>
@@ -57,9 +57,9 @@
 			<WDGButton
 			  v-if="step === 'choose-second-file-type'"
 			  color="document-upload"
-			  icon="family"
+			  icon="address-book"
 			  :clickEvent="onChooseTypeEvent"
-			  id="family"
+			  id="address-book"
 			  >
 				<slot slot="label">{{ $t('account-authentication.user-documents.TITLE_FAMILY') }}</slot>
 			</WDGButton>
@@ -67,9 +67,10 @@
 			<WDGButton
 			  v-if="step === 'choose-second-file-type'"
 			  color="document-upload"
-			  icon="birth"
+			  icon="file"
+			  iconStyle="r"
 			  :clickEvent="onChooseTypeEvent"
-			  id="birth"
+			  id="file"
 			  >
 				<slot slot="label">{{ $t('account-authentication.user-documents.TITLE_BIRTH') }}</slot>
 			</WDGButton>
@@ -77,9 +78,10 @@
 			<WDGButton
 			  v-if="step === 'choose-second-file-type'"
 			  color="document-upload"
-			  icon="driving"
+			  icon="id-card"
+			  iconStyle="r"
 			  :clickEvent="onChooseTypeEvent"
-			  id="driving"
+			  id="id-card"
 			  >
 				<slot slot="label">{{ $t('account-authentication.user-documents.TITLE_DRIVING') }}</slot>
 			</WDGButton>
@@ -244,8 +246,6 @@ export default {
 <style>
 	div.the-screen-investor-user-documents {
 		margin: 50px 0px;
-		/* display: flex; */
-		justify-content: space-between;
 	}
 	div.the-screen-investor-user-documents div.title-container {
 		margin-bottom: 20px;
@@ -273,7 +273,7 @@ export default {
 		font-size: 20px;
 		font-weight: bold;
 		text-transform: unset !important;
-		width: auto;
+		width: 270px;
 	}
 	div.wdg-upload-document div.wdg-radiobutton label {
 		height: auto;
@@ -314,6 +314,9 @@ export default {
 		text-decoration: underline;
 		display: block;
 		margin-top: 15px;
+		margin-bottom: 50px;
+	}
+	.button-container {
 		margin-bottom: 50px;
 	}
 </style>

@@ -646,7 +646,7 @@ export default {
 		margin-right: 10px;
 	}
 	div.the-screen-investor-user-info div.request-error {
-		color: #333333;
+		color: red;
 		text-align: center;
 	}
 </style>
