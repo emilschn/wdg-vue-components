@@ -115,7 +115,7 @@ export default {
 		width: 0;
 	}
 	/* Nouveau bouton personnalisé */
-	.checkmark {
+	.the-screen-investor-type .checkmark, .the-screen-investor-user-documents .checkmark {
 		position: absolute;
 		top: -2px;
 		left: 0;
@@ -125,7 +125,7 @@ export default {
 		border-radius: 50%;
 	}
 	/* Cercle à l'intérieur du bouton caché si pas coché */
-	.checkmark:after {
+	.the-screen-investor-type .checkmark:after,  .the-screen-investor-user-documents .checkmark:after {
   		content: "";
   		position: absolute;
   		display: none;

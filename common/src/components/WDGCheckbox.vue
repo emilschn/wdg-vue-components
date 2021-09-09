@@ -74,6 +74,7 @@ export default {
 	}
 	.wdg-form .wdg-checkbox label input:checked ~ .checkmark {
 		background: no-repeat center/85% url("../assets/icons/check.png");
+		background-color: #fff;
 	}
 	.wdg-form .wdg-checkbox label.checkmark:after {
 		content: "";
