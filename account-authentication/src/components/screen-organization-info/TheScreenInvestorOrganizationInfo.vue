@@ -552,16 +552,10 @@ export default {
 	div.the-screen-investor-organization-info {
 		margin: 50px 0px;
 	}
-	div.the-screen-investor-organization-info span.error {
-		color: red
-	}
-	div.the-screen-investor-user-info div.request-error {
-		color: red;
-		text-align: center;
-	}
 	.the-screen-investor-organization-info .email-container, .the-screen-investor-organization-info .website-container, .the-screen-investor-organization-info .address-number-container {
 		display: flex;
 		align-items: baseline;
+		flex-flow: row wrap;
 	}
 	/* La même marge pour toutes les lignes */
 	.the-screen-investor-organization-info div.organization-info-line {
@@ -595,6 +589,12 @@ export default {
 		height: auto;
 		top: auto;
 		left: auto;
+	}
+	.the-screen-investor-organization-info .email-container .wdg-input input, .the-screen-investor-organization-info .website-container .wdg-input input {
+		width: auto;
+	}
+	.the-screen-investor-organization-info .email-container .error, .the-screen-investor-organization-info .website-container .error {
+		margin-right: 70%;
 	}
 
 </style>

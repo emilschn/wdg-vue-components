@@ -624,7 +624,7 @@ export default {
 	.close .wdg-button button {
 		width: auto;
 	}
-	div.the-screen-investor-user-info span.error {
+	span.error {
 		border: 1px solid #F8CACA;
 		padding: 10px;
 		font-size: 14px;
@@ -632,7 +632,7 @@ export default {
 		margin-bottom: 2px;
 		width: 30%;
 	}
-	div.the-screen-investor-user-info span.error:before {
+	span.error:before {
 		content: url("../../../../common/src/assets/icons/exclamation.png"); 
 		width: 15px;
 		display: inline-block;
@@ -646,7 +646,7 @@ export default {
 		margin-right: 10px;
 	}
 	div.the-screen-investor-user-info div.request-error {
-		color: red;
+		color: #333333;
 		text-align: center;
 	}
 </style>
