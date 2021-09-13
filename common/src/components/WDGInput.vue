@@ -116,6 +116,12 @@
 			  />
 
 			<span
+			  v-if="descriptionBelow !== ''"
+			  class="description-below">
+				{{ descriptionBelow }}
+			</span>
+
+			<span
 			  v-if="!multiline && suffix !== ''"
 			  class="input-suffix"
 			  >
@@ -163,6 +169,7 @@ export default {
 		customStyle: { type: String, default: '' },
 		autoFormat: { type: String },
 		placeholder: { type: String, default: '' },
+		descriptionBelow: { type: String, default: '' },
 		multiline: { type: Boolean, default: false },
 		disabled: { type: Boolean, default: false },
 		honeypot: { type: Boolean, default: false },
@@ -371,6 +378,17 @@ export default {
 		animation-duration: 2.5s;
   		animation-name: anim-hourglass;
 		animation-iteration-count: infinite;
+	}
+
+	.wdg-input.natural-language .description-below {
+		font-size: 80%;
+		color: #00879B;
+		margin-top: 5px;
+	}
+
+	.input-description-below span {
+		display: flex;
+		flex-direction: column;
 	}
 
 	@keyframes anim-hourglass {

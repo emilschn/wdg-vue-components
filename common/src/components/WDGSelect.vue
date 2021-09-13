@@ -7,6 +7,9 @@
 		<select v-model="valueReturn" :id="id" :name="name" @change="onSelectedEvent">
 			<option v-for="item in optionItems" :value="item.Id" :key="item.Id">{{ item.Text }}</option>
 		</select>
+		<span class="placeholder" v-if="value === ''">
+			<slot name="placeholder" />
+		</span>
 	</div>
 </template>
 
@@ -53,7 +56,7 @@ export default {
 .wdg-select.natural-language select {
 	display: inline-block;
 	width: 250px;
-	padding: 10px 30px 5px 0px;
+	padding: 10px 30px 10px 0px;
 	padding-left: 10px;
 	font-weight: 500;
 	font-size: 16px;
@@ -84,6 +87,15 @@ export default {
 		linear-gradient(135deg, #F1A074 50%, transparent 50%);
 	color: #F1A074;
 	border-bottom: 2px solid #F1A074;
+}
+
+.wdg-select.natural-language span.placeholder {
+	position: relative;
+	left: -235px;
+	font-size: 16px;
+	font-weight: 500;
+	color: #00879B;
+	opacity: 0.5;
 }
 
 </style>

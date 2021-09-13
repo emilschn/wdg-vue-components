@@ -1,18 +1,19 @@
 <template>
-    <div class="wdg-button">
-        <button
-          :type="type"
-          :id="id"
-          :disabled="disabled || loading"
+	<div class="wdg-button">
+		<button
+		  :type="type"
+		  :id="id"
+		  :disabled="disabled || loading"
 		  :class="[ this.color, this.loading ? 'loading' : '' ]"
 		  @click="onClickLocalEvent"
-          >
-			<span v-show="icon" :class="[ 'fas', `fa-${this.icon}` ]"></span>
+		  >
+			<span v-show="icon" :class="[ `fa${this.iconStyle}`, `fa-${this.icon}` ]"></span>
 			<slot name="label-loading" v-if="loading"></slot>
 			<slot name="label" v-else></slot>
+			<span class="description"><slot name="description"></slot></span>
 			<img v-if="loading" src="@/../../common/src/assets/icons/loading-grey.gif" />
-        </button>
-    </div>
+		</button>
+	</div>
 </template>
 
 <script>
@@ -26,10 +27,11 @@ export default {
 		link: { type: String, default: '' },
 		disabled: { type: Boolean, default: false },
 		loading: { type: Boolean, default: false },
-        icon: { type: String, default: '' },
+		icon: { type: String, default: '' },
+		iconStyle: {type: String, default: 's'}, // s->solid, r->regular,
 		clickEvent: Function
-    },
-    computed: {
+	},
+	computed: {
 	},
 	methods: {
 		onClickLocalEvent () {
@@ -50,6 +52,7 @@ button {
 	width: 100%;
 	height: 48px;
 	margin-bottom: 16px;
+	margin-top: 20px;
 	padding: 0px;
 	text-transform: uppercase !important; /* ajout de important sinon c'est écrasé par normalize.less */
 	cursor: pointer;
@@ -95,6 +98,12 @@ button.transparent-no-border {
 	border: 0px solid #FFF;
 	background: #FFF;
 	color: #333
+}
+button.document-upload {
+	border: 1px solid #c2c2c2;
+	background: #FFF;
+	color: #333;
+	padding: 15px;
 }
 button img {
 	height: 48px;

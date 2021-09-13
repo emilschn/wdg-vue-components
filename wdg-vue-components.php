@@ -31,6 +31,7 @@ final class WDG_Vue_Components {
 	public static $component_launch_project = 'launch-project';
 	public static $component_prospect_setup = 'prospect-setup';
 	public static $component_account_signin = 'account-signin';
+	public static $component_account_authentication = 'account-authentication';
 
 	private static $instance;
 	public static function instance() {

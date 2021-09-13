@@ -1,5 +1,5 @@
 <template>
-	<div class="wdg-mascot" :class="[type, additionnalClass, 'text-'+TextColor, 'bg-'+BGColor, alignMascot]">
+	<div class="wdg-mascot" :class="[type, additionnalClass, 'text-'+TextColor, 'bg-'+BGColor, alignMascot, displayTextClass]">
 		<div class="text">
 			<slot name="text"></slot>
 		</div>
@@ -12,6 +12,9 @@
 			</svg>
 			<svg width="281" height="256" v-if="type == 'face-3'">
 				<image xlink:href="@/../../common/src/assets/mascot/front/3.svg" src="@/../../common/src/assets/mascot/front/3.png" width="281" height="256" />
+			</svg>
+			<svg width="281" height="256" v-if="type == 'face-4'">
+				<image xlink:href="@/../../common/src/assets/mascot/front/4.svg" src="@/../../common/src/assets/mascot/front/4.png" width="281" height="256" />
 			</svg>
 			<svg width="281" height="256" v-if="type == 'side-1'">
 				<image xlink:href="@/../../common/src/assets/mascot/side/1.svg" src="@/../../common/src/assets/mascot/side/1.png" width="281" height="256" />
@@ -29,9 +32,15 @@ export default {
 	props: {
 		type: { type: String, default: null },
 		additionnalClass: { type: String, default: '' },
+		displayText: { type: Boolean, default: true },
 		TextColor: { type: String, default: 'black' },
 		BGColor: { type: String, default: 'white' },
 		alignMascot: { type: String, default: 'right' }
+	},
+	computed: {
+		displayTextClass () {
+			return this.displayText ? '' : 'text-hidden'
+		}
 	}
 }
 </script>
@@ -41,6 +50,9 @@ export default {
 	float: right;
 	max-width: 280px;
 	margin-bottom: 40px;
+}
+.wdg-mascot.text-hidden div.text {
+	display: none;
 }
 .wdg-mascot div.text {
 	padding: 24px;
