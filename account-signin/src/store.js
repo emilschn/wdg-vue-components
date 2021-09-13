@@ -22,6 +22,7 @@ export const store = {
 		customajaxurl: '',
 		redirecturl: '',
 		locale: '',
+		hasvalidationcode: '',
 		initFileList: [],
 		capacities: []
 	},

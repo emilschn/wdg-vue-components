@@ -6,6 +6,7 @@
 	:data-customajaxurl="sharedProps.customajaxurl"
 	:data-redirecturl="sharedProps.redirecturl"
 	:data-locale="sharedProps.locale"
+	:data-hasvalidationcode="sharedProps.hasvalidationcode"
   	>
     <link rel="stylesheet"
         href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
@@ -57,6 +58,7 @@ export default {
 		this.sharedProps.customajaxurl = initElements.dataset.customajaxurl
 		this.sharedProps.redirecturl = initElements.dataset.redirecturl
 		this.sharedProps.locale = initElements.dataset.locale
+		this.sharedProps.hasvalidationcode = initElements.dataset.hasvalidationcode
 		// Pas génial mais nécessaire pour le menu qui est chargé avant dans le store
 		let tempLocale = 'fr'
 		if (initElements.dataset.locale !== undefined && initElements.dataset.locale !== '') {

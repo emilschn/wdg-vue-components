@@ -171,6 +171,11 @@ export default {
 		 * La requête d'identification a retourné succès
 		 */
 		onLoginSuccessEvent (urlToRedirect) {
+			// Si le code de validation avait été transmis, on redirige
+			if (this.sharedProps.hasvalidationcode === '1') {
+				urlToRedirect = 'redirect'
+			}
+
 			// Validation par mail
 			if (urlToRedirect === 'email-validation') {
 				store.changeStep('confirmation')
