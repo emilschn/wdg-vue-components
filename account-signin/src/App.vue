@@ -4,7 +4,8 @@
 	class="account-signin"
 	:data-ajaxurl="sharedProps.ajaxurl"
 	:data-customajaxurl="sharedProps.customajaxurl"
-	:data-redirecturl="sharedProps.redirecturl"
+	:data-redirecturlfr="sharedProps.redirecturlfr"
+	:data-redirecturlen="sharedProps.redirecturlen"
 	:data-locale="sharedProps.locale"
 	:data-hasvalidationcode="sharedProps.hasvalidationcode"
   	>
@@ -56,7 +57,8 @@ export default {
 		this.sharedState.sessionUID = Date.now() + Math.floor(Math.random() * 100000000)
 		this.sharedProps.ajaxurl = initElements.dataset.ajaxurl
 		this.sharedProps.customajaxurl = initElements.dataset.customajaxurl
-		this.sharedProps.redirecturl = initElements.dataset.redirecturl
+		this.sharedProps.redirecturlfr = initElements.dataset.redirecturlfr
+		this.sharedProps.redirecturlen = initElements.dataset.redirecturlen
 		this.sharedProps.locale = initElements.dataset.locale
 		this.sharedProps.hasvalidationcode = initElements.dataset.hasvalidationcode
 		// Pas génial mais nécessaire pour le menu qui est chargé avant dans le store
