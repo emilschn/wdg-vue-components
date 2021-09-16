@@ -533,6 +533,9 @@ export default {
 						window.location = responseData.redirectUrl
 						this.loading = true
 					}
+				} else if (this.requestError === 'error'){
+					// problème d'enregistrement des informations
+
 				}
 			}
 		},
@@ -627,6 +630,8 @@ export default {
 					return i18n.t('account-authentication.requests.errors.LOGIN')
 				case 'wrong-birthday-date':
 					return i18n.t('account-authentication.requests.errors.DATE')
+				case 'error':
+					return i18n.t('account-authentication.requests.errors.USER_SAVE_ERROR')
 			}
 			return ''
 		}

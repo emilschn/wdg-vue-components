@@ -88,7 +88,7 @@ export const requests = {
 		data.append('address_country', currentState.user.address.country)
 
 		axios
-			.post(store.props.customajaxurl, data, { timeout: 10000 })
+			.post(store.props.customajaxurl, data, { timeout: 20000 })
 			.then(response => {
 				let responseData = response.data
 				console.log('then')

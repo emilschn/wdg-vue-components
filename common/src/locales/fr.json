@@ -205,7 +205,8 @@
 				"DATE": "Il y a eu une erreur lors de la saisie de la date",
 				"CANT_EDIT_ORGANIZATION": "L'utilisateur n'est pas autorisé à modifier cette organisation",
 				"ORGANIZATION_EMAIL_EXIST": "L'adresse e-mail de l'organisation est déjà utilisée par un autre compte",
-				"ORGANIZATION_CREATION_ERROR": "Erreur d'enregistrement de l'organisation dans la base de données"
+				"ORGANIZATION_CREATION_ERROR": "Erreur d'enregistrement de l'organisation dans la base de données",
+				"USER_SAVE_ERROR": "Erreur d'enregistrement de l'utilisateur dans la base de données"
 			}
 		}
 	},
