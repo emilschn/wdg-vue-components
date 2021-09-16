@@ -216,7 +216,7 @@
 		"MASCOT_TEXT_NOTICE_2bis": "2 identity documents including at least one identity card and / or passport.",
 		"MASCOT_TEXT_NOTICE_3": "Your information will not be passed on to third parties and will remain confidential.",
 		"LABEL_MAIL": "My email address is :",
-		"NOT_REGISTERED": "Not registered ? Enter your email address to sign up.",
+		"NOT_REGISTERED": "Enter your email address to sign in or sign up.",
 		"SIGNIN_ERROR_NOT_FOUND": "You do not have an account yet, choose a password to create one.",
 		"LABEL_CREATE_PASSWORD": "I choose my password:",
 		"LABEL_WRITE_PASSWORD": "I enter my password:",
