@@ -134,7 +134,14 @@ export const requests = {
 		data.append('sessionUID', store.state.sessionUID)
 		data.append('email-address', emailAddress)
 		data.append('is-new-account', isNewAccount)
-		data.append('redirect-url-after-validation', store.props.redirecturl)
+		switch (store.props.locale) {
+			case 'fr':
+				data.append('redirect-url-after-validation', store.props.redirecturlfr)
+				break
+			case 'en':
+				data.append('redirect-url-after-validation', store.props.redirecturlen)
+				break
+		}
 
 		axios
 			.post(store.props.ajaxurl, data, { timeout: 20000 })

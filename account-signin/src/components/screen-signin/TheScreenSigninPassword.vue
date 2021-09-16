@@ -45,6 +45,7 @@
 </template>
 
 <script>
+import i18n from '../../i18n'
 import { store } from '../../store.js'
 import { requests } from '../../requests.js'
 import WDGInputPassword from '@/../../common/src/components/WDGInputPassword'
@@ -103,6 +104,11 @@ export default {
 			if (requestResult === undefined || requestResult === 'error' || requestResult.signin_status === 'error') {
 				this.hasPasswordError = true
 			} else {
+				// Si la langue de l'utilisateur qui vient de se connecter est différente de la locale en cours (et qu'elle est définie), on peut changer l'affichage
+				if (requestResult.language !== undefined && requestResult.language !== '' && requestResult.language !== store.props.locale) {
+					i18n.locale = requestResult.language
+					store.changeLang(requestResult.language)
+				}
 				// Si on a une URL de redirection, on va changer de page, donc autant laisser l'impression de chargement
 				if (requestResult.url_redirect !== 'email-validation') {
 					this.loading = true

@@ -186,7 +186,14 @@ export default {
 			// Redirection vers le site
 			} else {
 				if (urlToRedirect === 'redirect') {
-					window.location = this.sharedProps.redirecturl
+					switch (store.props.locale) {
+						case 'fr':
+							window.location = this.sharedProps.redirecturlfr
+							break
+						case 'en':
+							window.location = this.sharedProps.redirecturlen
+							break
+					}
 				}
 			}
 		},
