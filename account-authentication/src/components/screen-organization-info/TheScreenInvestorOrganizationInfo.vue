@@ -464,14 +464,14 @@ export default {
 		onButtonContinueEvent() {
 			if (this.checkOrganizationInfo()) {
 				// En mode dev, on passe directement à la suite
-				/* if (process.env.NODE_ENV === 'development') {
+				if (process.env.NODE_ENV === 'development') {
 					this.onConfirmOrganizationInfo()
-				} else { */
+				} else {
 					// On attend le retour du serveur pour passer à la suite
 					this.loading = true
 					this.requestError = ''
 					requests.saveOrganizationInfo(this.sharedState, this.onSaveOrganizationInfoReturnEvent)
-				// }
+				}
 			}
 		},
 		onSaveOrganizationInfoReturnEvent (responseData) {
