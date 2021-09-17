@@ -3,20 +3,20 @@
 		<div class="user-info-line">
 			<!-- Genre -->
 			<span
-		 	 v-if="listError.indexOf('gender') > -1"
-		 	 class="error"
-		  	>
+			  v-if="listError.indexOf('gender') > -1"
+			  class="error"
+			  >
 				{{ $t('account-authentication.user-infos.error.PLEASE_SELECT') }}<br>
 			</span>
 			{{ $t('account-authentication.user-infos.I_AM') }}
 			<WDGSelect
-		 	 id="userGender"
-		 	 name="userGender"
-		 	 :optionItems="userGenderList"
-		 	 :value="sharedState.user.gender"
-		 	 v-bind:valueReturn.sync="sharedState.user.gender"
-		 	 customStyle="natural-language"
-		  	>
+			  id="userGender"
+			  name="userGender"
+			  :optionItems="userGenderList"
+			  :value="sharedState.user.gender"
+			  v-bind:valueReturn.sync="sharedState.user.gender"
+			  customStyle="natural-language"
+			  >
 				<!-- <slot slot="placeholder">{{ $t('account-authentication.user-infos.GENDER') }}</slot> -->
 			</WDGSelect>,
 		</div>
@@ -24,80 +24,81 @@
 		<!-- Date de naissance -->
 		<div class="date-of-birth user-info-line">
 			<span
-		  	 v-if="listError.indexOf('birthday-day') > -1"
-		  	 class="error"
-		  	>
+			  v-if="listError.indexOf('birthday-day') > -1"
+			  class="error"
+			  >
 				{{ $t('account-authentication.user-infos.error.DATE_DAY') }}<br>
 			</span>
 			<span
-		  	 v-if="listError.indexOf('birthday-month') > -1"
-		 	 class="error"
-		  	>
+			  v-if="listError.indexOf('birthday-month') > -1"
+			  class="error"
+			  >
 				{{ $t('account-authentication.user-infos.error.DATE_MONTH') }}<br>
 			</span>
 			<span
-		  	 v-if="listError.indexOf('birthday-year') > -1"
-		  	 class="error"
-		  	>
+			  v-if="listError.indexOf('birthday-year') > -1"
+			  class="error"
+			  >
 				{{ $t('account-authentication.user-infos.error.DATE_YEAR') }}<br>
 			</span>
 			{{ $t('account-authentication.user-infos.I_AM_BORN') }}
 			<WDGInput
-		  	 id="userBirthdayDay"
-		  	 name="userBirthdayDay"
-			 ref="inputUserBirthdayDay"
-		  	 class="input-description-below"
-		  	 :placeholder="getDateTranslation('DD')"
-		  	 :descriptionBelow="getDateDescriptor('DD')"
-		  	 :value="sharedState.user.birthday.day"
-		  	 v-bind:valueReturn.sync="sharedState.user.birthday.day"
-		  	 customStyle="natural-language"
-			 :onChange="onChangeBirthdayDayEvent"
-			 eventNameToListen="onBirthdayDayChangeEvent"
-		  	/>
+			  id="userBirthdayDay"
+			  name="userBirthdayDay"
+			  ref="inputUserBirthdayDay"
+			  class="input-description-below"
+			  :placeholder="getDateTranslation('DD')"
+			  :descriptionBelow="getDateDescriptor('DD')"
+			  :value="sharedState.user.birthday.day"
+			  v-bind:valueReturn.sync="sharedState.user.birthday.day"
+			  customStyle="natural-language"
+			  :onChange="onChangeBirthdayDayEvent"
+			  eventNameToListen="onBirthdayDayChangeEvent"
+			  />
 			<WDGInput
-		  	 id="userBirthdayMonth"
-		  	 name="userBirthdayMonth"
-		  	 ref="inputUserBirthdayMonth"
-		  	 class="input-description-below"
-		  	 :placeholder="getDateTranslation('MM')"
-		  	 :descriptionBelow="getDateDescriptor('MM')"
-		  	 :value="sharedState.user.birthday.month"
-		  	 v-bind:valueReturn.sync="sharedState.user.birthday.month"
-		  	 customStyle="natural-language"
-			 :onChange="onChangeBirthdayMonthEvent"
-			 eventNameToListen="onBirthdayMonthChangeEvent"
-		  	/>
-			<WDGInput class="user-birthday-year input-description-below"
-		  	 id="userBirthdayYear"
-		  	 name="userBirthdayYear"
-		  	 ref="inputUserBirthdayYear"
-		  	 :placeholder="getDateTranslation('YYYY')"
-		  	 :descriptionBelow="getDateDescriptor('YYYY')"
-		  	 :value="sharedState.user.birthday.year"
-		  	 v-bind:valueReturn.sync="sharedState.user.birthday.year"
-		  	 customStyle="natural-language"
-			 :onChange="onChangeBirthdayYearEvent"
-		  	/>,
+			  id="userBirthdayMonth"
+			  name="userBirthdayMonth"
+			  ref="inputUserBirthdayMonth"
+			  class="input-description-below"
+			  :placeholder="getDateTranslation('MM')"
+			  :descriptionBelow="getDateDescriptor('MM')"
+			  :value="sharedState.user.birthday.month"
+			  v-bind:valueReturn.sync="sharedState.user.birthday.month"
+			  customStyle="natural-language"
+			  :onChange="onChangeBirthdayMonthEvent"
+			  eventNameToListen="onBirthdayMonthChangeEvent"
+			  />
+			<WDGInput
+			  id="userBirthdayYear"
+			  class="user-birthday-year input-description-below"
+			  name="userBirthdayYear"
+			  ref="inputUserBirthdayYear"
+			  :placeholder="getDateTranslation('YYYY')"
+			  :descriptionBelow="getDateDescriptor('YYYY')"
+			  :value="sharedState.user.birthday.year"
+			  v-bind:valueReturn.sync="sharedState.user.birthday.year"
+			  customStyle="natural-language"
+			  :onChange="onChangeBirthdayYearEvent"
+			  />,
 		</div>
 
 		<!-- Pays de naissance -->
 		<div class="user-info-line">
 			<span
-		 	 v-if="listError.indexOf('birthday-country') > -1"
-		 	 class="error"
-		 	 >
+			  v-if="listError.indexOf('birthday-country') > -1"
+			  class="error"
+			  >
 				{{ $t('account-authentication.user-infos.error.PLEASE_SELECT') }}<br>
 			</span>
 			{{ $t('account-authentication.user-infos.IN_THIS_COUNTRY') }}
 			<WDGSelect
-		 	 id="userCountry"
-		 	 name="userCountry"
-		 	 :optionItems="sharedStatic.countries"
-		 	 :value="sharedState.user.birthday.country"
-		 	 v-bind:valueReturn.sync="sharedState.user.birthday.country"
-		 	 customStyle="natural-language"
-		  	/>
+			  id="userCountry"
+			  name="userCountry"
+			  :optionItems="sharedStatic.countries"
+			  :value="sharedState.user.birthday.country"
+			  v-bind:valueReturn.sync="sharedState.user.birthday.country"
+			  customStyle="natural-language"
+			  />
 		</div>
 
 		<!-- Lieu de naissance -->
@@ -124,23 +125,22 @@
 
 			<div class="user-info-line">
 				<span
-			 	 v-if="listError.indexOf('birthday-city') > -1"
-			 	 class="error"
-			  	>
+				  v-if="listError.indexOf('birthday-city') > -1"
+				  class="error"
+				  >
 					{{ $t('account-authentication.user-infos.error.PLEASE_FILL_IN') }}<br>
 				</span>
 				{{ $t('account-authentication.user-infos.IN_THIS_CITY') }}
 				<WDGInput
-			 	 id="userCity"
-			 	 name="userCity"
-			 	 :value="sharedState.user.birthday.city"
-			 	 v-bind:valueReturn.sync="sharedState.user.birthday.city"
-			 	 customStyle="natural-language"
-			  	/>
+				  id="userCity"
+				  name="userCity"
+				  :value="sharedState.user.birthday.city"
+				  v-bind:valueReturn.sync="sharedState.user.birthday.city"
+				  customStyle="natural-language"
+				  />
 			</div>
 			
 			<div v-if="canDisplayFrenchDistrict" class="user-info-line">
-
 				<span
 				  v-if="listError.indexOf('birthday-district') > -1"
 				  class="error"
@@ -218,92 +218,91 @@
 				</div>
 
 				<div
-			 	 v-else
-			  	>
-				  <div class="user-info-line address-number-and-comp">
-			  		<div class="address-number-container">
-						{{ $t('account-authentication.user-infos.MY_ADDRESS_NUMBER_IS') }}
-						<WDGInput
-				  		 id="userAddressNumber"
-				  		 name="userAddressNumber"
-				  		 class="input-description-below"
-				  		 :value="sharedState.user.address.number"
-				  		 v-bind:valueReturn.sync="sharedState.user.address.number"
-				  		 :descriptionBelow="getAddressDescriptor('number')"
-				  		 customStyle="natural-language"
-				  		/>
-					</div>
+				  v-else
+				  >
+					<div class="user-info-line address-number-and-comp">
+						<div class="address-number-container">
+							{{ $t('account-authentication.user-infos.MY_ADDRESS_NUMBER_IS') }}
+							<WDGInput
+							  id="userAddressNumber"
+							  name="userAddressNumber"
+							  class="input-description-below"
+							  :value="sharedState.user.address.number"
+							  v-bind:valueReturn.sync="sharedState.user.address.number"
+							  :descriptionBelow="getAddressDescriptor('number')"
+							  customStyle="natural-language"
+							  />
+						</div>
 
-					<WDGSelect
-					  v-if="sharedState.user.address.country === 'FR'"
-					  id="userAddressNumberComp"
-					  name="userAddressNumberComp"
-					  :optionItems="sharedStatic.addressNumberComp"
-					  :value="sharedState.user.address.numberComp"
-					  v-bind:valueReturn.sync="sharedState.user.address.numberComp"
-					  :descriptionBelow="getAddressDescriptor('numberComp')"
-					  customStyle="natural-language"
-					/>
-				  </div>
+						<WDGSelect
+						  v-if="sharedState.user.address.country === 'FR'"
+						  id="userAddressNumberComp"
+						  name="userAddressNumberComp"
+						  :optionItems="sharedStatic.addressNumberComp"
+						  :value="sharedState.user.address.numberComp"
+						  v-bind:valueReturn.sync="sharedState.user.address.numberComp"
+						  :descriptionBelow="getAddressDescriptor('numberComp')"
+						  customStyle="natural-language"
+						/>
+					</div>
 
 					<div class="user-info-line">
 						{{ $t('account-authentication.user-infos.MY_ADDRESS_IS') }}
 						<WDGInput
-				 		 id="userAddressStreet"
-				 		 name="userAddressStreet"
-				 		 :value="sharedState.user.address.street"
-				 		 v-bind:valueReturn.sync="sharedState.user.address.street"
-				 		 customStyle="natural-language"
-				  		/>
+						  id="userAddressStreet"
+						  name="userAddressStreet"
+						  :value="sharedState.user.address.street"
+						  v-bind:valueReturn.sync="sharedState.user.address.street"
+						  customStyle="natural-language"
+						  />
 					</div>
 
-					
-						<span
-				 		 v-if="listError.indexOf('address-city') > -1"
-				 		 class="error addressCity"
-				  		>
-							{{ $t('account-authentication.user-infos.error.PLEASE_FILL_IN') }}<br>
-						</span>
+					<span
+					  v-if="listError.indexOf('address-city') > -1"
+					  class="error addressCity"
+					  >
+						{{ $t('account-authentication.user-infos.error.PLEASE_FILL_IN') }}<br>
+					</span>
 					<div class="user-info-line postal-code-and-city">
 						{{ $t('account-authentication.user-infos.MY_ADDRESS_POSTAL_CODE_IS') }}
 						<WDGInput
-				 		 id="userAddressPostalCode"
-				 		 name="userAddressPostalCode"
-				 		 class="input-description-below"
-				 		 :value="sharedState.user.address.postalCode"
-				 		 v-bind:valueReturn.sync="sharedState.user.address.postalCode"
-				 		 :descriptionBelow="getAddressDescriptor('postalCode')"
-				 		 customStyle="natural-language"
-				  		/>
+						  id="userAddressPostalCode"
+						  name="userAddressPostalCode"
+						  class="input-description-below"
+						  :value="sharedState.user.address.postalCode"
+						  v-bind:valueReturn.sync="sharedState.user.address.postalCode"
+						  :descriptionBelow="getAddressDescriptor('postalCode')"
+						  customStyle="natural-language"
+						  />
 
 						<WDGInput
-				 		 id="userAddressCity"
-				 		 name="userAddressPostalCode"
-				 		 class="input-description-below"
-				 		 :value="sharedState.user.address.city"
-				 		 v-bind:valueReturn.sync="sharedState.user.address.city"
-				 		 :descriptionBelow="getAddressDescriptor('city')"
-				 		 customStyle="natural-language"
-				  		/>
+						  id="userAddressCity"
+						  name="userAddressPostalCode"
+						  class="input-description-below"
+						  :value="sharedState.user.address.city"
+						  v-bind:valueReturn.sync="sharedState.user.address.city"
+						  :descriptionBelow="getAddressDescriptor('city')"
+						  customStyle="natural-language"
+						  />
 					</div>
 				</div>
 
 				<div v-if="canDisplayTaxCountry" class="user-info-line">
-				<span
-			  		v-if="listError.indexOf('address-taxCountry') > -1"
-			  		class="error addressTaxCountry"
-			  	>
-					{{ $t('account-authentication.user-infos.error.PLEASE_SELECT') }}<br>
-				</span>
-				{{ $t('account-authentication.user-infos.MY_TAX_COUNTRY_IS') }}
-				<WDGSelect
-				  id="userTaxCountry"
-				  name="userTaxCountry"
-				  :optionItems="sharedStatic.countries"
-				  :value="sharedState.user.taxCountry"
-				  v-bind:valueReturn.sync="sharedState.user.taxCountry"
-				  customStyle="natural-language"
-			  	/>
+					<span
+					  v-if="listError.indexOf('address-taxCountry') > -1"
+					  class="error addressTaxCountry"
+					  >
+						{{ $t('account-authentication.user-infos.error.PLEASE_SELECT') }}<br>
+					</span>
+					{{ $t('account-authentication.user-infos.MY_TAX_COUNTRY_IS') }}
+					<WDGSelect
+					  id="userTaxCountry"
+					  name="userTaxCountry"
+					  :optionItems="sharedStatic.countries"
+					  :value="sharedState.user.taxCountry"
+					  v-bind:valueReturn.sync="sharedState.user.taxCountry"
+					  customStyle="natural-language"
+					  />
 				</div>
 			</div>
 		</div>
