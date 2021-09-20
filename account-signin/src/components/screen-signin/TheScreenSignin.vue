@@ -171,6 +171,14 @@ export default {
 		 * La requête d'identification a retourné succès
 		 */
 		onLoginSuccessEvent (urlToRedirect) {
+			// Si hasvalidationcode vaut 1, c'est qu'on avait été redirigé depuis activer-compte vers la page de login
+			// Donc l'url de redirection a bien été redéfinie avec le code de validation présent
+			// Plutôt que renvoyer vers l'écran de validation de mail
+			// On redirige plutôt vers la page activer-compte (qui est définie dans redirecturl)
+			if (this.sharedProps.hasvalidationcode === '1') {
+				urlToRedirect = 'redirect'
+			}
+
 			// Validation par mail
 			if (urlToRedirect === 'email-validation') {
 				store.changeStep('confirmation')
@@ -178,7 +186,14 @@ export default {
 			// Redirection vers le site
 			} else {
 				if (urlToRedirect === 'redirect') {
-					window.location = this.sharedProps.redirecturl
+					switch (store.props.locale) {
+						case 'fr':
+							window.location = this.sharedProps.redirecturlfr
+							break
+						case 'en':
+							window.location = this.sharedProps.redirecturlen
+							break
+					}
 				}
 			}
 		},

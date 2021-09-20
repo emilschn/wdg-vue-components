@@ -20,8 +20,10 @@ export const store = {
 	props: {
 		ajaxurl: '',
 		customajaxurl: '',
-		redirecturl: '',
+		redirecturlfr: '',
+		redirecturlen: '',
 		locale: '',
+		hasvalidationcode: '',
 		initFileList: [],
 		capacities: []
 	},

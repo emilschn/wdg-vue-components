@@ -220,7 +220,7 @@
 		"MASCOT_TEXT_NOTICE_2bis": "2 pièces d'identité dont au moins une carte d'identité et/ou un passeport.",
 		"MASCOT_TEXT_NOTICE_3": "Vos informations ne seront pas transmises à des tiers et resteront confidentielles.",
 		"LABEL_MAIL": "Mon adresse mail est :",
-		"NOT_REGISTERED": "Pas encore inscrit ? Saisissez votre adresse mail pour créer un compte.",
+		"NOT_REGISTERED": "Saisissez votre adresse mail pour vous connecter ou créer un compte.",
 		"SIGNIN_ERROR_NOT_FOUND": "Vous n'avez pas encore de compte, choisissez un mot de passe pour en créer un.",
 		"LABEL_CREATE_PASSWORD": "Je choisis mon mot de passe :",
 		"LABEL_WRITE_PASSWORD": "Je saisis mon mot de passe :",
