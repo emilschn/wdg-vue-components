@@ -189,6 +189,9 @@ export default {
 		currentSelectedTab () {
 			let currentSelectedTab = this.sharedState.step
 			switch (currentSelectedTab) {
+				case 'orgainfo':
+					currentSelectedTab = 'userinfo'
+					break
 				case 'userinfocomplete':
 				case 'orgainfocomplete':
 				case 'orgadocuments':
