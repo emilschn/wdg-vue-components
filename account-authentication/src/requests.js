@@ -46,6 +46,7 @@ export const requests = {
 		console.log('searchAddressTyped >> addressTyped >> ' + addressTyped)
 		let data = new FormData()
 		data.append('action', 'account_authentication_search_address')
+		data.append('sessionUID', store.state.sessionUID)
 		data.append('address', addressTyped)
 
 		axios
@@ -70,6 +71,7 @@ export const requests = {
 		console.log('saveUserInfo')
 		let data = new FormData()
 		data.append('action', 'account_authentication_save_current_user_info')
+		data.append('sessionUID', store.state.sessionUID)
 		data.append('tax_country', currentState.user.taxCountry)
 		data.append('gender', currentState.user.gender)
 		data.append('birthday_day', currentState.user.birthday.day)
@@ -108,6 +110,7 @@ export const requests = {
 	saveUserPhone(currentState, functionReturn) {
 		let data = new FormData()
 		data.append('action', 'account_authentication_save_current_user_phone')
+		data.append('sessionUID', store.state.sessionUID)
 		data.append('phone_number', currentState.user.phone.number)
 		data.append('send_sms', currentState.user.notification)
 		axios
@@ -131,6 +134,7 @@ export const requests = {
 		console.log('saveOrganizationInfo')
 		let data = new FormData()
 		data.append('action', 'account_authentication_save_organization_info')
+		data.append('sessionUID', store.state.sessionUID)
 		data.append('id_api', currentState.organization.apiId)
 		data.append('name', currentState.organization.name)
 		data.append('activity', currentState.organization.activity)
@@ -172,6 +176,7 @@ export const requests = {
 		console.log('uploadFile')
 		let data = new FormData()
 		data.append('action', 'account_authentication_upload_file')
+		data.append('sessionUID', store.state.sessionUID)
 		data.append('document', file)
 		data.append('user_type', userType)
 		data.append('id_api_organization', idOrganizationAPI)

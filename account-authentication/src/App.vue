@@ -76,6 +76,7 @@ export default {
 		}
 	},
 	created () {
+		this.sharedState.sessionUID = Date.now() + Math.floor(Math.random() * 100000000)
 		this.sharedProps.ajaxurl = initElements.dataset.ajaxurl
 		this.sharedProps.customajaxurl = initElements.dataset.customajaxurl
 		this.sharedProps.locale = initElements.dataset.locale
