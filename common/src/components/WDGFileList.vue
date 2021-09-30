@@ -89,9 +89,6 @@ export default {
 .wdg-file-list .init-file-list {
 	margin: 24px 0px;
 }
-.wdg-file-list .init-file-list, .wdg-file-list .init-file-list a {
-	color: #ffffff;
-}
 .wdg-file-list.grey .init-file-list, .wdg-file-list.grey .init-file-list a {
 	color: #333;
 }
