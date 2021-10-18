@@ -24,6 +24,8 @@
 		  v-bind:honeypot="true"
 		  v-bind:valueReturn.sync="honeypot1"
 		  />
+
+		  <span class="not-registered">{{ $t('account-signin.NOT_REGISTERED') }}</span>
 	</div>
 </template>
 
@@ -91,4 +93,15 @@ export default {
 </script>
 
 <style>
+div.the-screen-signin-email span.not-registered {
+	font-size: 14px;
+	color: #C2C2C2;
+	display: block;
+	margin-top: 10px;
+}
+@media screen and (min-width: 768px) and (max-width: 959px) {
+div.the-screen-signin-email span.not-registered {
+	max-width: 50%;
+}
+}
 </style>

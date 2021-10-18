@@ -28,7 +28,7 @@
 			</WDGLoader>
 		</div>
 
-		<WDGFooter :onLangSelect="onLangSelectEvent" />
+		<WDGFooter :onLangSelect="onLangSelectEvent" BGColor="grey" />
 	</div>
 </template>
 

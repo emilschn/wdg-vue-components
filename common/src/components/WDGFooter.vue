@@ -157,7 +157,7 @@ export default {
 	width: 100%;
 	padding: 16px 0px;
 	text-align: center;
-	background: #EBEBEB;
+	background: #e1e2e3;
 	color: #FFF;
 }
 @media only screen and (max-width: 767px) {

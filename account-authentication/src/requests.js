@@ -105,7 +105,7 @@ export const requests = {
 
 	},
 
-	saveUserPhone(currentState, functionReturn){
+	saveUserPhone(currentState, functionReturn) {
 		let data = new FormData()
 		data.append('action', 'account_authentication_save_current_user_phone')
 		data.append('phone_number', currentState.user.phone.number)
@@ -168,13 +168,15 @@ export const requests = {
 
 	},
 
-	uploadFile(inputRef, file, userType, idAPI, functionProgress, functionEnd) {
+	uploadFile(inputRef, file, userType, idOrganizationAPI, docType, docIndex, functionProgress, functionEnd) {
 		console.log('uploadFile')
 		let data = new FormData()
 		data.append('action', 'account_authentication_upload_file')
-		data.append('file', file)
+		data.append('document', file)
 		data.append('user_type', userType)
-		data.append('id_api', idAPI)
+		data.append('id_api_organization', idOrganizationAPI)
+		data.append('doc_type', docType)
+		data.append('doc_index', docIndex)
 
 		axios
 			.post(

@@ -199,8 +199,8 @@ export default {
 					data.append('new-company-name', this.new_organame)
 					data.append('email-organization', this.new_orgaemail)
 				} else {
-					let index = this.existingorganisations.organisations.findIndex(object => object.Text === this.select_organame)
-					data.append('company-name', this.existingorganisations.organisations[index].Id)
+					let index = this.existingorganisations.organisations.findIndex(object => object.Id === this.select_organame)
+					data.append('company-name', this.select_organame)
 					data.append('email-organization', this.existingorganisations.organisations[index].Mail)
 				}
 			} else {

@@ -45,31 +45,39 @@
 			<WDGInput
 		  	 id="userBirthdayDay"
 		  	 name="userBirthdayDay"
+			 ref="inputUserBirthdayDay"
 		  	 class="input-description-below"
 		  	 :placeholder="getDateTranslation('DD')"
 		  	 :descriptionBelow="getDateDescriptor('DD')"
 		  	 :value="sharedState.user.birthday.day"
 		  	 v-bind:valueReturn.sync="sharedState.user.birthday.day"
 		  	 customStyle="natural-language"
+			 :onChange="onChangeBirthdayDayEvent"
+			 eventNameToListen="onBirthdayDayChangeEvent"
 		  	/>
 			<WDGInput
 		  	 id="userBirthdayMonth"
 		  	 name="userBirthdayMonth"
+		  	 ref="inputUserBirthdayMonth"
 		  	 class="input-description-below"
 		  	 :placeholder="getDateTranslation('MM')"
 		  	 :descriptionBelow="getDateDescriptor('MM')"
 		  	 :value="sharedState.user.birthday.month"
 		  	 v-bind:valueReturn.sync="sharedState.user.birthday.month"
 		  	 customStyle="natural-language"
+			 :onChange="onChangeBirthdayMonthEvent"
+			 eventNameToListen="onBirthdayMonthChangeEvent"
 		  	/>
 			<WDGInput class="user-birthday-year input-description-below"
 		  	 id="userBirthdayYear"
 		  	 name="userBirthdayYear"
+		  	 ref="inputUserBirthdayYear"
 		  	 :placeholder="getDateTranslation('YYYY')"
 		  	 :descriptionBelow="getDateDescriptor('YYYY')"
 		  	 :value="sharedState.user.birthday.year"
 		  	 v-bind:valueReturn.sync="sharedState.user.birthday.year"
 		  	 customStyle="natural-language"
+			 :onChange="onChangeBirthdayYearEvent"
 		  	/>,
 		</div>
 
@@ -352,7 +360,8 @@ export default {
 			],
 			canFindAddress: true,
 			loading: false,
-			requestError: ''
+			requestError: '',
+			currentIntervalId: 0
 		}
 	},
 	methods: {
@@ -526,6 +535,52 @@ export default {
 					}
 				}
 			}
+		},
+		onChangeBirthdayDayEvent () {			
+			// Timer de déclenchement pour ne pas exécuter de requête en direct
+			clearInterval(this.currentIntervalId)
+			this.currentIntervalId = setInterval(this.onIntervalDateEvent, 500, "birthday-day")
+		},
+		onChangeBirthdayMonthEvent () {			
+			// Timer de déclenchement pour ne pas exécuter de requête en direct
+			clearInterval(this.currentIntervalId)
+			this.currentIntervalId = setInterval(this.onIntervalDateEvent, 500, "birthday-month")
+		},
+		onChangeBirthdayYearEvent () {			
+			// Timer de déclenchement pour ne pas exécuter de requête en direct
+			clearInterval(this.currentIntervalId)
+			this.currentIntervalId = setInterval(this.onIntervalDateEvent, 500, "birthday-year")
+		},
+		// Evènement après l'intervalle pour déclencher l'exécution du script
+		onIntervalDateEvent (champ) {
+			clearInterval(this.currentIntervalId)
+			this.listError = []
+			if ( champ === 'birthday-day' ){
+				if ( this.sharedState.user.birthday.day < 10 ){
+					this.sharedState.user.birthday.day = '0' + this.sharedState.user.birthday.day
+					this.$root.$emit('onBirthdayDayChangeEvent', this.sharedState.user.birthday.day)
+				} else if (isNaN(this.sharedState.user.birthday.day) || this.sharedState.user.birthday.day === '' || this.sharedState.user.birthday.day < 1 || this.sharedState.user.birthday.day > 31) {
+					this.listError.splice(this.listError.length, 0, 'birthday-day')
+				}
+				// on met le focus sur le mois
+				this.$refs.inputUserBirthdayMonth.focus()
+			}else if ( champ === 'birthday-month' ){
+				if ( this.sharedState.user.birthday.month < 10 ){
+					this.sharedState.user.birthday.month = '0' + this.sharedState.user.birthday.month
+					this.$root.$emit('onBirthdayMonthChangeEvent', this.sharedState.user.birthday.month)
+				} else if (isNaN(this.sharedState.user.birthday.month) || this.sharedState.user.birthday.month === '' || this.sharedState.user.birthday.month < 1 || this.sharedState.user.birthday.month > 12) {
+					this.listError.splice(this.listError.length, 0, 'birthday-month')
+				}
+				// on met le focus sur l'année'
+				this.$refs.inputUserBirthdayYear.focus()
+			}else if ( champ === 'birthday-year' ){
+				if (isNaN(this.sharedState.user.birthday.year) || this.sharedState.user.birthday.year === '' || this.sharedState.user.birthday.year < 1850 || this.sharedState.user.birthday.year > 2050) {
+					this.listError.splice(this.listError.length, 0, 'birthday-year')
+				}
+				// on met le focus sur le mois
+				//this.$refs.inputUserBirthdayMonth.focus()
+			}
+			
 		}
 	},
 	computed: {
