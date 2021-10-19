@@ -143,4 +143,15 @@ export default {
 		width: 10px;
 		height: 10px;
 	}
+@media screen and (max-width: 767px) {
+	div.the-screen-investor-type {
+		margin: 0;
+		margin-top: 50px;
+	}
+	div.the-screen-investor-type div.question {
+		width: auto;
+		margin-right: 24px;
+		margin-bottom: 50px;
+	}
+}
 </style>
