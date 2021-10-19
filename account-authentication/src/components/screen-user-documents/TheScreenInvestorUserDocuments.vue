@@ -297,7 +297,7 @@ export default {
 	div.the-screen-investor-user-documents .wdg-upload label {
 		border: 1px solid #c2c2c2;
 		text-transform: none !important;
-		padding: 10px;
+		padding: 15px;
 		width: auto;
 	}
 	div.the-screen-investor-user-documents .wdg-upload label span:before {
