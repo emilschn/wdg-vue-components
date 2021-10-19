@@ -14,9 +14,11 @@
 				  type="file"
 				  @change="onFileChangeEvent"
 				 >
+				<div class="file-name-container">
 					<span v-if="fileName !== ''" class="file-name">{{ fileName }}</span>
 					<span v-else-if="label !== null && label !== ''">{{ label }}</span>
 					<span v-else>{{ $t('common.SEND_FILE') }}</span>
+				</div>
 				<div
 		  			v-if="fileName"
 		  			class="remove-file"
