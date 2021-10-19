@@ -1,9 +1,9 @@
 <template>
 	<div class="the-screen-investor-type">
-		<WDGBadge type="check-green">
+		<!-- <WDGBadge type="check-green">
 			<slot slot="title">Coucou</slot>
 			<slot slot="text">Ca va ?</slot>
-		</WDGBadge>
+		</WDGBadge> -->
 		<WDGMascot type="face-1" alignMascot="left" :displayText="false" />
 		<div class="question">
 			<div class="question-bg">
@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import WDGBadge from '@/../../common/src/components/WDGBadge'
+// import WDGBadge from '@/../../common/src/components/WDGBadge'
 import WDGMascot from '@/../../common/src/components/WDGMascot'
 import WDGRadioButton from '@/../../common/src/components/WDGRadioButton'
 import WDGMessage from '@/../../common/src/components/WDGMessage'
@@ -55,7 +55,7 @@ import WDGButton from '@/../../common/src/components/WDGButton'
 export default {
 	name: 'TheScreenInvestorType',
 	components: {
-		WDGBadge,
+		// WDGBadge,
 		WDGMascot,
 		WDGRadioButton,
 		WDGMessage,
@@ -84,10 +84,10 @@ export default {
 	div.the-screen-investor-type {
 		margin: 90px;
 	}
-	div.the-screen-investor-type div.wdg-badge {
+	/* div.the-screen-investor-type div.wdg-badge {
 		margin-top: -90px;
 		margin-left: -90px;
-	}
+	} */
 
 	div.the-screen-investor-type div.question {
 		float: left;
