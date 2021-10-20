@@ -320,4 +320,41 @@ export default {
 	.button-container {
 		margin-bottom: 50px;
 	}
+	@media screen and (max-width: 767px) {
+		/* div.the-screen-investor-user-documents {
+			margin: auto;
+		} */
+		div.the-screen-investor-user-documents div.button-container {
+			flex-direction: column;
+			width: auto;
+			align-items: center;
+			float: none;
+		}
+		div.the-screen-investor-user-documents div.title-container {
+			width: auto;
+			text-align: center;
+		}
+		div.the-screen-investor-user-documents div.button-container div.wdg-button {
+			width: auto;
+			margin-right: 0;
+		}
+		div.the-screen-investor-user-documents .wdg-mascot {
+			margin: 50px auto; 
+			float: none;
+		}
+		div.the-screen-investor-user-documents div.upload-container {
+			float: none;
+			width: auto;
+			margin: 0 24px;
+		}
+		div.wdg-upload-document div.wdg-upload {
+			width: auto;
+		}
+		div.wdg-upload-document div.multiple {
+			margin-bottom: 20px;
+		}
+		div.upload-multiple-container {
+			margin-right: 0;
+		}
+	}
 </style>
