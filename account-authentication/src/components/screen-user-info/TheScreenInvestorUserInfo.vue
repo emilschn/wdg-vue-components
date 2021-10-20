@@ -704,4 +704,18 @@ export default {
 		color: red;
 		text-align: center;
 	}
+	@media screen and (max-width: 767px) {
+		.the-screen-investor-user-info {
+			padding: 24px;
+		}
+		.the-screen-investor-user-info input#userBirthdayDay, .the-screen-investor-user-info .date-of-birth div:first-of-type .description-below {
+			margin-left: 10px;
+		}
+		.the-screen-investor-user-info .postal-code-and-city {
+			flex-direction: column;
+		}
+		span.error {
+			width: auto;
+		}
+	}
 </style>
