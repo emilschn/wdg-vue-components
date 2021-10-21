@@ -493,20 +493,14 @@
 			"formulas": {
 				"RECOMMENDED": "Recommended formula",
 				"REDUCTION": "young companies",
-				"lovemoney": {
-					"TITLE": "Love Money",
-					"TEXT": "Have your loved ones invest confidentially and quickly",
-					"AMOUNT_1": "2% success fee on the amount raised",
-					"AMOUNT_2": "5% on the royalties paid (min. €60 per declaration)"
-				},
 				"private": {
-					"TITLE": "Private network",
+					"TITLE": "Private fundraising",
 					"TEXT": "Have your network invest by using the platform privately",
-					"AMOUNT_1": "4% success fee on the amount raised",
+					"AMOUNT_1": "4% success fee on the amount raised  (2% for 5 investors or less)",
 					"AMOUNT_2": "5% on the royalties paid (min. €60 per declaration)"
 				},
 				"crowdfunding": {
-					"TITLE": "Crowdfunding",
+					"TITLE": "Public fundraising",
 					"TEXT": "Mobilise your networks and promote your project to new investors",
 					"AMOUNT_1": "8% success fee on the amount raised (6% with comprehensive assistance, 4% on amounts raised over €100,000)",
 					"AMOUNT_2": "3% on the royalties paid (min. €60 per declaration)"
@@ -520,8 +514,7 @@
 					"PAYMENTS": "Collection of investments online and by cheque",
 					"EVALUATION": "Evaluation period to validate the interest of potential investors and bring together pre-investments",
 					"GREEN_LABEL": "Crowdfunding for Green Growth label (on request and subject to project evaluation)",
-					"LIMITED_INVESTORS": "Unlimited number of investors",
-					"UP_TO_5_INVESTORS": "Up to 5 investors"
+					"LIMITED_INVESTORS": "Unlimited number of investors"
 				}
 			},
 			"options": {
@@ -544,7 +537,7 @@
 					"READ_PITCH_AND_COM": "Proofreading your presentation and your communication media",
 					"SUPPORT_TO_INVESTORS": "Support for your investors",
 					"SUPPORT_CENTER": "Access to the support centre",
-					"COMMISSION_REDUCTION": "Fee of 6% rather than 8% in the CROWDFUNDING formula",
+					"COMMISSION_REDUCTION": "Fee of 6% rather than 8% in the PUBLIC FUNDRAISING formula",
 					"CUSTOM_MONITORING": "Personalised follow-up and priority support",
 					"INVESTORS_MONITORING": "Investor conversion tracking",
 					"WORKSHOP": "Two-hour preparation workshop to lay the foundations with your team (communication tips and crowdfunding methodology advice, definition of the action plan, handling of the platform)"

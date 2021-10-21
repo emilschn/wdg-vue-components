@@ -32,8 +32,13 @@ export default {
 		}
 	},
 	methods: {
+		// NB : on a 3 cercles d'investisseurs, mais avec la revue des offres, les cercles lovemoney et private renvoient tous les 2 vers l'offre private
 		changeCircle (circleSelected) {
 			this.sharedState.project.circlesToCommunicate = circleSelected
+			this.sharedState.project.chosenFormula = circleSelected
+			if (circleSelected === 'lovemoney') {
+				this.sharedState.project.chosenFormula = 'private'
+			}
 		}
 	}
 }

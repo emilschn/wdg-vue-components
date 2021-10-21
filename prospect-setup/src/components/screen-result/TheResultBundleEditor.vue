@@ -94,7 +94,6 @@ export default {
 			sharedState: store.state,
 			isEditing: false,
 			bundle1TypeList: [
-				{ Id: 'lovemoney', Text: i18n.t('project-setup.project-result.formulas.lovemoney.TITLE') },
 				{ Id: 'private', Text: i18n.t('project-setup.project-result.formulas.private.TITLE') },
 				{ Id: 'crowdfunding', Text: i18n.t('project-setup.project-result.formulas.crowdfunding.TITLE') }
 			],
