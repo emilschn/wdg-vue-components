@@ -229,4 +229,18 @@ export default {
 	div.the-screen-investor-checking div.description .wdg-form {
 		margin-bottom: 0;
 	}
+	@media screen and (max-width: 767px) {
+		.the-screen-investor-checking .wdg-mascot {
+			margin: auto;
+		}
+		.the-screen-investor-checking .description {
+			margin: 40px auto;
+		}
+		div.the-screen-investor-checking .phone-number-container input#userPhoneNumber {
+			width: 130px;
+		}
+		div.the-screen-investor-checking span.error {
+			width: 100%;
+		}
+	}
 </style>
