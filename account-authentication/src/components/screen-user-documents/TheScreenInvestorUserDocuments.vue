@@ -356,5 +356,8 @@ export default {
 		div.upload-multiple-container {
 			margin-right: 0;
 		}
+		div.the-screen-investor-user-documents .multiple .document-upload-container {
+			width: 100%;
+		}
 	}
 </style>
