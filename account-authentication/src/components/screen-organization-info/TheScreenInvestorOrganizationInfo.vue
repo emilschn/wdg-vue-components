@@ -596,5 +596,25 @@ export default {
 	.the-screen-investor-organization-info .email-container .error, .the-screen-investor-organization-info .website-container .error {
 		margin-right: 70%;
 	}
+	@media screen and (max-width: 767px) {
+		.the-screen-investor-organization-info {
+			padding-left: 24px;
+		}
+		.the-screen-investor-organization-info .email-container .wdg-input input, .the-screen-investor-organization-info .website-container .wdg-input input {
+			width: 80%;
+		}
+		.the-screen-investor-organization-info .website-container .description-below {
+			width: 80%;
+		}
+		.the-screen-investor-organization-info .address-number-container, .the-screen-investor-organization-info .address-container .organization-info-line:nth-of-type(2), .the-screen-investor-organization-info div.postal-code-city-container {
+			flex-direction: column;
+		}
+		.the-screen-investor-organization-info .organization-info-line {
+			display: flex;
+			flex-flow: row wrap;
+			align-items: baseline;
+			margin-bottom: 15px;
+		}
+	}
 
 </style>
