@@ -173,6 +173,7 @@ export default {
 			this.sharedState.project.royaltiesOK = metadata.project.royaltiesOK
 			this.sharedState.project.readyToCommunicate = metadata.project.readyToCommunicate
 			this.sharedState.project.circlesToCommunicate = metadata.project.circlesToCommunicate
+			this.sharedState.project.chosenFormula = metadata.project.chosenFormula
 			this.sharedState.project.alreadyDoneCrowdfunding = metadata.project.alreadyDoneCrowdfunding
 			this.sharedState.project.needCommunicationAdvice = metadata.project.needCommunicationAdvice
 			this.sharedState.project.fileComments = metadata.project.fileComments

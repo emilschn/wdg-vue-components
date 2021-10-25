@@ -71,7 +71,7 @@
 				  name="alreadydonecrowdfunding"
 				  :value="sharedState.project.alreadyDoneCrowdfunding"
 				  v-bind:valueReturn.sync="sharedState.project.alreadyDoneCrowdfunding"
-				  v-if="sharedState.project.circlesToCommunicate === 'public'"
+				  v-if="sharedState.project.chosenFormula === 'public'"
 				  >
 					<slot slot="label-after">{{ $t('project-setup.project-investors.ALREADY_DONE_CROWDFUNDING') }}</slot>
 				</WDGCheckbox>
@@ -81,7 +81,7 @@
 				  name="needcommunicationadvice"
 				  :value="sharedState.project.needCommunicationAdvice"
 				  v-bind:valueReturn.sync="sharedState.project.needCommunicationAdvice"
-				  v-if="sharedState.project.circlesToCommunicate === 'public' || sharedState.project.circlesToCommunicate === 'private'"
+				  v-if="sharedState.project.chosenFormula === 'public' || sharedState.project.chosenFormula === 'private'"
 				  >
 					<slot slot="label-after">{{ $t('project-setup.project-investors.NEED_COMMUNICATION_ADVICE') }}</slot>
 				</WDGCheckbox>
@@ -89,7 +89,7 @@
 		</div>
 		</div>
 
-		<div class="project-investors-navigation clear" v-if="sharedState.project.circlesToCommunicate !== '' || sharedState.project.readyToCommunicate === false">
+		<div class="project-investors-navigation clear" v-if="sharedState.project.chosenFormula !== '' || sharedState.project.readyToCommunicate === false">
 			<a @click="changeStepBackward">
 			{{ $t('project-setup.PREVIOUS_STEP') }}
 			</a>
@@ -154,6 +154,7 @@ export default {
 		readyToCommunicateNoButtonColor () {
 			return (this.sharedState.project.readyToCommunicate === false) ? 'red' : 'transparent'
 		},
+		// NB : on a 3 cercles d'investisseurs, mais avec la revue des offres, les cercles lovemoney et private renvoient tous les 2 vers l'offre private
 		getMascotType () {
 			if (this.sharedState.project.readyToCommunicate === false) {
 				return 'not-ready-communicate'

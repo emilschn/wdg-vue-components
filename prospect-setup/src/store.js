@@ -52,6 +52,7 @@ export const store = {
 			royaltiesOK: false,
 			readyToCommunicate: '',
 			circlesToCommunicate: '',
+			chosenFormula: '',
 			alreadyDoneCrowdfunding: false,
 			needCommunicationAdvice: false,
 			fileComments: '',

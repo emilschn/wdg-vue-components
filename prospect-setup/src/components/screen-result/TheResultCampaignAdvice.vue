@@ -105,16 +105,6 @@ export default {
 		return {
 			sharedState: store.state,
 			sharedProps: store.props,
-			uncheckedItemsLoveMoney: [
-				i18n.t('project-setup.project-result.formulas.lovemoney.AMOUNT_1'),
-				i18n.t('project-setup.project-result.formulas.lovemoney.AMOUNT_2')
-			],
-			checkedItemsLoveMoney: [
-				i18n.t('project-setup.project-result.formulas.options.MANAGED_THROUGH_PLATFORM'),
-				i18n.t('project-setup.project-result.formulas.options.SUPPORT'),
-				i18n.t('project-setup.project-result.formulas.options.UP_TO_5_INVESTORS'),
-				i18n.t('project-setup.project-result.formulas.options.PAYMENTS')
-			],
 			uncheckedItemsPrivate: [
 				i18n.t('project-setup.project-result.formulas.private.AMOUNT_1'),
 				i18n.t('project-setup.project-result.formulas.private.AMOUNT_2')
@@ -310,8 +300,8 @@ export default {
 		// A l'arrivée, on initialise les données en fonction des données cochées précédemment
 		// Package de base
 		if (this.sharedState.package.bundle1.type === '') {
-			this.sharedState.package.bundle1.type = this.sharedState.project.circlesToCommunicate
-			if (this.sharedState.project.circlesToCommunicate === 'public') {
+			this.sharedState.package.bundle1.type = this.sharedState.project.chosenFormula
+			if (this.sharedState.project.chosenFormula === 'public') {
 				this.sharedState.package.bundle1.type = 'crowdfunding'
 			}
 			this.sharedState.package.bundle1.priceWithoutDiscount = 500
@@ -323,11 +313,11 @@ export default {
 		// Accompagnements
 		if (this.sharedState.package.bundle2.type === '') {
 			// Accompagnement basique
-			if (!this.sharedState.project.needCommunicationAdvice && (this.sharedState.project.circlesToCommunicate === 'lovemoney' || this.sharedState.project.alreadyDoneCrowdfunding)) {
+			if (!this.sharedState.project.needCommunicationAdvice && this.sharedState.project.alreadyDoneCrowdfunding) {
 				this.sharedState.package.bundle2.type = 'basic'
 			}
 			// Accompagnement standard
-			if (!this.sharedState.project.alreadyDoneCrowdfunding && !this.sharedState.project.needCommunicationAdvice && this.sharedState.project.circlesToCommunicate !== 'lovemoney') {
+			if (!this.sharedState.project.alreadyDoneCrowdfunding && !this.sharedState.project.needCommunicationAdvice) {
 				this.sharedState.package.bundle2.type = 'standard'
 				this.sharedState.package.bundle2.priceWithoutDiscount = 500
 				this.sharedState.package.bundle2.discount = '25'
