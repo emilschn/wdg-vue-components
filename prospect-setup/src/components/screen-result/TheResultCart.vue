@@ -85,9 +85,6 @@ export default {
 	},
 	computed: {
 		bundle1Description () {
-			if (this.bundle1Type === 'lovemoney') {
-				return i18n.t('project-setup.project-result.formulas.lovemoney.AMOUNT_1') + ', ' + i18n.t('project-setup.project-result.formulas.lovemoney.AMOUNT_2')
-			}
 			if (this.bundle1Type === 'private') {
 				return i18n.t('project-setup.project-result.formulas.private.AMOUNT_1') + ', ' + i18n.t('project-setup.project-result.formulas.private.AMOUNT_2')
 			}
