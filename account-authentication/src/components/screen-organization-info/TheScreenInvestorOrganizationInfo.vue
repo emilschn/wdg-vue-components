@@ -616,5 +616,10 @@ export default {
 			margin-bottom: 15px;
 		}
 	}
+	@media screen and (min-width: 768px) and (max-width: 959px) {
+		.the-screen-investor-organization-info {
+			padding: 24px;
+		}
+	}
 
 </style>

@@ -154,4 +154,12 @@ export default {
 		margin-bottom: 50px;
 	}
 }
+@media screen and (min-width: 768px) and (max-width: 959px) {
+	div.the-screen-investor-type div.question {
+		margin-bottom: 50px;
+	}
+	div.the-screen-investor-type div.wdg-message {
+		width: auto;
+	}
+}
 </style>

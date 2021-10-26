@@ -718,4 +718,9 @@ export default {
 			width: auto;
 		}
 	}
+	@media screen and (min-width: 768px) and (max-width: 959px) {
+		.the-screen-investor-user-info {
+			padding: 24px;
+		}
+	}
 </style>

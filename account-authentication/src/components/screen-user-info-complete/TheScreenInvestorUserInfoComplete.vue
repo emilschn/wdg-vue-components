@@ -56,4 +56,9 @@ export default {
 			margin: 0 24px 50px 24px
 		}
 	}
+	@media screen and (min-width: 768px) and (max-width: 959px) {
+		div.the-screen-investor-user-info-complete {
+			margin-right: 20px;
+		}
+		}
 </style>

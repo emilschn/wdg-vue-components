@@ -243,4 +243,15 @@ export default {
 			width: 100%;
 		}
 	}
+	@media screen and (min-width: 768px) and (max-width: 959px) {
+		div.the-screen-investor-checking {
+		margin-right: 20px;
+		}
+		div.the-screen-investor-checking div.description {
+			width: 52%;
+		}
+		div.the-screen-investor-checking .wdg-form label {
+			width: auto;
+		}
+	}
 </style>

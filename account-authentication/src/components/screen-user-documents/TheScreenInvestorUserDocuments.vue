@@ -357,4 +357,22 @@ export default {
 			width: 100%;
 		}
 	}
+	@media screen and (min-width: 768px) and (max-width: 959px) {
+		div.the-screen-investor-user-documents {
+			padding: 0 24px;
+		}
+		div.the-screen-investor-user-documents div.button-container {
+			flex-direction: column;
+			width: 45%;
+		}
+		div.the-screen-investor-user-documents div.upload-container {
+			width: 50%;
+		}
+		div.wdg-upload-document div.wdg-upload {
+			width: auto;
+		}
+		div.the-screen-investor-user-documents div.button-container div.wdg-button button {
+			height: 150px;
+		}
+	}
 </style>
