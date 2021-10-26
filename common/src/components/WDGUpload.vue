@@ -7,7 +7,7 @@
 			>
 			<img :src="filePreviewURL">
 			</div>
-			<div class="upload-container-text">
+			<div :class="fileName !== '' ? 'upload-container-text-1' :'upload-container-text-2'">
 				<input
 				  id="upload"
 				  name="attachment"
@@ -151,7 +151,6 @@ export default {
 	max-height: 10%;
 }
 .wdg-upload .upload-container-text {
-	width: 62%;
 	line-height: normal;
 	margin-left: 10px;
 }
@@ -213,5 +212,20 @@ export default {
 	content: url("../assets/icons/exclamation.png");
 	margin-right: 15px;
 
+}
+.wdg-upload .upload-container-text-1 {
+	width: 62%;
+}
+.wdg-upload .upload-container-text-2 {
+	width: 100%;
+}
+@media screen and (max-width: 767px) {
+	.wdg-upload .file-name-container, .wdg-upload div.remove-file {
+		margin-left: 20px;
+		margin-top: 0;
+	}
+	.wdg-upload .upload-container-text-1 {
+		width: 70%;
+	}
 }
 </style>

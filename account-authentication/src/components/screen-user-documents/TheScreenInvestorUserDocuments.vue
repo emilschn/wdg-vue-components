@@ -321,9 +321,6 @@ export default {
 		margin-bottom: 50px;
 	}
 	@media screen and (max-width: 767px) {
-		/* div.the-screen-investor-user-documents {
-			margin: auto;
-		} */
 		div.the-screen-investor-user-documents div.button-container {
 			flex-direction: column;
 			width: auto;
