@@ -219,7 +219,7 @@ export default {
 .wdg-upload .upload-container-text-2 {
 	width: 100%;
 }
-@media screen and (max-width: 767px) {
+@media screen and (min-width: 767px) and (max-width: 959px) {
 	.wdg-upload .file-name-container, .wdg-upload div.remove-file {
 		margin-left: 20px;
 		margin-top: 0;

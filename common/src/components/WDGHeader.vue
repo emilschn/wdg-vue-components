@@ -228,4 +228,10 @@ select#lang-select {
 		order: 4;
 	}
 }
+@media screen and (min-width: 768px) and (max-width: 959px) {
+	.header {
+	padding: 20px;
+	width: auto;
+	}
+}
 </style>
