@@ -26,7 +26,7 @@
 			</div>
 
 
-			<div
+			<div class="capital-allocation-buttons-container"
 			  v-if="step === 'ask-capital-allocation'"
 			  >
 				<WDGButton
@@ -42,7 +42,7 @@
 				</WDGButton>
 			</div>
 
-			<div
+			<div class="other-people-buttons-container"
 			  v-else-if="step === 'ask-other-people'"
 			  >
 				<WDGButton
@@ -174,9 +174,35 @@ export default {
 	}
 	div.the-screen-investor-organization-documents div.title-container {
 		margin-bottom: 20px;
+		font-size: 20px;
+		width: 100%;
 	}
 	div.the-screen-investor-organization-documents div.button-container {
 		float: left;
 		width: 600px;
+	}
+	div.the-screen-investor-organization-documents .document-upload-container {
+		border: 1px solid #c2c2c2;
+		text-transform: none !important;
+		padding: 15px;
+		width: 50%;
+		margin: 40px 0 20px 0;
+	}
+	div.the-screen-investor-organization-documents .document-upload-container span:before {
+		content: url("../../../../common/src/assets/icons/upload.png");
+		margin-right: 10px;
+		display: inline-block;
+		vertical-align: middle;
+	}
+	div.the-screen-investor-organization-documents .wdg-upload>span {
+		color: #c2c2c2;
+		display: inline-block;
+		width: 50%;
+	}
+	div.the-screen-investor-organization-documents .capital-allocation-buttons-container, div.the-screen-investor-organization-documents .other-people-buttons-container {
+		display: flex;
+	}
+	div.the-screen-investor-organization-documents .capital-allocation-buttons-container .wdg-button:nth-of-type(2), div.the-screen-investor-organization-documents .other-people-buttons-container .wdg-button:nth-of-type(2) {
+		margin-left: 30px;
 	}
 </style>
