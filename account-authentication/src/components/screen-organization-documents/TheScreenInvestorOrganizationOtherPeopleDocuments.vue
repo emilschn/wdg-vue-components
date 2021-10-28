@@ -232,4 +232,9 @@ export default {
 	div.the-screen-investor-organization-other-people-documents div.wdg-upload > span {
 		width: auto;
 	}
+	@media screen and (max-width: 767px) {
+		div.the-screen-investor-organization-other-people-documents div.wdg-upload .document-upload-container {
+			width: 80%;
+		}
+	}
 </style>

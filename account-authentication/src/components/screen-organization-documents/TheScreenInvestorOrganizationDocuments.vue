@@ -205,4 +205,15 @@ export default {
 	div.the-screen-investor-organization-documents .capital-allocation-buttons-container .wdg-button:nth-of-type(2), div.the-screen-investor-organization-documents .other-people-buttons-container .wdg-button:nth-of-type(2) {
 		margin-left: 30px;
 	}
+	@media screen and (max-width: 767px) {
+		div.the-screen-investor-organization-documents div.button-container, div.the-screen-investor-organization-documents div.wdg-mascot {
+			padding-left: 24px;
+		}
+		div.the-screen-investor-organization-documents div.button-container {
+			width: auto;
+		}
+		div.the-screen-investor-organization-documents .document-upload-container, div.the-screen-investor-organization-documents .wdg-upload > span {
+			width: 80%;
+		}
+	}
 </style>
