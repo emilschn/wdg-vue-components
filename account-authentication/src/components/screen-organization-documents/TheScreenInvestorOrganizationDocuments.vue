@@ -216,4 +216,16 @@ export default {
 			width: 80%;
 		}
 	}
+	@media screen and (min-width: 768px) and (max-width: 959px) {
+		div.the-screen-investor-organization-documents div.button-container {
+			padding-left: 24px;
+			width: 45%;
+		}
+		div.the-screen-investor-organization-documents .document-upload-container, div.the-screen-investor-organization-documents .wdg-upload > span {
+			width: auto;
+		}
+		div.the-screen-investor-organization-documents div.wdg-mascot {
+			margin-right: 24px;
+		}
+	}
 </style>
