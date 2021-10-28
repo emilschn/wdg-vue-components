@@ -8,7 +8,7 @@
 		</label>
 
 		<div class="init-file-list" v-if="initFileList.length > 0">
-			Fichiers envoyés précédemment :<br>
+			{{ $t('common.PREVIOUSLY_SENT_FILES') }} :<br>
 			<ul>
 				<li
 				  v-for="(item, index) in initFileList"
@@ -16,7 +16,7 @@
 				  :index="index"
 				  :key="item.id"
 				  >
-					<a :href="item.url" target="_blank">Fichier {{index+1}}</a>
+					<a :href="item.url" target="_blank">{{ $t('common.FILE') }} {{index+1}}</a>
 				</li>
 			</ul>
 		</div>
