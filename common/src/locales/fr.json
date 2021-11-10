@@ -19,6 +19,8 @@
 		"VIEW_LESS": "Voir moins",
 		"WITHOUT_TAXES_LETTERS": "H.T.",
 		"CONTINUE": "Continuer",
+		"PREVIOUSLY_SENT_FILES": "Fichiers envoyés précédemment",
+		"FILE": "Fichier",
 		"ADD_DOCUMENT": "Ajouter un document",
 		"CONFIRM": "Confirmer",
 		"date": {
@@ -497,20 +499,14 @@
 			"formulas": {
 				"RECOMMENDED": "Formule recommandée",
 				"REDUCTION": "jeunes entreprises",
-				"lovemoney": {
-					"TITLE": "Love Money",
-					"TEXT": "Faites investir vos proches de manière confidentielle et rapide",
-					"AMOUNT_1": "2 % Commission au succès sur le montant levé",
-					"AMOUNT_2": "5 % Sur les royalties versées (min. 60 € par déclaration)"
-				},
 				"private": {
-					"TITLE": "Réseau privé",
+					"TITLE": "Levée de fonds privée",
 					"TEXT": "Faites investir votre réseau en utilisant la plateforme de manière privée",
-					"AMOUNT_1": "4 % Commission au succès sur le montant levé",
+					"AMOUNT_1": "4 % Commission au succès sur le montant levé (2 % pour 5 investisseurs ou moins)",
 					"AMOUNT_2": "5 % Sur les royalties versées (min. 60 € par déclaration)"
 				},
 				"crowdfunding": {
-					"TITLE": "Crowdfunding",
+					"TITLE": "Levée de fonds publique",
 					"TEXT": "Mobilisez vos réseaux et faites connaître votre projet auprès de nouveaux investisseurs",
 					"AMOUNT_1": "8 % Commission au succès sur le montant levé (6 % avec l’accompagnement INTÉGRAL, 4 % sur le montant levé au-delà de 100 000 €.)",
 					"AMOUNT_2": "3 % Sur les royalties versées (min. 60 € par déclaration)"
@@ -524,8 +520,7 @@
 					"PAYMENTS": "Collecte des investissements en ligne et par chèque",
 					"EVALUATION": "Période d’évaluation pour valider l’intérêt des investisseurs potentiels et réunir des pré-investissements",
 					"GREEN_LABEL": "Label Financement Participatif pour la Croissance Verte (sur demande et évaluation du projet)",
-					"LIMITED_INVESTORS": "Nombre d’investisseurs illimité",
-					"UP_TO_5_INVESTORS": "Jusqu'à 5 investisseurs"
+					"LIMITED_INVESTORS": "Nombre d’investisseurs illimité"
 				}
 			},
 			"options": {
@@ -548,7 +543,7 @@
 					"READ_PITCH_AND_COM": "Relecture de votre présentation, et de vos supports de communication",
 					"SUPPORT_TO_INVESTORS": "Support auprès de vos investisseurs",
 					"SUPPORT_CENTER": "Accès au centre de support",
-					"COMMISSION_REDUCTION": "Commission à 6 % au lieu de 8 % sur la formule CROWDFUNDING",
+					"COMMISSION_REDUCTION": "Commission à 6 % au lieu de 8 % sur la formule LEVÉE DE FONDS PUBLIQUE",
 					"CUSTOM_MONITORING": "Suivi personnalisé et support prioritaire",
 					"INVESTORS_MONITORING": "Suivi de conversion des investisseurs",
 					"WORKSHOP": "Atelier de préparation de 2h pour poser les bases avec votre équipe (Conseils en communication et méthodologie sur le financement participatif, définition du plan d’actions, prise en main de la plateforme)"
