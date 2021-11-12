@@ -74,6 +74,7 @@ export default {
 		5px 5px,
 		1px 1.5em;
 	background-repeat: no-repeat;
+	background-color: #FFF;
 	color: #00879B;
 	border: 0px;
 	border-bottom: 2px solid #00879B;

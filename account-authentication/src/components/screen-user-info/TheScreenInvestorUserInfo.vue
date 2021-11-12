@@ -462,7 +462,7 @@ export default {
 			return ''
 		},
 		hasBirthplaceCityDistricts() {
-			return (this.sharedState.user.birthday.city.indexOf('Paris') > -1 || this.sharedState.user.birthday.city.indexOf('Lyon') > -1 || this.sharedState.user.birthday.city.indexOf('Marseille') > -1)
+			return (this.sharedState.user.birthday.city !== undefined && (this.sharedState.user.birthday.city.indexOf('Paris') > -1 || this.sharedState.user.birthday.city.indexOf('Lyon') > -1 || this.sharedState.user.birthday.city.indexOf('Marseille') > -1))
 		},
 		onSelectSearchAddressEvent(searchResultItem) {
 			if ( searchResultItem !== undefined ) {
