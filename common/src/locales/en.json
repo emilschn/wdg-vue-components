@@ -11,6 +11,7 @@
 		"ORGA_NAME": "Company name",
 		"ORGA_NAME_PLACEHOLDER": "My company",
 		"VALIDATE": "Validate",
+		"REMOVE": "Remove",
 		"REQUEST_ERROR": "Problem sending request",
 		"REQUIRED_FIELDS": "Required fields",
 		"SEND": "Send",
@@ -18,8 +19,23 @@
 		"VIEW_LESS": "See less",
 		"WITHOUT_TAXES_LETTERS": "(excl. VAT)",
 		"CONTINUE": "Continue",
+		"PREVIOUSLY_SENT_FILES": "Previously sent files",
+		"FILE": "File",
 		"ADD_DOCUMENT": "Add document",
-		"CONFIRM": "Confirm"
+		"CONFIRM": "Confirm",
+		"date": {
+			"DD": "DD",
+			"MM": "MM",
+			"YYYY": "YYYY",
+			"description-DD": "Day",
+			"description-MM": "Month",
+			"description-YYYY": "Year"
+		},
+		"SEND_FILE": "Submit your file",
+		"SEND_FILE_DESCRIPTOR": "Click to browse your documents, drag and drop your file directly, or take a photo.",
+		"CANT_FIND_ADDRESS": "I can't find my address",
+		"FILE_TYPE_NOT_ACCEPTED": "This type of file is not accepted",
+		"FILE_TOO_BIG": "This file is too heavy"
 	},
 	"validations": {
 		"REQUIRED": "This field is required",
@@ -52,6 +68,149 @@
 		"SIGNUP_ERROR_UNDEFINED": "An error occurred when creating the user.",
 		"SIGNUP_ERROR_ROBOT": "Please check the box confirming that you are not a robot."
 	},
+	"account-authentication": {
+		"tabs": {
+			"INFORMATION": "Information",
+			"INFORMATION_USER_DURATION": "1 minute",
+			"INFORMATION_ORGANIZATION_DURATION": "2 minutes",
+			"DOCUMENTS": "Documents",
+			"DOCUMENTS_USER_DURATION": "5 minutes",
+			"DOCUMENTS_ORGANIZATION_DURATION": "6 minutes",
+			"PROFILE": "Investor Profile",
+			"PROFILE_USER_DURATION": "3 minutes",
+			"PROFILE_ORGANIZATION_DURATION": "3 minutes",
+			"CHECKING": "Verification",
+			"CHECKING_DURATION": "Up to 48 hours of waiting"
+		},
+		"INVEST_FOR_ORGANIZATION": "Would you like to invest on behalf of an organization (as a legal entity)?",
+		"YOU_MUST_REPRESENT_ORGANIZATION": "You must be the legal representative of your organization.",
+		"user-infos": {
+			"I_AM": "I am",
+			"GENDER": "Gender",
+			"A_WOMAN": "a woman",
+			"A_MAN": "a man",
+			"I_AM_BORN": "I was born on",
+			"IN_THIS_COUNTRY": "in this country:",
+			"IN_THIS_CITY": "in the city of",
+			"IN_THIS_DISTRICT": "in this borough",
+			"IN_THE_DEPARTMENT": "located in the department",
+			"MY_NATIONALITY_IS": "My nationality is from this country:",
+			"MY_COUNTRY_IS": "I live in this country:",
+			"SEARCH_MY_ADRESS": "I live at this address",
+			"MY_ADDRESS_NUMBER_IS": "I live in",
+			"MY_ADDRESS_IS": "on the street",
+			"MY_ADDRESS_POSTAL_CODE_IS": "located in the",
+			"NUMBER": "Number",
+			"NUMBER_COMPLEMENT": "Complement",
+			"POSTAL_CODE": "Zip code",
+			"CITY": "City",
+			"MY_TAX_COUNTRY_IS": "My tax residence is:",
+			"INFO_COMPLETE_1": "Following a strengthening of the legislation, the<strong>authentication of your documents</strong> will be necessary with our payment provider Lemonway, for any investment.",
+			"INFO_COMPLETE_2": "Therefore, we need your proof of identity: <strong>2 pieces of identity,</strong>including at least one identity card and/or passport.",
+			"HEADER_ALERT": "Your route is recorded, you can leave and return to pick up where you left off.",
+			"error": {
+				"PLEASE_SELECT": "Please choose an option below",
+				"PLEASE_FILL_IN": "Please enter in the field below",
+				"DATE_DAY": "The day of a date must be an integer between 1 and 31",
+				"DATE_MONTH": "The month of a date must be an integer between 1 and 12",
+				"DATE_YEAR": "The year of a date must be a 4-digit integer"
+			}
+		},
+		"organization-infos": {
+			"MY_ORGANIZATION_NAME": "The name of my organization is",
+			"ITS_COUNTRY": "it is registered in that country",
+			"ITS_ACTIVITY_CONSISTS": "and its activity consists of",
+			"ITS_IDENTIFICATION_NUMBER": "Its registration number is",
+			"ITS_IDENTIFICATION_NUMBER_FR": "Its SIRET number is",
+			"ITS_EMAIL_ADDRESS": "his e-mail address is",
+			"ITS_EMAIL_ADDRESS_DESCRIPTOR": "This address must be different from your home address",
+			"ITS_WEBSITE": "and its website is accessible at",
+			"ITS_WEBSITE_DESCRIPTOR": "If your organization doesn't have a website, you can copy the address societe.com",
+			"ITS_LEGAL_FORM": "Its legal form is",
+			"ITS_APE": "its APE code is",
+			"ITS_LEGAL_TOWN": "and its city of registration is",
+			"ITS_LEGAL_TOWN_FR": "and the city of its RCS is",
+			"ITS_ADDRESS": "His address is",
+			"ITS_ADDRESS_NUMBER_IS": "The address of its registered office is at",
+			"ITS_ADDRESS_IS": "on the street",
+			"ITS_ADDRESS_POSTAL_CODE_IS": "located in the",
+			"ITS_CAPITAL": "its share capital is",
+			"MY_FUNCTION": "My function in the company is",
+			"INFO_COMPLETE_1": "To invest in WE DO GOOD, you must be authenticated with our service provider, Lemonway",
+			"INFO_COMPLETE_3": "You can also prepare the following documents for your organization: <strong>KBIS and Statutes</strong>",
+			"error": {
+				"CAPITAL": "The capital must be an integer"
+			}
+		},
+		"user-documents": {
+			"CHOOSE_A_DOCUMENT_TO_SEND": "Choose a document to send",
+			"CHOOSE_A_LAST_DOCUMENT_TO_SEND": "Choose a last document to send",
+			"TITLE_ID": "Identity card",
+			"DESCRIPTOR_ID": "Double-sided, valid, with fully readable MRZ tape",
+			"TITLE_PASSPORT": "Passport",
+			"DESCRIPTOR_PASSPORT": "Valid, with fully readable MRZ strip",
+			"TITLE_TAX": "Tax Notice",
+			"DESCRIPTOR_TAX": "Less than 3 months old",
+			"TITLE_WELFARE": "Carte vitale",
+			"TITLE_FAMILY": "Family booklet",
+			"TITLE_BIRTH": "Birth certificate",
+			"TITLE_DRIVING": "Driver's license",
+			"YOUR_DOCUMENT_SHOULD_BE": "Your document must be:",
+			"DOCUMENT_READABLE": "fully legible (not cropped)",
+			"DOCUMENT_TYPE": "in PDF, JPG, PNG or GIF format",
+			"DOCUMENT_SIZE": "weighing less than 8MB",
+			"USE_WECOMPRESS": "You can use <a href='https://www.wecompress.com/fr/' target='_blank'>Wecompress</a> if your file is too heavy",
+			"SEND_YOUR": "Send your",
+			"SEND_YOUR_ID": "identity card",
+			"SEND_YOUR_PASSPORT": "passport",
+			"SEND_YOUR_TAX": "tax notice",
+			"SEND_YOUR_WELFARE": "carte vitale",
+			"SEND_YOUR_FAMILY": "family record book",
+			"SEND_YOUR_BIRTH": "birth certificate",
+			"SEND_YOUR_DRIVING": "driver's license",
+			"SEND_ANOTHER": "Send another document",
+			"CHOOSE_DOCUMENT_TYPE": "Choose your document type:",
+			"ONE_FILE": "I have only one file",
+			"ONE_FILE_DESCRIPTOR": "A file including the front and back",
+			"TWO_FILES": "I have two separate files",
+			"TWO_FILES_DESCRIPTOR": "One file for the front and one file for the back",
+			"FILE_ONE_LABEL": "Recto",
+			"FILE_TWO_LABEL": "Back"
+		},
+		"organization-documents": {
+			"SEND_YOUR_KBIS": "Import your organization's KBIS",
+			"SEND_YOUR_KBIS_DESCRIPTION": "less than 3 months old",
+			"SEND_YOUR_STATUS": "Import your organization's statuses",
+			"SEND_YOUR_STATUS_DESCRIPTION": "certified to the original by the manager",
+			"DO_YOU_NEED_TO_SEND_CAPITAL_ALLOCATION": "Is the distribution of the organization's capital clearly determined in its statutes?",
+			"SEND_YOUR_CAPITAL_ALLOCATION": "Import a certificate of distribution of your organization's capital",
+			"DO_YOU_NEED_TO_SEND_OTHER_PEOPLE": "Do other people own at least 25% of the capital?",
+			"SEND_OTHER_PEOPLE": "Import the proof of identity of the people sharing the capital",
+			"SEND_OTHER_PEOPLE_TYPE_DESCRIPTION": "At least identity card or passport, then tax notice, vital card, family record book, birth certificate, driving permit",
+			"SEND_OTHER_PEOPLE_ADD_ANOTHER": "Add another person",
+			"SEND_OTHER_PEOPLE_SECOND_DOCUMENT": "And a second proof of identity",
+			"SEND_OTHER_PEOPLE_2": "Select proof of identity of the second person with at least 25% of the capital",
+			"SEND_OTHER_PEOPLE_3": "Select proof of identity of the third person with at least 25% of the capital",
+			"SEND_OTHER_PEOPLE_4": "Select proof of identity of the fourth person with at least 25% of the capital"
+		},
+		"checking": {
+			"DOCUMENTS_IMPORTED": "Your documents are imported",
+			"YOUR_DOCUMENTS_MUST_BE_VALIDATED_BY_LEMONWAY": "Your documents must now be validated by our service provider, LemonWay. You will be notified by email as soon as this is done.",
+			"YOUR_DOCUMENTS_CAN_BE_FOUND_IN_YOUR_ACCOUNT": "You will be able to find your documents in your user account.",
+			"SEND_ME_AUTHENTIFICATION_SMS": "I would also like to be notified of the authentication of my documents by SMS",
+			"TITLE_PHONE": "My mobile phone number is ",
+			"PHONE_ERROR": "The phone number is invalid"
+		},
+		"requests": {
+			"errors": {
+				"LOGIN": "There is an identification problem on the platform. The website redirects you to the login interface.",
+				"DATE": "There was an error when entering the date",
+				"CANT_EDIT_ORGANIZATION": "The user is not allowed to modify this organization",
+				"ORGANIZATION_EMAIL_EXIST": "The organization's email address is already in use by another account",
+				"ORGANIZATION_CREATION_ERROR": "Error saving organization in database"
+			}
+		}
+	},
 	"account-signin": {
 		"BACK": "Back",
 		"MASCOT_TEXT_WEDOGOOD": "On WE DO GOOD, you can invest in royalties on projects you choose and have positive economic, social, or environmental impacts. ",
@@ -62,6 +221,7 @@
 		"MASCOT_TEXT_NOTICE_2bis": "2 identity documents including at least one identity card and / or passport.",
 		"MASCOT_TEXT_NOTICE_3": "Your information will not be passed on to third parties and will remain confidential.",
 		"LABEL_MAIL": "My email address is :",
+		"NOT_REGISTERED": "Enter your email address to log in or create an account.",
 		"SIGNIN_ERROR_NOT_FOUND": "You do not have an account yet, choose a password to create one.",
 		"LABEL_CREATE_PASSWORD": "I choose my password:",
 		"LABEL_WRITE_PASSWORD": "I enter my password:",
@@ -338,20 +498,14 @@
 			"formulas": {
 				"RECOMMENDED": "Recommended formula",
 				"REDUCTION": "young companies",
-				"lovemoney": {
-					"TITLE": "Love Money",
-					"TEXT": "Have your loved ones invest confidentially and quickly",
-					"AMOUNT_1": "2% success fee on the amount raised",
-					"AMOUNT_2": "5% on the royalties paid (min. €60 per declaration)"
-				},
 				"private": {
-					"TITLE": "Private network",
+					"TITLE": "Private fundraising",
 					"TEXT": "Have your network invest by using the platform privately",
-					"AMOUNT_1": "4% success fee on the amount raised",
+					"AMOUNT_1": "4% Success Commission on the amount raised (2% for 5 or fewer investors)",
 					"AMOUNT_2": "5% on the royalties paid (min. €60 per declaration)"
 				},
 				"crowdfunding": {
-					"TITLE": "Crowdfunding",
+					"TITLE": "Public fundraising",
 					"TEXT": "Mobilise your networks and promote your project to new investors",
 					"AMOUNT_1": "8% success fee on the amount raised (6% with comprehensive assistance, 4% on amounts raised over €100,000)",
 					"AMOUNT_2": "3% on the royalties paid (min. €60 per declaration)"
@@ -365,8 +519,7 @@
 					"PAYMENTS": "Collection of investments online and by cheque",
 					"EVALUATION": "Evaluation period to validate the interest of potential investors and bring together pre-investments",
 					"GREEN_LABEL": "Crowdfunding for Green Growth label (on request and subject to project evaluation)",
-					"LIMITED_INVESTORS": "Unlimited number of investors",
-					"UP_TO_5_INVESTORS": "Up to 5 investors"
+					"LIMITED_INVESTORS": "Unlimited number of investors"
 				}
 			},
 			"options": {
@@ -389,7 +542,7 @@
 					"READ_PITCH_AND_COM": "Proofreading your presentation and your communication media",
 					"SUPPORT_TO_INVESTORS": "Support for your investors",
 					"SUPPORT_CENTER": "Access to the support centre",
-					"COMMISSION_REDUCTION": "Fee of 6% rather than 8% in the CROWDFUNDING formula",
+					"COMMISSION_REDUCTION": "Commission at 6% instead of 8% on the PUBLIC FUNDRAISING formula",
 					"CUSTOM_MONITORING": "Personalised follow-up and priority support",
 					"INVESTORS_MONITORING": "Investor conversion tracking",
 					"WORKSHOP": "Two-hour preparation workshop to lay the foundations with your team (communication tips and crowdfunding methodology advice, definition of the action plan, handling of the platform)"
