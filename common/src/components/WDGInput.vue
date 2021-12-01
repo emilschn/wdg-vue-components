@@ -61,7 +61,7 @@
 			  >
 			  {{ suffix }}
 			</span>
-			<span class="input-icon">
+			<span class="input-icon" v-if="loading || (!multiline && icon && iconVisibility && !loading)">
 				<span
 					v-if="loading"
 					class="fas fa-hourglass-start"
@@ -127,7 +127,7 @@
 			  >
 			  {{ suffix }}
 			</span>
-			<span class="input-icon">
+			<span class="input-icon" v-if="loading || (!multiline && icon && iconVisibility)">
 				<span
 					v-if="loading"
 					class="fas fa-hourglass-start"

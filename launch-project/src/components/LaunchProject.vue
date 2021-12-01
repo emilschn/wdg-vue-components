@@ -179,7 +179,7 @@ export default {
 		if (this.existingorganisations && this.existingorganisations.organisations.length > 0) {
 			this.isExistingOrga = true
 			this.firstorga_id = this.existingorganisations.organisations[0].Id
-			this.select_organame = this.existingorganisations.organisations[0].Text
+			this.select_organame = this.existingorganisations.organisations[0].Id
 		}
 	},
   	methods: {
@@ -200,8 +200,10 @@ export default {
 					data.append('email-organization', this.new_orgaemail)
 				} else {
 					let index = this.existingorganisations.organisations.findIndex(object => object.Id === this.select_organame)
-					data.append('company-name', this.select_organame)
-					data.append('email-organization', this.existingorganisations.organisations[index].Mail)
+					if (index > -1) {
+						data.append('company-name', this.select_organame)
+						data.append('email-organization', this.existingorganisations.organisations[index].Mail)
+					}
 				}
 			} else {
 				if (this.new_organame === '' || this.new_organame === undefined) {
