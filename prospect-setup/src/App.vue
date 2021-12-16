@@ -6,7 +6,9 @@
 	  :data-ajaxurl="sharedProps.ajaxurl"
 	  :data-locale="sharedProps.locale"
 	  >
-		<WDGHeader>
+		<WDGHeader
+		  v-bind:langSelector=true
+		>
 			<slot slot="title">{{ $t('project-setup.TITLE') }}</slot>
 		</WDGHeader>
 
