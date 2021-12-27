@@ -6,7 +6,10 @@
 	  :data-ajaxurl="sharedProps.ajaxurl"
 	  :data-locale="sharedProps.locale"
 	  >
-		<WDGHeader>
+		<WDGHeader
+		  v-bind:langSelector=true
+		  :onLangSelect="onLangSelectEvent"
+		>
 			<slot slot="title">{{ $t('project-setup.TITLE') }}</slot>
 		</WDGHeader>
 
@@ -230,6 +233,7 @@ export default {
 		},
 		onLangSelectEvent (sLanguage) {
 			this.sharedState.language = sLanguage
+			i18n.locale = sLanguage
 			this.reloadMenu()
 		}
 	}

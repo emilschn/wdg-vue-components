@@ -142,7 +142,7 @@ export default {
 	font-weight: bold;
 	color: #00879b;
 	width: 45%;
-	text-align: right;
+	text-align: center;
 }
 .header .alert {
 	font-size: 14px;

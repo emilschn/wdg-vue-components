@@ -36,7 +36,7 @@
                 <a href="https://bcorporation.net/directory/we-do-good"><img src="@/../../common/src/assets/logos/bw_bcorp.svg"  alt="CERTIFIE B CORPS" /></a>
             </div>
         </div>
-		<div class="subfooter" v-if="FooterStyle == 'prospect-setup'">
+		<!-- <div class="subfooter" v-if="FooterStyle == 'prospect-setup'">
 			<WDGSelect
 			  id="lang-select"
 			  name="lang-select"
@@ -45,18 +45,18 @@
 			  v-bind:valueReturn.sync="$i18n.locale"
 			  :onSelect="onLangSelect"
 			  />
-		</div>
+		</div> -->
 	</div>
 </template>
 
 <script>
-import WDGSelect from './WDGSelect'
+// import WDGSelect from './WDGSelect'
 
 export default {
 	name: 'WDGFooter',
-	components: {
-		WDGSelect
-	},
+	// components: {
+	// 	WDGSelect
+	// },
 	props: {
         BGColor: { type: String, default: 'black' },
         TextColor: { type: String, default: 'white' },
