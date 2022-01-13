@@ -192,11 +192,13 @@ export default {
 				this.sharedState.package.bundle1.priceWithoutDiscount = metadata.package.bundle1.priceWithoutDiscount
 				this.sharedState.package.bundle1.discount = metadata.package.bundle1.discount
 				this.sharedState.package.bundle1.discountReason = metadata.package.bundle1.discountReason
+				this.sharedState.package.bundle1.editedByAdmin = (metadata.package.bundle1.editedByAdmin !== undefined) ? metadata.package.bundle1.editedByAdmin : true
 				this.sharedState.package.bundle2.title = metadata.package.bundle2.title
 				this.sharedState.package.bundle2.type = metadata.package.bundle2.type
 				this.sharedState.package.bundle2.priceWithoutDiscount = metadata.package.bundle2.priceWithoutDiscount
 				this.sharedState.package.bundle2.discount = metadata.package.bundle2.discount
 				this.sharedState.package.bundle2.discountReason = metadata.package.bundle2.discountReason
+				this.sharedState.package.bundle2.editedByAdmin = (metadata.package.bundle2.editedByAdmin !== undefined) ? metadata.package.bundle2.editedByAdmin : true
 			}
 
 			this.sharedProps.initFileList = fileList
@@ -256,5 +258,8 @@ div.prospect-setup {
 div.loading-guid {
 	margin: 80px 0px;
 	text-align: center;
+}
+.wdg-select.natural-language select {
+	background-color: #FFF;
 }
 </style>

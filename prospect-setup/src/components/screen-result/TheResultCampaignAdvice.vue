@@ -289,6 +289,7 @@ export default {
 			bundleToEdit.type = bundleType
 			bundleToEdit.discount = discount
 			bundleToEdit.discountReason = discountReason
+			bundleToEdit.editedByAdmin = true
 			this.updateTexts(bundleIndex)
 			store.saveProject()
 		},
@@ -299,7 +300,7 @@ export default {
 	mounted () {
 		// A l'arrivée, on initialise les données en fonction des données cochées précédemment
 		// Package de base
-		if (this.sharedState.package.bundle1.type === '') {
+		if (!this.sharedState.package.bundle1.editedByAdmin) {
 			this.sharedState.package.bundle1.type = this.sharedState.project.chosenFormula
 			if (this.sharedState.project.chosenFormula === 'public') {
 				this.sharedState.package.bundle1.type = 'crowdfunding'
@@ -311,7 +312,7 @@ export default {
 		}
 
 		// Accompagnements
-		if (this.sharedState.package.bundle2.type === '') {
+		if (!this.sharedState.package.bundle2.editedByAdmin) {
 			// Accompagnement basique
 			if (!this.sharedState.project.needCommunicationAdvice && this.sharedState.project.alreadyDoneCrowdfunding) {
 				this.sharedState.package.bundle2.type = 'basic'

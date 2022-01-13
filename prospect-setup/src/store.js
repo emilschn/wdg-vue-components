@@ -68,14 +68,16 @@ export const store = {
 				type: '',
 				priceWithoutDiscount: 0,
 				discount: '0',
-				discountReason: ''
+				discountReason: '',
+				editedByAdmin: false
 			},
 			bundle2: {
 				title: '',
 				type: '',
 				priceWithoutDiscount: 0,
 				discount: '0',
-				discountReason: ''
+				discountReason: '',
+				editedByAdmin: false
 			}
 		}
 	},
