@@ -259,11 +259,11 @@ export default {
 							break
 						case 'standard':
 							this.sharedState.package.bundle2.title = i18n.t('project-setup.project-result.options.standard.TITLE')
-							this.sharedState.package.bundle2.priceWithoutDiscount = 500
+							this.sharedState.package.bundle2.priceWithoutDiscount = 600
 							break
 						case 'complete':
 							this.sharedState.package.bundle2.title = i18n.t('project-setup.project-result.options.complete.TITLE')
-							this.sharedState.package.bundle2.priceWithoutDiscount = 1700
+							this.sharedState.package.bundle2.priceWithoutDiscount = 1900
 							break
 					}
 					break
@@ -305,8 +305,8 @@ export default {
 			if (this.sharedState.project.chosenFormula === 'public') {
 				this.sharedState.package.bundle1.type = 'crowdfunding'
 			}
-			this.sharedState.package.bundle1.priceWithoutDiscount = 500
-			this.sharedState.package.bundle1.discount = '50'
+			this.sharedState.package.bundle1.priceWithoutDiscount = 600
+			this.sharedState.package.bundle1.discount = '30'
 			this.sharedState.package.bundle1.discountReason = i18n.t('project-setup.project-result.formulas.REDUCTION')
 			this.updateTexts('1')
 		}
@@ -320,15 +320,15 @@ export default {
 			// Accompagnement standard
 			if (!this.sharedState.project.alreadyDoneCrowdfunding && !this.sharedState.project.needCommunicationAdvice) {
 				this.sharedState.package.bundle2.type = 'standard'
-				this.sharedState.package.bundle2.priceWithoutDiscount = 500
-				this.sharedState.package.bundle2.discount = '25'
+				this.sharedState.package.bundle2.priceWithoutDiscount = 600
+				this.sharedState.package.bundle2.discount = '30'
 				this.sharedState.package.bundle2.discountReason = i18n.t('project-setup.project-result.options.REDUCTION')
 			}
 			// Accompagnement complet
 			if (this.sharedState.project.needCommunicationAdvice) {
 				this.sharedState.package.bundle2.type = 'complete'
-				this.sharedState.package.bundle2.priceWithoutDiscount = 1700
-				this.sharedState.package.bundle2.discount = '25'
+				this.sharedState.package.bundle2.priceWithoutDiscount = 1900
+				this.sharedState.package.bundle2.discount = '30'
 				this.sharedState.package.bundle2.discountReason = i18n.t('project-setup.project-result.options.REDUCTION')
 			}
 			this.updateTexts('2')
