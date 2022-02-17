@@ -305,7 +305,7 @@ export default {
 			if (this.sharedState.project.chosenFormula === 'public') {
 				this.sharedState.package.bundle1.type = 'crowdfunding'
 			}
-			this.sharedState.package.bundle1.priceWithoutDiscount = 600
+			this.sharedState.package.bundle1.priceWithoutDiscount = 500
 			this.sharedState.package.bundle1.discount = '30'
 			this.sharedState.package.bundle1.discountReason = i18n.t('project-setup.project-result.formulas.REDUCTION')
 			this.updateTexts('1')
