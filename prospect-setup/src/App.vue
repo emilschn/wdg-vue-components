@@ -163,6 +163,14 @@ export default {
 			this.sharedState.organization.amountNeeded = metadata.organization.amountNeeded
 			this.sharedState.organization.sourceProspect = metadata.organization.sourceProspect
 			this.sharedState.organization.sourceProspectDetails = metadata.organization.sourceProspectDetails
+			this.sharedState.organization.taxNumber = metadata.organization.taxNumber
+			this.sharedState.organization.addressNumber = metadata.organization.addressNumber
+			this.sharedState.organization.addressNumberComplement = metadata.organization.addressNumberComplement
+			this.sharedState.organization.addressStreet = metadata.organization.addressStreet
+			this.sharedState.organization.addressPostalCode = metadata.organization.addressPostalCode
+			this.sharedState.organization.addressCity = metadata.organization.addressCity
+			this.sharedState.organization.addressCountry = metadata.organization.addressCountry
+			this.sharedState.organization.email = metadata.organization.email
 
 			this.sharedState.project.estimatedTurnover.year1 = metadata.project.estimatedTurnover.year1
 			this.sharedState.project.estimatedTurnover.year2 = metadata.project.estimatedTurnover.year2
