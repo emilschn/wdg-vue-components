@@ -621,5 +621,13 @@
 				"CREATE": "Vous pouvez dès à présent créer votre projet sur WE DO GOOD !"
 			}
 		}
+	},
+	"user-investment-capacity": {
+		"TITLE": "Mon profil investisseur",
+		"intro": {
+			"MASCOT_TEXT_1": "Nous allons compléter votre profil investisseur.",
+			"MASCOT_TEXT_2": "Pour investir sur WE DO GOOD, il faut nous assurer que vous compreniez le risque de perte de votre investissement.",
+			"MASCOT_TEXT_3": "Nous vous proposons de saisir une série d'informations à propos de vos revenus et vos dépenses qui nous permettront de calculer et qualifier votre profil investisseur."
+		}
 	}
 }

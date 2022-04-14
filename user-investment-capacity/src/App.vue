@@ -1,28 +1,68 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+	<div
+	  id="app"
+	  class="user-investment-capacity"
+	  >
+		<WDGHeader
+		  v-bind:langSelector=true
+		  :onLangSelect="onLangSelectEvent"
+		  >
+			<slot slot="title">{{ $t('user-investment-capacity.TITLE') }}</slot>
+		</WDGHeader>
+
+		<TheScreenIntro />
+
+		<WDGFooter :onLangSelect="onLangSelectEvent" BGColor="grey" />
+	</div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { store } from './store.js'
+import i18n from '@/i18n'
+import WDGHeader from '@/../../common/src/components/WDGHeader'
+import TheScreenIntro from './components/screen-intro/TheScreenIntro.vue'
+import WDGFooter from '@/../../common/src/components/WDGFooter'
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+	name: 'App',
+	components: {
+		WDGHeader,
+		WDGFooter,
+		TheScreenIntro
+	},
+	data () {
+		return {
+			sharedState: store.state
+		}
+	},
+	methods: {
+		onLangSelectEvent (sLanguage) {
+			this.sharedState.language = sLanguage
+			i18n.locale = sLanguage
+			// this.reloadMenu()
+		}
+	}
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+body, input, select, button {
+	font-family: 'Arial',sans-serif;
+	color: #333;
+}
+body h1, h2, span.tab-label {
+	font-family: 'Trebuchet MS', sans-serif;
+	text-transform: uppercase;
+}
+div.user-investment-capacity {
+	max-width: 1024px;
+	margin: 0px auto;
+}
+div.loading-guid {
+	margin: 80px 0px;
+	text-align: center;
+}
+.wdg-select.natural-language select {
+	background-color: #FFF;
 }
 </style>
