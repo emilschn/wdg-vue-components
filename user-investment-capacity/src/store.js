@@ -7,7 +7,12 @@ export const bus = new Vue()
 export const store = {
 	state: {
 		step: 'intro',
-		language: ''
+		language: '',
+		monthlyRevenue: '',
+		complementaryRevenue: '',
+		investmentsValue: '',
+		commitmentValue: '',
+		yearlyResult: 0
 	},
 	props: {
 		ajaxURL: ''

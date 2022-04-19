@@ -10,9 +10,10 @@
 			<slot slot="title">{{ $t('user-investment-capacity.TITLE') }}</slot>
 		</WDGHeader>
 
-		<TheScreenIntro />
+		<TheScreenIntro v-if="sharedState.step === 'intro'" />
+		<TheScreenCapacity v-if="sharedState.step === 'capacity'" />
 
-		<WDGFooter :onLangSelect="onLangSelectEvent" BGColor="grey" />
+		<WDGFooter :onLangSelect="onLangSelectEvent" BGColor="grey" FooterStyle="account" />
 	</div>
 </template>
 
@@ -21,6 +22,7 @@ import { store } from './store.js'
 import i18n from '@/i18n'
 import WDGHeader from '@/../../common/src/components/WDGHeader'
 import TheScreenIntro from './components/screen-intro/TheScreenIntro.vue'
+import TheScreenCapacity from './components/screen-capacity/TheScreenCapacity.vue'
 import WDGFooter from '@/../../common/src/components/WDGFooter'
 
 export default {
@@ -28,7 +30,8 @@ export default {
 	components: {
 		WDGHeader,
 		WDGFooter,
-		TheScreenIntro
+		TheScreenIntro,
+		TheScreenCapacity
 	},
 	data () {
 		return {

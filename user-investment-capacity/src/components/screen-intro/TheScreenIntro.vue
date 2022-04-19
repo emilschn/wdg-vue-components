@@ -15,13 +15,14 @@
 
 		<div class="clear"></div>
 
-		<WDGButton>
+		<WDGButton :clickEvent="onContinueClickEvent">
 			<slot slot="label">{{ $t('common.CONTINUE') }}</slot>
 		</WDGButton>
 	</div>
 </template>
 
 <script>
+import { store } from '../../store.js'
 import WDGButton from '@/../../common/src/components/WDGButton'
 import WDGMascot from '@/../../common/src/components/WDGMascot'
 
@@ -32,6 +33,16 @@ export default {
 		WDGMascot
 	},
 	props: {
+	},
+	data () {
+		return {
+			sharedState: store.state
+		}
+	},
+	methods: {
+		onContinueClickEvent: function (event) {
+			this.sharedState.step = 'capacity'
+		}
 	}
 }
 </script>

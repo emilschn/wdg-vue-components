@@ -35,7 +35,8 @@
 		"SEND_FILE_DESCRIPTOR": "Cliquez pour parcourir vos documents, glissez-déposez directement votre fichier ou prenez une photo.",
 		"CANT_FIND_ADDRESS": "Je ne trouve pas mon adresse",
 		"FILE_TYPE_NOT_ACCEPTED": "Ce type de fichier n'est pas accepté",
-		"FILE_TOO_BIG": "Ce fichier est trop lourd"
+		"FILE_TOO_BIG": "Ce fichier est trop lourd",
+		"KNOW_MORE": "En savoir plus"
 	},
 	"validations": {
 		"REQUIRED": "Ce champ est obligatoire",
@@ -628,6 +629,22 @@
 			"MASCOT_TEXT_1": "Nous allons compléter votre profil investisseur.",
 			"MASCOT_TEXT_2": "Pour investir sur WE DO GOOD, il faut nous assurer que vous compreniez le risque de perte de votre investissement.",
 			"MASCOT_TEXT_3": "Nous vous proposons de saisir une série d'informations à propos de vos revenus et vos dépenses qui nous permettront de calculer et qualifier votre profil investisseur."
+		},
+		"capacity": {
+			"FINANCIAL_AVAILABILITY": "Mes disponibilités financières",
+			"FINANCIAL_AVAILABILITY_DESCRIPTION": "Vous pouvez indiquer des montants estimés, que vous pourrez modifier ensuite sur votre compte. Cela ne vous empêchera pas d'investir.",
+			"MASCOT": "L'investissement en direct dans des entreprises est un pari risqué. Pour vous aider à y voir plus clair et conformément à la réglementation européenne, nous allons calculer votre capacité à encaisser des pertes, établie par défaut à 10 % de vos capacités financières",
+			"NET_REVENUES": "Mes revenus nets s'élèvent à environ",
+			"EURO_PER_MONTH": "€ / mois, soit",
+			"EURO_PER_YEAR": "€ / an",
+			"COMPLEMENTARY_REVENUES": "Je dispose aussi de revenus complémentaires d'environ",
+			"INVESTMENTS": "Mon épargne et placements financiers s'élèvent à environ",
+			"FINANCIAL_COMMITMENT": "Mes engagements financiers",
+			"RECURRING_COMMITMENT": "Mes engagements récurrents financiers actuels (loyers, remboursement de prêt...) s'élèvent à",
+			"MAX_INVESTMENT": "Nous vous recommandons de ne pas investir plus de :",
+			"MAX_INVESTMENT_DESCRIPTION": "Cette recommandation est calculée conformément à la réglementation européenne de la manière suivante :",
+			"MAX_INVESTMENT_DESCRIPTION_DETAILS": "10 % * Disponibilités financières - Engagements financiers",
+			"ITS_OK": "C'est noté !"
 		}
 	}
 }
