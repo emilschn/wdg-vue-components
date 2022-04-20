@@ -25,6 +25,7 @@ export const store = {
 			name: '',
 			description: '',
 			location: '',
+			locationRegion: '',
 			amountNeeded: '',
 			sourceProspect: '',
 			sourceProspectDetails: '',

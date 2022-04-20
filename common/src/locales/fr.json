@@ -342,6 +342,7 @@
 			"SUBTITLE": "Tous les champs sont obligatoires",
 			"FORM_TEXT_ORGANIZATION_TYPE": "Ma structure est",
 			"FORM_TEXT_ORGANIZATION_LOCATED": "située",
+			"FORM_TEXT_ORGANIZATION_REGION": "dans la région",
 			"FORM_TEXT_ORGANIZATION_NOT_CREATED_NAME": "sous le nom de",
 			"FORM_TEXT_ORGANIZATION_CREATED_NAME": "du nom de",
 			"FORM_TEXT_ORGANIZATION_ID": "dont le numéro SIREN est",

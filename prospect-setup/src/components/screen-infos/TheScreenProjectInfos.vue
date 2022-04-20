@@ -61,6 +61,20 @@
 				  customStyle="natural-language"
 				  v-bind:hasFilter="true"
 				  />
+
+				<div v-if="sharedState.organization.location === 'france'">
+					{{ $t('project-setup.project-infos.FORM_TEXT_ORGANIZATION_REGION') }}
+
+					<WDGSelect
+					  id="organizationLocationRegion"
+					  name="organizationLocationRegion"
+					  :optionItems="organizationLocationRegionFrenchList"
+					  :value="sharedState.organization.locationRegion"
+					  v-bind:valueReturn.sync="sharedState.organization.locationRegion"
+					  customStyle="natural-language"
+					  v-bind:hasFilter="true"
+					  />
+				</div>
 			</div>
 
 			<div v-if="sharedState.organization.type === 'not-created'">
@@ -219,6 +233,27 @@ export default {
 				{ Id: 'france', Text: i18n.t('project-setup.project-infos.location-types.FRANCE') },
 				{ Id: 'euro', Text: i18n.t('project-setup.project-infos.location-types.EURO') },
 				{ Id: 'out-euro', Text: i18n.t('project-setup.project-infos.location-types.OUT_EURO') }
+			],
+			organizationLocationRegionFrenchList: [
+				{ Id: '', Text: '' },
+				{ Id: 'auvergne-rhone-alpes', Text: 'Auvergne-Rhône-Alpes' },
+				{ Id: 'bourgogne-france-comte', Text: 'Bourgogne-Franche-Comté' },
+				{ Id: 'bretagne', Text: 'Bretagne' },
+				{ Id: 'centre-val-de-loire', Text: 'Centre-Val de Loire' },
+				{ Id: 'corse', Text: 'Corse' },
+				{ Id: 'grand-est', Text: 'Grand Est' },
+				{ Id: 'guadeloupe', Text: 'Guadeloupe' },
+				{ Id: 'guyane', Text: 'Guyane' },
+				{ Id: 'hauts-de-france', Text: 'Hauts-de-France' },
+				{ Id: 'ile-de-france', Text: 'Île-de-France' },
+				{ Id: 'la-reunion', Text: 'La Réunion' },
+				{ Id: 'martinique', Text: 'Martinique' },
+				{ Id: 'mayotte', Text: 'Mayotte' },
+				{ Id: 'normandie', Text: 'Normandie' },
+				{ Id: 'nouvelle-aquitaine', Text: 'Nouvelle-Aquitaine' },
+				{ Id: 'occitanie', Text: 'Occitanie' },
+				{ Id: 'pays-de-la-loire', Text: 'Pays de la Loire' },
+				{ Id: 'provence-alpes-cote-dazur', Text: 'Provence-Alpes-Côte d\'Azur' }
 			],
 			sourceProspectList: [
 				{ Id: '', Text: '' },
