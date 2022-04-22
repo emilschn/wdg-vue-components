@@ -44,6 +44,7 @@ export default {
 		WDGMascot
 	},
 	props: {
+		onContinue: Function
 	},
 	data () {
 		return {
@@ -52,7 +53,7 @@ export default {
 	},
 	methods: {
 		onContinueClickEvent: function (event) {
-			console.log('')
+			this.onContinue('redirect')
 		},
 		hasOneOfTheKnowledge: function () {
 			return (this.sharedState.knowledge.know1 || this.sharedState.knowledge.know2 || this.sharedState.knowledge.know3)

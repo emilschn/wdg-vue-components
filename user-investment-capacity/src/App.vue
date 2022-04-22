@@ -10,10 +10,10 @@
 			<slot slot="title">{{ $t('user-investment-capacity.TITLE') }}</slot>
 		</WDGHeader>
 
-		<TheScreenIntro v-if="sharedState.step === 'intro'" />
-		<TheScreenCapacity v-if="sharedState.step === 'capacity'" />
-		<TheScreenKnowledge v-if="sharedState.step === 'knowledge'" />
-		<TheScreenResult v-if="sharedState.step === 'result'" />
+		<TheScreenIntro v-if="sharedState.step === 'intro'" :onContinue="onScreenContinueEvent" />
+		<TheScreenCapacity v-if="sharedState.step === 'capacity'" :onContinue="onScreenContinueEvent" />
+		<TheScreenKnowledge v-if="sharedState.step === 'knowledge'" :onContinue="onScreenContinueEvent" />
+		<TheScreenResult v-if="sharedState.step === 'result'" :onContinue="onScreenContinueEvent" />
 
 		<WDGFooter :onLangSelect="onLangSelectEvent" BGColor="grey" FooterStyle="account" />
 	</div>
@@ -21,6 +21,8 @@
 
 <script>
 import { store } from './store.js'
+import { requests } from './requests.js'
+import { routes } from '@/../../common/src/helpers/routes.js'
 import i18n from '@/i18n'
 import WDGHeader from '@/../../common/src/components/WDGHeader'
 import WDGFooter from '@/../../common/src/components/WDGFooter'
@@ -28,6 +30,7 @@ import TheScreenIntro from './components/screen-intro/TheScreenIntro.vue'
 import TheScreenCapacity from './components/screen-capacity/TheScreenCapacity.vue'
 import TheScreenKnowledge from './components/screen-knowledge/TheScreenKnowledge.vue'
 import TheScreenResult from './components/screen-result/TheScreenResult.vue'
+const initElements = document.querySelector('#app')
 
 export default {
 	name: 'App',
@@ -41,14 +44,37 @@ export default {
 	},
 	data () {
 		return {
-			sharedState: store.state
+			sharedState: store.state,
+			sharedProps: store.props
 		}
+	},
+  	created () {
+		this.sharedState.sessionUID = Date.now() + Math.floor(Math.random() * 100000000)
+		this.sharedProps.ajaxurl = initElements.dataset.ajaxurl
+		this.sharedProps.customajaxurl = initElements.dataset.customajaxurl
+		this.sharedProps.redirecturlfr = initElements.dataset.redirecturlfr
+		this.sharedProps.redirecturlen = initElements.dataset.redirecturlen
+		this.sharedProps.locale = initElements.dataset.locale
+		routes.init('intro', store)
 	},
 	methods: {
 		onLangSelectEvent (sLanguage) {
 			this.sharedState.language = sLanguage
 			i18n.locale = sLanguage
 			// this.reloadMenu()
+		},
+		onScreenContinueEvent (sNewStep) {
+			if (sNewStep === 'redirect') {
+				routes.quitAndRedirect()
+			} else {
+				routes.changeStep(sNewStep)
+				if (sNewStep === 'result') {
+					requests.saveUserInvestmentCapacity(this.onSavedEvent)
+				}
+			}
+		},
+		onSavedEvent () {
+			console.log('ok')
 		}
 	}
 }

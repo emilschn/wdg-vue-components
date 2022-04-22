@@ -72,6 +72,7 @@ export default {
 		WDGForm
 	},
 	props: {
+		onContinue: Function
 	},
 	data () {
 		return {
@@ -98,7 +99,7 @@ export default {
 			}
 		},
 		onContinueClickEvent () {
-			this.sharedState.step = 'result'
+			this.onContinue('result')
 		}
 	},
 	computed: {

@@ -6,6 +6,7 @@ export const bus = new Vue()
 
 export const store = {
 	state: {
+		sessionUID: '',
 		step: 'intro',
 		language: '',
 		monthlyRevenue: '',
@@ -20,6 +21,10 @@ export const store = {
 		}
 	},
 	props: {
-		ajaxURL: ''
+		ajaxurl: '',
+		customajaxurl: '',
+		redirecturlfr: '',
+		redirecturlen: '',
+		locale: 'fr'
 	}
 }

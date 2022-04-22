@@ -149,6 +149,7 @@ export default {
 		WDGMascot
 	},
 	props: {
+		onContinue: Function
 	},
 	data () {
 		return {
@@ -158,7 +159,7 @@ export default {
 	},
 	methods: {
 		onContinueClickEvent: function (event) {
-			this.sharedState.step = 'knowledge'
+			this.onContinue('knowledge')
 		},
 		getYearlyValue: function (nInput) {
 			if (isNaN(nInput)) {

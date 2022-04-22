@@ -33,6 +33,7 @@ export default {
 		WDGMascot
 	},
 	props: {
+		onContinue: Function
 	},
 	data () {
 		return {
@@ -41,7 +42,7 @@ export default {
 	},
 	methods: {
 		onContinueClickEvent: function (event) {
-			this.sharedState.step = 'capacity'
+			this.onContinue('capacity')
 		}
 	}
 }
