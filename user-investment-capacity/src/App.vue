@@ -12,6 +12,7 @@
 
 		<TheScreenIntro v-if="sharedState.step === 'intro'" />
 		<TheScreenCapacity v-if="sharedState.step === 'capacity'" />
+		<TheScreenKnowledge v-if="sharedState.step === 'knowledge'" />
 
 		<WDGFooter :onLangSelect="onLangSelectEvent" BGColor="grey" FooterStyle="account" />
 	</div>
@@ -23,6 +24,7 @@ import i18n from '@/i18n'
 import WDGHeader from '@/../../common/src/components/WDGHeader'
 import TheScreenIntro from './components/screen-intro/TheScreenIntro.vue'
 import TheScreenCapacity from './components/screen-capacity/TheScreenCapacity.vue'
+import TheScreenKnowledge from './components/screen-knowledge/TheScreenKnowledge.vue'
 import WDGFooter from '@/../../common/src/components/WDGFooter'
 
 export default {
@@ -31,7 +33,8 @@ export default {
 		WDGHeader,
 		WDGFooter,
 		TheScreenIntro,
-		TheScreenCapacity
+		TheScreenCapacity,
+		TheScreenKnowledge
 	},
 	data () {
 		return {

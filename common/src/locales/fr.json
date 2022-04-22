@@ -646,6 +646,11 @@
 			"MAX_INVESTMENT_DESCRIPTION": "Cette recommandation est calculée conformément à la réglementation européenne de la manière suivante :",
 			"MAX_INVESTMENT_DESCRIPTION_DETAILS": "10 % * Disponibilités financières - Engagements financiers",
 			"ITS_OK": "C'est noté !"
+		},
+		"knowledge": {
+			"SELECT": "Sélectionnez dans les propositions suivantes celle(s) qui vous concernent :",
+			"NONE": "Aucun des cas ci-dessus",
+			"NO_WORRIES": "Pas d'inquiétude, vous pourrez quand même investir."
 		}
 	}
 }

@@ -12,7 +12,12 @@ export const store = {
 		complementaryRevenue: '',
 		investmentsValue: '',
 		commitmentValue: '',
-		yearlyResult: 0
+		yearlyResult: 0,
+		knowledge: {
+			know1: false,
+			know2: false,
+			know3: false
+		}
 	},
 	props: {
 		ajaxURL: ''

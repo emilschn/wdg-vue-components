@@ -22,22 +22,35 @@ export default {
 	name: 'WDGCheckbox',
 	props: {
 		id: { type: String, default: null },
-        name: { type: String, default: null },
-        value: { type: [Boolean], default: false },
-        optional: { type: Boolean, default: true },
-        disabled: { type: Boolean, default: false },
-    	validationRule: { type: String, default: '' },
-        validation: Function
+		name: { type: String, default: null },
+		value: { type: [Boolean], default: false },
+		optional: { type: Boolean, default: true },
+		disabled: { type: Boolean, default: false },
+		validationRule: { type: String, default: '' },
+		eventNameToListen: { type: String, default: '' },
+		validation: Function,
+		onChange: Function
     },
 	data () {
 		return {
-		  valueReturn: this.value,
-		  isRequired: (this.validationRule.indexOf('required') > -1)
+			valueReturn: this.value,
+			isRequired: (this.validationRule.indexOf('required') > -1)
+		}
+	},
+	mounted () {
+		if (this.eventNameToListen !== '') {
+			this.$root.$on(this.eventNameToListen, this.onUpdateValueEvent)
 		}
 	},
 	methods: {
 		onChangeLocalEvent () {
 			this.$emit('update:valueReturn', this.valueReturn)
+			if (this.onChange !== undefined) {
+				this.onChange(this.name, this.valueReturn)
+			}
+		},
+		onUpdateValueEvent (newValue) {
+			this.valueReturn = newValue
 		}
 	}
 }

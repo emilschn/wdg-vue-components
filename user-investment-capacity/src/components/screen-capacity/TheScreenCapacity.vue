@@ -157,7 +157,7 @@ export default {
 	},
 	methods: {
 		onContinueClickEvent: function (event) {
-			this.sharedState.step = 'capacity'
+			this.sharedState.step = 'knowledge'
 		},
 		getYearlyValue: function (nInput) {
 			if (isNaN(nInput)) {
