@@ -651,6 +651,14 @@
 			"SELECT": "Sélectionnez dans les propositions suivantes celle(s) qui vous concernent :",
 			"NONE": "Aucun des cas ci-dessus",
 			"NO_WORRIES": "Pas d'inquiétude, vous pourrez quand même investir."
+		},
+		"result": {
+			"CONSIDERED": "Vous rentrez dans la catégorie {investorCategory}.",
+			"SOPHISTICATED": "Investisseur averti",
+			"UNSOPHISTICATED": "Investisseur non-averti",
+			"CAPACITY_AMOUNT": "Votre capacité à investir (capacité à encaisser des pertes) est estimée à {capacityAmount} € / an.",
+			"LAWS": "Calculé selon le REGLEMENT (UE) 2020/1503 DU PARLEMENT EUROPEEN ET DU CONSEIL",
+			"CAN_INVEST": "Vous pouvez toutefois investir le montant de votre choix"
 		}
 	}
 }

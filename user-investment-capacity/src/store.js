@@ -12,7 +12,7 @@ export const store = {
 		complementaryRevenue: '',
 		investmentsValue: '',
 		commitmentValue: '',
-		yearlyResult: 0,
+		yearlyCapacityAmount: 0,
 		knowledge: {
 			know1: false,
 			know2: false,

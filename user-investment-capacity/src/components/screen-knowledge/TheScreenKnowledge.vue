@@ -98,7 +98,7 @@ export default {
 			}
 		},
 		onContinueClickEvent () {
-			console.log('')
+			this.sharedState.step = 'result'
 		}
 	},
 	computed: {

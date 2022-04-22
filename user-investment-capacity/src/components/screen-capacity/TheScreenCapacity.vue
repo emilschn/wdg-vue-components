@@ -91,8 +91,8 @@
 				<strong>{{ $t('user-investment-capacity.capacity.MAX_INVESTMENT') }}</strong>
 				<br><br>
 
-				<span class="yearlyResult">
-					<span>{{ yearlyResultFormatted }}</span>
+				<span class="yearlyCapacityAmount">
+					<span>{{ yearlyCapacityAmountFormatted }}</span>
 					{{ $t('user-investment-capacity.capacity.EURO_PER_YEAR') }}
 				</span>
 				<br><br>
@@ -131,6 +131,7 @@
 </template>
 
 <script>
+import { number } from '@/../../common/src/helpers/number.js'
 import { store } from '../../store.js'
 import WDGButton from '@/../../common/src/components/WDGButton'
 import WDGCheckbox from '@/../../common/src/components/WDGCheckbox'
@@ -164,44 +165,23 @@ export default {
 				return 0
 			}
 
-			nInput *= 12
+			// Arrondi à deux chiffres après la virgule
+			nInput = Math.round(nInput * 12 * 100) / 100
 
-			// On passe les entiers en float avec .00 pour qu'ils soient reconnus par le pattern en dessous
-			if (nInput === parseInt(nInput, 10)) {
-				nInput = parseFloat(nInput).toFixed(2)
-			}
-			let sInput = nInput.toString()
-			// Suppression des caractères non-numériques
-			sInput = sInput.split(',').join('.')
-			sInput = sInput.replace(/[^\d.-]/g, '')
-			// Si pourcent, on reste entre 0 et 100
-			if (this.autoFormat === 'wdg-percent') {
-				if (Number(sInput) < 0) {
-					sInput = '0'
-				}
-				if (Number(sInput) > 100) {
-					sInput = '100'
-				}
-			}
-			// Remplacement . par , pour les décimales
-			sInput = sInput.split('.').join(',')
-			// Ecarts pour les milliers
-			sInput = sInput.replace(/\B(?=(\d{3})+(?!\d))/g, ' ')
-
-			// Si c'est en fait un entier, on enlève les chiffres après la virgule
-			let aCutDecimals = sInput.split(',')
-			if (aCutDecimals[ 1 ] === '00') {
-				sInput = aCutDecimals[ 0 ]
-			}
-			return sInput
+			return number.formatStr(nInput, 'money')
 		},
 		isValidNumberValue: function (nValue) {
 			return nValue !== '' && !isNaN(nValue)
 		},
-		setYearlyResult: function () {
+		setYearlyCapacityAmount: function () {
+			// Total de revenus annuels
 			let totalYearlyRevenues = Number(this.sharedState.monthlyRevenue) * 12 + Number(this.sharedState.complementaryRevenue) + Number(this.sharedState.investmentsValue)
+			// Total de charges annuelles
 			let totalYearlyCommitment = Number(this.sharedState.commitmentValue) * 12
-			this.sharedState.yearlyResult = Math.round(totalYearlyRevenues - totalYearlyCommitment) * 10 / 100
+			// 10% de la différence entre les deux
+			this.sharedState.yearlyCapacityAmount = Math.round(totalYearlyRevenues - totalYearlyCommitment) * 10 / 100
+			// Minimum 0 €
+			this.sharedState.yearlyCapacityAmount = Math.max(0, this.sharedState.yearlyCapacityAmount)
 		}
 	},
 	computed: {
@@ -211,9 +191,9 @@ export default {
 		yearlyCommitment () {
 			return this.getYearlyValue(this.sharedState.commitmentValue)
 		},
-		yearlyResultFormatted () {
-			this.setYearlyResult()
-			return this.getYearlyValue(this.sharedState.yearlyResult / 12)
+		yearlyCapacityAmountFormatted () {
+			this.setYearlyCapacityAmount()
+			return this.getYearlyValue(this.sharedState.yearlyCapacityAmount / 12)
 		},
 		canDisplayExpenses () {
 			return this.isValidNumberValue(this.sharedState.monthlyRevenue) && this.isValidNumberValue(this.sharedState.complementaryRevenue) && this.isValidNumberValue(this.sharedState.investmentsValue)
@@ -257,7 +237,7 @@ export default {
 		border: 1px solid #00879B;
 	}
 
-	div.the-screen-capacity div.form div.result span.yearlyResult {
+	div.the-screen-capacity div.form div.result span.yearlyCapacityAmount {
 		color: #00879B;
 		font-size: 25px;
 		font-weight: bold;
