@@ -160,6 +160,7 @@ export default {
 			this.sharedState.organization.name = metadata.organization.name
 			this.sharedState.organization.description = metadata.organization.description
 			this.sharedState.organization.location = metadata.organization.location
+			this.sharedState.organization.locationRegion = metadata.organization.locationRegion
 			this.sharedState.organization.amountNeeded = metadata.organization.amountNeeded
 			this.sharedState.organization.sourceProspect = metadata.organization.sourceProspect
 			this.sharedState.organization.sourceProspectDetails = metadata.organization.sourceProspectDetails

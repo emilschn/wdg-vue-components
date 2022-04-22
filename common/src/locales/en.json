@@ -340,6 +340,7 @@
 			"SUBTITLE": "All fields are mandatory",
 			"FORM_TEXT_ORGANIZATION_TYPE": "My organisation is",
 			"FORM_TEXT_ORGANIZATION_LOCATED": "located",
+			"FORM_TEXT_ORGANIZATION_REGION": "in the region",
 			"FORM_TEXT_ORGANIZATION_NOT_CREATED_NAME": "under the name of",
 			"FORM_TEXT_ORGANIZATION_CREATED_NAME": "on behalf of",
 			"FORM_TEXT_ORGANIZATION_ID": "whose SIREN number is",
