@@ -13,6 +13,7 @@ export const requests = {
 		let data = new FormData()
 		data.append('action', 'vuejs_error_catcher')
 		data.append('app', 'user-investment-capacity')
+		data.append('sessionUID', store.state.sessionUID)
 		data.append('message', message)
 		axios
 			.post(store.props.ajaxurl, data)
@@ -37,7 +38,7 @@ export const requests = {
 			})
 			.catch(error => {
 				console.log('error.toJSON')
-				console.log(error.toJSON())
+				// console.log(error.toJSON())
 				console.log(error.config)
 				this.logRequestError('saveUserInvestmentCapacity >>>> ' + JSON.stringify(error))
 				functionReturn(error)
