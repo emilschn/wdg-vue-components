@@ -20,6 +20,31 @@ export const requests = {
 	},
 
 	/**
+	 * Get user data
+	 */
+	getUserInvestmentCapacity(functionReturn) {
+		console.log('getUserInvestmentCapacity')
+		let data = new FormData()
+		data.append('action', 'user_investment_capacity_get')
+		data.append('metadata', JSON.stringify(store.state))
+		axios
+			.post(store.props.customajaxurl, data, { timeout: 30000 })
+			.then(response => {
+				let responseData = response.data
+				console.log('then')
+				console.log(responseData)
+				functionReturn(responseData)
+			})
+			.catch(error => {
+				console.log('error.toJSON')
+				// console.log(error.toJSON())
+				console.log(error.config)
+				this.logRequestError('getUserInvestmentCapacity >>>> ' + JSON.stringify(error))
+				functionReturn(error)
+			})
+	},
+
+	/**
 	 * Save user data
 	 */
 	saveUserInvestmentCapacity(functionReturn) {

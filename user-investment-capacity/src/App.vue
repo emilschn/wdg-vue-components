@@ -56,13 +56,36 @@ export default {
 		this.sharedProps.redirecturlen = initElements.dataset.redirecturlen
 		this.sharedProps.locale = initElements.dataset.locale
 		routes.init('intro', store)
+
+		requests.getUserInvestmentCapacity(this.onGetExistingDataEvent)
 	},
 	methods: {
+		// Récupération des données existantes de l'utilisateur en cours
+		onGetExistingDataEvent (responseData) {
+			if (responseData.status === 'exists') {
+				let data = responseData.data
+				let financialDetails = JSON.parse(data.financial_details)
+				this.sharedState.monthlyRevenue = financialDetails.monthlyRevenue
+				this.sharedState.complementaryRevenue = financialDetails.complementaryRevenue
+				this.sharedState.investmentsValue = financialDetails.investmentsValue
+				this.sharedState.commitmentValue = financialDetails.commitmentValue
+				this.sharedState.yearlyCapacityAmount = data.financial_result_in_cents
+
+				let knowledgeDetails = JSON.parse(data.knowledge_details)
+				for (let str in knowledgeDetails) {
+					if (this.sharedState.knowledge[str] !== undefined) {
+						this.sharedState.knowledge[str] = knowledgeDetails[str]
+					}
+				}
+			}
+		},
+		// Ajustement de l'interface quand on change de langue
 		onLangSelectEvent (sLanguage) {
 			this.sharedState.language = sLanguage
 			i18n.locale = sLanguage
 			// this.reloadMenu()
 		},
+		// Clic sur Continuer dans chaque écran
 		onScreenContinueEvent (sNewStep) {
 			if (sNewStep === 'redirect') {
 				routes.quitAndRedirect()
@@ -73,6 +96,7 @@ export default {
 				}
 			}
 		},
+		// Fin de la sauvegarde
 		onSavedEvent () {
 			console.log('ok')
 		}
