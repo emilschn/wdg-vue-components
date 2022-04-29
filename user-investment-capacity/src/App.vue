@@ -13,6 +13,8 @@
 		<TheScreenIntro v-if="sharedState.step === 'intro'" :onContinue="onScreenContinueEvent" />
 		<TheScreenCapacity v-if="sharedState.step === 'capacity'" :onContinue="onScreenContinueEvent" />
 		<TheScreenKnowledge v-if="sharedState.step === 'knowledge'" :onContinue="onScreenContinueEvent" />
+		<TheScreenProfession v-if="sharedState.step === 'profession'" :onContinue="onScreenContinueEvent" />
+		<TheScreenObjectives v-if="sharedState.step === 'objectives'" :onContinue="onScreenContinueEvent" />
 		<TheScreenResult v-if="sharedState.step === 'result'" :onContinue="onScreenContinueEvent" />
 
 		<WDGFooter :onLangSelect="onLangSelectEvent" BGColor="grey" FooterStyle="account" />
@@ -29,6 +31,8 @@ import WDGFooter from '@/../../common/src/components/WDGFooter'
 import TheScreenIntro from './components/screen-intro/TheScreenIntro.vue'
 import TheScreenCapacity from './components/screen-capacity/TheScreenCapacity.vue'
 import TheScreenKnowledge from './components/screen-knowledge/TheScreenKnowledge.vue'
+import TheScreenProfession from './components/screen-profession/TheScreenProfession.vue'
+import TheScreenObjectives from './components/screen-objectives/TheScreenObjectives.vue'
 import TheScreenResult from './components/screen-result/TheScreenResult.vue'
 const initElements = document.querySelector('#app')
 
@@ -40,6 +44,8 @@ export default {
 		TheScreenIntro,
 		TheScreenCapacity,
 		TheScreenKnowledge,
+		TheScreenProfession,
+		TheScreenObjectives,
 		TheScreenResult
 	},
 	data () {

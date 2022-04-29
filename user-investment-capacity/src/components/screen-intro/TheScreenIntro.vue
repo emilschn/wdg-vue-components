@@ -9,8 +9,9 @@
 		<div class="description">
 			{{ $t('user-investment-capacity.intro.MASCOT_TEXT_1') }}
 			{{ $t('user-investment-capacity.intro.MASCOT_TEXT_2') }}
-			<br>
+			<br><br>
 			{{ $t('user-investment-capacity.intro.MASCOT_TEXT_3') }}
+			{{ $t('user-investment-capacity.intro.MASCOT_TEXT_4') }}
 		</div>
 
 		<div class="clear"></div>

@@ -624,9 +624,10 @@
 	"user-investment-capacity": {
 		"TITLE": "Mon profil investisseur",
 		"intro": {
-			"MASCOT_TEXT_1": "Nous allons compléter votre profil investisseur.",
-			"MASCOT_TEXT_2": "Pour investir sur WE DO GOOD, il faut nous assurer que vous compreniez le risque de perte de votre investissement.",
-			"MASCOT_TEXT_3": "Nous vous proposons de saisir une série d'informations à propos de vos revenus et vos dépenses qui nous permettront de calculer et qualifier votre profil investisseur."
+			"MASCOT_TEXT_1": "Avant d'investir, nous devons vérifier que vous comprenez le risque de perte de votre investissement.",
+			"MASCOT_TEXT_2": "Nous allons donc compléter ensemble votre profil investisseur.",
+			"MASCOT_TEXT_3": "En accord avec la réglementation européenne, le questionnaire suivant nous permettra de qualifier votre profil.",
+			"MASCOT_TEXT_4": "Vos réponses resteront confidentielles."
 		},
 		"capacity": {
 			"FINANCIAL_AVAILABILITY": "Mes disponibilités financières",
@@ -647,7 +648,62 @@
 		"knowledge": {
 			"SELECT": "Sélectionnez dans les propositions suivantes celle(s) qui vous concernent :",
 			"NONE": "Aucun des cas ci-dessus",
-			"NO_WORRIES": "Pas d'inquiétude, vous pourrez quand même investir."
+			"NO_WORRIES": "Pas d'inquiétude, vous pourrez quand même investir.",
+			"RISKS": "J'ai compris les risques liés à l'investissement contre royalties, notamment les risques de perte totale ou partielle des montants investis, et de décalage dans le temps du versement de mes royalties.",
+			"CROWDFUNDING": "J'ai déjà investi en financement participatif dans des activités en phase de démarrage ou de développement contre une rétribution financière (prêt, obligations, investissement contre royalties, investissement en capital...) au cours des 10 dernières années.",
+			"TRANSACTIONS": "J'ai effectué au moins 10 transactions par trimestre sur les marchés financiers depuis plus d'un an."
+		},
+		"profession": {
+			"INFO": "Mes informations professionnelles",
+			"CURRENT_JOB": "Ma catégorie professionnelle est",
+			"EMPLOYEE": "salarié",
+			"LIBERAL": "profession libérale",
+			"ENTREPRENEUR": "chef d'entreprise",
+			"CRAFTSMAN": "artisan",
+			"RETIRED": "retraité",
+			"OTHER": "autre",
+			"LEVEL_EDUCATION": "avec un niveau de diplome",
+			"CAP": "CAP, BEP",
+			"BAC": "Baccalauréat",
+			"BAC2": "BAC +2 (BTS, DUT, DEUG, DEUST, ...)",
+			"BAC3": "BAC +3 (Licence, ...)",
+			"BAC4": "BAC +4 (Maitrise, ...)",
+			"BAC5": "BAC +5 (Master, ...)",
+			"BAC8": "BAC +8 (Doctorat, ...)",
+			"FINANCE_JOB": "Je travaille ou j'ai travaillé dans le secteur financier ou en tant que cadre supérieur dans une entreprise réalisant plus de 2M€ de chiffre d'affaires annuel, ayant un total de bilan de plus de 1M€ ou des capitaux propres de plus de 100 K€.",
+			"CROWDFUNDING": "J'ai eu les formations et expériences suivantes dans le domaine du financement participatif :"
+		},
+		"objectives": {
+			"TITLE": "Mes objectifs d'investissement",
+			"DURATIONS": "Je souhaite investir sur des durées prévisionnelles de :",
+			"duration": {
+				"ONEYEAR": "1 an",
+				"THREEYEARS": "3 ans",
+				"FIVEYEARS": "5 ans",
+				"WHATEVER": "Peu importe"
+			},
+			"RISK_PROFILE": "Mon profil de risque est",
+			"risk-profile": {
+				"CAREFUL": "Prudent",
+				"INTERMEDIATE": "Intermédiaire",
+				"DYNAMIC": "Dynamique"
+			},
+			"IMPACTS": "Je souhaite investir sur des projets à impact positif :",
+			"impact-types": {
+				"ECONOMIC": "Economique",
+				"SOCIAL": "Social",
+				"ENVIRONMENTAL": "Environnemental",
+				"WHATEVER": "Peu importe"
+			},
+			"PURPOSES": "J'investis pour les raisons suivantes :",
+			"purpose-types": {
+				"PROJECT_OWNER": "Soutenir un (ou des) porteur(s) de projet que je connais",
+				"SECTORS": "Investir dans des secteurs qui m'intéressent",
+				"DIVERSIFY": "Diversifier mes placements financiers",
+				"IMPACTS": "Soutenir des projets à impacts positifs",
+				"LOCAL": "Soutenir l'économie de mon territoire"
+			},
+			"NEWLETTER": "Je souhaite recevoir des informations sur les projets correspondant à mes objectifs d'investissement (une fois par mois)"
 		},
 		"result": {
 			"CONSIDERED": "Vous rentrez dans la catégorie {investorCategory}.",

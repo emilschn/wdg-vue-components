@@ -5,32 +5,32 @@
 		<WDGForm name="checkKnowledge">
 			<WDGCheckbox
 			  name="know1"
-			  :value="sharedState.knowledge.know1"
-			  v-bind:valueReturn.sync="sharedState.knowledge.know1"
+			  :value="sharedState.knowledge.risks"
+			  v-bind:valueReturn.sync="sharedState.knowledge.risks"
 			  :onChange="onCheckboxChangeEvent"
-			  eventNameToListen="updateKnowledge1"
+			  eventNameToListen="updateKnowledgeRisks"
 			  >
-				<slot slot="label-after">K1</slot>
+				<slot slot="label-after">{{ $t('user-investment-capacity.knowledge.RISKS') }}</slot>
 			</WDGCheckbox>
 
 			<WDGCheckbox
 			  name="know2"
-			  :value="sharedState.knowledge.know2"
-			  v-bind:valueReturn.sync="sharedState.knowledge.know2"
+			  :value="sharedState.knowledge.crowdfunding"
+			  v-bind:valueReturn.sync="sharedState.knowledge.crowdfunding"
 			  :onChange="onCheckboxChangeEvent"
-			  eventNameToListen="updateKnowledge2"
+			  eventNameToListen="updateKnowledgeCrowdfunding"
 			  >
-				<slot slot="label-after">K2</slot>
+				<slot slot="label-after">{{ $t('user-investment-capacity.knowledge.CROWDFUNDING') }}</slot>
 			</WDGCheckbox>
 
 			<WDGCheckbox
 			  name="know3"
-			  :value="sharedState.knowledge.know3"
-			  v-bind:valueReturn.sync="sharedState.knowledge.know3"
+			  :value="sharedState.knowledge.transactions"
+			  v-bind:valueReturn.sync="sharedState.knowledge.transactions"
 			  :onChange="onCheckboxChangeEvent"
-			  eventNameToListen="updateKnowledge3"
+			  eventNameToListen="updateKnowledgeTransactions"
 			  >
-				<slot slot="label-after">K3</slot>
+				<slot slot="label-after">{{ $t('user-investment-capacity.knowledge.TRANSACTIONS') }}</slot>
 			</WDGCheckbox>
 
 			<div class="noneOfTheKnowledges">
@@ -84,12 +84,12 @@ export default {
 		onCheckboxChangeEvent (name, value) {
 			if (name === 'none') {
 				if (this.noneOfTheKnowledges) {
-					this.sharedState.knowledge.know1 = false
-					this.$root.$emit('updateKnowledge1', false)
-					this.sharedState.knowledge.know2 = false
-					this.$root.$emit('updateKnowledge2', false)
-					this.sharedState.knowledge.know3 = false
-					this.$root.$emit('updateKnowledge3', false)
+					this.sharedState.knowledge.risks = false
+					this.$root.$emit('updateKnowledgeRisks', false)
+					this.sharedState.knowledge.crowdfunding = false
+					this.$root.$emit('updateKnowledgeCrowdfunding', false)
+					this.sharedState.knowledge.transactions = false
+					this.$root.$emit('updateKnowledgeTransactions', false)
 				}
 			} else {
 				if (this.oneOfTheKnowledges) {
@@ -99,12 +99,12 @@ export default {
 			}
 		},
 		onContinueClickEvent () {
-			this.onContinue('result')
+			this.onContinue('profession')
 		}
 	},
 	computed: {
 		oneOfTheKnowledges () {
-			return this.sharedState.knowledge.know1 || this.sharedState.knowledge.know2 || this.sharedState.knowledge.know3
+			return this.sharedState.knowledge.risks || this.sharedState.knowledge.crowdfunding || this.sharedState.knowledge.transactions
 		},
 		canDisplayButton () {
 			return this.noneOfTheKnowledges || this.oneOfTheKnowledges
@@ -134,7 +134,11 @@ export default {
 		border: 1px solid #a8a8a8;
 	}
 
-	div.the-screen-knowledge div.noneOfTheKnowledges .wdg-checkbox .checkmark {
+	div.the-screen-knowledge .wdg-checkbox label {
+		width: auto;
+	}
+
+	div.the-screen-knowledge .wdg-checkbox .checkmark {
 		top: 13px;
 	}
 

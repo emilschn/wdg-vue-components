@@ -15,9 +15,38 @@ export const store = {
 		commitmentValue: '',
 		yearlyCapacityAmount: 0,
 		knowledge: {
-			know1: false,
-			know2: false,
-			know3: false
+			risks: false,
+			crowdfunding: false,
+			transactions: false
+		},
+		profession: {
+			type: '',
+			levelEducation: '',
+			hasFinanceJob: false,
+			crowdfundingExperience: ''
+		},
+		objectives: {
+			duration: {
+				oneyear: false,
+				threeyears: false,
+				fiveyears: false,
+				whatever: false
+			},
+			riskProfile: '',
+			impactTypes: {
+				economic: false,
+				social: false,
+				environmental: false,
+				whatever: false
+			},
+			purposeTypes: {
+				projectOwner: false,
+				sectors: false,
+				diversify: false,
+				impacts: false,
+				local: false,
+				newsletter: false
+			}
 		}
 	},
 	props: {
