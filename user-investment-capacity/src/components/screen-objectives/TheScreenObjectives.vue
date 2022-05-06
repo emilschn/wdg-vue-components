@@ -177,7 +177,7 @@ export default {
 	computed: {
 		canDisplayButton () {
 			let firstQuestion = (this.sharedState.objectives.duration.oneyear || this.sharedState.objectives.duration.threeyears || this.sharedState.objectives.duration.fiveyears || this.sharedState.objectives.duration.whatever)
-			let secondQuestion = (this.sharedState.objectives.riskProfile !== false)
+			let secondQuestion = (this.sharedState.objectives.riskProfile !== '')
 			let thirdQuestion = (this.sharedState.objectives.impactTypes.economic || this.sharedState.objectives.impactTypes.social || this.sharedState.objectives.impactTypes.environmental || this.sharedState.objectives.impactTypes.whatever)
 			let fourthQuestion = (this.sharedState.objectives.purposeTypes.projectOwner || this.sharedState.objectives.purposeTypes.sectors || this.sharedState.objectives.purposeTypes.diversify || this.sharedState.objectives.purposeTypes.impacts || this.sharedState.objectives.purposeTypes.local)
 			return firstQuestion && secondQuestion && thirdQuestion && fourthQuestion

@@ -709,12 +709,15 @@
 			"NEWLETTER": "Je souhaite recevoir des informations sur les projets correspondant à mes objectifs d'investissement (une fois par mois)"
 		},
 		"result": {
-			"CONSIDERED": "Vous rentrez dans la catégorie {investorCategory}.",
+			"CONSIDERED": "Vous entrez dans la catégorie <strong>{investorCategory}</strong>.",
 			"SOPHISTICATED": "Investisseur averti",
 			"UNSOPHISTICATED": "Investisseur non-averti",
-			"CAPACITY_AMOUNT": "Votre capacité à investir (capacité à encaisser des pertes) est estimée à {capacityAmount} € / an.",
-			"LAWS": "Calculé selon le REGLEMENT (UE) 2020/1503 DU PARLEMENT EUROPEEN ET DU CONSEIL",
-			"CAN_INVEST": "Vous pouvez toutefois investir le montant de votre choix"
+			"CAN_INVEST": "Vous pouvez investir le montant de votre choix.",
+			"CAPACITY_AMOUNT": "Toutefois, sachez que votre capacité à encaisser des pertes est estimée à <strong>{capacityAmount} € / an</strong>.",
+			"ADVICE_NOT_MORE": "Nous vous conseillons de ne pas investir plus que ce montant.",
+			"CAN_EDIT": "Si votre situation change, vous pouvez modifier vos réponses à tout moment dans votre compte personnel.",
+			"NEXT_YEAR": "Sinon, ces questions vous seront à nouveau posées l'année prochaine.",
+			"LAWS": "Calculé selon le REGLEMENT (UE) 2020/1503 DU PARLEMENT EUROPEEN ET DU CONSEIL"
 		}
 	}
 }

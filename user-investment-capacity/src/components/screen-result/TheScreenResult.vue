@@ -8,13 +8,16 @@
 
 		<div class="description-container">
 			<div class="description">
-				{{ $t('user-investment-capacity.result.CONSIDERED', { investorCategory: investorCategoryStr }) }}
+				<span v-html="$t('user-investment-capacity.result.CONSIDERED', { investorCategory: investorCategoryStr })"></span>
+				<br>
+				<a href="https://support.wedogood.co/fr/quest-ce-quun-investisseur-averti" target="_blank">{{ $t('common.KNOW_MORE') }}</a>
 				<br><br>
-				{{ knowledgeStr }}
-				<br>
-				{{ $t('user-investment-capacity.result.CAPACITY_AMOUNT', { capacityAmount: capacityAmountStr }) }}
-				<br>
 				{{ $t('user-investment-capacity.result.CAN_INVEST') }}
+				<span v-html="$t('user-investment-capacity.result.CAPACITY_AMOUNT', { capacityAmount: capacityAmountStr })"></span>
+				{{ $t('user-investment-capacity.result.ADVICE_NOT_MORE') }}
+				<br><br>
+				{{ $t('user-investment-capacity.result.CAN_EDIT') }}
+				{{ $t('user-investment-capacity.result.NEXT_YEAR') }}
 			</div>
 
 			<span>
@@ -55,20 +58,18 @@ export default {
 		onContinueClickEvent: function (event) {
 			this.onContinue('redirect')
 		},
-		hasOneOfTheKnowledge: function () {
-			return (this.sharedState.knowledge.know1 || this.sharedState.knowledge.know2 || this.sharedState.knowledge.know3)
+		isSophisticated: function () {
+			let totalYearlyRevenues = Number(this.sharedState.monthlyRevenue) * 12 + Number(this.sharedState.complementaryRevenue) + Number(this.sharedState.investmentsValue)
+			return (this.sharedState.profession.hasFinanceJob || this.sharedState.knowledge.transactions || totalYearlyRevenues > 60000)
 		}
 	},
 	computed: {
 		investorCategoryStr () {
-			if (this.hasOneOfTheKnowledge()) {
+			if (this.isSophisticated()) {
 				return i18n.t('user-investment-capacity.result.SOPHISTICATED')
 			} else {
 				return i18n.t('user-investment-capacity.result.UNSOPHISTICATED')
 			}
-		},
-		knowledgeStr () {
-			return 'TODO'
 		},
 		capacityAmountStr () {
 			return number.formatStr(this.sharedState.yearlyCapacityAmount, 'money')
