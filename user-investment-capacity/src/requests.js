@@ -54,7 +54,7 @@ export const requests = {
 		data.append('sessionUID', store.state.sessionUID)
 		data.append('metadata', JSON.stringify(store.state))
 		axios
-			.post(store.props.customajaxurl, data, { timeout: 30000 })
+			.post(store.props.ajaxurl, data, { timeout: 30000 })
 			.then(response => {
 				let responseData = response.data
 				console.log('then')

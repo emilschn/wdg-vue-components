@@ -4,7 +4,7 @@
 	  :name="name"
 	  :action="action"
 	  :enctype="hasFiles ? 'multipart/form-data' : undefined"
-	  @submit.prevent="onSubmitEvent"
+	  @submit.prevent="onLocalSubmitEvent"
 	  method="POST"
 	  class="wdg-form"
 	  >
@@ -32,7 +32,14 @@ export default {
 		hasFiles: { type: Boolean, default: false },
 		errorFeedback: { type: String, default: '' },
 		successFeedback: { type: String, default: '' }
-    }
+    },
+	methods: {
+		onLocalSubmitEvent () {
+			if (this.onSubmitEvent !== undefined) {
+				this.onSubmitEvent()
+			}
+		}
+	}
 }
 
 </script>
