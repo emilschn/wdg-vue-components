@@ -60,7 +60,20 @@ export default {
 		this.sharedProps.customajaxurl = initElements.dataset.customajaxurl
 		this.sharedProps.redirecturlfr = initElements.dataset.redirecturlfr
 		this.sharedProps.redirecturlen = initElements.dataset.redirecturlen
-		this.sharedProps.locale = initElements.dataset.locale
+
+		// Pas génial mais nécessaire pour le menu qui est chargé avant dans le store
+		let tempLocale = 'fr'
+		if (initElements.dataset.locale !== undefined && initElements.dataset.locale !== '') {
+			if (initElements.dataset.locale.indexOf('_') > -1) {
+				let splitLocale = initElements.dataset.locale.split('_')
+				tempLocale = splitLocale[0]
+			} else {
+				tempLocale = initElements.dataset.locale
+			}
+		}
+		this.sharedProps.locale = tempLocale
+		i18n.locale = tempLocale
+
 		routes.init('intro', store)
 
 		requests.getUserInvestmentCapacity(this.onGetExistingDataEvent)
@@ -94,7 +107,7 @@ export default {
 		// Clic sur Continuer dans chaque écran
 		onScreenContinueEvent (sNewStep) {
 			if (sNewStep === 'redirect') {
-				routes.quitAndRedirect()
+				routes.quitAndRedirect(i18n.locale)
 			} else {
 				routes.changeStep(sNewStep)
 				if (sNewStep === 'result') {

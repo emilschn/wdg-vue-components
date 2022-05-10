@@ -51,8 +51,12 @@ export const routes = {
 	/**
 	 * Gère la redirection à la fin du parcours
 	 */
-	quitAndRedirect() {
-		if (this.store.props.redirectUrl !== '' && this.store.props.redirectUrl !== undefined) {
+	quitAndRedirect(locale) {
+		if (locale !== undefined && locale === 'fr' && this.store.props.redirecturlfr !== '' && this.store.props.redirecturlfr !== undefined) {
+			window.location = this.store.props.redirecturlfr
+		} else if (locale !== undefined && locale === 'en' && this.store.props.redirecturlen !== '' && this.store.props.redirecturlen !== undefined) {
+			window.location = this.store.props.redirecturlen
+		} else if (this.store.props.redirectUrl !== '' && this.store.props.redirectUrl !== undefined) {
 			window.location = this.store.props.redirectUrl
 		} else {
 			window.location = this.getAccountUrl()
