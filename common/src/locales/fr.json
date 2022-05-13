@@ -35,7 +35,8 @@
 		"SEND_FILE_DESCRIPTOR": "Cliquez pour parcourir vos documents, glissez-déposez directement votre fichier ou prenez une photo.",
 		"CANT_FIND_ADDRESS": "Je ne trouve pas mon adresse",
 		"FILE_TYPE_NOT_ACCEPTED": "Ce type de fichier n'est pas accepté",
-		"FILE_TOO_BIG": "Ce fichier est trop lourd"
+		"FILE_TOO_BIG": "Ce fichier est trop lourd",
+		"KNOW_MORE": "En savoir plus"
 	},
 	"validations": {
 		"REQUIRED": "Ce champ est obligatoire",
@@ -316,7 +317,7 @@
 			"MASCOT_TEXT_3": "De votre niveau de marge",
 			"MASCOT_TEXT_4": "De connaître votre besoin de financement",
 			"TEXT_1": "Résultat immédiat envoyé par mail.",
-			"TEXT_2": "Possibilité de prise de rendez-vous pour démarrer la levée de fonds au plus vite !",
+			"TEXT_2": "Prenez rendez-vous avec notre équipe à la fin du test pour en discuter !",
 			"TEXT_3": "Réponse en env. 5 min.",
 			"TEXT_4": "Vous pouvez enregistrer, quitter, et revenir à tout moment !",
 			"the-project-link-send": {
@@ -343,6 +344,7 @@
 			"SUBTITLE": "Tous les champs sont obligatoires",
 			"FORM_TEXT_ORGANIZATION_TYPE": "Ma structure est",
 			"FORM_TEXT_ORGANIZATION_LOCATED": "située",
+			"FORM_TEXT_ORGANIZATION_REGION": "dans la région",
 			"FORM_TEXT_ORGANIZATION_NOT_CREATED_NAME": "sous le nom de",
 			"FORM_TEXT_ORGANIZATION_CREATED_NAME": "du nom de",
 			"FORM_TEXT_ORGANIZATION_ID": "dont le numéro SIREN est",
@@ -621,6 +623,102 @@
 				"THANK_YOU": "Merci pour votre confiance.",
 				"CREATE": "Vous pouvez dès à présent créer votre projet sur WE DO GOOD !"
 			}
+		}
+	},
+	"user-investment-capacity": {
+		"TITLE": "Mon profil investisseur",
+		"intro": {
+			"MASCOT_TEXT_1": "Avant d'investir, nous devons vérifier que vous comprenez le risque de perte de votre investissement.",
+			"MASCOT_TEXT_2": "Nous allons donc compléter ensemble votre profil investisseur.",
+			"MASCOT_TEXT_3": "En accord avec la réglementation européenne, le questionnaire suivant nous permettra de qualifier votre profil.",
+			"MASCOT_TEXT_4": "Vos réponses resteront confidentielles."
+		},
+		"capacity": {
+			"FINANCIAL_AVAILABILITY": "Mes disponibilités financières",
+			"FINANCIAL_AVAILABILITY_DESCRIPTION": "Vous pouvez indiquer des montants estimés, que vous pourrez modifier ensuite sur votre compte. Cela ne vous empêchera pas d'investir.",
+			"MASCOT": "L'investissement en direct dans des entreprises est un pari risqué. Pour vous aider à y voir plus clair et conformément à la réglementation européenne, nous allons calculer votre capacité à encaisser des pertes, établie par défaut à 10 % de vos capacités financières",
+			"NET_REVENUES": "Mes revenus nets s'élèvent à environ",
+			"EURO_PER_MONTH": "€ / mois, soit",
+			"EURO_PER_YEAR": "€ / an",
+			"COMPLEMENTARY_REVENUES": "Je dispose aussi de revenus complémentaires d'environ",
+			"INVESTMENTS": "Mon épargne et placements financiers s'élèvent à environ",
+			"FINANCIAL_COMMITMENT": "Mes engagements financiers",
+			"RECURRING_COMMITMENT": "Mes engagements récurrents financiers actuels (loyers, remboursement de prêt...) s'élèvent à",
+			"MAX_INVESTMENT": "Nous vous recommandons de ne pas investir plus de :",
+			"MAX_INVESTMENT_DESCRIPTION": "Cette recommandation est calculée conformément à la réglementation européenne de la manière suivante :",
+			"MAX_INVESTMENT_DESCRIPTION_DETAILS": "10 % * Disponibilités financières - Engagements financiers",
+			"ITS_OK": "C'est noté !"
+		},
+		"knowledge": {
+			"SELECT": "Sélectionnez dans les propositions suivantes celle(s) qui vous concernent :",
+			"NONE": "Aucun des cas ci-dessus",
+			"NO_WORRIES": "Pas d'inquiétude, vous pourrez quand même investir.",
+			"RISKS": "J'ai compris les risques liés à l'investissement contre royalties, notamment les risques de perte totale ou partielle des montants investis, et de décalage dans le temps du versement de mes royalties.",
+			"CROWDFUNDING": "J'ai déjà investi en financement participatif dans des activités en phase de démarrage ou de développement contre une rétribution financière (prêt, obligations, investissement contre royalties, investissement en capital...) au cours des 10 dernières années.",
+			"TRANSACTIONS": "J'ai effectué au moins 10 transactions par trimestre sur les marchés financiers depuis plus d'un an."
+		},
+		"profession": {
+			"INFO": "Mes informations professionnelles",
+			"CURRENT_JOB": "Ma catégorie professionnelle est",
+			"EMPLOYEE": "salarié",
+			"LIBERAL": "profession libérale",
+			"ENTREPRENEUR": "chef d'entreprise",
+			"CRAFTSMAN": "artisan",
+			"RETIRED": "retraité",
+			"OTHER": "autre",
+			"LEVEL_EDUCATION": "avec un niveau de diplome",
+			"CAP": "CAP, BEP",
+			"BAC": "Baccalauréat",
+			"BAC2": "BAC +2 (BTS, DUT, DEUG, DEUST, ...)",
+			"BAC3": "BAC +3 (Licence, ...)",
+			"BAC4": "BAC +4 (Maitrise, ...)",
+			"BAC5": "BAC +5 (Master, ...)",
+			"BAC8": "BAC +8 (Doctorat, ...)",
+			"FINANCE_JOB": "Je travaille ou j'ai travaillé dans le secteur financier ou en tant que cadre supérieur dans une entreprise réalisant plus de 2M€ de chiffre d'affaires annuel, ayant un total de bilan de plus de 1M€ ou des capitaux propres de plus de 100 K€.",
+			"CROWDFUNDING": "J'ai eu les formations et expériences suivantes dans le domaine du financement participatif :"
+		},
+		"objectives": {
+			"TITLE": "Mes objectifs d'investissement",
+			"DURATIONS": "Je souhaite investir sur des durées prévisionnelles de :",
+			"duration": {
+				"ONEYEAR": "1 an",
+				"THREEYEARS": "3 ans",
+				"FIVEYEARS": "5 ans",
+				"WHATEVER": "Peu importe"
+			},
+			"RISK_PROFILE": "Mon profil de risque est",
+			"risk-profile": {
+				"CAREFUL": "Prudent",
+				"INTERMEDIATE": "Intermédiaire",
+				"DYNAMIC": "Dynamique"
+			},
+			"IMPACTS": "Je souhaite investir sur des projets à impact positif :",
+			"impact-types": {
+				"ECONOMIC": "Economique",
+				"SOCIAL": "Social",
+				"ENVIRONMENTAL": "Environnemental",
+				"WHATEVER": "Peu importe"
+			},
+			"PURPOSES": "J'investis pour les raisons suivantes :",
+			"purpose-types": {
+				"PROJECT_OWNER": "Soutenir un (ou des) porteur(s) de projet que je connais",
+				"SECTORS": "Investir dans des secteurs qui m'intéressent",
+				"DIVERSIFY": "Diversifier mes placements financiers",
+				"IMPACTS": "Soutenir des projets à impacts positifs",
+				"LOCAL": "Soutenir l'économie de mon territoire"
+			},
+			"NEWLETTER": "Je souhaite recevoir des informations sur les projets correspondant à mes objectifs d'investissement (une fois par mois)"
+		},
+		"result": {
+			"CONSIDERED": "Vous entrez dans la catégorie <strong>{investorCategory}</strong>.",
+			"SOPHISTICATED": "Investisseur averti",
+			"UNSOPHISTICATED": "Investisseur non-averti",
+			"CAN_INVEST": "Vous pouvez investir le montant de votre choix.",
+			"CAPACITY_AMOUNT": "Toutefois, sachez que votre capacité à encaisser des pertes est estimée à <strong>{capacityAmount} € / an</strong>.",
+			"ADVICE_NOT_MORE": "Nous vous conseillons de ne pas investir plus que ce montant.",
+			"CAN_EDIT": "Si votre situation change, vous pouvez modifier vos réponses à tout moment dans votre compte personnel.",
+			"NEXT_YEAR": "Sinon, ces questions vous seront à nouveau posées l'année prochaine.",
+			"LAWS": "Calculé selon le REGLEMENT (UE) 2020/1503 DU PARLEMENT EUROPEEN ET DU CONSEIL"
 		}
 	}
 }

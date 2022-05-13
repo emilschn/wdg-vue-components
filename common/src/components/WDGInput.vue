@@ -61,7 +61,7 @@
 			  >
 			  {{ suffix }}
 			</span>
-			<span class="input-icon">
+			<span class="input-icon" v-if="loading || (!multiline && icon && iconVisibility && !loading)">
 				<span
 					v-if="loading"
 					class="fas fa-hourglass-start"
@@ -127,7 +127,7 @@
 			  >
 			  {{ suffix }}
 			</span>
-			<span class="input-icon">
+			<span class="input-icon" v-if="loading || (!multiline && icon && iconVisibility)">
 				<span
 					v-if="loading"
 					class="fas fa-hourglass-start"
@@ -219,7 +219,6 @@ export default {
 			return nInput
 		},
 		getAutoFormatWDGNumber (nInput) {
-			console.log('wdgInput getAutoFormatWDGNumber nInput = ' + nInput)
 			// On passe les entiers en float avec .00 pour qu'ils soient reconnus par le pattern en dessous
 			if (nInput === parseInt(nInput, 10)) {
 				nInput = parseFloat(nInput).toFixed(2)
@@ -230,7 +229,6 @@ export default {
 			sInput = sInput.replace(/[^\d.-]/g, '')
 			// Si pourcent, on reste entre 0 et 100
 			if (this.autoFormat === 'wdg-percent') {
-				console.log('wdgInput getAutoFormatWDGNumber sInput = ' + sInput)
 				if (Number(sInput) < 0) {
 					sInput = '0'
 				}

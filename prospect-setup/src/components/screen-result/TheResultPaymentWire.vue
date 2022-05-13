@@ -8,7 +8,7 @@
 
 		{{ $t('project-setup.payment.wire.IBAN_LABEL') }}
 		<br>
-		FR76 XXXX XXXX XXXX XXXX XXXX XXXX
+		FR76 1695 8000 0147 8212 4998 107
 		<br><br>
 
 		<WDGButton

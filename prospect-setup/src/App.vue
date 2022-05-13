@@ -6,7 +6,10 @@
 	  :data-ajaxurl="sharedProps.ajaxurl"
 	  :data-locale="sharedProps.locale"
 	  >
-		<WDGHeader>
+		<WDGHeader
+		  v-bind:langSelector=true
+		  :onLangSelect="onLangSelectEvent"
+		>
 			<slot slot="title">{{ $t('project-setup.TITLE') }}</slot>
 		</WDGHeader>
 
@@ -157,9 +160,18 @@ export default {
 			this.sharedState.organization.name = metadata.organization.name
 			this.sharedState.organization.description = metadata.organization.description
 			this.sharedState.organization.location = metadata.organization.location
+			this.sharedState.organization.locationRegion = metadata.organization.locationRegion
 			this.sharedState.organization.amountNeeded = metadata.organization.amountNeeded
 			this.sharedState.organization.sourceProspect = metadata.organization.sourceProspect
 			this.sharedState.organization.sourceProspectDetails = metadata.organization.sourceProspectDetails
+			this.sharedState.organization.taxNumber = metadata.organization.taxNumber
+			this.sharedState.organization.addressNumber = metadata.organization.addressNumber
+			this.sharedState.organization.addressNumberComplement = metadata.organization.addressNumberComplement
+			this.sharedState.organization.addressStreet = metadata.organization.addressStreet
+			this.sharedState.organization.addressPostalCode = metadata.organization.addressPostalCode
+			this.sharedState.organization.addressCity = metadata.organization.addressCity
+			this.sharedState.organization.addressCountry = metadata.organization.addressCountry
+			this.sharedState.organization.email = metadata.organization.email
 
 			this.sharedState.project.estimatedTurnover.year1 = metadata.project.estimatedTurnover.year1
 			this.sharedState.project.estimatedTurnover.year2 = metadata.project.estimatedTurnover.year2
@@ -189,11 +201,13 @@ export default {
 				this.sharedState.package.bundle1.priceWithoutDiscount = metadata.package.bundle1.priceWithoutDiscount
 				this.sharedState.package.bundle1.discount = metadata.package.bundle1.discount
 				this.sharedState.package.bundle1.discountReason = metadata.package.bundle1.discountReason
+				this.sharedState.package.bundle1.editedByAdmin = (metadata.package.bundle1.editedByAdmin !== undefined) ? metadata.package.bundle1.editedByAdmin : true
 				this.sharedState.package.bundle2.title = metadata.package.bundle2.title
 				this.sharedState.package.bundle2.type = metadata.package.bundle2.type
 				this.sharedState.package.bundle2.priceWithoutDiscount = metadata.package.bundle2.priceWithoutDiscount
 				this.sharedState.package.bundle2.discount = metadata.package.bundle2.discount
 				this.sharedState.package.bundle2.discountReason = metadata.package.bundle2.discountReason
+				this.sharedState.package.bundle2.editedByAdmin = (metadata.package.bundle2.editedByAdmin !== undefined) ? metadata.package.bundle2.editedByAdmin : true
 			}
 
 			this.sharedProps.initFileList = fileList
@@ -230,6 +244,7 @@ export default {
 		},
 		onLangSelectEvent (sLanguage) {
 			this.sharedState.language = sLanguage
+			i18n.locale = sLanguage
 			this.reloadMenu()
 		}
 	}
@@ -252,5 +267,8 @@ div.prospect-setup {
 div.loading-guid {
 	margin: 80px 0px;
 	text-align: center;
+}
+.wdg-select.natural-language select {
+	background-color: #FFF;
 }
 </style>
