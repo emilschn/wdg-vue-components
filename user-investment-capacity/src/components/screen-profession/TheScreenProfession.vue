@@ -2,6 +2,9 @@
 	<div class="the-screen-profession">
 		<h3>{{ $t('user-investment-capacity.profession.INFO') }}</h3>
 
+		{{ $t('user-investment-capacity.profession.INTRO') }}
+		<br><br>
+
 		{{ $t('user-investment-capacity.profession.CURRENT_JOB') }}
 
 		<WDGSelect

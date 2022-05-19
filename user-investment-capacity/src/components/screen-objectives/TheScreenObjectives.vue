@@ -9,6 +9,8 @@
 			  name="oneyear"
 			  :value="sharedState.objectives.duration.oneyear"
 			  v-bind:valueReturn.sync="sharedState.objectives.duration.oneyear"
+			  :onChange="onCheckboxDurationChangeEvent"
+			  eventNameToListen="updateDurationOne"
 			  >
 				<slot slot="label-after">{{ $t('user-investment-capacity.objectives.duration.ONEYEAR') }}</slot>
 			</WDGCheckbox>
@@ -17,6 +19,8 @@
 			  name="threeyears"
 			  :value="sharedState.objectives.duration.threeyears"
 			  v-bind:valueReturn.sync="sharedState.objectives.duration.threeyears"
+			  :onChange="onCheckboxDurationChangeEvent"
+			  eventNameToListen="updateDurationThree"
 			  >
 				<slot slot="label-after">{{ $t('user-investment-capacity.objectives.duration.THREEYEARS') }}</slot>
 			</WDGCheckbox>
@@ -25,6 +29,8 @@
 			  name="fiveyears"
 			  :value="sharedState.objectives.duration.fiveyears"
 			  v-bind:valueReturn.sync="sharedState.objectives.duration.fiveyears"
+			  :onChange="onCheckboxDurationChangeEvent"
+			  eventNameToListen="updateDurationFive"
 			  >
 				<slot slot="label-after">{{ $t('user-investment-capacity.objectives.duration.FIVEYEARS') }}</slot>
 			</WDGCheckbox>
@@ -33,6 +39,8 @@
 			  name="whateveryear"
 			  :value="sharedState.objectives.duration.whatever"
 			  v-bind:valueReturn.sync="sharedState.objectives.duration.whatever"
+			  :onChange="onCheckboxDurationChangeEvent"
+			  eventNameToListen="updateDurationWhatever"
 			  >
 				<slot slot="label-after">{{ $t('user-investment-capacity.objectives.duration.WHATEVER') }}</slot>
 			</WDGCheckbox>
@@ -56,6 +64,8 @@
 			  name="economic"
 			  :value="sharedState.objectives.impactTypes.economic"
 			  v-bind:valueReturn.sync="sharedState.objectives.impactTypes.economic"
+			  :onChange="onCheckboxImpactChangeEvent"
+			  eventNameToListen="updateImpactEconomic"
 			  >
 				<slot slot="label-after">{{ $t('user-investment-capacity.objectives.impact-types.ECONOMIC') }}</slot>
 			</WDGCheckbox>
@@ -64,6 +74,8 @@
 			  name="social"
 			  :value="sharedState.objectives.impactTypes.social"
 			  v-bind:valueReturn.sync="sharedState.objectives.impactTypes.social"
+			  :onChange="onCheckboxImpactChangeEvent"
+			  eventNameToListen="updateImpactSocial"
 			  >
 				<slot slot="label-after">{{ $t('user-investment-capacity.objectives.impact-types.SOCIAL') }}</slot>
 			</WDGCheckbox>
@@ -72,6 +84,8 @@
 			  name="environmental"
 			  :value="sharedState.objectives.impactTypes.environmental"
 			  v-bind:valueReturn.sync="sharedState.objectives.impactTypes.environmental"
+			  :onChange="onCheckboxImpactChangeEvent"
+			  eventNameToListen="updateImpactEnvironmental"
 			  >
 				<slot slot="label-after">{{ $t('user-investment-capacity.objectives.impact-types.ENVIRONMENTAL') }}</slot>
 			</WDGCheckbox>
@@ -80,6 +94,8 @@
 			  name="whateverimpact"
 			  :value="sharedState.objectives.impactTypes.whatever"
 			  v-bind:valueReturn.sync="sharedState.objectives.impactTypes.whatever"
+			  :onChange="onCheckboxImpactChangeEvent"
+			  eventNameToListen="updateImpactWhatever"
 			  >
 				<slot slot="label-after">{{ $t('user-investment-capacity.objectives.impact-types.WHATEVER') }}</slot>
 			</WDGCheckbox>
@@ -170,15 +186,55 @@ export default {
 		}
 	},
 	methods: {
+		onCheckboxDurationChangeEvent (name, value) {
+			if (name === 'whateveryear') {
+				if (this.sharedState.objectives.duration.whatever) {
+					this.sharedState.objectives.duration.oneyear = false
+					this.$root.$emit('updateDurationOne', false)
+					this.sharedState.objectives.duration.threeyears = false
+					this.$root.$emit('updateDurationThree', false)
+					this.sharedState.objectives.duration.fiveyears = false
+					this.$root.$emit('updateDurationFive', false)
+				}
+			} else {
+				if (this.oneOfTheDurations) {
+					this.sharedState.objectives.duration.whatever = false
+					this.$root.$emit('updateDurationWhatever', false)
+				}
+			}
+		},
+		onCheckboxImpactChangeEvent (name, value) {
+			if (name === 'whateverimpact') {
+				if (this.sharedState.objectives.impactTypes.whatever) {
+					this.sharedState.objectives.impactTypes.economic = false
+					this.$root.$emit('updateImpactEconomic', false)
+					this.sharedState.objectives.impactTypes.social = false
+					this.$root.$emit('updateImpactSocial', false)
+					this.sharedState.objectives.impactTypes.environmental = false
+					this.$root.$emit('updateImpactEnvironmental', false)
+				}
+			} else {
+				if (this.oneOfTheImpacts) {
+					this.sharedState.objectives.impactTypes.whatever = false
+					this.$root.$emit('updateImpactWhatever', false)
+				}
+			}
+		},
 		onContinueClickEvent () {
 			this.onContinue('result')
 		}
 	},
 	computed: {
+		oneOfTheDurations () {
+			return this.sharedState.objectives.duration.oneyear || this.sharedState.objectives.duration.threeyears || this.sharedState.objectives.duration.fiveyears
+		},
+		oneOfTheImpacts () {
+			return this.sharedState.objectives.impactTypes.economic || this.sharedState.objectives.impactTypes.social || this.sharedState.objectives.impactTypes.environmental
+		},
 		canDisplayButton () {
-			let firstQuestion = (this.sharedState.objectives.duration.oneyear || this.sharedState.objectives.duration.threeyears || this.sharedState.objectives.duration.fiveyears || this.sharedState.objectives.duration.whatever)
+			let firstQuestion = (this.oneOfTheDurations || this.sharedState.objectives.duration.whatever)
 			let secondQuestion = (this.sharedState.objectives.riskProfile !== '')
-			let thirdQuestion = (this.sharedState.objectives.impactTypes.economic || this.sharedState.objectives.impactTypes.social || this.sharedState.objectives.impactTypes.environmental || this.sharedState.objectives.impactTypes.whatever)
+			let thirdQuestion = (this.oneOfTheImpacts || this.sharedState.objectives.impactTypes.whatever)
 			let fourthQuestion = (this.sharedState.objectives.purposeTypes.projectOwner || this.sharedState.objectives.purposeTypes.sectors || this.sharedState.objectives.purposeTypes.diversify || this.sharedState.objectives.purposeTypes.impacts || this.sharedState.objectives.purposeTypes.local)
 			return firstQuestion && secondQuestion && thirdQuestion && fourthQuestion
 		},

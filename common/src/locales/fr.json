@@ -658,6 +658,7 @@
 		},
 		"profession": {
 			"INFO": "Mes informations professionnelles",
+			"INTRO": "Dans le cadre de réglementation, ces informations sont nécessaires pour définir votre profil investisseur.",
 			"CURRENT_JOB": "Ma catégorie professionnelle est",
 			"EMPLOYEE": "salarié",
 			"LIBERAL": "profession libérale",
