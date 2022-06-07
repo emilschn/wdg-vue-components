@@ -186,12 +186,15 @@ export default {
 			}
 		},
 		onUploadDocumentFileChangeEvent (id, index, idUploadDocument, files) {
+			let documentType = ''
 			if ( this.step === 'choose-first-file-upload' ) {
+				documentType = this.firstDocumentType
 				this.firstDocumentList.splice(index, 1, files)
 			} else {
+				documentType = this.secondDocumentType
 				this.secondDocumentList.splice(index, 1, files)
 			}
-			requests.uploadFile(idUploadDocument, files[0], 'user', '', this.firstDocumentType, index + 1, this.onDocumentUploadProgressEvent, this.onDocumentUploadCompleteEvent)
+			requests.uploadFile(idUploadDocument, files[0], 'user', '', documentType, index + 1, this.onDocumentUploadProgressEvent, this.onDocumentUploadCompleteEvent)
 		},
 		onAllFilesSelectedEvent () {
 			console.log('onAllFilesSelectedEvent')
