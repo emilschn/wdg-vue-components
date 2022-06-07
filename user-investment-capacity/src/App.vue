@@ -96,6 +96,24 @@ export default {
 						this.sharedState.knowledge[str] = knowledgeDetails[str]
 					}
 				}
+
+				if (data.profession_details !== undefined) {
+					let professionDetails = JSON.parse(data.profession_details)
+					for (let str in professionDetails) {
+						if (this.sharedState.profession[str] !== undefined) {
+							this.sharedState.profession[str] = professionDetails[str]
+						}
+					}
+				}
+
+				if (data.objectives_details !== undefined) {
+					let objectivesDetails = JSON.parse(data.objectives_details)
+					for (let str in objectivesDetails) {
+						if (this.sharedState.objectives[str] !== undefined) {
+							this.sharedState.objectives[str] = objectivesDetails[str]
+						}
+					}
+				}
 			}
 		},
 		// Ajustement de l'interface quand on change de langue
