@@ -155,7 +155,7 @@ export default {
 					}
 				}
 				if (result.firstname !== '') {
-					this.sharedState.user.name = result.firstname + ' ' + result.lastname
+					this.sharedState.user.name = result.firstname
 				}
 			}
 		},
