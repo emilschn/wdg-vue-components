@@ -4,105 +4,69 @@
 
 		<div class="organization-form">
 			<WDGForm>
-			{{ $t('project-setup.payment.organization-info.TAX_LABEL') }}
-				<WDGInput
-				  id="organizationTaxNumber"
-				  name="organizationTaxNumber"
-				  :value="sharedState.organization.taxNumber"
-				  v-bind:valueReturn.sync="sharedState.organization.taxNumber"
-				  customStyle="natural-language"
-				  />,
-			<br><br>
+				{{ $t('project-setup.payment.organization-info.TAX_LABEL') }}
+				<WDGInput id="organizationTaxNumber" name="organizationTaxNumber"
+					:value="sharedState.organization.taxNumber"
+					v-bind:valueReturn.sync="sharedState.organization.taxNumber" customStyle="natural-language" />,
+				<br><br>
 
-			{{ $t('project-setup.payment.organization-info.ADDRESS_LABEL') }}
-			<br>
-				<WDGInput
-				  id="organizationAddressNumber"
-				  name="organizationAddressNumber"
-				  :value="sharedState.organization.addressNumber"
-				  v-bind:valueReturn.sync="sharedState.organization.addressNumber"
-				  customStyle="natural-language"
-				  :placeholder="getTrans('project-setup.payment.organization-info.ADDRESS_NUMBER_PLACEHOLDER')"
-				  />
+				{{ $t('project-setup.payment.organization-info.ADDRESS_LABEL') }}
+				<br>
+				<WDGInput id="organizationAddressNumber" name="organizationAddressNumber"
+					:value="sharedState.organization.addressNumber"
+					v-bind:valueReturn.sync="sharedState.organization.addressNumber" customStyle="natural-language"
+					:placeholder="getTrans('project-setup.payment.organization-info.ADDRESS_NUMBER_PLACEHOLDER')" />
 
-				<WDGSelect
-				  id="organizationAddressNumberComplement"
-				  name="organizationAddressNumberComplement"
-				  :optionItems="organizationAddressNumberComplementList"
-				  :value="sharedState.organization.addressNumberComplement"
-				  v-bind:valueReturn.sync="sharedState.organization.addressNumberComplement"
-				  customStyle="natural-language"
-				  />
-			<br>
-				<WDGInput
-				  id="organizationAddressStreet"
-				  name="organizationAddressStreet"
-				  :value="sharedState.organization.addressStreet"
-				  v-bind:valueReturn.sync="sharedState.organization.addressStreet"
-				  customStyle="natural-language"
-				  :placeholder="getTrans('project-setup.payment.organization-info.ADDRESS_STREET_PLACEHOLDER')"
-				  />
-			<br>
-				<WDGInput
-				  id="organizationAddressPostalCode"
-				  name="organizationAddressPostalCode"
-				  :value="sharedState.organization.addressPostalCode"
-				  v-bind:valueReturn.sync="sharedState.organization.addressPostalCode"
-				  customStyle="natural-language"
-				  :placeholder="getTrans('project-setup.payment.organization-info.ADDRESS_POSTAL_CODE_PLACEHOLDER')"
-				  />
-				<WDGInput
-				  id="organizationAddressCity"
-				  name="organizationAddressCity"
-				  :value="sharedState.organization.addressCity"
-				  v-bind:valueReturn.sync="sharedState.organization.addressCity"
-				  customStyle="natural-language"
-				  :placeholder="getTrans('project-setup.payment.organization-info.ADDRESS_CITY_PLACEHOLDER')"
-				  />
-			<br>
-				<WDGSelect
-				  id="organizationAddressCountry"
-				  name="organizationAddressCountry"
-				  :optionItems="countryList"
-				  :value="sharedState.organization.addressCountry"
-				  v-bind:valueReturn.sync="sharedState.organization.addressCountry"
-				  customStyle="natural-language"
-				  />
-			<br><br>
+				<WDGSelect id="organizationAddressNumberComplement" name="organizationAddressNumberComplement"
+					:optionItems="organizationAddressNumberComplementList"
+					:value="sharedState.organization.addressNumberComplement"
+					v-bind:valueReturn.sync="sharedState.organization.addressNumberComplement"
+					customStyle="natural-language" />
+				<br>
+				<WDGInput id="organizationAddressStreet" name="organizationAddressStreet"
+					:value="sharedState.organization.addressStreet"
+					v-bind:valueReturn.sync="sharedState.organization.addressStreet" customStyle="natural-language"
+					:placeholder="getTrans('project-setup.payment.organization-info.ADDRESS_STREET_PLACEHOLDER')" />
+				<br>
+				<WDGInput id="organizationAddressPostalCode" name="organizationAddressPostalCode"
+					:value="sharedState.organization.addressPostalCode"
+					v-bind:valueReturn.sync="sharedState.organization.addressPostalCode" customStyle="natural-language"
+					:placeholder="getTrans('project-setup.payment.organization-info.ADDRESS_POSTAL_CODE_PLACEHOLDER')" />
+				<WDGInput id="organizationAddressCity" name="organizationAddressCity"
+					:value="sharedState.organization.addressCity"
+					v-bind:valueReturn.sync="sharedState.organization.addressCity" customStyle="natural-language"
+					:placeholder="getTrans('project-setup.payment.organization-info.ADDRESS_CITY_PLACEHOLDER')" />
+				<br>
+				<WDGSelect id="organizationAddressCountry" name="organizationAddressCountry" :optionItems="countryList"
+					:value="sharedState.organization.addressCountry"
+					v-bind:valueReturn.sync="sharedState.organization.addressCountry" customStyle="natural-language" />
+				<br><br>
 
-			{{ $t('project-setup.payment.organization-info.EMAIL_LABEL') }}
-			<br>
-				<WDGInput
-				  id="organizationEmail"
-				  name="organizationEmail"
-				  :value="sharedState.organization.email"
-				  v-bind:valueReturn.sync="sharedState.organization.email"
-				  customStyle="natural-language"
-				  :placeholder="getTrans('project-setup.payment.organization-info.EMAIL_PLACEHOLDER')"
-				  />
-			<br><br>
+				{{ $t('project-setup.payment.organization-info.EMAIL_LABEL') }}
+				<br>
+				<WDGInput id="organizationEmail" name="organizationEmail" :value="sharedState.organization.email"
+					v-bind:valueReturn.sync="sharedState.organization.email" customStyle="natural-language"
+					:placeholder="getTrans('project-setup.payment.organization-info.EMAIL_PLACEHOLDER')" />
+				<br><br>
 
-			<WDGCheckbox
-			  :value="sharedState.project.acceptTerms"
-			  v-bind:valueReturn.sync="sharedState.project.acceptTerms"
-			  >
-				<slot slot="label">{{ $t('project-setup.payment.organization-info.AGREE_TERMS') }}</slot>
-			</WDGCheckbox>
-			<ul>
-				<li><a href="https://www.wedogood.co/cgu" target="_blank">{{ $t('project-setup.payment.organization-info.GENERAL_TERMS') }}</a></li>
-				<li><a href="https://www.wedogood.co/conditions-particulieres" target="_blank">{{ $t('project-setup.payment.organization-info.PARTICULAR_TERMS') }}</a></li>
-				<li>{{ $t('project-setup.payment.organization-info.6_MONTHS_TERMS') }}</li>
-				<li>{{ $t('project-setup.payment.organization-info.PAYMENT_TERMS') }}</li>
-			</ul>
+				<WDGCheckbox :value="sharedState.project.acceptTerms"
+					v-bind:valueReturn.sync="sharedState.project.acceptTerms">
+					<slot slot="label">{{ $t('project-setup.payment.organization-info.AGREE_TERMS') }}</slot>
+				</WDGCheckbox>
+				<ul>
+					<li><a href="https://www.wedogood.co/cgu" target="_blank">{{
+							$t('project-setup.payment.organization-info.GENERAL_TERMS')
+					}}</a></li>
+					<li><a href="https://www.wedogood.co/conditions-particulieres" target="_blank">{{
+							$t('project-setup.payment.organization-info.PARTICULAR_TERMS')
+					}}</a></li>
+					<li>{{ $t('project-setup.payment.organization-info.6_MONTHS_TERMS') }}</li>
+					<li>{{ $t('project-setup.payment.organization-info.PAYMENT_TERMS') }}</li>
+				</ul>
 
-			<WDGButton
-			  v-if="canShowButtonContinue"
-			  color="red"
-			  type="button"
-			  :clickEvent="onContinueClickEvent"
-			  >
-				<slot slot="label">{{ $t('project-setup.CONTINUE') }}</slot>
-			</WDGButton>
+				<WDGButton v-if="canShowButtonContinue" color="red" type="button" :clickEvent="onContinueClickEvent">
+					<slot slot="label">{{ $t('project-setup.CONTINUE') }}</slot>
+				</WDGButton>
 
 			</WDGForm>
 		</div>
@@ -129,7 +93,7 @@ export default {
 	},
 	props: {
 	},
-	data () {
+	data() {
 		return {
 			sharedState: store.state,
 			organizationAddressNumberComplementList: [
@@ -142,7 +106,7 @@ export default {
 		}
 	},
 	computed: {
-		countryList () {
+		countryList() {
 			return [
 				{ Id: '', Text: '' },
 				{ Id: 'FR', Text: 'FRANCE' },
@@ -396,20 +360,21 @@ export default {
 				{ Id: 'ZW', Text: 'ZIMBABWE' }
 			]
 		},
-		canShowButtonContinue () {
+		canShowButtonContinue() {
 			if (process.env.NODE_ENV === 'development') {
 				return this.sharedState.project.acceptTerms
 			}
 			return this.sharedState.project.acceptTerms &&
-					this.sharedState.organization.email !== '' && this.sharedState.organization.taxNumber !== '' &&
-					this.sharedState.organization.addressCity !== '' && this.sharedState.organization.addressCountry !== ''
+				this.sharedState.organization.email !== '' && this.sharedState.organization.taxNumber !== '' &&
+				this.sharedState.organization.addressStreet !== '' &&
+				this.sharedState.organization.addressCity !== '' && this.sharedState.organization.addressCountry !== ''
 		}
 	},
 	methods: {
-		getTrans (sId) {
+		getTrans(sId) {
 			return i18n.t(sId)
 		},
-		onContinueClickEvent () {
+		onContinueClickEvent() {
 			store.changeStep('project-payment')
 		}
 	}
@@ -453,13 +418,16 @@ div.the-result-organization-info input#organizationAddressNumber {
 	width: 50px;
 	margin-right: 24px;
 }
+
 div.the-result-organization-info select#organizationAddressNumberComplement {
 	width: 150px;
 }
+
 div.the-result-organization-info input#organizationAddressPostalCode {
 	width: 100px;
 	margin-right: 24px;
 }
+
 div.the-result-organization-info input#organizationAddressCity {
 	width: 150px;
 }
