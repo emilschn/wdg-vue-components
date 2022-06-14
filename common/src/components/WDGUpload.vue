@@ -1,30 +1,34 @@
 <template>
 	<div class="wdg-upload">
-		<label>
-			<input
-			  id="upload"
-			  name="attachment"
-			  type="file"
-			  @change="onFileChangeEvent"
-			  >
-			<span v-if="fileName !== ''">{{ fileName }}</span>
-			<span v-else-if="label !== null && label !== ''">{{ label }}</span>
-			<span v-else>{{ $t('common.SEND_FILE') }}</span>
+		<label class="document-upload-container">
+			<div
+		  		v-if="canDisplayPreview"
+		  		class="preview"
+			>
+			<img :src="filePreviewURL">
+			</div>
+			<div :class="fileName !== '' ? 'upload-container-text-1' :'upload-container-text-2'">
+				<input
+				  id="upload"
+				  name="attachment"
+				  type="file"
+				  @change="onFileChangeEvent"
+				 >
+				<div class="file-name-container">
+					<span v-if="fileName !== ''" class="file-name">{{ fileName }}</span>
+					<span v-else-if="label !== null && label !== ''">{{ label }}</span>
+					<span v-else>{{ $t('common.SEND_FILE') }}</span>
+				</div>
+				<div
+		  			v-if="fileName"
+		  			class="remove-file"
+		  		>
+				<a @click="onResetEvent">{{ $t('common.REMOVE') }}</a>
+				</div>
+			</div>
 			<progress max="100" :value.prop="uploadPercentage"></progress>
 		</label>
 		<span>{{ $t('common.SEND_FILE_DESCRIPTOR') }}</span>
-		<div
-		  v-if="canDisplayPreview"
-		  class="preview"
-		  >
-			<img :src="filePreviewURL">
-		</div>
-		<div
-		  v-if="fileName"
-		  class="remove-file"
-		  >
-			<a @click="onResetEvent">{{ $t('common.REMOVE') }}</a>
-		</div>
 		<div
 		  v-if="feedbackError !== ''"
 		  class="feedback-error"
@@ -129,7 +133,7 @@ export default {
 .wdg-upload label {
 	display: block;
 	width: 100%;
-	height: 48px;
+	/* height: 48px; */
 	margin-bottom: 16px;
 	padding: 0px;
 	text-align: center;
@@ -137,6 +141,18 @@ export default {
 	text-transform: uppercase !important; /* ajout de important sinon c'est écrasé par normalize.less */
 	border: 1px dotted black;
 	cursor: pointer;
+}
+.wdg-upload .document-upload-container {
+	display: flex;
+	flex-flow: row wrap;
+}
+.wdg-upload .document-upload-container .preview {
+	width: 25%;
+	max-height: 10%;
+}
+.wdg-upload .upload-container-text {
+	line-height: normal;
+	margin-left: 10px;
 }
 .wdg-upload label input[type=file] {
 	width: 0.1px;
@@ -146,19 +162,70 @@ export default {
 	position: absolute;
 	z-index: -1;
 }
+.wdg-upload .file-name {
+	font-size: 14px;
+	display: inherit;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	border-bottom: 1px solid #c2c2c2;
+	margin-bottom: 5px;
+}
+.wdg-upload .file-name:before { /* change l'icône à côté du fichier uploadé */
+	content: url("../assets/icons/check-green.png") !important;
+	transform: scale(0.6);
+	margin-right: 0 !important;
+}
+.wdg-upload .file-name-container {
+	padding-bottom: 5px;
+}
 .wdg-upload label progress {
 	display: block;
+	margin: auto;
 }
 .wdg-upload div.preview img {
 	max-width: 100%;
 	max-height: 150px;
 }
+.wdg-upload div.remove-file {
+	text-align: left;
+	margin-top: 10px;
+}
+.wdg-upload .remove-file:before {
+	content: url("../assets/icons/bin.png");
+	margin-right: 10px;
+	vertical-align: middle;
+}
 .wdg-upload div.remove-file a {
-	color: blue;
+	color: #EA4F51;
 	text-decoration: underline;
 	cursor: pointer;
 }
 .wdg-upload div.feedback-error {
-	color: red;
+	border: 1px solid #F8CACA;
+	padding: 15px;
+	margin-top: 10px;
+	display: flex;
+	align-items: center;
+}
+.wdg-upload div.feedback-error:before {
+	content: url("../assets/icons/exclamation.png");
+	margin-right: 15px;
+
+}
+.wdg-upload .upload-container-text-1 {
+	width: 62%;
+}
+.wdg-upload .upload-container-text-2 {
+	width: 100%;
+}
+@media screen and (min-width: 767px) and (max-width: 959px) {
+	.wdg-upload .file-name-container, .wdg-upload div.remove-file {
+		margin-left: 20px;
+		margin-top: 0;
+	}
+	.wdg-upload .upload-container-text-1 {
+		width: 70%;
+	}
 }
 </style>

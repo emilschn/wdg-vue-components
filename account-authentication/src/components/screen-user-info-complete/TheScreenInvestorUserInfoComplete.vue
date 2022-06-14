@@ -47,4 +47,18 @@ export default {
 	div.the-screen-investor-user-info-complete .wdg-button button {
 		margin-bottom: 0;
 	}
+	@media screen and (max-width: 767px) {
+		div.the-screen-investor-user-info-complete {
+			flex-direction: column;
+		}
+		div.the-screen-investor-user-info-complete div.description {
+			width: auto;
+			margin: 0 24px 50px 24px
+		}
+	}
+	@media screen and (min-width: 768px) and (max-width: 959px) {
+		div.the-screen-investor-user-info-complete {
+			margin-right: 20px;
+		}
+		}
 </style>

@@ -32,13 +32,14 @@
 				<slot slot="label">{{ $t('account-authentication.user-documents.TITLE_PASSPORT') }}</slot>
 				<slot slot="description">{{ $t('account-authentication.user-documents.DESCRIPTOR_PASSPORT') }}</slot>
 			</WDGButton>
+			
 
 			<WDGButton
 			  v-if="step === 'choose-second-file-type'"
 			  color="document-upload"
-			  icon="tax"
+			  icon="file-invoice"
 			  :clickEvent="onChooseTypeEvent"
-			  id="tax"
+			  id="file-invoice"
 			  >
 				<slot slot="label">{{ $t('account-authentication.user-documents.TITLE_TAX') }}</slot>
 				<slot slot="description">{{ $t('account-authentication.user-documents.DESCRIPTOR_TAX') }}</slot>
@@ -47,9 +48,9 @@
 			<WDGButton
 			  v-if="step === 'choose-second-file-type'"
 			  color="document-upload"
-			  icon="welfare"
+			  icon="id-card"
 			  :clickEvent="onChooseTypeEvent"
-			  id="welfare"
+			  id="id-card"
 			  >
 				<slot slot="label">{{ $t('account-authentication.user-documents.TITLE_WELFARE') }}</slot>
 			</WDGButton>
@@ -57,9 +58,9 @@
 			<WDGButton
 			  v-if="step === 'choose-second-file-type'"
 			  color="document-upload"
-			  icon="family"
+			  icon="address-book"
 			  :clickEvent="onChooseTypeEvent"
-			  id="family"
+			  id="address-book"
 			  >
 				<slot slot="label">{{ $t('account-authentication.user-documents.TITLE_FAMILY') }}</slot>
 			</WDGButton>
@@ -67,9 +68,10 @@
 			<WDGButton
 			  v-if="step === 'choose-second-file-type'"
 			  color="document-upload"
-			  icon="birth"
+			  icon="file"
+			  iconStyle="r"
 			  :clickEvent="onChooseTypeEvent"
-			  id="birth"
+			  id="file"
 			  >
 				<slot slot="label">{{ $t('account-authentication.user-documents.TITLE_BIRTH') }}</slot>
 			</WDGButton>
@@ -77,9 +79,10 @@
 			<WDGButton
 			  v-if="step === 'choose-second-file-type'"
 			  color="document-upload"
-			  icon="driving"
+			  icon="id-card"
+			  iconStyle="r"
 			  :clickEvent="onChooseTypeEvent"
-			  id="driving"
+			  id="id-card"
 			  >
 				<slot slot="label">{{ $t('account-authentication.user-documents.TITLE_DRIVING') }}</slot>
 			</WDGButton>
@@ -98,7 +101,7 @@
 				<span v-if="lastDocumentTypeSelected === 'family'">{{ $t('account-authentication.user-documents.SEND_YOUR_FAMILY') }}</span>
 				<span v-if="lastDocumentTypeSelected === 'birth'">{{ $t('account-authentication.user-documents.SEND_YOUR_BIRTH') }}</span>
 				<span v-if="lastDocumentTypeSelected === 'driving'">{{ $t('account-authentication.user-documents.SEND_YOUR_DRIVING') }}</span>
-				<br>
+				<a class="another-doc-link" href="#userdocuments" @click="onChangeDocumentEvent">{{ $t('account-authentication.user-documents.SEND_ANOTHER') }}</a>
 				<span class="title-subtitle">{{ $t('account-authentication.user-documents.CHOOSE_DOCUMENT_TYPE') }}</span>
 			</div>
 
@@ -108,8 +111,7 @@
 			  :onAllFilesSelected="onAllFilesSelectedEvent"
 			  />
 
-			<a class="another-doc-link" href="#userdocuments" @click="onChangeDocumentEvent">{{ $t('account-authentication.user-documents.SEND_ANOTHER') }}</a>
-
+			
 			<WDGButton
 			  v-if="isContinueButtonDisplayed"
 			  :clickEvent="onContinueButtonClickEvent"
@@ -248,8 +250,6 @@ export default {
 <style>
 	div.the-screen-investor-user-documents {
 		margin: 50px 0px;
-		/* display: flex; */
-		justify-content: space-between;
 	}
 	div.the-screen-investor-user-documents div.title-container {
 		margin-bottom: 20px;
@@ -277,7 +277,7 @@ export default {
 		font-size: 20px;
 		font-weight: bold;
 		text-transform: unset !important;
-		width: auto;
+		width: 270px;
 	}
 	div.wdg-upload-document div.wdg-radiobutton label {
 		height: auto;
@@ -300,7 +300,7 @@ export default {
 	div.the-screen-investor-user-documents .wdg-upload label {
 		border: 1px solid #c2c2c2;
 		text-transform: none !important;
-		padding: 10px;
+		padding: 15px;
 		width: auto;
 	}
 	div.the-screen-investor-user-documents .wdg-upload label span:before {
@@ -317,7 +317,65 @@ export default {
 		color: #EA4F51;
 		text-decoration: underline;
 		display: block;
-		margin-top: 30px;
+		margin-top: 15px;
 		margin-bottom: 50px;
+	}
+	.button-container {
+		margin-bottom: 50px;
+	}
+	@media screen and (max-width: 767px) {
+		div.the-screen-investor-user-documents div.button-container {
+			flex-direction: column;
+			width: auto;
+			align-items: center;
+			float: none;
+		}
+		div.the-screen-investor-user-documents div.title-container {
+			width: auto;
+			text-align: center;
+		}
+		div.the-screen-investor-user-documents div.button-container div.wdg-button {
+			width: auto;
+			margin-right: 0;
+		}
+		div.the-screen-investor-user-documents .wdg-mascot {
+			margin: 50px auto; 
+			float: none;
+		}
+		div.the-screen-investor-user-documents div.upload-container {
+			float: none;
+			width: auto;
+			margin: 0 24px;
+		}
+		div.wdg-upload-document div.wdg-upload {
+			width: auto;
+		}
+		div.wdg-upload-document div.multiple {
+			margin-bottom: 20px;
+		}
+		div.upload-multiple-container {
+			margin-right: 0;
+		}
+		div.the-screen-investor-user-documents .multiple .document-upload-container {
+			width: 100%;
+		}
+	}
+	@media screen and (min-width: 768px) and (max-width: 959px) {
+		div.the-screen-investor-user-documents {
+			padding: 0 24px;
+		}
+		div.the-screen-investor-user-documents div.button-container {
+			flex-direction: column;
+			width: 45%;
+		}
+		div.the-screen-investor-user-documents div.upload-container {
+			width: 50%;
+		}
+		div.wdg-upload-document div.wdg-upload {
+			width: auto;
+		}
+		div.the-screen-investor-user-documents div.button-container div.wdg-button button {
+			height: 150px;
+		}
 	}
 </style>

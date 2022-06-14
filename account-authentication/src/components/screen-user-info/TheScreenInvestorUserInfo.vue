@@ -683,7 +683,7 @@ export default {
 	.close .wdg-button button {
 		width: auto;
 	}
-	div.the-screen-investor-user-info span.error {
+	span.error {
 		border: 1px solid #F8CACA;
 		padding: 10px;
 		font-size: 14px;
@@ -691,7 +691,7 @@ export default {
 		margin-bottom: 2px;
 		width: 30%;
 	}
-	div.the-screen-investor-user-info span.error:before {
+	span.error:before {
 		content: url("../../../../common/src/assets/icons/exclamation.png"); 
 		width: 15px;
 		display: inline-block;
@@ -707,5 +707,24 @@ export default {
 	div.the-screen-investor-user-info div.request-error {
 		color: red;
 		text-align: center;
+	}
+	@media screen and (max-width: 767px) {
+		.the-screen-investor-user-info {
+			padding: 24px;
+		}
+		.the-screen-investor-user-info input#userBirthdayDay, .the-screen-investor-user-info .date-of-birth div:first-of-type .description-below {
+			margin-left: 10px;
+		}
+		.the-screen-investor-user-info .postal-code-and-city {
+			flex-direction: column;
+		}
+		span.error {
+			width: auto;
+		}
+	}
+	@media screen and (min-width: 768px) and (max-width: 959px) {
+		.the-screen-investor-user-info {
+			padding: 24px;
+		}
 	}
 </style>

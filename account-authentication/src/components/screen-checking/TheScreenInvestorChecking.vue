@@ -35,23 +35,25 @@
 						{{ $t('account-authentication.checking.PHONE_ERROR') }}<br>
 					</span>
 					
-					<WDGSelect
-						id="userPhoneCode"
-						name="userPhoneCode"
-						:optionItems="sharedStatic.phoneCodes"
-						:value="countryCode"
-						v-bind:valueReturn.sync="sharedState.user.phone.code"
-						customStyle="natural-language"
-						:onSelect="onPhoneCodeSelectEvent"
-						/>&nbsp;
-					<WDGInput
-						id="userPhoneNumber"
-						name="userPhoneNumber"
-						:value="sharedState.user.phone.number"
-						v-bind:valueReturn.sync="sharedState.user.phone.number"
-						customStyle="natural-language"
-						eventNameToListen="onPhoneCodeChangeEvent"
-						/>					
+					<div class="phone-number-container">
+						<WDGSelect
+							id="userPhoneCode"
+							name="userPhoneCode"
+							:optionItems="sharedStatic.phoneCodes"
+							:value="countryCode"
+							v-bind:valueReturn.sync="sharedState.user.phone.code"
+							customStyle="natural-language"
+							:onSelect="onPhoneCodeSelectEvent"
+							/>&nbsp;
+						<WDGInput
+							id="userPhoneNumber"
+							name="userPhoneNumber"
+							:value="sharedState.user.phone.number"
+							v-bind:valueReturn.sync="sharedState.user.phone.number"
+							customStyle="natural-language"
+							eventNameToListen="onPhoneCodeChangeEvent"
+							/>
+					</div>					
 				</div>
 				<br>
 				<WDGButton
@@ -210,15 +212,46 @@ export default {
 		width: 55%;
 		height: max-content;
 	}
-	div.the-screen-investor-checking div.description-bg {
-		padding: 50px;
-		background: #ebebeb;
-	}
 	div.the-screen-investor-checking div.description .wdg-select.natural-language select {
 		width: 65px;
 		padding: 10px 30px 11px 0px;
 	}
 	div.the-screen-investor-checking span.error {
-		color: red
+		width: 60%;
+		margin-top: 15px;
+	}
+	div.the-screen-investor-checking .wdg-select.natural-language select, div.the-screen-investor-checking .wdg-input.natural-language input {
+		background-color: #ebebeb;
+	}
+	div.the-screen-investor-checking .wdg-input.natural-language span.input-icon {
+		background-color: #ebebeb;
+	}
+	div.the-screen-investor-checking div.description .wdg-form {
+		margin-bottom: 0;
+	}
+	@media screen and (max-width: 767px) {
+		.the-screen-investor-checking .wdg-mascot {
+			margin: auto;
+		}
+		.the-screen-investor-checking .description {
+			margin: 40px auto;
+		}
+		div.the-screen-investor-checking .phone-number-container input#userPhoneNumber {
+			width: 130px;
+		}
+		div.the-screen-investor-checking span.error {
+			width: 100%;
+		}
+	}
+	@media screen and (min-width: 768px) and (max-width: 959px) {
+		div.the-screen-investor-checking {
+		margin-right: 20px;
+		}
+		div.the-screen-investor-checking div.description {
+			width: 52%;
+		}
+		div.the-screen-investor-checking .wdg-form label {
+			width: auto;
+		}
 	}
 </style>

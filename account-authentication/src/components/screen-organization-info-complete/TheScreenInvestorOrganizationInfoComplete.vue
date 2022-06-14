@@ -42,4 +42,10 @@ export default {
 		padding: 50px;
 		background: #ebebeb;
 	}
+	@media screen and (min-width: 768px) and (max-width: 959px) {
+		div.the-screen-investor-organization-info-complete div.description {
+			width: 45%;
+			margin-bottom: 50px;
+		}
+	}
 </style>

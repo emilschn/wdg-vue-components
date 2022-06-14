@@ -2,8 +2,10 @@
 	<div class="the-screen-investor-organization-other-people-documents">
 		<div class="another-people">
 			<div class="first-document">
-				{{ $t('account-authentication.organization-documents.SEND_OTHER_PEOPLE_2') }}<br>
-				{{ $t('account-authentication.organization-documents.SEND_OTHER_PEOPLE_TYPE_DESCRIPTION') }}<br>
+				<div class="people-document-text-container">
+					<span>{{ $t('account-authentication.organization-documents.SEND_OTHER_PEOPLE_2') }}</span><br>
+					<span>{{ $t('account-authentication.organization-documents.SEND_OTHER_PEOPLE_TYPE_DESCRIPTION') }}</span><br>
+				</div>
 
 				<WDGUploadDocument
 				  id="organization-user2-document-1"
@@ -13,8 +15,8 @@
 			</div>
 
 			<div class="second-document">
-				{{ $t('account-authentication.organization-documents.SEND_OTHER_PEOPLE_SECOND_DOCUMENT') }}<br>
-				
+				<span>{{ $t('account-authentication.organization-documents.SEND_OTHER_PEOPLE_SECOND_DOCUMENT') }}</span><br>
+
 				<WDGUploadDocument
 				  id="organization-user2-document-2"
 				  :onFileChange="onUploadDocumentFileChangeEvent"
@@ -36,8 +38,10 @@
 		  class="another-people"
 		  >
 			<div class="first-document">
-				{{ $t('account-authentication.organization-documents.SEND_OTHER_PEOPLE_3') }}<br>
-				{{ $t('account-authentication.organization-documents.SEND_OTHER_PEOPLE_TYPE_DESCRIPTION') }}<br>
+				<div class="people-document-text-container">
+					<span>{{ $t('account-authentication.organization-documents.SEND_OTHER_PEOPLE_3') }}</span><br>
+					<span>{{ $t('account-authentication.organization-documents.SEND_OTHER_PEOPLE_TYPE_DESCRIPTION') }}</span><br>
+				</div>
 
 				<WDGUploadDocument
 				  id="organization-user3-document-1"
@@ -47,7 +51,7 @@
 			</div>
 
 			<div class="second-document">
-				{{ $t('account-authentication.organization-documents.SEND_OTHER_PEOPLE_SECOND_DOCUMENT') }}<br>
+				<span>{{ $t('account-authentication.organization-documents.SEND_OTHER_PEOPLE_SECOND_DOCUMENT') }}</span><br>
 				
 				<WDGUploadDocument
 				  id="organization-user3-document-2"
@@ -70,8 +74,10 @@
 		  class="another-people"
 		  >
 			<div class="first-document">
-				{{ $t('account-authentication.organization-documents.SEND_OTHER_PEOPLE_4') }}<br>
-				{{ $t('account-authentication.organization-documents.SEND_OTHER_PEOPLE_TYPE_DESCRIPTION') }}<br>
+				<div class="people-document-text-container">
+					<span>{{ $t('account-authentication.organization-documents.SEND_OTHER_PEOPLE_4') }}</span><br>
+					<span>{{ $t('account-authentication.organization-documents.SEND_OTHER_PEOPLE_TYPE_DESCRIPTION') }}</span><br>
+				</div>
 
 				<WDGUploadDocument
 				  id="organization-user4-document-1"
@@ -81,7 +87,7 @@
 			</div>
 
 			<div class="second-document">
-				{{ $t('account-authentication.organization-documents.SEND_OTHER_PEOPLE_SECOND_DOCUMENT') }}<br>
+				<span>{{ $t('account-authentication.organization-documents.SEND_OTHER_PEOPLE_SECOND_DOCUMENT') }}</span><br>
 				
 				<WDGUploadDocument
 				  id="organization-user4-document-2"
@@ -199,14 +205,36 @@ export default {
 
 <style>
 	div.the-screen-investor-organization-other-people-documents {
-		margin: 50px 0px;
+		margin: 30px 0px;
 	}
 
 	div.the-screen-investor-organization-other-people-documents .another-people {
 		margin-bottom: 30px;
 	}
-
-	div.the-screen-investor-organization-other-people-documents .first-document, div.the-screen-investor-organization-other-people-documents .second-document {
-		margin: 20px 0px;
+	div.the-screen-investor-organization-other-people-documents div.another-people .people-document-text-container span:last-of-type {
+		color: #c2c2c2;
+		display: inline-block;
+		margin: 10px 0 30px 0;
+	}
+	div.the-screen-investor-organization-other-people-documents div.another-people div.first-document {
+		margin-bottom: 60px;
+	}
+	div.the-screen-investor-organization-other-people-documents div.another-people .second-document span {
+		display: inline-block;
+		margin-bottom: 20px;
+	}
+	div.the-screen-investor-organization-other-people-documents div.wdg-upload .document-upload-container {
+		width: auto;
+	}
+	div.the-screen-investor-organization-other-people-documents div.multiple .document-upload-container {
+		margin: 10px 0;
+	}
+	div.the-screen-investor-organization-other-people-documents div.wdg-upload > span {
+		width: auto;
+	}
+	@media screen and (max-width: 767px) {
+		div.the-screen-investor-organization-other-people-documents div.wdg-upload .document-upload-container {
+			width: 80%;
+		}
 	}
 </style>

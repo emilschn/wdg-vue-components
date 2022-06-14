@@ -99,9 +99,6 @@ export default {
 		background: #ebebeb;
 		margin-bottom: 30px;
 	}
-	div.the-screen-investor-type .wdg-message {
-		margin: 30px 0px 20px 0px;
-	}
 	div.the-screen-investor-type .wdg-button button {
 		margin-bottom: 40px;
 		width: 150px;
@@ -129,7 +126,7 @@ export default {
 		width: 0;
 	}
 	/* Nouveau bouton personnalisé */
-	.checkmark {
+	.the-screen-investor-type .checkmark, .the-screen-investor-user-documents .checkmark {
 		position: absolute;
 		top: -2px;
 		left: 0;
@@ -139,7 +136,7 @@ export default {
 		border-radius: 50%;
 	}
 	/* Cercle à l'intérieur du bouton caché si pas coché */
-	.checkmark:after {
+	.the-screen-investor-type .checkmark:after,  .the-screen-investor-user-documents .checkmark:after {
   		content: "";
   		position: absolute;
   		display: none;
@@ -157,4 +154,23 @@ export default {
 		width: 10px;
 		height: 10px;
 	}
+@media screen and (max-width: 767px) {
+	div.the-screen-investor-type {
+		margin: 0;
+		margin-top: 50px;
+	}
+	div.the-screen-investor-type div.question {
+		width: auto;
+		margin-right: 24px;
+		margin-bottom: 50px;
+	}
+}
+@media screen and (min-width: 768px) and (max-width: 959px) {
+	div.the-screen-investor-type div.question {
+		margin-bottom: 50px;
+	}
+	div.the-screen-investor-type div.wdg-message {
+		width: auto;
+	}
+}
 </style>

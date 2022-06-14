@@ -9,52 +9,52 @@
 		  >
 			<slot name="title"></slot>
 		</span>
-		<div class="header-right-items">
 		<transition name="fade">
 			<span
-			v-if="hasAlert"
-			class="alert"
+				v-if="hasAlert"
+				class="alert"
 			>
 				<img src="@/../../common/src/assets/icons/check-green.png"  alt="WE DO GOOD" />
 				{{ alertContent }}
 			</span>
 		</transition>
-		<span
-		  	v-if="langSelector === true"
-		  	class="lang"
-		  	>
-				<WDGSelect
-					id="lang-select"
-					name="lang-select"
-					:optionItems="langList"
-					:value="$i18n.locale"
-					v-bind:valueReturn.sync="$i18n.locale"
-		  			:onSelect="onLangSelectEvent"
-			  	/>
+		<div class="header-right-items">
+			<span
+			  	v-if="langSelector === true"
+			  	class="lang"
+			  	>
+					<WDGSelect
+						id="lang-select"
+						name="lang-select"
+						:optionItems="langList"
+						:value="$i18n.locale"
+						v-bind:valueReturn.sync="$i18n.locale"
+			  			:onSelect="onLangSelectEvent"
+				  	/>
 			</span>
 			<span
-		  		v-if="backButtonVisible"
-		  		class="back"
-		  	>
-				<WDGButton
-			  		color="transparent"
-			  		type="button"
-			  		:clickEvent="onBackEvent"
+			  		v-if="backButtonVisible"
+			  		class="back"
 			  	>
-					<slot slot="label"><img src="@/../../common/src/assets/icons/previous.png"  alt="Précédent"/></slot>
+					<WDGButton
+				  		color="transparent"
+				  		type="button"
+				  		:clickEvent="onBackEvent"
+				  	>
+						<slot slot="label"><img src="@/../../common/src/assets/icons/previous.png"  alt="Précédent"/></slot>
 				</WDGButton>
 			</span>
 			<span
-		  		v-if="closeButton === true"
-		  		class="close"
-		  	>
-				<WDGButton
-			  		color="transparent"
-			  		type="button"
-			  		:clickEvent="onCloseEvent"
+			  		v-if="closeButton === true"
+			  		class="close"
 			  	>
-					<slot slot="label"><img src="@/../../common/src/assets/icons/close.png"  alt="Fermer"/></slot>
-				</WDGButton>
+					<WDGButton
+				  		color="transparent"
+				  		type="button"
+				  		:clickEvent="onCloseEvent"
+				  	>
+						<slot slot="label"><img src="@/../../common/src/assets/icons/close.png"  alt="Fermer"/></slot>
+					</WDGButton>
 			</span>
 		</div>
         <hr>
@@ -222,6 +222,16 @@ select#lang-select {
 	}
 	.header .back {
 		margin-left: 15px;
+	}
+	.header .alert {
+		margin: 10px 0 20px 20px;
+		order: 4;
+	}
+}
+@media screen and (min-width: 768px) and (max-width: 959px) {
+	.header {
+	padding: 20px;
+	width: auto;
 	}
 }
 </style>
