@@ -1,9 +1,6 @@
 <template>
 	<div class="the-screen-project-infos">
-		<TheTabTitle
-		  v-bind:hasPictoBalloon="false"
-		  :nMinutes="1"
-		  >
+		<TheTabTitle v-bind:hasPictoBalloon="false" :nMinutes="1">
 			<slot slot="title">{{ $t('project-setup.project-infos.TITLE') }}</slot>
 			<slot slot="subtitle">{{ $t('project-setup.project-infos.SUBTITLE') }}</slot>
 		</TheTabTitle>
@@ -36,15 +33,9 @@
 			<div>
 				{{ $t('project-setup.project-infos.FORM_TEXT_ORGANIZATION_TYPE') }}
 
-				<WDGSelect
-				  id="organizationType"
-				  name="organizationType"
-				  :optionItems="organizationTypeList"
-				  :value="sharedState.organization.type"
-				  v-bind:valueReturn.sync="sharedState.organization.type"
-				  customStyle="natural-language"
-				  v-bind:hasFilter="true"
-				  />
+				<WDGSelect id="organizationType" name="organizationType" :optionItems="organizationTypeList"
+					:value="sharedState.organization.type" v-bind:valueReturn.sync="sharedState.organization.type"
+					customStyle="natural-language" v-bind:hasFilter="true" />
 			</div>
 
 			<div>
@@ -52,138 +43,83 @@
 					{{ $t('project-setup.project-infos.FORM_TEXT_ORGANIZATION_LOCATED') }}
 				</span>
 
-				<WDGSelect
-				  id="organizationLocation"
-				  name="organizationLocation"
-				  :optionItems="organizationLocationList"
-				  :value="sharedState.organization.location"
-				  v-bind:valueReturn.sync="sharedState.organization.location"
-				  customStyle="natural-language"
-				  v-bind:hasFilter="true"
-				  />
+				<WDGSelect id="organizationLocation" name="organizationLocation" :optionItems="organizationLocationList"
+					:value="sharedState.organization.location"
+					v-bind:valueReturn.sync="sharedState.organization.location" customStyle="natural-language"
+					v-bind:hasFilter="true" />
 
 				<div v-if="sharedState.organization.location === 'france'">
 					{{ $t('project-setup.project-infos.FORM_TEXT_ORGANIZATION_REGION') }}
 
-					<WDGSelect
-					  id="organizationLocationRegion"
-					  name="organizationLocationRegion"
-					  :optionItems="organizationLocationRegionFrenchList"
-					  :value="sharedState.organization.locationRegion"
-					  v-bind:valueReturn.sync="sharedState.organization.locationRegion"
-					  customStyle="natural-language"
-					  v-bind:hasFilter="true"
-					  />
+					<WDGSelect id="organizationLocationRegion" name="organizationLocationRegion"
+						:optionItems="organizationLocationRegionFrenchList"
+						:value="sharedState.organization.locationRegion"
+						v-bind:valueReturn.sync="sharedState.organization.locationRegion" customStyle="natural-language"
+						v-bind:hasFilter="true" />
 				</div>
 			</div>
 
 			<div v-if="sharedState.organization.type === 'not-created'">
 				{{ $t('project-setup.project-infos.FORM_TEXT_ORGANIZATION_NOT_CREATED_NAME') }}
 
-				<WDGInput
-				  id="organizationName"
-				  name="organizationName"
-				  :value="sharedState.organization.name"
-				  v-bind:valueReturn.sync="sharedState.organization.name"
-				  customStyle="natural-language"
-			  	  />.
+				<WDGInput id="organizationName" name="organizationName" :value="sharedState.organization.name"
+					v-bind:valueReturn.sync="sharedState.organization.name" customStyle="natural-language" />.
 			</div>
 
 			<div v-else>
 				{{ $t('project-setup.project-infos.FORM_TEXT_ORGANIZATION_CREATED_NAME') }}
 
-				<WDGInput
-				  id="organizationName"
-				  name="organizationName"
-				  :value="sharedState.organization.name"
-				  v-bind:valueReturn.sync="sharedState.organization.name"
-				  customStyle="natural-language"
-			  	  />.
+				<WDGInput id="organizationName" name="organizationName" :value="sharedState.organization.name"
+					v-bind:valueReturn.sync="sharedState.organization.name" customStyle="natural-language" />.
 			</div>
 
 			<div>
 				{{ $t('project-setup.project-infos.FORM_TEXT_ORGANIZATION_DESCRIPTION') }}
 
-				<WDGInput
-				  id="organizationDescription"
-				  name="organizationDescription"
-				  :value="sharedState.organization.description"
-				  v-bind:valueReturn.sync="sharedState.organization.description"
-				  customStyle="natural-language"
-			  	  />.<br>
+				<WDGInput id="organizationDescription" name="organizationDescription"
+					:value="sharedState.organization.description"
+					v-bind:valueReturn.sync="sharedState.organization.description" customStyle="natural-language" />
+				.<br>
 
 				{{ $t('project-setup.project-infos.FORM_TEXT_AMOUNT_NEEDED') }}
 
-				<WDGInput
-				  id="organizationAmountNeeded"
-				  name="organizationAmountNeeded"
-				  :value="sharedState.organization.amountNeeded"
-				  v-bind:valueReturn.sync="sharedState.organization.amountNeeded"
-				  customStyle="natural-language"
-				  autoFormat="wdg-number"
-				  :onChange="onOrganizationAmountNeededChange"
-			  	  /> €.<br>
+				<WDGInput id="organizationAmountNeeded" name="organizationAmountNeeded"
+					:value="sharedState.organization.amountNeeded"
+					v-bind:valueReturn.sync="sharedState.organization.amountNeeded" customStyle="natural-language"
+					autoFormat="wdg-number" :onChange="onOrganizationAmountNeededChange" /> €.<br>
 
 				{{ $t('project-setup.project-infos.FORM_TEXT_SOURCE_PROSPECT') }}
 
-				<WDGSelect
-				  id="organizationSourceProspect"
-				  name="organizationSourceProspect"
-				  :value="sharedState.organization.sourceProspect"
-				  v-bind:valueReturn.sync="sharedState.organization.sourceProspect"
-				  customStyle="natural-language"
-				  :optionItems="sourceProspectList"
-				  />
+				<WDGSelect id="organizationSourceProspect" name="organizationSourceProspect"
+					:value="sharedState.organization.sourceProspect"
+					v-bind:valueReturn.sync="sharedState.organization.sourceProspect" customStyle="natural-language"
+					:optionItems="sourceProspectList" />
 			</div>
 
 			<div v-if="canShowUserInfos">
 				{{ $t('project-setup.project-infos.FORM_TEXT_SOURCE_PROSPECT_DETAILS') }}
 
-				<WDGInput
-				  id="organizationSourceProspectDetails"
-				  name="organizationSourceProspectDetails"
-				  :value="sharedState.organization.sourceProspectDetails"
-				  v-bind:valueReturn.sync="sharedState.organization.sourceProspectDetails"
-				  customStyle="natural-language"
-			  	  /><br><br>
+				<WDGInput id="organizationSourceProspectDetails" name="organizationSourceProspectDetails"
+					:value="sharedState.organization.sourceProspectDetails"
+					v-bind:valueReturn.sync="sharedState.organization.sourceProspectDetails"
+					customStyle="natural-language" /><br><br>
 
 				{{ $t('project-setup.project-infos.FORM_TEXT_USER_NAME') }}
 
-				<WDGInput
-				  id="userName"
-				  name="userName"
-				  :value="sharedState.user.name"
-				  v-bind:valueReturn.sync="sharedState.user.name"
-				  customStyle="natural-language"
-			  	  />,<br>
+				<WDGInput id="userName" name="userName" :value="sharedState.user.name"
+					v-bind:valueReturn.sync="sharedState.user.name" customStyle="natural-language" />,<br>
 
 				{{ $t('project-setup.project-infos.FORM_TEXT_USER_EMAIL') }}
 
-				<WDGInput
-				  id="email"
-				  name="email"
-				  type="email"
-				  :value="sharedState.user.email"
-				  v-bind:valueReturn.sync="sharedState.user.email"
-				  customStyle="natural-language"
-			  	  /><br>
+				<WDGInput id="email" name="email" type="email" :value="sharedState.user.email"
+					v-bind:valueReturn.sync="sharedState.user.email" customStyle="natural-language" /><br>
 
 				{{ $t('project-setup.project-infos.FORM_TEXT_USER_PHONE') }}
 
-				<WDGInput
-				  id="userPhone"
-				  name="userPhone"
-				  :value="sharedState.user.phone"
-				  v-bind:valueReturn.sync="sharedState.user.phone"
-				  customStyle="natural-language"
-			  	  />.
+				<WDGInput id="userPhone" name="userPhone" :value="sharedState.user.phone"
+					v-bind:valueReturn.sync="sharedState.user.phone" customStyle="natural-language" />.
 
-				<WDGButton
-				  v-if="canShowContinue"
-				  color="red"
-				  type="button"
-            	  :clickEvent="changeStep"
-				  >
+				<WDGButton v-if="canShowContinue" color="red" type="button" :clickEvent="changeStep">
 					<slot slot="label">{{ $t('project-setup.CONTINUE') }}</slot>
 				</WDGButton>
 			</div>
@@ -218,7 +154,7 @@ export default {
 	props: {
 		msg: String
 	},
-	data () {
+	data() {
 		return {
 			sharedState: store.state,
 			organizationTypeList: [
@@ -275,7 +211,7 @@ export default {
 			store.changeStep('project-funding')
 		},
 		onOrganizationAmountNeededChange: function () {
-			if (store.tabItems[ 1 ].Status !== 'complete') {
+			if (store.tabItems[1].Status !== 'complete') {
 				let tempAmountNeededStr = this.sharedState.organization.amountNeeded
 				tempAmountNeededStr = tempAmountNeededStr.split(',').join('.').split(' ').join('')
 				let tempAmountNeededNum = Number(tempAmountNeededStr)
@@ -292,15 +228,15 @@ export default {
 		}
 	},
 	computed: {
-		canShowUserInfos () {
+		canShowUserInfos() {
 			if (process.env.NODE_ENV === 'development') {
 				return true
 			}
 			return (this.sharedState.organization.sourceProspect !== '')
 		},
-		canShowContinue () {
+		canShowContinue() {
 			if (process.env.NODE_ENV === 'development') {
-				return true
+				// return true
 			}
 			return (
 				this.sharedState.organization.type !== '' &&
@@ -311,11 +247,11 @@ export default {
 				this.sharedState.organization.sourceProspect !== '' &&
 				this.sharedState.organization.sourceProspectDetails !== '' &&
 				this.sharedState.user.name !== '' &&
-				this.sharedState.user.email !== '' &&
+				this.sharedState.user.email !== '' && this.sharedState.user.email.indexOf('@') > 0 && this.sharedState.user.email.indexOf('@') < this.sharedState.user.email.length - 3 &&
 				this.sharedState.user.phone !== ''
 			)
 		},
-		getMascotType () {
+		getMascotType() {
 			if (this.sharedState.organization.sourceProspect !== '') {
 				return '2'
 			} else {
@@ -337,44 +273,53 @@ export default {
 </script>
 
 <style>
-	.the-screen-project-infos .wdg-form {
-		margin: 40px;
-		font-size: 20px;
-		line-height: 60px;
-		font-weight: 500;
-	}
-	.the-screen-project-infos input#organizationDescription {
-		width: 370px;
-	}
-	.the-screen-project-infos .wdg-form .wdg-button {
-		text-align: center;
-	}
-	.the-screen-project-infos .wdg-form button {
-		margin-top: 40px;
-		min-width: 176px;
-		width: auto;
-		margin-bottom: 0px;
-		padding: 0px 24px;
-	}
-	.the-screen-project-infos .wdg-mascot.face-2 {
-		margin-top: 100px;
-	}
-	@media screen and (max-width: 767px) {
+.the-screen-project-infos .wdg-form {
+	margin: 40px;
+	font-size: 20px;
+	line-height: 60px;
+	font-weight: 500;
+}
+
+.the-screen-project-infos input#organizationDescription {
+	width: 370px;
+}
+
+.the-screen-project-infos .wdg-form .wdg-button {
+	text-align: center;
+}
+
+.the-screen-project-infos .wdg-form button {
+	margin-top: 40px;
+	min-width: 176px;
+	width: auto;
+	margin-bottom: 0px;
+	padding: 0px 24px;
+}
+
+.the-screen-project-infos .wdg-mascot.face-2 {
+	margin-top: 100px;
+}
+
+@media screen and (max-width: 767px) {
 	.the-screen-project-infos .wdg-form {
 		text-align: center;
 		line-height: 40px;
 	}
-	.the-screen-project-infos .wdg-select.natural-language select, .the-screen-project-infos .wdg-input.natural-language input {
+
+	.the-screen-project-infos .wdg-select.natural-language select,
+	.the-screen-project-infos .wdg-input.natural-language input {
 		width: 85%;
 		margin-bottom: 40px;
 		font-size: 18px;
 		text-align: center;
 	}
+
 	.the-screen-project-infos input#organizationDescription {
 		width: 250px;
 	}
+
 	.the-screen-project-infos .wdg-form button {
 		max-width: 200px;
 	}
-	}
+}
 </style>
