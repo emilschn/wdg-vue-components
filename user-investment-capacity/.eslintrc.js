@@ -23,6 +23,7 @@ module.exports = {
 	rules: {
 		'no-mixed-spaces-and-tabs': 'off',
 		'no-tabs': 'off',
+		'no-undef': 'off',
 		'indent': 'off',
 		'func-call-spacing': 'off',
 		'space-before-function-paren': 'off',

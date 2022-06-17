@@ -10,15 +10,9 @@
 			<p>
 				{{ $t('user-investment-capacity.capacity.NET_REVENUES') }}
 
-				<WDGInput
-				  id="monthlyRevenue"
-				  name="monthlyRevenue"
-				  :value="sharedState.monthlyRevenue"
-				  v-bind:valueReturn.sync="sharedState.monthlyRevenue"
-				  customStyle="natural-language"
-				  autoFormat="wdg-number"
-				  :isRequired=true
-			  	  />
+				<WDGInput id="monthlyRevenue" name="monthlyRevenue" :value="sharedState.monthlyRevenue"
+					v-bind:valueReturn.sync="sharedState.monthlyRevenue" customStyle="natural-language"
+					autoFormat="wdg-number" :isRequired=true />
 
 				{{ $t('user-investment-capacity.capacity.EURO_PER_MONTH') }}
 
@@ -31,15 +25,9 @@
 
 				{{ $t('user-investment-capacity.capacity.COMPLEMENTARY_REVENUES') }}
 
-				<WDGInput
-				  id="complementaryRevenue"
-				  name="complementaryRevenue"
-				  :value="sharedState.complementaryRevenue"
-				  v-bind:valueReturn.sync="sharedState.complementaryRevenue"
-				  customStyle="natural-language"
-				  autoFormat="wdg-number"
-				  :isRequired=true
-			  	  />
+				<WDGInput id="complementaryRevenue" name="complementaryRevenue"
+					:value="sharedState.complementaryRevenue" v-bind:valueReturn.sync="sharedState.complementaryRevenue"
+					customStyle="natural-language" autoFormat="wdg-number" :isRequired=true />
 
 				{{ $t('user-investment-capacity.capacity.EURO_PER_YEAR') }}
 				<br>
@@ -47,15 +35,9 @@
 
 				{{ $t('user-investment-capacity.capacity.INVESTMENTS') }}
 
-				<WDGInput
-				  id="investmentsValue"
-				  name="investmentsValue"
-				  :value="sharedState.investmentsValue"
-				  v-bind:valueReturn.sync="sharedState.investmentsValue"
-				  customStyle="natural-language"
-				  autoFormat="wdg-number"
-				  :isRequired=true
-			  	  />
+				<WDGInput id="investmentsValue" name="investmentsValue" :value="sharedState.investmentsValue"
+					v-bind:valueReturn.sync="sharedState.investmentsValue" customStyle="natural-language"
+					autoFormat="wdg-number" :isRequired=true />
 
 				€.
 				<br>
@@ -63,20 +45,14 @@
 				<br>
 			</p>
 
-			<div v-if="canDisplayExpenses">
+			<div v-if="canDisplayExpenses" class="financial-commitments">
 				<h3>{{ $t('user-investment-capacity.capacity.FINANCIAL_COMMITMENT') }}</h3>
 
 				{{ $t('user-investment-capacity.capacity.RECURRING_COMMITMENT') }}
 
-				<WDGInput
-				  id="commitmentValue"
-				  name="commitmentValue"
-				  :value="sharedState.commitmentValue"
-				  v-bind:valueReturn.sync="sharedState.commitmentValue"
-				  customStyle="natural-language"
-				  autoFormat="wdg-number"
-				  :isRequired=true
-			  	  />
+				<WDGInput id="commitmentValue" name="commitmentValue" :value="sharedState.commitmentValue"
+					v-bind:valueReturn.sync="sharedState.commitmentValue" customStyle="natural-language"
+					autoFormat="wdg-number" :isRequired=true />
 
 				{{ $t('user-investment-capacity.capacity.EURO_PER_MONTH') }}
 
@@ -107,18 +83,13 @@
 			</div>
 
 			<WDGForm name="confirmResult">
-				<WDGCheckbox
-				  v-if="canDisplayResult"
-				  v-bind:valueReturn.sync="confirmResult"
-				  >
+				<WDGCheckbox v-if="canDisplayResult" v-bind:valueReturn.sync="confirmResult">
 					<slot slot="label-after">{{ $t('user-investment-capacity.capacity.ITS_OK') }}</slot>
 				</WDGCheckbox>
 			</WDGForm>
 		</div>
 
-		<WDGMascot
-		  type="side-1"
-		  >
+		<WDGMascot type="side-1">
 			<slot slot="text">{{ $t('user-investment-capacity.capacity.MASCOT') }}</slot>
 		</WDGMascot>
 
@@ -151,7 +122,7 @@ export default {
 	props: {
 		onContinue: Function
 	},
-	data () {
+	data() {
 		return {
 			sharedState: store.state,
 			confirmResult: false
@@ -186,23 +157,23 @@ export default {
 		}
 	},
 	computed: {
-		yearlyRevenue () {
+		yearlyRevenue() {
 			return this.getYearlyValue(this.sharedState.monthlyRevenue)
 		},
-		yearlyCommitment () {
+		yearlyCommitment() {
 			return this.getYearlyValue(this.sharedState.commitmentValue)
 		},
-		yearlyCapacityAmountFormatted () {
+		yearlyCapacityAmountFormatted() {
 			this.setYearlyCapacityAmount()
 			return this.getYearlyValue(this.sharedState.yearlyCapacityAmount / 12)
 		},
-		canDisplayExpenses () {
+		canDisplayExpenses() {
 			return this.isValidNumberValue(this.sharedState.monthlyRevenue) && this.isValidNumberValue(this.sharedState.complementaryRevenue) && this.isValidNumberValue(this.sharedState.investmentsValue)
 		},
-		canDisplayResult () {
+		canDisplayResult() {
 			return this.canDisplayExpenses && this.isValidNumberValue(this.sharedState.commitmentValue)
 		},
-		canDisplayButton () {
+		canDisplayButton() {
 			return this.canDisplayResult && this.confirmResult
 		}
 	}
@@ -210,58 +181,58 @@ export default {
 </script>
 
 <style>
-	div.clear {
-		clear: both;
-	}
+div.clear {
+	clear: both;
+}
 
-	div.the-screen-capacity {
-		margin: 80px;
-		font-size: 15px;
-	}
+div.the-screen-capacity {
+	margin: 80px;
+	font-size: 15px;
+}
 
-	div.the-screen-capacity h3 {
-		font-size: 20px;
-		font-weight: normal;
-	}
+div.the-screen-capacity h3 {
+	font-size: 20px;
+	font-weight: normal;
+}
 
-	div.the-screen-capacity p.description {
-		color: #a8a8a8;
-	}
+div.the-screen-capacity p.description {
+	color: #a8a8a8;
+}
 
-	div.the-screen-capacity div.form {
-		float: left;
-		max-width: 550px;
-	}
+div.the-screen-capacity div.form {
+	float: left;
+	max-width: 550px;
+}
 
-	div.the-screen-capacity div.form div.result {
-		padding: 20px;
-		border: 1px solid #00879B;
-	}
+div.the-screen-capacity div.form div.result {
+	padding: 20px;
+	border: 1px solid #00879B;
+}
 
-	div.the-screen-capacity div.form div.result span.yearlyCapacityAmount {
-		color: #00879B;
-		font-size: 25px;
-		font-weight: bold;
-	}
+div.the-screen-capacity div.form div.result span.yearlyCapacityAmount {
+	color: #00879B;
+	font-size: 25px;
+	font-weight: bold;
+}
 
-	div.the-screen-capacity div.form input#monthlyRevenue,
-	div.the-screen-capacity div.form input#complementaryRevenue,
-	div.the-screen-capacity div.form input#investmentsValue,
-	div.the-screen-capacity div.form input#commitmentValue {
-		width: 80px;
-	}
+div.the-screen-capacity div.form input#monthlyRevenue,
+div.the-screen-capacity div.form input#complementaryRevenue,
+div.the-screen-capacity div.form input#investmentsValue,
+div.the-screen-capacity div.form input#commitmentValue {
+	width: 80px;
+}
 
-	div.the-screen-capacity a {
-		color: #EA4F51;
-		font-weight: 600;
-	}
+div.the-screen-capacity a {
+	color: #EA4F51;
+	font-weight: 600;
+}
 
-	div.the-screen-capacity form#confirmResult {
-		margin-top: 20px;
-	}
+div.the-screen-capacity form#confirmResult {
+	margin-top: 20px;
+}
 
-	div.the-screen-capacity .wdg-button {
-		max-width: 300px;
-		margin: auto;
-	}
+div.the-screen-capacity .wdg-button {
+	max-width: 300px;
+	margin: auto;
+}
 </style>
