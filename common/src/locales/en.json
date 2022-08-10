@@ -634,7 +634,7 @@
 		},
 		"capacity": {
 			"FINANCIAL_AVAILABILITY": "My financial availabilities",
-			"FINANCIAL_AVAILABILITY_DESCRIPTION": "You can enter estimated amounts, which you can then change in your account. This will not prevent you from investing.",
+			"FINANCIAL_AVAILABILITY_DESCRIPTION": "You can enter estimated amounts, which you can then change in your account. This will not prevent you from investing. Every field are required, input 0 if necessary.",
 			"MASCOT": "Direct investment in companies is a risky bet. To help you see more clearly and in accordance with European regulations, we will calculate your ability to take losses, set by default at 10% of your financial capacity",
 			"NET_REVENUES": "My net income is about",
 			"EURO_PER_MONTH": "€ / month, either",

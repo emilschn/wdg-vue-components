@@ -634,7 +634,7 @@
 		},
 		"capacity": {
 			"FINANCIAL_AVAILABILITY": "Mes disponibilités financières",
-			"FINANCIAL_AVAILABILITY_DESCRIPTION": "Vous pouvez indiquer des montants estimés, que vous pourrez modifier ensuite sur votre compte. Cela ne vous empêchera pas d'investir.",
+			"FINANCIAL_AVAILABILITY_DESCRIPTION": "Vous pouvez indiquer des montants estimés, que vous pourrez modifier ensuite sur votre compte. Cela ne vous empêchera pas d'investir. Toutes les champs sont obligatoires, saisissez 0 si nécessaire.",
 			"MASCOT": "L'investissement en direct dans des entreprises est un pari risqué. Pour vous aider à y voir plus clair et conformément à la réglementation européenne, nous allons calculer votre capacité à encaisser des pertes, établie par défaut à 10 % de vos capacités financières",
 			"NET_REVENUES": "Mes revenus nets s'élèvent à environ",
 			"EURO_PER_MONTH": "€ / mois, soit",
