@@ -176,7 +176,8 @@
 			"TWO_FILES": "I have two separate files",
 			"TWO_FILES_DESCRIPTOR": "One file for the front and one file for the back",
 			"FILE_ONE_LABEL": "Front",
-			"FILE_TWO_LABEL": "Back"
+			"FILE_TWO_LABEL": "Back",
+			"WARNING_TEXT": "Attention ! To ensure that your documents are quickly validated, be sure to upload them: in color, upright, without reflections and with enough margins to allow all the necessary information to be read (numbers, MRZ strip, etc.) ."
 		},
 		"organization-documents": {
 			"SEND_YOUR_KBIS": "Import your organization's KBIS",

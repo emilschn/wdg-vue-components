@@ -129,6 +129,13 @@
 				</ul>
 				<br>
 				<span v-html="$t('account-authentication.user-documents.USE_WECOMPRESS')"></span>
+				<br>
+				<br>
+				<div class="message-confirmation">
+					<WDGMessage iconColor="red">
+						<slot slot="label">{{ $t('account-authentication.user-documents.WARNING_TEXT') }}</slot>
+					</WDGMessage>
+				</div>				
 			</slot>
 		</WDGMascot>
 	</div>
@@ -137,6 +144,7 @@
 <script>
 import { requests } from './../../requests.js'
 import WDGButton from '@/../../common/src/components/WDGButton'
+import WDGMessage from '@/../../common/src/components/WDGMessage'
 import WDGMascot from '@/../../common/src/components/WDGMascot'
 import WDGUploadDocument from '@/../../common/src/components/WDGUploadDocument'
 export default {
@@ -144,6 +152,7 @@ export default {
 	components: {
 		WDGButton,
 		WDGMascot,
+		WDGMessage,
 		WDGUploadDocument
 	},
 	props: {
@@ -280,6 +289,20 @@ export default {
 		height: auto;
 		margin-bottom: 30px;
 	}
+	div.the-screen-investor-user-documents .wdg-mascot {
+    /* display: flex;
+    flex-direction: row-reverse;
+     max-width: 100%; 
+    margin-bottom: 50px;
+    float:none; */
+		max-width: 320px;
+	}
+	/* div.the-screen-investor-user-documents .wdg-mascot .image{
+		width: 40%;
+	}
+	div.the-screen-investor-user-documents .wdg-mascot .text{
+		width: 60%;
+	} */
 	div.the-screen-investor-user-documents div.button-container div.wdg-button button .far, .fas{
 		padding: 5px;
 	}
