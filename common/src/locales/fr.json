@@ -176,7 +176,8 @@
 			"TWO_FILES": "J'ai deux fichiers séparés",
 			"TWO_FILES_DESCRIPTOR": "Un fichier pour le recto et un fichier pour le verso",
 			"FILE_ONE_LABEL": "Recto",
-			"FILE_TWO_LABEL": "Verso"
+			"FILE_TWO_LABEL": "Verso",
+			"WARNING_TEXT": "Attention ! Pour s'assurer que vos pièces soient rapidement validées, veillez à les déposer : en couleur, à l'endroit, sans reflets et avec assez de marges pour permettre d'y lire toutes les informations nécessaire (chiffres, ligne MRZ...)."
 		},
 		"organization-documents": {
 			"SEND_YOUR_KBIS": "Importez le KBIS de votre organisation",
