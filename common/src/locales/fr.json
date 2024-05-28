@@ -516,7 +516,7 @@
 				"options": {
 					"PAGE_VISIBLE_ON_WDG": "Page visible publiquement sur WE DO GOOD",
 					"COMMUNICATION_ON_NETWORKS": "Diffusion de votre levée de fonds sur nos réseaux sociaux et dans notre newsletter",
-					"REFERENCED_TO_PARTNERS": "Référencement de votre levée de fonds sur les sites de nos partenaires (BPI Tous Nos Projets, Novafi, Info Durable)",
+					"REFERENCED_TO_PARTNERS": "Référencement de votre levée de fonds sur les sites de nos partenaires",
 					"MANAGED_THROUGH_PLATFORM": "Gestion centralisée des investisseurs et des versements de royalties",
 					"SUPPORT": "Support technique, juridique et fiscal pour vous et vos investisseurs",
 					"PAYMENTS": "Collecte des investissements en ligne et par chèque",
@@ -548,7 +548,8 @@
 					"COMMISSION_REDUCTION": "Commission à 6 % au lieu de 8 % sur la formule LEVÉE DE FONDS PUBLIQUE",
 					"CUSTOM_MONITORING": "Suivi personnalisé et support prioritaire",
 					"INVESTORS_MONITORING": "Suivi de conversion des investisseurs",
-					"WORKSHOP": "Atelier de préparation de 2h pour poser les bases avec votre équipe (Conseils en communication et méthodologie sur le financement participatif, définition du plan d’actions, prise en main de la plateforme)"
+					"WORKSHOP": "Atelier de préparation pour poser les bases avec votre équipe (Conseils en communication et méthodologie sur le financement participatif, définition du plan d’actions, prise en main de la plateforme)",
+					"CONTENT_CREATION": "Création de contenus"
 				}
 			},
 			"not-eligible": {

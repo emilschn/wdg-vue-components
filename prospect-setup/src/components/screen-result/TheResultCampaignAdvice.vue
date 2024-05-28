@@ -80,6 +80,7 @@
 </template>
 
 <script>
+/* eslint-disable */
 import { store } from '../../store.js'
 import i18n from '@/i18n'
 import WDGSeeMore from '@/../../common/src/components/WDGSeeMore'
@@ -132,13 +133,13 @@ export default {
 			checkedItemsOptionBasic: [
 				i18n.t('project-setup.project-result.options.list.READ_PITCH'),
 				i18n.t('project-setup.project-result.options.list.SUPPORT_TO_INVESTORS'),
-				i18n.t('project-setup.project-result.options.list.SUPPORT_CENTER')
+				i18n.t('project-setup.project-result.options.list.WORKSHOP')
 			],
 			checkedItemsOptionStandard: [
-				i18n.t('project-setup.project-result.options.list.READ_PITCH'),
-				i18n.t('project-setup.project-result.options.list.SUPPORT_TO_INVESTORS'),
+				i18n.t('project-setup.project-result.options.list.READ_PITCH_AND_COM'),
 				i18n.t('project-setup.project-result.options.list.WORKSHOP'),
-				i18n.t('project-setup.project-result.options.list.SUPPORT_CENTER')
+				i18n.t('project-setup.project-result.options.list.CUSTOM_MONITORING'),
+				i18n.t('project-setup.project-result.options.list.INVESTORS_MONITORING')
 			],
 			checkedItemsOptionComplete: []
 		}
@@ -229,7 +230,8 @@ export default {
 						i18n.t('project-setup.project-result.options.list.WORKSHOP'),
 						i18n.t('project-setup.project-result.options.list.CUSTOM_MONITORING'),
 						i18n.t('project-setup.project-result.options.list.INVESTORS_MONITORING'),
-						i18n.t('project-setup.project-result.options.list.SUPPORT_CENTER')
+						i18n.t('project-setup.project-result.options.list.SUPPORT_CENTER'),
+						i18n.t('project-setup.project-result.options.list.CONTENT_CREATION')
 					]
 
 					switch (this.sharedState.package.bundle1.type) {
@@ -259,11 +261,11 @@ export default {
 							break
 						case 'standard':
 							this.sharedState.package.bundle2.title = i18n.t('project-setup.project-result.options.standard.TITLE')
-							this.sharedState.package.bundle2.priceWithoutDiscount = 600
+							this.sharedState.package.bundle2.priceWithoutDiscount = 1500
 							break
 						case 'complete':
 							this.sharedState.package.bundle2.title = i18n.t('project-setup.project-result.options.complete.TITLE')
-							this.sharedState.package.bundle2.priceWithoutDiscount = 1900
+							this.sharedState.package.bundle2.priceWithoutDiscount = 3600
 							break
 					}
 					break
@@ -304,8 +306,11 @@ export default {
 			this.sharedState.package.bundle1.type = this.sharedState.project.chosenFormula
 			if (this.sharedState.project.chosenFormula === 'public') {
 				this.sharedState.package.bundle1.type = 'crowdfunding'
+				this.sharedState.package.bundle1.priceWithoutDiscount = 1300
+			} else {
+				this.sharedState.package.bundle1.priceWithoutDiscount = 650
 			}
-			this.sharedState.package.bundle1.priceWithoutDiscount = 500
+			
 			this.sharedState.package.bundle1.discount = '30'
 			this.sharedState.package.bundle1.discountReason = i18n.t('project-setup.project-result.formulas.REDUCTION')
 			this.updateTexts('1')
@@ -320,17 +325,18 @@ export default {
 			// Accompagnement standard
 			if (!this.sharedState.project.alreadyDoneCrowdfunding && !this.sharedState.project.needCommunicationAdvice) {
 				this.sharedState.package.bundle2.type = 'standard'
-				this.sharedState.package.bundle2.priceWithoutDiscount = 600
+				this.sharedState.package.bundle2.priceWithoutDiscount = 1500
 				this.sharedState.package.bundle2.discount = '30'
 				this.sharedState.package.bundle2.discountReason = i18n.t('project-setup.project-result.options.REDUCTION')
 			}
 			// Accompagnement complet
 			if (this.sharedState.project.needCommunicationAdvice) {
 				this.sharedState.package.bundle2.type = 'complete'
-				this.sharedState.package.bundle2.priceWithoutDiscount = 1900
+				this.sharedState.package.bundle2.priceWithoutDiscount = 3600
 				this.sharedState.package.bundle2.discount = '30'
 				this.sharedState.package.bundle2.discountReason = i18n.t('project-setup.project-result.options.REDUCTION')
 			}
+
 			this.updateTexts('2')
 		}
 	}
