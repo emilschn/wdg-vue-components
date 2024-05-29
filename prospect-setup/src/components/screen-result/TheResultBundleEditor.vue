@@ -114,9 +114,9 @@ export default {
 					case 'basic':
 						return 0
 					case 'standard':
-						return 500
+						return 1500
 					case 'complete':
-						return 1700
+						return 3600
 				}
 			}
 			return 500

@@ -166,9 +166,9 @@ export default {
 					sParams += '&lastname=' + sFullName
 				}
 			}
-			let sHSURL = 'https://app.hubspot.com/meetings/jean-david/revenue-based-finance-meeting-with-we-do-good?embed=true'
+			let sHSURL = 'https://meetings.hubspot.com/victoria132/rendez-vous-financement-avec-we-do-good?embed=true'
 			if (i18n.locale === 'fr') {
-				sHSURL = 'https://app.hubspot.com/meetings/jean-david/rendez-vous-avec-we-do-good?embed=true'
+				sHSURL = 'https://meetings.hubspot.com/victoria132/rendez-vous-financement-avec-we-do-good?embed=true'
 			}
 			return sHSURL + sParams
 		}
