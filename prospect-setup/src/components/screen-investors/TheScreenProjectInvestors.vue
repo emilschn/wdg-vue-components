@@ -71,7 +71,6 @@
 				  name="alreadydonecrowdfunding"
 				  :value="sharedState.project.alreadyDoneCrowdfunding"
 				  v-bind:valueReturn.sync="sharedState.project.alreadyDoneCrowdfunding"
-				  v-if="sharedState.project.chosenFormula === 'public'"
 				  >
 					<slot slot="label-after">{{ $t('project-setup.project-investors.ALREADY_DONE_CROWDFUNDING') }}</slot>
 				</WDGCheckbox>

@@ -529,15 +529,15 @@
 				"RECOMMENDED": "Option recommandée",
 				"REDUCTION": "jeunes entreprises",
 				"basic": {
-					"TITLE": "Accompagnement Basique",
+					"TITLE": "Formule Basique",
 					"TEXT": "Pour les entrepreneurs ayant déjà identifié leurs investisseurs ou ayant déjà mené une campagne de financement"
 				},
 				"standard": {
-					"TITLE": "Accompagnement Essentiel",
+					"TITLE": "Formule Essentiel",
 					"TEXT": "Pour les entrepreneurs souhaitant avoir le chemin bien éclairé pour mener leur levée de fonds en toute sérénité"
 				},
 				"complete": {
-					"TITLE": "Accompagnement Intégral",
+					"TITLE": "Formule Intégral",
 					"TEXT": "Pour les entrepreneurs qui souhaitent avoir des réponses, des avis et des conseils pour avancer plus vite et plus efficacement"
 				},
 				"list": {

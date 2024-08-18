@@ -166,9 +166,9 @@ export default {
 					sParams += '&lastname=' + sFullName
 				}
 			}
-			let sHSURL = 'https://meetings.hubspot.com/victoria132/rendez-vous-financement-avec-we-do-good?embed=true'
+			let sHSURL = 'https://meetings.hubspot.com/paul-boutelier/rendez-vous-financement-avec-we-do-good?embed=true'
 			if (i18n.locale === 'fr') {
-				sHSURL = 'https://meetings.hubspot.com/victoria132/rendez-vous-financement-avec-we-do-good?embed=true'
+				sHSURL = 'https://meetings.hubspot.com/paul-boutelier/rendez-vous-financement-avec-we-do-good?embed=true'
 			}
 			return sHSURL + sParams
 		}
