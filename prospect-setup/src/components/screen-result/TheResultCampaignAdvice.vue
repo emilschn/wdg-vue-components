@@ -327,7 +327,6 @@ export default {
 			console.log(this.sharedState);
 			if (!this.sharedState.project.needCommunicationAdvice && this.sharedState.project.alreadyDoneCrowdfunding) {
 				this.sharedState.package.bundle2.type = 'basic'
-				alert('basic');
 				if (this.sharedState.project.chosenFormula === 'public') {
 					this.sharedState.package.bundle1.priceWithoutDiscount = 1300
 				} else {
@@ -337,7 +336,6 @@ export default {
 			// Accompagnement standard
 			if (!this.sharedState.project.alreadyDoneCrowdfunding && !this.sharedState.project.needCommunicationAdvice) {
 				this.sharedState.package.bundle2.type = 'standard'
-				alert('standard');
 				this.sharedState.package.bundle2.priceWithoutDiscount = 1500
 				this.sharedState.package.bundle2.discount = '30'
 				this.sharedState.package.bundle2.discountReason = i18n.t('project-setup.project-result.options.REDUCTION')
@@ -351,7 +349,6 @@ export default {
 			// Accompagnement complet
 			if (this.sharedState.project.needCommunicationAdvice) {
 				this.sharedState.package.bundle2.type = 'complete'
-				alert('complete')
 				this.sharedState.package.bundle2.priceWithoutDiscount = 3600
 				this.sharedState.package.bundle2.discount = '30'
 				this.sharedState.package.bundle2.discountReason = i18n.t('project-setup.project-result.options.REDUCTION')
