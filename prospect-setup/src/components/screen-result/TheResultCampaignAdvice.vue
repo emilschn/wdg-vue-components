@@ -29,9 +29,9 @@
 		  :amount="sharedState.package.bundle1.priceWithoutDiscount.toString()"
 		  :amountReduction="bundle1DiscountReasonText"
 		  :uncheckedItems="uncheckedItems"
-		  :checkedItems="checkedItems"
+		  :checkedItems="checkedItems.concat(bundle2CheckedItems)"
 		  >
-			<slot slot="title">{{ sharedState.package.bundle1.title }}</slot>
+			<slot slot="title">{{ sharedState.package.bundle1.title }} - {{ sharedState.package.bundle2.title }}</slot>
 			<slot slot="text">{{ bundle1Text }}</slot>
 		</WDGSeeMore>
 
@@ -49,7 +49,7 @@
 		  />
 
 		<WDGSeeMore
-		  v-if="!isEditingBundle2"
+		  v-if="!isEditingBundle2 && false"
 		  :amount="sharedState.package.bundle2.priceWithoutDiscount.toString()"
 		  :amountReduction="bundle2DiscountReasonText"
 		  :checkedItems="bundle2CheckedItems"
@@ -307,34 +307,59 @@ export default {
 			if (this.sharedState.project.chosenFormula === 'public') {
 				this.sharedState.package.bundle1.type = 'crowdfunding'
 				this.sharedState.package.bundle1.priceWithoutDiscount = 1300
+				this.sharedState.package.bundle1.discount = '30'
+				this.sharedState.package.bundle1.discountReason = i18n.t('project-setup.project-result.formulas.REDUCTION')
+
 			} else {
 				this.sharedState.package.bundle1.priceWithoutDiscount = 650
+				this.sharedState.package.bundle1.discount = '0'
+				this.sharedState.package.bundle1.discountReason = i18n.t('project-setup.project-result.formulas.REDUCTION')
+
 			}
 			
-			this.sharedState.package.bundle1.discount = '30'
-			this.sharedState.package.bundle1.discountReason = i18n.t('project-setup.project-result.formulas.REDUCTION')
 			this.updateTexts('1')
 		}
+		
 
 		// Accompagnements
 		if (this.sharedState.package.bundle2.type === '' || !this.sharedState.package.bundle2.editedByAdmin) {
 			// Accompagnement basique
+			console.log(this.sharedState);
 			if (!this.sharedState.project.needCommunicationAdvice && this.sharedState.project.alreadyDoneCrowdfunding) {
 				this.sharedState.package.bundle2.type = 'basic'
+				alert('basic');
+				if (this.sharedState.project.chosenFormula === 'public') {
+					this.sharedState.package.bundle1.priceWithoutDiscount = 1300
+				} else {
+					this.sharedState.package.bundle1.priceWithoutDiscount = 650
+				}
 			}
 			// Accompagnement standard
 			if (!this.sharedState.project.alreadyDoneCrowdfunding && !this.sharedState.project.needCommunicationAdvice) {
 				this.sharedState.package.bundle2.type = 'standard'
+				alert('standard');
 				this.sharedState.package.bundle2.priceWithoutDiscount = 1500
 				this.sharedState.package.bundle2.discount = '30'
 				this.sharedState.package.bundle2.discountReason = i18n.t('project-setup.project-result.options.REDUCTION')
+
+				if (this.sharedState.project.chosenFormula === 'public') {
+					this.sharedState.package.bundle1.priceWithoutDiscount = 2800
+				} else {
+					this.sharedState.package.bundle1.priceWithoutDiscount = 1400
+				}
 			}
 			// Accompagnement complet
 			if (this.sharedState.project.needCommunicationAdvice) {
 				this.sharedState.package.bundle2.type = 'complete'
+				alert('complete')
 				this.sharedState.package.bundle2.priceWithoutDiscount = 3600
 				this.sharedState.package.bundle2.discount = '30'
 				this.sharedState.package.bundle2.discountReason = i18n.t('project-setup.project-result.options.REDUCTION')
+				if (this.sharedState.project.chosenFormula === 'public') {
+					this.sharedState.package.bundle1.priceWithoutDiscount = 4900
+				} else {
+					this.sharedState.package.bundle1.priceWithoutDiscount = 2450
+				}
 			}
 
 			this.updateTexts('2')

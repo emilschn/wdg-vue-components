@@ -1,7 +1,7 @@
 <template>
 	<div class="the-result-cart">
 		<div class="cart-bundle1">
-			<strong>{{ bundle1Title }}</strong><br>
+			<strong>{{ bundle1Title }} - {{ bundle2Title }}</strong><br>
 				<div class="bundle-description-prices">
 					<div class="description-price">
 						<span class="bundle-description">{{ bundle1Description }}</span>
@@ -14,19 +14,6 @@
 					</div>
 				</div>
 		</div>
-
-		<div class="cart-bundle2">
-			<strong>{{ bundle2Title }}</strong><br>
-				<div class="bundle-description-prices">
-					<span class="price-without-discount">{{ bundle2PriceWithoutDiscount }}&nbsp;&euro; {{ $t('common.WITHOUT_TAXES_LETTERS') }}</span><br>
-					<div class="price-discount" v-if="bundle2Discount> 0">
-						<span class="discount-reason">{{ bundle2Discount }}&nbsp;%
-						{{ bundle2DiscountReason }}</span>
-						<span class="discount-amount">-{{ bundle2DiscountAmount }}&nbsp;&euro; {{ $t('common.WITHOUT_TAXES_LETTERS') }}<br></span>
-					</div>
-				</div>
-		</div>
-
 		<div class="cart-total-without-taxes">
 			<span class="total-without-taxes">{{ $t('project-setup.payment.cart.TOTAL_WITHOUT_TAXES') }}</span>
 			<span class="total-without-taxes-amount">{{ totalWithoutTaxes }}&nbsp;&euro;</span>
@@ -100,7 +87,7 @@ export default {
 			return this.bundle2PriceWithoutDiscount * this.bundle2Discount / 100
 		},
 		totalWithoutTaxes () {
-			return this.bundle1PriceWithoutDiscount - this.bundle1DiscountAmount + this.bundle2PriceWithoutDiscount - this.bundle2DiscountAmount
+			return this.bundle1PriceWithoutDiscount - this.bundle1DiscountAmount
 		},
 		totalTaxes () {
 			return this.totalWithoutTaxes * 20 / 100
