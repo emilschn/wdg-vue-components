@@ -35,7 +35,7 @@
 			<slot slot="text">{{ bundle1Text }}</slot>
 		</WDGSeeMore>
 
-		<div class="recommended-title option-title">{{ $t('project-setup.project-result.options.RECOMMENDED') }}</div>
+		<!-- <div class="recommended-title option-title">{{ $t('project-setup.project-result.options.RECOMMENDED') }}</div> -->
 
 		<TheResultBundleEditor
 		  v-if="sharedProps.capacities.edit_bundles === '1'"
