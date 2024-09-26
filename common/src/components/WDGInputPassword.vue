@@ -23,7 +23,7 @@
 			  :class=getClassToggle(valueReturn)
 			  @click="togglePassword"
 			  >
-				<span name="password-hide" v-if="this.typeValue === 'text'">
+				<span name="password-hide" v-if="typeValue === 'text'">
 					<span class="fas fa-eye-slash"></span>
 				</span>
 				<span name="password-show" v-else>

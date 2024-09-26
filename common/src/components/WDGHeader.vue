@@ -58,6 +58,7 @@
 			</span>
 		</div>
         <hr>
+		<div id="content" class="account-signin bande-warning">Notre plateforme est en refonte pour améliorer votre expérience. Des ralentissements peuvent survenir, merci de votre compréhension.</div>
 	</div>
 </template>
 
@@ -223,5 +224,15 @@ select#lang-select {
 	.header .back {
 		margin-left: 15px;
 	}
+}
+
+.bande-warning {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    background-color: #e5f3f5;
+    padding: 10px;
+    color: #00879b;
+    font-size: 16px;
 }
 </style>
