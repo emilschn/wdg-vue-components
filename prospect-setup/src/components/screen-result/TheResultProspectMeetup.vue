@@ -166,6 +166,7 @@ export default {
 					sParams += '&lastname=' + sFullName
 				}
 			}
+			// url à modifier si besoin
 			let sHSURL = 'https://meetings-eu1.hubspot.com/paul-boutelier/rendez-vous-financement-avec-we-do-good?embed=true'
 			if (i18n.locale === 'fr') {
 				sHSURL = 'https://meetings-eu1.hubspot.com/paul-boutelier/rendez-vous-financement-avec-we-do-good?embed=true'
